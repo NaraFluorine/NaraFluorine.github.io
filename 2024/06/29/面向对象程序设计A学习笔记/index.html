@@ -15,9 +15,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tse1-mm.cn.bing.net/th/id/OIP-C.sEdp7C8oeRzmx3cKBM0yxQAAAA?rs=1&amp;pid=ImgDetMain">
 <meta property="article:published_time" content="2024-06-29T14:42:37.000Z">
-<meta property="article:modified_time" content="2024-06-29T15:21:40.466Z">
+<meta property="article:modified_time" content="2024-06-30T19:04:42.252Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tse1-mm.cn.bing.net/th/id/OIP-C.sEdp7C8oeRzmx3cKBM0yxQAAAA?rs=1&amp;pid=ImgDetMain">
     
@@ -91,9 +91,13 @@
      --><!--
        --><li><a href="/archives/">归档</a></li><!--
      --><!--
-       --><li><a target="_blank" rel="noopener" href="http://github.com/NaraFluorine">项目</a></li><!--
+       --><li><a href="/tags/">标签</a></li><!--
      --><!--
-       --><li><a href="/friend/">友链</a></li><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
      -->
       </ul>
     </span>
@@ -134,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%94%E8%80%85%E6%9C%80%E5%90%8E%E8%BF%BD%E5%8A%A0%E7%9A%84%E4%B8%9C%E8%A5%BF%EF%BC%9A%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99"><span class="toc-number">1.</span> <span class="toc-text">笔者最后追加的东西：分文件编写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">做题总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">面向对象Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">大题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">完结</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%94%E8%80%85%E6%9C%80%E5%90%8E%E8%BF%BD%E5%8A%A0%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99"><span class="toc-number">1.</span> <span class="toc-text">笔者最后追加的东西:分文件编写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">做题总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">面向对象Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">大题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">完结</span></a>
       </div>
     
   </span>
@@ -168,6 +172,11 @@
       
 
       
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/C/" rel="tag">C++</a>
+    </div>
+
 
     </div>
   </header>
@@ -181,8 +190,8 @@
 <strong>1.它有权限划分</strong>.这就是接下来会讲的$public,private,protected$.<br>
 <strong>2.它有全局变量</strong>.就是那个$static$,虽然笔者不知道这玩意有啥用…反正$class$它就是有.<br>
 <strong>3.它有合构析构函数</strong>,更方便用了.</p>
-<p>$\bold{public,private,protected}$三种属性:$public$是所有人都能访问的,$private$和$protected$都是对象内部随便访问,对象外不可访问的,这俩的区别在继承(往下)那里会有介绍.默认啥也不写就是$private$,在碰到下一个标志前都是这个权限.</p>
-<p>$\bold{static}$关键字:静态成员,静态函数.用法就是和$inline,register$一样,加在函数或者变量名前就好.$static$的作用是让函数或变量变成静态的,就是全局变量,想象一个学生对象,老师就是静态的,学生一届又一届,但是老师不变(排除特殊状况),老师就是静态的.老师根本不认识对象,只知道有多少个学生,学生去哪了被销毁了和老师没关系,大概这个意思.<strong>注意</strong>静态变量使用前记得先分配内存.举例:</p>
+<p>$\mathbf{public,private,protected}$三种属性:$public$是所有人都能访问的,$private$和$protected$都是对象内部随便访问,对象外不可访问的,这俩的区别在继承(往下)那里会有介绍.默认啥也不写就是$private$,在碰到下一个标志前都是这个权限.</p>
+<p>$\mathbf{static}$关键字:静态成员,静态函数.用法就是和$inline,register$一样,加在函数或者变量名前就好.$static$的作用是让函数或变量变成静态的,就是全局变量,想象一个学生对象,老师就是静态的,学生一届又一届,但是老师不变(排除特殊状况),老师就是静态的.老师根本不认识对象,只知道有多少个学生,学生去哪了被销毁了和老师没关系,大概这个意思.<strong>注意</strong>静态变量使用前记得先分配内存.举例:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">node</span>()&#123;</span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	~<span class="built_in">node</span>()&#123;</span><br><span class="line">		cnt--;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">prr</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,cnt);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> cnt;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> node::cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	node a;</span><br><span class="line">	a.<span class="built_in">prr</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那句$cnt$声明删了会出错,因为没分配内存.$static$修变量的作用主要有以下三点:<br>
 <strong>1.</strong> 流动统计.实时统计当前开了多少个对象.<br>
@@ -223,7 +232,7 @@
 如下就是一个简单的码,其中重载了自加:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ko</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">ko</span>(<span class="type">int</span> val=<span class="number">10</span>,<span class="type">int</span> vval=<span class="number">10</span>):<span class="built_in">b</span>(val),<span class="built_in">a</span>(vval)&#123;&#125;</span><br><span class="line">	~<span class="built_in">ko</span>()&#123;&#125;</span><br><span class="line">	ko&amp; <span class="keyword">operator</span> ++()&#123;</span><br><span class="line">		a++;</span><br><span class="line">		<span class="keyword">return</span> *(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	ko <span class="keyword">operator</span> ++(<span class="type">int</span>)&#123;</span><br><span class="line">		<span class="function">ko <span class="title">tmp</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</span><br><span class="line">		a++;</span><br><span class="line">		<span class="keyword">return</span> tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">prr</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,a,b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> a,b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">ko <span class="title">a</span><span class="params">(<span class="number">4</span>,<span class="number">4</span>)</span></span>;</span><br><span class="line">	(a++).<span class="built_in">prr</span>();</span><br><span class="line">	(++a).<span class="built_in">prr</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这就是自加,$C++$约定区别在于一个$int$.</p>
-<p>$\bold{new,delete}$:为什么我们需要它?<br>
+<p>$\mathbf{new,delete}$:为什么我们需要它?<br>
 原因很简单,分配空间的时候,$new$会调用合构函数,而$delete$的时候又会调用析构函数.也就是说,不常用的</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *p=<span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 <p>其实是一个调用合构函数的过程.原来是这么回事.</p>
@@ -243,7 +252,7 @@
 $C++$有几点要求:<br>
 <strong>1.</strong> 只会尝试有一个参数的合构函数<br>
 <strong>2.</strong> 当有二义性时立即放弃尝试(比如,学生老师用一个打印函数,名字又是都有的部分,$C++$发现可以是老师也可以是学生,立刻退出了).</p>
-<p>$\bold{friend}$:友元(杰哥)函数.有的时候普通函数也需要访问对象的保护成员(聴話,讓我康康!),为了加快效率.比如矩阵和向量的乘法,乘法的函数不可能同时是两个函数的成员,所以就让它是个普通函数,通过友元的联系来实现乘法.举个例子:</p>
+<p>$\mathbf{friend}$:友元(杰哥)函数.有的时候普通函数也需要访问对象的保护成员(聴話,讓我康康!),为了加快效率.比如矩阵和向量的乘法,乘法的函数不可能同时是两个函数的成员,所以就让它是个普通函数,通过友元的联系来实现乘法.举个例子:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _CRT_SECURE_NO_WARNINGS</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">tsc</span>;<span class="comment">//这行的作用是让下面的friend中的prr认识tsc</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ko</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">ko</span>()&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)&#123;</span><br><span class="line">			num[i]=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">prr</span><span class="params">(ko a,tsc b)</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> num[<span class="number">10</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">tsc</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">tsc</span>()&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)&#123;</span><br><span class="line">			num[i]=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">prr</span><span class="params">(ko a,tsc b)</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> num[<span class="number">10</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">prr</span><span class="params">(ko a,tsc b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">9</span>;++i)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a.num[i]+b.num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ko a;</span><br><span class="line">	tsc b;</span><br><span class="line">	<span class="built_in">prr</span>(a,b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>友元函数除了对于标记友元的可以看他的赤酱外,就是个普通函数.一个类的成员可以是另一个类的友元,使用$::$选中函数,一个类也可以是另一个类的友元,直接$friend\space class\space name$.友元的第二个作用:方便重载操作符的使用.</p>
 <p><strong>继承</strong>:就是在原有的状态上加点东西,让他变成一个新的类.比如,研究生在大学生基础上加点自己的东西.语法如下:</p>
@@ -261,7 +270,7 @@ $C++$有几点要求:<br>
 <p>这就把$tsc$派生类的$ko$中的$num$调成了公有了.</p>
 <p>继承和组合的关系:略,一堆废话.</p>
 <p>多继承:加逗号隔开,加权限即可.但是这个时候注意变量名字加$::$区分是源自哪里的.</p>
-<p><strong>虚拟继承</strong>:加$virtual$.虚拟继承的含义是,如果没有该类就新建一个,如果有了就不用动了,用建好的那一个.比如,$victim$和天选和$tsc$(再临)都是$\bold{Alan\space Becker}$画的,但是再临拥有前两者的一切战力,怎么表示?代码如下:</p>
+<p><strong>虚拟继承</strong>:加$virtual$.虚拟继承的含义是,如果没有该类就新建一个,如果有了就不用动了,用建好的那一个.比如,$victim$和天选和$tsc$(再临)都是$\mathbf{Alan\space Becker}$画的,但是再临拥有前两者的一切战力,怎么表示?代码如下:</p>
 <p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.sEdp7C8oeRzmx3cKBM0yxQAAAA?rs=1&amp;pid=ImgDetMain" alt="炸了"><br>
 再临</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _CRT_SECURE_NO_WARNINGS</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">animation</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Running.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	<span class="type">int</span> atk;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">victim</span>:<span class="keyword">virtual</span> <span class="keyword">public</span> animation&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">rev</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Revenge.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">the_chosen_one</span>:<span class="keyword">virtual</span> <span class="keyword">public</span> animation&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">dam</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Crushing.Damaging.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">the_second_coming</span>:<span class="keyword">public</span> victim,<span class="keyword">public</span> the_chosen_one&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">AN</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Drawing.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	the_second_coming a;</span><br><span class="line">	a.<span class="built_in">run</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -274,8 +283,8 @@ $C++$有几点要求:<br>
 <strong>3.</strong> 成员对象<br>
 <strong>4.</strong> 类自己的合构函数</p>
 <p><strong>多态:若语言不支持多态,则不能被成为面向对象的语言.</strong></p>
-<p>这里就会讲$virtual$的用法.比如,一个订单系统,分普通用户和$\bold{VIP}$用户,他们的买东西结算算法不太一样(打折),但是VIP除了打折好像也没啥不同了,我只想用一个函数实现计算,就需要用到虚函数.</p>
-<p>$\bold{virtual}$:和$inline$一样,挂在函数的前面发挥作用.它的意思是迟后联编,说人话就是会覆盖,后面的同名函数会覆盖前面的函数,所以后面的函数加不加$virtual$其实没区别,只要前面加了就行了.比个例子:</p>
+<p>这里就会讲$virtual$的用法.比如,一个订单系统,分普通用户和$\mathbf{VIP}$用户,他们的买东西结算算法不太一样(打折),但是VIP除了打折好像也没啥不同了,我只想用一个函数实现计算,就需要用到虚函数.</p>
+<p>$\mathbf{virtual}$:和$inline$一样,挂在函数的前面发挥作用.它的意思是迟后联编,说人话就是会覆盖,后面的同名函数会覆盖前面的函数,所以后面的函数加不加$virtual$其实没区别,只要前面加了就行了.比个例子:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> _CRT_SECURE_NO_WARNINGS</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">user</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">user</span>(<span class="type">int</span> val=<span class="number">998</span>)&#123;</span><br><span class="line">		buy=val;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">int</span> <span class="title">calc</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> buy;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">protected</span>:</span><br><span class="line">	<span class="type">int</span> buy;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VIP</span>:<span class="keyword">public</span> user&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">VIP</span>(<span class="type">int</span> val=<span class="number">998</span>):<span class="built_in">user</span>(val)&#123;&#125;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">calc</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> buy/<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">VIP <span class="title">a</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,a.<span class="built_in">calc</span>());</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这就是一个简单的VIP用户打折的程序,重写了$calc$让不同用户计算方式不同.</p>
 <p><strong>失败的迟后联编</strong>:计算函数传参不同,返回值不同,etc所有不能被看成相同函数的情况.</p>
@@ -287,8 +296,8 @@ $C++$有几点要求:<br>
 <p>首先注意,纯虚函数不可以实例化.也就是说括号后面大括号不能有.抽象类不可以实例对象,所以抽象类就是用来继承的,继承的子类重写那个纯虚函数,就完了,子类可以对象化.所以抽象类又被称作接口.</p>
 <p><strong>为什么要抽象类</strong>?方便指针的使用.先前提到了,继承的情况下,派生类的指针完全可以当成母类的指针去用,因为成员是一样的.这里就是可以用抽象类指针传参,然后调用直接放上派生类的指针,$C++$会自己匹配的.</p>
 <hr>
-<h3 id="笔者最后追加的东西：分文件编写">笔者最后追加的东西：分文件编写</h3>
-<p>太重要了,做课设几千行代码不分文件很难维护的(虽然笔者就是这样硬写的…QwQ),而且今天才发的通知要求作业分文件编写…啊总之我就是加了这么个东西,以飨($\bold{xi\check{a}ng}$)读者(老套话了).</p>
+<h3 id="笔者最后追加的东西-分文件编写">笔者最后追加的东西:分文件编写</h3>
+<p>太重要了,做课设几千行代码不分文件很难维护的(虽然笔者就是这样硬写的…QwQ),而且今天才发的通知要求作业分文件编写…啊总之我就是加了这么个东西,以飨($\mathbf{xi\check{a}ng}$)读者(老套话了).</p>
 <p>那啥,现在你要写一个$Visual Studio$程序.人有五名,主文件有三个.</p>
 <p>首先,要写好一个头文件.头文件一般是$.h$的格式.新建一个空项目,添加一个空项.</p>
 <p>头文件的<strong>基本结构</strong>:会有详细注释的,放心看</p>
@@ -298,7 +307,7 @@ $C++$有几点要求:<br>
 <p>主文件的<strong>基本结构</strong>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//name:main.cpp</span></span><br><span class="line"><span class="comment">//author:NaraFluorine</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;function.h&quot;</span><span class="comment">//为什么不用尖角括号后面会讲</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=<span class="number">114</span>;</span><br><span class="line">	<span class="built_in">prr</span>(<span class="number">250</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>好,这就完了.每个模块负责不同的函数,可以把大工程划分为一个一个小零件,一部分出错不需要整体重新编译.</p>
-<p>有个部分忘写了，是$class$的用法,记住一个事情,$class$的声明都在头文件里面,然后函数就是正常的画大饼就好,但是对应的$cpp$要写成展开的,同时注意标清哪个$class$,比如下面的例子:</p>
+<p>有个部分忘写了,是$class$的用法,记住一个事情,$class$的声明都在头文件里面,然后函数就是正常的画大饼就好,但是对应的$cpp$要写成展开的,同时注意标清哪个$class$,比如下面的例子:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//poly.h节选</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">poly</span>&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">a</span><span class="params">(<span class="type">int</span> x)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//poly.cpp节选</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">poly::a</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="comment">//展开写函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后对于重载运算符实例化可以写在外面,但是记得两点不同,一是操作数记得整俩,二是记得声明友元,否则看不了内存(这是全局重载和成员重载的区别).</p>
@@ -306,7 +315,7 @@ $C++$有几点要求:<br>
 <strong>1.</strong> 安全问题:$VS$是不赞成你使用$scanf$和$printf$的,因为他们不安全.为什么不安全笔者不知道,反正$VS$不赞成你用,想用可以选择更安全的$scanf_s$,或者像笔者那样加上这句话就可以无视警告接着用.<br>
 <strong>2.</strong> 关于$include$后面的&lt;&gt;“”:尖角和引号的差异在于优先搜索哪里.正常的使用尖角的情况是大家使用库文件的时候,就是那些众所周知的头文件,如$stdio.h$或者$algorithm$,系统看到尖角会优先搜索库文件.然后引号的意思是系统优先搜索该$.cpp$对应的文件夹找这个头文件,一般自己写头文件的会用引号包起来,当然你用引号包库文件也不会有错,使用引号包住功能实现良好的$.cpp$文件也能运行的.<br>
 <strong>3.</strong> $VS$:$Microsoft\space Visual\space Studio$,简称$VS$,是一个编辑器.一般写大型项目会用到这个东西 <s>,比如我们组四千五百行的课设</s>.为什么要用$VS$而不是$Dev$,因为功能全.但是由于安全啊(上文)或者不让用$__int128$呀,编译慢啊(初次启动编译三十秒,后面一两秒出来)之类的,笔者自己学习算法还是喜欢用$Dev$.</p>
-<p>好$\bold{tm}$长啊,我半个学期这是差了多少节课啊QwQ…</p>
+<p>好$\mathbf{tm}$长啊,我半个学期这是差了多少节课啊QwQ…</p>
 <p>但是最起码我把几百页的书用一篇文章就讲完了,这是十分好学,一看就懂的.</p>
 <p><strong>UPD20240609:</strong></p>
 <h1>做题总结</h1>
@@ -401,9 +410,13 @@ $C++$有几点要求:<br>
         
           <li><a href="/archives/">归档</a></li>
         
-          <li><a target="_blank" rel="noopener" href="http://github.com/NaraFluorine">项目</a></li>
+          <li><a href="/tags/">标签</a></li>
         
-          <li><a href="/friend/">友链</a></li>
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
         
       </ul>
     </div>
@@ -411,7 +424,7 @@ $C++$有几点要求:<br>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%94%E8%80%85%E6%9C%80%E5%90%8E%E8%BF%BD%E5%8A%A0%E7%9A%84%E4%B8%9C%E8%A5%BF%EF%BC%9A%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99"><span class="toc-number">1.</span> <span class="toc-text">笔者最后追加的东西：分文件编写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">做题总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">面向对象Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">大题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">完结</span></a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%94%E8%80%85%E6%9C%80%E5%90%8E%E8%BF%BD%E5%8A%A0%E7%9A%84%E4%B8%9C%E8%A5%BF-%E5%88%86%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99"><span class="toc-number">1.</span> <span class="toc-text">笔者最后追加的东西:分文件编写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">做题总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">面向对象Cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">大题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">完结</span></a>
       </div>
     
 
@@ -463,9 +476,13 @@ $C++$有几点要求:<br>
      --><!--
        --><li><a href="/archives/">归档</a></li><!--
      --><!--
-       --><li><a target="_blank" rel="noopener" href="http://github.com/NaraFluorine">项目</a></li><!--
+       --><li><a href="/tags/">标签</a></li><!--
      --><!--
-       --><li><a href="/friend/">友链</a></li><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
      -->
       </ul>
     </nav>
