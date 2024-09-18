@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这是数据结构选课的课内笔记,和 $OI$ 的高难数据结构关系不是很大,主要是记一些怕忘的定义. ADL语言 算法 SM(A,n,&amp;min,&amp;max) 1234max&lt;-min&lt;a[1]FOR i&#x3D;2 TO n DO	if A[i]&gt;max THEN max&lt;-a[i]	if A[i]&lt;min THEN min&lt;-a[i] 举例 $$ADL:a\l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构选课学习笔记">
+<meta property="og:url" content="https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="这是数据结构选课的课内笔记,和 $OI$ 的高难数据结构关系不是很大,主要是记一些怕忘的定义. ADL语言 算法 SM(A,n,&amp;min,&amp;max) 1234max&lt;-min&lt;a[1]FOR i&#x3D;2 TO n DO	if A[i]&gt;max THEN max&lt;-a[i]	if A[i]&lt;min THEN min&lt;-a[i] 举例 $$ADL:a\l">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-09T05:01:32.000Z">
+<meta property="article:modified_time" content="2024-09-09T15:12:30.874Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>数据结构选课学习笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/09/10/%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/03/%E7%AD%9B%E6%B3%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&text=数据结构选课学习笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&is_video=false&description=数据结构选课学习笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据结构选课学习笔记&body=Check out this article: https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&name=数据结构选课学习笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&t=数据结构选课学习笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ADL%E8%AF%AD%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">ADL语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">算法的鲁棒性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">算法测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E7%A9%BA%E7%A7%AF%E5%88%86"><span class="toc-number">5.</span> <span class="toc-text">时空积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AF%BB%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text">多维数组寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%89%E5%85%83%E7%BB%84%E8%A1%A8%E8%BD%AC%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">矩阵三元组表转置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%8D%81%E5%AD%97%E9%93%BE%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">矩阵十字链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%BA%8F"><span class="toc-number">9.</span> <span class="toc-text">字典序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">11.</span> <span class="toc-text">线索二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">12.</span> <span class="toc-text">树转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%AE%E6%9E%97%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">13.</span> <span class="toc-text">森林转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%BD%AC%E6%A3%AE%E6%9E%97"><span class="toc-number">14.</span> <span class="toc-text">树转森林</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="toc-number">15.</span> <span class="toc-text">哈夫曼树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E6%9E%84%E9%80%A0"><span class="toc-number">15.1.</span> <span class="toc-text">哈夫曼树构造</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A0%91"><span class="toc-number">16.</span> <span class="toc-text">表达式树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">17.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">18.</span> <span class="toc-text">拓扑排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">19.</span> <span class="toc-text">关键路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8F%8A%E6%80%A7"><span class="toc-number">20.</span> <span class="toc-text">可及性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F-Shell"><span class="toc-number">21.</span> <span class="toc-text">希尔排序(Shell)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E5%88%86%E5%B8%83%E5%92%8C%E5%80%BC%E5%88%86%E5%B8%83"><span class="toc-number">22.</span> <span class="toc-text">基数分布和值分布</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        数据结构选课学习笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-09-09T05:01:32.000Z" class="dt-published" itemprop="datePublished">2024-09-09</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/DataStructure/">DataStructure</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>这是数据结构选课的课内笔记,和 $OI$ 的高难数据结构关系不是很大,主要是记一些怕忘的定义.</p>
+<h2 id="ADL语言">ADL语言</h2>
+<p>算法 SM(A,n,&amp;min,&amp;max)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">max&lt;-min&lt;a[<span class="number">1</span>]</span><br><span class="line">FOR i=<span class="number">2</span> TO n DO</span><br><span class="line">	<span class="keyword">if</span> A[i]&gt;max THEN max&lt;-a[i]</span><br><span class="line">	<span class="keyword">if</span> A[i]&lt;min THEN min&lt;-a[i]</span><br></pre></td></tr></table></figure>
+<p>举例<br>
+$$ADL:a\leftrightarrow b$$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^=b^=a^=b</span><br></pre></td></tr></table></figure>
+<h2 id="算法的鲁棒性">算法的鲁棒性</h2>
+<p>自动识别错误数据(并纠正)的能力.</p>
+<h2 id="算法测试">算法测试</h2>
+<p><strong>黑盒测试</strong>:测试点.<br>
+<strong>白盒测试</strong>:语句覆盖,分支覆盖.</p>
+<h2 id="时间复杂度">时间复杂度</h2>
+<p>$O$ ,读音:big-oh;表示上界,小于等于.<br>
+$ο$ ,读音:small-oh;表示上界,小于.<br>
+$\Theta$ ,读音:theta、西塔;既是上界也是下界,称为确界,等于.<br>
+$\omega$ ,读音:small omega;表示下界,大于.<br>
+$\Omega$ ,读音:big omega、欧米伽;表示下界,大于等于.</p>
+<p>Ο是渐进上界,Ω是渐进下界.Θ需同时满足大Ο和Ω,故称为确界.Ο极其有用,因为它表示了最差性能.</p>
+<h2 id="时空积分">时空积分</h2>
+<p>$$W=\int_0^tf(x)\mathrm dx$$</p>
+<h2 id="多维数组寻址">多维数组寻址</h2>
+<p>$$*=dat+\sum_{j=1}^{n-1}(i_j\times\prod^{n}_{p=k+1} m_p)*C$$<br>
+C代表<code>sizeof</code>,大乘号其实就是前缀积</p>
+<h2 id="矩阵三元组表转置">矩阵三元组表转置</h2>
+<p>Q:为啥PPT说的是 $O(nt)$ 的?<br>
+这个可以做到 $O(t\log t)$ .</p>
+<h2 id="矩阵十字链表">矩阵十字链表</h2>
+<p>cqcqcq</p>
+<p>how $A\to A* …$</p>
+<p>3.2.4十字链表</p>
+<h2 id="字典序">字典序</h2>
+<p>cqcqcq</p>
+<h2 id="二叉树">二叉树</h2>
+<p>满二叉树:顾名思义,节点全满,非常均匀.<br>
+完全二叉树:节点全的,末层缺失(<s>线段树</s>)</p>
+<h2 id="线索二叉树">线索二叉树</h2>
+<p>节点</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val,l,r,   pred,succ</span><br></pre></td></tr></table></figure>
+<p>后面这俩存根,先根或者后根, <strong>可以存前根,中根或者后根</strong> ,故又称前序,中序或者后序线索二叉树.</p>
+<p>cqc++…</p>
+<h2 id="树转二叉树">树转二叉树</h2>
+<p>深度相同兄弟之间连一条线,然后删掉所有非大孩子,刚连的线.</p>
+<h2 id="森林转二叉树">森林转二叉树</h2>
+<p>整一个首节点,然后连线,然后串串…</p>
+<h2 id="树转森林">树转森林</h2>
+<p>重剖,长剖.(不至于)</p>
+<h2 id="哈夫曼树">哈夫曼树</h2>
+<p>扩充二叉树:二叉树所有原来有空位的加子节点.</p>
+<p>路径长度:<br>
+$$w=\sum_{i=1}^nw_id_i$$<br>
+其中w代表权值(就是存的那个数),然后d是路径长(深度-1),这个w最小的叫最优二叉树.</p>
+<p>哈夫曼编码:左儿子是0,右儿子是1,直接走,走到哪编码.</p>
+<p><strong>压缩</strong>:开一个map统计出现频率,然后建立哈夫曼树,直接译码. $O(n\log n)$ .<br>
+<strong>解码</strong>:先读哈夫曼树,然后直接译码即可.</p>
+<h3 id="哈夫曼树构造">哈夫曼树构造</h3>
+<p>所有节点都是一个森林,然后每次选权值最小的根组成一个新树,产生一个新节点,加入其中,直到剩一个根.</p>
+<h2 id="表达式树">表达式树</h2>
+<p>中缀表达式树.这个一看就明白了,也没多难写.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(a+b)*(c+d)-e</span><br><span class="line">        -</span><br><span class="line">       / \</span><br><span class="line">      *   e</span><br><span class="line">     / \</span><br><span class="line">	+   -</span><br><span class="line">   / \ / \</span><br><span class="line">   a b c d</span><br></pre></td></tr></table></figure>
+<h2 id="图">图</h2>
+<p>连通子图:顾名思义.<br>
+连通分量:把所有联通块抽出来就是了.</p>
+<h2 id="拓扑排序">拓扑排序</h2>
+<p>每次选一个入度为0的,然后删掉边,循环.</p>
+<p>拓扑排序是 $O(n+e)$ 的.</p>
+<h2 id="关键路径">关键路径</h2>
+<p>cqcqcq</p>
+<h2 id="可及性">可及性</h2>
+<p>cqcqcq</p>
+<h2 id="希尔排序-Shell">希尔排序(Shell)</h2>
+<p>直接插入排序的改进.作为最先冲破 $O(n^2)$ 的排序算法,值得借鉴.</p>
+<p>每次把增量分成n&gt;&gt;1,然后每个区间暴力插入排序.直到最后</p>
+<h2 id="基数分布和值分布">基数分布和值分布</h2>
+<p>基数排序,是模按照指定位数进行排序的算法,计数排序就是俗称的桶排序.</p>
+<p>基数排序:先开十个链表,然后取最后一位看剩下的数.按照这个顺序先排起来.<br>
+然后取第二位接着排,直到元素有序.</p>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ADL%E8%AF%AD%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">ADL语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">算法的鲁棒性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">算法测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E7%A9%BA%E7%A7%AF%E5%88%86"><span class="toc-number">5.</span> <span class="toc-text">时空积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%AF%BB%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text">多维数组寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%89%E5%85%83%E7%BB%84%E8%A1%A8%E8%BD%AC%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">矩阵三元组表转置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%8D%81%E5%AD%97%E9%93%BE%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">矩阵十字链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E5%BA%8F"><span class="toc-number">9.</span> <span class="toc-text">字典序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">11.</span> <span class="toc-text">线索二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">12.</span> <span class="toc-text">树转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%AE%E6%9E%97%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">13.</span> <span class="toc-text">森林转二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%BD%AC%E6%A3%AE%E6%9E%97"><span class="toc-number">14.</span> <span class="toc-text">树转森林</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="toc-number">15.</span> <span class="toc-text">哈夫曼树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E6%9E%84%E9%80%A0"><span class="toc-number">15.1.</span> <span class="toc-text">哈夫曼树构造</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A0%91"><span class="toc-number">16.</span> <span class="toc-text">表达式树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">17.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">18.</span> <span class="toc-text">拓扑排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">19.</span> <span class="toc-text">关键路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8F%8A%E6%80%A7"><span class="toc-number">20.</span> <span class="toc-text">可及性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F-Shell"><span class="toc-number">21.</span> <span class="toc-text">希尔排序(Shell)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E5%88%86%E5%B8%83%E5%92%8C%E5%80%BC%E5%88%86%E5%B8%83"><span class="toc-number">22.</span> <span class="toc-text">基数分布和值分布</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&text=数据结构选课学习笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&is_video=false&description=数据结构选课学习笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据结构选课学习笔记&body=Check out this article: https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=数据结构选课学习笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&name=数据结构选课学习笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&t=数据结构选课学习笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

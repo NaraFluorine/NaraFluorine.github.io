@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="笔者接触了一种全新游戏(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个. 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markov Algorithm Online 攻略">
+<meta property="og:url" content="https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="笔者接触了一种全新游戏(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个. 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-30T17:30:56.000Z">
+<meta property="article:modified_time" content="2024-08-24T05:50:12.398Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Markov Algorithm Online 攻略</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/08/03/Ad-Hoc/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/07/30/C-%E8%AF%AD%E6%B3%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">题解区</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0001"><span class="toc-number">2.1.</span> <span class="toc-text">0001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0002"><span class="toc-number">2.2.</span> <span class="toc-text">0002</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0003"><span class="toc-number">2.3.</span> <span class="toc-text">0003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0004"><span class="toc-number">2.4.</span> <span class="toc-text">0004</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0005"><span class="toc-number">2.5.</span> <span class="toc-text">0005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0006"><span class="toc-number">2.6.</span> <span class="toc-text">0006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0007"><span class="toc-number">2.7.</span> <span class="toc-text">0007</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0008"><span class="toc-number">2.8.</span> <span class="toc-text">0008</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0009"><span class="toc-number">2.9.</span> <span class="toc-text">0009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0010"><span class="toc-number">2.10.</span> <span class="toc-text">0010</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0011"><span class="toc-number">2.11.</span> <span class="toc-text">0011</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0012"><span class="toc-number">2.12.</span> <span class="toc-text">0012</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0013"><span class="toc-number">2.13.</span> <span class="toc-text">0013</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0014"><span class="toc-number">2.14.</span> <span class="toc-text">0014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0015"><span class="toc-number">2.15.</span> <span class="toc-text">0015</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0016"><span class="toc-number">2.16.</span> <span class="toc-text">0016</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0017"><span class="toc-number">2.17.</span> <span class="toc-text">0017</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0018"><span class="toc-number">2.18.</span> <span class="toc-text">0018</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0019"><span class="toc-number">2.19.</span> <span class="toc-text">0019</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0020"><span class="toc-number">2.20.</span> <span class="toc-text">0020</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0023"><span class="toc-number">2.21.</span> <span class="toc-text">0023</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0032"><span class="toc-number">2.22.</span> <span class="toc-text">0032</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0035"><span class="toc-number">2.23.</span> <span class="toc-text">0035</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0036"><span class="toc-number">2.24.</span> <span class="toc-text">0036</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0037"><span class="toc-number">2.25.</span> <span class="toc-text">0037</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0038"><span class="toc-number">2.26.</span> <span class="toc-text">0038</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0045"><span class="toc-number">2.27.</span> <span class="toc-text">0045</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0048"><span class="toc-number">2.28.</span> <span class="toc-text">0048</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0049"><span class="toc-number">2.29.</span> <span class="toc-text">0049</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0050"><span class="toc-number">2.30.</span> <span class="toc-text">0050</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0051"><span class="toc-number">2.31.</span> <span class="toc-text">0051</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0052"><span class="toc-number">2.32.</span> <span class="toc-text">0052</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0053"><span class="toc-number">2.33.</span> <span class="toc-text">0053</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0054"><span class="toc-number">2.34.</span> <span class="toc-text">0054</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0061"><span class="toc-number">2.35.</span> <span class="toc-text">0061</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0062"><span class="toc-number">2.36.</span> <span class="toc-text">0062</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0063"><span class="toc-number">2.37.</span> <span class="toc-text">0063</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0064"><span class="toc-number">2.38.</span> <span class="toc-text">0064</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0069"><span class="toc-number">2.39.</span> <span class="toc-text">0069</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0078"><span class="toc-number">2.40.</span> <span class="toc-text">0078</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0079"><span class="toc-number">2.41.</span> <span class="toc-text">0079</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0080"><span class="toc-number">2.42.</span> <span class="toc-text">0080</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0085"><span class="toc-number">2.43.</span> <span class="toc-text">0085</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Markov Algorithm Online 攻略
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-07-30T17:30:56.000Z" class="dt-published" itemprop="datePublished">2024-07-31</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math/">Math</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>笔者接触了一种<a target="_blank" rel="noopener" href="https://mao.snuke.org/">全新游戏</a>(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个.</p>
+<h1>规则</h1>
+<p>这是一种简单的语言,只有两个语句:<br>
+<code>a:b</code>:把字符串<code>a</code>替换成<code>b</code>.<br>
+<code>a::b</code>:把字符串<code>a</code>替换成<code>b</code>,程序结束.</p>
+<p>(模式/替换的前导/尾随空格会被直接忽略)</p>
+<p><strong>执行顺序</strong>:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了<code>::</code>会直接结束的).</p>
+<h1>题解区</h1>
+<p>好了,你已经学会了所有语法,去写一个程序吧(^_^)~</p>
+<h2 id="0001">0001</h2>
+<p>直接替换.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello,:World!</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">Hello,::World!</span><br></pre></td></tr></table></figure>
+<h2 id="0002">0002</h2>
+<p>删除所有的<code>s</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s:</span><br></pre></td></tr></table></figure>
+<h2 id="0003">0003</h2>
+<p>把<code>s</code>加在头上(注意只能执行一次防止死循环)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">::s</span><br></pre></td></tr></table></figure>
+<h2 id="0004">0004</h2>
+<p>剪刀石头布,对每种情况进行替换,注意每种只能执行一次.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R::P</span><br><span class="line">P::S</span><br><span class="line">S::R</span><br></pre></td></tr></table></figure>
+<h2 id="0005">0005</h2>
+<p>给一堆只有<code>i</code>的串,在每个之间插一个<code>w</code>.<br>
+也就是把所有<code>ii</code>换成<code>iwi</code>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ii:iwi</span><br></pre></td></tr></table></figure>
+<h2 id="0006">0006</h2>
+<p>对ABC进行排序,枚举三种将要进行的排序准则分别替换即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BA:AB</span><br><span class="line">CB:BC</span><br><span class="line">BA:AC</span><br></pre></td></tr></table></figure>
+<h2 id="0007">0007</h2>
+<p>给一段<code>o</code>判断有奇数个还是偶数个.<br>
+发现两个<code>o</code>没有贡献,直接消掉,最后判断即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">oo:</span><br><span class="line">o::odd</span><br><span class="line">::even</span><br></pre></td></tr></table></figure>
+<p>(注意先判有的odd,因为even是兜底的)</p>
+<h2 id="0008">0008</h2>
+<p>(感觉开始上强度了)给一段只有<code>b</code>的串,加一个<code>s</code>在末尾.<br>
+首先,是个人都应该清楚,因为字符串检测是从头开始的,我们要在<code>bb</code>这样的里面加东西.</p>
+<p>加啥?Flu设想的是先把<code>bb</code>变成<code>bsb</code>,然后掉转顺序变成<code>bbs</code>,最后删掉所有的<code>bsb</code>.写出来长这样:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bb:bsb</span><br><span class="line">sb:bs</span><br><span class="line">bsb:bb</span><br></pre></td></tr></table></figure>
+<p>跑起来死循环啊…考虑优化:<strong>顺序优化</strong>.每次查子串是从第一句开始查,也就是说符合条件的语句编号越小越优先执行,调整一下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sb:bs</span><br><span class="line">bb:bsb</span><br><span class="line">bsb:bb</span><br></pre></td></tr></table></figure>
+<p>这个时候我们发现,他变成了一直往尾部加<code>s</code>,一个,两个…<br>
+到这应该明白了吧,我们让<code>b</code>变成<code>bs</code>,然后把<code>sb:bs</code>的交换优先级调整的比添加高,就可以顺到最后了,然后<code>ss::s</code>结束,完美.(<code>bb:bsb</code>会WA,只有一个<code>b</code>的情况)AC代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ss::s</span><br><span class="line">sb:bs</span><br><span class="line">b:bs</span><br></pre></td></tr></table></figure>
+<h2 id="0009">0009</h2>
+<p>给一个二进制串,按位反转.<br>
+首先想到,交换嘛,肯定有个tmp的防止反转再反转,于是<code>0</code>先换成<code>2</code>,再换成<code>1</code>,<code>1</code>也一样,调一下优先级.</p>
+<p>发现,死循环了.我们注意到,即使是结果也是可以当输入的,我们要手动结束程序,于是考虑扫描,从左插一个<code>a</code>,每次枚举<code>a</code>左边的进行反转,<code>a</code>到头结束.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a0:<span class="number">1</span>a</span><br><span class="line">a1:<span class="number">0</span>a</span><br><span class="line">a::</span><br><span class="line">:a</span><br></pre></td></tr></table></figure>
+<h2 id="0010">0010</h2>
+<p>写一个加法器.<br>
+首先我们需要插一个东西在末尾.我们如何判定他插到末尾了?<br>
+<strong>答:</strong> 插两个的时候.<br>
+然后程序向前遍历就很好写了.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>ss::<span class="number">1</span></span><br><span class="line"><span class="number">1</span>ss:ss0</span><br><span class="line">ss::<span class="number">1</span></span><br><span class="line">s0:<span class="number">0</span>s</span><br><span class="line">s1:<span class="number">1</span>s</span><br><span class="line">:s</span><br></pre></td></tr></table></figure>
+<h2 id="0011">0011</h2>
+<p>计数.<br>
+首先,每一个o都是看成1,进位的时候直接放到左边即可.<br>
+数之间不允许直接加,否则会乱位,于是调整一下<code>o</code>变成<code>1</code>的优先级即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>o:<span class="number">1</span></span><br><span class="line"><span class="number">1</span>o:<span class="number">2</span></span><br><span class="line"><span class="number">2</span>o:<span class="number">3</span></span><br><span class="line"><span class="number">3</span>o:<span class="number">4</span></span><br><span class="line"><span class="number">4</span>o:<span class="number">5</span></span><br><span class="line"><span class="number">5</span>o:<span class="number">6</span></span><br><span class="line"><span class="number">6</span>o:<span class="number">7</span></span><br><span class="line"><span class="number">7</span>o:<span class="number">8</span></span><br><span class="line"><span class="number">8</span>o:<span class="number">9</span></span><br><span class="line"><span class="number">9</span>o:o0</span><br><span class="line">o:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="0012">0012</h2>
+<p>会11的话12就很简单了.反向搞就行,注意0作为进位标志最后再摘.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>:<span class="number">0</span>o</span><br><span class="line"><span class="number">2</span>:<span class="number">0</span>oo</span><br><span class="line"><span class="number">3</span>:<span class="number">0</span>ooo</span><br><span class="line"><span class="number">4</span>:<span class="number">0</span>oooo</span><br><span class="line"><span class="number">5</span>:<span class="number">0</span>ooooo</span><br><span class="line"><span class="number">6</span>:<span class="number">0</span>oooooo</span><br><span class="line"><span class="number">7</span>:<span class="number">0</span>ooooooo</span><br><span class="line"><span class="number">8</span>:<span class="number">0</span>oooooooo</span><br><span class="line"><span class="number">9</span>:<span class="number">0</span>ooooooooo</span><br><span class="line">o0:<span class="number">0</span>oooooooooo</span><br><span class="line"><span class="number">0</span>:</span><br></pre></td></tr></table></figure>
+<h2 id="0013">0013</h2>
+<h2 id="0014">0014</h2>
+<h2 id="0015">0015</h2>
+<h2 id="0016">0016</h2>
+<p>显然,比5长的直接迭代缩减即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oooooo:ooooo</span><br></pre></td></tr></table></figure>
+<h2 id="0017">0017</h2>
+<p>显然,比5短的直接迭代增加即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ooooo::ooooo</span><br><span class="line">:o</span><br></pre></td></tr></table></figure>
+<h2 id="0018">0018</h2>
+<p>(最后还是看题解改成6行的屑)判断<code>ox</code>序列哪个多,输出<code>win,lose,draw</code>.<br>
+难点在于6行内完成.题解借用很长一段<code>x</code>保证<code>xo</code>一定能消掉<code>o</code>,从而完成消掉另一方,然后再归还<code>x</code>,多就是输,默认赢,不变就是平手.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xo:</span><br><span class="line">win+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:lose+</span><br><span class="line">win+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:draw+</span><br><span class="line">+x:+</span><br><span class="line">+::</span><br><span class="line">:win+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
+<h2 id="0019">0019</h2>
+<p>发现排好序一定是<code>12345</code>,考虑如何把12345搞掉:好像没啥别的办法.不讲武德.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>:</span><br><span class="line"><span class="number">2</span>:</span><br><span class="line"><span class="number">3</span>:</span><br><span class="line"><span class="number">4</span>:</span><br><span class="line"><span class="number">5</span>::<span class="number">12345</span></span><br></pre></td></tr></table></figure>
+<h2 id="0020">0020</h2>
+<p>给一个数字串,在每两个数字间加点.<br>
+显然,直接扫描即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a0:<span class="number">0.</span>a</span><br><span class="line">a1:<span class="number">1.</span>a</span><br><span class="line">a2:<span class="number">2.</span>a</span><br><span class="line">a3:<span class="number">3.</span>a</span><br><span class="line">a4:<span class="number">4.</span>a</span><br><span class="line">a5:<span class="number">5.</span>a</span><br><span class="line">a6:<span class="number">6.</span>a</span><br><span class="line">a7:<span class="number">7.</span>a</span><br><span class="line">a8:<span class="number">8.</span>a</span><br><span class="line">a9:<span class="number">9.</span>a</span><br><span class="line">.a::</span><br><span class="line">:a</span><br></pre></td></tr></table></figure>
+<h2 id="0023">0023</h2>
+<p>给一个数列(只有<code>012</code>),求他们的和模3.<br>
+显然暴力是会超行的,我们考虑替换,把0替换成111,2换成11就可以很简单的消除了.但是注意一个小坑是<code>111:</code>错<code>1111:1</code>对,因为假如最后没数字了就寄了.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>:<span class="number">111</span></span><br><span class="line"><span class="number">2</span>:<span class="number">11</span></span><br><span class="line"><span class="number">1111</span>:<span class="number">1</span></span><br><span class="line"><span class="number">111</span>::<span class="number">0</span></span><br><span class="line"><span class="number">11</span>::<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="0032">0032</h2>
+<p>发现值域很窄,直接枚举.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xo:x</span><br><span class="line">oooooooooooooooooooooooooooooooo:<span class="number">5</span>x</span><br><span class="line">oooooooooooooooo:<span class="number">4</span>x</span><br><span class="line">oooooooo:<span class="number">3</span>x</span><br><span class="line">oooo:<span class="number">2</span>x</span><br><span class="line">oo:<span class="number">1</span>x</span><br><span class="line">o:<span class="number">0</span>x</span><br><span class="line">x::</span><br></pre></td></tr></table></figure>
+<h2 id="0035">0035</h2>
+<p>把第三个字符替换成<code>x</code>,送分.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ooo::oox</span><br></pre></td></tr></table></figure>
+<h2 id="0036">0036</h2>
+<p>把倒数第三个字符替换成<code>x</code>,插一个a,扫到末尾,结束,还是送分.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ao:oa</span><br><span class="line">oooa::xoo</span><br><span class="line">:a</span><br></pre></td></tr></table></figure>
+<h2 id="0037">0037</h2>
+<p>直接替换,注意第一个问号的优先级是最低的.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m?:ma</span><br><span class="line">a?:ar</span><br><span class="line">r?:rk</span><br><span class="line">k?:ko</span><br><span class="line">o?:ov</span><br><span class="line">?:m</span><br></pre></td></tr></table></figure>
+<h2 id="0038">0038</h2>
+<p>发现转移的时候多余的o会没,但是最终状态的o也会跟着没,考虑扫描.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xbob:oxb</span><br><span class="line">xb:x</span><br><span class="line">xo:x</span><br><span class="line">x::</span><br><span class="line">:x</span><br></pre></td></tr></table></figure>
+<h2 id="0045">0045</h2>
+<p>直接删掉<code>-</code>即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-:</span><br></pre></td></tr></table></figure>
+<h2 id="0048">0048</h2>
+<p>找最大公因数即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ooo:oof</span><br><span class="line">oofoofoofoofoof:oofobfoofbofooz</span><br><span class="line">oofoofoofo:oofobfoofb</span><br><span class="line">oofoo:oofob</span><br></pre></td></tr></table></figure>
+<h2 id="0049">0049</h2>
+<p>直接替换.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bb:ba</span><br></pre></td></tr></table></figure>
+<h2 id="0050">0050</h2>
+<p>替换小心头部重复替换.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aa:ba</span><br><span class="line">bbb:bab</span><br></pre></td></tr></table></figure>
+<h2 id="0051">0051</h2>
+<p>扫描一遍即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zab:baz</span><br><span class="line">z::</span><br><span class="line">:z</span><br></pre></td></tr></table></figure>
+<h2 id="0052">0052</h2>
+<p>来一个被减数,左右对消即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ozo:z</span><br><span class="line">z::</span><br><span class="line">:ooooooooooz</span><br></pre></td></tr></table></figure>
+<h2 id="0053">0053</h2>
+<p>这里开始是几道闪电题,意思是尽快做出来而不是压行做出来,题目也非常傻逼(难).</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xoo:ox</span><br><span class="line">x::</span><br><span class="line">:x</span><br></pre></td></tr></table></figure>
+<h2 id="0054">0054</h2>
+<h2 id="0061">0061</h2>
+<p>冒号不能动,右边减一个左边加一个即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(:</span><br><span class="line">::(</span><br></pre></td></tr></table></figure>
+<h2 id="0062">0062</h2>
+<p>考虑整体转变,<code>00</code>先变成<code>01</code>再一个变成<code>00</code>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00</span>:<span class="number">01</span></span><br><span class="line"><span class="number">01</span>::<span class="number">00</span></span><br></pre></td></tr></table></figure>
+<h2 id="0063">0063</h2>
+<p>打印空格.由于前导/尾随空格都会没,我们要构造两面包夹的形态.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">114514</span>:</span><br><span class="line"><span class="number">1919810</span>::</span><br><span class="line">:<span class="number">114514</span> <span class="number">1919810</span></span><br></pre></td></tr></table></figure>
+<h2 id="0064">0064</h2>
+<p>我们要去掉中间的空格,显然扫描线做.<br>
+注意到我们开头要插入一个没空格的,这里是没法转移的.我们考虑插一个形如<code>x y</code>的结构,然后再把y去掉,就可以成功转移了.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x a:ax</span><br><span class="line">x b:bx</span><br><span class="line">x c:cx</span><br><span class="line">y:</span><br><span class="line">x::</span><br><span class="line">:x y</span><br></pre></td></tr></table></figure>
+<h2 id="0069">0069</h2>
+<p>注意到数据是4个<code>t</code>起手,考虑做一个头然后沿伸.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">testtt:testtest</span><br><span class="line">tttt:testtest</span><br></pre></td></tr></table></figure>
+<h2 id="0078">0078</h2>
+<p>直接查找.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iwi::[iwi]</span><br></pre></td></tr></table></figure>
+<h2 id="0079">0079</h2>
+<p>发现最优解只有四行,而且由于结果可以作为输入,只好使用扫描线.但是扫描头添加(2),转移(2),检测(1),超了,要魔改.</p>
+<p>咋改呢?有个好方法:鉴于只有<code>iw</code>,我们可以构造:很多<code>iiiiii</code>,然后不用转移<code>ii</code>,转移<code>iw</code>,就结束了.正好四行.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iiiiiiiiiiiiiiiiiiiiiiwi:[iwi]iiiiiiiiiiiiiiiiiiiii</span><br><span class="line">iiiiiiiiiiiiiiiiiiiiiw:wiiiiiiiiiiiiiiiiiiiii</span><br><span class="line">iiiiiiiiiiiiiiiiiiiii::</span><br><span class="line">:iiiiiiiiiiiiiiiiiiiii</span><br></pre></td></tr></table></figure>
+<h2 id="0080">0080</h2>
+<p>发现拆括号的过程就是放到外面然后乘二即可.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">o]:]oo</span><br><span class="line">[]:</span><br></pre></td></tr></table></figure>
+<h2 id="0085">0085</h2>
+<p>我们考虑同质化,把他们变成0+啥,然后由于最后一个数字也肯定是<code>0+</code>,所以考虑<code>+0:0</code>,然后最后转化回去就可以了.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>:<span class="number">0</span>++</span><br><span class="line"><span class="number">1</span>:<span class="number">0</span>+</span><br><span class="line">+<span class="number">0</span>:<span class="number">0</span></span><br><span class="line"><span class="number">00</span>:<span class="number">0</span></span><br><span class="line"><span class="number">0</span>++::<span class="number">2</span></span><br><span class="line"><span class="number">0</span>+::<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">题解区</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0001"><span class="toc-number">2.1.</span> <span class="toc-text">0001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0002"><span class="toc-number">2.2.</span> <span class="toc-text">0002</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0003"><span class="toc-number">2.3.</span> <span class="toc-text">0003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0004"><span class="toc-number">2.4.</span> <span class="toc-text">0004</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0005"><span class="toc-number">2.5.</span> <span class="toc-text">0005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0006"><span class="toc-number">2.6.</span> <span class="toc-text">0006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0007"><span class="toc-number">2.7.</span> <span class="toc-text">0007</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0008"><span class="toc-number">2.8.</span> <span class="toc-text">0008</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0009"><span class="toc-number">2.9.</span> <span class="toc-text">0009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0010"><span class="toc-number">2.10.</span> <span class="toc-text">0010</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0011"><span class="toc-number">2.11.</span> <span class="toc-text">0011</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0012"><span class="toc-number">2.12.</span> <span class="toc-text">0012</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0013"><span class="toc-number">2.13.</span> <span class="toc-text">0013</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0014"><span class="toc-number">2.14.</span> <span class="toc-text">0014</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0015"><span class="toc-number">2.15.</span> <span class="toc-text">0015</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0016"><span class="toc-number">2.16.</span> <span class="toc-text">0016</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0017"><span class="toc-number">2.17.</span> <span class="toc-text">0017</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0018"><span class="toc-number">2.18.</span> <span class="toc-text">0018</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0019"><span class="toc-number">2.19.</span> <span class="toc-text">0019</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0020"><span class="toc-number">2.20.</span> <span class="toc-text">0020</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0023"><span class="toc-number">2.21.</span> <span class="toc-text">0023</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0032"><span class="toc-number">2.22.</span> <span class="toc-text">0032</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0035"><span class="toc-number">2.23.</span> <span class="toc-text">0035</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0036"><span class="toc-number">2.24.</span> <span class="toc-text">0036</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0037"><span class="toc-number">2.25.</span> <span class="toc-text">0037</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0038"><span class="toc-number">2.26.</span> <span class="toc-text">0038</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0045"><span class="toc-number">2.27.</span> <span class="toc-text">0045</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0048"><span class="toc-number">2.28.</span> <span class="toc-text">0048</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0049"><span class="toc-number">2.29.</span> <span class="toc-text">0049</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0050"><span class="toc-number">2.30.</span> <span class="toc-text">0050</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0051"><span class="toc-number">2.31.</span> <span class="toc-text">0051</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0052"><span class="toc-number">2.32.</span> <span class="toc-text">0052</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0053"><span class="toc-number">2.33.</span> <span class="toc-text">0053</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0054"><span class="toc-number">2.34.</span> <span class="toc-text">0054</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0061"><span class="toc-number">2.35.</span> <span class="toc-text">0061</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0062"><span class="toc-number">2.36.</span> <span class="toc-text">0062</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0063"><span class="toc-number">2.37.</span> <span class="toc-text">0063</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0064"><span class="toc-number">2.38.</span> <span class="toc-text">0064</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0069"><span class="toc-number">2.39.</span> <span class="toc-text">0069</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0078"><span class="toc-number">2.40.</span> <span class="toc-text">0078</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0079"><span class="toc-number">2.41.</span> <span class="toc-text">0079</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0080"><span class="toc-number">2.42.</span> <span class="toc-text">0080</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0085"><span class="toc-number">2.43.</span> <span class="toc-text">0085</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
