@@ -14,7 +14,7 @@
 <meta property="og:description" content="本篇学习著名莫比乌斯反演的应用以及卷积式子的转化. 积性函数 先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性 恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性 常数函数 $1(n)&#x3D;1$ ,完全积性 欧拉函数 $\varphi(n)&#x3D;\sum{">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-07T14:11:31.000Z">
-<meta property="article:modified_time" content="2024-08-01T14:05:11.834Z">
+<meta property="article:modified_time" content="2024-10-02T16:43:45.176Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="NumberTheory">
@@ -288,7 +288,7 @@ $$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^md(ij)\=&amp;\sum_{i=1}^n\sum_{j=1}
 第四步提出来 $\mu$ .<br>
 第五步考虑xy的贡献是这么多直接乘进去.<br>
 第六步是消掉最后条件的,方法为直接枚举di和dj.<br>
-第七步是最后整理式子,程序中可以数论分块解决.</p>
+第七步是最后整理式子,程序中可以数论分块解决(后面的 $f$ 可以 $O(n)$ 预处理).</p>
 </blockquote>
 <ol start="5">
 <li>求<br>
@@ -333,6 +333,14 @@ $$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)\mathrm d(
 第三步是莫反.<br>
 第四步是套路替换.<br>
 第五步是因为 $d*\mu=1$ ,直接消掉了.</p>
+</blockquote>
+<ol start="9">
+<li>计算<br>
+$$\begin{aligned}&amp;\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{\lfloor\frac Nj\rfloor}\sum_{q=1}^{\lfloor\frac Nj\rfloor}[\gcd(i,j)=1][\gcd(p,q)=1]\=&amp;\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,j)=1][\gcd(p,q)=j]\=&amp;\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,p,q)=1]\=&amp;\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}\sum_{d|\gcd(i,p,q)}\mu(d)\=&amp;\sum_{d=1}^N\sum_{i=1}^{\lfloor\frac Nd\rfloor}\sum_{p=1}^{\lfloor\frac Nd\rfloor}\sum_{q=1}^{\lfloor\frac Nd\rfloor}\mu(d)\=&amp;\sum_{d=1}^N\mu(d)\left\lfloor\frac Nd\right\rfloor^3\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>我们发现把j带回去能得到更好的效果…<br>
+于是剩下的就简单了,基本上是板题.</p>
 </blockquote>
 <h2 id="一些比较牛逼的计算">一些比较牛逼的计算</h2>
 <ol>

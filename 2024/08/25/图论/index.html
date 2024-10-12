@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="dfs序 欧拉序 这俩的区别就是,前者是节点遍历到的时候只会有一次,后者是来的时候一次走的时候再来一次.">
+    <meta name="description" content="Floyd算法 通过dp的方式进行转移, dp[i][j] 表示从i到j的最小边权和. 还可以这么想,在一个没有权值的图中, dp[i][j] 表示i能到j.现在,假设dp是一个矩阵,则 $dp^k$ 的意思就是从i花费k步能到达j的方案总数. 例题:一个人在图上1节点,每步可以走向与他相连的其他节点,也可以不动,还可以自爆,自爆之后就不能动了,求经过k步之后的所有行走情况和. 一些特殊情况的处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/25/%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="dfs序 欧拉序 这俩的区别就是,前者是节点遍历到的时候只会有一次,后者是来的时候一次走的时候再来一次.">
+<meta property="og:description" content="Floyd算法 通过dp的方式进行转移, dp[i][j] 表示从i到j的最小边权和. 还可以这么想,在一个没有权值的图中, dp[i][j] 表示i能到j.现在,假设dp是一个矩阵,则 $dp^k$ 的意思就是从i花费k步能到达j的方案总数. 例题:一个人在图上1节点,每步可以走向与他相连的其他节点,也可以不动,还可以自爆,自爆之后就不能动了,求经过k步之后的所有行走情况和. 一些特殊情况的处理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-24T16:28:44.000Z">
-<meta property="article:modified_time" content="2024-08-24T17:27:38.333Z">
+<meta property="article:modified_time" content="2024-10-06T06:47:33.186Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">dfs序 欧拉序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">dfs序 欧拉序</span></a></li></ol>
       </div>
     
   </span>
@@ -186,7 +186,17 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="dfs序-欧拉序">dfs序 欧拉序</h2>
+    <h2 id="Floyd算法">Floyd算法</h2>
+<p>通过dp的方式进行转移, <code>dp[i][j]</code> 表示从i到j的最小边权和.<br>
+还可以这么想,在一个没有权值的图中, <code>dp[i][j]</code> 表示i能到j.现在,假设dp是一个矩阵,则 $dp^k$ 的意思就是从i花费k步能到达j的方案总数.<br>
+例题:一个人在图上1节点,每步可以走向与他相连的其他节点,也可以不动,还可以自爆,自爆之后就不能动了,求经过k步之后的所有行走情况和.<br>
+一些特殊情况的处理:</p>
+<ol>
+<li>这一步不动: 自己给自己连边,形成自环即可.</li>
+<li>自爆: 我们假想一个新节点0, 所有点和0连边,0不和任何点连边(自爆之后不能转移出去).</li>
+</ol>
+<p>最后,套上矩阵快速幂板子即可.</p>
+<h2 id="dfs序-欧拉序">dfs序 欧拉序</h2>
 <p>这俩的区别就是,前者是节点遍历到的时候只会有一次,后者是来的时候一次走的时候再来一次.</p>
 
   </div>
@@ -220,7 +230,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">dfs序 欧拉序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">dfs序 欧拉序</span></a></li></ol>
       </div>
     
 

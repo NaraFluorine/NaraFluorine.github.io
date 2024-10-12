@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="哈希的简单陈述. 哈希是干嘛的?提供一种映射关系,能够把字符串或者树通过某种加密关系换算成一个数,从而进行比较或者直接排序. 自然,撞哈希的概率关乎哈希算法的核心. 字符串哈希 Flu刚开始学字符串哈希的时候真的就是只学哈希来了,umap该开的还是开,字符串哈希完了装umap里,乐 字符串哈希,就是把一段字符串哈希变成一个数(双哈希是变成一对数),然后可以进行排序,然后直接检测有多少哈希值就行了(">
+    <meta name="description" content="如何辨别哈希题?大概就通过一句话:  当需要用 $Θ(1)$ 的时间快速比较两个 $Θ(n)$ 的东西时.  哈希是干嘛的?提供一种映射关系,能够把字符串或者树通过某种加密关系换算成一个数,从而进行比较或者直接排序. 自然,撞哈希的概率关乎哈希算法的核心. 生日悖论 大概意思就是,任意约 $\sqrt n$ 个元素的时候元素相同的概率就会很高(n是值域).为了防止撞哈希,我们要让值域尽可能大(也就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哈希">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/18/%E5%93%88%E5%B8%8C/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="哈希的简单陈述. 哈希是干嘛的?提供一种映射关系,能够把字符串或者树通过某种加密关系换算成一个数,从而进行比较或者直接排序. 自然,撞哈希的概率关乎哈希算法的核心. 字符串哈希 Flu刚开始学字符串哈希的时候真的就是只学哈希来了,umap该开的还是开,字符串哈希完了装umap里,乐 字符串哈希,就是把一段字符串哈希变成一个数(双哈希是变成一对数),然后可以进行排序,然后直接检测有多少哈希值就行了(">
+<meta property="og:description" content="如何辨别哈希题?大概就通过一句话:  当需要用 $Θ(1)$ 的时间快速比较两个 $Θ(n)$ 的东西时.  哈希是干嘛的?提供一种映射关系,能够把字符串或者树通过某种加密关系换算成一个数,从而进行比较或者直接排序. 自然,撞哈希的概率关乎哈希算法的核心. 生日悖论 大概意思就是,任意约 $\sqrt n$ 个元素的时候元素相同的概率就会很高(n是值域).为了防止撞哈希,我们要让值域尽可能大(也就">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-17T16:57:48.000Z">
-<meta property="article:modified_time" content="2024-09-18T07:04:37.114Z">
+<meta property="article:modified_time" content="2024-09-19T03:12:40.802Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -103,6 +103,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" aria-label="上一篇" href="/2024/09/19/%E4%BA%8C%E5%88%86%E5%9B%BE/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" aria-label="下一篇" href="/2024/09/12/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -134,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">1.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">手写哈希表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%97%A5%E6%82%96%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">生日悖论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%93%88%E5%B8%8C"><span class="toc-number">2.</span> <span class="toc-text">二维哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">3.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">手写哈希表</span></a></li></ol>
       </div>
     
   </span>
@@ -184,9 +186,25 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>哈希的简单陈述.</p>
+    <p>如何辨别哈希题?大概就通过一句话:</p>
+<blockquote>
+<p>当需要用 $Θ(1)$ 的时间快速比较两个 $Θ(n)$ 的东西时.</p>
+</blockquote>
 <p>哈希是干嘛的?提供一种映射关系,能够把字符串或者树通过某种加密关系换算成一个数,从而进行比较或者直接排序.</p>
 <p>自然,撞哈希的概率关乎哈希算法的核心.</p>
+<h2 id="生日悖论">生日悖论</h2>
+<p>大概意思就是,任意约 $\sqrt n$ 个元素的时候元素相同的概率就会很高(n是值域).为了防止撞哈希,我们要让值域尽可能大(也就是选择1e16-1e18级别的质数).</p>
+<h2 id="二维哈希">二维哈希</h2>
+<p>矩阵哈希,要求 $O(1)$ 求出相同大小的子矩阵的哈希值.</p>
+<p>我们要从矩阵中提取一个大小为(y,x)的矩阵,咋办?<br>
+首先要预处理阶乘(处理到矩阵行列最大值就可以了).二位哈希采取双进制的操作,一个是行之间的进制位(1299709),另一个是列之间乘再加的进制位(1e9+7).</p>
+<p>然后要建立哈希表.由于二维哈希是前缀式的,所以要乘上一位再加这一位的数据.然后再前缀和一样的乘,每一位乘列的进制位.参考代码如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">p1[<span class="number">0</span>]=p2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	p1[i]=p1[i<span class="number">-1</span>]*dom;</span><br><span class="line">	p2[i]=p2[i<span class="number">-1</span>]*mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">		x[i][j]=x[i][j<span class="number">-1</span>]*dom+<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">		y[i][j]=y[i][j<span class="number">-1</span>]*dom+<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">		x[i][j]+=x[i<span class="number">-1</span>][j]*mod;</span><br><span class="line">		y[i][j]+=y[i<span class="number">-1</span>][j]*mod;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>公式:<br>
+$$ask(x_1,x_2,y_1,y_2)=h[x_2][y_2]-h[x_2][y_1-1]*base_1[y_2-y_1+1]-h[x_1-1][y_2]*base_2[x_2-x_1+1]-h[x_1-1][y_1-1]*base_1[y_2-y_1+1]*base_2[x_2-x_1+1]$$<br>
+参考代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rp=y[i][j]-y[i-k][j]*p2[k]-y[i][j-k]*p1[k]+y[i-k][j-k]*p2[k]*p1[k];</span><br><span class="line"><span class="comment">//p2是1e9+7,p1是小的行之间的质数,k是子矩阵长度</span></span><br></pre></td></tr></table></figure>
+<p>好像子矩阵都可以O(1)求.</p>
 <h2 id="字符串哈希">字符串哈希</h2>
 <p><s>Flu刚开始学字符串哈希的时候真的就是只学哈希来了,umap该开的还是开,字符串哈希完了装umap里,乐</s></p>
 <p>字符串哈希,就是把一段字符串哈希变成一个数(双哈希是变成一对数),然后可以进行排序,然后直接检测有多少哈希值就行了(也就是多少种不同的字符串).</p>
@@ -233,7 +251,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">1.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">手写哈希表</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%97%A5%E6%82%96%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">生日悖论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%93%88%E5%B8%8C"><span class="toc-number">2.</span> <span class="toc-text">二维哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">3.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">手写哈希表</span></a></li></ol>
       </div>
     
 

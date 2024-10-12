@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/20236.png">
 <meta property="article:published_time" content="2024-07-20T03:16:23.000Z">
-<meta property="article:modified_time" content="2024-08-03T02:34:28.228Z">
+<meta property="article:modified_time" content="2024-09-27T09:12:05.008Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -250,6 +250,16 @@ $$f[i][j]=\sum_{k&lt;j,a_k&lt;a_j}f[i-1][k]$$<br>
 </ol>
 <p>考虑5的魔改.上一回我们使用了一个vis记录第一次出现的位置,这次我们拓展这个成last1和last2表示第一次出现以及第二次出现(第二次以上出现就没意思了),<strong>第一次出现记录last1,第二次出现记录last2,同时对last1对应的位置+1</strong>(因为对last2位置+1会错,区间l可能不覆盖第一次的位置)<strong>第二次及以上就覆盖,add(last1,-1),add(last2,1),然后向下传递last1=last2,last2=pos</strong>.查询不变.<br>
 拓展:同时出现n次才算:维护last1-lastn即可.</p>
+<ol start="7">
+<li>区间查询sin值和,区间加上角度v.</li>
+</ol>
+<p>考虑公式<br>
+$$\sin(x+v)=\sin x\cos v+\sin v\cos x$$<br>
+$$\cos(x+v)=\cos x\cos v-\sin v\sin x$$<br>
+我们维护该点的sin,cos,然后打一个懒标记.</p>
+<p>然后发现tag也可以直接加.于是就是普通线段树题了.<br>
+收获:懒标记代表的是已经计算过但是没传的.而不应该是打了没算.<br>
+三个函数: <code>push_up</code> 通过儿子更新该节点的答案, <code>push_down</code> 把tag传给孩子, <code>upd</code> 通过tag更新答案.</p>
 
   </div>
 </article>
