@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="万能欧几里得推式子的时间. 万能欧几里得的作用是求一些类似辗转相除的算法,需要递归求解的东西.万能欧几里得的泛用性在于主板子基本不用换,只需要稍微修改合并部分的代码. 可以使用矩阵的思想.  求\sum_{i&#x3D;0}^{n}\left\lfloor\frac{ai+b}{c}\right\rfloor, \sum_{i&#x3D;0}^{n}\left\lfloor\frac{ai+b}{c}\right\r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="万能欧几里得">
+<meta property="og:url" content="https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="万能欧几里得推式子的时间. 万能欧几里得的作用是求一些类似辗转相除的算法,需要递归求解的东西.万能欧几里得的泛用性在于主板子基本不用换,只需要稍微修改合并部分的代码. 可以使用矩阵的思想.  求\sum_{i&#x3D;0}^{n}\left\lfloor\frac{ai+b}{c}\right\rfloor, \sum_{i&#x3D;0}^{n}\left\lfloor\frac{ai+b}{c}\right\r">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-10T09:54:53.000Z">
+<meta property="article:modified_time" content="2024-09-10T13:26:14.676Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="NumberTheory">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>万能欧几里得</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/09/11/10009%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%BA%93/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/09/00007%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&text=万能欧几里得"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&is_video=false&description=万能欧几里得"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=万能欧几里得&body=Check out this article: https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&name=万能欧几里得&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&t=万能欧几里得"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%8A%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">弊端</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        万能欧几里得
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-09-10T09:54:53.000Z" class="dt-published" itemprop="datePublished">2024-09-10</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math/">Math</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/NumberTheory/" rel="tag">NumberTheory</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>万能欧几里得推式子的时间.</p>
+<p>万能欧几里得的作用是求一些类似辗转相除的算法,需要递归求解的东西.万能欧几里得的泛用性在于主板子基本不用换,只需要稍微修改合并部分的代码.</p>
+<p>可以使用矩阵的思想.</p>
+<ol>
+<li>求<script type="math/tex; mode=display">\sum_{i=0}^{n}\left\lfloor\frac{ai+b}{c}\right\rfloor, \sum_{i=0}^{n}\left\lfloor\frac{ai+b}{c}\right\rfloor^{2}, \sum_{i=0}^{n}i\left\lfloor\frac{ai+b}{c}\right\rfloor</script>设<script type="math/tex; mode=display">f(x)=\lfloor\frac{Px+R}Q\rfloor</script>求：<script type="math/tex; mode=display">\sum_{i=1}^nf(i),\sum_{i=1}^nf^2(i),\sum_{i=1}^nif(i)</script>下文设$y=f(x)$,即求：<script type="math/tex; mode=display">A=\sum y,B=\sum y^{2},C=\sum xy</script>一般万欧都需要维护$U$和$R$的数量(记为$u$和$r$).</li>
+</ol>
+<p>合并两段信息$I<em>0$与$I</em>{1}$,结果为$I$ ,考虑增量:</p>
+<script type="math/tex; mode=display">y\leftarrow y_1+u_0 \\
+x\leftarrow x_1+r_0</script><script type="math/tex; mode=display">\begin{aligned}
+A-A_0&=\sum y \\
+&=\sum(y_1+u_0) \\
+&=\sum y_1+u_0r_1 \\
+&=A_1+u_0r_1 \\
+B-B_{0} &=\sum y^2 \\
+&=\sum(y_1+u_0)^2 \\
+&=\sum y_1^2+2u_0\sum y_1+u_0^2r_1 \\
+&=B_1+2u_0A_1+u_0^2r_1 \\
+C-C_0 &=\sum xy \\
+&=\sum(x_1+r_0)(y_1+u_0) \\
+&=\sum x_1y_1+u_0\sum x_1+r_0\sum y_1+u_0r_0r_1 \\
+&=C_1+u_0\frac{r_1(r_1+1)}2+r_0A_1+u_0r_0r_1
+\end{aligned}</script><p>也就是说 $\sum$ 里面(y)加 $u$ ,外面加 $r$ .</p>
+<h2 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h2><script type="math/tex; mode=display">\sum\sqrt{y},\sum x^y,\sum a^{xy},\sum2^{2^y},\sum Asin(wy+\phi)</script><p>由于单维影响无法差分线性,即我们无法设计出一个好的矩阵来表达其值,所以上述式子均无法计算.</p>
+<p>崩:loj138没调出来.<br>loj6440.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> enter fout&lt;&lt;<span class="string">&quot;\n&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> space fout&lt;&lt;<span class="string">&quot; &quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> dot fout&lt;&lt;<span class="string">&quot;,&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> oui fout&lt;&lt;<span class="string">&quot;Yes&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> non fout&lt;&lt;<span class="string">&quot;No&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> si fout&lt;&lt;<span class="string">&quot;?&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> fastio&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> bufl=<span class="number">1</span>&lt;&lt;<span class="number">20</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">double</span> base1[<span class="number">16</span>]=&#123;<span class="number">1</span>,<span class="number">1e-1</span>,<span class="number">1e-2</span>,<span class="number">1e-3</span>,<span class="number">1e-4</span>,<span class="number">1e-5</span>,<span class="number">1e-6</span>,<span class="number">1e-7</span>,<span class="number">1e-8</span>,<span class="number">1e-9</span>,<span class="number">1e-10</span>,<span class="number">1e-11</span>,<span class="number">1e-12</span>,<span class="number">1e-13</span>,<span class="number">1e-14</span>,<span class="number">1e-15</span>&#125;;</span><br><span class="line">	<span class="type">const</span> <span class="type">double</span> base2[<span class="number">16</span>]=&#123;<span class="number">1</span>,<span class="number">1e1</span>,<span class="number">1e2</span>,<span class="number">1e3</span>,<span class="number">1e4</span>,<span class="number">1e5</span>,<span class="number">1e6</span>,<span class="number">1e7</span>,<span class="number">1e8</span>,<span class="number">1e9</span>,<span class="number">1e10</span>,<span class="number">1e11</span>,<span class="number">1e12</span>,<span class="number">1e13</span>,<span class="number">1e14</span>,<span class="number">1e15</span>&#125;;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">IN</span>&#123;</span><br><span class="line">		FILE *IT;<span class="type">char</span> ibuf[bufl],*is=ibuf,*it=ibuf;</span><br><span class="line">		<span class="built_in">IN</span>()&#123;IT=stdin;&#125;<span class="built_in">IN</span>(<span class="type">char</span> *a)&#123;IT=<span class="built_in">fopen</span>(a,<span class="string">&quot;r&quot;</span>);&#125;</span><br><span class="line">		<span class="function"><span class="keyword">inline</span> <span class="type">char</span> <span class="title">getChar</span><span class="params">()</span></span>&#123;<span class="keyword">if</span>(is==it)&#123;it=(is=ibuf)+<span class="built_in">fread</span>(ibuf,<span class="number">1</span>,bufl,IT);<span class="keyword">if</span>(is==it)<span class="keyword">return</span> EOF;&#125;<span class="keyword">return</span> *is++;&#125;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Temp&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">getInt</span><span class="params">(Temp &amp;a)</span></span>&#123;a=<span class="number">0</span>;<span class="type">int</span> b=<span class="number">0</span>,c=<span class="built_in">getChar</span>();<span class="keyword">while</span>(c&lt;<span class="number">48</span>||c&gt;<span class="number">57</span>)b^=(c==<span class="number">45</span>),c=<span class="built_in">getChar</span>();<span class="keyword">while</span>(c&gt;=<span class="number">48</span>&amp;&amp;c&lt;=<span class="number">57</span>)a=(a&lt;&lt;<span class="number">1</span>)+(a&lt;&lt;<span class="number">3</span>)+c<span class="number">-48</span>,c=<span class="built_in">getChar</span>();<span class="keyword">if</span>(b)a=-a;&#125;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Temp&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">getDouble</span><span class="params">(Temp &amp;a)</span></span>&#123;a=<span class="number">0</span>;<span class="type">int</span> b=<span class="number">0</span>,c=<span class="built_in">getChar</span>(),d=<span class="number">0</span>;__int128 e=<span class="number">0</span>,f=<span class="number">0</span>;<span class="keyword">while</span>(c&lt;<span class="number">48</span>||c&gt;<span class="number">57</span>)b^=(c==<span class="number">45</span>),c=<span class="built_in">getChar</span>();<span class="keyword">while</span>(c&gt;=<span class="number">48</span>&amp;&amp;c&lt;=<span class="number">57</span>)e=(e&lt;&lt;<span class="number">1</span>)+(e&lt;&lt;<span class="number">3</span>)+c<span class="number">-48</span>,c=<span class="built_in">getChar</span>();<span class="keyword">if</span>(c==<span class="number">46</span>)&#123;c=<span class="built_in">getChar</span>();<span class="keyword">while</span>(c&gt;=<span class="number">48</span>&amp;&amp;c&lt;=<span class="number">57</span>)d++,f=(f&lt;&lt;<span class="number">1</span>)+(f&lt;&lt;<span class="number">3</span>)+c<span class="number">-48</span>,c=<span class="built_in">getChar</span>();&#125;a=e+base1[d]*f;<span class="keyword">if</span>(b)a=-a;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">char</span> &amp;a)&#123;a=<span class="built_in">getChar</span>();<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">char</span> *a)&#123;<span class="keyword">do</span>&#123;*a=<span class="built_in">getChar</span>();&#125;<span class="keyword">while</span>(*a&lt;=<span class="number">32</span>);<span class="keyword">while</span>(*a&gt;<span class="number">32</span>)*++a=<span class="built_in">getChar</span>();*a=<span class="number">0</span>;<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(string &amp;a)&#123;<span class="type">char</span> b=<span class="built_in">getChar</span>();<span class="keyword">while</span>(b&lt;=<span class="number">32</span>)b=<span class="built_in">getChar</span>();<span class="keyword">while</span>(b&gt;<span class="number">32</span>)a+=b,b=<span class="built_in">getChar</span>();<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">int</span> &amp;a)&#123;<span class="built_in">getInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">long</span> <span class="type">long</span> &amp;a)&#123;<span class="built_in">getInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(__int128 &amp;a)&#123;<span class="built_in">getInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">float</span> &amp;a)&#123;<span class="built_in">getDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">double</span> &amp;a)&#123;<span class="built_in">getDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		IN&amp; <span class="keyword">operator</span>&gt;&gt;(<span class="type">long</span> <span class="type">double</span> &amp;a)&#123;<span class="built_in">getDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">OUT</span>&#123;</span><br><span class="line">		FILE *IT;<span class="type">char</span> obuf[bufl],*os=obuf,*ot=obuf+bufl;<span class="type">int</span> Eps;<span class="type">long</span> <span class="type">double</span> Acc;</span><br><span class="line">		<span class="built_in">OUT</span>()&#123;IT=stdout,Eps=<span class="number">6</span>,Acc=<span class="number">0.5</span>;&#125;<span class="built_in">OUT</span>(<span class="type">char</span> *a)&#123;IT=<span class="built_in">fopen</span>(a,<span class="string">&quot;w&quot;</span>),Eps=<span class="number">6</span>,Acc=<span class="number">0.5</span>;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">ChangEps</span><span class="params">(<span class="type">int</span> x=<span class="number">6</span>)</span></span>&#123;Eps=x;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">flush</span><span class="params">()</span></span>&#123;<span class="built_in">fwrite</span>(obuf,<span class="number">1</span>,os-obuf,IT);os=obuf;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">putChar</span><span class="params">(<span class="type">int</span> a)</span></span>&#123;*os++=a;<span class="keyword">if</span>(os==ot)<span class="built_in">flush</span>();&#125;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Temp&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">putInt</span><span class="params">(Temp a)</span></span>&#123;<span class="keyword">if</span>(a&lt;<span class="number">0</span>)&#123;<span class="built_in">putChar</span>(<span class="number">45</span>);a=-a;&#125;<span class="keyword">if</span>(a&lt;<span class="number">10</span>)&#123;<span class="built_in">putChar</span>(a+<span class="number">48</span>);<span class="keyword">return</span>;&#125;<span class="built_in">putInt</span>(a/<span class="number">10</span>);<span class="built_in">putChar</span>(a%<span class="number">10</span>+<span class="number">48</span>);&#125;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Temp&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">putLeading</span><span class="params">(Temp a,<span class="type">int</span> b)</span></span>&#123;<span class="keyword">if</span>(!b)<span class="keyword">return</span>;<span class="built_in">putLeading</span>(a/<span class="number">10</span>,b<span class="number">-1</span>);<span class="built_in">putChar</span>(a%<span class="number">10</span>+<span class="number">48</span>);&#125;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Temp&gt;<span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">putDouble</span><span class="params">(Temp a)</span></span>&#123;<span class="keyword">if</span>(a&lt;<span class="number">0</span>)&#123;<span class="built_in">putChar</span>(<span class="number">45</span>);a=-a;&#125;__int128 b=a;<span class="built_in">putInt</span>(b);a-=b;a*=base2[Eps];b=a+Acc;<span class="built_in">putChar</span>(<span class="number">46</span>);<span class="built_in">putLeading</span>(b,Eps);&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">char</span> a)&#123;<span class="built_in">putChar</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">const</span> <span class="type">char</span> *a)&#123;<span class="keyword">while</span>(*a)<span class="built_in">putChar</span>(*a++);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(string a)&#123;<span class="keyword">for</span>(<span class="keyword">auto</span> c:a)<span class="built_in">putChar</span>(c);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">int</span> a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">long</span> <span class="type">long</span> a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(__int128 a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">unsigned</span> <span class="type">int</span> a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">unsigned</span> __int128 a)&#123;<span class="built_in">putInt</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">float</span> a)&#123;<span class="built_in">putDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">double</span> a)&#123;<span class="built_in">putDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		OUT&amp; <span class="keyword">operator</span>&lt;&lt;(<span class="type">long</span> <span class="type">double</span> a)&#123;<span class="built_in">putDouble</span>(a);<span class="keyword">return</span> *<span class="keyword">this</span>;&#125;</span><br><span class="line">		~<span class="built_in">OUT</span>()&#123;<span class="built_in">flush</span>();&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line">fastio::IN fin;</span><br><span class="line">fastio::OUT fout;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">long</span> <span class="type">long</span> p=<span class="number">1000000007</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">long</span> <span class="type">long</span> mod=<span class="number">1000000007</span>;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1,<span class="keyword">typename</span> T2&gt;</span></span><br><span class="line"><span class="function">T1 <span class="title">qqp</span><span class="params">(T1 b,T2 po)</span></span>&#123;</span><br><span class="line">	T1 res=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(po&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(po&amp;<span class="number">1</span>)</span><br><span class="line">			res=res*b%p;</span><br><span class="line">		b=b*b%p;</span><br><span class="line">		po&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> k1,k2;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> C[<span class="number">20</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> u,r,dat[<span class="number">12</span>][<span class="number">12</span>];</span><br><span class="line">	<span class="built_in">node</span>(<span class="type">long</span> <span class="type">long</span> a=<span class="number">0</span>,<span class="type">long</span> <span class="type">long</span> b=<span class="number">0</span>):<span class="built_in">u</span>(a),<span class="built_in">r</span>(b)&#123;<span class="built_in">memset</span>(dat,<span class="number">0</span>,<span class="keyword">sizeof</span> dat);&#125;</span><br><span class="line">	~<span class="built_in">node</span>()&#123;&#125;</span><br><span class="line">	node <span class="keyword">operator</span>=(node io)&#123;</span><br><span class="line">		u=io.u;</span><br><span class="line">		r=io.r;</span><br><span class="line">		<span class="built_in">memcpy</span>(dat,io.dat,<span class="keyword">sizeof</span> dat);</span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	node <span class="keyword">operator</span>*(node io)&#123;</span><br><span class="line">		<span class="function">node <span class="title">res</span><span class="params">((u+io.u)%mod,(r+io.r)%mod)</span></span>;</span><br><span class="line">		<span class="built_in">memcpy</span>(res.dat,dat,<span class="keyword">sizeof</span> dat);</span><br><span class="line">		<span class="type">long</span> <span class="type">long</span> uu=u%mod,rr=r%mod;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=k1;++i)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=k2;++j)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> ii=<span class="number">0</span>,t1=<span class="number">1</span>;ii&lt;=i;++ii,t1=t1*uu%mod)&#123;</span><br><span class="line">					<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> jj=<span class="number">0</span>,t2=<span class="number">1</span>;jj&lt;=j;++jj,t2=t2*rr%mod)&#123;</span><br><span class="line">						res.dat[i][j]=(res.dat[i][j]+(C[i][ii]*C[j][jj]*t1%mod*t2%mod*io.dat[i-ii][i-jj])%mod)%mod;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">node <span class="title">qp</span><span class="params">(node b,<span class="type">long</span> <span class="type">long</span> po)</span></span>&#123;</span><br><span class="line">	node res;</span><br><span class="line">	<span class="keyword">while</span>(po&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(po&amp;<span class="number">1</span>)</span><br><span class="line">			res=res*b;</span><br><span class="line">		b=b*b;</span><br><span class="line">		po&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">node <span class="title">vargcd</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a,<span class="type">long</span> <span class="type">long</span> b,<span class="type">long</span> <span class="type">long</span> c,<span class="type">long</span> <span class="type">long</span> n,node fu,node fr)</span></span>&#123;</span><br><span class="line">	b%=c;</span><br><span class="line">	<span class="keyword">if</span>(a&gt;=c)<span class="keyword">return</span> <span class="built_in">vargcd</span>(a%c,b,c,n,fu,<span class="built_in">qp</span>(fu,a/c)*fr);</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> m=(a*n+b)/c;</span><br><span class="line">	<span class="keyword">if</span>(m==<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">qp</span>(fr,n);</span><br><span class="line">	<span class="keyword">return</span> (<span class="built_in">qp</span>(fr,(c-b<span class="number">-1</span>)/a)*fu*<span class="built_in">vargcd</span>(c,c-b<span class="number">-1</span>,a,m<span class="number">-1</span>,fr,fu)*<span class="built_in">qp</span>(fr,n-(c*m-b<span class="number">-1</span>)/a));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">node <span class="title">U</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>)</span>,<span class="title">R</span><span class="params">(<span class="number">0</span>,<span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> t,a,b,c,n;</span><br><span class="line">	fin&gt;&gt;t;</span><br><span class="line">	C[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">19</span>;++i)&#123;</span><br><span class="line">		C[i][<span class="number">0</span>]=C[i][i]=C[i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">2</span>;j&lt;i;++j)&#123;</span><br><span class="line">			C[i][j]=C[i<span class="number">-1</span>][j<span class="number">-1</span>]+C[i<span class="number">-1</span>][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;++i)&#123;</span><br><span class="line">		U.dat[<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		fin&gt;&gt;n&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;k1&gt;&gt;k2;</span><br><span class="line">		node res;</span><br><span class="line">		res.u=b/c;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">long</span> <span class="type">long</span> i=<span class="number">0</span>,t=<span class="number">1</span>;i&lt;=<span class="number">10</span>;++i,t=(t*res.u)%mod)&#123;</span><br><span class="line">			res.dat[i][<span class="number">0</span>]=t;</span><br><span class="line">		&#125;</span><br><span class="line">		fout&lt;&lt;(res*<span class="built_in">vargcd</span>(a,b,c,n,U,R)).dat[k1][k2]&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%8A%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">弊端</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&text=万能欧几里得"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&is_video=false&description=万能欧几里得"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=万能欧几里得&body=Check out this article: https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&title=万能欧几里得"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&name=万能欧几里得&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/10/10008%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97/&t=万能欧几里得"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

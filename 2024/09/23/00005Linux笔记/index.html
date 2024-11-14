@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="理论Linux目录123456789101112&#x2F; root  管理员目录  bin   有shell,shell有好多种,比方说sh,bash,ksh,csh等.  boot  Linux启动时的核心文件  dev   device缩写,存放Linux外部设备以及Linux中的设备  etc   系统管理配置文件  home  用户主目录(根目录)  var     lib  usr  opt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux笔记">
+<meta property="og:url" content="https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="理论Linux目录123456789101112&#x2F; root  管理员目录  bin   有shell,shell有好多种,比方说sh,bash,ksh,csh等.  boot  Linux启动时的核心文件  dev   device缩写,存放Linux外部设备以及Linux中的设备  etc   系统管理配置文件  home  用户主目录(根目录)  var     lib  usr  opt">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-23T14:11:34.000Z">
+<meta property="article:modified_time" content="2024-10-22T15:25:22.901Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="OTH">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Linux笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/10/07/30001%E7%BD%91%E9%A1%B5%E6%94%B6%E8%97%8F%E5%A4%B9/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/21/20005ICPC%E7%BD%91%E7%BB%9C%E8%B5%9B/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&text=Linux笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&is_video=false&description=Linux笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux笔记&body=Check out this article: https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&name=Linux笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&t=Linux笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">Linux目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty%E7%99%BB%E5%BD%95%E7%AE%80%E8%BF%B0"><span class="toc-number">2.0.1.</span> <span class="toc-text">Putty登录简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8C%87%E5%8D%97"><span class="toc-number">2.0.2.</span> <span class="toc-text">上机实验指南</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">2.0.3.</span> <span class="toc-text">管理员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.4.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">Vim使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.1.</span> <span class="toc-text">命令模式下的操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%AF%95%E8%80%83%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C"><span class="toc-number">2.2.</span> <span class="toc-text">考试考的命令手册</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Linux笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-09-23T14:11:34.000Z" class="dt-published" itemprop="datePublished">2024-09-23</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/OTH/">OTH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/OTH/" rel="tag">OTH</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><h2 id="Linux目录"><a href="#Linux目录" class="headerlink" title="Linux目录"></a>Linux目录</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/ root  管理员目录</span><br><span class="line">  bin   有shell,shell有好多种,比方说sh,bash,ksh,csh等.</span><br><span class="line">  boot  Linux启动时的核心文件</span><br><span class="line">  dev   device缩写,存放Linux外部设备以及Linux中的设备</span><br><span class="line">  etc   系统管理配置文件</span><br><span class="line">  home  用户主目录(根目录)</span><br><span class="line">  <span class="keyword">var</span>   </span><br><span class="line">  lib</span><br><span class="line">  usr</span><br><span class="line">  opt   额外的安装的软件,program files</span><br><span class="line">  media</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>Linux有好多目录…</p>
+<p><code>bin/usr/bin</code> :系统预装的可执行程序<br><code>usr/local/bin</code> :用户自己的可执行文件<br><code>lib/usr/bin</code> :基本动态连接共享库  </p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h3 id="Putty登录简述"><a href="#Putty登录简述" class="headerlink" title="Putty登录简述"></a>Putty登录简述</h3><p>端口 <code>123.60.209.149</code> ,账号 <code>c55230620</code> ,密码默认 <code>linux2024</code> .</p>
+<h3 id="上机实验指南"><a href="#上机实验指南" class="headerlink" title="上机实验指南"></a>上机实验指南</h3><p>使用 <code>check1</code> 命令在实验1中检查自己得了多少分.使用 <code>reset1</code> 命令恢复所有文件(同时得分清零…慎用)</p>
+<h3 id="管理员"><a href="#管理员" class="headerlink" title="管理员"></a>管理员</h3><p>root,根用户.拥有最高权限.<br>普通用户的提示符是 <code>$</code> ,管理员的命令提示符是 <code>#</code> .(这个可以设置,丰富系统信息)</p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>格式是 <code>$ 命令 [-选项] [参数]</code> 表示三个字段.</p>
+<p><code>.</code> 开头的文件在Linux中被视为隐藏.</p>
+<p><strong>命令分为内部命令和外部命令.</strong></p>
+<p>内部命令:shell代码一部分,shell启动后预留内存,执行速度快.( <code>help</code> 可以给出内部命令的帮助)<br>外部命令:保存在文件系统中的程序,被调用时才执行.( <code>man</code> 指令是联机帮助手册,可以给出所有指令的说明)<br><code>man</code> 手册前翻一页: <code>b</code> ,后翻一页 <code>\space</code> ,退出 <code>q</code> .</p>
+<h2 id="Vim使用"><a href="#Vim使用" class="headerlink" title="Vim使用"></a>Vim使用</h2><p>使用 <code>vim</code>,<code>vi</code> ,或者 <code>vim aaa.txt</code> 打开具体文件. <code>:q</code>,<code>:!q</code> 是退出(强制退出), <code>:w aaa.txt</code> 写入文件(可以直接打开文件然后输入 <code>:w</code> 写入),在vim内读入是 <code>:r aaa.txt</code> 注意使用 <code>r</code> 指令是把文本加载到编辑区,并不是直接就能覆盖源文件的(虽然可以用 <code>:w! 原文件</code> 解决)</p>
+<p>分为命令模式和输入模式.默认是命令模式,使用 <code>Esc</code> 从输入模式切成命令模式.使用 <code>a,A,i,I,o,O</code> 切成输入模式(<code>Insert</code>).</p>
+<p><code>:r</code> 参数 <code>-R</code> 只读. <code>-c xx</code> 带命令启动.</p>
+<p>编辑多个文件, <code>vi a,b,c</code> 然后 <code>:n</code> 启动下一个文件, <code>:n!</code> 放弃修改,启动下一个, <code>:w:n</code> 先保存再启动下一个.</p>
+<p><code>:ar</code> 查看当前排队处理文件的列表.</p>
+<h3 id="命令模式下的操作"><a href="#命令模式下的操作" class="headerlink" title="命令模式下的操作"></a>命令模式下的操作</h3><p>使用 <code>hjkl</code> 代表 <strong>左下上右</strong> 或者键盘上的方向键移动光标.<br>(spacebar就是space的空格)  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">OPT</th>
+<th style="text-align:left">EFFECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>0</code></td>
+<td style="text-align:left">行首</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>$</code></td>
+<td style="text-align:left">行尾</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>w</code></td>
+<td style="text-align:left">右一个字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>b</code></td>
+<td style="text-align:left">左一个字</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>e</code></td>
+<td style="text-align:left">字尾</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\enter</code></td>
+<td style="text-align:left">下一行行首</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\spacebar</code></td>
+<td style="text-align:left">右一格</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\backspace</code></td>
+<td style="text-align:left">左一格</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">OPT</th>
+<th style="text-align:left">EFFECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>x</code></td>
+<td style="text-align:left">删一个字母</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>dd</code></td>
+<td style="text-align:left">删一行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>u</code></td>
+<td style="text-align:left">撤销一步</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>U</code></td>
+<td style="text-align:left">撤销对该行的所有更改</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>r</code></td>
+<td style="text-align:left">替换这个字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>R</code></td>
+<td style="text-align:left">替换该字符,同时换成文本输入模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.</code></td>
+<td style="text-align:left">重复上一次修改</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">OPT</th>
+<th style="text-align:left">EFFECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>i</code></td>
+<td style="text-align:left">输入正文时光标左移一格</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>a</code></td>
+<td style="text-align:left">输入正文时光标左移一格</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>I</code></td>
+<td style="text-align:left">跳到行开头</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>A</code></td>
+<td style="text-align:left">跳到行末尾</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>o</code></td>
+<td style="text-align:left">下一行添加新行,光标出现在新行开头</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>O</code></td>
+<td style="text-align:left">上一行添加新行,光标出现在新行开头</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>搜索字符串: <code>\aaa</code> 然后光标会跳到搜索结果,按 <code>n</code> 下一个,按 <code>N</code> 上一个,会循环(指针乱跳,特别鬼畜), <code>?aaa</code> 从光标位置向前查找,说实话不好用.</p>
+<h2 id="考试考的命令手册"><a href="#考试考的命令手册" class="headerlink" title="考试考的命令手册"></a>考试考的命令手册</h2><p><code>cd</code> :改变目录.</p>
+<p><code>mkdir A B C ...</code> :当前文件夹下创建几个空文件夹(对应的, <code>rmdir</code> 就是删掉好多个空文件夹)</p>
+<p><code>rm -R aaa</code> :删除带文件的aaa.</p>
+<p><code>passwd</code> :修改密码.<br><code>passwd username</code> :修改别人密码.(显然,只有管理员可以)(root用户创建新用户时分配初始口令)</p>
+<p><code>exit</code> :退出系统.<br><code>logout</code> :退出系统.  </p>
+<p><code>date</code> :系统告诉你当前时间.<br><code>cal</code> :指定年份的日历表<br><code>who</code> :端口和登陆时间  </p>
+<p><code>ls</code> :显示目录里面有啥…参数如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls -l                    # 以长格式显示当前目录中的文件和目录</span><br><span class="line">ls -a                    # 显示当前目录中的所有文件和目录，包括隐藏文件</span><br><span class="line">ls -lh                   # 以人类可读的方式显示当前目录中的文件和目录大小</span><br><span class="line">ls -t                    # 按照修改时间排序显示当前目录中的文件和目录</span><br><span class="line">ls -R                    # 递归显示当前目录中的所有文件和子目录</span><br><span class="line">ls -l /etc/passwd        # 显示/etc/passwd文件的详细信息</span><br></pre></td></tr></table></figure></p>
+<p><code>csh</code> :更换shell,在当前shell中直接键入新shell名字即可,本质是创建新进程,运行新的shell.(用exit退出上一个shell的进程,可以套娃)</p>
+<p><code>vim xx</code> :使用 $\color{red}Vim$ 编辑器打开某文件. </p>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">Linux目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty%E7%99%BB%E5%BD%95%E7%AE%80%E8%BF%B0"><span class="toc-number">2.0.1.</span> <span class="toc-text">Putty登录简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C%E6%8C%87%E5%8D%97"><span class="toc-number">2.0.2.</span> <span class="toc-text">上机实验指南</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">2.0.3.</span> <span class="toc-text">管理员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.4.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">Vim使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.1.</span> <span class="toc-text">命令模式下的操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%AF%95%E8%80%83%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C"><span class="toc-number">2.2.</span> <span class="toc-text">考试考的命令手册</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&text=Linux笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&is_video=false&description=Linux笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux笔记&body=Check out this article: https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&title=Linux笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&name=Linux笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/23/00005Linux%E7%AC%94%E8%AE%B0/&t=Linux笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

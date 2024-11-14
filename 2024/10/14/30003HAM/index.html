@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="HAM特辑,记录知识点以及考试小技巧. 异地发射注意事项经群友指出,异地发射在呼号前加上分区的真正原因是告诉大家当前的地理位置,防止有人误认为此电波来自很远很远的地方,造成不必要的麻烦.下面是分区     分区 呼号前缀 呼号范围     北京(1) B1&#x2F; AA-ZZ,AAA-XZZ   黑龙江(2) B2&#x2F; AA-HZ,AAA-HZZ   吉林(2) B2&#x2F; IA-PZ,IAA-PZZ   辽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HAM">
+<meta property="og:url" content="https://narafluorine.github.io/2024/10/14/30003HAM/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="HAM特辑,记录知识点以及考试小技巧. 异地发射注意事项经群友指出,异地发射在呼号前加上分区的真正原因是告诉大家当前的地理位置,防止有人误认为此电波来自很远很远的地方,造成不必要的麻烦.下面是分区     分区 呼号前缀 呼号范围     北京(1) B1&#x2F; AA-ZZ,AAA-XZZ   黑龙江(2) B2&#x2F; AA-HZ,AAA-HZZ   吉林(2) B2&#x2F; IA-PZ,IAA-PZZ   辽">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-14T00:04:48.000Z">
+<meta property="article:modified_time" content="2024-11-05T13:47:54.835Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Physics">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>HAM</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/10/16/30002%E9%A3%9F%E6%A2%A6%E5%BF%97/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/10/12/10018%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/10/14/30003HAM/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/10/14/30003HAM/&text=HAM"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/10/14/30003HAM/&is_video=false&description=HAM"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HAM&body=Check out this article: https://narafluorine.github.io/2024/10/14/30003HAM/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/10/14/30003HAM/&name=HAM&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/10/14/30003HAM/&t=HAM"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%9C%B0%E5%8F%91%E5%B0%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">异地发射注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99"><span class="toc-number">2.</span> <span class="toc-text">相关网站</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%BF%E6%98%A5%E6%9C%AC%E5%9C%B0"><span class="toc-number"></span> <span class="toc-text">长春本地</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81%E8%A1%A8%E4%BB%A5%E5%8F%8A%E7%A7%B0%E5%91%BC"><span class="toc-number">1.</span> <span class="toc-text">摩斯电码表以及称呼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">2.</span> <span class="toc-text">杂项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QSL"><span class="toc-number">3.</span> <span class="toc-text">QSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%9A%84%E5%8D%A1%E8%83%8C"><span class="toc-number">3.1.</span> <span class="toc-text">所有的卡背</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        HAM
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-10-14T00:04:48.000Z" class="dt-published" itemprop="datePublished">2024-10-14</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/OTH/">OTH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Physics/" rel="tag">Physics</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>HAM特辑,记录知识点以及考试小技巧.</p>
+<h2 id="异地发射注意事项"><a href="#异地发射注意事项" class="headerlink" title="异地发射注意事项"></a>异地发射注意事项</h2><p>经群友指出,异地发射在呼号前加上分区的真正原因是告诉大家当前的地理位置,防止有人误认为此电波来自很远很远的地方,造成不必要的麻烦.下面是分区</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">分区</th>
+<th style="text-align:left">呼号前缀</th>
+<th style="text-align:left">呼号范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">北京(1)</td>
+<td style="text-align:left"><code>B1/</code></td>
+<td style="text-align:left">AA-ZZ,AAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">黑龙江(2)</td>
+<td style="text-align:left"><code>B2/</code></td>
+<td style="text-align:left">AA-HZ,AAA-HZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">吉林(2)</td>
+<td style="text-align:left"><code>B2/</code></td>
+<td style="text-align:left">IA-PZ,IAA-PZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">辽宁(2)</td>
+<td style="text-align:left"><code>B2/</code></td>
+<td style="text-align:left">QA-ZZ,QAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">天津(3)</td>
+<td style="text-align:left"><code>B3/</code></td>
+<td style="text-align:left">AA-FZ,AAA-FZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">内蒙古(3)</td>
+<td style="text-align:left"><code>B3/</code></td>
+<td style="text-align:left">GA-LZ,GAA-LZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">河北(3)</td>
+<td style="text-align:left"><code>B3/</code></td>
+<td style="text-align:left">MA-RZ,MAA-RZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">山西(3)</td>
+<td style="text-align:left"><code>B3/</code></td>
+<td style="text-align:left">SA-XZ,SAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">上海(4)</td>
+<td style="text-align:left"><code>B4/</code></td>
+<td style="text-align:left">AA-HZ,AAA-HZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">山东(4)</td>
+<td style="text-align:left"><code>B4/</code></td>
+<td style="text-align:left">IA-PZ,IAA-PZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">江苏(4)</td>
+<td style="text-align:left"><code>B4/</code></td>
+<td style="text-align:left">QA-ZZ,QAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">浙江(5)</td>
+<td style="text-align:left"><code>B5/</code></td>
+<td style="text-align:left">AA-HZ,AAA-HZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">江西(5)</td>
+<td style="text-align:left"><code>B5/</code></td>
+<td style="text-align:left">IA-PZ,IAA-PZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">福建(5)</td>
+<td style="text-align:left"><code>B5/</code></td>
+<td style="text-align:left">QA-ZZ,QAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">安徽(6)</td>
+<td style="text-align:left"><code>B6/</code></td>
+<td style="text-align:left">AA-HZ,AAA-HZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">河南(6)</td>
+<td style="text-align:left"><code>B6/</code></td>
+<td style="text-align:left">IA-PZ,IAA-PZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">湖北(6)</td>
+<td style="text-align:left"><code>B6/</code></td>
+<td style="text-align:left">QA-ZZ,QAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">湖南(7)</td>
+<td style="text-align:left"><code>B7/</code></td>
+<td style="text-align:left">AA-HZ,AAA-HZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">广东(7)</td>
+<td style="text-align:left"><code>B7/</code></td>
+<td style="text-align:left">IA-PZ,IAA-PZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">广西(7)</td>
+<td style="text-align:left"><code>B7/</code></td>
+<td style="text-align:left">QA-ZZ,QAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">海南(7)</td>
+<td style="text-align:left"><code>B7/</code></td>
+<td style="text-align:left">YA-ZZ,YAA-ZZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">四川(8)</td>
+<td style="text-align:left"><code>B8/</code></td>
+<td style="text-align:left">AA-FZ,AAA-FZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">重庆(8)</td>
+<td style="text-align:left"><code>B8/</code></td>
+<td style="text-align:left">GA-LZ,GAA-LZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">贵州(8)</td>
+<td style="text-align:left"><code>B8/</code></td>
+<td style="text-align:left">MA-RZ,MAA-RZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">云南(8)</td>
+<td style="text-align:left"><code>B8/</code></td>
+<td style="text-align:left">SA-XZ,SAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">陕西(9)</td>
+<td style="text-align:left"><code>B9/</code></td>
+<td style="text-align:left">AA-FZ,AAA-FZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">甘肃(9)</td>
+<td style="text-align:left"><code>B9/</code></td>
+<td style="text-align:left">GA-LZ,GAA-LZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">宁夏(9)</td>
+<td style="text-align:left"><code>B9/</code></td>
+<td style="text-align:left">MA-RZ,MAA-RZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">青海(9)</td>
+<td style="text-align:left"><code>B9/</code></td>
+<td style="text-align:left">SA-XZ,SAA-XZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">新疆(0)</td>
+<td style="text-align:left"><code>B0/</code></td>
+<td style="text-align:left">AA-FZ,AAA-FZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">西藏(0)</td>
+<td style="text-align:left"><code>B0/</code></td>
+<td style="text-align:left">GA-LZ,GAA-LZZ</td>
+</tr>
+<tr>
+<td style="text-align:left">香港</td>
+<td style="text-align:left"><code>VR2</code></td>
+<td style="text-align:left">VR2</td>
+</tr>
+<tr>
+<td style="text-align:left">澳门</td>
+<td style="text-align:left"><code>XX9</code></td>
+<td style="text-align:left">XX9</td>
+</tr>
+<tr>
+<td style="text-align:left">台湾</td>
+<td style="text-align:left"><code>BV</code></td>
+<td style="text-align:left">BV等1-9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h2><p><a target="_blank" rel="noopener" href="http://www.qrz.cn/home/">呼号查人1(qrz.cn)</a><br><a target="_blank" rel="noopener" href="https://www.qrz.com/page/site.html">呼号查人2(qrz.com)</a><br><a target="_blank" rel="noopener" href="http://qrzworld.com/">呼号查人3(火腿助手)</a>  </p>
+<h1 id="长春本地"><a href="#长春本地" class="headerlink" title="长春本地"></a>长春本地</h1><p><code>439.850</code> 和 <code>438.500</code> </p>
+<h2 id="摩斯电码表以及称呼"><a href="#摩斯电码表以及称呼" class="headerlink" title="摩斯电码表以及称呼"></a>摩斯电码表以及称呼</h2><p>首先,短的 <code>.</code> 读 <code>嘀</code> ,长的 <code>-</code> 读 <code>嗒</code> .</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Character</th>
+<th style="text-align:left">Morse Code</th>
+<th style="text-align:left">Telephony</th>
+<th style="text-align:left">Phonic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>A</code></td>
+<td style="text-align:left"><code>.-</code></td>
+<td style="text-align:left">Alfa</td>
+<td style="text-align:left">(AL-FAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>B</code></td>
+<td style="text-align:left"><code>-...</code></td>
+<td style="text-align:left">Bravo</td>
+<td style="text-align:left">(BRAH-VOH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>C</code></td>
+<td style="text-align:left"><code>-.-.</code></td>
+<td style="text-align:left">Charlie</td>
+<td style="text-align:left">(CHAR-LEE)or(SHAR-LEE)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>D</code></td>
+<td style="text-align:left"><code>-..</code></td>
+<td style="text-align:left">Delta</td>
+<td style="text-align:left">(DELL-TAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>E</code></td>
+<td style="text-align:left"><code>.</code></td>
+<td style="text-align:left">Echo</td>
+<td style="text-align:left">(ECK-OH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>F</code></td>
+<td style="text-align:left"><code>..-.</code></td>
+<td style="text-align:left">Foxtrot</td>
+<td style="text-align:left">(FOKS-TROT)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>G</code></td>
+<td style="text-align:left"><code>--.</code></td>
+<td style="text-align:left">Golf</td>
+<td style="text-align:left">(GOLF)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>H</code></td>
+<td style="text-align:left"><code>....</code></td>
+<td style="text-align:left">Hotel</td>
+<td style="text-align:left">(HOH-TEL)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>I</code></td>
+<td style="text-align:left"><code>..</code></td>
+<td style="text-align:left">India</td>
+<td style="text-align:left">(IN-DEE-AH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>J</code></td>
+<td style="text-align:left"><code>.---</code></td>
+<td style="text-align:left">Juliett</td>
+<td style="text-align:left">(JEW-LEE-ETT)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>K</code></td>
+<td style="text-align:left"><code>-.-</code></td>
+<td style="text-align:left">Kilo</td>
+<td style="text-align:left">(KEY-LOH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>L</code></td>
+<td style="text-align:left"><code>.-..</code></td>
+<td style="text-align:left">Lima</td>
+<td style="text-align:left">(LEE-MAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>M</code></td>
+<td style="text-align:left"><code>--</code></td>
+<td style="text-align:left">Mike</td>
+<td style="text-align:left">(MIKE)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>N</code></td>
+<td style="text-align:left"><code>-.</code></td>
+<td style="text-align:left">November</td>
+<td style="text-align:left">(NO-VEM-BER)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>O</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left">Oscar</td>
+<td style="text-align:left">(OSS-CAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>P</code></td>
+<td style="text-align:left"><code>.--.</code></td>
+<td style="text-align:left">Papa</td>
+<td style="text-align:left">(PAH-PAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Q</code></td>
+<td style="text-align:left"><code>--.-</code></td>
+<td style="text-align:left">Quebec</td>
+<td style="text-align:left">(KEH-BECK)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>R</code></td>
+<td style="text-align:left"><code>.-.</code></td>
+<td style="text-align:left">Romeo</td>
+<td style="text-align:left">(ROW-ME-OH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>S</code></td>
+<td style="text-align:left"><code>...</code></td>
+<td style="text-align:left">Sierra</td>
+<td style="text-align:left">(SEE-AIR-RAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>T</code></td>
+<td style="text-align:left"><code>-</code></td>
+<td style="text-align:left">Tango</td>
+<td style="text-align:left">(TANG-GO)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>U</code></td>
+<td style="text-align:left"><code>..-</code></td>
+<td style="text-align:left">Uniform</td>
+<td style="text-align:left">(YOU-NEE-FORM)or(OO-NEE-FORM)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>V</code></td>
+<td style="text-align:left"><code>...-</code></td>
+<td style="text-align:left">Victor</td>
+<td style="text-align:left">(VIK-TAH)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>W</code></td>
+<td style="text-align:left"><code>.--</code></td>
+<td style="text-align:left">Whiskey</td>
+<td style="text-align:left">(WISS-KEY)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>X</code></td>
+<td style="text-align:left"><code>-..-</code></td>
+<td style="text-align:left">Xray</td>
+<td style="text-align:left">(ECKS-RAY)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Y</code></td>
+<td style="text-align:left"><code>-.--</code></td>
+<td style="text-align:left">Yankee</td>
+<td style="text-align:left">(YANG-KEY)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Z</code></td>
+<td style="text-align:left"><code>--..</code></td>
+<td style="text-align:left">Zulu</td>
+<td style="text-align:left">(ZOO-LOO)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>字符:(打错了发连续的好几个点然后整句重发)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Character</th>
+<th style="text-align:left">Morse Code</th>
+<th style="text-align:left">Telephony</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>1</code></td>
+<td style="text-align:left"><code>.----</code></td>
+<td style="text-align:left">ONE</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>2</code></td>
+<td style="text-align:left"><code>..---</code></td>
+<td style="text-align:left">TWO</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>3</code></td>
+<td style="text-align:left"><code>...--</code></td>
+<td style="text-align:left">THREE</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>4</code></td>
+<td style="text-align:left"><code>....-</code></td>
+<td style="text-align:left">FOUR</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>5</code></td>
+<td style="text-align:left"><code>.....</code></td>
+<td style="text-align:left">FIVE</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>6</code></td>
+<td style="text-align:left"><code>-....</code></td>
+<td style="text-align:left">SIX</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>7</code></td>
+<td style="text-align:left"><code>--...</code></td>
+<td style="text-align:left">SEVEN</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>8</code></td>
+<td style="text-align:left"><code>---..</code></td>
+<td style="text-align:left">EIGHT</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>9</code></td>
+<td style="text-align:left"><code>----.</code></td>
+<td style="text-align:left">NINE</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>0</code></td>
+<td style="text-align:left"><code>-----</code></td>
+<td style="text-align:left">ZERO</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>?</code></td>
+<td style="text-align:left"><code>--..--</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/</code></td>
+<td style="text-align:left"><code>-..-.</code></td>
+<td style="text-align:left">SLASH</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>()</code></td>
+<td style="text-align:left"><code>-.--.-</code></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-</code></td>
+<td style="text-align:left"><code>-....-</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>原则上,无线电证应当尽早考,相关手续要尽早办.</p>
+<p><code>2014年</code>,浙江省禁u段.<br><code>2024年8月</code>,上海市也开始禁u段,所有审批纯u段的电台均延缓办理.</p>
+<p>原因是u段好像要分给航空.再说了本来业余无线电在u段是次要业务,划分给别人是没有错的.</p>
+<h2 id="QSL"><a href="#QSL" class="headerlink" title="QSL"></a>QSL</h2><p>这里存放Flu设计并制作的QSL卡片合集~来卡必回.</p>
+<p>This is BG2MJG, 73.</p>
+<h3 id="所有的卡背"><a href="#所有的卡背" class="headerlink" title="所有的卡背"></a>所有的卡背</h3>
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%9C%B0%E5%8F%91%E5%B0%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">异地发射注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99"><span class="toc-number">2.</span> <span class="toc-text">相关网站</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%BF%E6%98%A5%E6%9C%AC%E5%9C%B0"><span class="toc-number"></span> <span class="toc-text">长春本地</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81%E8%A1%A8%E4%BB%A5%E5%8F%8A%E7%A7%B0%E5%91%BC"><span class="toc-number">1.</span> <span class="toc-text">摩斯电码表以及称呼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">2.</span> <span class="toc-text">杂项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QSL"><span class="toc-number">3.</span> <span class="toc-text">QSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E7%9A%84%E5%8D%A1%E8%83%8C"><span class="toc-number">3.1.</span> <span class="toc-text">所有的卡背</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/10/14/30003HAM/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/10/14/30003HAM/&text=HAM"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/10/14/30003HAM/&is_video=false&description=HAM"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HAM&body=Check out this article: https://narafluorine.github.io/2024/10/14/30003HAM/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/10/14/30003HAM/&title=HAM"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/10/14/30003HAM/&name=HAM&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/10/14/30003HAM/&t=HAM"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

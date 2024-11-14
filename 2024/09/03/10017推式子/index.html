@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)  求解的个数:(1e9取模) \frac1x+\frac1y&#x3D;\frac1{n!}首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的.我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 \frac1x+\frac1{n!+k}&#x3D;\frac1{n!}化简变成 x&#x3D;n!+\frac{(n!)^2}k我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="推式子">
+<meta property="og:url" content="https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)  求解的个数:(1e9取模) \frac1x+\frac1y&#x3D;\frac1{n!}首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的.我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 \frac1x+\frac1{n!+k}&#x3D;\frac1{n!}化简变成 x&#x3D;n!+\frac{(n!)^2}k我">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-03T04:46:12.000Z">
+<meta property="article:modified_time" content="2024-11-11T06:43:50.308Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="NumberTheory">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>推式子</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/09/03/10012%E7%AD%9B%E6%B3%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/03/20004CF-Round970-Div3/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&text=推式子"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&is_video=false&description=推式子"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=推式子&body=Check out this article: https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&name=推式子&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&t=推式子"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">其他奇奇怪怪的公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%87%E5%B9%82%E5%BC%95%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">升幂引理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wilson%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">Wilson威尔逊定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">类欧几里得算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">万能欧几里得算法</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        推式子
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-09-03T04:46:12.000Z" class="dt-published" itemprop="datePublished">2024-09-03</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Math/">Math</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/NumberTheory/" rel="tag">NumberTheory</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)</p>
+<ol>
+<li><p>求解的个数:(1e9取模)</p>
+<script type="math/tex; mode=display">\frac1x+\frac1y=\frac1{n!}</script><p>首先我们发现,1/x和1/y都是小于1/n!的,所以x和y应该是大于n!的.<br>我们设 $y=n!+k,k\in N^+$ ,于是式子变成</p>
+<script type="math/tex; mode=display">\frac1x+\frac1{n!+k}=\frac1{n!}</script><p>化简变成</p>
+<script type="math/tex; mode=display">x=n!+\frac{(n!)^2}k</script><p>我们就统计一下约数个数就行了,具体地,线性筛一下,算出每个数的最小质因数,因为 $x^2$ 的每个约数都是 $x$ 的两倍,所以我们要先乘2再加1.</p>
+</li>
+<li><p>求</p>
+<script type="math/tex; mode=display">\sum_{k=1}^n\Big\lfloor\frac{(3k+6)!+1}{3k+7}-\Big\lfloor\frac{(3k+6)!}{3k+7}\Big\rfloor\Big\rfloor</script><p>我们分情况考虑,假设 $3k+7$ 是质数,则由定理知 $(3k+6)!\equiv-1\mod (3k+7)$ ,所以我们设 $(3k+6)!+1=a(3k+7)$ (同时注意,模意义下只能这么干,不要想着逆元解决),原式即为</p>
+<script type="math/tex; mode=display">\Big\lfloor a-\Big\lfloor a-\frac{1}{3k+7}\Big\rfloor\Big\rfloor=1</script><p>同时,假如不是质数,由于其质因子全部包含在阶乘里面,也就有了 $(3k+7)|(3k+6)!$ .这个时候还是设 $(3k+6)!=a(3k+7)$ ,式子可以化为</p>
+<script type="math/tex; mode=display">\Big\lfloor a+\frac{1}{3k+7}-a\Big\rfloor=0</script><p>所以,式子只是让我们统计一下有多少个 $3k+7$ 是质数.</p>
+</li>
+<li><p>求 $x^2+y^2=19451945$ :凑配法:对于展开数有以下式子:</p>
+<script type="math/tex; mode=display">(ac+bd)^2+(ad-bc)^2=(a^2+b^2)(c^2+d^2)</script><p>然后19451945就能分解为1945*10001,现在开始考虑分解1945,在3的时候能分解,问题解决了.最后的abcd分别是 $3,44,100,1$ ,答案是 $344,4397$ .</p>
+</li>
+</ol>
+<h2 id="其他奇奇怪怪的公式"><a href="#其他奇奇怪怪的公式" class="headerlink" title="其他奇奇怪怪的公式"></a>其他奇奇怪怪的公式</h2><ol>
+<li>feb表示斐波那契数列第n项.<script type="math/tex; mode=display">\gcd(feb_{n},feb_{m})=feb_{\gcd(n,m)}</script></li>
+<li><script type="math/tex; mode=display">\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)},\gcd(a,b)=1</script></li>
+<li><script type="math/tex; mode=display">\gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1</script></li>
+<li><script type="math/tex; mode=display">(n+1)lcm(C^{0}_{n},C^{1}_{n},...,C^{n}_{n})=lcm(1,2,...,n+1)</script></li>
+<li><script type="math/tex; mode=display">((n+1)(n+2)(n+3)...(n+k))\%(k!)=0</script></li>
+<li>$n!$ 中p的幂次是<script type="math/tex; mode=display">\sum\left\lfloor\frac n{p^i}\right\rfloor</script></li>
+<li>若 $b|a$ 则有<script type="math/tex; mode=display">\frac ab\%c=\frac{a\%(bc)}b</script></li>
+<li>快速幂的优化(偏一点)<br>常规快速幂是快速求 $a^b\%c$ 现在是多组数据求 $x^k\%p$ ,注意x和p是给定的,如何预处理?<br>正解不是快速幂,而是分块思想,取 $k=\sqrt{mod}$ ,预处理 $x^0,xx^1,…,x^{k-2},x^{k-1}$ 和 $x^{0},x^{k},x^{2k},…,x^{\lfloor\frac{mod}{k}\rfloor k}$ ,然后每次查询就是O(1)级别的了,预处理是 $O(k)$ 也就是 $O(\sqrt{mod})$ 在 $5e^6$ 的数据范围下跑得过 $O(T\log k)$ .</li>
+<li></li>
+</ol>
+<h2 id="升幂引理"><a href="#升幂引理" class="headerlink" title="升幂引理"></a>升幂引理</h2><p>规定 $v_p(n)$ 表示n中有多少个p这个因子.</p>
+<ol>
+<li>素数p和与p互质的n.<br>若 $p|x-y$ 有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)</script>若 $p|x+y$ 则对 <strong>奇数</strong> n有<script type="math/tex; mode=display">v_p(x^n+y^n)=v_p(x+y)</script></li>
+<li>若p不是2(是奇质数):<br>若 $p|x-y$ 有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)+v_p(n)</script>若 $p|x+y$ 则对 <strong>奇数</strong> n有<script type="math/tex; mode=display">v_p(x^n+y^n)=v_p(x+y)+v_p(n)</script></li>
+<li>若p是2且 $p|x-y$ 对 <strong>偶数</strong> n有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)+v_p(x+y)+v_p(n)-1</script></li>
+<li>对于 $4|x-y$<script type="math/tex; mode=display">v_2(x+y)=1</script><script type="math/tex; mode=display">v_2(x^n-y^n)=v_2(x-y)+v_2(n)</script><h2 id="Wilson威尔逊定理"><a href="#Wilson威尔逊定理" class="headerlink" title="Wilson威尔逊定理"></a>Wilson威尔逊定理</h2><script type="math/tex; mode=display">(p-1)!\equiv-1\mod p</script></li>
+<li><p>特殊的阶乘(n比p大,不计所有p的因子对p取模)</p>
+<script type="math/tex; mode=display">\begin{aligned}&(n!)\mod p\\=&(-1)^{\lfloor\frac{n}{p}\rfloor}\Big(\Big\lfloor\frac np\Big\rfloor!\Big)\mod p\end{aligned}</script><p>打一个阶乘表可以 $\log_pn$解决.</p>
+</li>
+<li><p>Lagenre(勒让德)公式</p>
+<script type="math/tex; mode=display">v_p(n!)=\sum_{i=1}^\infin\Big\lfloor\frac n{p^i}\Big\rfloor=\frac{n-S_p(n)}{p-1}</script><p>其中, $S_p(n)$ 表示在p进制下n每位数字和.(注意,直接除,别搞什么逆元啥的)</p>
+<h2 id="类欧几里得算法"><a href="#类欧几里得算法" class="headerlink" title="类欧几里得算法"></a>类欧几里得算法</h2></li>
+<li>我们需要logn解决.设<script type="math/tex; mode=display">\begin{aligned}f(a,b,c,n)=&\sum_{i=0}^n\Big\lfloor\frac{ai+b}{c}\Big\rfloor\\=&\sum_{i=0}^n\Big\lfloor\frac{(\lfloor\frac ac\rfloor c+a\mod c)i+(\lfloor\frac bc\rfloor c+b\mod c)}{c}\Big\rfloor\\=&\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+\sum_{i=0}^n\Big\lfloor\frac{(a\mod c)i+(b\mod c)}c\Big\rfloor
+\\=&\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+f(a\mod c,b\mod c,c,n)\end{aligned}</script>改变一下求和项目看到<script type="math/tex; mode=display">\begin{aligned}f(a,b,c,n)&=\sum_{k=0}^{m-1}\sum_{i=0}^n\Big[i>\Big\lfloor\frac{jc+c-b-1}{a}\Big\rfloor\Big]
+\\&=\sum_{j=0}^{m-1}\Big(n-\Big\lfloor\frac{jc+c-b-a}a\Big\rfloor\Big)
+\\&=nm-f(c,c-b-1,a,m-1)\end{aligned}</script>中间有<script type="math/tex; mode=display">n^2=2\frac{n(n+1)}2-n=\Big(\sum_{i=0}^ni\Big)-n</script><h2 id="万能欧几里得算法"><a href="#万能欧几里得算法" class="headerlink" title="万能欧几里得算法"></a>万能欧几里得算法</h2></li>
+</ol>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">其他奇奇怪怪的公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%87%E5%B9%82%E5%BC%95%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">升幂引理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wilson%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">Wilson威尔逊定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">类欧几里得算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">万能欧几里得算法</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&text=推式子"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&is_video=false&description=推式子"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=推式子&body=Check out this article: https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&title=推式子"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&name=推式子&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/&t=推式子"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

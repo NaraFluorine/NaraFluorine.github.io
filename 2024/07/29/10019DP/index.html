@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="期望DP期望dp的状态一般设定为 dp[i]:已经取到i个,取完剩下的期望xx ,转移方程一般写作 “概率转移+代价” 的形式.然后列转移方程,比个例子:有n种邮,第k次买邮票的价格是k元,每次买邮票等概率随机一种,问一个人想买到这总共n种邮票期望花多少钱. 我们发现第k次取和价钱挂钩,于是要设两个式子: $f(x)$ 表示已经取到了x,取完总共n种的期望 次数, $g(x)$ 表示已经取到了x,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DP">
+<meta property="og:url" content="https://narafluorine.github.io/2024/07/29/10019DP/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="期望DP期望dp的状态一般设定为 dp[i]:已经取到i个,取完剩下的期望xx ,转移方程一般写作 “概率转移+代价” 的形式.然后列转移方程,比个例子:有n种邮,第k次买邮票的价格是k元,每次买邮票等概率随机一种,问一个人想买到这总共n种邮票期望花多少钱. 我们发现第k次取和价钱挂钩,于是要设两个式子: $f(x)$ 表示已经取到了x,取完总共n种的期望 次数, $g(x)$ 表示已经取到了x,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-29T13:53:29.000Z">
+<meta property="article:modified_time" content="2024-11-11T14:50:33.319Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>DP</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/30/10029C-%E8%AF%AD%E6%B3%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/07/28/10003Python%E8%AF%AD%E6%B3%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/29/10019DP/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/29/10019DP/&text=DP"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/29/10019DP/&is_video=false&description=DP"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DP&body=Check out this article: https://narafluorine.github.io/2024/07/29/10019DP/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/29/10019DP/&name=DP&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/29/10019DP/&t=DP"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9BDP"><span class="toc-number">1.</span> <span class="toc-text">期望DP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">整数划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">矩阵优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">例题</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        DP
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-07-29T13:53:29.000Z" class="dt-published" itemprop="datePublished">2024-07-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/OTH/">OTH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="期望DP"><a href="#期望DP" class="headerlink" title="期望DP"></a>期望DP</h2><p>期望dp的状态一般设定为 <strong>dp[i]:已经取到i个,取完剩下的期望xx</strong> ,转移方程一般写作 <strong>“概率转移+代价”</strong> 的形式.然后列转移方程,比个例子:有n种邮,第k次买邮票的价格是k元,每次买邮票等概率随机一种,问一个人想买到这总共n种邮票期望花多少钱.</p>
+<p>我们发现第k次取和价钱挂钩,于是要设两个式子: $f(x)$ 表示已经取到了x,取完总共n种的期望 <strong>次数</strong>, $g(x)$ 表示已经取到了x,期望取完的 <strong>价钱</strong> .于是有</p>
+<script type="math/tex; mode=display">f(x)=\frac xnf(x)+\frac{n-x}nf(x+1)+1</script><script type="math/tex; mode=display">g(x)=\frac xn(g(x)+f(x)+1)+\frac{n-x}n(g(x+1)+f(x+1)+1)</script><p>关于g的表达式:有x/n的概率不动,也就是期望不变,后面的f(x)是期望的代价是次数,+1表示每次都要比之前贵一块,体现在这里.</p>
+<p>一个怪有n滴血,一次攻击有 $p$ 的概率掉两滴血, $1-p$ 的概率掉一滴血,求怪物死亡(血量小于等于0)的期望攻击次数.这个的dp是 <strong>怪物剩x滴血时的期望攻击次数</strong> ,方程为</p>
+<script type="math/tex; mode=display">dp_i=\begin{cases}0&i\ge n\\dp_{i+1}p+dp_{i+2}(1-p)+1&i<n\end{cases}</script><p>这个1就是攻击代价.</p>
+<h2 id="整数划分"><a href="#整数划分" class="headerlink" title="整数划分"></a>整数划分</h2><p>常见以下几种题型:</p>
+<ol>
+<li>给一个数,划分成一些数(给n个硬币分成若干堆)问有多少种情况.(以及略微加强版,划分的最大数不超过m)</li>
+</ol>
+<p>设 $p(n,m)$ 表示能划分的种类数,先考虑nm的关系:假如 $m\ge n$ ,那么就是p(n,n),由于包含最大划分数的只有一种,剩下的都不包含n.</p>
+<p>然后是小于n的情况.存在最大划分数的时候有p(n-m,m)的情况,如果不存在,那么m就没有意义了,可以把范围放小,所以这个时候的情况就是p(n,m-1),总的式子就是下面的:</p>
+<script type="math/tex; mode=display">p(n,m)=\begin{cases}1+p(n,n-1)&n\le m\\p(n-m,m)+p(n,m-1)&n>m\end{cases}</script><p>由于分堆不限最大数,直接带入n即可.</p>
+<ol>
+<li>将n划分成k个数的划分法</li>
+</ol>
+<p>有两类:第一类是均分,所有都得到1,就是前面的式子.<br>第二类是拆一个1出去,得到后半部分.于是所有情况在dp之中被算出来了.</p>
+<script type="math/tex; mode=display">dp[n][k]=dp[n-k][k]+dp[n-1][k-1]</script><ol>
+<li>将n划分成多个不同的整数(m表示最大数)</li>
+</ol>
+<p>分为两种情况:划分的每个数都小于m,就是前半部分,直接缩范围即可.<br>第二种情况是有一个数是m,则提出来,同时剩下的数都不能大于m,就是后半部分(发现和初始的情况很像,只是限制了以下最大值)</p>
+<script type="math/tex; mode=display">dp[n][m]=dp[n][m-1]+dp[n-m][m-1]</script><ol>
+<li>将n划分成若干奇数的划分法</li>
+</ol>
+<p>设f(i,j)表示把数i分成j个偶数的情况,g(i,j)表示把数i分成j个奇数的情况.</p>
+<script type="math/tex; mode=display">f[i][j]=g[i-j][j]\\g[i][j]=f[i-j][j]+g[i-1][j-1]</script><p>理解起来也简单,偶数就等于所有划分成奇数的都添一个1变成偶数,奇数有从偶数变成奇数和在数列末尾加一个1两种情况.</p>
+<p><strong>拓展思考</strong>:为什么dp的时候都是只在末尾加上一个1,不是别的数?<br>因为整体垫高的缘故,往末尾加一个1可以保证不会大于之前的分拆,也就是说维护了数列单调性,进而保证情况不会重合.</p>
+<h2 id="矩阵优化"><a href="#矩阵优化" class="headerlink" title="矩阵优化"></a>矩阵优化</h2><p>指通过广义矩阵乘法让dp的方式优化,支持数据结构维护的操作.</p>
+<p>定义广义矩阵乘法的操作是:</p>
+<script type="math/tex; mode=display">C_{i,j}=\bigoplus_{k=1}^m(A_{ik}\otimes B_{kj})</script><p>(其实就是重载+和<em>俩运算符)满足以下条件时乘法有 <em>*结合律</em></em>:</p>
+<ol>
+<li>$\oplus$ 有交换律</li>
+<li>$\otimes$ 有结合律和交换律</li>
+<li>$\times$ 对 $\oplus$ 有分配律,也就是满足 $(a\oplus b)\otimes c=(a\otimes c)\oplus(b\otimes c)$ .</li>
+</ol>
+<p>常见的广义矩阵重载是(原来是 $(\times,+)$ ) $(\pm,\min),(\pm,\max),(\land,\lor)$</p>
+<p>如此,矩阵可以使用快速幂优化,同时可以使用数据结构提前维护区间矩阵乘积,便于快速计算.</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
+<li><p>GSS3单点修改,维护区间的最大子段和.<br>我们设 $f_i$ 表示以i结尾的最大子段和, $g_i$ 表示区间上的最大子段和.转移方程:</p>
+<script type="math/tex; mode=display">f_i=\max(f_{i-1}+a_i,a_i),g_i=\max(g_{i-1},f_{i-1}+a_i,a_i)</script><p>构造矩阵:</p>
+<script type="math/tex; mode=display">\begin{bmatrix}f_{i-1}&g_{i-1}&0\end{bmatrix}\begin{bmatrix}a_i&a_i&-\infin\\-\infin&0&-\infin\\a_i&a_i&0\end{bmatrix}=\begin{bmatrix}f_i&g_i&0\end{bmatrix}</script><p>然后使用线段树提前维护区间矩阵乘积即可.</p>
+</li>
+<li><p>设排列中一个完美三元组(i,j,k)满足 $p_i&gt;p_j&lt;p_k$ ,求长度为n的排列有多少种恰好有m个完美三元组.($i\le100,j\le10000$)特别奇怪的数据范围</p>
+</li>
+</ol>
+<p>因为排列里面插一个元素是不影响前面的,考虑DP.设dp[i][j]表示当前排列有i个元素时候有j个完美三元组的,发现,我们插一个1,由于1小于其他任何元素,新插1的贡献是能算出来的.于是直接背包,复杂度 $O(n^2m)$ .</p>
+<ol>
+<li>一对集合(看不懂题解)<br>定义 $f(S)=(a<em>1,a_2,…,a_n)^{\gcd(a_i,a_2,…,a_n)}$ 完美集合对p,q是元素不重,而且p的所有元素比q的所有元素小,求给定数列a的 $\sum</em>{p\subset a}\sum_{q\subset a}f(p)\times f(q)\mod998244353$ ,其中qp是完美集合对. $n\le100,0\le a_i\le100$</li>
+</ol>
+<p>这个题数据范围和元素范围都小的离谱,而且暴搜是过不去的,所以考虑dp(Flu发现好像所有数据范围非常奇怪的都是dp).<br>首先对a进行排序.<br>设 $f_{i,d,j}$ 表示前i个元素,最大公约数是d的所有集合的和的j次方之和.有(有个屁我啥也看不懂)</p>
+<script type="math/tex; mode=display">f_{i,d,j}=\sum_{p=0}^{j}\binom{j}{p}f_{i-1,x,p}a_{i}^{j-p}</script><p>其中x满足 $\gcd(x,a<em>i)=d$ .<br>设 $g</em>{i,d,j}$ 表示后i个元素,gcd是d的所有集合的j次方之和,一样的转移方程.</p>
+<p>最后统计答案只需要枚举每一个必须选的元素,然后使用fg计算答案(说着简单).<br>由于Flu看不懂,于是把题解码放出来吧,没准之后学组合数学了就能看懂了.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">105</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="type">int</span> datas[maxn];</span><br><span class="line"><span class="type">int</span> a[maxn][<span class="number">101</span>],n;</span><br><span class="line"><span class="type">int</span> f[maxn][<span class="number">101</span>][<span class="number">101</span>],C[<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line"><span class="type">int</span> g[maxn][<span class="number">101</span>][<span class="number">101</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123; <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> a; <span class="keyword">return</span> <span class="built_in">gcd</span>(b,a%b);&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ksm</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123; <span class="type">int</span> res=<span class="number">1</span>; <span class="keyword">while</span>(b)&#123; <span class="keyword">if</span>(b&amp;<span class="number">1</span>)&#123; res=<span class="number">1ll</span>*res*a%mod; &#125; a=<span class="number">1ll</span>*a*a%mod; b&gt;&gt;=<span class="number">1</span>; &#125; <span class="keyword">return</span> res;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;datas[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(datas+<span class="number">1</span>,datas+<span class="number">1</span>+n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">100</span>;j++)&#123;</span><br><span class="line">			a[i][j]=<span class="number">1ll</span>*a[i][j<span class="number">-1</span>]*datas[i]%mod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//a[i][j]表示元素a[i]的j次方</span></span><br><span class="line"></span><br><span class="line">	C[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100</span>;i++)&#123;</span><br><span class="line">		C[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">			C[i][j]=(C[i<span class="number">-1</span>][j]+C[i<span class="number">-1</span>][j<span class="number">-1</span>])%mod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//处理组合数</span></span><br><span class="line">	f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;=<span class="number">100</span>;x++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> y=<span class="number">0</span>;y&lt;=<span class="number">100</span>;y++)&#123;</span><br><span class="line">				f[i][x][y]=f[i<span class="number">-1</span>][x][y];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;=<span class="number">100</span>;x++)&#123;</span><br><span class="line">			<span class="type">int</span> d=<span class="built_in">gcd</span>(x,a[i][<span class="number">1</span>]);</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">100</span>;j++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;=j;p++)&#123;</span><br><span class="line">					f[i][d][j]+=<span class="number">1ll</span>*C[j][p]*f[i<span class="number">-1</span>][x][p]%mod*a[i][j-p]%mod;</span><br><span class="line">					f[i][d][j]%=mod;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	g[n+<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;=<span class="number">100</span>;x++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> y=<span class="number">0</span>;y&lt;=<span class="number">100</span>;y++)&#123;</span><br><span class="line">				g[i][x][y]=g[i+<span class="number">1</span>][x][y];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;=<span class="number">100</span>;x++)&#123;</span><br><span class="line">			<span class="type">int</span> d=<span class="built_in">gcd</span>(x,a[i][<span class="number">1</span>]);</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=<span class="number">100</span>;j++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;=j;p++)&#123;</span><br><span class="line">					g[i][d][j]+=<span class="number">1ll</span>*C[j][p]*g[i+<span class="number">1</span>][x][p]%mod*a[i][j-p]%mod;</span><br><span class="line">					g[i][d][j]%=mod;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;<span class="comment">//必须选的那个数</span></span><br><span class="line">		<span class="type">int</span> res1=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">0</span>;x&lt;=<span class="number">100</span>;x++)&#123;<span class="comment">//除掉这个元素之外元素的最大公约数</span></span><br><span class="line">			<span class="type">int</span> d=<span class="built_in">gcd</span>(x,a[i][<span class="number">1</span>]);<span class="comment">//整个集合的最大公约数</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">0</span>;p&lt;=d;p++)&#123;<span class="comment">//次方</span></span><br><span class="line">				res1+=<span class="number">1ll</span>*C[d][p]*f[i<span class="number">-1</span>][x][p]%mod*a[i][d-p]%mod;</span><br><span class="line">				res1%=mod;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> res2=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">100</span>;j++)&#123;</span><br><span class="line">			res2=(res2+g[i+<span class="number">1</span>][j][j])%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		ans=(ans+<span class="number">1ll</span>*res1*res2%mod)%mod;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4. </p>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%9F%E6%9C%9BDP"><span class="toc-number">1.</span> <span class="toc-text">期望DP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">整数划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">矩阵优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">例题</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/29/10019DP/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/29/10019DP/&text=DP"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/29/10019DP/&is_video=false&description=DP"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DP&body=Check out this article: https://narafluorine.github.io/2024/07/29/10019DP/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/29/10019DP/&title=DP"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/29/10019DP/&name=DP&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/29/10019DP/&t=DP"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
