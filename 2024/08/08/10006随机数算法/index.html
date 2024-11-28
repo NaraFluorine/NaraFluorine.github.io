@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="随机数引擎常见的有两个,一个是rand(),另一个是随机数引擎mt19937. shuffle洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱)12std::mt19937 rnd(seed);shuffle(dat,dat+1+n,rnd);">
+    <meta name="description" content="随机数引擎 常见的有两个,一个是rand(),另一个是随机数引擎mt19937. shuffle 洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱) 12std::mt19937 rnd(seed);shuffle(dat,dat+1+n,rnd);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随机数算法">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/08/10006%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="随机数引擎常见的有两个,一个是rand(),另一个是随机数引擎mt19937. shuffle洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱)12std::mt19937 rnd(seed);shuffle(dat,dat+1+n,rnd);">
+<meta property="og:description" content="随机数引擎 常见的有两个,一个是rand(),另一个是随机数引擎mt19937. shuffle 洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱) 12std::mt19937 rnd(seed);shuffle(dat,dat+1+n,rnd);">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-08T08:44:15.000Z">
 <meta property="article:modified_time" content="2024-08-08T09:50:36.976Z">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text">随机数引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shuffle"><span class="toc-number">1.1.</span> <span class="toc-text">shuffle</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">随机数引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shuffle"><span class="toc-number">1.1.</span> <span class="toc-text">shuffle</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -186,8 +186,11 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="随机数引擎"><a href="#随机数引擎" class="headerlink" title="随机数引擎"></a>随机数引擎</h1><p>常见的有两个,一个是<code>rand()</code>,另一个是随机数引擎<code>mt19937</code>.</p>
-<h2 id="shuffle"><a href="#shuffle" class="headerlink" title="shuffle"></a>shuffle</h2><p>洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::mt19937 <span class="title">rnd</span><span class="params">(seed)</span></span>;</span><br><span class="line"><span class="built_in">shuffle</span>(dat,dat+<span class="number">1</span>+n,rnd);</span><br></pre></td></tr></table></figure></p>
+    <h1>随机数引擎</h1>
+<p>常见的有两个,一个是<code>rand()</code>,另一个是随机数引擎<code>mt19937</code>.</p>
+<h2 id="shuffle">shuffle</h2>
+<p>洗牌算法,和sort一样用,开头,结尾,随机数引擎.(随机打乱)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::mt19937 <span class="title">rnd</span><span class="params">(seed)</span></span>;</span><br><span class="line"><span class="built_in">shuffle</span>(dat,dat+<span class="number">1</span>+n,rnd);</span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -220,7 +223,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text">随机数引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shuffle"><span class="toc-number">1.1.</span> <span class="toc-text">shuffle</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">随机数引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#shuffle"><span class="toc-number">1.1.</span> <span class="toc-text">shuffle</span></a></li></ol></li></ol>
       </div>
     
 

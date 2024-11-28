@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x&#x3D;k的时候的值. 拉插公式f(x)&#x3D;\sum_{i&#x3D;0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是: f(k)&#x3D;3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac{(k-1)(k">
+    <meta name="description" content="拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x&#x3D;k的时候的值. 拉插公式 $$f(x)&#x3D;\sum_{i&#x3D;0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}$$ 理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是: $$f(k)&#x3D;3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拉格朗日插值">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/11/10016%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x&#x3D;k的时候的值. 拉插公式f(x)&#x3D;\sum_{i&#x3D;0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是: f(k)&#x3D;3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac{(k-1)(k">
+<meta property="og:description" content="拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x&#x3D;k的时候的值. 拉插公式 $$f(x)&#x3D;\sum_{i&#x3D;0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}$$ 理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是: $$f(k)&#x3D;3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-11T04:19:30.000Z">
 <meta property="article:modified_time" content="2024-07-11T11:31:21.611Z">
@@ -187,15 +187,28 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x=k的时候的值.</p>
-<h2 id="拉插公式"><a href="#拉插公式" class="headerlink" title="拉插公式"></a>拉插公式</h2><script type="math/tex; mode=display">f(x)=\sum_{i=0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}</script><p>理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是:</p>
-<script type="math/tex; mode=display">f(k)=3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac{(k-1)(k-2)}{(2-1)(2-3)}+13\frac{(k-1)(k-2)}{(3-1)(3-2)}</script><h2 id="x取值连续的优化"><a href="#x取值连续的优化" class="headerlink" title="x取值连续的优化"></a>x取值连续的优化</h2><p>由于x取值连续,可以快速计算前缀积和后缀积(上面)以及阶乘(下面)然后实现 $O(n)$ 的计算拉插.(N表示有几项)</p>
-<script type="math/tex; mode=display">pre_i=\prod_{j=1}^ik-j</script><script type="math/tex; mode=display">suf_i=\prod_{j=i}^Nk-j</script><script type="math/tex; mode=display">f(k)=\sum_{i=1}^Ny_i\frac{pre_{i-1}\cdot suf_{i+1}}{(i-1)!(N-i)!}</script><h2 id="重心拉插"><a href="#重心拉插" class="headerlink" title="重心拉插"></a>重心拉插</h2><p>可以实现加点的计算方式:</p>
-<script type="math/tex; mode=display">f(x)=\sum_{i=0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}</script><p>令 $g=\prod^n_{i=0}k-x_i$ ,则有</p>
-<script type="math/tex; mode=display">f(k)=g\sum_{i=0}^n\prod_{i\neq j}\frac{y_i}{(k-x_i)(x_i-x_j)}</script><p>设 $t<em>i=\frac{y_i}{\prod</em>{i\neq j}x_i-x_j}$ ,则有</p>
-<script type="math/tex; mode=display">f(k)=g\sum_{i=0}^n\frac{t_i}{(k-x_i)}</script><p>这样加点的时候只需要计算他的 $t_i$ 即可.</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>首先你要证明这是一个多项式,能用插值.</p>
-<p>典型:</p>
-<script type="math/tex; mode=display">\sum_{i=1}^ni^k</script><p>首先证明是一个多项式,然后”直接插值”(按n为变元,暴力算每个数,然后按点插值即可)</p>
+<h2 id="拉插公式">拉插公式</h2>
+<p>$$f(x)=\sum_{i=0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}$$<br>
+理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是:<br>
+$$f(k)=3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac{(k-1)(k-2)}{(2-1)(2-3)}+13\frac{(k-1)(k-2)}{(3-1)(3-2)}$$</p>
+<h2 id="x取值连续的优化">x取值连续的优化</h2>
+<p>由于x取值连续,可以快速计算前缀积和后缀积(上面)以及阶乘(下面)然后实现 $O(n)$ 的计算拉插.(N表示有几项)<br>
+$$pre_i=\prod_{j=1}^ik-j$$<br>
+$$suf_i=\prod_{j=i}^Nk-j$$<br>
+$$f(k)=\sum_{i=1}^Ny_i\frac{pre_{i-1}\cdot suf_{i+1}}{(i-1)!(N-i)!}$$</p>
+<h2 id="重心拉插">重心拉插</h2>
+<p>可以实现加点的计算方式:<br>
+$$f(x)=\sum_{i=0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}$$<br>
+令 $g=\prod^n_{i=0}k-x_i$ ,则有<br>
+$$f(k)=g\sum_{i=0}^n\prod_{i\neq j}\frac{y_i}{(k-x_i)(x_i-x_j)}$$<br>
+设 $t_i=\frac{y_i}{\prod_{i\neq j}x_i-x_j}$ ,则有<br>
+$$f(k)=g\sum_{i=0}^n\frac{t_i}{(k-x_i)}$$<br>
+这样加点的时候只需要计算他的 $t_i$ 即可.</p>
+<h2 id="应用">应用</h2>
+<p>首先你要证明这是一个多项式,能用插值.</p>
+<p>典型:<br>
+$$\sum_{i=1}^ni^k$$<br>
+首先证明是一个多项式,然后&quot;直接插值&quot;(按n为变元,暴力算每个数,然后按点插值即可)</p>
 
   </div>
 </article>

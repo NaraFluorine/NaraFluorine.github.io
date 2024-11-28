@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="第三场网络赛,我们的新队员终于来了,我们队终于不是倒数第一了… 而且是正数第十一…终于能超过劳伦斯哥哥了,开心. 收获 我学了一个假的Dev_C++…新队友是四指打字的,速度不清楚,反正打起字来空格用的比较多,码风是标准的高中OIer码风,算数之间空格加的多,大括号另起一行.   Flu觉得有必要练习一下学习如何使用Dev_C++.   Flu第一次做出来期望题,居然是在考场…   有必要多看看期">
+    <meta name="description" content="第三场网络赛,我们的新队员终于来了,我们队终于不是倒数第一了… 而且是正数第十一…终于能超过劳伦斯哥哥了,开心. 收获  我学了一个假的Dev_C++…新队友是四指打字的,速度不清楚,反正打起字来空格用的比较多,码风是标准的高中OIer码风,算数之间空格加的多,大括号另起一行.   Flu觉得有必要练习一下学习如何使用Dev_C++.   Flu第一次做出来期望题,居然是在考场…   有必要多看看">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ICPC网络赛">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/21/20005ICPC%E7%BD%91%E7%BB%9C%E8%B5%9B/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="第三场网络赛,我们的新队员终于来了,我们队终于不是倒数第一了… 而且是正数第十一…终于能超过劳伦斯哥哥了,开心. 收获 我学了一个假的Dev_C++…新队友是四指打字的,速度不清楚,反正打起字来空格用的比较多,码风是标准的高中OIer码风,算数之间空格加的多,大括号另起一行.   Flu觉得有必要练习一下学习如何使用Dev_C++.   Flu第一次做出来期望题,居然是在考场…   有必要多看看期">
+<meta property="og:description" content="第三场网络赛,我们的新队员终于来了,我们队终于不是倒数第一了… 而且是正数第十一…终于能超过劳伦斯哥哥了,开心. 收获  我学了一个假的Dev_C++…新队友是四指打字的,速度不清楚,反正打起字来空格用的比较多,码风是标准的高中OIer码风,算数之间空格加的多,大括号另起一行.   Flu觉得有必要练习一下学习如何使用Dev_C++.   Flu第一次做出来期望题,居然是在考场…   有必要多看看">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-21T15:40:02.000Z">
 <meta property="article:modified_time" content="2024-09-23T02:57:07.515Z">
@@ -188,30 +188,36 @@
   <div class="content e-content" itemprop="articleBody">
     <p>第三场网络赛,我们的新队员终于来了,我们队终于不是倒数第一了…</p>
 <p>而且是正数第十一…终于能超过劳伦斯哥哥了,开心.</p>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
+<h2 id="收获">收获</h2>
+<ol>
 <li>我学了一个假的Dev_C++…新队友是四指打字的,速度不清楚,反正打起字来空格用的比较多,码风是标准的高中OIer码风,算数之间空格加的多,大括号另起一行.</li>
 </ol>
 <blockquote>
 <p>Flu觉得有必要练习一下学习如何使用Dev_C++.</p>
 </blockquote>
-<ol>
+<ol start="2">
 <li>Flu第一次做出来期望题,居然是在考场…</li>
 </ol>
 <blockquote>
 <p>有必要多看看期望题.</p>
 </blockquote>
-<ol>
+<ol start="3">
 <li>手滑多交了两发.A题读假了导致浪费了至少一个小时,Flu的高低位输出错了导致至少多半个小时,队友开的都快出来了Flu才改好…</li>
 </ol>
 <blockquote>
 <p>不错,最后一场Flu做对了两个题提供了一个题的板子,也算功德圆满,没沦落为战犯.</p>
 </blockquote>
-<ol>
-<li>发现浏览器的一个命令: <code>site:xxx.com</code> 可以锁定搜索范围就是该网页.<h2 id="补题"><a href="#补题" class="headerlink" title="补题"></a>补题</h2></li>
+<ol start="4">
+<li>发现浏览器的一个命令: <code>site:xxx.com</code> 可以锁定搜索范围就是该网页.</li>
 </ol>
-<h3 id="2L"><a href="#2L" class="headerlink" title="2L"></a>2L</h3><p>系统初始时会给你一个随机 $[1,T]$ 的值 $t_0$ ,每过一秒, $t_0$ 会自动减1,减完之后你可以选择刷新页面或者不刷新等着 $t_0$ 变成0,从第0秒到 $t_0$ 变成0的这段时间被称作罚时,你希望最小化罚时期望.</p>
-<p>这个题意外地很简单…我们发现每一次刷新都是随机的,所以可以转移.直接设当前期望是 $E$ ,以及罚时为 $[1,x]$ 时不动等自然变成0, $[x+1,T]$ 时手动刷新,可以列出方程</p>
-<script type="math/tex; mode=display">E=\frac1T\frac{(1+x)x}2+\frac{T-x}T(1+E)</script><p>解一下发现是一个关于T的基本不等式.最小值取在 $x=\sqrt{2T}$ 的位置.<br>题解:从这里开始检查 $x=\lfloor\sqrt{2T}\rfloor$ 和 $\lceil\sqrt{2T}\rceil$ 即可.<br>直接暴力检查.中间因为卡了一下快读(其实是Flu多检查了一下x-1的情况),还T了一发.</p>
+<h2 id="补题">补题</h2>
+<h3 id="2L">2L</h3>
+<p>系统初始时会给你一个随机 $[1,T]$ 的值 $t_0$ ,每过一秒, $t_0$ 会自动减1,减完之后你可以选择刷新页面或者不刷新等着 $t_0$ 变成0,从第0秒到 $t_0$ 变成0的这段时间被称作罚时,你希望最小化罚时期望.</p>
+<p>这个题意外地很简单…我们发现每一次刷新都是随机的,所以可以转移.直接设当前期望是 $E$ ,以及罚时为 $[1,x]$ 时不动等自然变成0, $[x+1,T]$ 时手动刷新,可以列出方程<br>
+$$E=\frac1T\frac{(1+x)x}2+\frac{T-x}T(1+E)$$<br>
+解一下发现是一个关于T的基本不等式.最小值取在 $x=\sqrt{2T}$ 的位置.<br>
+题解:从这里开始检查 $x=\lfloor\sqrt{2T}\rfloor$ 和 $\lceil\sqrt{2T}\rceil$ 即可.<br>
+直接暴力检查.中间因为卡了一下快读(其实是Flu多检查了一下x-1的情况),还T了一发.</p>
 
   </div>
 </article>

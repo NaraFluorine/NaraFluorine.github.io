@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="很简单,我们逐渐退火让答案稳定在某段区间内. 算法不讲解了,什么以多项式概率接受啥的哪都没用,主要讲怎么应用模拟退火. 个人认为比较困难的点是如何”渐进地”生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案. 二元函数求最值三分xy的情况我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数. 也就是说,我们可以三分y从而达到理想效果. 如何三分?考虑一个单峰,假如落在三分中间,那">
+    <meta name="description" content="很简单,我们逐渐退火让答案稳定在某段区间内. 算法不讲解了,什么以多项式概率接受啥的哪都没用,主要讲怎么应用模拟退火. 个人认为比较困难的点是如何&quot;渐进地&quot;生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案. 二元函数求最值 三分xy的情况 我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数. 也就是说,我们可以三分y从而达到理想效果. 如何三分?考虑一个单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟退火">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/12/10010%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="很简单,我们逐渐退火让答案稳定在某段区间内. 算法不讲解了,什么以多项式概率接受啥的哪都没用,主要讲怎么应用模拟退火. 个人认为比较困难的点是如何”渐进地”生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案. 二元函数求最值三分xy的情况我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数. 也就是说,我们可以三分y从而达到理想效果. 如何三分?考虑一个单峰,假如落在三分中间,那">
+<meta property="og:description" content="很简单,我们逐渐退火让答案稳定在某段区间内. 算法不讲解了,什么以多项式概率接受啥的哪都没用,主要讲怎么应用模拟退火. 个人认为比较困难的点是如何&quot;渐进地&quot;生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案. 二元函数求最值 三分xy的情况 我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数. 也就是说,我们可以三分y从而达到理想效果. 如何三分?考虑一个单">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-12T06:02:25.000Z">
 <meta property="article:modified_time" content="2024-09-12T06:09:35.583Z">
@@ -188,10 +188,13 @@
   <div class="content e-content" itemprop="articleBody">
     <p>很简单,我们逐渐退火让答案稳定在某段区间内.</p>
 <p>算法不讲解了,什么以多项式概率接受啥的哪都没用,主要讲怎么应用模拟退火.</p>
-<p>个人认为比较困难的点是如何”渐进地”生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案.</p>
-<h2 id="二元函数求最值"><a href="#二元函数求最值" class="headerlink" title="二元函数求最值"></a>二元函数求最值</h2><h2 id="三分xy的情况"><a href="#三分xy的情况" class="headerlink" title="三分xy的情况"></a>三分xy的情况</h2><p>我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数.</p>
+<p>个人认为比较困难的点是如何&quot;渐进地&quot;生成新的逼近的随机答案,不然模拟退火就是单纯的随机数碰答案.</p>
+<h2 id="二元函数求最值">二元函数求最值</h2>
+<h2 id="三分xy的情况">三分xy的情况</h2>
+<p>我们以吊打xxx为例.加入x值定死,势能变化随y是一个单峰函数.</p>
 <p>也就是说,我们可以三分y从而达到理想效果.</p>
-<p>如何三分?考虑一个单峰,假如落在三分中间,那么怎么收缩都是涵盖的.<br>假如没有,我们三分的两个点会是一个明显递增或者递减的趋势,此时收紧,也就是说一次收缩大概1/3,剩下的2/3接着三分即可;</p>
+<p>如何三分?考虑一个单峰,假如落在三分中间,那么怎么收缩都是涵盖的.<br>
+假如没有,我们三分的两个点会是一个明显递增或者递减的趋势,此时收紧,也就是说一次收缩大概1/3,剩下的2/3接着三分即可;</p>
 
   </div>
 </article>

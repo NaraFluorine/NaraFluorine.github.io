@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="码蹄集补题记录. 子矩阵抑或和给一个矩阵,求出其所有子矩阵元素抑或和的和. 先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre{r}\oplus pre{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ . 现在考虑矩阵版本,子矩阵先做前缀和,然后问题变成了矩阵任意两行,任意两列,交叉出来">
+    <meta name="description" content="码蹄集补题记录. 子矩阵抑或和 给一个矩阵,求出其所有子矩阵元素抑或和的和. 先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre_{r}\oplus pre_{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ . 现在考虑矩阵版本,子矩阵先做前缀和,然后问题变成了矩阵任意两行,任意两列,交">
 <meta property="og:type" content="article">
 <meta property="og:title" content="码蹄集补题记录">
 <meta property="og:url" content="https://narafluorine.github.io/2024/11/04/20006%E7%A0%81%E8%B9%84%E9%9B%86%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="码蹄集补题记录. 子矩阵抑或和给一个矩阵,求出其所有子矩阵元素抑或和的和. 先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre{r}\oplus pre{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ . 现在考虑矩阵版本,子矩阵先做前缀和,然后问题变成了矩阵任意两行,任意两列,交叉出来">
+<meta property="og:description" content="码蹄集补题记录. 子矩阵抑或和 给一个矩阵,求出其所有子矩阵元素抑或和的和. 先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre_{r}\oplus pre_{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ . 现在考虑矩阵版本,子矩阵先做前缀和,然后问题变成了矩阵任意两行,任意两列,交">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-04T04:27:36.000Z">
 <meta property="article:modified_time" content="2024-11-07T08:33:44.274Z">
@@ -187,15 +187,25 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>码蹄集补题记录.</p>
-<h2 id="子矩阵抑或和"><a href="#子矩阵抑或和" class="headerlink" title="子矩阵抑或和"></a>子矩阵抑或和</h2><p>给一个矩阵,求出其所有子矩阵元素抑或和的和.</p>
-<p>先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre<em>{r}\oplus pre</em>{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ .</p>
+<h2 id="子矩阵抑或和">子矩阵抑或和</h2>
+<p>给一个矩阵,求出其所有子矩阵元素抑或和的和.</p>
+<p>先考虑问题的一维版本,一个数列区间抑或和可以使用前缀和快速求出 $pre_{r}\oplus pre_{l-1}$ ,这个时候问题转换为任意两个前缀和相乘的加和结果.统计整个区间0和1的个数,答案就是 $cnt_0cnt_12^{pos}$ .</p>
 <p>现在考虑矩阵版本,子矩阵先做前缀和,然后问题变成了矩阵任意两行,任意两列,交叉出来这四个数的抑或和的加和.模拟一维的做法,先枚举二进制位,然后枚举两行和一列,然后把这两行压成一行(直接抑或就行),然后剩下的和一维一样处理即可.</p>
-<h2 id="数学图"><a href="#数学图" class="headerlink" title="数学图"></a>数学图</h2><p>有n个点,每个点的值为 $a_i$ .建图方式如下:<br>如果 $a_i=a_j$ ,则i和j之间有一条权值为0的边.<br>如果 $\gcd(a_i,a_j)\neq1$ ,则i和j之间有一条权值为1的边.<br>如果 $a_i$<code>^</code>$a_j\le k$ ,则i和j之间有一条权值为1的边.<br>问从s点出发到达所有点的最小花费.  </p>
-<script type="math/tex; mode=display">n<2e5,k<5,a_i<1e6</script><p>这个题点权的大小比较离谱,考虑中转点.对于情况1,对所有值相同的点都开一个中转点即可.对于情况二,首先, $\gcd(a_i,a_j)\neq1$ 表示这俩数有公共因子,所以对于一个数,我们对这个数的所有质因子都连边即可,每个质因子都是一个中转点.对于第三种情况,发现k的值特别小,于是对于一个数,暴力枚举所有k对应的数,然后和情况1中的值中转点连边.</p>
+<h2 id="数学图">数学图</h2>
+<p>有n个点,每个点的值为 $a_i$ .建图方式如下:<br>
+如果 $a_i=a_j$ ,则i和j之间有一条权值为0的边.<br>
+如果 $\gcd(a_i,a_j)\neq1$ ,则i和j之间有一条权值为1的边.<br>
+如果 $a_i$<code>^</code>$a_j\le k$ ,则i和j之间有一条权值为1的边.<br>
+问从s点出发到达所有点的最小花费.<br>
+$$n&lt;2e5,k&lt;5,a_i&lt;1e6$$<br>
+这个题点权的大小比较离谱,考虑中转点.对于情况1,对所有值相同的点都开一个中转点即可.对于情况二,首先, $\gcd(a_i,a_j)\neq1$ 表示这俩数有公共因子,所以对于一个数,我们对这个数的所有质因子都连边即可,每个质因子都是一个中转点.对于第三种情况,发现k的值特别小,于是对于一个数,暴力枚举所有k对应的数,然后和情况1中的值中转点连边.</p>
 <p>这个题还有一个特殊的性质: <strong>边权只可能是0或1</strong> ,所以我们建立双端队列代替dijk的堆跑最短路.</p>
-<p>于是这个题做完了.<br><del>做完个屁,记得不可达输出-1,某人WA了四发调了好几个小时才发现不是算法的问题,是特判-1的问题,唐完了</del></p>
-<h2 id="质因数分解和"><a href="#质因数分解和" class="headerlink" title="质因数分解和"></a>质因数分解和</h2><p>给定数列a,计算</p>
-<script type="math/tex; mode=display">\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)a_ia_j\mod1e9+7</script><p>其中 $n\le2e6,a_i\le1e9$ .</p>
+<p>于是这个题做完了.<br>
+<s>做完个屁,记得不可达输出-1,某人WA了四发调了好几个小时才发现不是算法的问题,是特判-1的问题,唐完了</s></p>
+<h2 id="质因数分解和">质因数分解和</h2>
+<p>给定数列a,计算<br>
+$$\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)a_ia_j\mod1e9+7$$<br>
+其中 $n\le2e6,a_i\le1e9$ .</p>
 <p>居然是道莫反题,没做出来真惭愧.</p>
 
   </div>
