@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="在这里记录一些自己可能察觉不到的莫名WA. VSCode莫名丢失输出(啥也没输出) 先检查函数有没有返回值!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE. 祖宗 开long long了吗? 取模 有的时候要对答案进行特判,输出一个定值.但是又有的时候模数不是指定的,是要输入的,于是可能出现特判1但是模数是1正好被卡的状况… 交互 cout&lt;&lt;&quot;!&amp;quot">
+    <meta name="description" content="在这里记录一些自己可能察觉不到的莫名WA. 数据结构上机如果你WA了,先检查 &lt;,&gt; 这种运算符是否严谨,能换成 &lt;&#x3D;,&gt;&#x3D; 的一定要换,数据结构的hack数据非常强… VSCode莫名丢失输出(啥也没输出)先检查函数有没有返回值!!!!!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE. 祖宗开long long了吗? 取模有的时候要对答案进行特判,输出一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WA问题速查">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/06/10020WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="在这里记录一些自己可能察觉不到的莫名WA. VSCode莫名丢失输出(啥也没输出) 先检查函数有没有返回值!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE. 祖宗 开long long了吗? 取模 有的时候要对答案进行特判,输出一个定值.但是又有的时候模数不是指定的,是要输入的,于是可能出现特判1但是模数是1正好被卡的状况… 交互 cout&lt;&lt;&quot;!&amp;quot">
+<meta property="og:description" content="在这里记录一些自己可能察觉不到的莫名WA. 数据结构上机如果你WA了,先检查 &lt;,&gt; 这种运算符是否严谨,能换成 &lt;&#x3D;,&gt;&#x3D; 的一定要换,数据结构的hack数据非常强… VSCode莫名丢失输出(啥也没输出)先检查函数有没有返回值!!!!!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE. 祖宗开long long了吗? 取模有的时候要对答案进行特判,输出一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-06T08:12:51.000Z">
-<meta property="article:modified_time" content="2024-10-13T06:43:31.589Z">
+<meta property="article:modified_time" content="2024-12-10T11:40:07.779Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Contest">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">2.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">3.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">4.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">7.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">8.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">9.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">10.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">11.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">数据结构上机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">3.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">4.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">5.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">7.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">8.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">9.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">11.</span> <span class="toc-text">精度问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">13.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%9D%91"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol>
       </div>
     
   </span>
@@ -187,42 +187,29 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>在这里记录一些自己可能察觉不到的莫名WA.</p>
-<h2 id="VSCode莫名丢失输出-啥也没输出">VSCode莫名丢失输出(啥也没输出)</h2>
-<p>先检查函数有没有返回值!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE.</p>
-<h2 id="祖宗">祖宗</h2>
-<p>开long long了吗?</p>
-<h2 id="取模">取模</h2>
-<p>有的时候要对答案进行特判,输出一个定值.但是又有的时候模数不是指定的,是要输入的,于是可能出现特判1但是模数是1正好被卡的状况…</p>
-<h2 id="交互">交互</h2>
-<p><code>cout&lt;&lt;&quot;!&quot;&lt;&lt;solve()&lt;&lt;endl;</code>是错的,尤其是交互库的时候千万不要这么搞,会WA,因为<code>cout</code>先执行输出然后再计算函数的值.</p>
-<h2 id="除法">除法</h2>
-<p>检查一下有没有除0模0的特判,不然会RE的哦.</p>
-<h2 id="分解">分解</h2>
-<p>什么时候能用 $O(\sqrt n)$ 的数分解(也就是<code>for(int i=2;i*i&lt;=n;++i)</code>)?当然是不影响后续的时候.假如产生影响就只能一个一个枚举了…(比如 $g(x)=\sum_{i|x}g(i)$ )</p>
+<h2 id="数据结构上机"><a href="#数据结构上机" class="headerlink" title="数据结构上机"></a>数据结构上机</h2><p>如果你WA了,先检查 <code>&lt;,&gt;</code> 这种运算符是否严谨,能换成 <code>&lt;=,&gt;=</code> 的一定要换,数据结构的hack数据非常强…</p>
+<h2 id="VSCode莫名丢失输出-啥也没输出"><a href="#VSCode莫名丢失输出-啥也没输出" class="headerlink" title="VSCode莫名丢失输出(啥也没输出)"></a>VSCode莫名丢失输出(啥也没输出)</h2><p>先检查函数有没有返回值!!!!!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE.</p>
+<h2 id="祖宗"><a href="#祖宗" class="headerlink" title="祖宗"></a>祖宗</h2><p>开long long了吗?</p>
+<h2 id="取模"><a href="#取模" class="headerlink" title="取模"></a>取模</h2><p>有的时候要对答案进行特判,输出一个定值.但是又有的时候模数不是指定的,是要输入的,于是可能出现特判1但是模数是1正好被卡的状况…</p>
+<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p><code>cout&lt;&lt;&quot;!&quot;&lt;&lt;solve()&lt;&lt;endl;</code>是错的,尤其是交互库的时候千万不要这么搞,会WA,因为<code>cout</code>先执行输出然后再计算函数的值.</p>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>检查一下有没有除0模0的特判,不然会RE的哦.</p>
+<h2 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h2><p>什么时候能用 $O(\sqrt n)$ 的数分解(也就是<code>for(int i=2;i*i&lt;=n;++i)</code>)?当然是不影响后续的时候.假如产生影响就只能一个一个枚举了…(比如 $g(x)=\sum_{i|x}g(i)$ )</p>
 <p>还有还有,那就是在 $f(x),f(n/x)$ 的时候记得看一下这俩数一不一样,会出大问题!!!</p>
-<h2 id="双指针">双指针</h2>
-<p>记得结算的时候动一下指针.</p>
-<h2 id="DP转移">DP转移</h2>
-<p>有的时候,状态之间会进行转换.状态之间提前到达的时候不要使用<code>dpxx=xx%m</code>,应该用<code>dpxx=(dpxx+xx)%m</code>,因为状态提前到达的时候会被<code>=</code>直接归零,就白转移了,不是<code>memset</code>的问题.</p>
-<h2 id="树">树</h2>
-<p>给定一棵树有n个节点,首先要判定是不是一棵树!!!(ie度数和 $\sum_{i=1}^nd_i=n-2$ )<br>
-一定要特判节点为1的时候有多少种情况!!!</p>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>记得结算的时候动一下指针.</p>
+<h2 id="DP转移"><a href="#DP转移" class="headerlink" title="DP转移"></a>DP转移</h2><p>有的时候,状态之间会进行转换.状态之间提前到达的时候不要使用<code>dpxx=xx%m</code>,应该用<code>dpxx=(dpxx+xx)%m</code>,因为状态提前到达的时候会被<code>=</code>直接归零,就白转移了,不是<code>memset</code>的问题.</p>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>给定一棵树有n个节点,首先要判定是不是一棵树!!!(ie度数和 $\sum_{i=1}^nd_i=n-2$ )<br>一定要特判节点为1的时候有多少种情况!!!</p>
 <ol>
 <li>树的相同判定:给一个深度上有多少节点的数组,判断这样的树是否唯一.</li>
 </ol>
-<p>然而我们发现只有连着的节点大于2的才有多种,单独2后面还有链的并不算,可以看演示:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> a   a			   a   a</span><br><span class="line">/|\ /|\			 /|\ /|\</span><br><span class="line">bcd bcd			 bcd bcd</span><br><span class="line">|	|			  ||| |\|</span><br><span class="line">e	e			  efg efg</span><br><span class="line">这两种树本质上一样.但是这俩不一样.</span><br></pre></td></tr></table></figure>
-<h2 id="图论">图论</h2>
-<ol>
+<p>然而我们发现只有连着的节点大于2的才有多种,单独2后面还有链的并不算,可以看演示:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> a   a			   a   a</span><br><span class="line">/|\ /|\			 /|\ /|\</span><br><span class="line">bcd bcd			 bcd bcd</span><br><span class="line">|	|			  ||| |\|</span><br><span class="line">e	e			  efg efg</span><br><span class="line">这两种树本质上一样.但是这俩不一样.</span><br></pre></td></tr></table></figure></p>
+<h2 id="精度问题"><a href="#精度问题" class="headerlink" title="精度问题"></a>精度问题</h2><p>有的时候取log或者怎么样然后涉及取整的时候函数会有精度误差,不能直接用ceil,要先减掉一个eps,否则会WA.</p>
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><ol>
 <li>给一张无向图,遍历他,染个色(只保证无自环重边).</li>
 </ol>
 <p>肯定是要bfs的了,但是有个hack是 <strong>给的图不一定连通</strong> ,所以要在bfs这里套一个循环保证每个点都要进队(被遍历到).(CF687A)</p>
-<h2 id="数学">数学</h2>
-<p>鸽巢的时候记得卡一下边界,虽然书上说最多能放 $\lceil\frac nk\rceil$ 个,但是最多能着的下 $n%k$ 种,记得统计一下.(另外,如果ceil等于直接除的话要特判,因为此时 $n%k$ 等于0)</p>
-<h1>大坑</h1>
-<h2 id="目力">目力</h2>
-<p>众所周知,某些质数因为长得像而混迹998244353,而有的则是正确输出 <code>YE5</code> ,错误输出 <code>N0</code> ,就很邪恶.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">998244853</span> 是质数</span><br><span class="line"><span class="number">998244259</span> 是质数</span><br><span class="line"><span class="number">99824353</span>  是质数</span><br><span class="line"><span class="number">998242353</span> 不是质数</span><br><span class="line"><span class="number">100000007</span>(<span class="number">1e8</span>+<span class="number">7</span>) 是质数</span><br><span class="line"></span><br><span class="line"><span class="number">19491001</span> 是质数</span><br><span class="line"><span class="number">19260817</span> 是质数</span><br></pre></td></tr></table></figure>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><p>鸽巢的时候记得卡一下边界,虽然书上说最多能放 $\lceil\frac nk\rceil$ 个,但是最多能着的下 $n\%k$ 种,记得统计一下.(另外,如果ceil等于直接除的话要特判,因为此时 $n\%k$ 等于0)</p>
+<h1 id="大坑"><a href="#大坑" class="headerlink" title="大坑"></a>大坑</h1><h2 id="目力"><a href="#目力" class="headerlink" title="目力"></a>目力</h2><p>众所周知,某些质数因为长得像而混迹998244353,而有的则是正确输出 <code>YE5</code> ,错误输出 <code>N0</code> ,就很邪恶.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">998244853</span> 是质数</span><br><span class="line"><span class="number">998244259</span> 是质数</span><br><span class="line"><span class="number">99824353</span>  是质数</span><br><span class="line"><span class="number">998242353</span> 不是质数</span><br><span class="line"><span class="number">100000007</span>(<span class="number">1e8</span>+<span class="number">7</span>) 是质数</span><br><span class="line"></span><br><span class="line"><span class="number">19491001</span> 是质数</span><br><span class="line"><span class="number">19260817</span> 是质数</span><br></pre></td></tr></table></figure></p>
+
   </div>
 </article>
 
@@ -254,7 +241,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">1.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">2.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">3.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">4.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">7.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">8.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">9.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">10.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">11.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">数据结构上机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">3.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">4.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">5.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">7.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">8.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">9.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">11.</span> <span class="toc-text">精度问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">13.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%9D%91"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol>
       </div>
     
 

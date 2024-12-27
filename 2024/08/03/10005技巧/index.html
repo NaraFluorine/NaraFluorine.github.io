@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="RT,这里写一些题目中总结的技巧. 分段  空调.一个空调有一个位置和温度,向两边传送温度,+1递增,问所有格子有多凉快.  std把空调向左传播和向右传播分开了,然后分别维护一个L和R表示向左传播向右传播的最小值,可以做一个DP. max_element 返回最大元素的指针,如果有好几个返回最小的那个位置的指针. *max_element(a+1,a+1+n) to_string 返回一个str">
+    <meta name="description" content="RT,这里写一些题目中总结的技巧. 取模映射如何让a投射到 [1,b] 的范围中去?答案很简单: (a-1)%b+1 . 分段 空调.一个空调有一个位置和温度,向两边传送温度,+1递增,问所有格子有多凉快.  std把空调向左传播和向右传播分开了,然后分别维护一个L和R表示向左传播向右传播的最小值,可以做一个DP. max_element返回最大元素的指针,如果有好几个返回最小的那个位置的指针.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="技巧">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/03/10005%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="RT,这里写一些题目中总结的技巧. 分段  空调.一个空调有一个位置和温度,向两边传送温度,+1递增,问所有格子有多凉快.  std把空调向左传播和向右传播分开了,然后分别维护一个L和R表示向左传播向右传播的最小值,可以做一个DP. max_element 返回最大元素的指针,如果有好几个返回最小的那个位置的指针. *max_element(a+1,a+1+n) to_string 返回一个str">
+<meta property="og:description" content="RT,这里写一些题目中总结的技巧. 取模映射如何让a投射到 [1,b] 的范围中去?答案很简单: (a-1)%b+1 . 分段 空调.一个空调有一个位置和温度,向两边传送温度,+1递增,问所有格子有多凉快.  std把空调向左传播和向右传播分开了,然后分别维护一个L和R表示向左传播向右传播的最小值,可以做一个DP. max_element返回最大元素的指针,如果有好几个返回最小的那个位置的指针.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-03T15:36:16.000Z">
-<meta property="article:modified_time" content="2024-11-03T14:55:16.911Z">
+<meta property="article:modified_time" content="2024-12-17T05:40:10.979Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">分段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#max-element"><span class="toc-number">2.</span> <span class="toc-text">max_element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#to-string"><span class="toc-number">3.</span> <span class="toc-text">to_string</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1%E6%98%A0%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">取模映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text">分段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#max-element"><span class="toc-number">3.</span> <span class="toc-text">max_element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#to-string"><span class="toc-number">4.</span> <span class="toc-text">to_string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-number">5.</span> <span class="toc-text">语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%9E%9A%E4%B8%BE%E5%85%83%E7%B4%A0%E2%80%A6"><span class="toc-number">7.</span> <span class="toc-text">循环枚举元素…</span></a></li></ol>
       </div>
     
   </span>
@@ -187,17 +187,19 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>RT,这里写一些题目中总结的技巧.</p>
-<h2 id="分段">分段</h2>
-<ol>
+<h2 id="取模映射"><a href="#取模映射" class="headerlink" title="取模映射"></a>取模映射</h2><p>如何让a投射到 <code>[1,b]</code> 的范围中去?答案很简单: <code>(a-1)%b+1</code> .</p>
+<h2 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1419/C">空调</a>.一个空调有一个位置和温度,向两边传送温度,<code>+1</code>递增,问所有格子有多凉快.</li>
 </ol>
 <p><code>std</code>把空调向左传播和向右传播分开了,然后分别维护一个<code>L</code>和<code>R</code>表示向左传播向右传播的最小值,可以做一个DP.</p>
-<h2 id="max-element">max_element</h2>
-<p>返回最大元素的指针,如果有好几个返回最小的那个位置的指针.</p>
+<h2 id="max-element"><a href="#max-element" class="headerlink" title="max_element"></a>max_element</h2><p>返回最大元素的指针,如果有好几个返回最小的那个位置的指针.</p>
 <p><code>*max_element(a+1,a+1+n)</code></p>
-<h2 id="to-string">to_string</h2>
-<p>返回一个string类,是转换数字为字符串的方式(之一,比自己写方便)</p>
+<h2 id="to-string"><a href="#to-string" class="headerlink" title="to_string"></a>to_string</h2><p>返回一个string类,是转换数字为字符串的方式(之一,比自己写方便)</p>
 <p><code>string a=to_string(114514)</code></p>
+<h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><p><code>return 0&amp;printf(&quot;%d&quot;,dp);</code> 少写一句大括号.<br><code>!x</code> = <code>x!=0</code> , <code>~x</code> = <code>x!=-1</code> , <code>if(-1)</code> 这句话是真.</p>
+<h2 id="数组初始化"><a href="#数组初始化" class="headerlink" title="数组初始化"></a>数组初始化</h2><p><code>int a[114]&#123;&#125;</code> 这个大括号的作用就是初始化为0</p>
+<h2 id="循环枚举元素…"><a href="#循环枚举元素…" class="headerlink" title="循环枚举元素…"></a>循环枚举元素…</h2><p>牢记,循环的目的就是为了枚举,所以下次再碰到你只有一次机会能干嘛的时候有机会就考虑循环枚举元素.</p>
+<p>典例: 你有一个数列,你必须删掉一个元素,如果存在数列相邻两个数gcd不降的情况,输出yes.(枚举删掉哪个元素,算出前缀后缀单调不单调)<br>数据结构第二次第三题:你有一次坐地铁的机会,求s到t最短路.(枚举坐的地铁是哪个)  </p>
 
   </div>
 </article>
@@ -230,7 +232,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">分段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#max-element"><span class="toc-number">2.</span> <span class="toc-text">max_element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#to-string"><span class="toc-number">3.</span> <span class="toc-text">to_string</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1%E6%98%A0%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">取模映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text">分段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#max-element"><span class="toc-number">3.</span> <span class="toc-text">max_element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#to-string"><span class="toc-number">4.</span> <span class="toc-text">to_string</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-number">5.</span> <span class="toc-text">语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%9E%9A%E4%B8%BE%E5%85%83%E7%B4%A0%E2%80%A6"><span class="toc-number">7.</span> <span class="toc-text">循环枚举元素…</span></a></li></ol>
       </div>
     
 
