@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="概念连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(或">
+    <meta name="description" content="概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/25/10015%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="概念连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(或">
+<meta property="og:description" content="概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-24T16:28:44.000Z">
 <meta property="article:modified_time" content="2024-12-09T10:22:16.564Z">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA-1"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-1"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-2"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
       </div>
     
   </span>
@@ -186,30 +186,43 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>连通分量</strong> :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量.</p>
+    <h2 id="概念">概念</h2>
+<p><strong>连通分量</strong> :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量.</p>
 <p><strong>割点</strong> :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(或多个)连通分量.</p>
 <p><strong>点双连通</strong> :若对于一个无向图,其任意一个节点对于这个图本身而言都不是割点,则称其点双连通.也就是说,删除任意点及其相关边后,整个图仍然属于一个连通分量.</p>
 <p><strong>点双连通分量</strong> :无向图中,极大的点双连通子图.与连通分量类似,抽离出一些点及它们之间的边,使得抽离出的图是一个点双连通图,在这个前提下,使得抽离出的图越大越好.</p>
 <p><strong>边双连通分量</strong> :其实就是求出来割边之后,对去掉割边的图遍历以下求出来所有的</p>
-<h2 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h2><p>通过dp的方式进行转移, <code>dp[i][j]</code> 表示从i到j的最小边权和.<br>还可以这么想,在一个没有权值的图中, <code>dp[i][j]</code> 表示i能到j.现在,假设dp是一个矩阵,则 $dp^k$ 的意思就是从i花费k步能到达j的方案总数.<br>例题:一个人在图上1节点,每步可以走向与他相连的其他节点,也可以不动,还可以自爆,自爆之后就不能动了,求经过k步之后的所有行走情况和.<br>一些特殊情况的处理:</p>
+<h2 id="Floyd算法">Floyd算法</h2>
+<p>通过dp的方式进行转移, <code>dp[i][j]</code> 表示从i到j的最小边权和.<br>
+还可以这么想,在一个没有权值的图中, <code>dp[i][j]</code> 表示i能到j.现在,假设dp是一个矩阵,则 $dp^k$ 的意思就是从i花费k步能到达j的方案总数.<br>
+例题:一个人在图上1节点,每步可以走向与他相连的其他节点,也可以不动,还可以自爆,自爆之后就不能动了,求经过k步之后的所有行走情况和.<br>
+一些特殊情况的处理:</p>
 <ol>
-<li>这一步不动: 自己给自己连边,形成自环即可.  </li>
+<li>这一步不动: 自己给自己连边,形成自环即可.</li>
 <li>自爆: 我们假想一个新节点0, 所有点和0连边,0不和任何点连边(自爆之后不能转移出去).</li>
 </ol>
 <p>最后,套上矩阵快速幂板子即可.</p>
-<h2 id="dfs序-欧拉序"><a href="#dfs序-欧拉序" class="headerlink" title="dfs序 欧拉序"></a>dfs序 欧拉序</h2><p>这俩的区别就是,前者是节点遍历到的时候只会有一次,后者是来的时候一次走的时候再来一次.</p>
-<h2 id="dfs生成树-Tarjan"><a href="#dfs生成树-Tarjan" class="headerlink" title="dfs生成树 Tarjan"></a>dfs生成树 Tarjan</h2><p>略,好难学的</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
+<h2 id="dfs序-欧拉序">dfs序 欧拉序</h2>
+<p>这俩的区别就是,前者是节点遍历到的时候只会有一次,后者是来的时候一次走的时候再来一次.</p>
+<h2 id="dfs生成树-Tarjan">dfs生成树 Tarjan</h2>
+<p>略,好难学的</p>
+<h2 id="例题">例题</h2>
+<ol>
 <li>好多牛之间存在爱慕关系,其中爱慕具有传递性,A爱B,B爱C的话A也会爱C.爱慕关系构成一张图,明星牛的定义是受到所有牛的爱戴(所有牛是爱慕自己的),求一张图有多少个明星牛.</li>
 </ol>
 <p>因为满足传递性,我们要把图缩成一张DAG(有向无环图),此时 <strong>牛之间不会存在相互爱慕的关系</strong> ,所以如果一个牛受到别人的爱戴,他不会再爱戴别人,所以直接统计出度是0的点即可,多个出度为0直接输出0(因为此时图不再联通).</p>
-<h1 id="树论"><a href="#树论" class="headerlink" title="树论"></a>树论</h1><h2 id="树论-1"><a href="#树论-1" class="headerlink" title="树论"></a>树论</h2><p>树本身是一种特殊的图,所以放在一起了…</p>
-<h2 id="树上启发式合并"><a href="#树上启发式合并" class="headerlink" title="树上启发式合并"></a>树上启发式合并</h2><p>说好听点叫启发式,说难听点就是口胡结论,这种题只能多做.</p>
-<h2 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h2><ol>
+<h1>树论</h1>
+<h2 id="树论">树论</h2>
+<p>树本身是一种特殊的图,所以放在一起了…</p>
+<h2 id="树上启发式合并">树上启发式合并</h2>
+<p>说好听点叫启发式,说难听点就是口胡结论,这种题只能多做.</p>
+<h2 id="例题-2">例题</h2>
+<ol>
 <li>春节十二响: 给一颗树,每一个点有一个权值,点能放在一个块当且仅当点之间不具有父子节点关系,一个块的值被定义成块里所有点权值的最大值,求一棵树的最小块的值和.</li>
 </ol>
-<p>启发式合并:首先考虑一个三节点二叉树:根节点必定是一个,然后两个叶节点放一起.然后是一个两端都是链的二叉树,这个时候每条链上肯定不会在一起,就和另一条链合并,同时为了让块最小肯定是每次取两条链最大的节点合并.<br>然后发现我们得到了一条新的链,于是启发式合并的思路就出来了:如果一棵树有两个及以上的链,每次取最大的节点合并成一条链即可.</p>
-<ol>
+<p>启发式合并:首先考虑一个三节点二叉树:根节点必定是一个,然后两个叶节点放一起.然后是一个两端都是链的二叉树,这个时候每条链上肯定不会在一起,就和另一条链合并,同时为了让块最小肯定是每次取两条链最大的节点合并.<br>
+然后发现我们得到了一条新的链,于是启发式合并的思路就出来了:如果一棵树有两个及以上的链,每次取最大的节点合并成一条链即可.</p>
+<ol start="2">
 <li>你要从s去t,给两张图分别是公交车的路线以及时间图,地铁的路线一级时间图,你可以任意坐公交但是只能最多坐一站地铁,求最小时间以及,如果坐地铁的话最小的地铁站位号是多少.</li>
 </ol>
 <p>QianK说这个题典…我们对s和t都跑一遍dij,然后枚举所有地铁站,看边然后加一起就行了…</p>
@@ -245,7 +258,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA-1"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-1"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-2"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
       </div>
     
 
@@ -284,7 +297,7 @@
     Copyright &copy;
     
     
-    2024
+    2024-2025
     Fluorine Wengers
   </div>
   <div class="footer-right">

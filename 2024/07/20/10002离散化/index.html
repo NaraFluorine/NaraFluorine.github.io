@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.鉴于Flu不太会用函数,所以开个坑. 离散化步骤:12345sort(dat+1,dat+1+n);m&#x3D;unique(dat+1,dat+1+n)-dat-1;&#x2F;&#x2F;m是实际不重合元素个数.&#x2F;&#x2F;tmp是每个元素离散化之后的值(排名).tmp&#x3D;upper_bound(dat+1,dat+1+m,val)-dat-1; 对应函数解释:so">
+    <meta name="description" content="离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.鉴于Flu不太会用函数,所以开个坑. 离散化步骤: 12345sort(dat+1,dat+1+n);m&#x3D;unique(dat+1,dat+1+n)-dat-1;&#x2F;&#x2F;m是实际不重合元素个数.&#x2F;&#x2F;tmp是每个元素离散化之后的值(排名).tmp&#x3D;upper_bound(dat+1,dat+1+m,val)-dat-1; 对应函数解释:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散化">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/20/10002%E7%A6%BB%E6%95%A3%E5%8C%96/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.鉴于Flu不太会用函数,所以开个坑. 离散化步骤:12345sort(dat+1,dat+1+n);m&#x3D;unique(dat+1,dat+1+n)-dat-1;&#x2F;&#x2F;m是实际不重合元素个数.&#x2F;&#x2F;tmp是每个元素离散化之后的值(排名).tmp&#x3D;upper_bound(dat+1,dat+1+m,val)-dat-1; 对应函数解释:so">
+<meta property="og:description" content="离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.鉴于Flu不太会用函数,所以开个坑. 离散化步骤: 12345sort(dat+1,dat+1+n);m&#x3D;unique(dat+1,dat+1+n)-dat-1;&#x2F;&#x2F;m是实际不重合元素个数.&#x2F;&#x2F;tmp是每个元素离散化之后的值(排名).tmp&#x3D;upper_bound(dat+1,dat+1+m,val)-dat-1; 对应函数解释:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-20T05:47:06.000Z">
 <meta property="article:modified_time" content="2024-07-20T07:05:10.968Z">
@@ -187,11 +187,20 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.鉴于Flu不太会用函数,所以开个坑.</p>
-<p>离散化步骤:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure></p>
-<p>对应函数解释:<br><code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br><code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br><code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p>
-<h3 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h3><p>这里仔细讲讲,防止Flu考试的时候先检查排序结果对不对…</p>
-<p>其实排序标准挺好记的,就是用<code>&lt;</code>连接的就是结果.比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line">	<span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p>
-<p>附:函数调用未知函数的格式是这样:(课设的程序,乐)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure><br>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量,拒绝屎山(得意).</p>
+<p>离散化步骤:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure>
+<p>对应函数解释:<br>
+<code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br>
+<code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br>
+<code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p>
+<h3 id="排序规则">排序规则</h3>
+<p>这里仔细讲讲,防止Flu考试的时候先检查排序结果对不对…</p>
+<p>其实排序标准挺好记的,就是用<code>&lt;</code>连接的就是结果.比如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line">	<span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p>
+<p>附:函数调用未知函数的格式是这样:(课设的程序,乐)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure>
+<p>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量,拒绝屎山(得意).</p>
 
   </div>
 </article>
@@ -263,7 +272,7 @@
     Copyright &copy;
     
     
-    2024
+    2024-2025
     Fluorine Wengers
   </div>
   <div class="footer-right">
