@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="RT,这里是放Flu自己建模以及打印工件的经验总结. 工件向上最大倾斜度 无AMS多色打印 原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印. 耗材干燥剂 选项:  分子筛干燥剂(大约3~5元每斤) 变色硅胶干燥剂 生石灰(灰太大)  如何拆支撑 为什么XX?  为什么会听到咔咔的声音?是打印机撞到模型了吗?  那是打印机打较大模型时,模型中间会凉下来,">
+    <meta name="description" content="RT,这里是放Flu自己建模以及打印工件的经验总结. 3D打印文件格式有哪些? stl 3mf amf obj 等. 工件向上最大倾斜度 无AMS多色打印 原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印. 耗材干燥剂 选项:  分子筛干燥剂(大约3~5元每斤) 变色硅胶干燥剂 生石灰(灰太大)  如何拆支撑 为什么XX?  为什么会听到咔咔的声音?是打">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3D打印及建模经验总结">
 <meta property="og:url" content="https://narafluorine.github.io/2024/12/24/30012%E5%BB%BA%E6%A8%A1%E5%8F%8A3D%E6%89%93%E5%8D%B0/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="RT,这里是放Flu自己建模以及打印工件的经验总结. 工件向上最大倾斜度 无AMS多色打印 原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印. 耗材干燥剂 选项:  分子筛干燥剂(大约3~5元每斤) 变色硅胶干燥剂 生石灰(灰太大)  如何拆支撑 为什么XX?  为什么会听到咔咔的声音?是打印机撞到模型了吗?  那是打印机打较大模型时,模型中间会凉下来,">
+<meta property="og:description" content="RT,这里是放Flu自己建模以及打印工件的经验总结. 3D打印文件格式有哪些? stl 3mf amf obj 等. 工件向上最大倾斜度 无AMS多色打印 原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印. 耗材干燥剂 选项:  分子筛干燥剂(大约3~5元每斤) 变色硅胶干燥剂 生石灰(灰太大)  如何拆支撑 为什么XX?  为什么会听到咔咔的声音?是打">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-24T13:03:22.000Z">
-<meta property="article:modified_time" content="2024-12-31T14:41:06.330Z">
+<meta property="article:modified_time" content="2025-01-15T15:34:03.848Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="OTH">
 <meta name="twitter:card" content="summary">
@@ -103,7 +103,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/12/31/30013Flag/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/12/24/30014%E8%BD%AF%E4%BB%B6%E8%AE%B0%E5%BD%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/2024/12/17/10018%E6%A6%82%E7%8E%87/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">2.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5%E5%89%82"><span class="toc-number">3.</span> <span class="toc-text">耗材干燥剂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">4.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">5.</span> <span class="toc-text">为什么XX?</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3D%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">3D打印文件格式有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">3.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5%E5%89%82"><span class="toc-number">4.</span> <span class="toc-text">耗材干燥剂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">5.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">6.</span> <span class="toc-text">为什么XX?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">Blender建模教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E4%BD%8D"><span class="toc-number">0.1.</span> <span class="toc-text">键位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-number">0.2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E7%82%B9"><span class="toc-number">0.3.</span> <span class="toc-text">中心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E4%BD%93%E7%A7%BB%E5%8A%A8-%E8%BD%B4%E5%BF%83%E7%82%B9"><span class="toc-number">0.4.</span> <span class="toc-text">物体移动,轴心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%9D%90%E6%A0%87"><span class="toc-number">0.5.</span> <span class="toc-text">局部坐标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">建模篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E7%9A%84%E6%B3%95%E5%90%91"><span class="toc-number">0.1.</span> <span class="toc-text">面的法向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">建模操作</span></a></li></ol>
       </div>
     
   </span>
@@ -187,6 +187,8 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>RT,这里是放Flu自己建模以及打印工件的经验总结.</p>
+<h2 id="3D打印文件格式有哪些">3D打印文件格式有哪些?</h2>
+<p><code>stl</code> <code>3mf</code> <code>amf</code> <code>obj</code> 等.</p>
 <h2 id="工件向上最大倾斜度">工件向上最大倾斜度</h2>
 <h2 id="无AMS多色打印">无AMS多色打印</h2>
 <p>原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印.</p>
@@ -212,8 +214,98 @@
 </ol>
 <p>答:你没有洗板子,之前的油沾到了上面导致不粘板子,然后就导致打印一层比一层偏最后出现大洞.所以 <strong>推荐每次打印完取下来模型就洗一次板子,保证下次打印的成功率</strong> .还有可能是耗材时间长了.</p>
 <ol start="4">
-<li>为什么不着床!!!</li>
+<li>为什么不着床!!!(翘边,炒面)</li>
 </ol>
+<p>因为热床不粘.对于纹理PIE板使用肥皂洗一下,然后再用无纺布擦干(注意不能是纸巾,会残留碎屑在上面导致打印失败),无纺布可以带酒精也可以不带.</p>
+<h1>Blender建模教程</h1>
+<hr>
+<p>(听的KurTips网课,简单学了一手)</p>
+<h3 id="键位">键位</h3>
+<p>鼠标中键:挪动视角,观察空间<br>
+Shift+鼠标中键:移动空间(右上角小手)<br>
+滚轮:缩放空间(右上角的放大镜)<br>
+右上角的三色轴拖动旋转:转动空间<br>
+摄像机视图:右上角摄像机<br>
+正交视图:右上角网格</p>
+<p>删除物体:Del<br>
+恢复操作:Ctrl+Z<br>
+新建物体:Shift+a<br>
+移动物体:G(这个状态按xyz会沿着对应方向移动),退出状态是左键<br>
+缩放物体:S(这个状态按xyz会沿着对应方向移动),退出状态是左键<br>
+旋转物体:R(按xyz会沿着对应方向移动,默认是你的视图方向旋转),退出状态是左键<br>
+隐藏物体:H(Shift+H会隐藏所有没有被选中的物体,看右上角场景那里的小眼睛)<br>
+恢复某些性质:Alt+X(加S撤销缩放,加R撤销旋转,加G撤销位移(回到原先的位置了))<br>
+复制物体:Shift+D移动并复制(复制并移动是两步,撤销的时候会发现其实已经复制出来了)</p>
+<p>选中:分为框选(不可调位置)和单选(随便调位置)还有刷选(快捷键C,刷到哪里选择哪里)和套索(从鼠标末端到鼠标起点的一个闭合平面),在鼠标框那里长按调整,注意要选到物体中心才算</p>
+<p>切换视图:单击XYZ轴可以变换成单方向的视图.<br>
+还有一种方法: <code>~</code> 进入Tab目录,显示当前的视图<br>
+小键盘福利:<br>
+1正视图3右视图7顶视图9把当前视图反过来<br>
+2468是上下左右方向的微调(一次15度)</p>
+<p>面板:每一个面板都可以转换成其他的操作面板.面板转换在左上角.可替换可拆分,鼠标在窗口四角出现加号的时候可以拉,往别的窗口拉会合并,往自己的窗口拉会分裂.</p>
+<p>搞乱了可以在上方加号新建布局恢复.<br>
+Ctrl+Space可以最大化当前面板,再按一次恢复.</p>
+<p>键盘上的/斜杠:按一下可以让选中的物体单独显示,再按一下退出.</p>
+<p>0:进入摄像机视图</p>
+<p>摄像机快速对正:在摄像机视图按n勾选锁定摄像机,然后就可以直接在摄像机视图调整了.</p>
+<p>blender有两个渲染器,一个叫eevee,一个叫cycles.eevee是实时渲染,快,相对不占资源,缺点是没有光线追踪,很多光线阴影细节不佳,需要额外更多参数辅助.cycles更加逼真高级,能模拟出物理世界里非常细节的光线阴影,缺点是慢,比eevee慢10倍以上.`</p>
+<h3 id="游标">游标</h3>
+<p>游标在哪里,新建的东西就会出现在哪里.</p>
+<p>移动游标:选中工具下面是游标工具,点这个工具移动即可.<br>
+或者正常的选中模式,Shift+右键 也可以移动游标.<br>
+Shift+C 游标回到原点.</p>
+<p>游标可以当成轴心点用.把物体的轴心点换成游标的话,就可以绕着游标进行转动.</p>
+<h3 id="中心点">中心点</h3>
+<p>每个物体都会有一个中心点,记录物体的信息.</p>
+<p>右上角选项可以选择&quot;仅影响原点&quot;,然后挪动原点和物体的相对位置.</p>
+<p>立方体的原点默认在中心,这个时候伸长是原点向两边伸长的.</p>
+<h3 id="物体移动-轴心点">物体移动,轴心点</h3>
+<p>移动模式下按Ctrl有吸附功能</p>
+<p>轴心点可以变成边界框中心,质心,各自的中心,以及活动元素.活动元素是多选物体时最后被选中的元素.</p>
+<h3 id="局部坐标">局部坐标</h3>
+<p>和世界坐标不一样的,旋转跟着物体转的这么一个坐标.</p>
+<p>如何调用局部坐标?只要按两次坐标轴就可以在全局和局部坐标中切换了.</p>
+<h1>建模篇</h1>
+<p>模型编辑模式:Tab切换物体模式.<br>
+按Tab同时移动鼠标会进入丙菜单,出现一个物体的好多种模式.</p>
+<p>选择点线面:大键盘123分别对应,默认是点.(鼠标切换那里在左上角),按Shift可以同时选点线面</p>
+<p>鼠标选择:按w快速切换选中规则,框选刷选,etc.<br>
+框选是b,刷选是c,注意快捷键进入刷选状态时经常出现其他键都按不了,只能刷选,这个时候按住鼠标中键擦除刚刚选中的点,退出按esc或者右键在空白位置</p>
+<p>反选:选中一块点,按ctrl+i反选这个物体其他的所有点<br>
+按shift可以选择一些不连续的点,按ctrl可以把两个点之间的最短路径连起来.</p>
+<p>选择相连元素:选一个点按L可以选择所有与这个点相连的点(连什么地方要把鼠标走到那里)(是以四边形计算的,有的时候三角面跨不过去,要用鼠标选)</p>
+<p>选择一个圈(环):选择一个点按alt双击想选的环(横向,纵向,etc)</p>
+<p>随机选择:鼠标防选择上随机选择一些点线面</p>
+<p>扩大选择:按ctrl++(小键盘)或ctrl±(小键盘)可以扩大选择范围或者缩小</p>
+<p>透视模式:alt+Z切换,这个时候可以选中背面的点</p>
+<p>点线面操纵:g移动r旋转s缩放</p>
+<p>删除点线面:选择某些东西按x选择删除哪些东西</p>
+<p>删点:点消失了,和点直接相连的边也消失了,和面直接相连的面也消失了<br>
+删边:边消失了,和面直接相连的面也消失了<br>
+删面:面消失了</p>
+<p>融并:会删东西,但是剩下的会缝起来,不会出现一个大洞</p>
+<h3 id="面的法向">面的法向</h3>
+<p>到右上角找到面朝向打开即可看到一个面的正反,蓝色是正面红色是反面</p>
+<p>按shift+n,选一下内向就可以转换朝向.</p>
+<p>法线:面法线垂直于面(浅蓝),顶点法线垂直于切线方向(深蓝),拆分法线(浅粉色,用的比较少,游戏开发会自定义法线)</p>
+<h2 id="建模操作">建模操作</h2>
+<p>左侧边栏:笔 标注,注释<br>
+测量工具:量工件多大的.<br>
+新建工具:快速拉出来一个新模型</p>
+<p>挤出:先切换到面模式,然后e挤出一个面(挤出并移动)s缩小(这个面),点挤出是一个面(快速挤出是ctrl+右键),线挤出是一个面.注意e是挤出冰移动,撤销的时候注意一下两个面重合<br>
+挤出流形:避免重复边的问题.<br>
+沿法线挤出:rt.<br>
+单独挤出:立方体切片之后选择多个面挤出会连在一起(一起挤出的),然后单独挤出不会出现这种情况,用于做手指</p>
+<p>向内挤出:i(这个不是挤出并移动)</p>
+<p>倒角(把角磨圆):ctrl+B拉出来一个角(边模式),滑动鼠标滚轮增加细分面(更圆滑)</p>
+<p>环切(腰斩):从中间截断整个物体(ctrl+r),滑动滚轮可以增加或者减少段数点一下确定段数,再点一下确定位置,右键可以自动吸附在最中间的地方</p>
+<p>合并:选择两个点,m合并到中间,按距离的意思是如果两个点的距离小于多少就合并.</p>
+<p>断开:v,一个点要有三条边支持,然后断开的时候就是和别的面不粘了.</p>
+<p>填充:alt双击环选一整个环,然后按住f这个面就被封住了.(被填充了)</p>
+<p>右键细分:可以增加一个边.</p>
+<p>切刀:k进入切刀模式,右键或者空格退出,切刀可以把物体切成好多个面.</p>
+<p>桥接:ctrl+E,只有一个物体才能够桥接.两个物体变一个物体用ctrl+j.</p>
+<p>分离:p,先进透视,选中想分离的物体,按p(这个时候一个物体会变成两个物体…)</p>
 
   </div>
 </article>
@@ -246,7 +338,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">2.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5%E5%89%82"><span class="toc-number">3.</span> <span class="toc-text">耗材干燥剂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">4.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">5.</span> <span class="toc-text">为什么XX?</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3D%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">3D打印文件格式有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">3.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5%E5%89%82"><span class="toc-number">4.</span> <span class="toc-text">耗材干燥剂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">5.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">6.</span> <span class="toc-text">为什么XX?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">Blender建模教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E4%BD%8D"><span class="toc-number">0.1.</span> <span class="toc-text">键位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-number">0.2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E7%82%B9"><span class="toc-number">0.3.</span> <span class="toc-text">中心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E4%BD%93%E7%A7%BB%E5%8A%A8-%E8%BD%B4%E5%BF%83%E7%82%B9"><span class="toc-number">0.4.</span> <span class="toc-text">物体移动,轴心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%9D%90%E6%A0%87"><span class="toc-number">0.5.</span> <span class="toc-text">局部坐标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">建模篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E7%9A%84%E6%B3%95%E5%90%91"><span class="toc-number">0.1.</span> <span class="toc-text">面的法向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">建模操作</span></a></li></ol>
       </div>
     
 
