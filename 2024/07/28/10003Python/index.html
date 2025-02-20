@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这里讲一些基础语法.(基本上,精通一种语言,别的语言都大差不差能看懂) 初等函数 print() 1print(&quot;字符串&quot;,算式,变量) 参数:sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的. eval() 12x&#x3D;7eval(&#x27;3*x&#x27;) eval把字符串转换成算式并给出计算结果. str() 把一个数字转成字符串 len() 求">
+    <meta name="description" content="初等函数 print(“字符串”,算式,变量) sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的. x&#x3D;7;eval(&#39;3*x&#39;) ,eval把字符串转换成算式并给出计算结果. str(),int(),float() 格式转换 len(x) 求一个字符串的长度 a.sort() 会对数列a进行排序 sorted(a) 会对a进行排序,同时返回一个新的排好序的列表 b&#x3D;lis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python笔记">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/28/10003Python/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="这里讲一些基础语法.(基本上,精通一种语言,别的语言都大差不差能看懂) 初等函数 print() 1print(&quot;字符串&quot;,算式,变量) 参数:sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的. eval() 12x&#x3D;7eval(&#x27;3*x&#x27;) eval把字符串转换成算式并给出计算结果. str() 把一个数字转成字符串 len() 求">
+<meta property="og:description" content="初等函数 print(“字符串”,算式,变量) sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的. x&#x3D;7;eval(&#39;3*x&#39;) ,eval把字符串转换成算式并给出计算结果. str(),int(),float() 格式转换 len(x) 求一个字符串的长度 a.sort() 会对数列a进行排序 sorted(a) 会对a进行排序,同时返回一个新的排好序的列表 b&#x3D;lis">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-28T05:42:51.000Z">
-<meta property="article:modified_time" content="2025-01-15T17:17:45.749Z">
+<meta property="article:modified_time" content="2025-02-10T12:04:21.907Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#print"><span class="toc-number">1.1.</span> <span class="toc-text">print()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-number">1.2.</span> <span class="toc-text">eval()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str"><span class="toc-number">1.3.</span> <span class="toc-text">str()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#len"><span class="toc-number">1.4.</span> <span class="toc-text">len()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">1.5.</span> <span class="toc-text">sort()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reversed"><span class="toc-number">1.6.</span> <span class="toc-text">reversed()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.7.</span> <span class="toc-text">namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-elif-while-for"><span class="toc-number">1.8.</span> <span class="toc-text">if else elif while for</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#range"><span class="toc-number">1.8.1.</span> <span class="toc-text">range</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.9.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.10.</span> <span class="toc-text">变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.11.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.12.</span> <span class="toc-text">运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import"><span class="toc-number">1.13.</span> <span class="toc-text">import</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">2.1.</span> <span class="toc-text">set()</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.1.</span> <span class="toc-text">namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.4.</span> <span class="toc-text">运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">2.1.</span> <span class="toc-text">set()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math"><span class="toc-number">3.</span> <span class="toc-text">math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decimal"><span class="toc-number">4.</span> <span class="toc-text">decimal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">5.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">技巧</span></a>
       </div>
     
   </span>
@@ -186,36 +186,23 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>这里讲一些基础语法.(基本上,精通一种语言,别的语言都大差不差能看懂)</p>
-<h2 id="初等函数">初等函数</h2>
-<h3 id="print">print()</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;字符串&quot;</span>,算式,变量)</span><br></pre></td></tr></table></figure>
-<p>参数:sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的.</p>
-<h3 id="eval">eval()</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">7</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&#x27;3*x&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>eval把字符串转换成算式并给出计算结果.</p>
-<h3 id="str">str()</h3>
-<p>把一个数字转成字符串</p>
-<h3 id="len">len()</h3>
-<p>求一个字符串的长度</p>
-<h3 id="sort">sort()</h3>
-<p>有两个排序: <code>a.sort()</code> 会对数列a进行排序<br>
-<code>sorted(a)</code> 会对a进行排序,同时返回一个新的排好序的列表</p>
-<h3 id="reversed">reversed()</h3>
-<p>返回一个反转的列表,原列表不会改变.<code>b=list(reversed(a))</code></p>
+    <h2 id="初等函数">初等函数</h2>
+<p>print(“字符串”,算式,变量)<br>
+sep分隔符,默认空格,可以换成别的,end结尾符,默认换行,可以换别的.</p>
+<p><code>x=7;eval('3*x')</code> ,eval把字符串转换成算式并给出计算结果.<br>
+<code>str(),int(),float()</code> 格式转换<br>
+<code>len(x)</code> 求一个字符串的长度<br>
+<code>a.sort()</code> 会对数列a进行排序<br>
+<code>sorted(a)</code> 会对a进行排序,同时返回一个新的排好序的列表<br>
+<code>b=list(reversed(a))</code>  返回一个反转的列表,原列表不会改变.<br>
+<code>round(xx,eps)</code>把x舍入到小数点后eps位</p>
 <h3 id="namespace">namespace</h3>
+<p>在指定名字空间内执行语句.</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">namespace=&#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&#x27;a+b&#x27;</span>,namespace)</span><br></pre></td></tr></table></figure>
-<p>在指定名字空间内执行语句长这样.</p>
-<h3 id="if-else-elif-while-for">if else elif while for</h3>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> xxx:</span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">elif</span>:</span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">while</span> xxx:</span><br><span class="line">    xxx</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(xxx):</span><br><span class="line">    xxx</span><br></pre></td></tr></table></figure>
-<h4 id="range">range</h4>
 <p>range可以接受三个参数,分别是[l,r)和步长.</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">range</span>(<span class="number">12</span>,<span class="number">16</span>,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 12 14</span></span><br></pre></td></tr></table></figure>
-<h3 id="注释">注释</h3>
-<p>注释长这样:(只有一种注释方法,就是这个,单行有效,按住Ctrl+/即可)</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xxx</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">range</span>(<span class="number">12</span>,<span class="number">16</span>,<span class="number">2</span>) <span class="comment"># 12 14</span></span><br></pre></td></tr></table></figure>
 <h3 id="变量类型">变量类型</h3>
-<p>Python内置高精(C艹党吐血倒地),变量类型可以转变,有以下几种:</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> <span class="built_in">int</span> string Bool(<span class="literal">True</span> <span class="literal">False</span>) 字典 列表 元组</span><br></pre></td></tr></table></figure>
 <p>其中元组就是const形态的列表,一般用于函数返回值.(TF这俩必须大写,不大写认不出来)</p>
 <h3 id="变量声明">变量声明</h3>
@@ -224,9 +211,6 @@
 <h3 id="运算">运算</h3>
 <p>按优先级排序:(上面的最高)</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">**幂</span><br><span class="line">~按位反</span><br><span class="line">* /除法 % //整除</span><br><span class="line">+ -</span><br><span class="line">&gt;&gt; &lt;&lt;</span><br><span class="line">&amp;</span><br><span class="line">^ |</span><br><span class="line">&lt;= &lt; &gt; &gt;=</span><br><span class="line">== !=</span><br><span class="line">= %= /= //= -= += *= **=</span><br><span class="line"><span class="keyword">is</span>  <span class="keyword">is</span> <span class="keyword">not</span></span><br><span class="line"><span class="keyword">in</span>  <span class="keyword">not</span> <span class="keyword">in</span></span><br><span class="line"><span class="keyword">and</span>  <span class="keyword">or</span> <span class="keyword">not</span></span><br></pre></td></tr></table></figure>
-<p>小技巧:按住Ctrl+C会立刻结束程序的,不妨试试(C++也一样)</p>
-<h3 id="import">import</h3>
-<p>导入包.为了避免变量名冲突,建议只用<code>import xxx</code>的格式,<code>from xxx import*</code>会闹麻的(变量名冲突)</p>
 <h2 id="标准库">标准库</h2>
 <h3 id="set">set()</h3>
 <p><code>a=set()</code> 创建一个无序但是不重复的集合.</p>
@@ -239,6 +223,30 @@
 <code>&amp;</code> 集合的交运算<br>
 <code>-</code> 差集<br>
 <code>^</code> 对称差集(只在一个集合中出现的元素)</p>
+<h2 id="math">math</h2>
+<p><code>log(a,b)</code> 求 $\log_ba$<br>
+<code>sqrt(x)</code> 开根.</p>
+<h2 id="decimal">decimal</h2>
+<p>十进制定点和浮点运算库,具有完全正确的十进制浮点运算结果,而且可以修改精度.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> *</span><br><span class="line">getcontext().prec=<span class="number">6</span>   <span class="comment">#修改精度为小数点后六位</span></span><br><span class="line">res=Decimal(<span class="number">1</span>).sqrt() <span class="comment">#Decmial是一个对象,内部函数的开根比math库精确</span></span><br></pre></td></tr></table></figure>
+<h2 id="数组">数组</h2>
+<p>一维数组:<br>
+二维数组:</p>
+<h1>技巧</h1>
+<ol>
+<li>读多个一行用空格隔开的整数:知道有多少个数:</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,c=<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br></pre></td></tr></table></figure>
+<p>不知道有多少个数:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num_list=<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Python re了可能是因为很大的整数转字符串爆了(有最大限制),用这个取消限制:</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys.set_int_max_str_digits(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>和其他大多数程序一样,按Ctrl+C立刻结束程序.</li>
+<li><code>int('1')=1</code> Python的字符串1转成数字1直接就是1,不是ascii码</li>
+</ol>
 
   </div>
 </article>
@@ -271,7 +279,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#print"><span class="toc-number">1.1.</span> <span class="toc-text">print()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-number">1.2.</span> <span class="toc-text">eval()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str"><span class="toc-number">1.3.</span> <span class="toc-text">str()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#len"><span class="toc-number">1.4.</span> <span class="toc-text">len()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">1.5.</span> <span class="toc-text">sort()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reversed"><span class="toc-number">1.6.</span> <span class="toc-text">reversed()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.7.</span> <span class="toc-text">namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-elif-while-for"><span class="toc-number">1.8.</span> <span class="toc-text">if else elif while for</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#range"><span class="toc-number">1.8.1.</span> <span class="toc-text">range</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.9.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.10.</span> <span class="toc-text">变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.11.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.12.</span> <span class="toc-text">运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import"><span class="toc-number">1.13.</span> <span class="toc-text">import</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">2.1.</span> <span class="toc-text">set()</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.1.</span> <span class="toc-text">namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.4.</span> <span class="toc-text">运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">2.1.</span> <span class="toc-text">set()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math"><span class="toc-number">3.</span> <span class="toc-text">math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decimal"><span class="toc-number">4.</span> <span class="toc-text">decimal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">5.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">技巧</span></a>
       </div>
     
 

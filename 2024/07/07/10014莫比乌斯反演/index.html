@@ -14,7 +14,7 @@
 <meta property="og:description" content="本篇学习著名莫比乌斯反演的应用以及卷积式子的转化. 积性函数 先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性 恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性 常数函数 $1(n)&#x3D;1$ ,完全积性 欧拉函数 $\varphi(n)&#x3D;\sum{">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-07T14:11:31.000Z">
-<meta property="article:modified_time" content="2024-12-15T04:06:57.649Z">
+<meta property="article:modified_time" content="2025-02-09T12:04:01.001Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="NumberTheory">
@@ -218,7 +218,12 @@ $f=g$ 和 $f<em>h=g</em>h$ 是充要条件,其中 $h(1)\neq0$ .</p>
 $$\varphi</em>1=\mathrm{id}$$<br>
 $$\mu<em>1=\varepsilon$$<br>
 $$1</em>1=\mathrm{d}$$<br>
-$$\mathrm d*\mu=1*\varepsilon=1$$</p>
+$$\mathrm d*\mu=1*\varepsilon=1$$<br>
+若<br>
+$$f(n)=\sum_{d|n}g(d)$$<br>
+则<br>
+$$g(n)=\sum_{d|n}\mu(d)f(\frac nd)$$<br>
+$$g(n)=\sum_{n|d}\mu(\frac dn)f(d)$$</p>
 <h3 id="关于-mathrm-d-的高阶推导">关于 $\mathrm d$ 的高阶推导</h3>
 <p>二元<br>
 $$\mathrm d(AB)=\sum_{i|A}\sum_{j|B}[\gcd(i,j)=1]$$<br>
@@ -310,7 +315,8 @@ $$\begin{aligned}&amp;\sum_{i=1}^n\mathrm{lcm}(i,n)\=&amp;n\sum_{d|n}\sum_{i=1}^
 <p>第一步注意,因为n是固定的所以d不能从1开始,需要 $d|n$ .<br>
 第二步注意因为n是不变的,而i是变的,所以只需要乘一个n就可以.<br>
 第三步是因为,n|d,所以 $\frac nd\in d$ ,就有这个式子.<br>
-第四步就是结论3.</p>
+第四步就是结论3.<br>
+然后计算d phid:发现是积性函数,如果是质数结果是p(p-1)+1,如果不是质数对其进行因数分解:若 $p|i$ 则 $g(ip)=g(i)g(p)$ ,若不整除则 $g(ip)=g(i)+p^2(g(i)-g(i/p))$</p>
 </blockquote>
 <ol start="7">
 <li>求(f()是斐波那契数列第几项)<br>
@@ -328,14 +334,18 @@ $$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\=&amp;\sum_{i=1}^n\sum
 其中<br>
 $$\begin{aligned}f(n)=&amp;\sum_{d|T}d^k\mu(\frac Td)\=&amp;\prod_{p_i}f(p_i^{x_i})\=&amp;\prod_{p_i}(p_i^{x_i}\cdot\mu(1)+p_i^{k(x_i-1)}\cdot\mu(p_i))\=&amp;\prod_{p_i}p_i^{k(x_i-1)}(p_i^k-1)\end{aligned}$$</li>
 </ol>
-<p>或者这么写?<br>
-$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\=&amp;\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min}d[\gcd(i,j)=d]\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}(d[\gcd(i,j)=1])^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big(\sum_{e|\gcd(i,j)} d\mu(e)\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}( d\mu(e))^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\Big\lfloor\frac n{de}\Big\rfloor\Big\lfloor\frac m{de}\Big\rfloor(d\mu(e))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor(d\mu(\frac Td))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi^k(d)\end{aligned}$$</p>
 <blockquote>
 <p>第一步是常见展开环节.<br>
 第二步是把次方乘进去(注意不要认为就是例1的phi的次方)<br>
 第三步是莫反.<br>
 第四步是令T=dx,代换进去.<br>
-最后的式子左边是积性函数,也就直接线筛处理了,复杂度 $O(n+T\sqrt n)$ .</p>
+最后的式子左边是积性函数,也就直接线筛处理了,复杂度 $O(n+T\sqrt n)$ .<br>
+找规律: $f(4)=2^6<em>f(2)=f(2)</em>(f(2)+1),f(12)=f(4)*f(3)$ ;</p>
+</blockquote>
+<p>错误推法:<br>
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\=&amp;\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min}d[\gcd(i,j)=d]\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}(d[\gcd(i,j)=1])^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big(\sum_{e|\gcd(i,j)} d\mu(e)\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}( d\mu(e))^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\Big\lfloor\frac n{de}\Big\rfloor\Big\lfloor\frac m{de}\Big\rfloor(d\mu(e))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor(d\mu(\frac Td))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi^k(d)\end{aligned}$$</p>
+<blockquote>
+<p><strong>错因分析</strong> :sum不可以随便提出来.默认 $(\sum\mu)^k=\sum(\mu^k)$ 这是不对的,根本就是两个函数.</p>
 </blockquote>
 <p>9.计算<br>
 $$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)\mathrm d(\gcd(i,j))\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)[\gcd(i,j)=k]\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)[\gcd(i,j)=1]\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{e|\gcd(i,j)}\mu(e)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)\=&amp;\sum_{T=1}^{\min}\mathrm d(k)\mu(\frac Tk)\sum_{i=1}^{\lfloor\frac nT\rfloor}\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(iT)\mathrm d(jT)\=&amp;\sum_{T=1}^{\min}\sum_{i=1}^{\lfloor\frac nT\rfloor}\mathrm d(iT)\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(jT)\end{aligned}$$</p>

@@ -14,7 +14,7 @@
 <meta property="og:description" content="01背包 无限背包 多重背包 组合背包 01背包是指物品只能选1次的背包问题.无限背包是每个物品能选无限个的问题,这俩的区别就是一个正着枚举一个倒着枚举. 多重背包 :你有n种物品,每样物品各自能买a个,每个b元有c的价值,求最大:想办法转化成01背包:使用二进制拆分,如(6&#x3D;1+2+3,8&#x3D;1+2+4+1),可以把原来的每种m个化成logm个加快效率. 组合背包 :这种背包就是前面背包的组合.直">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-29T13:53:29.000Z">
-<meta property="article:modified_time" content="2025-01-11T20:52:05.801Z">
+<meta property="article:modified_time" content="2025-01-21T17:56:36.478Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -234,7 +234,7 @@ $$dp[n][k]=dp[n-k][k]+dp[n-1][k-1]$$<br>
 3. 将n划分成多个不同的整数(m表示最大数)</p>
 <p>分为两种情况:划分的每个数都小于m,就是前半部分,直接缩范围即可.<br>
 第二种情况是有一个数是m,则提出来,同时剩下的数都不能大于m,就是后半部分(发现和初始的情况很像,只是限制了以下最大值)<br>
-$$dp[n][m]=dp[n][m-1]+dp[n-m][m-1]$$</p>
+$$dp[n][m]=dp[n][m-1]+dp[n-m][m]$$</p>
 <ol start="4">
 <li>将n划分成若干奇数的划分法</li>
 </ol>
