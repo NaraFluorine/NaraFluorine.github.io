@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)   求解的个数:(1e9取模) $$\frac1x+\frac1y&#x3D;\frac1{n!}$$ 首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的. 我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 $$\frac1x+\frac1{n!+k}&#x3D;\frac1{n!}$$ 化简变成 $$x&#x3D;n!+\">
+    <meta name="description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)  求解的个数:(1e9取模) \frac1x+\frac1y&#x3D;\frac1{n!}首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的.我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 \frac1x+\frac1{n!+k}&#x3D;\frac1{n!}化简变成 x&#x3D;n!+\frac{(n!)^2}k我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推式子">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/03/10017%E6%8E%A8%E5%BC%8F%E5%AD%90/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)   求解的个数:(1e9取模) $$\frac1x+\frac1y&#x3D;\frac1{n!}$$ 首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的. 我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 $$\frac1x+\frac1{n!+k}&#x3D;\frac1{n!}$$ 化简变成 $$x&#x3D;n!+\">
+<meta property="og:description" content="以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)  求解的个数:(1e9取模) \frac1x+\frac1y&#x3D;\frac1{n!}首先我们发现,1&#x2F;x和1&#x2F;y都是小于1&#x2F;n!的,所以x和y应该是大于n!的.我们设 $y&#x3D;n!+k,k\in N^+$ ,于是式子变成 \frac1x+\frac1{n!+k}&#x3D;\frac1{n!}化简变成 x&#x3D;n!+\frac{(n!)^2}k我">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/35ybspfw.png">
 <meta property="article:published_time" content="2024-09-03T04:46:12.000Z">
-<meta property="article:modified_time" content="2025-02-10T12:29:32.039Z">
+<meta property="article:modified_time" content="2025-03-18T15:21:00.892Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="NumberTheory">
 <meta name="twitter:card" content="summary">
@@ -190,110 +190,68 @@
   <div class="content e-content" itemprop="articleBody">
     <p>以下是推式子时间,记录一些公式的求解过程.(以及一些奇奇怪怪的公式)</p>
 <ol>
-<li>
-<p>求解的个数:(1e9取模)<br>
-$$\frac1x+\frac1y=\frac1{n!}$$<br>
-首先我们发现,1/x和1/y都是小于1/n!的,所以x和y应该是大于n!的.<br>
-我们设 $y=n!+k,k\in N^+$ ,于是式子变成<br>
-$$\frac1x+\frac1{n!+k}=\frac1{n!}$$<br>
-化简变成<br>
-$$x=n!+\frac{(n!)^2}k$$<br>
-我们就统计一下约数个数就行了,具体地,线性筛一下,算出每个数的最小质因数,因为 $x^2$ 的每个约数都是 $x$ 的两倍,所以我们要先乘2再加1.</p>
+<li><p>求解的个数:(1e9取模)</p>
+<script type="math/tex; mode=display">\frac1x+\frac1y=\frac1{n!}</script><p>首先我们发现,1/x和1/y都是小于1/n!的,所以x和y应该是大于n!的.<br>我们设 $y=n!+k,k\in N^+$ ,于是式子变成</p>
+<script type="math/tex; mode=display">\frac1x+\frac1{n!+k}=\frac1{n!}</script><p>化简变成</p>
+<script type="math/tex; mode=display">x=n!+\frac{(n!)^2}k</script><p>我们就统计一下约数个数就行了,具体地,线性筛一下,算出每个数的最小质因数,因为 $x^2$ 的每个约数都是 $x$ 的两倍,所以我们要先乘2再加1.</p>
 </li>
-<li>
-<p>求<br>
-$$\sum_{k=1}^n\Big\lfloor\frac{(3k+6)!+1}{3k+7}-\Big\lfloor\frac{(3k+6)!}{3k+7}\Big\rfloor\Big\rfloor$$<br>
-我们分情况考虑,假设 $3k+7$ 是质数,则由定理知 $(3k+6)!\equiv-1\mod (3k+7)$ ,所以我们设 $(3k+6)!+1=a(3k+7)$ (同时注意,模意义下只能这么干,不要想着逆元解决),原式即为<br>
-$$\Big\lfloor a-\Big\lfloor a-\frac{1}{3k+7}\Big\rfloor\Big\rfloor=1$$<br>
-同时,假如不是质数,由于其质因子全部包含在阶乘里面,也就有了 $(3k+7)|(3k+6)!$ .这个时候还是设 $(3k+6)!=a(3k+7)$ ,式子可以化为<br>
-$$\Big\lfloor a+\frac{1}{3k+7}-a\Big\rfloor=0$$<br>
-所以,式子只是让我们统计一下有多少个 $3k+7$ 是质数.</p>
+<li><p>求</p>
+<script type="math/tex; mode=display">\sum_{k=1}^n\Big\lfloor\frac{(3k+6)!+1}{3k+7}-\Big\lfloor\frac{(3k+6)!}{3k+7}\Big\rfloor\Big\rfloor</script><p>我们分情况考虑,假设 $3k+7$ 是质数,则由定理知 $(3k+6)!\equiv-1\mod (3k+7)$ ,所以我们设 $(3k+6)!+1=a(3k+7)$ (同时注意,模意义下只能这么干,不要想着逆元解决),原式即为</p>
+<script type="math/tex; mode=display">\Big\lfloor a-\Big\lfloor a-\frac{1}{3k+7}\Big\rfloor\Big\rfloor=1</script><p>同时,假如不是质数,由于其质因子全部包含在阶乘里面,也就有了 $(3k+7)|(3k+6)!$ .这个时候还是设 $(3k+6)!=a(3k+7)$ ,式子可以化为</p>
+<script type="math/tex; mode=display">\Big\lfloor a+\frac{1}{3k+7}-a\Big\rfloor=0</script><p>所以,式子只是让我们统计一下有多少个 $3k+7$ 是质数.</p>
 </li>
-<li>
-<p>求 $x^2+y^2=19451945$ :凑配法:对于展开数有以下式子:<br>
-$$(ac+bd)^2+(ad-bc)^2=(a^2+b^2)(c^2+d^2)$$<br>
-然后19451945就能分解为1945*10001,现在开始考虑分解1945,在3的时候能分解,问题解决了.最后的abcd分别是 $3,44,100,1$ ,答案是 $344,4397$ .</p>
+<li><p>求 $x^2+y^2=19451945$ :凑配法:对于展开数有以下式子:</p>
+<script type="math/tex; mode=display">(ac+bd)^2+(ad-bc)^2=(a^2+b^2)(c^2+d^2)</script><p>然后19451945就能分解为1945*10001,现在开始考虑分解1945,在3的时候能分解,问题解决了.最后的abcd分别是 $3,44,100,1$ ,答案是 $344,4397$ .</p>
 </li>
-<li>
-<p>计算<br>
-$$\begin{aligned}<br>
-&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)d(\gcd(i,j))\<br>
-=&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)\sum_{k|i.j}1\<br>
-=&amp;\sum_{k=1}^{\min(n,m)}\sum_{i=1,k|i}^nd(i)\sum^m_{j=1,k|j}d(j)\end{aligned}$$<br>
-然后设这个函数为S,直接计算即可.</p>
+<li><p>计算</p>
+<script type="math/tex; mode=display">\begin{aligned}
+&\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)d(\gcd(i,j))\\
+=&\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)\sum_{k|i.j}1\\
+=&\sum_{k=1}^{\min(n,m)}\sum_{i=1,k|i}^nd(i)\sum^m_{j=1,k|j}d(j)\end{aligned}</script><p>然后设这个函数为S,直接计算即可.</p>
 </li>
 </ol>
-<h2 id="其他奇奇怪怪的公式">其他奇奇怪怪的公式</h2>
+<h2 id="其他奇奇怪怪的公式"><a href="#其他奇奇怪怪的公式" class="headerlink" title="其他奇奇怪怪的公式"></a>其他奇奇怪怪的公式</h2><ol>
+<li>feb表示斐波那契数列第n项.<script type="math/tex; mode=display">\gcd(feb_{n},feb_{m})=feb_{\gcd(n,m)}</script></li>
+<li><script type="math/tex; mode=display">\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)},\gcd(a,b)=1</script></li>
+<li><script type="math/tex; mode=display">\gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1</script></li>
+<li><script type="math/tex; mode=display">(n+1)lcm(C^{0}_{n},C^{1}_{n},...,C^{n}_{n})=lcm(1,2,...,n+1)</script></li>
+<li><script type="math/tex; mode=display">((n+1)(n+2)(n+3)...(n+k))\%(k!)=0</script></li>
+<li>$n!$ 中p的幂次是<script type="math/tex; mode=display">\sum\left\lfloor\frac n{p^i}\right\rfloor</script></li>
+<li>若 $b|a$ 则有<script type="math/tex; mode=display">\frac ab\%c=\frac{a\%(bc)}b</script></li>
+<li>快速幂的优化(偏一点)<br>常规快速幂是快速求 $a^b\%c$ 现在是多组数据求 $x^k\%p$ ,注意x和p是给定的,如何预处理?<br>正解不是快速幂,而是分块思想,取 $k=\sqrt{mod}$ ,预处理 $x^0,xx^1,…,x^{k-2},x^{k-1}$ 和 $x^{0},x^{k},x^{2k},…,x^{\lfloor\frac{mod}{k}\rfloor k}$ ,然后每次查询就是O(1)级别的了,预处理是 $O(k)$ 也就是 $O(\sqrt{mod})$ 在 $5e^6$ 的数据范围下跑得过 $O(T\log k)$ .</li>
+<li>斐波那契数列模 $p$ 具有周期性(不只是质数),且循环节长度 $\pi(p)\le6p$ .  </li>
+<li><script type="math/tex; mode=display">\left\lfloor\frac a{bc}\right\rfloor=\left\lfloor\frac{\lfloor\frac ab\rfloor}{c}\right\rfloor</script></li>
+<li>常见放缩<script type="math/tex; mode=display">\begin{aligned}
+&1-\frac1x\le\ln x\le x-1\\\\
+&\ln x<\sqrt x-\frac1{\sqrt x}(x>1)\\\\
+&\ln x>\sqrt x-\frac1{\sqrt x}(0<x<1)\\\\
+&\ln x<\frac12(x-\frac1x)(x>1)\\\\
+&\ln x>\frac12(x-\frac1x)(0<x<1)\\\\
+&\ln x>-\frac12x^2+2x-\frac32(x>1)\\\\
+&\ln x<-\frac12x^2+2x-\frac32(0<x<1)\\\\
+&\ln x>\frac{2(x-1)}{x+1}(x>1)\\\\
+&\ln x<\frac{2(x-1)}{x+1}(0<x<1)\\\\
+\end{aligned}</script></li>
+</ol>
+<h2 id="升幂引理"><a href="#升幂引理" class="headerlink" title="升幂引理"></a>升幂引理</h2><p>规定 $v_p(n)$ 表示n中有多少个p这个因子.</p>
 <ol>
-<li>feb表示斐波那契数列第n项.<br>
-$$\gcd(feb_{n},feb_{m})=feb_{\gcd(n,m)}$$</li>
-<li></li>
-</ol>
-<p>$$\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)},\gcd(a,b)=1$$<br>
-3.<br>
-$$\gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1$$<br>
-4.<br>
-$$(n+1)lcm(C^{0}<em>{n},C^{1}</em>{n},…,C^{n}_{n})=lcm(1,2,…,n+1)$$<br>
-5.<br>
-$$((n+1)(n+2)(n+3)…(n+k))%(k!)=0$$<br>
-6. $n!$ 中p的幂次是<br>
-$$\sum\left\lfloor\frac n{p^i}\right\rfloor$$<br>
-7. 若 $b|a$ 则有<br>
-$$\frac ab%c=\frac{a%(bc)}b$$<br>
-8. 快速幂的优化(偏一点)<br>
-常规快速幂是快速求 $a^b%c$ 现在是多组数据求 $x^k%p$ ,注意x和p是给定的,如何预处理?<br>
-正解不是快速幂,而是分块思想,取 $k=\sqrt{mod}$ ,预处理 $x^0,xx^1,…,x^{k-2},x^{k-1}$ 和 $x^{0},x^{k},x^{2k},…,x^{\lfloor\frac{mod}{k}\rfloor k}$ ,然后每次查询就是O(1)级别的了,预处理是 $O(k)$ 也就是 $O(\sqrt{mod})$ 在 $5e^6$ 的数据范围下跑得过 $O(T\log k)$ .<br>
-9. 斐波那契数列模 $p$ 具有周期性(不只是质数),且循环节长度 $\pi(p)\le6p$ .</p>
-<h2 id="升幂引理">升幂引理</h2>
-<p>规定 $v_p(n)$ 表示n中有多少个p这个因子.</p>
-<ol>
-<li>素数p和与p互质的n.<br>
-若 $p|x-y$ 有<br>
-$$v_p(x^n-y^n)=v_p(x-y)$$<br>
-若 $p|x+y$ 则对 <strong>奇数</strong> n有<br>
-$$v_p(x^n+y^n)=v_p(x+y)$$</li>
-<li>若p不是2(是奇质数):<br>
-若 $p|x-y$ 有<br>
-$$v_p(x^n-y^n)=v_p(x-y)+v_p(n)$$<br>
-若 $p|x+y$ 则对 <strong>奇数</strong> n有<br>
-$$v_p(x^n+y^n)=v_p(x+y)+v_p(n)$$</li>
-<li>若p是2且 $p|x-y$ 对 <strong>偶数</strong> n有<br>
-$$v_p(x^n-y^n)=v_p(x-y)+v_p(x+y)+v_p(n)-1$$</li>
-<li>对于 $4|x-y$<br>
-$$v_2(x+y)=1$$<br>
-$$v_2(x^n-y^n)=v_2(x-y)+v_2(n)$$</li>
-</ol>
-<h2 id="Wilson威尔逊定理">Wilson威尔逊定理</h2>
-<p>$$(p-1)!\equiv-1\mod p$$</p>
-<ol>
-<li>
-<p>特殊的阶乘(n比p大,不计所有p的因子对p取模)<br>
-$$\begin{aligned}&amp;(n!)\mod p\=&amp;(-1)^{\lfloor\frac{n}{p}\rfloor}\Big(\Big\lfloor\frac np\Big\rfloor!\Big)\mod p\end{aligned}$$<br>
-打一个阶乘表可以 $\log_pn$解决.</p>
+<li>素数p和与p互质的n.<br>若 $p|x-y$ 有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)</script>若 $p|x+y$ 则对 <strong>奇数</strong> n有<script type="math/tex; mode=display">v_p(x^n+y^n)=v_p(x+y)</script></li>
+<li>若p不是2(是奇质数):<br>若 $p|x-y$ 有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)+v_p(n)</script>若 $p|x+y$ 则对 <strong>奇数</strong> n有<script type="math/tex; mode=display">v_p(x^n+y^n)=v_p(x+y)+v_p(n)</script></li>
+<li>若p是2且 $p|x-y$ 对 <strong>偶数</strong> n有<script type="math/tex; mode=display">v_p(x^n-y^n)=v_p(x-y)+v_p(x+y)+v_p(n)-1</script></li>
+<li>对于 $4|x-y$<script type="math/tex; mode=display">v_2(x+y)=1</script><script type="math/tex; mode=display">v_2(x^n-y^n)=v_2(x-y)+v_2(n)</script><h2 id="Wilson威尔逊定理"><a href="#Wilson威尔逊定理" class="headerlink" title="Wilson威尔逊定理"></a>Wilson威尔逊定理</h2><script type="math/tex; mode=display">(p-1)!\equiv-1\mod p</script></li>
+<li><p>特殊的阶乘(n比p大,不计所有p的因子对p取模)</p>
+<script type="math/tex; mode=display">\begin{aligned}&(n!)\mod p\\=&(-1)^{\lfloor\frac{n}{p}\rfloor}\Big(\Big\lfloor\frac np\Big\rfloor!\Big)\mod p\end{aligned}</script><p>打一个阶乘表可以 $\log_pn$解决.</p>
 </li>
-<li>
-<p>Lagenre(勒让德)公式<br>
-$$v_p(n!)=\sum_{i=1}^\infin\Big\lfloor\frac n{p^i}\Big\rfloor=\frac{n-S_p(n)}{p-1}$$<br>
-其中, $S_p(n)$ 表示在p进制下n每位数字和.(注意,直接除,别搞什么逆元啥的)</p>
-</li>
+<li><p>Lagenre(勒让德)公式</p>
+<script type="math/tex; mode=display">v_p(n!)=\sum_{i=1}^\infin\Big\lfloor\frac n{p^i}\Big\rfloor=\frac{n-S_p(n)}{p-1}</script><p>其中, $S_p(n)$ 表示在p进制下n每位数字和.(注意,直接除,别搞什么逆元啥的)</p>
+<h2 id="类欧几里得算法"><a href="#类欧几里得算法" class="headerlink" title="类欧几里得算法"></a>类欧几里得算法</h2></li>
+<li>我们需要logn解决.设<script type="math/tex; mode=display">\begin{aligned}f(a,b,c,n)=&\sum_{i=0}^n\Big\lfloor\frac{ai+b}{c}\Big\rfloor\\=&\sum_{i=0}^n\Big\lfloor\frac{(\lfloor\frac ac\rfloor c+a\mod c)i+(\lfloor\frac bc\rfloor c+b\mod c)}{c}\Big\rfloor\\=&\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+\sum_{i=0}^n\Big\lfloor\frac{(a\mod c)i+(b\mod c)}c\Big\rfloor
+\\=&\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+f(a\mod c,b\mod c,c,n)\end{aligned}</script>改变一下求和项目看到<script type="math/tex; mode=display">\begin{aligned}f(a,b,c,n)&=\sum_{k=0}^{m-1}\sum_{i=0}^n\Big[i>\Big\lfloor\frac{jc+c-b-1}{a}\Big\rfloor\Big]
+\\&=\sum_{j=0}^{m-1}\Big(n-\Big\lfloor\frac{jc+c-b-a}a\Big\rfloor\Big)
+\\&=nm-f(c,c-b-1,a,m-1)\end{aligned}</script>中间有<script type="math/tex; mode=display">n^2=2\frac{n(n+1)}2-n=\Big(\sum_{i=0}^ni\Big)-n</script><h2 id="复数向量根号的几何意义"><a href="#复数向量根号的几何意义" class="headerlink" title="复数向量根号的几何意义"></a>复数向量根号的几何意义</h2>在复数坐标系上向量的根号是辐角折半,平方的意思是辐角二倍,在坐标系上转.</li>
 </ol>
-<h2 id="类欧几里得算法">类欧几里得算法</h2>
-<ol>
-<li>我们需要logn解决.设<br>
-$$\begin{aligned}f(a,b,c,n)=&amp;\sum_{i=0}^n\Big\lfloor\frac{ai+b}{c}\Big\rfloor\=&amp;\sum_{i=0}^n\Big\lfloor\frac{(\lfloor\frac ac\rfloor c+a\mod c)i+(\lfloor\frac bc\rfloor c+b\mod c)}{c}\Big\rfloor\=&amp;\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+\sum_{i=0}^n\Big\lfloor\frac{(a\mod c)i+(b\mod c)}c\Big\rfloor<br>
-\=&amp;\frac{n(n+1)}2\Big\lfloor\frac ac\Big\rfloor+(n+1)\Big\lfloor\frac bc\Big\rfloor+f(a\mod c,b\mod c,c,n)\end{aligned}$$<br>
-改变一下求和项目看到<br>
-$$\begin{aligned}f(a,b,c,n)&amp;=\sum_{k=0}^{m-1}\sum_{i=0}^n\Big[i&gt;\Big\lfloor\frac{jc+c-b-1}{a}\Big\rfloor\Big]<br>
-\&amp;=\sum_{j=0}^{m-1}\Big(n-\Big\lfloor\frac{jc+c-b-a}a\Big\rfloor\Big)<br>
-\&amp;=nm-f(c,c-b-1,a,m-1)\end{aligned}$$<br>
-中间有<br>
-$$n^2=2\frac{n(n+1)}2-n=\Big(\sum_{i=0}^ni\Big)-n$$</li>
-</ol>
-<h2 id="复数向量根号的几何意义">复数向量根号的几何意义</h2>
-<p>在复数坐标系上向量的根号是辐角折半,平方的意思是辐角二倍,在坐标系上转.</p>
 <p><img src="https://cdn.luogu.com.cn/upload/image_hosting/35ybspfw.png" alt=""></p>
-<h2 id="万能欧几里得算法">万能欧几里得算法</h2>
-
+<h2 id="万能欧几里得算法"><a href="#万能欧几里得算法" class="headerlink" title="万能欧几里得算法"></a>万能欧几里得算法</h2>
   </div>
 </article>
 

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="在这里记录一些自己可能察觉不到的莫名WA. 坑爹式子计算 \sum_{i&#x3D;0}^m\min(n,26^i)\mod 998\,244\,353取模会导致数字变小,所以min需要手动去判断!不能直接min完事. 数据结构上机如果你WA了,先检查 &lt;,&gt; 这种运算符是否严谨,能换成 &lt;&#x3D;,&gt;&#x3D; 的一定要换,数据结构的hack数据非常强… VSCode莫名丢失输出(啥也没输出)先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WA问题速查">
+<meta property="og:url" content="https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="在这里记录一些自己可能察觉不到的莫名WA. 坑爹式子计算 \sum_{i&#x3D;0}^m\min(n,26^i)\mod 998\,244\,353取模会导致数字变小,所以min需要手动去判断!不能直接min完事. 数据结构上机如果你WA了,先检查 &lt;,&gt; 这种运算符是否严谨,能换成 &lt;&#x3D;,&gt;&#x3D; 的一定要换,数据结构的hack数据非常强… VSCode莫名丢失输出(啥也没输出)先">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-06T08:12:51.000Z">
+<meta property="article:modified_time" content="2025-03-21T17:39:10.905Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Contest">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>WA问题速查</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/08/08/10006%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%AE%97%E6%B3%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/08/03/10005%E6%8A%80%E5%B7%A7/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&text=WA问题速查"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&is_video=false&description=WA问题速查"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WA问题速查&body=Check out this article: https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&name=WA问题速查&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&t=WA问题速查"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%91%E7%88%B9%E5%BC%8F%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">坑爹式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">数据结构上机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">4.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">5.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">6.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">8.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">9.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">10.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">11.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">精度问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">13.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">14.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%9D%91"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9D%AF%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number"></span> <span class="toc-text">字符串杯问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AD%97ID"><span class="toc-number">1.</span> <span class="toc-text">五字ID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E6%B8%85%E5%90%91%E4%B8%8A%E5%8F%96%E6%95%B4%E8%BF%98%E6%98%AF%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E2%80%A6"><span class="toc-number">2.</span> <span class="toc-text">看清向上取整还是四舍五入…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%99%91%E8%B4%9F%E6%95%B0%E6%83%85%E5%86%B5%E2%80%A6"><span class="toc-number">3.</span> <span class="toc-text">考虑负数情况…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%81%E7%A5%96%E5%AE%97%E2%80%A6"><span class="toc-number">4.</span> <span class="toc-text">见祖宗…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E7%9C%8B%E6%9C%89%E6%B2%A1%E6%9C%89%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA-%E6%AF%94%E5%A6%82-Res-res"><span class="toc-number">5.</span> <span class="toc-text">看看有没有多的字符串输出,比如 Res &#x3D; res</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9C%89%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E2%80%A6-biii-gt-bili"><span class="toc-number">6.</span> <span class="toc-text">检查有没有输出字符串错误的情况… biii -&gt; bili</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        WA问题速查
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-08-06T08:12:51.000Z" class="dt-published" itemprop="datePublished">2024-08-06</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/OTH/">OTH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Contest/" rel="tag">Contest</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>在这里记录一些自己可能察觉不到的莫名WA.</p>
+<h2 id="坑爹式子"><a href="#坑爹式子" class="headerlink" title="坑爹式子"></a>坑爹式子</h2><p>计算</p>
+<script type="math/tex; mode=display">\sum_{i=0}^m\min(n,26^i)\mod 998\,244\,353</script><p>取模会导致数字变小,所以min需要手动去判断!不能直接min完事.</p>
+<h2 id="数据结构上机"><a href="#数据结构上机" class="headerlink" title="数据结构上机"></a>数据结构上机</h2><p>如果你WA了,先检查 <code>&lt;,&gt;</code> 这种运算符是否严谨,能换成 <code>&lt;=,&gt;=</code> 的一定要换,数据结构的hack数据非常强…</p>
+<h2 id="VSCode莫名丢失输出-啥也没输出"><a href="#VSCode莫名丢失输出-啥也没输出" class="headerlink" title="VSCode莫名丢失输出(啥也没输出)"></a>VSCode莫名丢失输出(啥也没输出)</h2><p>先检查函数有没有返回值!!!!!!!VSC哪怕函数值返回被忽略但是不return 0也会直接RE.</p>
+<h2 id="祖宗"><a href="#祖宗" class="headerlink" title="祖宗"></a>祖宗</h2><p>开long long了吗?</p>
+<h2 id="取模"><a href="#取模" class="headerlink" title="取模"></a>取模</h2><p>有的时候要对答案进行特判,输出一个定值.但是又有的时候模数不是指定的,是要输入的,于是可能出现特判1但是模数是1正好被卡的状况…</p>
+<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p><code>cout&lt;&lt;&quot;!&quot;&lt;&lt;solve()&lt;&lt;endl;</code>是错的,尤其是交互库的时候千万不要这么搞,会WA,因为<code>cout</code>先执行输出然后再计算函数的值.</p>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>检查一下有没有除0模0的特判,不然会RE的哦.</p>
+<h2 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h2><p>什么时候能用 $O(\sqrt n)$ 的数分解(也就是<code>for(int i=2;i*i&lt;=n;++i)</code>)?当然是不影响后续的时候.假如产生影响就只能一个一个枚举了…(比如 $g(x)=\sum_{i|x}g(i)$ )</p>
+<p>还有还有,那就是在 $f(x),f(n/x)$ 的时候记得看一下这俩数一不一样,会出大问题!!!</p>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>记得结算的时候动一下指针.</p>
+<h2 id="DP转移"><a href="#DP转移" class="headerlink" title="DP转移"></a>DP转移</h2><p>有的时候,状态之间会进行转换.状态之间提前到达的时候不要使用<code>dpxx=xx%m</code>,应该用<code>dpxx=(dpxx+xx)%m</code>,因为状态提前到达的时候会被<code>=</code>直接归零,就白转移了,不是<code>memset</code>的问题.</p>
+<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>给定一棵树有n个节点,首先要判定是不是一棵树!!!(ie度数和 $\sum_{i=1}^nd_i=n-2$ )<br>一定要特判节点为1的时候有多少种情况!!!</p>
+<ol>
+<li>树的相同判定:给一个深度上有多少节点的数组,判断这样的树是否唯一.</li>
+</ol>
+<p>然而我们发现只有连着的节点大于2的才有多种,单独2后面还有链的并不算,可以看演示:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> a   a			   a   a</span><br><span class="line">/|\ /|\			 /|\ /|\</span><br><span class="line">bcd bcd			 bcd bcd</span><br><span class="line">|	|			  ||| |\|</span><br><span class="line">e	e			  efg efg</span><br><span class="line">这两种树本质上一样.但是这俩不一样.</span><br></pre></td></tr></table></figure></p>
+<h2 id="精度问题"><a href="#精度问题" class="headerlink" title="精度问题"></a>精度问题</h2><p>有的时候取log或者怎么样然后涉及取整的时候函数会有精度误差,不能直接用ceil,要先减掉一个eps,否则会WA.</p>
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><ol>
+<li>给一张无向图,遍历他,染个色(只保证无自环重边).</li>
+</ol>
+<p>肯定是要bfs的了,但是有个hack是 <strong>给的图不一定连通</strong> ,所以要在bfs这里套一个循环保证每个点都要进队(被遍历到).(CF687A)</p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><p>鸽巢的时候记得卡一下边界,虽然书上说最多能放 $\lceil\frac nk\rceil$ 个,但是最多能着的下 $n\%k$ 种,记得统计一下.(另外,如果ceil等于直接除的话要特判,因为此时 $n\%k$ 等于0)</p>
+<h1 id="大坑"><a href="#大坑" class="headerlink" title="大坑"></a>大坑</h1><h2 id="目力"><a href="#目力" class="headerlink" title="目力"></a>目力</h2><p>众所周知,某些质数因为长得像而混迹998244353,而有的则是正确输出 <code>YE5</code> ,错误输出 <code>N0</code> ,就很邪恶.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">998244853</span> 是质数</span><br><span class="line"><span class="number">998244259</span> 是质数</span><br><span class="line"><span class="number">99824353</span>  是质数</span><br><span class="line"><span class="number">993244853</span> 是质数</span><br><span class="line"><span class="number">998242353</span> 不是质数</span><br><span class="line"><span class="number">998244533</span> 不是质数</span><br><span class="line"></span><br><span class="line"><span class="number">100000007</span>(<span class="number">1e8</span>+<span class="number">7</span>) 是质数</span><br><span class="line"></span><br><span class="line"><span class="number">19491001</span> 是质数</span><br><span class="line"><span class="number">19260817</span> 是质数</span><br></pre></td></tr></table></figure></p>
+<h1 id="字符串杯问题汇总"><a href="#字符串杯问题汇总" class="headerlink" title="字符串杯问题汇总"></a>字符串杯问题汇总</h1><h2 id="五字ID"><a href="#五字ID" class="headerlink" title="五字ID"></a>五字ID</h2><p>使用 <code>printf(&quot;%05d&quot;,num)</code> 不要用快写…<br>典例输出 <code>00055</code> 输出 <code>55</code> 错.</p>
+<h2 id="看清向上取整还是四舍五入…"><a href="#看清向上取整还是四舍五入…" class="headerlink" title="看清向上取整还是四舍五入…"></a>看清向上取整还是四舍五入…</h2><h2 id="考虑负数情况…"><a href="#考虑负数情况…" class="headerlink" title="考虑负数情况…"></a>考虑负数情况…</h2><h2 id="见祖宗…"><a href="#见祖宗…" class="headerlink" title="见祖宗…"></a>见祖宗…</h2><h2 id="看看有没有多的字符串输出-比如-Res-res"><a href="#看看有没有多的字符串输出-比如-Res-res" class="headerlink" title="看看有没有多的字符串输出,比如 Res = res"></a>看看有没有多的字符串输出,比如 <code>Res =</code> res</h2><h2 id="检查有没有输出字符串错误的情况…-biii-gt-bili"><a href="#检查有没有输出字符串错误的情况…-biii-gt-bili" class="headerlink" title="检查有没有输出字符串错误的情况… biii -&gt; bili"></a>检查有没有输出字符串错误的情况… <code>biii</code> -&gt; <code>bili</code></h2>
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%91%E7%88%B9%E5%BC%8F%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">坑爹式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8A%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">数据结构上机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E8%8E%AB%E5%90%8D%E4%B8%A2%E5%A4%B1%E8%BE%93%E5%87%BA-%E5%95%A5%E4%B9%9F%E6%B2%A1%E8%BE%93%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">VSCode莫名丢失输出(啥也没输出)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%96%E5%AE%97"><span class="toc-number">4.</span> <span class="toc-text">祖宗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E6%A8%A1"><span class="toc-number">5.</span> <span class="toc-text">取模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92"><span class="toc-number">6.</span> <span class="toc-text">交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E8%A7%A3"><span class="toc-number">8.</span> <span class="toc-text">分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">9.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP%E8%BD%AC%E7%A7%BB"><span class="toc-number">10.</span> <span class="toc-text">DP转移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">11.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">精度问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">13.</span> <span class="toc-text">图论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6"><span class="toc-number">14.</span> <span class="toc-text">数学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E5%9D%91"><span class="toc-number"></span> <span class="toc-text">大坑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">目力</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9D%AF%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-number"></span> <span class="toc-text">字符串杯问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%AD%97ID"><span class="toc-number">1.</span> <span class="toc-text">五字ID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E6%B8%85%E5%90%91%E4%B8%8A%E5%8F%96%E6%95%B4%E8%BF%98%E6%98%AF%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E2%80%A6"><span class="toc-number">2.</span> <span class="toc-text">看清向上取整还是四舍五入…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E8%99%91%E8%B4%9F%E6%95%B0%E6%83%85%E5%86%B5%E2%80%A6"><span class="toc-number">3.</span> <span class="toc-text">考虑负数情况…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%81%E7%A5%96%E5%AE%97%E2%80%A6"><span class="toc-number">4.</span> <span class="toc-text">见祖宗…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8B%E7%9C%8B%E6%9C%89%E6%B2%A1%E6%9C%89%E5%A4%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA-%E6%AF%94%E5%A6%82-Res-res"><span class="toc-number">5.</span> <span class="toc-text">看看有没有多的字符串输出,比如 Res &#x3D; res</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9C%89%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%94%99%E8%AF%AF%E7%9A%84%E6%83%85%E5%86%B5%E2%80%A6-biii-gt-bili"><span class="toc-number">6.</span> <span class="toc-text">检查有没有输出字符串错误的情况… biii -&gt; bili</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&text=WA问题速查"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&is_video=false&description=WA问题速查"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WA问题速查&body=Check out this article: https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&title=WA问题速查"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&name=WA问题速查&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/08/06/10020_WA%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5/&t=WA问题速查"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这是蒟蒻的CF游记!虽然10点35的比赛Flu10点55才收到消息,急慌燎忙开打,总归是收获不小. 蒟蒻没有用过CF Better插件,在ZHY大神的帮助下装了(蒟蒻因为浏览器自带翻译把i这个变量翻译成我,而且装在LaTeX里面特别乱,Flu整场光读题估计就花了很长时间,约半个小时?),感谢一下. 这是蒟蒻第一次打CF,见谅(个屁,我等级分不可能再降了,因为原先是0). 现在是讲题时间. A 给仨">
+    <meta name="description" content="这是蒟蒻的CF游记!虽然10点35的比赛Flu10点55才收到消息,急慌燎忙开打,总归是收获不小. 蒟蒻没有用过CF Better插件,在ZHY大神的帮助下装了(蒟蒻因为浏览器自带翻译把i这个变量翻译成我,而且装在LaTeX里面特别乱,Flu整场光读题估计就花了很长时间,约半个小时?),感谢一下. 这是蒟蒻第一次打CF,见谅(个屁,我等级分不可能再降了,因为原先是0). 现在是讲题时间. A给仨数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF Round957 Div3">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/12/20003CF-Round957-Div-3/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="这是蒟蒻的CF游记!虽然10点35的比赛Flu10点55才收到消息,急慌燎忙开打,总归是收获不小. 蒟蒻没有用过CF Better插件,在ZHY大神的帮助下装了(蒟蒻因为浏览器自带翻译把i这个变量翻译成我,而且装在LaTeX里面特别乱,Flu整场光读题估计就花了很长时间,约半个小时?),感谢一下. 这是蒟蒻第一次打CF,见谅(个屁,我等级分不可能再降了,因为原先是0). 现在是讲题时间. A 给仨">
+<meta property="og:description" content="这是蒟蒻的CF游记!虽然10点35的比赛Flu10点55才收到消息,急慌燎忙开打,总归是收获不小. 蒟蒻没有用过CF Better插件,在ZHY大神的帮助下装了(蒟蒻因为浏览器自带翻译把i这个变量翻译成我,而且装在LaTeX里面特别乱,Flu整场光读题估计就花了很长时间,约半个小时?),感谢一下. 这是蒟蒻第一次打CF,见谅(个屁,我等级分不可能再降了,因为原先是0). 现在是讲题时间. A给仨数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-12T02:29:33.000Z">
 <meta property="article:modified_time" content="2024-08-06T08:28:02.640Z">
@@ -103,7 +103,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/07/12/10023FTs/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/12/10023_FTs/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/2024/07/11/10004%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -190,51 +190,40 @@
 <p>蒟蒻没有用过CF Better插件,在ZHY大神的帮助下装了(蒟蒻因为浏览器自带翻译把i这个变量翻译成我,而且装在LaTeX里面特别乱,Flu整场光读题估计就花了很长时间,约半个小时?),感谢一下.</p>
 <p>这是蒟蒻第一次打CF,见谅(个屁,我等级分不可能再降了,因为原先是0).</p>
 <p>现在是讲题时间.</p>
-<h2 id="A">A</h2>
-<p>给仨数,你每次能选一个数加1,你能操作5次.</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>给仨数,你每次能选一个数加1,你能操作5次.</p>
 <p>Flu赛时做法是穷举,暴搜每一种情况.</p>
 <p>其实应该这么想:有 $a\times b\times c$ 这么个值,你要选一个加一,就能把乘法看成加法.于是考虑贡献,得出结论:每次给最小的加上1,能收获最大结果.</p>
-<h2 id="B">B</h2>
-<p>合并与被合并的题.好多根木棒,你要拼成1根.你每次能把一根劈成1和剩下的,也可以用1和一根合成一根更长的.</p>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><p>合并与被合并的题.好多根木棒,你要拼成1根.你每次能把一根劈成1和剩下的,也可以用1和一根合成一根更长的.</p>
 <p>直接计算即可.</p>
-<h2 id="C">C</h2>
-<p>构造排列题.</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>构造排列题.</p>
 <p>这个题卡了Flu很久,原因是读不懂题,后来做了D之后再看的C.</p>
 <blockquote>
-<p>原题干:<br>
-$g(i)$ is the sum of all the numbers in the permutation on a prefix of length $i$ that are not greater than $m$ .</p>
+<p>原题干:<br>$g(i)$ is the sum of all the numbers in the permutation on a prefix of length $i$ that are not greater than $m$ .</p>
 </blockquote>
 <p>什么意思呢,又是排列又是加和又是前缀和的…所以看不懂,卡了很久.</p>
 <p>人话: $g$ 是一个加和函数,如果一个数 $a_i\le m$ 那么 $g(i)$ 就加上 $a_i$ ,仅此而已.</p>
 <p>构造本身是比较简单的,一眼能看出来.</p>
-<h2 id="D">D</h2>
-<p>检验爱情,有一个人要游泳过河.河宽n(也就是从0游到n+1这两个点),整数位上有东西,是水W,木头L和鳄鱼C.</p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>检验爱情,有一个人要游泳过河.河宽n(也就是从0游到n+1这两个点),整数位上有东西,是水W,木头L和鳄鱼C.</p>
 <p>Flu的做法是跑两遍,第一遍倒着覆盖鳄鱼,因为有鳄鱼的地方不能游,就先把所有不能到的地方标记上鳄鱼,那些是只能跳过去的地方.</p>
 <p>运算就是,定一个ff表示距离,如果到原木(终点加一个原木即可)那就结算(游+跳能不能过去),碰到鳄鱼就加ff(距离),一直到鳄鱼结束不要结算,判断一下能不能跳过去,因为鳄鱼后面可能还有水是能游的.</p>
 <p><strong>另外,结算的时候注意一点,游泳是整张图只能游这么长,也就是结算时候语句是<code>k-=max(0,ff-m)</code>防止不减反增.</strong></p>
-<h2 id="E">E</h2>
-<p>定义字符串的加是<br>
-$$n*a=\underbrace{nn…n}_{a}$$<br>
-字符串的减是直接末尾抹去几位,求对于n,有多少(a,b)满足 $na-b=na-b$ .左边字符串算法,右边正常数值算法.<br>
-$$1\le n\le100,1\le a,b\le10000$$<br>
-比赛的时候没看到数据范围,以为不可做,谁知道直接暴力就行了…</p>
+<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p>定义字符串的加是</p>
+<script type="math/tex; mode=display">n*a=\underbrace{nn...n}_{a}</script><p>字符串的减是直接末尾抹去几位,求对于n,有多少(a,b)满足 $na-b=na-b$ .左边字符串算法,右边正常数值算法.</p>
+<script type="math/tex; mode=display">1\le n\le100,1\le a,b\le10000</script><p>比赛的时候没看到数据范围,以为不可做,谁知道直接暴力就行了…</p>
 <p>对的,就是暴力.</p>
 <p>但是Flu赛后补题的时候WA了一发,原因是,倒着取模.数肯定是要从高位拼起来的,所以取模的时候整数an(最高位)对应0,也就是说你需要一个逆着的数字,不仅仅是逆着转移.所以对于33这种回文数字Flu是正解,但是对于某些如63这种就假了.</p>
-<h2 id="F">F</h2>
-<p>因子.</p>
+<h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p>因子.</p>
 <p>有一点要注意:map的特性(因为这个导致Flu没调出来,少A了一道题)是查找就建表了.</p>
 <p>比个例子:表里面装着2,现在查找1,由于没有1,查出来是0.(在查的时候已经建表了,只是1对应0而已)</p>
 <p>然后遍历表里面的元素进行除再加新元素(使用一个vector作为中继,防止遍历到才加进去的元素)的时候会出问题,因为1在查的时候已经加进去了,就喜提WA.</p>
 <p>如果加上特判标记就会喜提TLE.</p>
 <p>综上,要使用set,别老惦记着unordered_map.</p>
-<h2 id="G">G</h2>
-<p>定义MEX(S,k)表示集合S中第k个没出现的最小元素.</p>
+<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p>定义MEX(S,k)表示集合S中第k个没出现的最小元素.</p>
 <p>求给定集合n(也就是1-n所有数组成的集合)的所有子集的 $MEX(S,|S|+1)$ 和.</p>
 <p>例: $MEX({1,2,4},1)=3$</p>
 <p>首先,观察发现,范围 $|S|+1\le MEX(S,|S|+1)\le2|S|+1$ ,也就是所有元素都在里面和都不在里面的极端状况.然后考虑一般状况,也就是一部分在里面一部分不在里面.至此,我们枚举所有S的大小(i),然后枚举对应的mex的大小(j).考虑有些元素在mex里面,也就是 $\binom{j-1}{j-i-1}$ ,然后不在里面的就是 $\binom{n-j}{2i-j+1}$ ,乘在一起就是了.</p>
 <p>注意一个点是j-1有可能大于n,卡好范围.</p>
-<h2 id="总结">总结</h2>
-<p>多见见题.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>多见见题.</p>
 
   </div>
 </article>
