@@ -693,13 +693,6 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Math/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://narafluorine.github.io/tags/Physics/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -707,14 +700,21 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Linux/</loc>
+    <loc>https://narafluorine.github.io/tags/Cpp/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Cpp/</loc>
+    <loc>https://narafluorine.github.io/tags/Math/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://narafluorine.github.io/tags/Linux/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -763,14 +763,14 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/OTH/</loc>
+    <loc>https://narafluorine.github.io/tags/Contest/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Contest/</loc>
+    <loc>https://narafluorine.github.io/tags/OTH/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -828,13 +828,6 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/categories/HAM/</loc>
-    <lastmod>2025-04-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://narafluorine.github.io/categories/LIVE/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -843,6 +836,13 @@
   
   <url>
     <loc>https://narafluorine.github.io/categories/OTH/</loc>
+    <lastmod>2025-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://narafluorine.github.io/categories/HAM/</loc>
     <lastmod>2025-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
