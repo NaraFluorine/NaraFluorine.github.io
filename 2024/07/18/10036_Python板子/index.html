@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="打CTF会用到… 二次剩余 $$x^2\equiv N\mod p$$ 输入:输出所有解或者无解(Hola!) 12TN p 12345678910111213141516171819202122232425262728293031323334353637class expand:	def __init__(self, x, y, z):		&#x27;&#x27;&#x27;x+yi,其中i^2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python板子">
+<meta property="og:url" content="https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="打CTF会用到… 二次剩余 $$x^2\equiv N\mod p$$ 输入:输出所有解或者无解(Hola!) 12TN p 12345678910111213141516171819202122232425262728293031323334353637class expand:	def __init__(self, x, y, z):		&#x27;&#x27;&#x27;x+yi,其中i^2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-18T00:06:49.000Z">
+<meta property="article:modified_time" content="2025-04-25T19:03:06.771Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Python板子</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/18/10035_%E7%BC%BA%E7%9C%81%E6%BA%90%E5%A4%87%E5%BF%98%E5%BD%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/07/12/10023_FTs/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99"><span class="toc-number">1.</span> <span class="toc-text">二次剩余</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="toc-number">2.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E7%88%86%E7%A0%B4"><span class="toc-number">3.</span> <span class="toc-text">梅森旋转爆破</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Python板子
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-07-18T00:06:49.000Z" class="dt-published" itemprop="datePublished">2024-07-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/CTF/">CTF</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="p-category" href="/tags/Python/" rel="tag">Python</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>打CTF会用到…</p>
+<h2 id="二次剩余">二次剩余</h2>
+<p>$$x^2\equiv N\mod p$$<br>
+输入:输出所有解或者无解(Hola!)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">T</span><br><span class="line">N p</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">expand</span>:</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, y, z</span>):</span><br><span class="line">		<span class="string">&#x27;&#x27;&#x27;x+yi,其中i^2=z&#x27;&#x27;&#x27;</span></span><br><span class="line">		self.re = x</span><br><span class="line">		self.im = y</span><br><span class="line">		self.<span class="built_in">id</span> = z</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__mul__</span>(<span class="params">self, other</span>):</span><br><span class="line">		ans = expand(<span class="number">0</span>, <span class="number">0</span>, self.<span class="built_in">id</span>)</span><br><span class="line">		ans.re = self.re*other.re+self.im*other.im*self.<span class="built_in">id</span></span><br><span class="line">		ans.im = self.re*other.im+self.im*other.re</span><br><span class="line">		<span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">mod</span>(<span class="params">self, p</span>):</span><br><span class="line">		<span class="keyword">return</span> expand(self.re % p, self.im % p, self.<span class="built_in">id</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">T = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">	n, p = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">	<span class="keyword">if</span> n==<span class="number">0</span>:</span><br><span class="line">		<span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">pow</span>(n,(p-<span class="number">1</span>)//<span class="number">2</span>,p)==p-<span class="number">1</span>:</span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;Hola!&quot;</span>)</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	a=<span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> <span class="built_in">pow</span>(a*a-n,(p-<span class="number">1</span>)//<span class="number">2</span>,p)==<span class="number">1</span>:</span><br><span class="line">		a+=<span class="number">1</span></span><br><span class="line">	k=(p+<span class="number">1</span>)//<span class="number">2</span></span><br><span class="line">	ans,power=expand(<span class="number">1</span>,<span class="number">0</span>,a*a-n),expand(a,<span class="number">1</span>,a*a-n)</span><br><span class="line">	<span class="keyword">while</span> k:</span><br><span class="line">		<span class="keyword">if</span> k&amp;<span class="number">1</span>:</span><br><span class="line">			ans=(ans*power).mod(p)</span><br><span class="line">		power=(power*power).mod(p)</span><br><span class="line">		k&gt;&gt;=<span class="number">1</span></span><br><span class="line">	<span class="built_in">print</span>(*<span class="built_in">sorted</span>([ans.re,p-ans.re]))</span><br></pre></td></tr></table></figure>
+<h2 id="快速幂">快速幂</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">qp</span>(<span class="params">base,po,mod</span>):</span><br><span class="line">	res=<span class="number">1</span></span><br><span class="line">	<span class="keyword">while</span> po&gt;<span class="number">0</span>:</span><br><span class="line">		<span class="keyword">if</span> po&amp;<span class="number">1</span>:</span><br><span class="line">			res=res*base%mod</span><br><span class="line">		base=base*base%mod</span><br><span class="line">		po&gt;&gt;=<span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<h2 id="梅森旋转爆破">梅森旋转爆破</h2>
+<p>梅森旋转是实现了一个优秀的随机数发生器,但不是一个密码学安全的随机数,所以可以实现爆破.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MersenneTwister</span>:</span><br><span class="line">	__n = <span class="number">624</span></span><br><span class="line">	__m = <span class="number">397</span></span><br><span class="line">	__a = <span class="number">0x9908b0df</span></span><br><span class="line">	__b = <span class="number">0x9d2c5680</span></span><br><span class="line">	__c = <span class="number">0xefc60000</span></span><br><span class="line">	__kInitOperand = <span class="number">0x6c078965</span></span><br><span class="line">	__kMaxBits = <span class="number">0xffffffff</span></span><br><span class="line">	__kUpperBits = <span class="number">0x80000000</span></span><br><span class="line">	__kLowerBits = <span class="number">0x7fffffff</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, seed = <span class="number">0</span></span>):</span><br><span class="line">		self.__register = [<span class="number">0</span>] * self.__n</span><br><span class="line">		self.__state = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">		self.__register[<span class="number">0</span>] = seed</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, self.__n):</span><br><span class="line">			prev = self.__register[i - <span class="number">1</span>]</span><br><span class="line">			temp = self.__kInitOperand * (prev ^ (prev &gt;&gt; <span class="number">30</span>)) + i</span><br><span class="line">			self.__register[i] = temp &amp; self.__kMaxBits</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__twister</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.__n):</span><br><span class="line">			y = (self.__register[i] &amp; self.__kUpperBits) + \</span><br><span class="line">					(self.__register[(i + <span class="number">1</span>) % self.__n] &amp; self.__kLowerBits)</span><br><span class="line">			self.__register[i] = self.__register[(i + self.__m) % self.__n] ^ (y &gt;&gt; <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">if</span> y % <span class="number">2</span>:</span><br><span class="line">				self.__register[i] ^= self.__a</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__temper</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">if</span> self.__state == <span class="number">0</span>:</span><br><span class="line">			self.__twister()</span><br><span class="line"></span><br><span class="line">		y = self.__register[self.__state]</span><br><span class="line">		y = y ^ (y &gt;&gt; <span class="number">11</span>)</span><br><span class="line">		y = y ^ (y &lt;&lt; <span class="number">7</span>) &amp; self.__b</span><br><span class="line">		y = y ^ (y &lt;&lt; <span class="number">15</span>) &amp; self.__c</span><br><span class="line">		y = y ^ (y &gt;&gt; <span class="number">18</span>)</span><br><span class="line"></span><br><span class="line">		self.__state = (self.__state + <span class="number">1</span>) % self.__n</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">return</span> self.__temper()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">load_register</span>(<span class="params">self, register</span>):</span><br><span class="line">		self.__state = <span class="number">0</span></span><br><span class="line">		self.__register = register</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TemperInverser</span>:</span><br><span class="line">	__b = <span class="number">0x9d2c5680</span></span><br><span class="line">	__c = <span class="number">0xefc60000</span></span><br><span class="line">	__kMaxBits = <span class="number">0xffffffff</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__inverse_right_shift_xor</span>(<span class="params">self, value, shift</span>):</span><br><span class="line">		i, result = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span> i * shift &lt; <span class="number">32</span>:</span><br><span class="line">			part_mask = ((self.__kMaxBits &lt;&lt; (<span class="number">32</span> - shift)) &amp; self.__kMaxBits) &gt;&gt; (i * shift)</span><br><span class="line">			part = value &amp; part_mask</span><br><span class="line">			value ^= part &gt;&gt; shift</span><br><span class="line">			result |= part</span><br><span class="line">			i += <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__inverse_left_shift_xor</span>(<span class="params">self, value, shift, mask</span>):</span><br><span class="line">		i, result = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span> i * shift &lt; <span class="number">32</span>:</span><br><span class="line">			part_mask = (self.__kMaxBits &gt;&gt; (<span class="number">32</span> - shift)) &lt;&lt; (i * shift)</span><br><span class="line">			part = value &amp; part_mask</span><br><span class="line">			value ^= (part &lt;&lt; shift) &amp; mask</span><br><span class="line">			result |= part</span><br><span class="line">			i += <span class="number">1</span></span><br><span class="line">		<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__inverse_temper</span>(<span class="params">self, tempered</span>):</span><br><span class="line">		value = tempered</span><br><span class="line">		value = self.__inverse_right_shift_xor(value, <span class="number">18</span>)</span><br><span class="line">		value = self.__inverse_left_shift_xor(value, <span class="number">15</span>, self.__c)</span><br><span class="line">		value = self.__inverse_left_shift_xor(value, <span class="number">7</span>, self.__b)</span><br><span class="line">		value = self.__inverse_right_shift_xor(value, <span class="number">11</span>)</span><br><span class="line">		<span class="keyword">return</span> value</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, tempered</span>):</span><br><span class="line">		<span class="keyword">return</span> self.__inverse_temper(tempered)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MersenneTwisterCracker</span>:</span><br><span class="line">	__n = <span class="number">624</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, mt_obj</span>):</span><br><span class="line">		inverser  = TemperInverser()</span><br><span class="line">		register  = [inverser(mt_obj()) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.__n)]</span><br><span class="line">		self.__mt = MersenneTwister(<span class="number">0</span>)</span><br><span class="line">		self.__mt.load_register(register)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">return</span> self.__mt()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	mt  = MersenneTwister(<span class="number">2000</span>)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">		mt()</span><br><span class="line">	mtc = MersenneTwisterCracker(mt)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">		<span class="keyword">assert</span>(mt() == mtc())</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99"><span class="toc-number">1.</span> <span class="toc-text">二次剩余</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="toc-number">2.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%85%E6%A3%AE%E6%97%8B%E8%BD%AC%E7%88%86%E7%A0%B4"><span class="toc-number">3.</span> <span class="toc-text">梅森旋转爆破</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

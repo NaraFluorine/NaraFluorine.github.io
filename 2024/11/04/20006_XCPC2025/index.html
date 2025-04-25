@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="美好的新赛季从补题开始. pre  小心 $n$ 和 $m$ 写反. 注意数组不要开小或开大. 注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍. 注意模数是不是质数. 注意操作的顺序. 认真读题,模拟完样例再写程序. 注意清空数组 . 相信所有题都是可做的 . 感觉不可做的,有较高多项式复杂度暴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XCPC 2025">
+<meta property="og:url" content="https://narafluorine.github.io/2024/11/04/20006_XCPC2025/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="美好的新赛季从补题开始. pre  小心 $n$ 和 $m$ 写反. 注意数组不要开小或开大. 注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍. 注意模数是不是质数. 注意操作的顺序. 认真读题,模拟完样例再写程序. 注意清空数组 . 相信所有题都是可做的 . 感觉不可做的,有较高多项式复杂度暴">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-04T04:27:36.000Z">
+<meta property="article:modified_time" content="2025-04-25T19:11:21.898Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Contest">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>XCPC 2025</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/11/04/20006_%E7%A0%81%E8%B9%84%E9%9B%86%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/04/20008_CTF/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&text=XCPC 2025"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&is_video=false&description=XCPC 2025"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=XCPC 2025&body=Check out this article: https://narafluorine.github.io/2024/11/04/20006_XCPC2025/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&name=XCPC 2025&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&t=XCPC 2025"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CF愚人节赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">3.1.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-pair-count"><span class="toc-number">3.4.</span> <span class="toc-text">E pair count</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%BF%99%E4%B8%AA%E9%A2%98%E7%88%86%E4%BA%86%E4%B8%AA%E5%A4%A7bug-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81-%E4%B9%8B%E5%89%8D%E4%BB%8E%E6%9D%A5%E6%B2%A1%E8%A7%81%E8%BF%87%E7%9A%84bug"><span class="toc-number">3.4.1.</span> <span class="toc-text">在这个题爆了个大bug,非常重要,之前从来没见过的bug</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-1-3-of-the-problem"><span class="toc-number">3.5.</span> <span class="toc-text">F 1&#x2F;3 of the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-%E7%BB%9D%E5%AF%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E8%AE%BA%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">G &lt;绝对是一个图论问题&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">3.7.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.8.</span> <span class="toc-text">J</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">CF愚人节赛2012</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">4.1.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">4.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">4.3.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">4.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">CF愚人节2013</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">5.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">5.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">CF愚人节2014</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">6.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">6.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-3"><span class="toc-number">6.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-000001"><span class="toc-number">6.4.</span> <span class="toc-text">F 000001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-on-a-plane"><span class="toc-number">6.5.</span> <span class="toc-text">G on a plane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-4"><span class="toc-number">7.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">8.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-4"><span class="toc-number">8.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J-2"><span class="toc-number">9.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-3"><span class="toc-number">9.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-5"><span class="toc-number">9.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">9.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">9.5.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-5"><span class="toc-number">10.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">10.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-3"><span class="toc-number">10.3.</span> <span class="toc-text">G</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        XCPC 2025
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-11-04T04:27:36.000Z" class="dt-published" itemprop="datePublished">2024-11-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Contest/" rel="tag">Contest</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>美好的新赛季从补题开始.</p>
+<h1>pre</h1>
+<ul>
+<li>小心 $n$ 和 $m$ 写反.</li>
+<li>注意数组不要开小或开大.</li>
+<li>注意计算变量范围,不要能到 <code>long long</code> 的变量开 <code>int</code> .</li>
+<li>感觉容易挂的地方写 <code>assert</code> .</li>
+<li>感觉容易写挂的题,样例很弱的题一定要写对拍.</li>
+<li>注意模数是不是质数.</li>
+<li>注意操作的顺序.</li>
+<li>认真读题,模拟完样例再写程序.</li>
+<li><strong>注意清空数组</strong> .</li>
+<li><strong>相信所有题都是可做的</strong> .</li>
+<li>感觉不可做的,有较高多项式复杂度暴力的题,思考: <strong>分治</strong>,贪心,DP,线段树.</li>
+<li>感觉不可做的,有指数级复杂度暴力的最优化题,思考: 贪心,DP,<strong>流和割</strong>,暴搜加优化.</li>
+<li>感觉不可做的,有指数级暴力的数数题,思考: DP,行列式,暴搜加优化,拉格朗日插值,<strong>容斥</strong>,造自动机.</li>
+<li>后遭,交互题,考虑: 增量法,分治,暴搜策略.</li>
+<li>DP优化:凸优化(wqs),斜率优化,决策单调性,交换状态和值域,减少状态(包含常数上的).</li>
+<li>感觉不可做的题,考虑各个元素,集合之间有什么关系.</li>
+<li>就算过了样例,感觉没问题也要仔细分析一下各种情况,必要时对拍.</li>
+<li>分段函数用vector,常数比map小很多.</li>
+<li><strong>做题别急</strong> .</li>
+<li>任何n较大的,可以快速算单项的东西考虑分段打表.</li>
+<li>子区间问题有时可以类似最大子段和使用线段树维护,也有可能分治.</li>
+</ul>
+<p>Flu感觉很妙的idea才会被留下来,剩余的直接删掉,我这不是题解区.</p>
+<h1><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1924?v=1">第一次集训</a></h1>
+<p>Flu出ABC,队友1的G疯狂WA,2的H没开出来.</p>
+<h2 id="K">K</h2>
+<p>位运算炸int了: <code>Map|=(str[i]=='#')&lt;&lt;i</code> 前面半句话会转成int导致i在64左右的范围会直接挂掉.</p>
+<h2 id="I">I</h2>
+<p>题解非常妙,横着看很难,我们发现构造的排列对于一个位置,下一个位置是固定的,也就是说竖着一个除了末尾的字符串下一个出现的位置也是固定的,所以直接哈希检查即可,非常妙的题.</p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2095">CF愚人节赛</a></h1>
+<p>非常妙的一场,有很多很新奇的脑洞值得记录.</p>
+<h2 id="B">B</h2>
+<p>你有一个游戏,你要赌能不能过10个测试点,这个游戏很像伯努利分布,发现在两端概率最高,是1/2,所以10个点就是要赌1/1024的概率,显然不太对劲.</p>
+<p>发现输出没有要求一定要在给定的16个格子内,所以输出17或者-1就完事了,(很仙的题啊),</p>
+<h2 id="C">C</h2>
+<p>问你这个题有多少个测试点,<br>
+题解说告诉大家CF有一个filter功能,能看谁过了多少个测试点,然后对filter二分即可,但是要求必须要有一个过这个题的才行.</p>
+<h2 id="D">D</h2>
+<p>盒人题.Flu经过测试发现 Google Earth给出的地理坐标有较大的偏差(7km左右),而Google Map精确度很高,是这样.</p>
+<h2 id="E-pair-count">E pair count</h2>
+<p>正常的题面,正常的数据范围,不正常的链接.<br>
+这个题的XOR的链接并不是维基百科上面的链接,而是一个wordle,解出来发现是MULTIPLY(相乘),于是你要找到任意三次方相乘等于k的下标.</p>
+<p>k可以是0,模数只保证是质数并没有其他性质.</p>
+<h3 id="在这个题爆了个大bug-非常重要-之前从来没见过的bug">在这个题爆了个大bug,非常重要,之前从来没见过的bug</h3>
+<p>正常求逆元是mod-2,直接快速幂.<br>
+然而对0求逆元的时候正好对2取模,会导致出现 <code>qp(0,0,2)</code> 的情况,返回值是1,然而0的逆元显然因为不存在所以是0,就在这狠狠地被肘了.</p>
+<h2 id="F-1-3-of-the-problem">F 1/3 of the problem</h2>
+<p>三分之一在这里(你看到了),于是…</p>
+<p>剩下的三分之二在俄文区…(草)</p>
+<h2 id="G-绝对是一个图论问题">G &lt;绝对是一个图论问题&gt;</h2>
+<p>乍一看有很高深的算法,又是从n个点选k个又是1e5的,算法很神秘.<br>
+<strong>然而</strong> 最后有一句话: <strong>没有三个点位于一个圆上</strong> .什么意思?任意三点都不构成圆,意味着所有的点都是共线的,排一遍序扫一下就完事了,这个题非常诈骗.诈骗!</p>
+<h2 id="H">H</h2>
+<p>给一张高斯模糊过的图片,你要逆过来解密高斯模糊(PS大法似乎不顶用),所以这个题偏CTF风格,笔者抄的题解脚本,</p>
+<h2 id="J">J</h2>
+<p>题解说视频讲解能够提前&quot;首映&quot;出来,然后听歌识曲得到音乐名的提示,然后从PPT中得到输入输出格式,最后提交类似flag的题目名称.</p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/171">CF愚人节赛2012</a></h1>
+<h2 id="D-2">D</h2>
+<p>非常妙的题,题面是说有5个点,不告诉你输入具体是几,你要猜一个1-3的数(也就是说只要穷举,大家都能作对,只是交多少发的问题,这个题背景就很妙)</p>
+<p>Flu采取的类似二分的策略,最后+9过的(中间唐了一发).<br>
+首先你可以通过所有未知编号的测试点使用一样的数来确定第一个被卡掉的点不是几,然后对未知的点二分,找到第一个过的点,就能清楚第几个点实际是几以及答案是几,当然这个题本身很有趣,但是很看脸.</p>
+<h2 id="E">E</h2>
+<p>给你一种未知语言的编译器,让你使用这种语言输出这种语言的名字.</p>
+<p>随便做点什么,然后查看报错信息,查到是INTERCAL(在搜索偏门信息方面感觉AI明显不如搜索引擎,不知道咋回事)</p>
+<h2 id="C-2">C</h2>
+<p>仍然是一种新编程语言,这次叫做Chef,代码是一句一句类似食谱的步骤.这次是要理解程序在干什么然后去模拟这个过程.</p>
+<h2 id="G">G</h2>
+<p>给三个数字猜规律.</p>
+<p>规律:前两个数字是类斐波那契数列的开始,第三个是需要求的索引…好难猜.</p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/290">CF愚人节2013</a></h1>
+<h2 id="A">A</h2>
+<p>给一个数字,猜字符串.<br>
+上网搜发现是美国历届总统的名字.</p>
+<p>然后交,WA了,看了答案才知道除了那个名字带 <code>Van</code> 的都是只取最后一个单词.</p>
+<h2 id="C-3">C</h2>
+<p>一个新的语言理解题,语言叫做lolcode,是一个网络用语写成的语言.</p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/409">CF愚人节2014</a></h1>
+<h2 id="A-2">A</h2>
+<p>看样例猜规则系列,</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[]()[]<span class="number">8</span>&lt;       <span class="number">8</span>&lt;<span class="number">8</span>&lt;()</span><br><span class="line"><span class="number">8</span>&lt;[]()<span class="number">8</span>&lt;       []<span class="number">8</span>&lt;[]</span><br><span class="line"></span><br><span class="line">TEAM <span class="number">2</span> WINS    TIE</span><br></pre></td></tr></table></figure>
+<p>emmm…首先看第一个 <code>[]</code> 应该是小于 <code>8&lt;</code> 的,然后看第二个, <code>[]</code> 应该是介于 <code>()</code> 和 <code>8&lt;</code> 之间的,所以推测 <code>()</code> &lt; <code>[]</code> &lt; <code>8&lt;</code> .交上去WA了…然后不知道咋做看题解了.<br>
+题解说这是石头剪子布…<br>
+Flu还是做解密题做太少了.</p>
+<h2 id="B-2">B</h2>
+<p>还是猜语言,这次是Fortran…</p>
+<h2 id="D-3">D</h2>
+<p>给一堆基本事实,然后给输入猜输出.<br>
+题解说有的事实是假的,所以你只需要判断真假就行了…</p>
+<h2 id="F-000001">F 000001</h2>
+<p>题解说,即使一个问题没有描述,它最起码有一个名称.你要找到一个1-64对应数字的哈希,应该怎么办?显然是上网查.上哪里查?显然是OEIS.所以答案就是oeis A000001,并不是数字-1之后的二进制长度.</p>
+<h2 id="G-on-a-plane">G on a plane</h2>
+<p>在飞机上(一说,在平面上)</p>
+<p>非常生草的事情是,把样例给出的点画在图上发现是 <code>5+AVG Y</code> …<br>
+样例才是题干…</p>
+<p>破防了,以后再也不做愚人节题目了.</p>
+<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/706236#overview">第二次集训</a></h1>
+<p>概况:配合的不好,中间出现至少三次两个人开一个题的情况,<br>
+Flu开局开A,队友B开局也开A,结果这个题到最后都没过,疯狂WA,-6,爽!<br>
+Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想写了扔给我…<br>
+作为看过AveMujica的人(<s>赤石,豪赤多赤</s>),Flu当然是很快写过了,</p>
+<p>榜单也很好看,开始的时候是倒数第三,剩半个小时的时候出现神之一手,两分钟过两个题,然后一跃正数第三,难绷.</p>
+<h2 id="A-3">A</h2>
+<p>给定两个罗盘的度数,计算方位角.<br>
+实际上边界会变,取平均数的时候注意一下(赛时没注意到就WA好多发,)</p>
+<h2 id="C-4">C</h2>
+<p>题意:你对城市建筑拍一张照,得到像素图,建筑可以被简化为一根柱子.<br>
+你每次可以询问一个像素点,返回该点是建筑还是天空(没东西),求最高建筑的位置和高度.(交互题,你要在 $12000$ 次询问内返回答案)</p>
+<p>显而易见的结论是,对值域二分检查,nlogn绝对不够用.<br>
+然后mxx显然不会减小,对更高的值域二分,也显然不够用.<br>
+首先用一次检查mxx+1判断该楼会不会比当前更高,更高再二分.设想梯度图会被卡,还是不够用.</p>
+<p>我们已经到算法优化的极限了,怎么办???<br>
+随机化查询坐标.(我人傻了,这也行???)</p>
+<p>于是这个题就被乱搞草过去了…</p>
+<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/707488#overview">第2.5次集训</a></h1>
+<p>周六和周天是两场集训,正常情况下参加一场即可,Flu周天去要电协的QQ群所以没参加,这是后来补题的.</p>
+<h2 id="F">F</h2>
+<p>括号匹配,但是&lt;&lt;和&gt;&gt;能匹配,&gt;&gt;和&lt;&lt;也能匹配上,给一个这俩组成的序列,你要输出按照括号规则匹配的结果.</p>
+<p>思路:我们强制最左端是 <code>[</code> 打头,不管他是&lt;&lt;还是&gt;&gt;,然后直接匹配即可.</p>
+<h2 id="D-4">D</h2>
+<p>难点在于给一个数n,你要把它分组,每组可以为0,组之间有顺序,而且你分的组要单调不增,你要O(1)算这个值.</p>
+<p>答案:爆典…<br>
+其实和n分成任意组(非0),每组不大于m的dp状态是一样的,难点在于证明.</p>
+<p>你竖着想,5可以分成3和2,这是两根柱子.</p>
+<p>然而你横着想,因为单调不增所以你的柱子都是从左打头从右结尾的,而且宽度上限就是m,得证.</p>
+<p>于是Flu会算法还是没做出来,输!</p>
+<h2 id="A-4">A</h2>
+<p>给一个函数 $f((l,r))=(\min(a_{l-r}),\max(a_{l-r}))$ ,q次询问每次lr问最少几次可以让 $f(f(f(f(…f((l,r))))))$ 取到 $(1,n)$ .</p>
+<p>div1的E…有点不敢做.</p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1707/E">https://codeforces.com/problemset/problem/1707/E</a><br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/blog/entry/104930">https://codeforces.com/blog/entry/104930</a></p>
+<p>找个阳间点的时间再补.<br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578">https://codeforces.com/gym/105578</a><br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578/attachments/download/28638/2024-shenyang-statement-zh.pdf">https://codeforces.com/gym/105578/attachments/download/28638/2024-shenyang-statement-zh.pdf</a><br>
+<a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578/my">https://codeforces.com/gym/105578/my</a></p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578">ICPC2024沈阳站</a></h1>
+<h2 id="J-2">J</h2>
+<p>草,前四个最大值和后四个最大值比较,写的时候犯唐把队名和战力全用string存,结果真的能过样例,(int比较炸了)</p>
+<h2 id="B-3">B</h2>
+<p>构造两个数列满足 $a_ib_j\mod nm$ 不重.<br>
+大胆猜,nm不互质无解,然后尝试从nm出发,在n这里构造1+km%nm,在m这里构造1+kn%nm.</p>
+<h2 id="D-5">D</h2>
+<p>先来一个结论:交换两个元素对一个排列的逆序对奇偶性的变化取决于区间差,排列的整体左移右移多少次可以转换为区间上的很多次交换,所以逆序对奇偶性变化可以O(1)算出来.</p>
+<p>所以,给的其实是一个排列,然后交换AB实际上是假的,对哪交换都可以,只需要算出开始的逆序对奇偶性就行了,而且因为刚开始只需要计算奇偶性,甚至能O(n)算出来.</p>
+<h2 id="E-2">E</h2>
+<p>不会写状压dp了…</p>
+<p>温习一下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">1</span>&lt;&lt;<span class="number">16</span>][<span class="number">16</span>]<span class="comment">//状态为i,结尾为j时最小</span></span><br><span class="line"><span class="keyword">for</span> 枚举状态  </span><br><span class="line">	<span class="keyword">for</span> 枚举上一个结尾点</span><br><span class="line">		<span class="keyword">for</span> 枚举新加进去的二进制状态</span><br></pre></td></tr></table></figure>
+<h2 id="G-2">G</h2>
+<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708329">第三次集训</a></h1>
+<p>全是思维题.(中间试着打了一下CTF的Warm,感觉很好玩)<br>
+Flu被队友带飞了,一个题也没做出来…</p>
+<h2 id="A-5">A</h2>
+<p>有一个nm矩阵,部分格子有障碍物(*)否则为空,你要对空格子用[0,k]种颜色涂色,其中[1,k]种颜色同行同列只能出现一次,0颜色可以无限使用,设你用了z个0,代价是 $ck+dz$ ,cd是给定常数,求最小花费.</p>
+<p>题解说是网络流,然而还有一种办法可过.</p>
+<h2 id="E-3">E</h2>
+<p>有一个n节点的环,你每次可以选任意[1,m]个连续节点涂成黑色,对面也要这么做,不能涂色的人输,现在nm多组询问,对每次询问输出谁赢.</p>
+<blockquote>
+<p>先手第一步除非可以直接赢,否则环会被拆成链.然后后手除非m是1否则必然可以把链断成完全相同的两部分,然后后手只需要模仿先手就一定会赢.</p>
+</blockquote>
+<h2 id="G-3">G</h2>
+<p>给n个不覆盖的矩形,你要找出所有的对称轴.注意:假如正方形可能由一个长条+两个小正方形组成,这个正方形依旧有4条对称轴.</p>
+<p>观察发现对称轴必须经过一个点,而且最多有四个,只要能够 $O(n\log n)$ 检查就已经赢了.由于矩形可能是拼起来的,所以常规记录线的方法不可行,要考虑用点记录矩形.</p>
+<p>结论:被偶数个矩形覆盖的点无效(矩形覆盖是仅限边界四个点的),如图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-+      +-x-+</span><br><span class="line">| |      | | |</span><br><span class="line">x-+-+    x-x-x</span><br><span class="line">|   |    |   |</span><br><span class="line">+---+    +---+</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CF愚人节赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">3.1.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-pair-count"><span class="toc-number">3.4.</span> <span class="toc-text">E pair count</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%BF%99%E4%B8%AA%E9%A2%98%E7%88%86%E4%BA%86%E4%B8%AA%E5%A4%A7bug-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81-%E4%B9%8B%E5%89%8D%E4%BB%8E%E6%9D%A5%E6%B2%A1%E8%A7%81%E8%BF%87%E7%9A%84bug"><span class="toc-number">3.4.1.</span> <span class="toc-text">在这个题爆了个大bug,非常重要,之前从来没见过的bug</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-1-3-of-the-problem"><span class="toc-number">3.5.</span> <span class="toc-text">F 1&#x2F;3 of the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-%E7%BB%9D%E5%AF%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E8%AE%BA%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">G &lt;绝对是一个图论问题&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">3.7.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.8.</span> <span class="toc-text">J</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">CF愚人节赛2012</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">4.1.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">4.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">4.3.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">4.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">CF愚人节2013</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">5.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">5.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">CF愚人节2014</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">6.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">6.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-3"><span class="toc-number">6.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-000001"><span class="toc-number">6.4.</span> <span class="toc-text">F 000001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-on-a-plane"><span class="toc-number">6.5.</span> <span class="toc-text">G on a plane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-4"><span class="toc-number">7.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">8.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-4"><span class="toc-number">8.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J-2"><span class="toc-number">9.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-3"><span class="toc-number">9.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-5"><span class="toc-number">9.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">9.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">9.5.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-5"><span class="toc-number">10.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">10.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-3"><span class="toc-number">10.3.</span> <span class="toc-text">G</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&text=XCPC 2025"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&is_video=false&description=XCPC 2025"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=XCPC 2025&body=Check out this article: https://narafluorine.github.io/2024/11/04/20006_XCPC2025/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&title=XCPC 2025"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&name=XCPC 2025&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/04/20006_XCPC2025/&t=XCPC 2025"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="万恶之源组合数学.以及概率. 插板法 求 $a_1+…+a_k&#x3D;n$ 的正整数解的个数.答案就是 $$\binom{n-1}{k-1}$$ 非负整数解:借数. $$\binom{n+k-1}{n}$$ 每组至少要分到 $a_i$ 个呢?假设 $x’$ 是删完必须要加的,我们就转换为求非负解了. $$\binom{n-\sum a_i+k-1}{n-\sum a_i}$$ 不相邻排列:其实还是借数插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率与组合数学">
+<meta property="og:url" content="https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="万恶之源组合数学.以及概率. 插板法 求 $a_1+…+a_k&#x3D;n$ 的正整数解的个数.答案就是 $$\binom{n-1}{k-1}$$ 非负整数解:借数. $$\binom{n+k-1}{n}$$ 每组至少要分到 $a_i$ 个呢?假设 $x’$ 是删完必须要加的,我们就转换为求非负解了. $$\binom{n-\sum a_i+k-1}{n-\sum a_i}$$ 不相邻排列:其实还是借数插">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-12T06:01:57.000Z">
+<meta property="article:modified_time" content="2025-04-25T19:00:02.394Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="NumberTheory">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>概率与组合数学</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/09/12/10010_%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/11/10009_%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%BA%93/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&text=概率与组合数学"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&is_video=false&description=概率与组合数学"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=概率与组合数学&body=Check out this article: https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&name=概率与组合数学&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&t=概率与组合数学"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%9D%BF%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">插板法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">组合数公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%86%E6%8E%92%E5%88%97"><span class="toc-number">3.</span> <span class="toc-text">圆排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94"><span class="toc-number">4.</span> <span class="toc-text">二项式反演</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">容斥原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E6%96%A5%E5%BA%94%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">容斥应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA"><span class="toc-number">7.</span> <span class="toc-text">常见误区</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        概率与组合数学
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-09-12T06:01:57.000Z" class="dt-published" itemprop="datePublished">2024-09-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/NumberTheory/" rel="tag">NumberTheory</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>万恶之源组合数学.以及概率.</p>
+<h2 id="插板法">插板法</h2>
+<p>求 $a_1+…+a_k=n$ 的正整数解的个数.答案就是<br>
+$$\binom{n-1}{k-1}$$<br>
+非负整数解:借数.<br>
+$$\binom{n+k-1}{n}$$<br>
+每组至少要分到 $a_i$ 个呢?假设 $x’$ 是删完必须要加的,我们就转换为求非负解了.<br>
+$$\binom{n-\sum a_i+k-1}{n-\sum a_i}$$<br>
+不相邻排列:其实还是借数插在中间,然后组合.<br>
+$$\binom{n-k+1}{k}$$</p>
+<h2 id="组合数公式">组合数公式</h2>
+<p>$$\binom nm=\binom n{n-m}$$<br>
+$$\binom nk+\binom n{k+1}=\binom{n+1}k$$<br>
+$$\binom nk=\frac nk\binom{n-1}{k-1}$$<br>
+$$\binom nm=\binom n{m-1}+\binom{n-1}{m-1}$$<br>
+DP求杨辉三角的时候用这个.<br>
+$$\sum_{i=0}^n\binom ni=2^n$$<br>
+二项式定理取a=1,b=1的特殊情况.<br>
+$$\sum_{i=0}^n(-1)^i\binom ni=[n=0]$$<br>
+二项式定理取a=1,b=-1的特殊情况.<br>
+$$\sum_{i=0}^m\binom ni\binom m{n-i}=\binom{n+m}m,(n\ge m)$$<br>
+拆组合数的式子.某些数据结构题会遇到.<br>
+$$\sum_{i=0}^n\binom ni^2=\binom{2n}n$$<br>
+上一个式子的特殊情况(n=m).<br>
+$$\sum_{i=0}^ni\binom ni=n2^{n-1}$$<br>
+求导可证.<br>
+$$\sum_{i=0}^ni^2\binom ni=\frac{n(n+1)}22^{n-1}$$<br>
+也是多项式求导可证.<br>
+$$\sum_{i=0}^n\binom ik=\binom {n+1}{k+1}$$<br>
+子集分析可证(这个就是上指标求和公式).<br>
+$$\binom nr\binom rk=\binom nk\binom{n-k}{r-k}$$<br>
+定义证明.<br>
+$$\sum_{i=0}^n\binom{n-i}i=F_{n+1}$$<br>
+其中, $F_n$ 是斐波那契数列.</p>
+<p><strong>多重组合数</strong> :多重集的排列数就是多重组合数.多重集的排列可以理解为有一个集合 $S={n_1a_1,n_2a_2,…,n_ka_k}$ ,有这么多种相同元素,他的全排列叫做多重组合数,公式<br>
+$$\binom{n}{n_1,n_2,…,n_k}=\frac{n!}{\prod_{i=1}^kn_i!}$$</p>
+<h2 id="圆排列">圆排列</h2>
+<p>部分圆排列公式:<br>
+$$Q_n^r=\frac{A_n^r}r=\frac{n!}{r\times(n-r)!}$$</p>
+<h2 id="二项式反演">二项式反演</h2>
+<p>设 $f_n$ 是n个元素形成特定结构的方案数, $g_n$ 是从n个元素选 $i,i\ge0$ 个元素形成结构的方案数.根据f求g有<br>
+$$g_n=\sum_{i=0}^n\binom nif_i$$<br>
+根据g求f则有<br>
+$$f_n=\sum_{i=0}^n\binom ni(-1)^{n-i}g_i$$<br>
+这个逆推的过程就叫二项式反演.</p>
+<h2 id="容斥原理">容斥原理</h2>
+<p>$$\left|\bigcup_{i=1}^nS_i\right|=\sum_{m=1}^n(-1)^{m-1}\sum_{a_i&lt;a_{i+1}}\left|\bigcap_{i=1}^mS_{a_i}\right|$$<br>
+下面是求交的容斥.<br>
+$$\left|\bigcap_{i=1}^nS_i\right|=|U|-\left|\bigcup_{i=1}^n\overline{S_i}\right|$$<br>
+<strong>容斥模型</strong> :式子<br>
+$$\left|\bigcap_{a_i&lt;a_{i+1}}^{1\le i\le k}S_{a_i}\right|$$<br>
+的不定方程形式是<br>
+$$\sum_{i=1}^nx_i=m-\sum_{i=1}^k(b_{a_i}+1)$$</p>
+<h2 id="容斥应用">容斥应用</h2>
+<ol>
+<li>硬币计数:给四种硬币的面值,n次询问每次询问给出四种硬币的数量以及s表示这么多个硬币能够拼凑出s的方案数.</li>
+</ol>
+<p>套模型:也就是求解<br>
+$$\sum_{i=1}^4C_ix_i=S-\sum_{i=1}^kC_{a_i}(D_{a_i}+1)$$<br>
+我们首先考虑无限金币,此时就是完全背包.假如一枚金币超过了应当的容量,就要减去对应的差值,枚举子集即可.</p>
+<h2 id="常见误区">常见误区</h2>
+<ol>
+<li>误用组合数<br>
+概述:由于上一个选了之后会影响下一次选的概率,导致单纯组合数的结果并不是概率出来的结果.</li>
+</ol>
+<blockquote>
+<p>例子:n张A票n张B票,买票的时候是抛硬币决定卖哪张票,问最后两个位置是相同票的概率,此时设想第一位选了一种的时候第二位会发生概率变换导致单纯组合数的概率并不是真正的概率.(问题出在结果判定上,假如没另一种票了就直接剩下的一样,也就是说组合数的概率不一样)<br>
+$$\xcancel{\frac{n-1}{2n-1}}$$<br>
+正解:DP,其实也能算组合数,假设最后两张票不一样,就会是前2n-2张票有n-1张A和B票.这个时候的概率就是<br>
+$$P=C^{n-1}_{2n-2}\Big(\frac12\Big)^{2n-2}=\frac{(2n-2)!}{4^{n-1}(n-1)!(n-1)!}$$<br>
+实现O(n)计算.答案是1-P.</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%9D%BF%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">插板法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">组合数公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%86%E6%8E%92%E5%88%97"><span class="toc-number">3.</span> <span class="toc-text">圆排列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94"><span class="toc-number">4.</span> <span class="toc-text">二项式反演</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">容斥原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E6%96%A5%E5%BA%94%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">容斥应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA"><span class="toc-number">7.</span> <span class="toc-text">常见误区</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&text=概率与组合数学"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&is_video=false&description=概率与组合数学"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=概率与组合数学&body=Check out this article: https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&title=概率与组合数学"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&name=概率与组合数学&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/&t=概率与组合数学"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

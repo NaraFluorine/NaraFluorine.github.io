@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这里放所有变换,FFT,NTT,FWT,FMT,的知识,etc. Flu发现好像关于这些的算法开三倍空间一般就够用了. FFTFFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…).如果想学习原理,请左转OIWiki,这里主要聊聊FFT的升级以及实战经验该怎么写. FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样: C_k&#x3D;\sum_{i+j&#x3D;k}A_iB_j然">
+    <meta name="description" content="这里放所有变换,FFT,NTT,FWT,FMT,的知识,etc. Flu发现好像关于这些的算法开三倍空间一般就够用了. FFT FFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…). 如果想学习原理,请左转OIWiki,这里主要聊聊FFT的升级以及实战经验该怎么写. FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样: $$C_k&#x3D;\sum_{i+j&#x3D;k}A_i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fast Transform Algorithms">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/12/10023_FTs/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="这里放所有变换,FFT,NTT,FWT,FMT,的知识,etc. Flu发现好像关于这些的算法开三倍空间一般就够用了. FFTFFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…).如果想学习原理,请左转OIWiki,这里主要聊聊FFT的升级以及实战经验该怎么写. FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样: C_k&#x3D;\sum_{i+j&#x3D;k}A_iB_j然">
+<meta property="og:description" content="这里放所有变换,FFT,NTT,FWT,FMT,的知识,etc. Flu发现好像关于这些的算法开三倍空间一般就够用了. FFT FFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…). 如果想学习原理,请左转OIWiki,这里主要聊聊FFT的升级以及实战经验该怎么写. FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样: $$C_k&#x3D;\sum_{i+j&#x3D;k}A_i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-12T15:28:26.000Z">
-<meta property="article:modified_time" content="2024-11-29T10:51:39.418Z">
+<meta property="article:modified_time" content="2025-04-25T19:00:05.619Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="NumberTheory">
@@ -104,10 +104,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/07/17/20002NewCoder-ACM-Round1/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/07/12/20003CF-Round957-Div-3/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/07/11/10004_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -171,7 +171,7 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/Math/">Math</a>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
     </div>
 
 
@@ -189,17 +189,27 @@
   <div class="content e-content" itemprop="articleBody">
     <p>这里放所有变换,FFT,NTT,FWT,FMT,的知识,etc.</p>
 <p>Flu发现好像关于这些的算法开三倍空间一般就够用了.</p>
-<h2 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h2><p>FFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…).<br>如果想学习原理,请左转<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/poly/fft/">OIWiki</a>,这里主要聊聊FFT的升级以及实战经验该怎么写.</p>
-<p>FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样:</p>
-<script type="math/tex; mode=display">C_k=\sum_{i+j=k}A_iB_j</script><p>然后这是板子.(显然题目不会这么考,我们要做变形)</p>
+<h2 id="FFT">FFT</h2>
+<p>FFT,一个令人胆寒的算法(前置知识比较多,又是复数又是矩阵又是点值的…).<br>
+如果想学习原理,请左转<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/poly/fft/">OIWiki</a>,这里主要聊聊FFT的升级以及实战经验该怎么写.</p>
+<p>FFT解决的问题是在O(nlogn)时间内求解多项式相乘,长这样:<br>
+$$C_k=\sum_{i+j=k}A_iB_j$$<br>
+然后这是板子.(显然题目不会这么考,我们要做变形)</p>
 <ol>
-<li>给两个序列 $a,b$ 你可以对序列进行旋转操作(如 $1,2,3,4,5$ 可以变成 $2,3,4,5,1$ )你也可以对任意序列进行全部加 $x(x&gt;0)$ 的操作,定义差异值是下面的式子,求两个数列最小差异值.<script type="math/tex; mode=display">s=\sum_{i=1}^n(a_i-b_i)^2</script>首先,对于一个数列加x和另一个数列-x效果相当,于是式子先转成<script type="math/tex; mode=display">s=\sum_{i=1}^n(a_i+x-b_i)^2,-m\le x\le m</script>展开式子得<script type="math/tex; mode=display">s=\sum_{i=1}^na_i^2+\sum_{i=1}^nb_i^2+nx^2+2x(\sum_{i=1}^na_i-\sum_{i=1}^nb_i)-2\sum_{i=1}^na_ib_i</script>然后发现只有最后的部分和旋转有关,是不确定的,其他都可以快速找出来,现在要求 $\sum_{i=1}^na_ib_i$ 的最大值.</li>
+<li>给两个序列 $a,b$ 你可以对序列进行旋转操作(如 $1,2,3,4,5$ 可以变成 $2,3,4,5,1$ )你也可以对任意序列进行全部加 $x(x&gt;0)$ 的操作,定义差异值是下面的式子,求两个数列最小差异值.<br>
+$$s=\sum_{i=1}^n(a_i-b_i)^2$$<br>
+首先,对于一个数列加x和另一个数列-x效果相当,于是式子先转成<br>
+$$s=\sum_{i=1}^n(a_i+x-b_i)^2,-m\le x\le m$$<br>
+展开式子得<br>
+$$s=\sum_{i=1}^na_i^2+\sum_{i=1}^nb_i^2+nx^2+2x(\sum_{i=1}^na_i-\sum_{i=1}^nb_i)-2\sum_{i=1}^na_ib_i$$<br>
+然后发现只有最后的部分和旋转有关,是不确定的,其他都可以快速找出来,现在要求 $\sum_{i=1}^na_ib_i$ 的最大值.</li>
 </ol>
-<p>我们先把a反过来,式子变成 $\sum<em>{i=1}^na’</em>{n-i+1}b_i$ 发现这是一个卷积形式,然后 <strong>倍长a</strong> 和b进行卷积,答案里面的 <strong>n+1~2n</strong> 项就是最大值(妙啊).</p>
-<h2 id="NTT"><a href="#NTT" class="headerlink" title="NTT"></a>NTT</h2><p>会炸精度…实际有效的精度大概就是两位.</p>
-<p>例题:P2000拯救世界,计算 $(a+1)(a+2)(a+3)(a+4)/24$ ,使用NTT先计算出 $(a+1)<em>(a+2)$ 然后要 <em>*处理进位</em></em> ,然后再乘上后半部分.</p>
-<h3 id="原根表"><a href="#原根表" class="headerlink" title="原根表"></a>原根表</h3><p>转载自<a target="_blank" rel="noopener" href="https://blog.miskcoo.com/2014/07/fft-prime-table,其中质数满足">https://blog.miskcoo.com/2014/07/fft-prime-table,其中质数满足</a> $prime=r\cdot2^k+1$ ,ord是原根.</p>
-<div class="table-container">
+<p>我们先把a反过来,式子变成 $\sum_{i=1}^na’_{n-i+1}b_i$ 发现这是一个卷积形式,然后 <strong>倍长a</strong> 和b进行卷积,答案里面的 <strong>n+1~2n</strong> 项就是最大值(妙啊).</p>
+<h2 id="NTT">NTT</h2>
+<p>会炸精度…实际有效的精度大概就是两位.</p>
+<p>例题:P2000拯救世界,计算 $(a+1)(a+2)(a+3)(a+4)/24$ ,使用NTT先计算出 $(a+1)*(a+2)$ 然后要 <strong>处理进位</strong> ,然后再乘上后半部分.</p>
+<h3 id="原根表">原根表</h3>
+<p>转载自<a target="_blank" rel="noopener" href="https://blog.miskcoo.com/2014/07/fft-prime-table,%E5%85%B6%E4%B8%AD%E8%B4%A8%E6%95%B0%E6%BB%A1%E8%B6%B3">https://blog.miskcoo.com/2014/07/fft-prime-table,其中质数满足</a> $prime=r\cdot2^k+1$ ,ord是原根.</p>
 <table>
 <thead>
 <tr>
@@ -452,27 +462,41 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="FWT-快速沃尔什变换"><a href="#FWT-快速沃尔什变换" class="headerlink" title="FWT 快速沃尔什变换"></a>FWT 快速沃尔什变换</h2><p>用于求解 $C<em>i=\sum</em>{k\oplus j=i}A_iB_j$ 的问题,其中 $\oplus$ 代表<code>&amp;</code> <code>|</code> <code>&amp;</code> 三种运算符,还可以解决子集卷积问题.</p>
-<h2 id="FMT-快速莫比乌斯变换"><a href="#FMT-快速莫比乌斯变换" class="headerlink" title="FMT 快速莫比乌斯变换"></a>FMT 快速莫比乌斯变换</h2><p>莫比乌斯反演在集合上的结论:</p>
-<script type="math/tex; mode=display">g(S)=∑_{T⊆S}(−1)^{|S|−|T|}f(T)</script><p>有人说FMT是高阶的容斥原理,FMT板子放在下面,但是Flu选择FWT.</p>
-<h2 id="多项式乘法逆"><a href="#多项式乘法逆" class="headerlink" title="多项式乘法逆"></a>多项式乘法逆</h2><p>虽然不是FT里面的,但这是多项式全家桶的一员,还是放在这里吧…</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
-<li><p>给出n个数,计算每个数的 $E_i$ ,有</p>
-<script type="math/tex; mode=display">E_i=\frac{F_i}{q_i}</script><script type="math/tex; mode=display">F_j=\sum_{i=1}^{j-1}\frac{q_i\times q_j}{(i-j)^2}-\sum_{i=j+1}^n\frac{q_i\times q_j}{(i-j)^2}</script><p>先推式子:</p>
-<script type="math/tex; mode=display">E_j=\sum_{i=1}^{j-1}\frac{q_i}{(i-j)^2}-\sum_{i=j+1}^n\frac{q_i}{(i-j)^2}</script><p>令 $g(i)=1/i^2$ ,g(0)=0 有</p>
-<script type="math/tex; mode=display">E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=j}^nq_ig(i-j)</script><p>发现前半部分是卷积形式,直接FFT即可.看后半部分,把初始j带进去得到</p>
-<script type="math/tex; mode=display">E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=0}^nq_{i+j}g(i)</script><p>引入 $q’(i)=q(n-i)$ ,原式得</p>
-<script type="math/tex; mode=display">E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=0}^{n-j}q'_{n-i-j}g(i)</script><p>至此,两个式子都变成了卷积形式,直接FFT计算即可.但是后面半个部分是上界 $n-j$ 的,注意最后减掉的时候别减错了.</p>
+<h2 id="FWT-快速沃尔什变换">FWT 快速沃尔什变换</h2>
+<p>用于求解 $C_i=\sum_{k\oplus j=i}A_iB_j$ 的问题,其中 $\oplus$ 代表<code>&amp;</code> <code>|</code> <code>&amp;</code> 三种运算符,还可以解决子集卷积问题.</p>
+<h2 id="FMT-快速莫比乌斯变换">FMT 快速莫比乌斯变换</h2>
+<p>莫比乌斯反演在集合上的结论:<br>
+$$g(S)=∑_{T⊆S}(−1)^{|S|−|T|}f(T)$$<br>
+有人说FMT是高阶的容斥原理,FMT板子放在下面,但是Flu选择FWT.</p>
+<h2 id="多项式乘法逆">多项式乘法逆</h2>
+<p>虽然不是FT里面的,但这是多项式全家桶的一员,还是放在这里吧…</p>
+<h2 id="例题">例题</h2>
+<ol>
+<li>
+<p>给出n个数,计算每个数的 $E_i$ ,有<br>
+$$E_i=\frac{F_i}{q_i}$$<br>
+$$F_j=\sum_{i=1}^{j-1}\frac{q_i\times q_j}{(i-j)^2}-\sum_{i=j+1}^n\frac{q_i\times q_j}{(i-j)^2}$$<br>
+先推式子:<br>
+$$E_j=\sum_{i=1}^{j-1}\frac{q_i}{(i-j)^2}-\sum_{i=j+1}^n\frac{q_i}{(i-j)^2}$$<br>
+令 $g(i)=1/i^2$ ,g(0)=0 有<br>
+$$E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=j}^nq_ig(i-j)$$<br>
+发现前半部分是卷积形式,直接FFT即可.看后半部分,把初始j带进去得到<br>
+$$E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=0}^nq_{i+j}g(i)$$<br>
+引入 $q’(i)=q(n-i)$ ,原式得<br>
+$$E_j=\sum_{i=0}^{j}q_ig(i-j)-\sum_{i=0}^{n-j}q’_{n-i-j}g(i)$$<br>
+至此,两个式子都变成了卷积形式,直接FFT计算即可.但是后面半个部分是上界 $n-j$ 的,注意最后减掉的时候别减错了.</p>
 </li>
-<li><p><strong>子集卷积</strong> :计算</p>
-<script type="math/tex; mode=display">C_k​=\sum_{i\&j=0}^{i|j=k}A_i​B_j</script><p>记|S|表示集合S的元素个数,<code>∗</code>表示子集并卷积运算,即 $h<em>i=∑</em>{j∪k=i}f_j×g_k​$ .</p>
+<li>
+<p><strong>子集卷积</strong> :计算<br>
+$$C_k​=\sum_{i&amp;j=0}^{i|j=k}A_i​B_j$$<br>
+记|S|表示集合S的元素个数,<code>∗</code>表示子集并卷积运算,即 $h_i=∑_{j∪k=i}f_j×g_k​$ .</p>
 </li>
 </ol>
-<p>第一个限制 $i∪j=k$ 容易处理,直接FWT计算子集并卷积即可.<br>第二个限制 $i∩j=∅$ ,等价于 $|i|+|j|=|i∪j|$ .我们再开一维记录集合中的元素个数即可.</p>
-<p>具体地，令 $f<em>{i,j}=\begin{cases}a_j(|j|=i)\0\end{cases}$ , $g</em>{i,j}=\begin{cases}b<em>j(|j|=i)\0\end{cases}$ ,有 $h_i=\sum</em>{k=0}^if<em>k*g</em>{i-k}$ .最后我们所求的答案 $c<em>i=h</em>{|i|,i}$ ,复杂度 $O(n^22^n)$ .</p>
+<p>第一个限制 $i∪j=k$ 容易处理,直接FWT计算子集并卷积即可.<br>
+第二个限制 $i∩j=∅$ ,等价于 $|i|+|j|=|i∪j|$ .我们再开一维记录集合中的元素个数即可.</p>
+<p>具体地，令 $f_{i,j}=\begin{cases}a_j(|j|=i)\0\end{cases}$ , $g_{i,j}=\begin{cases}b_j(|j|=i)\0\end{cases}$ ,有 $h_i=\sum_{k=0}^if_k*g_{i-k}$ .最后我们所求的答案 $c_i=h_{|i|,i}$ ,复杂度 $O(n^22^n)$ .</p>
 <p>代码实现:先读入,用<code>popcount</code>计算有多少个1,存进去,然后对 <code>f[i],g[i]</code> 每一个二进制多少个进行 <code>FWT_or</code> ,然后h直接乘,取模,然后对h进行 <code>IFWT_or</code> ,最后输出,瓶颈在于卷积的计算.</p>
-<ol>
+<ol start="3">
 <li>(bzoj4589)从m个质数中选出n个数(可以重),让他们的抑或和是0,有多少种情况? ($1\le n\le10^9,m\le50000$)</li>
 </ol>
 <p>从生成函数的角度考虑:设数组f表示当前抑或和是i时的情况数,初始状况就是每个质数的位置填1,然后答案就是f使用FWT抑或卷积,卷积n次,最后取0的位置即可,套一个快速幂.复杂度 $O(m\log n)$ .</p>

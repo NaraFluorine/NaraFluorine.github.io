@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="在这里放一些欧拉计划的心得体会(我不会放答案的,可以放心阅读)… 欧拉计划是鼓励大家网上搜索除了答案之外的知识的. 欧拉计划使用 CC-BY-NC-SA 4.0 协议,所以这篇文档也是这个协议写成的. 欧拉计划网址 板子 简易文件解析(欧拉计划 Project Euler) 形如 1&quot;AAA&quot;,&quot;BBB&quot;,&quot;CCC&quot;,&quot;DDD&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欧拉计划">
+<meta property="og:url" content="https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="在这里放一些欧拉计划的心得体会(我不会放答案的,可以放心阅读)… 欧拉计划是鼓励大家网上搜索除了答案之外的知识的. 欧拉计划使用 CC-BY-NC-SA 4.0 协议,所以这篇文档也是这个协议写成的. 欧拉计划网址 板子 简易文件解析(欧拉计划 Project Euler) 形如 1&quot;AAA&quot;,&quot;BBB&quot;,&quot;CCC&quot;,&quot;DDD&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-11T12:24:34.000Z">
+<meta property="article:modified_time" content="2025-04-25T19:12:12.097Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>欧拉计划</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/11/28/10030_2-SAT/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/04/20006_%E7%A0%81%E8%B9%84%E9%9B%86%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&text=欧拉计划"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&is_video=false&description=欧拉计划"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=欧拉计划&body=Check out this article: https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&name=欧拉计划&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&t=欧拉计划"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%BF%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">板子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90-%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92-Project-Euler"><span class="toc-number">1.1.</span> <span class="toc-text">简易文件解析(欧拉计划 Project Euler)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E4%BA%94%E8%BE%B9%E5%BD%A2%E6%95%B0-%E8%B4%9F%E6%95%B0%E4%B9%9F%E4%BC%9A%E5%8F%96%E5%88%B0"><span class="toc-number">1.2.</span> <span class="toc-text">广义五边形数(负数也会取到)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0050"><span class="toc-number">2.</span> <span class="toc-text">0050</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0061"><span class="toc-number">3.</span> <span class="toc-text">0061</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0066"><span class="toc-number">4.</span> <span class="toc-text">0066</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0078"><span class="toc-number">5.</span> <span class="toc-text">0078</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0084"><span class="toc-number">6.</span> <span class="toc-text">0084</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0088"><span class="toc-number">7.</span> <span class="toc-text">0088</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0093"><span class="toc-number">8.</span> <span class="toc-text">0093</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0094"><span class="toc-number">9.</span> <span class="toc-text">0094</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0110"><span class="toc-number">10.</span> <span class="toc-text">0110</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0119"><span class="toc-number">11.</span> <span class="toc-text">0119</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0313"><span class="toc-number">12.</span> <span class="toc-text">0313</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0317"><span class="toc-number">13.</span> <span class="toc-text">0317</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0323"><span class="toc-number">14.</span> <span class="toc-text">0323</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0345"><span class="toc-number">15.</span> <span class="toc-text">0345</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0443"><span class="toc-number">16.</span> <span class="toc-text">0443</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0493"><span class="toc-number">17.</span> <span class="toc-text">0493</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0500"><span class="toc-number">18.</span> <span class="toc-text">0500</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0577"><span class="toc-number">19.</span> <span class="toc-text">0577</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0684"><span class="toc-number">20.</span> <span class="toc-text">0684</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0700"><span class="toc-number">21.</span> <span class="toc-text">0700</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0709"><span class="toc-number">22.</span> <span class="toc-text">0709</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0731"><span class="toc-number">23.</span> <span class="toc-text">0731</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0757"><span class="toc-number">24.</span> <span class="toc-text">0757</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0816"><span class="toc-number">25.</span> <span class="toc-text">0816</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0820"><span class="toc-number">26.</span> <span class="toc-text">0820</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0836"><span class="toc-number">27.</span> <span class="toc-text">0836</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0869"><span class="toc-number">28.</span> <span class="toc-text">0869</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">隐藏题目(Bonus)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-1"><span class="toc-number">1.</span> <span class="toc-text">problem -1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler"><span class="toc-number">1.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-18i"><span class="toc-number">2.</span> <span class="toc-text">problem 18i</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-2"><span class="toc-number">2.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-Heegner"><span class="toc-number">3.</span> <span class="toc-text">problem Heegner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-3"><span class="toc-number">3.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-root13"><span class="toc-number">4.</span> <span class="toc-text">problem root13</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-4"><span class="toc-number">4.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-secret"><span class="toc-number">5.</span> <span class="toc-text">problem secret</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-5"><span class="toc-number">5.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        欧拉计划
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-11-11T12:24:34.000Z" class="dt-published" itemprop="datePublished">2024-11-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/GAME/">GAME</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="p-category" href="/tags/Math/" rel="tag">Math</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>在这里放一些欧拉计划的心得体会(我不会放答案的,可以放心阅读)…</p>
+<p>欧拉计划是鼓励大家网上搜索除了答案之外的知识的.</p>
+<p>欧拉计划使用 <code>CC-BY-NC-SA 4.0</code> 协议,所以这篇文档也是这个协议写成的.<br>
+<a target="_blank" rel="noopener" href="https://projecteuler.net">欧拉计划网址</a></p>
+<h2 id="板子">板子</h2>
+<h3 id="简易文件解析-欧拉计划-Project-Euler">简易文件解析(欧拉计划 Project Euler)</h3>
+<p>形如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;AAA&quot;</span>,<span class="string">&quot;BBB&quot;</span>,<span class="string">&quot;CCC&quot;</span>,<span class="string">&quot;DDD&quot;</span></span><br></pre></td></tr></table></figure>
+<p>的文件,在此代码的解析下会变成</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AAA</span><br><span class="line">BBB</span><br><span class="line">CCC</span><br><span class="line">DDD</span><br></pre></td></tr></table></figure>
+<p>代码如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pair&lt;<span class="type">int</span>,vector&lt;string&gt; &gt;<span class="built_in">eulerDecode</span>()&#123;</span><br><span class="line">	<span class="built_in">freopen</span>(<span class="string">&quot;words.txt&quot;</span>,<span class="string">&quot;r&quot;</span>,stdin);<span class="comment">/*给定文件名称*/</span></span><br><span class="line">	pair&lt;<span class="type">int</span>,vector&lt;string&gt; &gt;res;<span class="comment">/*文件格式必须是 &quot;a&quot;,&quot;b&quot;,&quot;c&quot; 这样的格式,会解析出abc三个字符串 &quot;*/</span></span><br><span class="line">	res.second.<span class="built_in">resize</span>(<span class="number">3000</span>);</span><br><span class="line">	<span class="type">char</span> ch=<span class="built_in">getchar</span>(),ff=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(ch!=EOF)&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch==<span class="string">&#x27;&quot;&#x27;</span>)&#123;</span><br><span class="line">			ff^=<span class="number">1</span>;</span><br><span class="line">			<span class="comment">// res.second.push_back(&quot;&quot;);</span></span><br><span class="line">			<span class="keyword">if</span>(ff==<span class="number">0</span>)&#123;</span><br><span class="line">				res.first++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(ff==<span class="number">1</span>)res.second[res.first]+=ch;</span><br><span class="line">		&#125;</span><br><span class="line">		ch=<span class="built_in">getchar</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="广义五边形数-负数也会取到">广义五边形数(负数也会取到)</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">pentagonal</span><span class="params">(<span class="type">long</span> <span class="type">long</span> num)</span></span>&#123;</span><br><span class="line">	num=(num&amp;<span class="number">1</span>^<span class="number">1</span>)?-(num&gt;&gt;<span class="number">1</span>):(num+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> (num*(num*<span class="number">3</span><span class="number">-1</span>))&gt;&gt;<span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//生成一个0,1,2,5,7,12,15,22,26,35,40的五边形数列</span></span><br></pre></td></tr></table></figure>
+<h2 id="0050">0050</h2>
+<p>求1e6以内的哪个质数可以写成连续质数的和.</p>
+<p>连续质数考虑前缀和.我们枚举两端然后检查质数.这里有一个小剪枝是,如果质数大于1e6直接跳出来递增的那个端点,能让程序快几十倍.</p>
+<h2 id="0061">0061</h2>
+<p><a target="_blank" rel="noopener" href="https://pe-cn.github.io/61/">题干</a></p>
+<p>首先预处理所有的n变形数,发现直接枚举是2.3e10的必超时,因为没有利用循环的性质.</p>
+<p>使用图论降低复杂度.想象前半部分和后半部分有一条边,然后图论dfs一遍即可.<br>
+会出好几个结果,是因为图上是循环的…</p>
+<h2 id="0066">0066</h2>
+<p>解一个二元二次丢番图方程,使用pell方程的解法,把根号转成连分式找环然后合并求解.</p>
+<p>现在考虑支持高精度的怎么写,发现只需要支持加和乘就好了,问题解决…</p>
+<h2 id="0078">0078</h2>
+<p>整数划分:把一个整数表示成若干别的数字的加和形式.</p>
+<p>使用dp可以让复杂度压成 $n^2$ ,还不够.</p>
+<p>上网查阅结论得知,划分数 $p(n)$ 有以下性质:<br>
+$$p(k)=p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-+±-…$$<br>
+其中p(0)认为是1,负的认为是0.</p>
+<p>其中这个减掉的数列叫做 <strong>五边形数</strong> ,满足通项公式(注意这个通项是正负交替的, $0,1,-1,2,-2,…$ )<br>
+$$a_n=n(3n-1)/2,n\in{0,\pm1,\pm2,\pm3,…}$$<br>
+然后求能被1000000整除的那一项就可以计算了,注意对1000000取模就不会炸int(为啥傻傻的用py) <s>(但是多用用py确实能增进熟练度,比方说开一个二维数组之类的能少踩坑)</s></p>
+<h2 id="0084">0084</h2>
+<p>给一个大富翁(非常非常复杂的规则)然后求哪三个点的落点概率最高.</p>
+<p>使用1e8次模拟即可,计算机最擅长随机数模拟.</p>
+<h2 id="0088">0088</h2>
+<p>长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次)</p>
+<p>这是一道40%的题,卡了Flu一个寒假…</p>
+<p>观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000.</p>
+<p>但是发现有例外:<br>
+$$k=5,{1,1,2,2,2}$$<br>
+于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个长度,单个的复杂度是 $O(\sqrt n)$ 的.</p>
+<p>但是所有数字一起分解就会省不少事,我们使用dfs,记录当前深度,乘积,加和,然后在dfs中进行分解.同时为了避免出现 $6=3\times2=2\times3$ 的情况,额外记录一个num表示上一个因数,保证因数单调,也就是每个分解最多出现1次,然后更新答案即可,复杂度如下,Flu不知道是多少,反正实际上跑的飞快(可能是数据太小了).<br>
+$$O(\sum_{i=1}^{12000}(2+d(i)))$$<br>
+d(i)是i的因数个数</p>
+<p>时间也是做题的法宝…</p>
+<h2 id="0093">0093</h2>
+<p>注意炸精度…除的数字再乘回去c艹会默认下取整然后WA了…</p>
+<h2 id="0094">0094</h2>
+<p>难点在于快速判断一个开根号的数字是不是整数.</p>
+<p>对开根号的结果平方之后再跟自己比较,可以直接i64比较,避免炸精度</p>
+<h2 id="0110">0110</h2>
+<p>解方程…<br>
+$$\frac1x+\frac1y=\frac1n$$<br>
+因为xyn都是整数,所以显然xy都大于n.<br>
+设y=n+k,带入求出x的方程<br>
+$$x=n+\frac{n^2}{k}$$<br>
+于是答案就是 $d(n^2)-1$ ,质因数分解快速检查就行了.</p>
+<h2 id="0119">0119</h2>
+<p>某个数满足其各位和的某次方等于这个数,首先暴力检查是nlog,跑一下发现比较稀疏,换方法,使用log以及把各位和的函数优化成o1,结果除了炸精度之外跑的更慢了…所以 <code>log()</code> 函数的复杂度当成log.</p>
+<p>发现似乎可以枚举次方的底数,然后对其次方暴力检查,而且取一个1e23的lim可以很快得到底数最大是 $9<em>23$ ,于是 $nlog^2n$ ,n是 $9</em>23$ 得解.</p>
+<h2 id="0313">0313</h2>
+<p>肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:</p>
+<table>
+<thead>
+<tr>
+<th>f(n,m)</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>9</td>
+<td>15</td>
+<td>21</td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>13</td>
+<td>17</td>
+<td>23</td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td>21</td>
+<td>25</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>29</td>
+</tr>
+</tbody>
+</table>
+<p>发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$ ,Flu计算所有质数平方模6的后缀和,也就是说一个数字匹配上了之后整个剩余系中余数相同的也能匹配上,所以双指针l是斜角,r是质数,复杂度 $O(\frac{1e12}8)$ ,实际上跑了三分钟左右,还挺快.</p>
+<p>论坛里说直接把整个式子算出来(m&gt;n有f(m,n)=8m+2n-13)然后对每个质数算贡献也行.</p>
+<h2 id="0317">0317</h2>
+<p>空间上有一个点,能够向任意方向发射速度相同的质点,质点只受重力作用,问所有轨迹形成的图形的体积是多少.</p>
+<p>物理题.结论就是,这个包络面是一个抛物面,且相似于直抛,代数得到最高点坐标之后直接算积分就可以了.</p>
+<h2 id="0323">0323</h2>
+<p>很奇怪的概率题.网上的解法:<br>
+$$P(1个比特从0翻到1)=\frac12$$<br>
+$$P(1个比特在N轮后还是0)=(\frac12)^n$$<br>
+$$P(1个比特在N轮后翻到1)=1-(\frac12)^N$$<br>
+$$P(N轮后所有比特都是1)=(1-(\frac12)^N)^{32}$$<br>
+$$P(在第N轮所有比特正好翻到1)=(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1})^{32}$$<br>
+$$E=\sum_{i=1}^{\infty}i((1-(\frac12)^i)^{32}-(1-(\frac12)^{i-1})^{32})$$</p>
+<h2 id="0345">0345</h2>
+<p>给一个15*15方阵,每行每列选一个元素(元素不能同行不能同列),求最大和.</p>
+<p>Flu乱搞过去的…对每行记录一个唯一编号表示选该行第几列的数字,然后每次随机俩数字交换,如果更大保留,更小就丢解换回去,重复500次即可…<br>
+这能草过去我是没想到的…</p>
+<p>论坛里说状压dp,记录二进制表示哪行有数字了,于是直接dp即可…唐完了.</p>
+<h2 id="0443">0443</h2>
+<p>结论假了…</p>
+<p>Flu:观察到f(x)不会大于3*x(Flu并不会证明).<br>
+然后考虑取等的情况,发现是有规律的:对所有取等的地方做差,得到一个最大数和很多小数,发现最大数数列之间的关系是最大数乘2加上一堆小数,而且1e6以内的小数大小不会超过1e5.于是可以通过倍增的方法求出最靠近1e15的取等的数字,剩下的暴算过去.<br>
+然而,因为这个最大数数列是倍增的,最靠近1e15的是8e14,意味着Flu只是把1e15的nlog优化成1.2e14的nlog,还是T飞…</p>
+<p>查阅网上的题解说是:发现 $\gcd$ 不等于1的实际上很少,于是对一个 ${i,g}$ 考虑下一个gcd不等于1的设为 ${i+k,pre(g+k-1)}$ ,中间的gcd都是1.我们有 $\gcd(g+k-1,i+k)&gt;1$ ,根据gcd性质相减有 $\gcd(g-i-1,i+k)&gt;1$ 然后发现前面是常数,于是质因数分解之后对k求最小值,跳转过去即可,复杂度未知总之是能过.</p>
+<h2 id="0493">0493</h2>
+<p>有七种颜色的球,每种10个,你要不放回拿20个,求期望颜色种类数,保留9位小数.</p>
+<p>没想到Flu组合数学知识从这里发家…一个很简单的思路:首先,颜色对抽取本身没有影响.对每一种颜色,计算其出现的概率:(总概率-删掉这种颜色的随便抽的概率)<br>
+$$1-\frac{\binom{60}{20}}{\binom{70}{20}}$$<br>
+然后因为颜色都是一样的,所以上式乘7,秒了…<br>
+看来Flu真的有必要学一下组合数学了,</p>
+<h2 id="0500">0500</h2>
+<p>求最小的有 $2^{500500}$ 个因子的数字,对500500503取模.</p>
+<p>根据因数分解定理,把大数拆成很多小的质数,最后因子数就是这些质数次方+1的乘积.<br>
+注意到这个因子只是2的倍数,意味着质数有且只有2^n这一种情况,所以每个质数转移只有一种代价,那就是从2^x转移到2^{x+1},于是线筛1e7得到质数之后贪心选取后面的大质数扔到前面即可.</p>
+<h2 id="0577">0577</h2>
+<p>给一个长度为n的正三角形,每条边被长度为1的等分,然后点之间连线,然后让你数每一个不同大小的三角形中的最大正六边形的数目.很妙的找规律题.</p>
+<p>首先模样例,一个长度为1的六边形在更大的三角形中是等差数列的贡献,这个可以O(1)算.然后测6的样例,发现出了一个边长为2的六边形,但是还伴随一个长度为 $\sqrt3$ 的六边形出来,考虑枚举点,但是很难写,这道题被搁置.</p>
+<p>我们换一个思路:由贪心知一个新的六边形中心第一次总是以正三角形中心为中心出现,所以尝试把正三角形中心放到正三角形的边角,只考虑这六分之一的情况,发现正好就是长度为n的能产生n种新三角形,于是做一下前缀和,暴力一下就出来了.</p>
+<h2 id="0684">0684</h2>
+<p>解法非常妙的题.</p>
+<p>首先发现满足性质的数字是末尾全是9,头是剩下的数字,也就是 $(x%9)(x/9)$ 这么个形式,于是 <strong>考虑直接+1然后总和减去n</strong> 就能避免因为9导致的无穷级数收敛问题,从而把前面全部转换成一个等比数列.</p>
+<h2 id="0700">0700</h2>
+<p>给一个数列,求其前缀min等于数列末端元素的和.</p>
+<p>首先跑一下pr发现后面是一个质数.两个数都是1e15级别的数,显然不是暴力能搞定的,因为质数保证了在[0,p]内所有值都会出现一次.</p>
+<p>对于这种题一般有两种解法:求到一半,发现函数再后面几乎无影响了,然后直接交算了一半的解.<br>
+或者中途换算法.</p>
+<p>发现在2e10左右,欧拉币大小已经收敛到了2e5,此时可以使用exgcd求解值对应的步数,具体地,求解 $ax+by=1$ 然后乘值c,对步数排个序,算一下前缀min.<br>
+总复杂度 $O(2e10+2e5\log2e5)$ .</p>
+<h2 id="0709">0709</h2>
+<p>你每天能得到一个袋子,你可以选择把之前的袋子任意偶数个套到当前袋子中,也可以让袋子空着,问有多少种情况<br>
+$$f(n+1)=\sum_{k\le n}^{k\in even}\binom{n}{k}f(k)f(n-k)$$<br>
+这个式子怎么理解?设f(k)是有k个袋子的情况,当前所有的袋子要合并都会合并到n+1号袋子中,所以先选k个袋子,然后这k号袋子随意套娃产生f(k),最后剩下的n-k个袋子随意套娃产生f(n-k),结果就是这个.</p>
+<h2 id="0731">0731</h2>
+<p>计算一个很复杂的式子的末尾10位,还是考虑小数点右移,然后对剩下的级数求其小数位,注意因为进位问题不能和820再乘十一个做法.</p>
+<h2 id="0757">0757</h2>
+<p>不难推算出来,就是求一个式子 $f(x,y)=x(x+1)y(y+1),x,y&gt;0$ 在 $[1,10^{14}]$ 这个区间有多少个数字,然后最噩梦的地方就在于快速计算这里.</p>
+<p>答案是,没有好办法.你去<a target="_blank" rel="noopener" href="https://oeis.org/A072389">OEIS</a>上搜也搜不到公式,这下是谁都帮不了你了.</p>
+<p>怎么办?暴力呗.(看答案傻眼了,vector+sort都是nlog比set和map快了几倍,)</p>
+<p>但是依然有一个比较好玩的性质:笔者暴力的时候发现x在几万的时候,y随便取值,res都基本不变化了,这个时候交一发不知道为啥就过了…</p>
+<p>也许数学题进阶的暴力就是看函数&quot;收敛&quot;之后直接交一发赌一下能不能过???</p>
+<h2 id="0816">0816</h2>
+<p>随机点集最短距离,好像是典,通过分治大法可以做到 $O(n\log n)$ ,非常神秘.</p>
+<h2 id="0820">0820</h2>
+<p>求解分数 $\frac ab$ 在n位的小数情况(n=1e7).</p>
+<p>我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求<br>
+$$\frac{a\times10^{n-1}\mod b}{b}$$<br>
+这个数字的小数第一位,即<br>
+$$\left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\right\rfloor$$</p>
+<h2 id="0836">0836</h2>
+<p>文字游戏.给了一堆很麻烦的定义,但是看最后一句:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Give as your answer the concatenation of the first letters of each bolded word.</span><br></pre></td></tr></table></figure>
+<p>你的答案只需要由那堆定义的首字母连起来,实际上的 <code>f(20230401,57)</code> 根本不用求,这是文字游戏.(气炸了)</p>
+<h2 id="0869">0869</h2>
+<p>一个显而易见的方法是,把所有质数的01做成一颗树,然后跑一遍树形概率DP.</p>
+<p>但是这么着有一个问题,比如 <code>11</code> <code>1111</code> 显然的策略是全部猜1,同时期望是 $3$ ,所以实际上还需要记录一个数字在哪里停止,也就是说前半部分 <code>11</code> 是共有的,前面能分到1的概率,但是后面因为有一个数字在这里停止了,这个&quot;停止&quot;也要分到概率,而且这一层概率分配完了之后不会影响下面的计算.</p>
+<h1>隐藏题目(Bonus)</h1>
+<p>隐藏题目目前只有五道(20250210),是做题的时候掉落的,不清楚是不是固定掉落,这里给出Flu能看到的隐藏题目名称以及解法(网上的资料还是太少了…)</p>
+<h2 id="problem-1">problem -1</h2>
+<p>If we list all the natural numbers below $10$ that are multiples of $3$ or $5$ , we get $3,5,6$ and $9$ . The sum of these multiples is $23$ .<br>
+如果我们列出 $10$ 以内 $3$ 或 $5$ 的所有自然数倍数,能得到 $3,5,6$ 和 $9$ ,他们的和是 $23$ .</p>
+<p>Find the sum of all the multiples of $3$ or $5$ below infinity.<br>
+找到小于正无穷的所有 $3$ 或 $5$ 的自然数倍数和.</p>
+<h3 id="题解-spoiler">题解(spoiler)</h3>
+<p>有一个结论:自然数的和是-1/12,我不会证,网上查到的.然后容斥一下就行了,答案很好算,这里不公布.<br>
+$$\sum_{i=1}^\infty i=-\frac1{12}$$<br>
+证明(启发式,一句话就是仙,注意力惊人):设<br>
+$$S=1+2+3+…,T=1-2+3-4+…$$<br>
+根据下面的生成函数<br>
+$$\frac1{(1+x)^2}=1-2x+3x^2-4x^3+…$$<br>
+然后带入 $x=1$ 得到 $T=\frac14$ ,然后有<br>
+$$T=(1+2+3+…)-2\times(2+4+6+…)=-3S$$<br>
+QED.</p>
+<h2 id="problem-18i">problem 18i</h2>
+<p>Let $R(p)$ be the remainder when the <strong>product</strong> $\prod_{x=0}^{p-1}(x^3-3x+4)$ is divided by $p$ . For example, $R(11)=0$ and $R(29)=13$ .<br>
+设 $R(p)=\prod_{x=0}^{p-1}(x^3-3x+4)\mod p$ ,比如 $R(11)=0,R(29)=13$ .</p>
+<p>Find the sum of $R(p)$ over all primes $p$ between $10^{9}$ and $1.1\times10^9$ .<br>
+求<br>
+$$\sum_{i=10^9}^{1.1\times10^9}R(i),i\in prime$$</p>
+<h3 id="题解-spoiler-2">题解(spoiler)</h3>
+<p>Wrong Answers</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>I don’t know(noob).<br>
+不会(菜).</p>
+<h2 id="problem-Heegner">problem Heegner</h2>
+<p>Among all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer.<br>
+在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让 $\cos(\pi\sqrt n)$ 最接近整数的数.</p>
+<h3 id="题解-spoiler-3">题解(spoiler)</h3>
+<p>查阅资料:<br>
+$$e^{ix}=\cos x+i\sin x$$<br>
+$$\cos z=\frac{e^{iz}+e^{-iz}}2$$<br>
+$$\sin z=\frac{e^{iz}-e^{-iz}}{2i}$$<br>
+直接带式子算就行了…<br>
+然后被炸 <code>long double</code> 精度,发现事情没有这么简单…<br>
+最后用python的mpmath库过去了,负数去exp大小能有e42这么大,普通python也会炸精度,难绷.</p>
+<p>事实上查阅维基百科得知&quot;黑格尔数&quot;,页面有一个马尔努金常数,说e的多少次方pi非常接近整数,直接盒出来了,根本不用算(但是这个题确实让Flu学会了使用py的高精度库和类的书写)</p>
+<h2 id="problem-root13">problem root13</h2>
+<p>The decimal expansion of the square root of two is $1.\underline{4142135623}730…$ .<br>
+根号二的无限循环展开是 $1.\underline{4142135623}730…$ .</p>
+<p>If we define $S(n,d)$ to be the the sum of the first $d$ digits in the fractional part of the decimal expansion of $\sqrt n$ , it can be seen that $S(2,10)=4+1+4+…+3=31$ .It can be confirmed that $S(2,100)=481$ .<br>
+如果我们定义 $S(n,d)$ 代表 $\sqrt n$ 的前 $d$ 位展开的各位数字和,可以得到 $S(2,10)=4+1+4+…+3=31$ .同理 $S(2,100)=481$ .</p>
+<p>Find $S(13,1000)$ .<br>
+计算出 $S(13,1000)$ .</p>
+<p>Note: Instead of just using arbitrary precision floats, try to be creative with your method.<br>
+注意:除了直接用高精度库函数之外,请发挥创造力用自己的办法算出来.</p>
+<h3 id="题解-spoiler-4">题解(spoiler)</h3>
+<p>最简单的一集.方法超级多.</p>
+<ol>
+<li>使用Python的decimal库(前人留库,后人乘凉,不要重复造轮子).</li>
+<li>模拟高精度,把13扩大好多好多倍然后手工模拟计算.</li>
+<li>牛顿迭代(求导算切线)</li>
+<li>泰勒展开(能手算的那种)</li>
+<li>网上的手开根号大法(就是那个乘20啥啥的那个方法)</li>
+</ol>
+<p>总之这个题非常简单,真就白给,拿到题先出的题解再出的代码.</p>
+<h2 id="problem-secret">problem secret</h2>
+<p>Find the secret word by the following instructions below.<br>
+根据下面的指示找到秘密单词.</p>
+<p>The statement of this problem is contained in an image.<br>
+这个题目将会在一张图像中进行.<br>
+Starting with this image, at each step, simultaneously repleace each pixel with the sum of its four neighbours in orthogoanal dirctions.<br>
+在图上开始,每次同时用与该单元格相邻的四个格子的字母总和替换该单元格的元素.<br>
+Note that, although the original pixels are represented by 8-bit integers, in later steps they can be arbitrarily large without any<br>
+integer overflow.<br>
+注意,虽然每一个字母使用char的8位表示,在计算中他们被认为可以任意大的,不会有溢出.</p>
+<p>The edges of the image are considered “glued” in such a way that pixels on the top edge are neighbours to those on the bottom<br>
+edge; and similarly for left and right edges.<br>
+注意:该图被认为是拼接起来的,也就是说下边和上边相邻,左边和右边相邻.<br>
+As illustration, in the following diagram, where each square represents a pixel, the pixel marked with “A” has neighbours “B” to “E”; and the pixel marked with “a” has neighbours “b” to “e”.<br>
+如下图,字符 <code>A</code> 的四个相邻格是 <code>BCDE</code> ,字符 <code>a</code> 的四个相邻格子是 <code>bcde</code></p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>d</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>A</td>
+<td>E</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>b</td>
+</tr>
+<tr>
+<td>6</td>
+<td>e</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>c</td>
+<td>a</td>
+</tr>
+</tbody>
+</table>
+<p>After $10^{12}$ steps, the secret word will be revealed by taking each pixel modulo $7$ .<br>
+在 $10^{12}$ 步后,通过将每个单元格模 $7$ 来揭示秘密单词.</p>
+<h3 id="题解-spoiler-5">题解(spoiler)</h3>
+<p>I don’t know(noob).<br>
+不会(菜).</p>
+
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%BF%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">板子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90-%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92-Project-Euler"><span class="toc-number">1.1.</span> <span class="toc-text">简易文件解析(欧拉计划 Project Euler)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E4%BA%94%E8%BE%B9%E5%BD%A2%E6%95%B0-%E8%B4%9F%E6%95%B0%E4%B9%9F%E4%BC%9A%E5%8F%96%E5%88%B0"><span class="toc-number">1.2.</span> <span class="toc-text">广义五边形数(负数也会取到)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0050"><span class="toc-number">2.</span> <span class="toc-text">0050</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0061"><span class="toc-number">3.</span> <span class="toc-text">0061</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0066"><span class="toc-number">4.</span> <span class="toc-text">0066</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0078"><span class="toc-number">5.</span> <span class="toc-text">0078</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0084"><span class="toc-number">6.</span> <span class="toc-text">0084</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0088"><span class="toc-number">7.</span> <span class="toc-text">0088</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0093"><span class="toc-number">8.</span> <span class="toc-text">0093</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0094"><span class="toc-number">9.</span> <span class="toc-text">0094</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0110"><span class="toc-number">10.</span> <span class="toc-text">0110</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0119"><span class="toc-number">11.</span> <span class="toc-text">0119</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0313"><span class="toc-number">12.</span> <span class="toc-text">0313</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0317"><span class="toc-number">13.</span> <span class="toc-text">0317</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0323"><span class="toc-number">14.</span> <span class="toc-text">0323</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0345"><span class="toc-number">15.</span> <span class="toc-text">0345</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0443"><span class="toc-number">16.</span> <span class="toc-text">0443</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0493"><span class="toc-number">17.</span> <span class="toc-text">0493</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0500"><span class="toc-number">18.</span> <span class="toc-text">0500</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0577"><span class="toc-number">19.</span> <span class="toc-text">0577</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0684"><span class="toc-number">20.</span> <span class="toc-text">0684</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0700"><span class="toc-number">21.</span> <span class="toc-text">0700</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0709"><span class="toc-number">22.</span> <span class="toc-text">0709</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0731"><span class="toc-number">23.</span> <span class="toc-text">0731</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0757"><span class="toc-number">24.</span> <span class="toc-text">0757</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0816"><span class="toc-number">25.</span> <span class="toc-text">0816</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0820"><span class="toc-number">26.</span> <span class="toc-text">0820</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0836"><span class="toc-number">27.</span> <span class="toc-text">0836</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0869"><span class="toc-number">28.</span> <span class="toc-text">0869</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">隐藏题目(Bonus)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-1"><span class="toc-number">1.</span> <span class="toc-text">problem -1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler"><span class="toc-number">1.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-18i"><span class="toc-number">2.</span> <span class="toc-text">problem 18i</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-2"><span class="toc-number">2.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-Heegner"><span class="toc-number">3.</span> <span class="toc-text">problem Heegner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-3"><span class="toc-number">3.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-root13"><span class="toc-number">4.</span> <span class="toc-text">problem root13</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-4"><span class="toc-number">4.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#problem-secret"><span class="toc-number">5.</span> <span class="toc-text">problem secret</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-spoiler-5"><span class="toc-number">5.1.</span> <span class="toc-text">题解(spoiler)</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&text=欧拉计划"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&is_video=false&description=欧拉计划"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=欧拉计划&body=Check out this article: https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&title=欧拉计划"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&name=欧拉计划&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/11/20007_%E6%AC%A7%E6%8B%89%E8%AE%A1%E5%88%92/&t=欧拉计划"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
