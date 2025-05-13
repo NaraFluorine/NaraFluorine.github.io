@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(">
+    <meta name="description" content="图论概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/25/10015_%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(">
+<meta property="og:description" content="图论概念 连通分量 :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量. 割点 :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-24T16:28:44.000Z">
-<meta property="article:modified_time" content="2025-04-25T18:59:36.231Z">
+<meta property="article:modified_time" content="2025-04-30T11:19:52.029Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-2"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">图论概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">1.3.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">二分图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">网络流</span></a></li></ol>
       </div>
     
   </span>
@@ -186,7 +186,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="概念">概念</h2>
+    <h1>图论概念</h1>
 <p><strong>连通分量</strong> :无向图中,满足任意两点之间都有路径相连的极大连通子图.也就是说,抽离出一些点以及它们之间的边,满足这些点任意两点之间,可以直接或间接到达对方,在这个前提下,满足抽离出的图越大越好,把抽离出的图叫做连通分量.</p>
 <p><strong>割点</strong> :无向图中,删除该点及与其相连的边后,图的连通分量数量增加,则称其为割点.换而言之,删除一个割点及相关边后,图中原来连通的两点不再连通,从而使得一个连通分量分裂成两个(或多个)连通分量.</p>
 <p><strong>点双连通</strong> :若对于一个无向图,其任意一个节点对于这个图本身而言都不是割点,则称其点双连通.也就是说,删除任意点及其相关边后,整个图仍然属于一个连通分量.</p>
@@ -211,21 +211,21 @@
 <li>好多牛之间存在爱慕关系,其中爱慕具有传递性,A爱B,B爱C的话A也会爱C.爱慕关系构成一张图,明星牛的定义是受到所有牛的爱戴(所有牛是爱慕自己的),求一张图有多少个明星牛.</li>
 </ol>
 <p>因为满足传递性,我们要把图缩成一张DAG(有向无环图),此时 <strong>牛之间不会存在相互爱慕的关系</strong> ,所以如果一个牛受到别人的爱戴,他不会再爱戴别人,所以直接统计出度是0的点即可,多个出度为0直接输出0(因为此时图不再联通).</p>
-<h1>树论</h1>
-<h2 id="树论">树论</h2>
-<p>树本身是一种特殊的图,所以放在一起了…</p>
-<h2 id="树上启发式合并">树上启发式合并</h2>
-<p>说好听点叫启发式,说难听点就是口胡结论,这种题只能多做.</p>
-<h2 id="例题-2">例题</h2>
+<h1>二分图</h1>
+<p>二分图就是,点可以分成两拨,左边会和右边连线,然后左边或右边都不会有连向自己的线.</p>
+<p>今天碰到了一个很有意思的题.特此讲一下二分图的匈牙利算法.</p>
 <ol>
-<li>春节十二响: 给一颗树,每一个点有一个权值,点能放在一个块当且仅当点之间不具有父子节点关系,一个块的值被定义成块里所有点权值的最大值,求一棵树的最小块的值和.</li>
+<li>有一辆大巴车,每排能坐两个人,每个人有两个希望坐上的排数,请你给出最多能使多少人满足愿望.</li>
 </ol>
-<p>启发式合并:首先考虑一个三节点二叉树:根节点必定是一个,然后两个叶节点放一起.然后是一个两端都是链的二叉树,这个时候每条链上肯定不会在一起,就和另一条链合并,同时为了让块最小肯定是每次取两条链最大的节点合并.<br>
-然后发现我们得到了一条新的链,于是启发式合并的思路就出来了:如果一棵树有两个及以上的链,每次取最大的节点合并成一条链即可.</p>
-<ol start="2">
-<li>你要从s去t,给两张图分别是公交车的路线以及时间图,地铁的路线一级时间图,你可以任意坐公交但是只能最多坐一站地铁,求最小时间以及,如果坐地铁的话最小的地铁站位号是多少.</li>
+<p>如何解决一个点能匹配两个人的问题呢?我们可以扩大点集,让人同时和a+n的点连线.这样就可以转换为一个二分图了,直接跑最大匹配就行.</p>
+<p>拓展:貌似点能承受的个数变成 $f(n)$ 也行,只需要简简单单装到一个umap里面就行了.</p>
+<h1>网络流</h1>
+<ol>
+<li>最大流=最小割.</li>
+<li>理论上可以算出割的点哪个属于哪个,但是我不会,考了再说</li>
+<li>计算最小割的最小割边有几条:类似CTF中的LSB隐写,我们对边权转换为 $w_i*P+1$ 的格式,P是一个大常数,然后高位是边权不影响网络流,低位存储边的信息,保证了最小割使用的是最小的边.</li>
+<li>构造字典序最大的最小割边(没考到,不会)</li>
 </ol>
-<p>QianK说这个题典…我们对s和t都跑一遍dij,然后枚举所有地铁站,看边然后加一起就行了…</p>
 
   </div>
 </article>
@@ -258,7 +258,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">4.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">树论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">树论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6"><span class="toc-number">2.</span> <span class="toc-text">树上启发式合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-2"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">图论概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">Floyd算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E5%BA%8F-%E6%AC%A7%E6%8B%89%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">dfs序 欧拉序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dfs%E7%94%9F%E6%88%90%E6%A0%91-Tarjan"><span class="toc-number">1.3.</span> <span class="toc-text">dfs生成树 Tarjan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">二分图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">网络流</span></a></li></ol>
       </div>
     
 

@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="无论如何,我不会再出题了. 出题得不到什么丰厚的奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活… 所以这篇文章被公开了,以纪念Flu因为出题花费的非常非常多的时间. To Make Problems For Tsingyun Cup 6th Flu作为出题人出了T2,和大家共同出了T5,中间有">
+    <meta name="description" content="无论如何,我不会再出题了. 出题得不到什么奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活,团委整天拖报销咋办… 所以这篇文章被公开了,以纪念Flu因为出题花费的非常非常多的时间.  青云悲并不是算法竞赛,我们不能&quot;碰瓷&quot;ACM.所以青云悲的预期是大家都能参加的校级程序竞赛.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="青云悲出题感想">
 <meta property="og:url" content="https://narafluorine.github.io/2025/04/26/20006_ToMakeTsingyunProblems/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="无论如何,我不会再出题了. 出题得不到什么丰厚的奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活… 所以这篇文章被公开了,以纪念Flu因为出题花费的非常非常多的时间. To Make Problems For Tsingyun Cup 6th Flu作为出题人出了T2,和大家共同出了T5,中间有">
+<meta property="og:description" content="无论如何,我不会再出题了. 出题得不到什么奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活,团委整天拖报销咋办… 所以这篇文章被公开了,以纪念Flu因为出题花费的非常非常多的时间.  青云悲并不是算法竞赛,我们不能&quot;碰瓷&quot;ACM.所以青云悲的预期是大家都能参加的校级程序竞赛.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/zvlrhsni.png">
 <meta property="article:published_time" content="2025-04-26T04:27:36.000Z">
-<meta property="article:modified_time" content="2025-04-25T19:11:05.186Z">
+<meta property="article:modified_time" content="2025-05-07T16:40:11.400Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Contest">
 <meta property="article:tag" content="TsingyunCup">
@@ -106,6 +106,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" aria-label="上一篇" href="/2025/05/08/00011_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" aria-label="下一篇" href="/2024/12/24/10033_%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -187,8 +189,19 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p><strong>无论如何,我不会再出题了.</strong> 出题得不到什么丰厚的奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活…</p>
+    <p><strong>无论如何,我不会再出题了.</strong> 出题得不到什么奖励,出不好还会被骂,出题的时候要考虑各种情况(比如正解,代码长度,时限到底开多少,部分分怎么给,怎么卡掉非正解,可能有什么做法能草过去),还有人不干活,团委整天拖报销咋办…</p>
 <p>所以这篇文章被公开了,以纪念Flu因为出题花费的非常非常多的时间.</p>
+<blockquote>
+<p>青云悲并不是算法竞赛,我们不能&quot;碰瓷&quot;ACM.所以青云悲的预期是大家都能参加的校级程序竞赛.(直观体验就是,第四届好像有气球发第五届没了)</p>
+</blockquote>
+<blockquote>
+<p>出智商测试题的,假设最高量程250,自己智商可以没有250.<br>
+所以作为CF的 $\color{blue}\mathrm{NaraFluorine}$ ,我出的只是签到题,我认为是不存在实力问题的,用我们的话说,你尽量不要让选手爆零.(哦对了,我们今年还是有士力架发的,可以多拿几块再走,反正是团委报销)</p>
+</blockquote>
+<blockquote>
+<p>T5是一道工程题,这是和算法竞赛区别最大的地方.在这里,不会写高难代码的人可以使用奇妙的idea干翻传统算竞选手(真的,去年好像是50-100-100-200-500,可见最后一个题有多重要)<br>
+讲一个真实的例子:去年考压缩图片,你要让压缩后的图片尽可能的小,但是我们给你 $4%$ 的大容错率让你有损压缩,结果一个能得两百三十分的程序做法非常生草:直接丢弃图片末尾几个像素卡容错率.这简直不用怎么写代码,但是确实能得高分.</p>
+</blockquote>
 <h1>To Make Problems For Tsingyun Cup 6th</h1>
 <p>Flu作为出题人出了T2,和大家共同出了T5,中间有很多很多提案被否了,出于实现难度或时间限制.</p>
 <h1>ideas</h1>
