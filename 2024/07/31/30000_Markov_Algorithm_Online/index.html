@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="笔者接触了一种全新游戏(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个. 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解">
+    <meta name="description" content="笔者接触了一种全新游戏(加班.jpg). 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解区 0001 直接替换. 123Hello,:World!&#x2F;&#x2F;或Hello,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markov Algorithm Online 攻略">
-<meta property="og:url" content="https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/index.html">
+<meta property="og:url" content="https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="笔者接触了一种全新游戏(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个. 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解">
+<meta property="og:description" content="笔者接触了一种全新游戏(加班.jpg). 规则 这是一种简单的语言,只有两个语句: a:b:把字符串a替换成b. a::b:把字符串a替换成b,程序结束. (模式&#x2F;替换的前导&#x2F;尾随空格会被直接忽略) 执行顺序:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了::会直接结束的). 题解区 0001 直接替换. 123Hello,:World!&#x2F;&#x2F;或Hello,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-30T17:30:56.000Z">
-<meta property="article:modified_time" content="2025-04-25T19:13:26.780Z">
+<meta property="article:modified_time" content="2025-05-19T07:43:14.882Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -119,17 +119,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -186,7 +186,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>笔者接触了一种<a target="_blank" rel="noopener" href="https://mao.snuke.org/">全新游戏</a>(加班.jpg),网上查了一圈发现没有做这个游戏攻略的,Flu只好以身作则,开一期专题聊这个.</p>
+    <p>笔者接触了一种<a target="_blank" rel="noopener" href="https://mao.snuke.org/">全新游戏</a>(加班.jpg).</p>
 <h1>规则</h1>
 <p>这是一种简单的语言,只有两个语句:<br>
 <code>a:b</code>:把字符串<code>a</code>替换成<code>b</code>.<br>
@@ -194,7 +194,6 @@
 <p>(模式/替换的前导/尾随空格会被直接忽略)</p>
 <p><strong>执行顺序</strong>:每次都是先执行前面的语句,如果第一句找到了就执行第一句,然后从头开始接着执行(中间执行了<code>::</code>会直接结束的).</p>
 <h1>题解区</h1>
-<p>好了,你已经学会了所有语法,去写一个程序吧(^_^)~</p>
 <h2 id="0001">0001</h2>
 <p>直接替换.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello,:World!</span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">Hello,::World!</span><br></pre></td></tr></table></figure>
@@ -376,17 +375,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/30000_Markov-Algorithm-Online-%E6%B8%B8%E6%88%8F%E6%94%BB%E7%95%A5/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&text=Markov Algorithm Online 攻略"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&is_video=false&description=Markov Algorithm Online 攻略"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markov Algorithm Online 攻略&body=Check out this article: https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&title=Markov Algorithm Online 攻略"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&name=Markov Algorithm Online 攻略&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/31/30000_Markov_Algorithm_Online/&t=Markov Algorithm Online 攻略"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

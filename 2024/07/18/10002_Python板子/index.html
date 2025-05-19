@@ -9,7 +9,7 @@
     <meta name="description" content="打CTF会用到… 二次剩余 $$x^2\equiv N\mod p$$ 输入:输出所有解或者无解(Hola!) 12TN p 12345678910111213141516171819202122232425262728293031323334353637class expand:	def __init__(self, x, y, z):		&#x27;&#x27;&#x27;x+yi,其中i^2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python板子">
-<meta property="og:url" content="https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/index.html">
+<meta property="og:url" content="https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
 <meta property="og:description" content="打CTF会用到… 二次剩余 $$x^2\equiv N\mod p$$ 输入:输出所有解或者无解(Hola!) 12TN p 12345678910111213141516171819202122232425262728293031323334353637class expand:	def __init__(self, x, y, z):		&#x27;&#x27;&#x27;x+yi,其中i^2">
 <meta property="og:locale" content="zh_CN">
@@ -104,10 +104,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/07/18/10035_%E7%BC%BA%E7%9C%81%E6%BA%90%E5%A4%87%E5%BF%98%E5%BD%95/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/20/10013_%E7%BA%BF%E6%AE%B5%E6%A0%91/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/07/12/10023_FTs/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/07/18/10035_%E7%BC%BA%E7%9C%81%E6%BA%90%E5%A4%87%E5%BF%98%E5%BD%95/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -120,17 +120,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -246,17 +246,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10036_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&text=Python板子"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&is_video=false&description=Python板子"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python板子&body=Check out this article: https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&title=Python板子"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&name=Python板子&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/07/18/10002_Python%E6%9D%BF%E5%AD%90/&t=Python板子"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

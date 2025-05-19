@@ -14,7 +14,7 @@
 <meta property="og:description" content="逆天概率论有期中考试. 随机试验 简称试验,有三大性质:可重复性 可观测性 随机性 样本点:最基本的结果,通常用 $\omega$ 表示,如 CE,WA,AC... 样本空间:所有样本点组成的集合,用 $\Omega$ 表示,即 &#123;CE,WA,AC,RE,TLE...&#125; 随机事件:样本空间的子集,若干样本点构成的集合,用 A,B,C 表示. 基本事件:样本空间的单点集,也就是包">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-18T19:10:36.050Z">
+<meta property="article:modified_time" content="2025-05-19T01:16:52.085Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -361,6 +361,7 @@ $$f_Y(y)=F_Y’(y)$$</li>
 <p>$$aX+b\sim N(a\mu+b,(a\sigma)^2)$$</p>
 <p>h(x)是反函数,若存在(g(x)严格单调处处可导)则有<br>
 $$f_X(x)=f_X(h(y))\Big|h’(y)\Big|$$</p>
+<hr>
 <h1>真正的笔记</h1>
 <p>感觉之前写的狗屁不是,没重点,你在复习个啥.</p>
 <ol>
@@ -390,7 +391,9 @@ $$f_X(x)=f_X(h(y))\Big|h’(y)\Big|$$</p>
 </li>
 <li>
 <p>指数分布<br>
-$$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x&gt;0\\0&amp;x\le0\end{cases}$$</p>
+$$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x&gt;0\\0&amp;x\le0\end{cases}$$<br>
+泊松分布<br>
+$$P(\lambda):f(x)=\frac{\lambda^xe^{-\lambda}}{x!}$$</p>
 </li>
 <li>
 <p>正态分布标准化:<br>
@@ -401,7 +404,7 @@ $$F(X)=\Phi\left(\frac{X-\mu}{\sigma}\right)$$</p>
 <p>$f(x),F(x)$ ,对 $-X$ 有<br>
 $$F_{-X}(x)=P(-X&lt;x)=P(X&gt;-x)=1-F(-x)$$<br>
 对 $F(x)$ 求导得<br>
-$$f_{-x}(x)=f(-x)$$</p>
+$$f_{-X}(x)=f(-x)$$</p>
 </li>
 <li>
 <p>$3\sigma$ 原则<br>
