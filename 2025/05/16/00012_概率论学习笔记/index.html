@@ -14,7 +14,7 @@
 <meta property="og:description" content="逆天概率论有期中考试. 随机试验 简称试验,有三大性质:可重复性 可观测性 随机性 样本点:最基本的结果,通常用 $\omega$ 表示,如 CE,WA,AC... 样本空间:所有样本点组成的集合,用 $\Omega$ 表示,即 &#123;CE,WA,AC,RE,TLE...&#125; 随机事件:样本空间的子集,若干样本点构成的集合,用 A,B,C 表示. 基本事件:样本空间的单点集,也就是包">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-19T01:16:52.085Z">
+<meta property="article:modified_time" content="2025-05-20T10:48:24.248Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -102,6 +102,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/05/20/30013_JS_Disallow/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/2025/05/08/00011_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -255,10 +257,10 @@ $$P(A|B)=P(A)$$<br>
 若 $P(A)&gt;0,P(B)&gt;0$ ,则独立和不相容不可能同时成立.</p>
 <p>若<br>
 $$P(AB)=P(A)P(B)$$<br>
-$$P(AC)=P(A)P©$$<br>
-$$P(BC)=P©P(B)$$<br>
+$$P(AC)=P(A)P( C )$$<br>
+$$P(BC)=P( C )P(B)$$<br>
 即<br>
-$$P(ABC)=P(A)P(B)P©$$<br>
+$$P(ABC)=P(A)P(B)P( C )$$<br>
 则称 $ABC$ 相互独立.</p>
 <p>若<br>
 $$P(A_1A_2…A_n)=P(A_1)P(A_2)…P(A_n)$$<br>
@@ -289,7 +291,7 @@ $F(x)$ 在 $(-\infty,+\infty)$ 是连续的.</p>
 <p>两点分布((0-1)分布)</p>
 </li>
 <li>
-<p>二项分布( $X\sim B(n,p)$ ,试验进行n次,每次概率为p)(<code>~</code> in $\KaTeX:\mathrm{sim}$)</p>
+<p>二项分布( $X\sim B(n,p)$ ,试验进行n次,每次概率为p)(<code>~</code> in $\LaTeX:\mathrm{sim}$)</p>
 </li>
 </ol>
 <p>$$P{X=k}=P_n(k)=C_n^kp^k(1-p)^k$$</p>
@@ -368,7 +370,7 @@ $$f_X(x)=f_X(h(y))\Big|h’(y)\Big|$$</p>
 <li>ABC两两独立和ABC相互独立的区别</li>
 </ol>
 <p>两两独立: $P(AB)=P(A)P(B)$<br>
-相互独立(额外条件): $P(ABC)=P(A)P(B)P©$</p>
+相互独立(额外条件): $P(ABC)=P(A)P(B)P( C )$</p>
 <ol start="2">
 <li>
 <p>$P(A\overline B)=P(A)-P(AB)$ 理解:A发生B不发生</p>
@@ -408,7 +410,9 @@ $$f_{-X}(x)=f(-x)$$</p>
 </li>
 <li>
 <p>$3\sigma$ 原则<br>
-$$\begin{aligned}[\mu-\sigma,\mu+\sigma]&amp;=0.6826\\<br>
+$$<br>
+\begin{aligned}<br>
+[\mu-\sigma,\mu+\sigma]&amp;=0.6826\\<br>
 [\mu-2\sigma,\mu+2\sigma]&amp;=0.9544\\<br>
 [\mu-3\sigma,\mu+3\sigma]&amp;=0.9974<br>
 \end{aligned}$$</p>
