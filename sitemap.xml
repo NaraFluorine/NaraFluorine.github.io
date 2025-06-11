@@ -693,14 +693,14 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Physics/</loc>
+    <loc>https://narafluorine.github.io/tags/Math/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Math/</loc>
+    <loc>https://narafluorine.github.io/tags/Physics/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -721,7 +721,7 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Algorithm/</loc>
+    <loc>https://narafluorine.github.io/tags/ComputerScience/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -735,7 +735,14 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/ComputerScience/</loc>
+    <loc>https://narafluorine.github.io/tags/Pain/</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://narafluorine.github.io/tags/Algorithm/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -743,13 +750,6 @@
   
   <url>
     <loc>https://narafluorine.github.io/tags/Java/</loc>
-    <lastmod>2025-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://narafluorine.github.io/tags/Pain/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -770,13 +770,6 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/Contest/</loc>
-    <lastmod>2025-06-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://narafluorine.github.io/tags/OTH/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -784,7 +777,7 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/tags/TsingyunCup/</loc>
+    <loc>https://narafluorine.github.io/tags/Contest/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -792,6 +785,13 @@
   
   <url>
     <loc>https://narafluorine.github.io/tags/Game/</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://narafluorine.github.io/tags/TsingyunCup/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -828,14 +828,14 @@
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/categories/CTF/</loc>
+    <loc>https://narafluorine.github.io/categories/TECH/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://narafluorine.github.io/categories/TECH/</loc>
+    <loc>https://narafluorine.github.io/categories/CTF/</loc>
     <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

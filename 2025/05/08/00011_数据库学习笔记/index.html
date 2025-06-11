@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="$\gamma$ 大纲 第1章：基本概念 第2,6章：关系代数表达式 基本运算 附加的关系代数运算 扩展的关系代数运算 第3,4,5章：SQL语句 DDL、DML、DCL SQL与集合运算、空值 聚集函数、having 、not exists 嵌套子查询 视图、可更新视图 完整性约束 第7章：ER模型设计，关系模型转换，ER图画完整 实体集（弱实体集）、属性集、联系集（聚集、描述性属性） 映射基数">
+    <meta name="description" content="SQL DBMS,DBS,XML DBMS:数据库管理系统(包含相关企业信息 收集相关数据 访问的程序集 方便管理的开发环境) DBS:数据库系统 XML:可拓展标记语言 DDL,DML,DCL DDL:Data Defination Lang(数据定义语言) DML:Data Manuplation Lang(数据操作语言) DCL:Data Control Lang(数据控制语言) 码&#x3D;键 键">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库学习笔记">
 <meta property="og:url" content="https://narafluorine.github.io/2025/05/08/00011_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="$\gamma$ 大纲 第1章：基本概念 第2,6章：关系代数表达式 基本运算 附加的关系代数运算 扩展的关系代数运算 第3,4,5章：SQL语句 DDL、DML、DCL SQL与集合运算、空值 聚集函数、having 、not exists 嵌套子查询 视图、可更新视图 完整性约束 第7章：ER模型设计，关系模型转换，ER图画完整 实体集（弱实体集）、属性集、联系集（聚集、描述性属性） 映射基数">
+<meta property="og:description" content="SQL DBMS,DBS,XML DBMS:数据库管理系统(包含相关企业信息 收集相关数据 访问的程序集 方便管理的开发环境) DBS:数据库系统 XML:可拓展标记语言 DDL,DML,DCL DDL:Data Defination Lang(数据定义语言) DML:Data Manuplation Lang(数据操作语言) DCL:Data Control Lang(数据控制语言) 码&#x3D;键 键">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-11T05:51:01.728Z">
+<meta property="article:modified_time" content="2025-06-11T08:52:44.581Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="MySql">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">大纲</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS-DBS-XML"><span class="toc-number">2.1.</span> <span class="toc-text">DBMS,DBS,XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">2.2.</span> <span class="toc-text">DDL,DML,DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%81-%E9%94%AE"><span class="toc-number">2.3.</span> <span class="toc-text">码&#x3D;键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">函数 过程 触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#varchar%E5%92%8Cchar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.6.</span> <span class="toc-text">varchar和char的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.7.</span> <span class="toc-text">几种数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%8ESQL"><span class="toc-number">2.9.</span> <span class="toc-text">关系代数与SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.10.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%90%8D-AS"><span class="toc-number">2.11.</span> <span class="toc-text">别名(AS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">2.12.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E9%87%8D%E5%A4%8D"><span class="toc-number">2.13.</span> <span class="toc-text">保留重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84-group-by-having"><span class="toc-number">2.14.</span> <span class="toc-text">分组(group by,having)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%80%BC"><span class="toc-number">2.15.</span> <span class="toc-text">空值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.16.</span> <span class="toc-text">嵌套子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%AF%94%E8%BE%83"><span class="toc-number">2.17.</span> <span class="toc-text">集合比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8-EXIST"><span class="toc-number">2.18.</span> <span class="toc-text">存在(EXIST)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D-UNIQUE"><span class="toc-number">2.19.</span> <span class="toc-text">重复(UNIQUE)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#from%E5%AD%90%E5%8F%A5"><span class="toc-number">2.19.1.</span> <span class="toc-text">from子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with%E5%AD%90%E5%8F%A5"><span class="toc-number">2.19.2.</span> <span class="toc-text">with子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE-view"><span class="toc-number">2.19.3.</span> <span class="toc-text">视图(view)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">2.20.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">2.21.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-update"><span class="toc-number">2.22.</span> <span class="toc-text">数据更新(update)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6-JOIN"><span class="toc-number">2.23.</span> <span class="toc-text">数据合并(JOIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.24.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.25.</span> <span class="toc-text">数据转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-number">2.26.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8-2"><span class="toc-number">2.27.</span> <span class="toc-text">函数 过程 触发器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">ER图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ER%E8%BD%AC%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">ER转化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">实体集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%9B%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">联系集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%80%BC%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.3.</span> <span class="toc-text">多值依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-number">4.1.</span> <span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1NF"><span class="toc-number">4.2.1.</span> <span class="toc-text">1NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2NF"><span class="toc-number">4.2.2.</span> <span class="toc-text">2NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E9%9B%86-%E6%AD%A3%E5%88%99%E8%A6%86%E7%9B%96%E6%8D%A2%E5%90%8D%E5%AD%97"><span class="toc-number">4.2.3.</span> <span class="toc-text">最小函数依赖集(正则覆盖换名字)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%80%99%E9%80%89%E7%A0%81"><span class="toc-number">4.2.4.</span> <span class="toc-text">找候选码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%8D%9F%E9%93%BE%E6%8E%A5%E5%88%A4%E6%96%AD"><span class="toc-number">4.2.5.</span> <span class="toc-text">无损链接判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF%E5%88%A4%E5%AE%9A"><span class="toc-number">4.2.6.</span> <span class="toc-text">3NF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF%E5%88%A4%E5%AE%9A"><span class="toc-number">4.2.7.</span> <span class="toc-text">BCNF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF"><span class="toc-number">4.2.8.</span> <span class="toc-text">3NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF"><span class="toc-number">4.2.9.</span> <span class="toc-text">BCNF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E4%BE%9D%E8%B5%96"><span class="toc-number">4.2.10.</span> <span class="toc-text">保持依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-number">5.1.</span> <span class="toc-text">并发执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">5.2.</span> <span class="toc-text">可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">视图可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-number">5.4.</span> <span class="toc-text">可恢复调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-number">5.5.</span> <span class="toc-text">无级联调度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.1.</span> <span class="toc-text">两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.2.</span> <span class="toc-text">严格两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.3.</span> <span class="toc-text">强两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">6.4.</span> <span class="toc-text">死锁的检测与恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">八股</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%87%AA%E4%B8%BB%E7%A0%94%E5%8F%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">7.1.</span> <span class="toc-text">中国有哪些自主研发的数据库?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-number">7.2.</span> <span class="toc-text">如何实现多表更新?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">做题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A5%97"><span class="toc-number">8.1.</span> <span class="toc-text">第一套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A5%97"><span class="toc-number">8.2.</span> <span class="toc-text">第二套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A5%97"><span class="toc-number">8.3.</span> <span class="toc-text">第三套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%B3%E4%BC%A6%E6%96%AF"><span class="toc-number">8.4.</span> <span class="toc-text">劳伦斯</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">作废手稿</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E8%81%94"><span class="toc-number">9.1.</span> <span class="toc-text">级联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AD%E8%A8%80"><span class="toc-number">9.2.</span> <span class="toc-text">断言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">MySql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">关系代数(过程语言)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">删</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">增</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS-DBS-XML"><span class="toc-number">1.1.</span> <span class="toc-text">DBMS,DBS,XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">1.2.</span> <span class="toc-text">DDL,DML,DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%81-%E9%94%AE"><span class="toc-number">1.3.</span> <span class="toc-text">码&#x3D;键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">函数 过程 触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#varchar%E5%92%8Cchar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.6.</span> <span class="toc-text">varchar和char的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">几种数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.8.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%8ESQL"><span class="toc-number">1.9.</span> <span class="toc-text">关系代数与SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.10.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%90%8D-AS"><span class="toc-number">1.11.</span> <span class="toc-text">别名(AS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.12.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E9%87%8D%E5%A4%8D"><span class="toc-number">1.13.</span> <span class="toc-text">保留重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84-group-by-having"><span class="toc-number">1.14.</span> <span class="toc-text">分组(group by,having)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%80%BC"><span class="toc-number">1.15.</span> <span class="toc-text">空值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.16.</span> <span class="toc-text">嵌套子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%AF%94%E8%BE%83"><span class="toc-number">1.17.</span> <span class="toc-text">集合比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8-EXIST"><span class="toc-number">1.18.</span> <span class="toc-text">存在(EXIST)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D-UNIQUE"><span class="toc-number">1.19.</span> <span class="toc-text">重复(UNIQUE)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#from%E5%AD%90%E5%8F%A5"><span class="toc-number">1.19.1.</span> <span class="toc-text">from子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with%E5%AD%90%E5%8F%A5"><span class="toc-number">1.19.2.</span> <span class="toc-text">with子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE-view"><span class="toc-number">1.19.3.</span> <span class="toc-text">视图(view)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">1.20.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.21.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-update"><span class="toc-number">1.22.</span> <span class="toc-text">数据更新(update)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6-JOIN"><span class="toc-number">1.23.</span> <span class="toc-text">数据合并(JOIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.24.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.25.</span> <span class="toc-text">数据转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-number">1.26.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8-2"><span class="toc-number">1.27.</span> <span class="toc-text">函数 过程 触发器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">ER图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ER%E8%BD%AC%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">ER转化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">实体集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">联系集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%80%BC%E4%BE%9D%E8%B5%96"><span class="toc-number">2.1.3.</span> <span class="toc-text">多值依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1NF"><span class="toc-number">3.2.1.</span> <span class="toc-text">1NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2NF"><span class="toc-number">3.2.2.</span> <span class="toc-text">2NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E9%9B%86-%E6%AD%A3%E5%88%99%E8%A6%86%E7%9B%96%E6%8D%A2%E5%90%8D%E5%AD%97"><span class="toc-number">3.2.3.</span> <span class="toc-text">最小函数依赖集(正则覆盖换名字)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%80%99%E9%80%89%E7%A0%81"><span class="toc-number">3.2.4.</span> <span class="toc-text">找候选码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%8D%9F%E9%93%BE%E6%8E%A5%E5%88%A4%E6%96%AD"><span class="toc-number">3.2.5.</span> <span class="toc-text">无损链接判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF%E5%88%A4%E5%AE%9A"><span class="toc-number">3.2.6.</span> <span class="toc-text">3NF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF%E5%88%A4%E5%AE%9A"><span class="toc-number">3.2.7.</span> <span class="toc-text">BCNF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF"><span class="toc-number">3.2.8.</span> <span class="toc-text">3NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF"><span class="toc-number">3.2.9.</span> <span class="toc-text">BCNF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E4%BE%9D%E8%B5%96"><span class="toc-number">3.2.10.</span> <span class="toc-text">保持依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-number">4.1.</span> <span class="toc-text">并发执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">4.2.</span> <span class="toc-text">可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">视图可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-number">4.4.</span> <span class="toc-text">可恢复调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-number">4.5.</span> <span class="toc-text">无级联调度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.1.</span> <span class="toc-text">两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.2.</span> <span class="toc-text">严格两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.3.</span> <span class="toc-text">强两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">5.4.</span> <span class="toc-text">死锁的检测与恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">八股</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%87%AA%E4%B8%BB%E7%A0%94%E5%8F%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">中国有哪些自主研发的数据库?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-number">6.2.</span> <span class="toc-text">如何实现多表更新?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">做题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A5%97"><span class="toc-number">7.1.</span> <span class="toc-text">第一套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A5%97"><span class="toc-number">7.2.</span> <span class="toc-text">第二套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A5%97"><span class="toc-number">7.3.</span> <span class="toc-text">第三套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%B3%E4%BC%A6%E6%96%AF"><span class="toc-number">7.4.</span> <span class="toc-text">劳伦斯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ONS"><span class="toc-number">7.5.</span> <span class="toc-text">ONS</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -186,40 +186,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>$\gamma$</p>
-<h1>大纲</h1>
-<p>第1章：基本概念<br>
-第2,6章：关系代数表达式<br>
-基本运算<br>
-附加的关系代数运算<br>
-扩展的关系代数运算</p>
-<p>第3,4,5章：SQL语句<br>
-DDL、DML、DCL<br>
-SQL与集合运算、空值<br>
-聚集函数、having 、not exists<br>
-嵌套子查询<br>
-视图、可更新视图<br>
-完整性约束</p>
-<p>第7章：ER模型设计，关系模型转换，ER图画完整<br>
-实体集（弱实体集）、属性集、联系集（聚集、描述性属性）<br>
-映射基数、参与约束、主键<br>
-转换为关系模式<br>
-强实体集（简单属性、复杂属性）、弱实体集、联系集（1:1、1:n、m:n）</p>
-<p>第8章：数据的规范化<br>
-函数依赖，属性闭包，正则覆盖<br>
-BCNF的判定与分解（NP问题），3NF的判定（NP问题）与分解<br>
-无损连接和保持依赖的证明</p>
-<p>第14章：事务<br>
-事务的概念、模型、事务的ACID特性<br>
-可串行化：冲突、视图可串行化判别<br>
-事务隔离性和原子性<br>
-可恢复调度、无级联调度</p>
-<p>第15章：并发控制<br>
-两阶段锁，严格两阶段锁，强两阶段锁<br>
-死锁的检测与恢复</p>
-<p>闭卷考试：70%<br>
-考试范围：前面所列知识点+不超过10分的发挥题</p>
-<h1>SQL</h1>
+    <h1>SQL</h1>
 <h2 id="DBMS-DBS-XML">DBMS,DBS,XML</h2>
 <p>DBMS:数据库管理系统(包含相关企业信息 收集相关数据 访问的程序集 方便管理的开发环境)<br>
 DBS:数据库系统<br>
@@ -711,681 +678,79 @@ $$<em>a\mathcal{G}</em>{F(b),AS,fb}(thing)$$<br>
 </ol>
 </li>
 </ol>
-<p>请回答以下数据库的问题:</p>
+<h2 id="ONS">ONS</h2>
 <ol>
-<li>解释数据模型</li>
+<li>什么是数据模型?</li>
+</ol>
+<blockquote>
+<p>数据模型是描述数据关系,数据操作,数据定义的形式化工具,用来组织,存储,管理数据.</p>
+</blockquote>
+<ol start="2">
 <li>为什么在设计数据模型时要把数据做得精确?</li>
+</ol>
+<blockquote>
+<p>提高数据质量,优化存储性能,简化管理维护,减少开发和维护成本.</p>
+</blockquote>
+<ol start="3">
 <li>主键的类型有哪些?如何选择主键?</li>
+</ol>
+<blockquote>
+<p>业务主键,复合主键,代理主键.<br>
+首选自增长系数(如ID).<br>
+谨慎使用复合主键.</p>
+</blockquote>
+<ol start="4">
 <li>举例说明不可重复读异常产生的原因以及其在数据库管理系统中的解决办法进行描述.</li>
+</ol>
+<blockquote>
+<p>不可复读异常:某个事务要多次读取同一行数据,但是这个数据被修改过导致两次读取结果不一致.<br>
+可以使用四种隔离级别来有效避免这种异常:<br>
+读未提交:允许读取某个事务尚未提交的数据(脏读),不解决不可复读.<br>
+读已提交:允许读取某个事务已提交的数据,解决脏读,但仍未解决不可重复读.<br>
+可重复读:保证在多行的多次读取结果是一致的,解决了不可重复读.<br>
+串行化:解决了所有并发异常,但是由于牺牲并发性导致性能开销很大.</p>
+</blockquote>
+<ol start="5">
 <li>并发控制的主要方法是(  )机制.</li>
+</ol>
+<blockquote>
+<p>锁机制.</p>
+</blockquote>
+<ol start="6">
 <li>在数据库中,只存放视图的(  ),不存放视图的数据.</li>
+</ol>
+<blockquote>
+<p>定义(结构,SQL语句等)</p>
+</blockquote>
+<ol start="7">
 <li>简述数据库系统和文件系统的区别.</li>
+</ol>
+<blockquote>
+<p>数据库的文件更加集中,数据共享性很高,数据管理更加方便快捷,数据冗余更低,数据一致性高,数据安全性高,相比文件和目录以结构化的方式存储数据.</p>
+</blockquote>
+<ol start="8">
 <li>判断分解后的关系模式是否合理的两个重要的标志是什么?</li>
+</ol>
+<blockquote>
+<p>无损链接性和保持函数依赖.</p>
+</blockquote>
+<ol start="9">
 <li>基于多表的视图能够完成哪些操作?不能完成哪些操作?</li>
-<li></li>
 </ol>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h1>作废手稿</h1>
-<h2 id="级联">级联</h2>
-<p>在父表发生变化的时候改变所有子表,避免指向一个不存在的部门.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE,</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE</span><br></pre></td></tr></table></figure>
-<h2 id="断言">断言</h2>
-<p>assert.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ASSERTION a <span class="keyword">CHECK</span>(</span><br><span class="line">	xxx</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h1>MySql</h1>
-<p>安装略.</p>
-<p>先看<a target="_blank" rel="noopener" href="https://learnxinyminutes.com/zh-cn/sql/">这个</a>了解基础使用.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">USE 数据库名;</span><br><span class="line"><span class="comment">-- 选中某个数据库,之后的操作都在该数据库中进行</span></span><br><span class="line"><span class="comment">-- 有的时候你想取消选中某个数据库,然而没有这样的命令,,,</span></span><br><span class="line"><span class="comment">-- 办法1:use一个别的数据库</span></span><br><span class="line"><span class="comment">-- 办法2:断线重连,默认是不选择任何数据库的</span></span><br><span class="line"></span><br><span class="line">EXIT</span><br><span class="line"><span class="comment">-- sql里面的关键字是不区分大小写的,写成 eXiT 也能被识别.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br><span class="line"><span class="comment">-- 注意这里是databases复数,创建新数据库是单数格式,注意区分</span></span><br><span class="line"><span class="keyword">CREATE</span> DATABASE <span class="string">&#x27;SHOW&#x27;</span> CHARSET utf8</span><br><span class="line"><span class="comment">-- 使用关键字作为数据库名要包起来,同时这里database是单数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> TABLES;</span><br><span class="line"><span class="comment">-- 显示数据库里面的表名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DESCRIBE</span> 表名;</span><br><span class="line"><span class="comment">-- 对表名的简介,解释器的默认操作是print,也就是打印在屏幕上</span></span><br></pre></td></tr></table></figure>
-<h1>概念</h1>
-<h1>数据库</h1>
-<p>原子化:数据值不可分割<br>
-null:空值,会让很多操作复杂化</p>
-<p>属性: $A_i$<br>
-关系范式: $R=(A_1,A_2,…A_n)$ 叫做关系范式,例如:学生=(ID,姓名,性别,…)</p>
-<p>超键:包含关系.例如 <code>&#123;a,b&#125;</code> 是 <code>&#123;a&#125;</code> 的超键</p>
-<p>如果键能够保证绝对不重,那就可以是候选主键.<br>
-从里面选一个范式最小的作为主键.</p>
-<p>外键约束:插入元素的时候键值必须在 <strong>动态值域</strong> 中存在.<br>
-举例:学生的成绩可以在[0,150]之间随便取,但是学生的班级不可以随便取.<br>
-对班级的值域进行外键约束查询,如果班级不存在就会阻止插入.</p>
-<p>外键必须是别的表的主键或唯一键.</p>
-<p>关系查询:六个操作:增删查改,关系定义,数据定义</p>
-<h1>关系代数(过程语言)</h1>
-<p>判定符: $=,\neq,&gt;,\ge,&lt;,\le$<br>
-逻辑连接: $\land,\lor,\neg$</p>
-<p>举例:选出物理学的老师<br>
-$$\sigma_{dept_name=“physics”}(instructor)$$</p>
-<p>从老师的所有信息中只提取ID和姓名<br>
-$$\prod_{ID,name}(instructor)$$</p>
-<p>选出2010年秋季和2009年春季开课的所有课程名称(注意集合并的前提是两个属性一样)<br>
-$$\prod_{course_id}(\sigma_{sem=“spring”\land year=2009}(section))\cup\prod_{course_id}(\sigma_{sem=“fall”\land year=2010}(section))$$</p>
-<p>笛卡尔积:两个属性不相交,则for循环枚举即可,否则需要重命名,如:</p>
-<p>关系r</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">A</th>
-<th style="text-align:center">B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">2</td>
-</tr>
-</tbody>
-</table>
-<p>关系s</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">B</th>
-<th style="text-align:center">D</th>
-<th style="text-align:center">E</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">!</td>
-<td style="text-align:center">z</td>
-</tr>
-<tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">@</td>
-<td style="text-align:center">y</td>
-</tr>
-</tbody>
-</table>
-<p>关系 $r\times s$</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">A</th>
-<th style="text-align:center">r.B</th>
-<th style="text-align:center">s.B</th>
-<th style="text-align:center">D</th>
-<th style="text-align:center">E</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">!</td>
-<td style="text-align:center">z</td>
-</tr>
-<tr>
-<td style="text-align:center">a</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">@</td>
-<td style="text-align:center">y</td>
-</tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">!</td>
-<td style="text-align:center">z</td>
-</tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">@</td>
-<td style="text-align:center">y</td>
-</tr>
-</tbody>
-</table>
-<p>把关系r改名为s:<br>
-$$\rho_s®$$</p>
-<p>几个关系代数没定义但是能够简化表达的运算:<br>
-找相同元素: $\cap,r\cap s=r-(r-s)$<br>
-连接: $\bowtie_{\theta}$ (笛卡尔积然后找有共同表头(元素)的,没有共同元素就返回笛卡尔积,注意会保留相同的列)<br>
-自然连接: $\bowtie$ (自动匹配相同的列,不会保留相同的列,join算法和natural join差不多)</p>
-<p>例如学生选课表(Took)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">学号 (SID)</th>
-<th style="text-align:left">课程号 (CID)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">S1</td>
-<td style="text-align:left">C1</td>
-</tr>
-<tr>
-<td style="text-align:left">S1</td>
-<td style="text-align:left">C2</td>
-</tr>
-<tr>
-<td style="text-align:left">S1</td>
-<td style="text-align:left">C3</td>
-</tr>
-<tr>
-<td style="text-align:left">S2</td>
-<td style="text-align:left">C1</td>
-</tr>
-<tr>
-<td style="text-align:left">S2</td>
-<td style="text-align:left">C2</td>
-</tr>
-<tr>
-<td style="text-align:left">S3</td>
-<td style="text-align:left">C1</td>
-</tr>
-<tr>
-<td style="text-align:left">S4</td>
-<td style="text-align:left">C3</td>
-</tr>
-</tbody>
-</table>
-<p>必修课程表 (RequiredCourses)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">课程号 (CID)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">C1</td>
-</tr>
-<tr>
-<td style="text-align:left">C2</td>
-</tr>
-</tbody>
-</table>
-<p>现在，我们想查询“<strong>选修了所有必修课程</strong>的学生学号”。这正是除号运算的经典应用场景。</p>
-<p><strong>查询：<code>Took ÷ RequiredCourses</code></strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">学号 (SID)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">S1</td>
-</tr>
-<tr>
-<td style="text-align:left">S2</td>
-</tr>
-</tbody>
-</table>
-<p>$$<em>Ag_B$$<br>
-聚集函数(就是行列之间的算术运算)<br>
-$$\mathrm{sum,max,min,avg,count}$$<br>
-总和,最大最小值,平均值,计数(有多少个行).<br>
-聚集函数是没有名字的,用rho取名:<br>
-$$\rho</em>{S(sum_A,B)}(<em>Bg</em>{sum(A)}®)$$</p>
-<p>好的，我们来通过一个例子，详细解释关系代数中的<strong>外连接 (OUTER JOIN)</strong>。</p>
-<p><strong>核心思想：</strong></p>
-<p>外连接与内连接 (INNER JOIN) 的主要区别在于，<strong>即使关联的行在另一侧没有匹配，它仍然会保留一侧或两个表的所有行，并在没有匹配的情况下，用 <code>NULL</code> 填充缺失的属性值。</strong></p>
-<p><strong>例子：公司项目与员工分配</strong></p>
-<p>假设我们有两个简单的关系模式：</p>
-<ol>
-<li>
-<p><strong><code>Projects</code> (项目表):</strong></p>
-<ul>
-<li><code>ProjectID</code> (项目ID) - 主键</li>
-<li><code>ProjectName</code> (项目名称)</li>
-<li><code>Budget</code> (预算)</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Assignments</code> (员工分配表):</strong></p>
-<ul>
-<li><code>AssignmentID</code> (分配ID) - 主键</li>
-<li><code>ProjectID</code> (项目ID) - 外键，引用 <code>Projects</code> 表</li>
-<li><code>EmployeeName</code> (员工姓名)</li>
-<li><code>Role</code> (角色)</li>
-</ul>
-</li>
+<blockquote>
+<p>SELECT.可以简化复杂查询.<br>
+通常不能进行数据修改,即INSERT,UPDATE,DELETE,因为多表的语义一般是不明确的.</p>
+</blockquote>
+<ol start="10">
+<li>为什么要实现不同粒度的锁?</li>
 </ol>
-<p><strong>数据样本：</strong></p>
-<p><strong><code>Projects</code> 表:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">ProjectName</th>
-<th style="text-align:left">Budget</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-</tr>
-<tr>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Internal Tool</td>
-<td style="text-align:left">50000</td>
-</tr>
-<tr>
-<td style="text-align:left">P4</td>
-<td style="text-align:left">AI Research</td>
-<td style="text-align:left">200000</td>
-</tr>
-</tbody>
-</table>
-<p><strong><code>Assignments</code> 表:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">AssignmentID</th>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">EmployeeName</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">A1</td>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Alice</td>
-<td style="text-align:left">Lead Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">A2</td>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Bob</td>
-<td style="text-align:left">UI/UX</td>
-</tr>
-<tr>
-<td style="text-align:left">A3</td>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Charlie</td>
-<td style="text-align:left">Backend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">A4</td>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">David</td>
-<td style="text-align:left">Frontend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">A5</td>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Eve</td>
-<td style="text-align:left">QA Tester</td>
-</tr>
-<tr>
-<td style="text-align:left">A6</td>
-<td style="text-align:left">PX</td>
-<td style="text-align:left">Frank</td>
-<td style="text-align:left">Consultant</td>
-</tr>
-</tbody>
-</table>
-<p><strong>目标：</strong></p>
-<p>我们想查看所有项目的信息，以及哪些员工被分配到了这些项目。即使某个项目目前没有员工被分配，我们也希望它仍然出现在结果中。</p>
-<hr>
-<p><strong>1. 内连接 (INNER JOIN) 作为对比</strong></p>
-<p>首先，我们看看如果使用内连接会得到什么结果。</p>
-<p><strong>关系代数表示:</strong></p>
-<p><code>Projects ⋈_&#123;Projects.ProjectID = Assignments.ProjectID&#125; Assignments</code></p>
-<p><strong>SQL 等价表示:</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Projects</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Assignments</span><br><span class="line"><span class="keyword">ON</span> Projects.ProjectID <span class="operator">=</span> Assignments.ProjectID;</span><br></pre></td></tr></table></figure>
-<p><strong>结果:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">ProjectName</th>
-<th style="text-align:left">Budget</th>
-<th style="text-align:left">AssignmentID</th>
-<th style="text-align:left">EmployeeName</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A1</td>
-<td style="text-align:left">Alice</td>
-<td style="text-align:left">Lead Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A2</td>
-<td style="text-align:left">Bob</td>
-<td style="text-align:left">UI/UX</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A3</td>
-<td style="text-align:left">Charlie</td>
-<td style="text-align:left">Backend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A4</td>
-<td style="text-align:left">David</td>
-<td style="text-align:left">Frontend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Internal Tool</td>
-<td style="text-align:left">50000</td>
-<td style="text-align:left">A5</td>
-<td style="text-align:left">Eve</td>
-<td style="text-align:left">QA Tester</td>
-</tr>
-</tbody>
-</table>
-<p><strong>分析内连接：</strong></p>
-<ul>
-<li><code>P4</code> (AI Research) 项目没有出现在结果中，因为它在 <code>Assignments</code> 表中没有匹配的分配。</li>
-<li><code>A6</code> (Frank) 的分配也没有出现，因为它引用了一个不存在的 <code>ProjectID</code> (PX)。内连接只返回<strong>共同匹配</strong>的行。</li>
-</ul>
-<hr>
-<p><strong>2. 左外连接 (LEFT OUTER JOIN)</strong></p>
-<p><strong>目的：</strong> 保留左边表（<code>Projects</code>）的所有行，即使在右边表（<code>Assignments</code>）中没有匹配。如果右边没有匹配，则右边表的属性填入 <code>NULL</code>。</p>
-<p><strong>关系代数表示:</strong></p>
-<p><code>Projects ⟕_&#123;Projects.ProjectID = Assignments.ProjectID&#125; Assignments</code></p>
-<ul>
-<li><code>⟕</code> 表示左外连接符号。</li>
-</ul>
-<p><strong>SQL 等价表示:</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> P.ProjectID, P.ProjectName, P.Budget, A.AssignmentID, A.EmployeeName, A.Role</span><br><span class="line"><span class="keyword">FROM</span> Projects P</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> Assignments A</span><br><span class="line"><span class="keyword">ON</span> P.ProjectID <span class="operator">=</span> A.ProjectID;</span><br></pre></td></tr></table></figure>
-<p><strong>结果:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">ProjectName</th>
-<th style="text-align:left">Budget</th>
-<th style="text-align:left">AssignmentID</th>
-<th style="text-align:left">EmployeeName</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A1</td>
-<td style="text-align:left">Alice</td>
-<td style="text-align:left">Lead Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A2</td>
-<td style="text-align:left">Bob</td>
-<td style="text-align:left">UI/UX</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A3</td>
-<td style="text-align:left">Charlie</td>
-<td style="text-align:left">Backend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A4</td>
-<td style="text-align:left">David</td>
-<td style="text-align:left">Frontend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Internal Tool</td>
-<td style="text-align:left">50000</td>
-<td style="text-align:left">A5</td>
-<td style="text-align:left">Eve</td>
-<td style="text-align:left">QA Tester</td>
-</tr>
-<tr>
-<td style="text-align:left">P4</td>
-<td style="text-align:left">AI Research</td>
-<td style="text-align:left">200000</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-</tr>
-</tbody>
-</table>
-<p><strong>分析左外连接：</strong></p>
-<ul>
-<li><code>P4</code> (AI Research) 项目现在出现在结果中，因为它是左表 <code>Projects</code> 中的一行。</li>
-<li>它的 <code>AssignmentID</code>, <code>EmployeeName</code>, <code>Role</code> 都被填充为 <code>NULL</code>，因为在 <code>Assignments</code> 表中没有与它匹配的行。</li>
-<li><code>A6</code> (Frank) 的分配仍旧没有出现，因为它在左表 <code>Projects</code> 中没有匹配的 <code>ProjectID</code>。左外连接只关心保留左表的所有行。</li>
-</ul>
-<hr>
-<p><strong>3. 右外连接 (RIGHT OUTER JOIN)</strong></p>
-<p><strong>目的：</strong> 保留右边表（<code>Assignments</code>）的所有行，即使在左边表（<code>Projects</code>）中没有匹配。如果左边没有匹配，则左边表的属性填入 <code>NULL</code>。</p>
-<p><strong>关系代数表示:</strong></p>
-<p><code>Projects ⟖_&#123;Projects.ProjectID = Assignments.ProjectID&#125; Assignments</code></p>
-<ul>
-<li><code>⟖</code> 表示右外连接符号。</li>
-</ul>
-<p><strong>SQL 等价表示:</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> P.ProjectID, P.ProjectName, P.Budget, A.AssignmentID, A.EmployeeName, A.Role</span><br><span class="line"><span class="keyword">FROM</span> Projects P</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> Assignments A</span><br><span class="line"><span class="keyword">ON</span> P.ProjectID <span class="operator">=</span> A.ProjectID;</span><br></pre></td></tr></table></figure>
-<p><strong>结果:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">ProjectName</th>
-<th style="text-align:left">Budget</th>
-<th style="text-align:left">AssignmentID</th>
-<th style="text-align:left">EmployeeName</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A1</td>
-<td style="text-align:left">Alice</td>
-<td style="text-align:left">Lead Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A2</td>
-<td style="text-align:left">Bob</td>
-<td style="text-align:left">UI/UX</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A3</td>
-<td style="text-align:left">Charlie</td>
-<td style="text-align:left">Backend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A4</td>
-<td style="text-align:left">David</td>
-<td style="text-align:left">Frontend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Internal Tool</td>
-<td style="text-align:left">50000</td>
-<td style="text-align:left">A5</td>
-<td style="text-align:left">Eve</td>
-<td style="text-align:left">QA Tester</td>
-</tr>
-<tr>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">A6</td>
-<td style="text-align:left">Frank</td>
-<td style="text-align:left">Consultant</td>
-</tr>
-</tbody>
-</table>
-<p><strong>分析右外连接：</strong></p>
-<ul>
-<li><code>P4</code> (AI Research) 项目没有出现在结果中，因为它在右表 <code>Assignments</code> 中没有匹配的行。</li>
-<li><code>A6</code> (Frank) 的分配现在出现在结果中，因为它在右表 <code>Assignments</code> 中。</li>
-<li>它的 <code>ProjectID</code>, <code>ProjectName</code>, <code>Budget</code> 都被填充为 <code>NULL</code>，因为在 <code>Projects</code> 表中没有与它匹配的行 (<code>PX</code> 不存在)。</li>
-</ul>
-<hr>
-<p><strong>4. 全外连接 (FULL OUTER JOIN)</strong></p>
-<p><strong>目的：</strong> 保留左边表（<code>Projects</code>）和右边表（<code>Assignments</code>）<strong>所有</strong>的行。如果左边有行在右边没有匹配，则右边属性填入 <code>NULL</code>；如果右边有行在左边没有匹配，则左边属性填入 <code>NULL</code>。</p>
-<p><strong>关系代数表示:</strong></p>
-<p><code>Projects ⟗_&#123;Projects.ProjectID = Assignments.ProjectID&#125; Assignments</code></p>
-<ul>
-<li><code>⟗</code> 表示全外连接符号。</li>
-</ul>
-<p><strong>SQL 等价表示:</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> P.ProjectID, P.ProjectName, P.Budget, A.AssignmentID, A.EmployeeName, A.Role</span><br><span class="line"><span class="keyword">FROM</span> Projects P</span><br><span class="line"><span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> Assignments A</span><br><span class="line"><span class="keyword">ON</span> P.ProjectID <span class="operator">=</span> A.ProjectID;</span><br></pre></td></tr></table></figure>
-<p><strong>结果:</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">ProjectID</th>
-<th style="text-align:left">ProjectName</th>
-<th style="text-align:left">Budget</th>
-<th style="text-align:left">AssignmentID</th>
-<th style="text-align:left">EmployeeName</th>
-<th style="text-align:left">Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A1</td>
-<td style="text-align:left">Alice</td>
-<td style="text-align:left">Lead Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P1</td>
-<td style="text-align:left">Website Redesign</td>
-<td style="text-align:left">100000</td>
-<td style="text-align:left">A2</td>
-<td style="text-align:left">Bob</td>
-<td style="text-align:left">UI/UX</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A3</td>
-<td style="text-align:left">Charlie</td>
-<td style="text-align:left">Backend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P2</td>
-<td style="text-align:left">Mobile App Dev</td>
-<td style="text-align:left">150000</td>
-<td style="text-align:left">A4</td>
-<td style="text-align:left">David</td>
-<td style="text-align:left">Frontend Dev</td>
-</tr>
-<tr>
-<td style="text-align:left">P3</td>
-<td style="text-align:left">Internal Tool</td>
-<td style="text-align:left">50000</td>
-<td style="text-align:left">A5</td>
-<td style="text-align:left">Eve</td>
-<td style="text-align:left">QA Tester</td>
-</tr>
-<tr>
-<td style="text-align:left">P4</td>
-<td style="text-align:left">AI Research</td>
-<td style="text-align:left">200000</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-</tr>
-<tr>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">NULL</td>
-<td style="text-align:left">A6</td>
-<td style="text-align:left">Frank</td>
-<td style="text-align:left">Consultant</td>
-</tr>
-</tbody>
-</table>
-<p><strong>分析全外连接：</strong></p>
-<ul>
-<li><code>P4</code> (AI Research) 出现在结果中，因为它是左表中的一行。</li>
-<li><code>A6</code> (Frank) 出现在结果中，因为它从是右表中的一行。</li>
-<li>全外连接将左外连接和右外连接的结果合并，涵盖了所有可能的情况，无论是左表匹配右表、右表匹配左表，还是任何一方没有匹配。</li>
-</ul>
-<p><strong>总结：</strong></p>
-<p>外连接是数据库查询中非常重要的一个概念，它允许你在进行表连接时，保留那些在另一张表中没有匹配项的记录，并通过填充 <code>NULL</code> 来表示缺失的信息。这在需要全面了解数据，包括那些“不完整”或“未关联”的数据时，显得尤为有用。</p>
-<ul>
-<li><strong>内连接 (INNER JOIN):</strong> 只保留两边都匹配的行。</li>
-<li><strong>左外连接 (LEFT OUTER JOIN):</strong> 保留左表所有行，右表匹配的留下，不匹配的填 <code>NULL</code>。</li>
-<li><strong>右外连接 (RIGHT OUTER JOIN):</strong> 保留右表所有行，左表匹配的留下，不匹配的填 <code>NULL</code>。</li>
-<li><strong>全外连接 (FULL OUTER JOIN):</strong> 保留两边所有行，不匹配的填 <code>NULL</code>。</li>
-</ul>
-<h1>删</h1>
-<p>$$r\leftarrow r-R$$<br>
-$$r\leftarrow \Pi_{R}r$$</p>
-<h1>增</h1>
-<p>$$r\leftarrow r\cup R$$</p>
+<blockquote>
+<p>为了实现并发处理中效率和精度的平衡.<br>
+粗粒度锁:如表锁(锁定范围大,并发度低)<br>
+细粒度锁:如行锁(锁定范围小,开销大,并发度高)<br>
+除此之外还有数据库锁,页锁等.<br>
+为了防止死锁和活锁,提高吞吐量.</p>
+</blockquote>
 
   </div>
 </article>
@@ -1418,7 +783,7 @@ $$r\leftarrow \Pi_{R}r$$</p>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">大纲</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS-DBS-XML"><span class="toc-number">2.1.</span> <span class="toc-text">DBMS,DBS,XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">2.2.</span> <span class="toc-text">DDL,DML,DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%81-%E9%94%AE"><span class="toc-number">2.3.</span> <span class="toc-text">码&#x3D;键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">2.5.</span> <span class="toc-text">函数 过程 触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#varchar%E5%92%8Cchar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.6.</span> <span class="toc-text">varchar和char的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.7.</span> <span class="toc-text">几种数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%8ESQL"><span class="toc-number">2.9.</span> <span class="toc-text">关系代数与SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.10.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%90%8D-AS"><span class="toc-number">2.11.</span> <span class="toc-text">别名(AS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">2.12.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E9%87%8D%E5%A4%8D"><span class="toc-number">2.13.</span> <span class="toc-text">保留重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84-group-by-having"><span class="toc-number">2.14.</span> <span class="toc-text">分组(group by,having)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%80%BC"><span class="toc-number">2.15.</span> <span class="toc-text">空值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.16.</span> <span class="toc-text">嵌套子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%AF%94%E8%BE%83"><span class="toc-number">2.17.</span> <span class="toc-text">集合比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8-EXIST"><span class="toc-number">2.18.</span> <span class="toc-text">存在(EXIST)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D-UNIQUE"><span class="toc-number">2.19.</span> <span class="toc-text">重复(UNIQUE)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#from%E5%AD%90%E5%8F%A5"><span class="toc-number">2.19.1.</span> <span class="toc-text">from子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with%E5%AD%90%E5%8F%A5"><span class="toc-number">2.19.2.</span> <span class="toc-text">with子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE-view"><span class="toc-number">2.19.3.</span> <span class="toc-text">视图(view)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">2.20.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">2.21.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-update"><span class="toc-number">2.22.</span> <span class="toc-text">数据更新(update)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6-JOIN"><span class="toc-number">2.23.</span> <span class="toc-text">数据合并(JOIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.24.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.25.</span> <span class="toc-text">数据转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-number">2.26.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8-2"><span class="toc-number">2.27.</span> <span class="toc-text">函数 过程 触发器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">ER图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ER%E8%BD%AC%E5%8C%96"><span class="toc-number">3.1.</span> <span class="toc-text">ER转化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86"><span class="toc-number">3.1.1.</span> <span class="toc-text">实体集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%9B%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">联系集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%80%BC%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.3.</span> <span class="toc-text">多值依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-number">4.1.</span> <span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1NF"><span class="toc-number">4.2.1.</span> <span class="toc-text">1NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2NF"><span class="toc-number">4.2.2.</span> <span class="toc-text">2NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E9%9B%86-%E6%AD%A3%E5%88%99%E8%A6%86%E7%9B%96%E6%8D%A2%E5%90%8D%E5%AD%97"><span class="toc-number">4.2.3.</span> <span class="toc-text">最小函数依赖集(正则覆盖换名字)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%80%99%E9%80%89%E7%A0%81"><span class="toc-number">4.2.4.</span> <span class="toc-text">找候选码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%8D%9F%E9%93%BE%E6%8E%A5%E5%88%A4%E6%96%AD"><span class="toc-number">4.2.5.</span> <span class="toc-text">无损链接判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF%E5%88%A4%E5%AE%9A"><span class="toc-number">4.2.6.</span> <span class="toc-text">3NF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF%E5%88%A4%E5%AE%9A"><span class="toc-number">4.2.7.</span> <span class="toc-text">BCNF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF"><span class="toc-number">4.2.8.</span> <span class="toc-text">3NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF"><span class="toc-number">4.2.9.</span> <span class="toc-text">BCNF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E4%BE%9D%E8%B5%96"><span class="toc-number">4.2.10.</span> <span class="toc-text">保持依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-number">5.1.</span> <span class="toc-text">并发执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">5.2.</span> <span class="toc-text">可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">视图可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-number">5.4.</span> <span class="toc-text">可恢复调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-number">5.5.</span> <span class="toc-text">无级联调度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.1.</span> <span class="toc-text">两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.2.</span> <span class="toc-text">严格两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">6.3.</span> <span class="toc-text">强两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">6.4.</span> <span class="toc-text">死锁的检测与恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">八股</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%87%AA%E4%B8%BB%E7%A0%94%E5%8F%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">7.1.</span> <span class="toc-text">中国有哪些自主研发的数据库?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-number">7.2.</span> <span class="toc-text">如何实现多表更新?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">做题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A5%97"><span class="toc-number">8.1.</span> <span class="toc-text">第一套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A5%97"><span class="toc-number">8.2.</span> <span class="toc-text">第二套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A5%97"><span class="toc-number">8.3.</span> <span class="toc-text">第三套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%B3%E4%BC%A6%E6%96%AF"><span class="toc-number">8.4.</span> <span class="toc-text">劳伦斯</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">作废手稿</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E8%81%94"><span class="toc-number">9.1.</span> <span class="toc-text">级联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AD%E8%A8%80"><span class="toc-number">9.2.</span> <span class="toc-text">断言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">MySql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">关系代数(过程语言)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">删</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">增</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBMS-DBS-XML"><span class="toc-number">1.1.</span> <span class="toc-text">DBMS,DBS,XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDL-DML-DCL"><span class="toc-number">1.2.</span> <span class="toc-text">DDL,DML,DCL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%81-%E9%94%AE"><span class="toc-number">1.3.</span> <span class="toc-text">码&#x3D;键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">函数 过程 触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#varchar%E5%92%8Cchar%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.6.</span> <span class="toc-text">varchar和char的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">几种数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.8.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E4%B8%8ESQL"><span class="toc-number">1.9.</span> <span class="toc-text">关系代数与SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.10.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%90%8D-AS"><span class="toc-number">1.11.</span> <span class="toc-text">别名(AS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.12.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E9%87%8D%E5%A4%8D"><span class="toc-number">1.13.</span> <span class="toc-text">保留重复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84-group-by-having"><span class="toc-number">1.14.</span> <span class="toc-text">分组(group by,having)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E5%80%BC"><span class="toc-number">1.15.</span> <span class="toc-text">空值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.16.</span> <span class="toc-text">嵌套子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E6%AF%94%E8%BE%83"><span class="toc-number">1.17.</span> <span class="toc-text">集合比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8-EXIST"><span class="toc-number">1.18.</span> <span class="toc-text">存在(EXIST)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D-UNIQUE"><span class="toc-number">1.19.</span> <span class="toc-text">重复(UNIQUE)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#from%E5%AD%90%E5%8F%A5"><span class="toc-number">1.19.1.</span> <span class="toc-text">from子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#with%E5%AD%90%E5%8F%A5"><span class="toc-number">1.19.2.</span> <span class="toc-text">with子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE-view"><span class="toc-number">1.19.3.</span> <span class="toc-text">视图(view)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">1.20.</span> <span class="toc-text">删除数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.21.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0-update"><span class="toc-number">1.22.</span> <span class="toc-text">数据更新(update)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6-JOIN"><span class="toc-number">1.23.</span> <span class="toc-text">数据合并(JOIN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.24.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.25.</span> <span class="toc-text">数据转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-number">1.26.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0-%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8-2"><span class="toc-number">1.27.</span> <span class="toc-text">函数 过程 触发器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">ER图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ER%E8%BD%AC%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">ER转化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E9%9B%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">实体集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%9B%86"><span class="toc-number">2.1.2.</span> <span class="toc-text">联系集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%80%BC%E4%BE%9D%E8%B5%96"><span class="toc-number">2.1.3.</span> <span class="toc-text">多值依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">函数依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1NF"><span class="toc-number">3.2.1.</span> <span class="toc-text">1NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2NF"><span class="toc-number">3.2.2.</span> <span class="toc-text">2NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E9%9B%86-%E6%AD%A3%E5%88%99%E8%A6%86%E7%9B%96%E6%8D%A2%E5%90%8D%E5%AD%97"><span class="toc-number">3.2.3.</span> <span class="toc-text">最小函数依赖集(正则覆盖换名字)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%80%99%E9%80%89%E7%A0%81"><span class="toc-number">3.2.4.</span> <span class="toc-text">找候选码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%8D%9F%E9%93%BE%E6%8E%A5%E5%88%A4%E6%96%AD"><span class="toc-number">3.2.5.</span> <span class="toc-text">无损链接判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF%E5%88%A4%E5%AE%9A"><span class="toc-number">3.2.6.</span> <span class="toc-text">3NF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF%E5%88%A4%E5%AE%9A"><span class="toc-number">3.2.7.</span> <span class="toc-text">BCNF判定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3NF"><span class="toc-number">3.2.8.</span> <span class="toc-text">3NF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCNF"><span class="toc-number">3.2.9.</span> <span class="toc-text">BCNF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E4%BE%9D%E8%B5%96"><span class="toc-number">3.2.10.</span> <span class="toc-text">保持依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C"><span class="toc-number">4.1.</span> <span class="toc-text">并发执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">4.2.</span> <span class="toc-text">可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">视图可串行化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%81%A2%E5%A4%8D%E8%B0%83%E5%BA%A6"><span class="toc-number">4.4.</span> <span class="toc-text">可恢复调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A7%E8%81%94%E8%B0%83%E5%BA%A6"><span class="toc-number">4.5.</span> <span class="toc-text">无级联调度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.1.</span> <span class="toc-text">两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.2.</span> <span class="toc-text">严格两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81"><span class="toc-number">5.3.</span> <span class="toc-text">强两阶段锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="toc-number">5.4.</span> <span class="toc-text">死锁的检测与恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">八股</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%87%AA%E4%B8%BB%E7%A0%94%E5%8F%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">中国有哪些自主研发的数据库?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%A1%A8%E6%9B%B4%E6%96%B0"><span class="toc-number">6.2.</span> <span class="toc-text">如何实现多表更新?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">做题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%A5%97"><span class="toc-number">7.1.</span> <span class="toc-text">第一套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%A5%97"><span class="toc-number">7.2.</span> <span class="toc-text">第二套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%A5%97"><span class="toc-number">7.3.</span> <span class="toc-text">第三套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%B3%E4%BC%A6%E6%96%AF"><span class="toc-number">7.4.</span> <span class="toc-text">劳伦斯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ONS"><span class="toc-number">7.5.</span> <span class="toc-text">ONS</span></a></li></ol></li></ol>
       </div>
     
 
