@@ -14,7 +14,7 @@
 <meta property="og:description" content="美好的新赛季从补题开始. pre  小心 $n$ 和 $m$ 写反. 注意数组不要开小或开大. 注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍. 注意模数是不是质数. 注意操作的顺序. 认真读题,模拟完样例再写程序. 注意清空数组 . 相信所有题都是可做的 . 感觉不可做的,有较高多项式复杂度暴">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-04T04:27:36.000Z">
-<meta property="article:modified_time" content="2025-05-15T19:07:58.720Z">
+<meta property="article:modified_time" content="2025-05-30T03:33:21.953Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Contest">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CF愚人节赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">3.1.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-pair-count"><span class="toc-number">3.4.</span> <span class="toc-text">E pair count</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%BF%99%E4%B8%AA%E9%A2%98%E7%88%86%E4%BA%86%E4%B8%AA%E5%A4%A7bug-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81-%E4%B9%8B%E5%89%8D%E4%BB%8E%E6%9D%A5%E6%B2%A1%E8%A7%81%E8%BF%87%E7%9A%84bug"><span class="toc-number">3.4.1.</span> <span class="toc-text">在这个题爆了个大bug,非常重要,之前从来没见过的bug</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-1-3-of-the-problem"><span class="toc-number">3.5.</span> <span class="toc-text">F 1&#x2F;3 of the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-%E7%BB%9D%E5%AF%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E8%AE%BA%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">G &lt;绝对是一个图论问题&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">3.7.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.8.</span> <span class="toc-text">J</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">CF愚人节赛2012</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">4.1.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">4.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">4.3.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">4.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">CF愚人节2013</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">5.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">5.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">CF愚人节2014</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">6.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">6.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-3"><span class="toc-number">6.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-000001"><span class="toc-number">6.4.</span> <span class="toc-text">F 000001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-on-a-plane"><span class="toc-number">6.5.</span> <span class="toc-text">G on a plane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-4"><span class="toc-number">7.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">8.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-4"><span class="toc-number">8.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J-2"><span class="toc-number">9.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-3"><span class="toc-number">9.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-5"><span class="toc-number">9.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">9.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">9.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-5"><span class="toc-number">11.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">11.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-3"><span class="toc-number">11.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-6"><span class="toc-number">12.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-4"><span class="toc-number">12.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-5"><span class="toc-number">12.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-4"><span class="toc-number">13.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F-2"><span class="toc-number">14.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-4"><span class="toc-number">14.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">15.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">15.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">15.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">10.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li></ol>
       </div>
     
   </span>
@@ -218,82 +218,16 @@
 <p>位运算炸int了: <code>Map|=(str[i]=='#')&lt;&lt;i</code> 前面半句话会转成int导致i在64左右的范围会直接挂掉.</p>
 <h2 id="I">I</h2>
 <p>题解非常妙,横着看很难,我们发现构造的排列对于一个位置,下一个位置是固定的,也就是说竖着一个除了末尾的字符串下一个出现的位置也是固定的,所以直接哈希检查即可,非常妙的题.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2095">CF愚人节赛</a></h1>
-<p>非常妙的一场,有很多很新奇的脑洞值得记录.</p>
-<h2 id="B">B</h2>
-<p>你有一个游戏,你要赌能不能过10个测试点,这个游戏很像伯努利分布,发现在两端概率最高,是1/2,所以10个点就是要赌1/1024的概率,显然不太对劲.</p>
-<p>发现输出没有要求一定要在给定的16个格子内,所以输出17或者-1就完事了,(很仙的题啊),</p>
-<h2 id="C">C</h2>
-<p>问你这个题有多少个测试点,<br>
-题解说告诉大家CF有一个filter功能,能看谁过了多少个测试点,然后对filter二分即可,但是要求必须要有一个过这个题的才行.</p>
-<h2 id="D">D</h2>
-<p>盒人题.Flu经过测试发现 Google Earth给出的地理坐标有较大的偏差(7km左右),而Google Map精确度很高,是这样.</p>
-<h2 id="E-pair-count">E pair count</h2>
-<p>正常的题面,正常的数据范围,不正常的链接.<br>
-这个题的XOR的链接并不是维基百科上面的链接,而是一个wordle,解出来发现是MULTIPLY(相乘),于是你要找到任意三次方相乘等于k的下标.</p>
-<p>k可以是0,模数只保证是质数并没有其他性质.</p>
-<h3 id="在这个题爆了个大bug-非常重要-之前从来没见过的bug">在这个题爆了个大bug,非常重要,之前从来没见过的bug</h3>
-<p>正常求逆元是mod-2,直接快速幂.<br>
-然而对0求逆元的时候正好对2取模,会导致出现 <code>qp(0,0,2)</code> 的情况,返回值是1,然而0的逆元显然因为不存在所以是0,就在这狠狠地被肘了.</p>
-<h2 id="F-1-3-of-the-problem">F 1/3 of the problem</h2>
-<p>三分之一在这里(你看到了),于是…</p>
-<p>剩下的三分之二在俄文区…(草)</p>
-<h2 id="G-绝对是一个图论问题">G &lt;绝对是一个图论问题&gt;</h2>
-<p>乍一看有很高深的算法,又是从n个点选k个又是1e5的,算法很神秘.<br>
-<strong>然而</strong> 最后有一句话: <strong>没有三个点位于一个圆上</strong> .什么意思?任意三点都不构成圆,意味着所有的点都是共线的,排一遍序扫一下就完事了,这个题非常诈骗.诈骗!</p>
-<h2 id="H">H</h2>
-<p>给一张高斯模糊过的图片,你要逆过来解密高斯模糊(PS大法似乎不顶用),所以这个题偏CTF风格,笔者抄的题解脚本,</p>
-<h2 id="J">J</h2>
-<p>题解说视频讲解能够提前&quot;首映&quot;出来,然后听歌识曲得到音乐名的提示,然后从PPT中得到输入输出格式,最后提交类似flag的题目名称.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/171">CF愚人节赛2012</a></h1>
-<h2 id="D-2">D</h2>
-<p>非常妙的题,题面是说有5个点,不告诉你输入具体是几,你要猜一个1-3的数(也就是说只要穷举,大家都能作对,只是交多少发的问题,这个题背景就很妙)</p>
-<p>Flu采取的类似二分的策略,最后+9过的(中间唐了一发).<br>
-首先你可以通过所有未知编号的测试点使用一样的数来确定第一个被卡掉的点不是几,然后对未知的点二分,找到第一个过的点,就能清楚第几个点实际是几以及答案是几,当然这个题本身很有趣,但是很看脸.</p>
-<h2 id="E">E</h2>
-<p>给你一种未知语言的编译器,让你使用这种语言输出这种语言的名字.</p>
-<p>随便做点什么,然后查看报错信息,查到是INTERCAL(在搜索偏门信息方面感觉AI明显不如搜索引擎,不知道咋回事)</p>
-<h2 id="C-2">C</h2>
-<p>仍然是一种新编程语言,这次叫做Chef,代码是一句一句类似食谱的步骤.这次是要理解程序在干什么然后去模拟这个过程.</p>
-<h2 id="G">G</h2>
-<p>给三个数字猜规律.</p>
-<p>规律:前两个数字是类斐波那契数列的开始,第三个是需要求的索引…好难猜.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/290">CF愚人节2013</a></h1>
-<h2 id="A">A</h2>
-<p>给一个数字,猜字符串.<br>
-上网搜发现是美国历届总统的名字.</p>
-<p>然后交,WA了,看了答案才知道除了那个名字带 <code>Van</code> 的都是只取最后一个单词.</p>
-<h2 id="C-3">C</h2>
-<p>一个新的语言理解题,语言叫做lolcode,是一个网络用语写成的语言.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/contest/409">CF愚人节2014</a></h1>
-<h2 id="A-2">A</h2>
-<p>看样例猜规则系列,</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[]()[]<span class="number">8</span>&lt;       <span class="number">8</span>&lt;<span class="number">8</span>&lt;()</span><br><span class="line"><span class="number">8</span>&lt;[]()<span class="number">8</span>&lt;       []<span class="number">8</span>&lt;[]</span><br><span class="line"></span><br><span class="line">TEAM <span class="number">2</span> WINS    TIE</span><br></pre></td></tr></table></figure>
-<p>emmm…首先看第一个 <code>[]</code> 应该是小于 <code>8&lt;</code> 的,然后看第二个, <code>[]</code> 应该是介于 <code>()</code> 和 <code>8&lt;</code> 之间的,所以推测 <code>()</code> &lt; <code>[]</code> &lt; <code>8&lt;</code> .交上去WA了…然后不知道咋做看题解了.<br>
-题解说这是石头剪子布…<br>
-Flu还是做解密题做太少了.</p>
-<h2 id="B-2">B</h2>
-<p>还是猜语言,这次是Fortran…</p>
-<h2 id="D-3">D</h2>
-<p>给一堆基本事实,然后给输入猜输出.<br>
-题解说有的事实是假的,所以你只需要判断真假就行了…</p>
-<h2 id="F-000001">F 000001</h2>
-<p>题解说,即使一个问题没有描述,它最起码有一个名称.你要找到一个1-64对应数字的哈希,应该怎么办?显然是上网查.上哪里查?显然是OEIS.所以答案就是oeis A000001,并不是数字-1之后的二进制长度.</p>
-<h2 id="G-on-a-plane">G on a plane</h2>
-<p>在飞机上(一说,在平面上)</p>
-<p>非常生草的事情是,把样例给出的点画在图上发现是 <code>5+AVG Y</code> …<br>
-样例才是题干…</p>
-<p>破防了,以后再也不做愚人节题目了.</p>
 <h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/706236#overview">第二次集训</a></h1>
 <p>概况:配合的不好,中间出现至少三次两个人开一个题的情况,<br>
 Flu开局开A,队友B开局也开A,结果这个题到最后都没过,疯狂WA,-6,爽!<br>
 Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想写了扔给我…<br>
 作为看过AveMujica的人(<s>赤石,豪赤多赤</s>),Flu当然是很快写过了,</p>
 <p>榜单也很好看,开始的时候是倒数第三,剩半个小时的时候出现神之一手,两分钟过两个题,然后一跃正数第三,难绷.</p>
-<h2 id="A-3">A</h2>
+<h2 id="A">A</h2>
 <p>给定两个罗盘的度数,计算方位角.<br>
 实际上边界会变,取平均数的时候注意一下(赛时没注意到就WA好多发,)</p>
-<h2 id="C-4">C</h2>
+<h2 id="C">C</h2>
 <p>题意:你对城市建筑拍一张照,得到像素图,建筑可以被简化为一根柱子.<br>
 你每次可以询问一个像素点,返回该点是建筑还是天空(没东西),求最高建筑的位置和高度.(交互题,你要在 $12000$ 次询问内返回答案)</p>
 <p>显而易见的结论是,对值域二分检查,nlogn绝对不够用.<br>
@@ -307,30 +241,30 @@ Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想�
 <h2 id="F">F</h2>
 <p>括号匹配,但是&lt;&lt;和&gt;&gt;能匹配,&gt;&gt;和&lt;&lt;也能匹配上,给一个这俩组成的序列,你要输出按照括号规则匹配的结果.</p>
 <p>思路:我们强制最左端是 <code>[</code> 打头,不管他是&lt;&lt;还是&gt;&gt;,然后直接匹配即可.</p>
-<h2 id="D-4">D</h2>
+<h2 id="D">D</h2>
 <p>难点在于给一个数n,你要把它分组,每组可以为0,组之间有顺序,而且你分的组要单调不增,你要O(1)算这个值.</p>
 <p>答案:爆典…<br>
 其实和n分成任意组(非0),每组不大于m的dp状态是一样的,难点在于证明.</p>
 <p>你竖着想,5可以分成3和2,这是两根柱子.</p>
 <p>然而你横着想,因为单调不增所以你的柱子都是从左打头从右结尾的,而且宽度上限就是m,得证.</p>
 <p>于是Flu会算法还是没做出来,输!</p>
-<h2 id="A-4">A</h2>
+<h2 id="A-2">A</h2>
 <p>给一个函数 $f((l,r))=(\min(a_{l-r}),\max(a_{l-r}))$ ,q次询问每次lr问最少几次可以让 $f(f(f(f(…f((l,r))))))$ 取到 $(1,n)$ .</p>
 <p>div1的E…有点不敢做.</p>
 <h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578">ICPC2024沈阳站</a></h1>
-<h2 id="J-2">J</h2>
+<h2 id="J">J</h2>
 <p>草,前四个最大值和后四个最大值比较,写的时候犯唐把队名和战力全用string存,结果真的能过样例,(int比较炸了)</p>
-<h2 id="B-3">B</h2>
+<h2 id="B">B</h2>
 <p>构造两个数列满足 $a_ib_j\mod nm$ 不重.<br>
 大胆猜,nm不互质无解,然后尝试从nm出发,在n这里构造1+km%nm,在m这里构造1+kn%nm.</p>
-<h2 id="D-5">D</h2>
+<h2 id="D-2">D</h2>
 <p>先来一个结论:交换两个元素对一个排列的逆序对奇偶性的变化取决于区间差,排列的整体左移右移多少次可以转换为区间上的很多次交换,所以逆序对奇偶性变化可以O(1)算出来.</p>
 <p>所以,给的其实是一个排列,然后交换AB实际上是假的,对哪交换都可以,只需要算出开始的逆序对奇偶性就行了,而且因为刚开始只需要计算奇偶性,甚至能O(n)算出来.</p>
-<h2 id="E-2">E</h2>
+<h2 id="E">E</h2>
 <p>不会写状压dp了…</p>
 <p>温习一下:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">1</span>&lt;&lt;<span class="number">16</span>][<span class="number">16</span>]<span class="comment">//状态为i,结尾为j时最小</span></span><br><span class="line"><span class="keyword">for</span> 枚举状态  </span><br><span class="line">	<span class="keyword">for</span> 枚举上一个结尾点</span><br><span class="line">		<span class="keyword">for</span> 枚举新加进去的二进制状态</span><br></pre></td></tr></table></figure>
-<h2 id="G-2">G</h2>
+<h2 id="G">G</h2>
 <p>给n个点,这些点组成一个简单多边形,你最多询问n次,每次返回多边形在 $x=i$ 处的切片长度,你要回答多边形面积.</p>
 <p>很神秘的题.你要计算 $\int_{-1000}^{1000}f(x)\mathrm dx$ 的值,每次询问回答一个点的 $f(x)$ .<br>
 有一个性质:这个面积函数在x轴两点之间是线性变化的,于是考虑询问端点.具体地:<br>
@@ -343,16 +277,16 @@ Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想�
 <h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708329">第三次集训</a></h1>
 <p>全是思维题.(中间试着打了一下CTF的Warm,感觉很好玩)<br>
 Flu被队友带飞了,一个题也没做出来…</p>
-<h2 id="A-5">A</h2>
+<h2 id="A-3">A</h2>
 <p>有一个nm矩阵,部分格子有障碍物(*)否则为空,你要对空格子用[0,k]种颜色涂色,其中[1,k]种颜色同行同列只能出现一次,0颜色可以无限使用,设你用了z个0,代价是 $ck+dz$ ,cd是给定常数,求最小花费.</p>
 <p>题解说是网络流,然而还有一种办法可过.</p>
-<h2 id="H-2">H</h2>
-<h2 id="E-3">E</h2>
+<h2 id="H">H</h2>
+<h2 id="E-2">E</h2>
 <p>有一个n节点的环,你每次可以选任意[1,m]个连续节点涂成黑色,对面也要这么做,不能涂色的人输,现在nm多组询问,对每次询问输出谁赢.</p>
 <blockquote>
 <p>先手第一步除非可以直接赢,否则环会被拆成链.然后后手除非m是1否则必然可以把链断成完全相同的两部分,然后后手只需要模仿先手就一定会赢.</p>
 </blockquote>
-<h2 id="G-3">G</h2>
+<h2 id="G-2">G</h2>
 <p>给n个不覆盖的矩形,你要找出所有的对称轴.注意:假如正方形可能由一个长条+两个小正方形组成,这个正方形依旧有4条对称轴.</p>
 <p>观察发现对称轴必须经过一个点,而且最多有四个,只要能够 $O(n\log n)$ 检查就已经赢了.由于矩形可能是拼起来的,所以常规记录线的方法不可行,要考虑用点记录矩形.</p>
 <p>结论:被偶数个矩形覆盖的点无效(矩形覆盖是仅限边界四个点的),如图</p>
@@ -365,7 +299,7 @@ $$Ax+By+C=0\\ x’=x_0-2A\frac{Ax_0+By_0+C}{A^2+B^2}\\ y’=y_0-2B\frac{Ax_0+By_
 全场唐完,刚开始是队友1的D见祖宗了,然后是队友1的G数组开小了(开1e5题干2e5),然后Flu的H结论对了但是不敢写(诈骗)一度悬置这个题.然后队友2的B疯狂WA,然后屡了一下思路之后过了.</p>
 <p>G:单调栈题,没做出来,后来发现是弹&quot;时间差&quot;个元素即可.<br>
 A:empty中场来到我这说, <code>0011</code> 就是 <code>gugugaga</code> (捣乱来了)…</p>
-<h2 id="A-6">A</h2>
+<h2 id="A-4">A</h2>
 <p>括号树…是啥?</p>
 <p>首先把0011转换为括号匹配,可知合法不合法.然后建括号树进行拓扑序计数即可.<br>
 括号树:</p>
@@ -374,7 +308,7 @@ A:empty中场来到我这说, <code>0011</code> 就是 <code>gugugaga</code> (�
 $$n!\left(\prod_{i=1}^nsz_i\right)^{-1}$$<br>
 $sz_i$ 表示以 $i$ 节点为根的子树大小.</p>
 <p>看别人的码才发现,逆元有一个 $O(n)$ 的递推方式,之前一直用的快速幂 $O(n\log n)$ 算逆元,常数大的不行.</p>
-<h2 id="E-4">E</h2>
+<h2 id="E-3">E</h2>
 <p>给一张图代表城市,城市会被水淹,求从1点出发淹没所有城市的最小水高度.</p>
 <p>Flu原先想的是,一个城市被淹的时候走的都是最短路,所以直接对每个城市的边权取min然后对所有城市的min取max就行了,然而不对,比如</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line">4/ \5</span><br><span class="line">2---3</span><br><span class="line">  1</span><br></pre></td></tr></table></figure>
@@ -384,39 +318,17 @@ $sz_i$ 表示以 $i$ 节点为根的子树大小.</p>
 <blockquote>
 <p>最大流==最小割</p>
 </blockquote>
-<h2 id="C-5">C</h2>
+<h2 id="C-2">C</h2>
 <p>有一个问题: <strong>哈密顿路</strong> 和 <strong>哈密顿回路</strong> 不是一个东西.前者只需要遍历就可以了,后者则需要状压DP.</p>
 <p>然而…<br>
 树上进行链的合并要动态维护sz,同时由于dp值会发生变化,要开一个辅助数组临时存放,然后在一整个链合并完之后在集中推平,草,合并链都不会写,这么唐吗…</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	sz[pos]=<span class="number">1</span>;dp[pos][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> v:edge[pos])&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(v);</span><br><span class="line">		<span class="built_in">fill</span>(tmp,tmp+<span class="number">400</span>,<span class="number">-1145141919810</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=sz[pos];++i)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=sz[v];++j)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;=<span class="built_in">min</span>(i+j<span class="number">-1</span>,<span class="number">2</span>*<span class="built_in">min</span>(i,j));++k)&#123;</span><br><span class="line">					tmp[i+j-k]=<span class="built_in">max</span>(tmp[i+j-k],k*num[pos]+dp[pos][i]+dp[v][j]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> _=<span class="number">1</span>;_&lt;=sz[pos]+sz[v];++_)&#123;</span><br><span class="line">			dp[pos][_]=tmp[_];</span><br><span class="line">		&#125;</span><br><span class="line">		sz[pos]+=sz[v];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/714948">第五次集训</a></h1>
 <p>决定省赛谁打星的关键比赛,Flu队直接拿第一出线了(empty佬的恩情还不完…),第二次可以不参与了.</p>
-<h2 id="B-4">B</h2>
+<h2 id="B-2">B</h2>
 <p>设 $f(x)$ 是一个数分解成质数的最小个数.<br>
 对于偶数,使用哥德巴赫猜想(除了2),必定能够拆成两个奇质数.<br>
 对于奇数,首先是拆成2和f(奇数-2),然而还可以拆成三个奇质数的和(偶数+奇质数,又是猜想),所以上界是3.</p>
-<h1><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/109081#question">牛客练习赛138</a></h1>
-<h2 id="F-2">F</h2>
-<p>逆天F构造…<br>
-构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数.</p>
-<p>结果告诉我只需要找到 $p+q=n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] .<br>
-最后用哥德巴赫猜想变种证明的,真神秘.</p>
-<h2 id="G-4">G</h2>
-<p>对于给定的 $n,k$ 计算<br>
-$$\sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)$$<br>
-这个题乍一看无从下手,再一看k只有 $100$ 而n有1e7.<br>
-首先考虑特殊情况:k=1,这就是 $2^{n}-1$ .<br>
-对于k=2有<br>
-$$\binom n1+\binom n3+…$$<br>
-考虑二项式定理,上面就是 $(x+1)^n$ 的 $x$ 项的系数.<br>
-于是对于更普遍的情况,有:<br>
-$$(1+x)^n \mod (x^k−1)$$<br>
-答案是 $x$ 的系数.</p>
-<blockquote>
-<p>为什么模 $(x^k-1)$ 而不是模 $(x^k)$ ?<br>
-因为前者可以让 $x^k\equiv 1$ (也就是变成了循环多项式环)而后者会让 $x^k,x^{k+1},…\equiv 0$ 也就是多项式高位全部丢掉了.</p>
-</blockquote>
-<p>最后对n套一个快速幂就能算出来答案了,复杂度 $O(T\log nk^2)$ .</p>
 <h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103486">VP</a></h1>
 <p>回想起来了括号匹配结论是卡特兰数.</p>
 <h2 id="I-Nim-Game">I Nim Game</h2>
@@ -430,6 +342,40 @@ $$a^x\equiv b\mod p$$<br>
 $$x^2\equiv a\mod p$$<br>
 这俩不一样…</p>
 <h2 id="-2"></h2>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105922">吉林省赛</a></h1>
+<blockquote>
+<p>Flu:省赛铜直接退役.</p>
+</blockquote>
+<p>失误:开局QianK一直在开签到,签麻了.<br>
+失误:Flu线段树用mod当根,取模的时候炸了(我错了我错了).</p>
+<h2 id="C-3">C</h2>
+<p>如何计算巨运算符,如<br>
+$$pow=\sum_{x_1=0}^{n-1}\sum_{x_2=0}^{n-1}\sum_{x_3=0}^{n-1}a_{(x_1+x_2+…+x_n)\mod n}$$<br>
+最后发现最后一个就是sum数列或者prod数列,然后考虑向前处理:<br>
+碰到sum说明有n个这样的数列,所以乘n即可.<br>
+碰到prod要对其求n次方.</p>
+<h2 id="H-2">H</h2>
+<p>两段区间上要支持区间加上某个数字,你要判断两段区间可以任意交换顺序后是否相等.</p>
+<p>哈希.但是要考虑怎么哈希,赛时想到的方法有:</p>
+<ol>
+<li>维护区间所有和的二次方和.(以及其加强版,维护三次方和(初始时再加一个随机偏移))</li>
+<li>选一个数做底,维护其a次方的和.</li>
+<li>维护区间所有数的抑或和.</li>
+</ol>
+<p>事实上,方法1很容易被卡,加强版过了这个题.<br>
+方法2好写好调,为什么不写?<br>
+其实做法3假了,因为区间加和不是区间抑或,所以是没法维护的…</p>
+<p>两段区间是分奇偶的,如何维护?<br>
+考虑把奇数做成正的,偶数做成负的,判断其加和是否为0即可(所以只需要一颗线段树).</p>
+<h2 id="OTH">OTH,</h2>
+<p>群U说可以直接把交互逻辑写进程序,然后留个开关即可.</p>
+<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105924">东北赛</a></h1>
+<blockquote>
+<p>死磕BH失败,铜了…<br>
+成就:三色牌…(省赛金,东北赛银,全国邀请赛铜…)</p>
+</blockquote>
+<p>失误:死磕.<br>
+修正:多看题,在写代码之前禁止交流解法,防止被带偏.</p>
 
   </div>
 </article>
@@ -462,7 +408,7 @@ $$x^2\equiv a\mod p$$<br>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CF愚人节赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">3.1.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-pair-count"><span class="toc-number">3.4.</span> <span class="toc-text">E pair count</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%BF%99%E4%B8%AA%E9%A2%98%E7%88%86%E4%BA%86%E4%B8%AA%E5%A4%A7bug-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81-%E4%B9%8B%E5%89%8D%E4%BB%8E%E6%9D%A5%E6%B2%A1%E8%A7%81%E8%BF%87%E7%9A%84bug"><span class="toc-number">3.4.1.</span> <span class="toc-text">在这个题爆了个大bug,非常重要,之前从来没见过的bug</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-1-3-of-the-problem"><span class="toc-number">3.5.</span> <span class="toc-text">F 1&#x2F;3 of the problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-%E7%BB%9D%E5%AF%B9%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E8%AE%BA%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">G &lt;绝对是一个图论问题&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">3.7.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.8.</span> <span class="toc-text">J</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">CF愚人节赛2012</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">4.1.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">4.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">4.3.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">4.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">CF愚人节2013</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">5.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">5.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">CF愚人节2014</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">6.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">6.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-3"><span class="toc-number">6.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-000001"><span class="toc-number">6.4.</span> <span class="toc-text">F 000001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-on-a-plane"><span class="toc-number">6.5.</span> <span class="toc-text">G on a plane</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-4"><span class="toc-number">7.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">8.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-4"><span class="toc-number">8.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J-2"><span class="toc-number">9.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-3"><span class="toc-number">9.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-5"><span class="toc-number">9.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">9.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">9.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">9.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-5"><span class="toc-number">11.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">11.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-3"><span class="toc-number">11.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-6"><span class="toc-number">12.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-4"><span class="toc-number">12.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-5"><span class="toc-number">12.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-4"><span class="toc-number">13.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F-2"><span class="toc-number">14.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-4"><span class="toc-number">14.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">15.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">15.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">15.3.</span> <span class="toc-text"></span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">10.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li></ol>
       </div>
     
 

@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/35ybspfw.png">
 <meta property="article:published_time" content="2024-09-03T04:46:12.000Z">
-<meta property="article:modified_time" content="2025-04-28T13:03:54.596Z">
+<meta property="article:modified_time" content="2025-05-29T16:39:43.458Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="NumberTheory">
 <meta name="twitter:card" content="summary">
@@ -216,28 +216,25 @@ $$(ac+bd)^2+(ad-bc)^2=(a^2+b^2)(c^2+d^2)$$<br>
 </li>
 <li>
 <p>计算<br>
-$$\begin{aligned}<br>
-&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)d(\gcd(i,j))\<br>
-=&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)\sum_{k|i.j}1\<br>
-=&amp;\sum_{k=1}^{\min(n,m)}\sum_{i=1,k|i}^nd(i)\sum^m_{j=1,k|j}d(j)\end{aligned}$$<br>
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)d(\gcd(i,j))\=&amp;\sum_{i=1}^n\sum^m_{j=1}d(i)d(j)\sum_{k|i.j}1\=&amp;\sum_{k=1}^{\min(n,m)}\sum_{i=1,k|i}^nd(i)\sum^m_{j=1,k|j}d(j)\end{aligned}$$<br>
 然后设这个函数为S,直接计算即可.</p>
 </li>
 </ol>
 <h2 id="其他奇奇怪怪的公式">其他奇奇怪怪的公式</h2>
 <ol>
 <li>feb表示斐波那契数列第n项.<br>
-$$\gcd(feb_{n},feb_{m})=feb_{\gcd(n,m)}$$</li>
+$$\gcd(feb_{n},feb_{m})=feb_{\gcd(n,m)} $$</li>
 <li></li>
 </ol>
-<p>$$\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)},\gcd(a,b)=1$$<br>
+<p>\gcd(a^m-b^m,a^n-b^n)=a^{\gcd(n,m)}-b^{\gcd(n,m)},\gcd(a,b)=1<br>
 3.<br>
-$$\gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1$$<br>
+\gcd(a^n-1,a^m-1)=a^{\gcd(n,m)}-1<br>
 4.<br>
-$$(n+1)lcm(C^{0}<em>{n},C^{1}</em>{n},…,C^{n}_{n})=lcm(1,2,…,n+1)$$<br>
+$$(n+1)lcm(C^{0}<em>{n},C^{1}</em>{n},…,C^{n}_{n})=lcm(1,2,…,n+1) $$<br>
 5.<br>
 $$((n+1)(n+2)(n+3)…(n+k))%(k!)=0$$<br>
-6. $n!$ 中p的幂次是<br>
-$$\sum\left\lfloor\frac n{p^i}\right\rfloor$$<br>
+6. n! 中p的幂次是<br>
+\sum\left\lfloor\frac n{p^i}\right\rfloor<br>
 7. 若 $b|a$ 则有<br>
 $$\frac ab%c=\frac{a%(bc)}b$$<br>
 8. 快速幂的优化(偏一点)<br>
@@ -256,15 +253,15 @@ $$\begin{aligned}<br>
 &amp;\ln x&lt;-\frac12x^2+2x-\frac32(0&lt;x&lt;1)\\<br>
 &amp;\ln x&gt;\frac{2(x-1)}{x+1}(x&gt;1)\\<br>
 &amp;\ln x&lt;\frac{2(x-1)}{x+1}(0&lt;x&lt;1)\\<br>
-\end{aligned}$$</p>
+\end{aligned} $$</p>
 <h2 id="升幂引理">升幂引理</h2>
-<p>规定 $v_p(n)$ 表示n中有多少个p这个因子.</p>
+<p>规定 v_p(n) 表示n中有多少个p这个因子.</p>
 <ol>
 <li>素数p和与p互质的n.<br>
-若 $p|x-y$ 有<br>
-$$v_p(x^n-y^n)=v_p(x-y)$$<br>
-若 $p|x+y$ 则对 <strong>奇数</strong> n有<br>
-$$v_p(x^n+y^n)=v_p(x+y)$$</li>
+若 p|x-y 有<br>
+v_p(x^n-y^n)=v_p(x-y)<br>
+若 p|x+y 则对 <strong>奇数</strong> n有<br>
+v_p(x^n+y^n)=v_p(x+y)</li>
 <li>若p不是2(是奇质数):<br>
 若 $p|x-y$ 有<br>
 $$v_p(x^n-y^n)=v_p(x-y)+v_p(n)$$<br>
@@ -300,7 +297,7 @@ $$\begin{aligned}f(a,b,c,n)&amp;=\sum_{k=0}^{m-1}\sum_{i=0}^n\Big[i&gt;\Big\lflo
 \&amp;=\sum_{j=0}^{m-1}\Big(n-\Big\lfloor\frac{jc+c-b-a}a\Big\rfloor\Big)<br>
 \&amp;=nm-f(c,c-b-1,a,m-1)\end{aligned}$$<br>
 中间有<br>
-$$n^2=2\frac{n(n+1)}2-n=\Big(\sum_{i=0}^ni\Big)-n$$</li>
+n^2=2\frac{n(n+1)}2-n=\Big(\sum_{i=0}^ni\Big)-n</li>
 </ol>
 <h2 id="复数向量根号的几何意义">复数向量根号的几何意义</h2>
 <p>在复数坐标系上向量的根号是辐角折半,平方的意思是辐角二倍,在坐标系上转.</p>

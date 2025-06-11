@@ -14,7 +14,7 @@
 <meta property="og:description" content="拉插的用法就是,给定好多个点,让你拟合一条多项式的曲线经过这些点,求出这个函数在x&#x3D;k的时候的值. 拉插公式 $$f(x)&#x3D;\sum_{i&#x3D;0}^ny_i\prod_{i\neq j}\frac{k-x_j}{x_i-x_j}$$ 理解一下:假如给的点是 $(1,3),(2,7),(3,13)$ ,拉插就是: $$f(k)&#x3D;3\frac{(k-2)(k-3)}{(1-2)(1-3)}+7\frac">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-11T04:19:30.000Z">
-<meta property="article:modified_time" content="2025-04-25T18:59:39.604Z">
+<meta property="article:modified_time" content="2025-05-22T11:03:39.376Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -205,10 +205,11 @@ $$f(k)=g\sum_{i=0}^n\prod_{i\neq j}\frac{y_i}{(k-x_i)(x_i-x_j)}$$<br>
 $$f(k)=g\sum_{i=0}^n\frac{t_i}{(k-x_i)}$$<br>
 这样加点的时候只需要计算他的 $t_i$ 即可.</p>
 <h2 id="应用">应用</h2>
-<p>首先你要证明这是一个多项式,能用插值.</p>
-<p>典型:<br>
-$$\sum_{i=1}^ni^k$$<br>
-首先证明是一个多项式,然后&quot;直接插值&quot;(按n为变元,暴力算每个数,然后按点插值即可)</p>
+<ol>
+<li></li>
+</ol>
+<p>$$\sum_{i=1}^ni^k$$<br>
+这是一个 $(k+1)$ 项的多项式(归纳出来的),然后&quot;直接插值&quot;(按n为变元,暴力算每个数,然后按点插值,因为取值连续所以可以 $O(n)$ 插值)</p>
 
   </div>
 </article>
