@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="逆天概率论有期中考试. 随机试验 简称试验,有三大性质:可重复性 可观测性 随机性 样本点:最基本的结果,通常用 $\omega$ 表示,如 CE,WA,AC... 样本空间:所有样本点组成的集合,用 $\Omega$ 表示,即 &#123;CE,WA,AC,RE,TLE...&#125; 随机事件:样本空间的子集,若干样本点构成的集合,用 A,B,C 表示. 基本事件:样本空间的单点集,也就是包">
+    <meta name="description" content="ABC两两独立和ABC相互独立的区别  两两独立: $P(AB)&#x3D;P(A)P(B)$ ,…(任意两个都满足这样的式子) 相互独立(额外条件): $P(ABC)&#x3D;P(A)P(B)P( C )$   $P(A\overline B)&#x3D;P(A)-P(AB)$ 理解:A发生B不发生   相容和独立的区别   不相容(互斥): $P(AB)&#x3D;0$ 独立: $P(AB)&#x3D;P(A)P(B)$   $P(A|B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率论学习笔记">
 <meta property="og:url" content="https://narafluorine.github.io/2025/05/16/00012_%E6%A6%82%E7%8E%87%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="逆天概率论有期中考试. 随机试验 简称试验,有三大性质:可重复性 可观测性 随机性 样本点:最基本的结果,通常用 $\omega$ 表示,如 CE,WA,AC... 样本空间:所有样本点组成的集合,用 $\Omega$ 表示,即 &#123;CE,WA,AC,RE,TLE...&#125; 随机事件:样本空间的子集,若干样本点构成的集合,用 A,B,C 表示. 基本事件:样本空间的单点集,也就是包">
+<meta property="og:description" content="ABC两两独立和ABC相互独立的区别  两两独立: $P(AB)&#x3D;P(A)P(B)$ ,…(任意两个都满足这样的式子) 相互独立(额外条件): $P(ABC)&#x3D;P(A)P(B)P( C )$   $P(A\overline B)&#x3D;P(A)-P(AB)$ 理解:A发生B不发生   相容和独立的区别   不相容(互斥): $P(AB)&#x3D;0$ 独立: $P(AB)&#x3D;P(A)P(B)$   $P(A|B">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-20T10:48:24.248Z">
+<meta property="article:modified_time" content="2025-06-24T02:23:04.032Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">随机试验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-number">3.</span> <span class="toc-text">概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B-%E7%AD%89%E5%8F%AF%E8%83%BD%E6%A6%82%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">古典概型(等可能概型)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A6%82%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">几何概型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-%E8%92%B2%E4%B8%B0%E6%8A%95%E9%92%88%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">例题-蒲丰投针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">6.</span> <span class="toc-text">条件概率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF"><span class="toc-number">6.1.</span> <span class="toc-text">推广:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">全概率公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">贝叶斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">事件的独立性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%92%8C%E4%B8%8D%E7%9B%B8%E5%AE%B9%E5%85%B3%E7%B3%BB"><span class="toc-number">9.1.</span> <span class="toc-text">独立和不相容关系:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%A6%82%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">伯努利概型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">随机变量及其概率分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">离散型随机变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">连续型随机变量及其概率密度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-number">3.</span> <span class="toc-text">几种常用的离散分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">几种常用的连续随机变量和分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">随机变量的函数的分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">离散型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">连续型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">真正的笔记</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">切比雪夫不等式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">大数定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">中心极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%90%8C%E5%88%86%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">独立同分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%B9%BF%E6%B3%9B%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">3.2.</span> <span class="toc-text">更广泛的情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">统计量和分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE%E5%85%AC%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">样本方差公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">三大分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chi-2-%E5%88%86%E5%B8%83"><span class="toc-number">5.1.</span> <span class="toc-text">$\chi^2$ 分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#t%E5%88%86%E5%B8%83"><span class="toc-number">5.2.</span> <span class="toc-text">t分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%E5%88%86%E5%B8%83"><span class="toc-number">5.3.</span> <span class="toc-text">F分布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="toc-number">6.</span> <span class="toc-text">正态总体的抽样分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E4%BC%B0%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">矩估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="toc-number">8.</span> <span class="toc-text">最大似然估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%81%8F%E6%80%A7-%E6%9C%89%E6%95%88%E6%80%A7-%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">无偏性 有效性 一致性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">下面内容因为太过冗余,不再维护.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">随机试验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-number">3.</span> <span class="toc-text">概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B-%E7%AD%89%E5%8F%AF%E8%83%BD%E6%A6%82%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">古典概型(等可能概型)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A6%82%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">几何概型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-%E8%92%B2%E4%B8%B0%E6%8A%95%E9%92%88%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">例题-蒲丰投针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">6.</span> <span class="toc-text">条件概率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF"><span class="toc-number">6.1.</span> <span class="toc-text">推广:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">全概率公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">贝叶斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">事件的独立性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%92%8C%E4%B8%8D%E7%9B%B8%E5%AE%B9%E5%85%B3%E7%B3%BB"><span class="toc-number">9.1.</span> <span class="toc-text">独立和不相容关系:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%A6%82%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">伯努利概型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">随机变量及其概率分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">离散型随机变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">连续型随机变量及其概率密度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-number">3.</span> <span class="toc-text">几种常用的离散分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">几种常用的连续随机变量和分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">随机变量的函数的分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">离散型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">连续型</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -176,7 +176,338 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>逆天概率论有期中考试.</p>
+    <ol>
+<li>ABC两两独立和ABC相互独立的区别</li>
+</ol>
+<p>两两独立: $P(AB)=P(A)P(B)$ ,…(任意两个都满足这样的式子)<br>
+相互独立(额外条件): $P(ABC)=P(A)P(B)P( C )$</p>
+<ol start="2">
+<li>
+<p>$P(A\overline B)=P(A)-P(AB)$ 理解:A发生B不发生</p>
+</li>
+<li>
+<p>相容和独立的区别</p>
+</li>
+</ol>
+<p>不相容(互斥): $P(AB)=0$<br>
+独立: $P(AB)=P(A)P(B)$</p>
+<ol start="4">
+<li>
+<p>$P(A|B)=\frac{P(AB)}{P(B)}$</p>
+</li>
+<li>
+<p>$P(\overline A~\overline B)=P(\overline{A+B})=1-P(A+B)$</p>
+</li>
+<li>
+<p>$P(A|B)+P(\overline A|B)=1$ 隐藏条件</p>
+</li>
+<li>
+<p>指数分布<br>
+$$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x&gt;0\\0&amp;x\le0\end{cases}$$<br>
+泊松分布<br>
+$$P(\lambda):f(x)=\frac{\lambda^xe^{-\lambda}}{x!}$$</p>
+</li>
+<li>
+<p>正态分布标准化:<br>
+$$Y=\frac{X-\mu}{\sigma}\sim N(0,1)$$<br>
+$$F(X)=\Phi\left(\frac{X-\mu}{\sigma}\right)$$</p>
+</li>
+<li>
+<p>$f(x),F(x)$ ,对 $-X$ 有<br>
+$$F_{-X}(x)=P(-X&lt;x)=P(X&gt;-x)=1-F(-x)$$<br>
+对 $F(x)$ 求导得<br>
+$$f_{-X}(x)=f(-x)$$</p>
+</li>
+<li>
+<p>例题:求概率密度<br>
+$$f(x)=\begin{cases}\frac12&amp;-1&lt;x&lt;0\\\frac14&amp;0\le x&lt;2\\0&amp;others\end{cases}$$<br>
+$$Y=X^2$$<br>
+这么写过程:当 $y&lt;0$ 时, $F_Y(y)=P{Y\le y}=P{X^2\le y}=0$<br>
+…<br>
+然后概率密度通过求导.</p>
+</li>
+<li>
+<p>独立的两个随机变量 $XY$ 满足 $f(x,y)=f_X(x)f_Y(y)$ .<br>
+且 $f_{XY}(x,y)=\frac{\partial^2F(x,y)}{\partial x\partial y}$ .</p>
+</li>
+<li>
+<p>多个正态分布叠加: $Z=aX+BY+c$ 有<br>
+$$\mu_Z=a\mu_X+b\mu_Y+c$$<br>
+$$\sigma_Z^2=a\sigma_X^2+b\sigma_Y^2$$<br>
+$$N(\mu,\sigma^2):f(x)=\frac1{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$</p>
+</li>
+<li>
+<p>二维正态分布: $N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$<br>
+$$\large f(x,y)=\frac1{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left[\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}\right]}$$<br>
+当 $\rho$ 为 $0$ 时,两个变量相互独立,也就能直接拆成 $X\sim N(\mu_1,\sigma_2^2)$ 和 $Y\sim N(\mu_,\sigma_2^2)$ ,其余时候等高线是椭圆,不过也是可以直接拆,但是在算方差记得加上cov.</p>
+</li>
+<li>
+<p>二维条件概率:<br>
+$$f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}$$<br>
+$$f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\mathrm dx$$</p>
+</li>
+<li>
+<p>两个变量独立,然后 $Z=X+Y$ 怎么算?<br>
+$$F_{X+Y}(z)=P{X+Y\le Z}=\int_0^z\mathrm dx\int_0^{z-x}f(x)f(y)\mathrm dy$$</p>
+</li>
+<li>
+<p>高斯积分<br>
+$$\int_{-\infty}^{+\infty}e^{-ay^2}\mathrm dy=\sqrt{\frac{\pi}{a}}$$</p>
+</li>
+<li>
+<p>最大值,最小值公式:<br>
+因为max是两个都要小于z,故直接对z积分即可.<br>
+$$Z=\max(X,Y):F_Z(z)=F_X(z)F_Y(z)$$<br>
+最小值是反过来减去最大值:<br>
+$$Z=\min(X,Y):F_Z(z)=1-[1-F_X(z)][1-F_Y(z)]$$</p>
+</li>
+<li>
+<p>数学期望(假设此积分绝对收敛,数学期望可以不存在)<br>
+$$E(x)=\int_{-\infty}^{+\infty}xf(x)\mathrm dx$$<br>
+方差<br>
+$$D(X)=E(X^2)-[E(X)]^2$$<br>
+$$D(X)=\int_{-\infty}^{+\infty}(x-E(x))f(x)\mathrm dx$$<br>
+协方差(独立的随机变量协方差为0)<br>
+$$\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)$$<br>
+相关系数(相互独立为0, $\rho\in[-1,1]$ )<br>
+$$\rho_{XY}=\frac{\mathrm{Cov}(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}$$</p>
+</li>
+<li>
+<p>期望性质<br>
+$$E(aX+bY+c)=aE(X)+bE(Y)+c$$<br>
+若变量独立,有<br>
+$$E(XY)=E(X)E(Y)$$<br>
+<strong>注意</strong> :上述性质只能推出来XY不相关,也就是说cov=0,方差可以直接相加 $D(X+Y)=D(X)+D(Y)$</p>
+</li>
+<li>
+<p>期望实战<br>
+$$E(\max(X,Y))=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\max(x,y)f(x,y)\mathrm dx\mathrm dy$$<br>
+$$E(XY)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xyf(x,y)\mathrm dx\mathrm dy$$</p>
+</li>
+<li>
+<p>方差性质<br>
+$$D(CX)=C^2D(X)$$<br>
+若XY相互独立,则<br>
+$$D(X\pm Y)=D(X)\pm D(Y)$$<br>
+若X是常数,方差为0,反过来不成立.</p>
+</li>
+<li>
+<p>协方差性质<br>
+$$\mathrm{Cov}(X,c)=0$$<br>
+$$\mathrm{Cov}(X,X)=D(X)$$<br>
+$$D(X\pm Y)=D(X)+D(Y)\pm2\mathrm{Cov}(X,Y)$$<br>
+$$\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)$$<br>
+$$\mathrm{Cov}(aX,bY)=ab\mathrm{Cov}(X,Y)$$<br>
+$$\mathrm{Cov}(X+Z,Y)=\mathrm{Cov}(X,Y)+\mathrm{Cov}(Z,Y)$$</p>
+</li>
+<li>
+<p>几种分布的期望和方差等</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">E</th>
+<th style="text-align:center">D</th>
+<th style="text-align:center">sgn</th>
+<th style="text-align:center">f</th>
+<th style="text-align:center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(0-1)分布</td>
+<td style="text-align:center">$p$</td>
+<td style="text-align:center">$p(1-p)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$$f(x)=\begin{cases}\frac{1}{b-a}&amp;a&lt;x&lt;b\\0&amp;others\end{cases}$$</td>
+<td style="text-align:center">$$F(x)=\begin{cases}0&amp;x\le a\\\frac{x-a}{b-a}&amp;a&lt;x&lt;b\\1&amp;x\ge b\end{cases}$$</td>
+</tr>
+<tr>
+<td style="text-align:center">指数分布</td>
+<td style="text-align:center">$\frac1\lambda$</td>
+<td style="text-align:center">$\frac1{\lambda^2}$</td>
+<td style="text-align:center">$X\sim E(\lambda)$</td>
+<td style="text-align:center">$$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x&gt;0\\0&amp;others\end{cases}$$</td>
+<td style="text-align:center">$$F(x)=\begin{cases}1-e^{-\lambda x}&amp;x&gt;0\\0&amp;x\le 0\end{cases}$$</td>
+</tr>
+<tr>
+<td style="text-align:center">二项分布</td>
+<td style="text-align:center">$np$</td>
+<td style="text-align:center">$np(1-p)$</td>
+<td style="text-align:center">$X\sim B(n,p)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">几何分布</td>
+<td style="text-align:center">$\frac1p$</td>
+<td style="text-align:center">$\frac{1-p}{p^2}$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">泊松分布</td>
+<td style="text-align:center">$\lambda$</td>
+<td style="text-align:center">$\lambda$</td>
+<td style="text-align:center">$X\sim\pi(\lambda),X\sim P(\lambda)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">均匀分布</td>
+<td style="text-align:center">$\frac{a+b}2$</td>
+<td style="text-align:center">$\frac{(a-b)^2}{12}$</td>
+<td style="text-align:center">$X\sim U(a,b)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">正态分布</td>
+<td style="text-align:center">$\mu$</td>
+<td style="text-align:center">$\sigma^2$</td>
+<td style="text-align:center">$X\sim N(\mu,\sigma^2)$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<ol start="25">
+<li>
+<p>标准正态分布标志是 $\varphi=\frac1{\sqrt{2\pi}}e^{-\frac{x^2}2}$ ,其分布函数为 $\Phi$ ,注意 $\Phi$ 是积不出来的.</p>
+</li>
+<li>
+<p>由 $Z=g(x,y)$ 可以解出 $y=h(x,z)$ ,代入有<br>
+$$f_Z(z)=\int_{-\infty}^{+\infty}f(x,h(x,z))\left|\frac{\partial h}{\partial z}\right|\mathrm dx$$</p>
+</li>
+</ol>
+<p>min与max的分布:<br>
+$$M=\max(X,Y),N=\min(X,Y)$$<br>
+$$F_M(z)=F_X(z)F_Y(z)$$<br>
+$$F_N(z)=1-(1-F_X(z))(1-F_Y(z))$$</p>
+<ol start="27">
+<li>确定常数c满足xx是参数为xx的无偏估计量.<br>
+得到式子 $CE(xxx)=xx$ 然后求出常数.</li>
+</ol>
+<h2 id="切比雪夫不等式">切比雪夫不等式</h2>
+<p>设期望是 $E(X)=\mu$ ,方差 $D(X)=\sigma^2$ ,然后<br>
+$$P{|X-\mu|\ge\varepsilon}\le\frac{\sigma^2}{\varepsilon^2}$$</p>
+<h2 id="大数定律">大数定律</h2>
+<h2 id="中心极限定理">中心极限定理</h2>
+<h3 id="独立同分布">独立同分布</h3>
+<p>设单个X期望是 $\mu$ ,方差是 $\sigma^2$ ,则<br>
+$$E(\sum_{i=1}^n X_i)=n\mu,D(\sum_{i=1}^n X_i)=n\sigma^2$$<br>
+$$Y_n=\frac{\sum_{i=1}^nX_k-n\mu}{\sqrt n\sigma}\sim N(0,1)$$</p>
+<h3 id="更广泛的情况">更广泛的情况</h3>
+<p>其实就是期望和方差用统计值换了一下…<br>
+$$Y_n=\frac{\sum_{i=1}^nX_k-\sum_{i=1}^nE( X_i)}{\sqrt{\sum_{i=1}^nD(X_i)}}\sim N(0,1)$$</p>
+<h2 id="统计量和分布">统计量和分布</h2>
+<p>不含任何未知参数的是统计量,如 $\sum_{i=1}^nX_i$ 是, $\sum_{i=1}^n\frac{X_i-\mu}{\sigma}$ 不是.</p>
+<h3 id="样本方差公式">样本方差公式</h3>
+<p>反正由于某种原因,样本方差是 $\frac1{n-1}$ 而不是 $\frac1n$ 这一点一定要牢记!!!<br>
+还有的性质是 $E(S^2)=\sigma^2$</p>
+<h2 id="三大分布">三大分布</h2>
+<h3 id="chi-2-分布">$\chi^2$ 分布</h3>
+<p>若干样本 $X_i\sim N(0,1)$ ,记 $X_1^2+…+X_n^2\sim\chi^2(n)$ 服从卡方分布.(必须是标准正态分布,n被称为自由度).<br>
+卡方分布有 $E(\chi^2)=n,D(\chi^2)=2n$</p>
+<p>推论1:设 $X_i\sim N(\mu,\sigma^2)$ ,有服从卡方分布<br>
+$$\chi^2=\frac1{\sigma^2}\sum_{i=1}^n(X_i-\mu)^2=\sum_{i=1}^n\left(\frac{X_i-\mu}{\sigma}\right)\sim\chi^2(n)$$</p>
+<p>推论2:<br>
+$$\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$$</p>
+<p>两个独立的卡方分布加一起: $\chi^2(a+b)$</p>
+<h3 id="t分布">t分布</h3>
+<p>设 $X\sim N(0,1),Y\sim\chi^2(n)$ ,且XY独立,则随机变量服从t分布,有下面式子<br>
+$$t=\frac{X}{\sqrt{Y/n}}$$<br>
+记作 $t\sim t(n)$</p>
+<p>推论: $t=\frac{\overline X-\mu}{S}\sqrt n\sim t(n-1)$</p>
+<h3 id="F分布">F分布</h3>
+<p>设 $X\sim \chi^2(m),Y\sim\chi^2(n)$ ,且XY独立,则随机变量服从F分布,有下面式子<br>
+$$F=\frac{X/m}{Y/n}$$<br>
+记作 $F\sim F(m,n)$ ,第一自由度m,第二自由度n.</p>
+<h2 id="正态总体的抽样分布">正态总体的抽样分布</h2>
+<p>总体方差 $\sigma$ ,均值 $\mu$ ,样本方差 $s^2$ ,均值 $\overline X$ .</p>
+<ol>
+<li>$$\frac{\overline X-\mu}{\sigma/\sqrt n}\sim N(0,1)$$</li>
+<li>$$\frac{\overline X-\mu}{s/\sqrt n}\sim t(n-1)$$</li>
+<li>$$\frac{s^2(n-1)}{\sigma^2}=\sum_{i=1}^n(\frac{X_i-\overline X}{\sigma})^2\sim\chi^2(n-1)$$</li>
+<li>$$F=\frac{\sigma_1^2/S_1^2}{\sigma_2^2/S_2^2}=F(n_1-1,n_2-1)$$</li>
+</ol>
+<p>假设总体符合正态分布,随机抽几个样本符合正态分布: $\overline X\sim N(\mu,\frac{\sigma^2}n)$</p>
+<h2 id="矩估计">矩估计</h2>
+<ol>
+<li>求期望</li>
+<li>将期望E=xxx换成 $(E=)\overline X=xxx$</li>
+<li>将未知数用 $\overline X$ 表示(也就是求反函数)</li>
+</ol>
+<h2 id="最大似然估计">最大似然估计</h2>
+<ol>
+<li>先把函数抄一遍</li>
+<li>构造似然函数 $L(x_1,x_2,…,x_n,\theta)=f(x_1)f(x_2)…f(x_n)$<br>
+(就是直接乘起来,算答案)</li>
+<li>对似然函数取对数,得到 $\ln L(x_1,x_2,…,x_n,\theta)$</li>
+<li>上述对数函数对 $\theta$ 求偏导 $\frac{\partial \ln L}{\partial \theta}$</li>
+<li>令上述偏导为0,得到 $\hat\theta$ 的值.</li>
+<li>(不用真的带入计算)证明 $\hat\theta$ 是一个极大值,用到高中证明单调性的方法,函数在哪哪哪怎么怎么样.</li>
+</ol>
+<h2 id="无偏性-有效性-一致性">无偏性 有效性 一致性</h2>
+<p>无偏估计: $E(\hat\theta)=\theta$ 人话:系数加一起等于1,如 $X=0.5X_1+0.5X_2$ 是, $0.6X_2$ 就不是了.<br>
+有效性:比方差看哪个小哪个更有效,如 $x2$ 不如 $\frac12x1+\frac16x2+\frac13x3$ .</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1>下面内容因为太过冗余,不再维护.</h1>
+<p>逆天概率论有期中考试.</p>
 <h2 id="随机试验">随机试验</h2>
 <p>简称试验,有三大性质:可重复性 可观测性 随机性</p>
 <p>样本点:最基本的结果,通常用 $\omega$ 表示,如 <code>CE,WA,AC...</code><br>
@@ -364,199 +695,6 @@ $$f_Y(y)=F_Y’(y)$$</li>
 <p>h(x)是反函数,若存在(g(x)严格单调处处可导)则有<br>
 $$f_X(x)=f_X(h(y))\Big|h’(y)\Big|$$</p>
 <hr>
-<h1>真正的笔记</h1>
-<p>感觉之前写的狗屁不是,没重点,你在复习个啥.</p>
-<ol>
-<li>ABC两两独立和ABC相互独立的区别</li>
-</ol>
-<p>两两独立: $P(AB)=P(A)P(B)$<br>
-相互独立(额外条件): $P(ABC)=P(A)P(B)P( C )$</p>
-<ol start="2">
-<li>
-<p>$P(A\overline B)=P(A)-P(AB)$ 理解:A发生B不发生</p>
-</li>
-<li>
-<p>相容和独立的区别</p>
-</li>
-</ol>
-<p>不相容: $P(AB)=0$<br>
-独立: $P(AB)=P(A)P(B)$</p>
-<ol start="4">
-<li>
-<p>$P(A|B)=\frac{P(AB)}{P(B)}$</p>
-</li>
-<li>
-<p>$P(\overline A~\overline B)=P(\overline{A+B})=1-P(A+B)$</p>
-</li>
-<li>
-<p>$P(A|B)+P(\overline A|B)=1$ 隐藏条件</p>
-</li>
-<li>
-<p>指数分布<br>
-$$f(x)=\begin{cases}\lambda e^{-\lambda x}&amp;x&gt;0\\0&amp;x\le0\end{cases}$$<br>
-泊松分布<br>
-$$P(\lambda):f(x)=\frac{\lambda^xe^{-\lambda}}{x!}$$</p>
-</li>
-<li>
-<p>正态分布标准化:<br>
-$$Y=\frac{X-\mu}{\sigma}\sim N(0,1)$$<br>
-$$F(X)=\Phi\left(\frac{X-\mu}{\sigma}\right)$$</p>
-</li>
-<li>
-<p>$f(x),F(x)$ ,对 $-X$ 有<br>
-$$F_{-X}(x)=P(-X&lt;x)=P(X&gt;-x)=1-F(-x)$$<br>
-对 $F(x)$ 求导得<br>
-$$f_{-X}(x)=f(-x)$$</p>
-</li>
-<li>
-<p>$3\sigma$ 原则<br>
-$$<br>
-\begin{aligned}<br>
-[\mu-\sigma,\mu+\sigma]&amp;=0.6826\\<br>
-[\mu-2\sigma,\mu+2\sigma]&amp;=0.9544\\<br>
-[\mu-3\sigma,\mu+3\sigma]&amp;=0.9974<br>
-\end{aligned}$$</p>
-</li>
-<li>
-<p>例题:求概率密度<br>
-$$f(x)=\begin{cases}\frac12&amp;-1&lt;x&lt;0\\\frac14&amp;0\le x&lt;2\\0&amp;others\end{cases}$$<br>
-$$Y=X^2$$<br>
-这么写过程:当 $y&lt;0$ 时, $F_Y(y)=P{Y\le y}=P{X^2\le y}=0$<br>
-…<br>
-然后概率密度通过求导.</p>
-</li>
-<li>
-<p>独立的两个随机变量 $XY$ 满足 $f(x,y)=f_X(x)f_Y(y)$ .<br>
-且 $f_{XY}(x,y)=\frac{\partial^2F(x,y)}{\partial x\partial y}$ .</p>
-</li>
-<li>
-<p>多个正态分布叠加: $Z=aX+BY+c$ 有<br>
-$$\mu_Z=a\mu_X+b\mu_Y+c$$<br>
-$$\sigma_Z^2=a\sigma_X^2+b\sigma_Y^2$$<br>
-$$N(\mu,\sigma^2):f(x)=\frac1{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$</p>
-</li>
-<li>
-<p>二维正态分布: $N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$<br>
-$$\large f(x,y)=\frac1{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left[\frac{(x-\mu_1)^2}{\sigma_1^2}+\frac{(y-\mu_2)^2}{\sigma_2^2}-2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}\right]}$$<br>
-当 $\rho$ 为 $0$ 时,两个变量相互独立,也就能直接拆成 $X\sim N(\mu_1,\sigma_2^2)$ 和 $Y\sim N(\mu_,\sigma_2^2)$ ,其余时候等高线是椭圆,不过也是可以直接拆,但是在算方差记得加上cov.</p>
-</li>
-<li>
-<p>二维条件概率:<br>
-$$f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}$$<br>
-$$f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\mathrm dx$$</p>
-</li>
-<li>
-<p>两个变量独立,然后 $Z=X+Y$ 怎么算?<br>
-$$F_{X+Y}(z)=P{X+Y\le Z}=\int_0^z\mathrm dx\int_0^{z-x}f(x)f(y)\mathrm dy$$</p>
-</li>
-<li>
-<p>高斯积分<br>
-$$\int_{-\infty}^{+\infty}e^{-ay^2}\mathrm dy=\sqrt{\frac{\pi}{a}}$$</p>
-</li>
-<li>
-<p>最大值,最小值公式:<br>
-因为max是两个都要小于z,故直接对z积分即可.<br>
-$$Z=\max(X,Y):F_Z(z)=F_X(z)F_Y(z)$$<br>
-最小值是反过来减去最大值:<br>
-$$Z=\min(X,Y):F_Z(z)=1-[1-F_X(z)][1-F_Y(z)]$$</p>
-</li>
-<li>
-<p>数学期望(假设此积分绝对收敛,数学期望可以不存在)<br>
-$$E(x)=\int_{-\infty}^{+\infty}xf(x)\mathrm dx$$<br>
-方差<br>
-$$D(X)=E(X^2)-[E(X)]^2$$<br>
-$$D(X)=\int_{-\infty}^{+\infty}(x-E(x))f(x)\mathrm dx$$<br>
-协方差(独立的随机变量协方差为0)<br>
-$$\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)$$<br>
-相关系数(相互独立为0, $\rho\in[-1,1]$ )<br>
-$$\rho_{XY}=\frac{\mathrm{Cov}(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}$$</p>
-</li>
-<li>
-<p>期望性质<br>
-$$E(aX+bY+c)=aE(X)+bE(Y)+c$$<br>
-若变量独立,有<br>
-$$E(XY)=E(X)E(Y)$$<br>
-<strong>注意</strong> :上述性质只能推出来XY不相关,也就是说cov=0,方差可以直接相加 $D(X+Y)=D(X)+D(Y)$</p>
-</li>
-<li>
-<p>期望实战<br>
-$$E(\max(X,Y))=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\max(x,y)f(x,y)\mathrm dx\mathrm dy$$<br>
-$$E(XY)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xyf(x,y)\mathrm dx\mathrm dy$$</p>
-</li>
-<li>
-<p>方差性质<br>
-$$D(CX)=C^2D(X)$$<br>
-若XY相互独立,则<br>
-$$D(X\pm Y)=D(X)\pm D(Y)$$<br>
-若X是常数,方差为0,反过来不成立.</p>
-</li>
-<li>
-<p>协方差性质<br>
-$$\mathrm{Cov}(X,c)=0$$<br>
-$$\mathrm{Cov}(X,X)=D(X)$$<br>
-$$D(X\pm Y)=D(X)+D(Y)\pm2\mathrm{Cov}(X,Y)$$<br>
-$$\mathrm{Cov}(X,Y)=\mathrm{Cov}(Y,X)$$<br>
-$$\mathrm{Cov}(aX,bY)=ab\mathrm{Cov}(X,Y)$$<br>
-$$\mathrm{Cov}(X+Z,Y)=\mathrm{Cov}(X,Y)+\mathrm{Cov}(Z,Y)$$</p>
-</li>
-<li>
-<p>几种分布的期望和方差等</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">E</th>
-<th style="text-align:center">D</th>
-<th style="text-align:center">sgn</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">(0-1)分布</td>
-<td style="text-align:center">$p$</td>
-<td style="text-align:center">$p(1-p)$</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">二项分布</td>
-<td style="text-align:center">$np$</td>
-<td style="text-align:center">$np(1-p)$</td>
-<td style="text-align:center">$X\sim B(n,p)$</td>
-</tr>
-<tr>
-<td style="text-align:center">几何分布</td>
-<td style="text-align:center">$\frac1p$</td>
-<td style="text-align:center">$\frac{1-p}{p^2}$</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">泊松分布</td>
-<td style="text-align:center">$\lambda$</td>
-<td style="text-align:center">$\lambda$</td>
-<td style="text-align:center">$X\sim\pi(\lambda),X\sim P(\lambda)$</td>
-</tr>
-<tr>
-<td style="text-align:center">均匀分布</td>
-<td style="text-align:center">$\frac{a+b}2$</td>
-<td style="text-align:center">$\frac{(a-b)^2}{12}$</td>
-<td style="text-align:center">$X\sim U(a,b)$</td>
-</tr>
-<tr>
-<td style="text-align:center">指数分布</td>
-<td style="text-align:center">$\lambda$</td>
-<td style="text-align:center">$\frac1{\lambda^2}$</td>
-<td style="text-align:center">$X\sim E(\lambda)$</td>
-</tr>
-<tr>
-<td style="text-align:center">正态分布</td>
-<td style="text-align:center">$\mu$</td>
-<td style="text-align:center">$\sigma^2$</td>
-<td style="text-align:center">$X\sim N(\mu,\sigma^2)$</td>
-</tr>
-</tbody>
-</table>
 
   </div>
 </article>
@@ -589,7 +727,7 @@ $$\mathrm{Cov}(X+Z,Y)=\mathrm{Cov}(X,Y)+\mathrm{Cov}(Z,Y)$$</p>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">随机试验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-number">3.</span> <span class="toc-text">概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B-%E7%AD%89%E5%8F%AF%E8%83%BD%E6%A6%82%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">古典概型(等可能概型)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A6%82%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">几何概型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-%E8%92%B2%E4%B8%B0%E6%8A%95%E9%92%88%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">例题-蒲丰投针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">6.</span> <span class="toc-text">条件概率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF"><span class="toc-number">6.1.</span> <span class="toc-text">推广:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">全概率公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">贝叶斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">事件的独立性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%92%8C%E4%B8%8D%E7%9B%B8%E5%AE%B9%E5%85%B3%E7%B3%BB"><span class="toc-number">9.1.</span> <span class="toc-text">独立和不相容关系:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%A6%82%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">伯努利概型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">随机变量及其概率分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">离散型随机变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">连续型随机变量及其概率密度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-number">3.</span> <span class="toc-text">几种常用的离散分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">几种常用的连续随机变量和分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">随机变量的函数的分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">离散型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">连续型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">真正的笔记</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">切比雪夫不等式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">大数定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">中心极限定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%90%8C%E5%88%86%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">独立同分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%B9%BF%E6%B3%9B%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">3.2.</span> <span class="toc-text">更广泛的情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">统计量和分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE%E5%85%AC%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">样本方差公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">三大分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chi-2-%E5%88%86%E5%B8%83"><span class="toc-number">5.1.</span> <span class="toc-text">$\chi^2$ 分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#t%E5%88%86%E5%B8%83"><span class="toc-number">5.2.</span> <span class="toc-text">t分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%E5%88%86%E5%B8%83"><span class="toc-number">5.3.</span> <span class="toc-text">F分布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83"><span class="toc-number">6.</span> <span class="toc-text">正态总体的抽样分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E4%BC%B0%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">矩估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="toc-number">8.</span> <span class="toc-text">最大似然估计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%81%8F%E6%80%A7-%E6%9C%89%E6%95%88%E6%80%A7-%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">无偏性 有效性 一致性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">下面内容因为太过冗余,不再维护.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%AF%95%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">随机试验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">频率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87"><span class="toc-number">3.</span> <span class="toc-text">概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B-%E7%AD%89%E5%8F%AF%E8%83%BD%E6%A6%82%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">古典概型(等可能概型)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A6%82%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">几何概型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-%E8%92%B2%E4%B8%B0%E6%8A%95%E9%92%88%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">例题-蒲丰投针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">6.</span> <span class="toc-text">条件概率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%B9%BF"><span class="toc-number">6.1.</span> <span class="toc-text">推广:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">全概率公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">贝叶斯公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-number">9.</span> <span class="toc-text">事件的独立性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%92%8C%E4%B8%8D%E7%9B%B8%E5%AE%B9%E5%85%B3%E7%B3%BB"><span class="toc-number">9.1.</span> <span class="toc-text">独立和不相容关系:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%A6%82%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">伯努利概型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">随机变量及其概率分布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">离散型随机变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%8F%8A%E5%85%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">连续型随机变量及其概率密度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83"><span class="toc-number">3.</span> <span class="toc-text">几种常用的离散分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83"><span class="toc-number">4.</span> <span class="toc-text">几种常用的连续随机变量和分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="toc-number">5.</span> <span class="toc-text">随机变量的函数的分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">离散型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">连续型</span></a></li></ol></li></ol>
       </div>
     
 
