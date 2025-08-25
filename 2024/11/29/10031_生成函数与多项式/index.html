@@ -14,7 +14,7 @@
 <meta property="og:description" content="多项式全家桶(悲). 例题  分治FFT: 给定序列 $g_n$ 求 $f_n$ ,其中 $f_n&#x3D;\sum_{j&#x3D;1}^if_{i-j}g_{j}$ ,边界 $g_0&#x3D;0,f_0&#x3D;1$ ,对 $998244353$ 取模.  设生成函数 $f(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f[i]x^i,g(x)&#x3D;\sum_{i&#x3D;0}^{\infty}g[i]x^i,g[0]&#x3D;0$ 然后使用生成函">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-29T15:28:26.000Z">
-<meta property="article:modified_time" content="2025-04-25T19:00:34.597Z">
+<meta property="article:modified_time" content="2025-08-16T04:59:08.318Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="NumberTheory">
 <meta name="twitter:card" content="summary">
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">普通生成函数 OGF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">指数生成函数 EGF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-%E6%B4%9B%E8%B0%B7p5339"><span class="toc-number">1.</span> <span class="toc-text">例 洛谷p5339</span></a></li></ol>
       </div>
     
   </span>
@@ -204,6 +204,15 @@ $$\boxed{f(x)*g(x)+f[0]=f(x)}$$<br>
 于是有<br>
 $$\boxed{f(x)=\frac{f[0]}{1-g(x)}}$$<br>
 使用多项式求逆即可解决.</p>
+<h1>普通生成函数 OGF</h1>
+<p>$$F(x)=\sum_{n}^{\infty}a_nx^n$$</p>
+<h1>指数生成函数 EGF</h1>
+<p>$$F(x)=\sum_{n}^{\infty}a_n\frac{x^n}{n!}$$</p>
+<p>指数生成函数在卷积的时候比ogf多了一个组合数项,详见OIwiki.</p>
+<h2 id="例-洛谷p5339">例 洛谷p5339</h2>
+<p>S(a,b,c,d,n)的组合意义就是在四种颜色里面(有个数限制)取一些来涂色。</p>
+<p>这个是EGF经典问题,考虑构造 $R_k​(x)=∑_{i=0}k​ \frac{x^i}{i!}​$ ,就是k个同种颜色的EGF。</p>
+<p>EGF卷积的意义就是随意插入混合,那么我们把四个R卷起来之后取第n项就可以得到答案了。</p>
 
   </div>
 </article>
@@ -238,7 +247,7 @@ $$\boxed{f(x)=\frac{f[0]}{1-g(x)}}$$<br>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">普通生成函数 OGF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">指数生成函数 EGF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-%E6%B4%9B%E8%B0%B7p5339"><span class="toc-number">1.</span> <span class="toc-text">例 洛谷p5339</span></a></li></ol>
       </div>
     
 
