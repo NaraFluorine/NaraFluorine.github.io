@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="牛客练习赛138F逆天F构造…构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数. 结果告诉我只需要找到 $p+q&#x3D;n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] .最后用哥德巴赫猜想变种证明的,真神秘. G对于给定的 $n,k$ 计算 \sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)这个题乍一看无从下">
+    <meta name="description" content="牛客练习赛138 F 逆天F构造… 构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数. 结果告诉我只需要找到 $p+q&#x3D;n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] . 最后用哥德巴赫猜想变种证明的,真神秘. G 对于给定的 $n,k$ 计算 $$\sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)$$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牛客2025">
 <meta property="og:url" content="https://narafluorine.github.io/2024/10/16/20011_NC_2025/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="牛客练习赛138F逆天F构造…构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数. 结果告诉我只需要找到 $p+q&#x3D;n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] .最后用哥德巴赫猜想变种证明的,真神秘. G对于给定的 $n,k$ 计算 \sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)这个题乍一看无从下">
+<meta property="og:description" content="牛客练习赛138 F 逆天F构造… 构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数. 结果告诉我只需要找到 $p+q&#x3D;n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] . 最后用哥德巴赫猜想变种证明的,真神秘. G 对于给定的 $n,k$ 计算 $$\sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)$$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-16T14:16:10.000Z">
 <meta property="article:modified_time" content="2025-08-19T12:51:10.951Z">
@@ -105,10 +105,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/10/16/00014_Java%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/10/16/20010_XCPC_Linux/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/10/16/20012_CF_2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/10/16/20013_HDU_2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B138"><span class="toc-number">1.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">1.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">1.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%90%E4%B8%AA%E5%85%B81"><span class="toc-number">2.</span> <span class="toc-text">某个典1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B2%B3%E5%8D%97%E8%90%8C%E6%96%B03"><span class="toc-number">3.</span> <span class="toc-text">河南萌新3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">3.4.</span> <span class="toc-text">I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.5.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#M"><span class="toc-number">3.6.</span> <span class="toc-text">M</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">1.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">1.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">某个典1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">河南萌新3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">3.4.</span> <span class="toc-text">I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.5.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#M"><span class="toc-number">3.6.</span> <span class="toc-text">M</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -183,33 +183,61 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="牛客练习赛138"><a href="#牛客练习赛138" class="headerlink" title="牛客练习赛138"></a><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/109081#question">牛客练习赛138</a></h1><h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p>逆天F构造…<br>构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数.</p>
-<p>结果告诉我只需要找到 $p+q=n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] .<br>最后用哥德巴赫猜想变种证明的,真神秘.</p>
-<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p>对于给定的 $n,k$ 计算</p>
-<script type="math/tex; mode=display">\sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)</script><p>这个题乍一看无从下手,再一看k只有 $100$ 而n有1e7.<br>首先考虑特殊情况:k=1,这就是 $2^{n}-1$ .<br>对于k=2有</p>
-<script type="math/tex; mode=display">\binom n1+\binom n3+...</script><p>考虑二项式定理,上面就是 $(x+1)^n$ 的 $x$ 项的系数.<br>于是对于更普遍的情况,有:</p>
-<script type="math/tex; mode=display">(1+x)^n \mod (x^k-1)</script><p>答案是 $x$ 的系数.  </p>
+    <h1><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/109081#question">牛客练习赛138</a></h1>
+<h2 id="F">F</h2>
+<p>逆天F构造…<br>
+构造一个[1,n]的排列使其构成的环满足任意两项之间差是奇质数.</p>
+<p>结果告诉我只需要找到 $p+q=n$ 且 $p,q$ 都是奇质数的一对,然后就可以 [1,1+p,1+2p%n,…] .<br>
+最后用哥德巴赫猜想变种证明的,真神秘.</p>
+<h2 id="G">G</h2>
+<p>对于给定的 $n,k$ 计算<br>
+$$\sum_{m\equiv1\mod k}^n\binom{n}{m}\mod (1e9+7)$$<br>
+这个题乍一看无从下手,再一看k只有 $100$ 而n有1e7.<br>
+首先考虑特殊情况:k=1,这就是 $2^{n}-1$ .<br>
+对于k=2有<br>
+$$\binom n1+\binom n3+…$$<br>
+考虑二项式定理,上面就是 $(x+1)^n$ 的 $x$ 项的系数.<br>
+于是对于更普遍的情况,有:<br>
+$$(1+x)^n \mod (x^k-1)$$<br>
+答案是 $x$ 的系数.</p>
 <blockquote>
-<p>为什么模 $(x^k-1)$ 而不是模 $(x^k)$ ?<br>因为前者可以让 $x^k\equiv 1$ (也就是变成了循环多项式环)而后者会让 $x^k,x^{k+1},…\equiv 0$ 也就是多项式高位全部丢掉了.</p>
+<p>为什么模 $(x^k-1)$ 而不是模 $(x^k)$ ?<br>
+因为前者可以让 $x^k\equiv 1$ (也就是变成了循环多项式环)而后者会让 $x^k,x^{k+1},…\equiv 0$ 也就是多项式高位全部丢掉了.</p>
 </blockquote>
 <p>最后对n套一个快速幂就能算出来答案了,复杂度 $O(T\log nk^2)$ .</p>
-<h1 id="某个典1"><a href="#某个典1" class="headerlink" title="某个典1"></a>某个典1</h1><p>你有一个数列,每次可以选最大的几个数让他们-1,求你最多能做多少次操作.</p>
-<p>这个题的结论是:对于<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc368/tasks/abc368_b">两个元素</a>,公式如下(假设 $a_1$ 是数列 $a$ 中最大的元素):</p>
-<script type="math/tex; mode=display">\min\left(\left\lfloor\frac{\sum a}{2}\right\rfloor,\sum a-a_1\right)</script><p>对于三个元素,可以做拓展如下:</p>
-<script type="math/tex; mode=display">\min\left(\left\lfloor\frac{\sum a}{3}\right\rfloor,\left\lfloor\frac{\sum a-a_1}{2}\right\rfloor,\sum a-a_1-a_2\right)</script><p>四个元素同理:</p>
-<script type="math/tex; mode=display">\min\left(\left\lfloor\frac{\sum a}{4}\right\rfloor,\left\lfloor\frac{\sum a-a_1}{3}\right\rfloor,\left\lfloor\frac{\sum a-a_1-a_2}{2}\right\rfloor,\sum a-a_1-a_2-a_3\right)</script><h1 id="河南萌新3"><a href="#河南萌新3" class="headerlink" title="河南萌新3"></a>河南萌新3</h1><p>随便整一场河南萌新看看什么样.</p>
-<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>给一个数列,求长度至少为l的连续子串的最大平均值.</p>
+<h1>某个典1</h1>
+<p>你有一个数列,每次可以选最大的几个数让他们-1,求你最多能做多少次操作.</p>
+<p>这个题的结论是:对于<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc368/tasks/abc368_b">两个元素</a>,公式如下(假设 $a_1$ 是数列 $a$ 中最大的元素):<br>
+$$\min\left(\left\lfloor\frac{\sum a}{2}\right\rfloor,\sum a-a_1\right)$$<br>
+对于三个元素,可以做拓展如下:<br>
+$$\min\left(\left\lfloor\frac{\sum a}{3}\right\rfloor,\left\lfloor\frac{\sum a-a_1}{2}\right\rfloor,\sum a-a_1-a_2\right)$$<br>
+四个元素同理:<br>
+$$\min\left(\left\lfloor\frac{\sum a}{4}\right\rfloor,\left\lfloor\frac{\sum a-a_1}{3}\right\rfloor,\left\lfloor\frac{\sum a-a_1-a_2}{2}\right\rfloor,\sum a-a_1-a_2-a_3\right)$$</p>
+<h1>河南萌新3</h1>
+<p>随便整一场河南萌新看看什么样.</p>
+<h2 id="A">A</h2>
+<p>给一个数列,求长度至少为l的连续子串的最大平均值.</p>
 <p>二分答案,然后对数列减掉答案剩下的东西做一个前缀和,然后根据前缀和的原理取前缀min直接检查即可.</p>
-<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>给一棵树,要你对每个点算出除了该节点子树和该节点到根节点1的简单路径之外所有节点的gcd(如下图5的答案就是dat[4],2的ans是0),1e5.<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1-3-2-4</span><br><span class="line">    |</span><br><span class="line">	5</span><br></pre></td></tr></table></figure><br>研究树的好题:我们在dfs的时候发现,这一个点的gcd会被切成两部分:dfs前面和dfs后面的,所以考虑拼起来:<br>首先维护dfs顺序,发现答案是退出dfs节点的gcd.<br>所以直接正着dfs一遍,再倒着dfs一遍即可.</p>
-<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>选一个点之前必须选路上的所有父节点,其实就是裸的前置条件背包(好好复习背包九讲)</p>
-<h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><p>给两个数组ab代表两个环,上面的可以旋转,问你最大能匹配上多少个.</p>
+<h2 id="C">C</h2>
+<p>给一棵树,要你对每个点算出除了该节点子树和该节点到根节点1的简单路径之外所有节点的gcd(如下图5的答案就是dat[4],2的ans是0),1e5.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1-3-2-4</span><br><span class="line">    |</span><br><span class="line">	5</span><br></pre></td></tr></table></figure>
+<p>研究树的好题:我们在dfs的时候发现,这一个点的gcd会被切成两部分:dfs前面和dfs后面的,所以考虑拼起来:<br>
+首先维护dfs顺序,发现答案是退出dfs节点的gcd.<br>
+所以直接正着dfs一遍,再倒着dfs一遍即可.</p>
+<h2 id="D">D</h2>
+<p>选一个点之前必须选路上的所有父节点,其实就是裸的前置条件背包(好好复习背包九讲)</p>
+<h2 id="I">I</h2>
+<p>给两个数组ab代表两个环,上面的可以旋转,问你最大能匹配上多少个.</p>
 <p>拆贡献:对于每一个数字枚举在b中出现哪些,意味着在这些点会有贡献,贡献最后加一起取max即可.</p>
-<h2 id="J"><a href="#J" class="headerlink" title="J"></a>J</h2><p>第一次随机选,然后在同一行选一个,然后再在上一个元素同一列选一个…直到最后选无可选,问是否存在一个方式使选出来的元素抑或和不是0.</p>
+<h2 id="J">J</h2>
+<p>第一次随机选,然后在同一行选一个,然后再在上一个元素同一列选一个…直到最后选无可选,问是否存在一个方式使选出来的元素抑或和不是0.</p>
 <p>以 <strong>每行每列</strong> 为元素建边,上述选点方式可以被抽象成在图上找简单环.</p>
 <p>然后使用带权并查集维护即可.由于抑或和是可撤销的,所以维护节点到根节点的抑或和,然后直接抑或即可.</p>
-<p><strong>时刻</strong> 记得边权维护的是”当前根节点”到该点的权值,即使实际上根节点不是这个,比如1-&gt;2-&gt;3,1的实际根节点假设是2,那么只维护1到2的信息,在查询1的根节点时发现不是2的时候要及时更新,递归解决.</p>
-<h2 id="M"><a href="#M" class="headerlink" title="M"></a>M</h2><p>给两个数列ab,可以任选下标i,问最大的sum ai=sum bi的sum ai是多少.(n1e4,ab都是1e4)</p>
-<p>其实就是一个背包,val是他俩相减,w是a(或者b),最后答案就是0点的最大值.<br>回顾:背包问题可以把数组初始化成-inf(极小值)让背包操作只对某个单独的点生效…</p>
+<p><strong>时刻</strong> 记得边权维护的是&quot;当前根节点&quot;到该点的权值,即使实际上根节点不是这个,比如1-&gt;2-&gt;3,1的实际根节点假设是2,那么只维护1到2的信息,在查询1的根节点时发现不是2的时候要及时更新,递归解决.</p>
+<h2 id="M">M</h2>
+<p>给两个数列ab,可以任选下标i,问最大的sum ai=sum bi的sum ai是多少.(n1e4,ab都是1e4)</p>
+<p>其实就是一个背包,val是他俩相减,w是a(或者b),最后答案就是0点的最大值.<br>
+回顾:背包问题可以把数组初始化成-inf(极小值)让背包操作只对某个单独的点生效…</p>
 
   </div>
 </article>
@@ -244,7 +272,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%9B%E5%AE%A2%E7%BB%83%E4%B9%A0%E8%B5%9B138"><span class="toc-number">1.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">1.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">1.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%90%E4%B8%AA%E5%85%B81"><span class="toc-number">2.</span> <span class="toc-text">某个典1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B2%B3%E5%8D%97%E8%90%8C%E6%96%B03"><span class="toc-number">3.</span> <span class="toc-text">河南萌新3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">3.4.</span> <span class="toc-text">I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.5.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#M"><span class="toc-number">3.6.</span> <span class="toc-text">M</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">牛客练习赛138</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">1.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">1.2.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">某个典1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">河南萌新3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">3.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">3.4.</span> <span class="toc-text">I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">3.5.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#M"><span class="toc-number">3.6.</span> <span class="toc-text">M</span></a></li></ol></li></ol>
       </div>
     
 
