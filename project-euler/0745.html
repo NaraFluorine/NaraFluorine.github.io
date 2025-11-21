@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="根据大佬的分析,我们设计提示词. 算这么个式子: $$S(N)&#x3D;\sum_{i&#x3D;1}^{\lfloor\sqrt{N}\rfloor} i^2\cdot f\left(\left\lfloor\dfrac{N}{i^2}\right\rfloor\right)$$ f是无平方因子数的个数 prompt 上下文紧跟193题. 1234567这是另一道题,但是计算方式和上面的题差不多.我们令上题中 $">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe0745">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0745.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="根据大佬的分析,我们设计提示词. 算这么个式子: $$S(N)&#x3D;\sum_{i&#x3D;1}^{\lfloor\sqrt{N}\rfloor} i^2\cdot f\left(\left\lfloor\dfrac{N}{i^2}\right\rfloor\right)$$ f是无平方因子数的个数 prompt 上下文紧跟193题. 1234567这是另一道题,但是计算方式和上面的题差不多.我们令上题中 $">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-21T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-11-21T15:00:49.030Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe0745</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>根据<a target="_blank" rel="noopener" href="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-745/">大佬的分析</a>,我们设计提示词.</p>
+<p>算这么个式子:<br>
+$$S(N)=\sum_{i=1}^{\lfloor\sqrt{N}\rfloor}<br>
+i^2\cdot<br>
+f\left(\left\lfloor\dfrac{N}{i^2}\right\rfloor\right)$$<br>
+f是无平方因子数的个数</p>
+<h1>prompt</h1>
+<p>上下文紧跟193题.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">这是另一道题,但是计算方式和上面的题差不多.</span><br><span class="line">我们令上题中 $f(i)=\sum_&#123;i=1&#125;^&#123;\lfloor\sqrt&#123;N&#125;\rfloor&#125;</span><br><span class="line">\left\lfloor\dfrac&#123;N&#125;&#123;i^2&#125;\right\rfloor\cdot \mu(i)$ ,然后再令 $S(N)=\sum_&#123;i=1&#125;^&#123;\lfloor\sqrt&#123;N&#125;\rfloor&#125;</span><br><span class="line">i^2\cdot</span><br><span class="line">f\left(\left\lfloor\dfrac&#123;N&#125;&#123;i^2&#125;\right\rfloor\right)$ .这道题的N是10^&#123;14&#125;,你仍然可以直接枚举S(N)的i,在O(\sqrt n\log n)的时间内算出答案.</span><br><span class="line"></span><br><span class="line">参考上面的代码解决该题.</span><br></pre></td></tr></table></figure>
+<h1>gemini</h1>
+<p>好的，这道题的 $N = 10^{14}$，所以 $\lfloor\sqrt{N}\rfloor = 10^7$。</p>
+<p>我们来分析一下 $S(N)$ 的计算：<br>
+$S(N)=\sum_{i=1}^{\lfloor\sqrt{N}\rfloor} i^2 \cdot f\left(\left\lfloor\dfrac{N}{i^2}\right\rfloor\right)$</p>
+<p>我们称 $S_{outer} = \lfloor\sqrt{N}\rfloor = 10^7$。<br>
+我们需要一个外层循环 $i$ 从 $1$ 遍历到 $S_{outer}$。</p>
+<p>在循环内部，我们需要计算 $f(M)$，其中 $M = \lfloor N/i^2 \rfloor$。<br>
+根据定义，$f(M) = \sum_{k=1}^{\lfloor\sqrt{M}\rfloor} \lfloor \frac{M}{k^2} \rfloor \mu(k)$。</p>
+<p>我们称 $S_{inner} = \lfloor\sqrt{M}\rfloor$。<br>
+我们需要一个内层循环 $k$ 从 $1$ 遍历到 $S_{inner}$。</p>
+<p>我们需要 $\mu(k)$ 的值。$k$ 的最大取值是多少？<br>
+$k$ 的最大值取决于 $S_{inner}$ 的最大值。<br>
+$S_{inner} = \lfloor\sqrt{M}\rfloor = \lfloor\sqrt{\lfloor N/i^2 \rfloor}\rfloor$。<br>
+当 $i=1$ 时，$M$ 取最大值 $N$，$S_{inner}$ 取最大值 $\lfloor\sqrt{N}\rfloor = 10^7$。</p>
+<p>因此，我们需要预处理 $1$ 到 $10^7$ 范围内的所有 $\mu(k)$ 值。<br>
+这与 $N=10^{14}$ 时 $\lfloor\sqrt{N}\rfloor$ 的范围（$10^7$）一致。</p>
+<p><strong>算法步骤：</strong></p>
+<ol>
+<li><strong>欧拉筛</strong>：筛出 $1$ 到 $10^7$ 范围内的 $\mu$ 函数。</li>
+<li><strong>主循环 (计算 S(N))</strong>：
+<ul>
+<li>令 <code>long long N = 10^14</code>，<code>int S_outer = 10^7</code>。</li>
+<li>初始化 <code>long long total_S = 0</code>。</li>
+<li>外层循环 $i$ 从 $1$ 到 $S_{outer}$（$i$ 必须是 <code>long long</code>，因为 $i^2$ 会溢出 <code>int</code>）。</li>
+<li>计算 <code>long long M = N / (i * i)</code>。</li>
+<li>计算 <code>long long S_inner = sqrt(M)</code>。</li>
+<li>初始化 <code>long long f_M = 0</code>。</li>
+<li>内层循环 $k$ 从 $1$ 到 $S_{inner}$（$k$ 必须是 <code>long long</code>，因为 $k^2$ 会溢出 <code>int</code>）。</li>
+<li>累加 $f_M \mathrel{+}= \lfloor M/k^2 \rfloor \cdot \mu[k]$。</li>
+<li>累加 <code>total_S += (i * i) * f_M</code>。</li>
+</ul>
+</li>
+<li><strong>输出</strong> <code>total_S</code>。</li>
+</ol>
+<p><strong>复杂度分析</strong>：<br>
+内层循环的计算量是 $O(\sqrt{M}) = O(\sqrt{N/i^2}) = O(\sqrt{N}/i)$。<br>
+总复杂度是 $\sum_{i=1}^{\sqrt{N}} O(\sqrt{N}/i) = O(\sqrt{N} \sum_{i=1}^{\sqrt{N}} \frac{1}{i})$。<br>
+根据调和级数，$O(\sqrt{N} \log(\sqrt{N})) = O(\sqrt{N} \log N)$，这符合你的预期。</p>
+<hr>
+<h3 id="C-完整代码">C++ 完整代码</h3>
+<blockquote>
+<p>阶么奈犯了一个很蠢的错误,就是把10^14打成10^16了,我说怎么RE了.<br>
+我忘了取模,这是我的锅,手修一下就过了.</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span> <span class="comment">// 用于 sqrt</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// N = 10^14, sqrt(N) = 10^7 = 10,000,000</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_SIEVE_N = <span class="number">10000000</span> + <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 10^7 内的质数数量约为 664,579</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAX_PRIMES = <span class="number">670000</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局数组自动初始化为0</span></span><br><span class="line"><span class="type">int</span>   vis[MAX_SIEVE_N]; <span class="comment">// 存最小质因数,负的表示质数表中的位置(负的)</span></span><br><span class="line"><span class="type">int</span>   p[MAX_PRIMES], ptop = <span class="number">0</span>; <span class="comment">// 存质数 </span></span><br><span class="line"><span class="type">short</span> mu[MAX_SIEVE_N]; <span class="comment">// 莫比乌斯函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief 欧拉筛法计算莫比乌斯函数</span></span><br><span class="line"><span class="comment"> * @param n 筛法上限 [1, n]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sieve</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            vis[i] = -(++ptop);</span><br><span class="line">            p[ptop] = i;</span><br><span class="line">            mu[i] = <span class="number">-1</span>; <span class="comment">// 质数的mu为-1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= ptop; ++j) &#123;</span><br><span class="line">            <span class="comment">// 使用 long long 防止 i * p[j] 中间计算溢出</span></span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> product = (<span class="type">long</span> <span class="type">long</span>)i * p[j];</span><br><span class="line">            <span class="keyword">if</span> (product &gt; n) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            vis[product] = p[j]; </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (i % p[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// mu[product] 默认为 0</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mu[product] = -mu[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义 N = 10^14</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> N_VALUE = <span class="number">100000000000000LL</span>;</span><br><span class="line">    <span class="comment">// 定义 N 的平方根 S_outer = 10^7</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> S_OUTER = <span class="number">10000000</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">    <span class="comment">// 1. 运行筛法，预处理 1 到 10^7 的 mu 函数</span></span><br><span class="line">    <span class="built_in">sieve</span>(S_OUTER);</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> total_S = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 外层循环 i, 计算 S(N)</span></span><br><span class="line">    <span class="comment">// i 必须是 long long, 因为 i*i 会超过 int</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>; i &lt;= S_OUTER; ++i) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// M = floor(N / i^2)</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> M = N_VALUE / (i * i);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 计算 f(M)</span></span><br><span class="line">        <span class="comment">// f(M) = sum_&#123;k=1&#125;^&#123;sqrt(M)&#125; [M/k^2] * mu(k)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// S_inner = floor(sqrt(M))</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> S_inner = (<span class="type">long</span> <span class="type">long</span>)<span class="built_in">sqrt</span>(M);</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> f_M = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 内层循环 k, 计算 f(M)</span></span><br><span class="line">        <span class="comment">// k 必须是 long long, 因为 k*k 会超过 int</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">long</span> <span class="type">long</span> k = <span class="number">1</span>; k &lt;= S_inner; ++k) &#123;</span><br><span class="line">            <span class="comment">// k 最大为 S_OUTER (当 i=1), </span></span><br><span class="line">            <span class="comment">// 此时 mu[k] 都在预处理范围内</span></span><br><span class="line">            f_M += (M / (k * k)) * mu[k]%mod;</span><br><span class="line">			f_M%=mod;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 4. 累加 S(N)</span></span><br><span class="line">        total_S += (i * i)%mod * f_M%mod;</span><br><span class="line">		total_S%=mod;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 输出最终答案</span></span><br><span class="line">    std::cout &lt;&lt; total_S &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

