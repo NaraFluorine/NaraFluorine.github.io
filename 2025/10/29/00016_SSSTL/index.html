@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="我们当中,有人不会STL.— Flu  函数类排序,去重,查找STL的区间一直都是 $[l,r)$ .123456789101112sort(dat+l,dat+r+1,cmp);	&#x2F;&#x2F;这是闭区间[l,r]的写法int m&#x3D;unique(dat+l,dat+r+1)-dat-l;	&#x2F;&#x2F;现在的m是数列还剩多少个元素									&#x2F;&#x2F;这是去重的写法,和排序一样&#x2F;&#x2F;注意1 返回的是一个指针,表示还">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/2025/10/29/00016_SSSTL/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="我们当中,有人不会STL.— Flu  函数类排序,去重,查找STL的区间一直都是 $[l,r)$ .123456789101112sort(dat+l,dat+r+1,cmp);	&#x2F;&#x2F;这是闭区间[l,r]的写法int m&#x3D;unique(dat+l,dat+r+1)-dat-l;	&#x2F;&#x2F;现在的m是数列还剩多少个元素									&#x2F;&#x2F;这是去重的写法,和排序一样&#x2F;&#x2F;注意1 返回的是一个指针,表示还">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-29T01:53:23.735Z">
+<meta property="article:modified_time" content="2025-11-23T05:17:27.254Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Fluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/11/22/00015_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/10/02/20017_buuctf/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2025/10/29/00016_SSSTL/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2025/10/29/00016_SSSTL/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">函数类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-%E5%8E%BB%E9%87%8D-%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.</span> <span class="toc-text">排序,去重,查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">其他不常用的函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E7%A2%8E%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">杂碎函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">容器类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bitset"><span class="toc-number">2.1.</span> <span class="toc-text">bitset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#array"><span class="toc-number">2.2.</span> <span class="toc-text">array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">2.3.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">2.4.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multiset"><span class="toc-number">2.5.</span> <span class="toc-text">multiset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">2.6.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-map"><span class="toc-number">2.7.</span> <span class="toc-text">unordered_map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#priority-queue"><span class="toc-number">2.8.</span> <span class="toc-text">priority_queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue-stack-deque"><span class="toc-number">2.9.</span> <span class="toc-text">queue,stack,deque</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-10-29T01:53:23.735Z" class="dt-published" itemprop="datePublished">2025-10-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <blockquote>
+<p>我们当中,有人不会STL.<br>— Flu</p>
+</blockquote>
+<h1 id="函数类"><a href="#函数类" class="headerlink" title="函数类"></a>函数类</h1><h2 id="排序-去重-查找"><a href="#排序-去重-查找" class="headerlink" title="排序,去重,查找"></a>排序,去重,查找</h2><p>STL的区间一直都是 $[l,r)$ .<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+l,dat+r+<span class="number">1</span>,cmp);	<span class="comment">//这是闭区间[l,r]的写法</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> m=<span class="built_in">unique</span>(dat+l,dat+r+<span class="number">1</span>)-dat-l;	<span class="comment">//现在的m是数列还剩多少个元素</span></span><br><span class="line">									<span class="comment">//这是去重的写法,和排序一样</span></span><br><span class="line"><span class="comment">//注意1 返回的是一个指针,表示还剩多少个元素,返回的是 r) 的指针,也就是末端元素</span></span><br><span class="line"><span class="comment">//注意2 要建立在排好序的基础上</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span>* pos=<span class="built_in">upper_bound</span>(dat+l,dat+<span class="number">1</span>+r,num);		<span class="comment">//在整个序列中查找第一个大于num的元素</span></span><br><span class="line"><span class="comment">//注意1 返回的是一个指针,表示该元素的位置</span></span><br><span class="line"><span class="comment">//注意2 要建立在排好序的基础上</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//lower_bound同理,但是注意lower_bound是返回第一个 大于等于的元素</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="其他不常用的函数"><a href="#其他不常用的函数" class="headerlink" title="其他不常用的函数"></a>其他不常用的函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">next_permutation</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+n);<span class="comment">//自动求下一个排列</span></span><br></pre></td></tr></table></figure>
+<h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p>挖坑.</p>
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><p>挖坑.</p>
+<h2 id="杂碎函数"><a href="#杂碎函数" class="headerlink" title="杂碎函数"></a>杂碎函数</h2><p>STL重载了很多变量类型的函数,比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="type">const</span> <span class="type">long</span> <span class="type">long</span> &amp;std::<span class="built_in">max</span>&lt;<span class="type">long</span> <span class="type">long</span>&gt;(<span class="type">const</span> <span class="type">long</span> <span class="type">long</span> &amp;__a, <span class="type">const</span> <span class="type">long</span> <span class="type">long</span> &amp;__b)</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">const</span> <span class="type">int</span> &amp;std::<span class="built_in">max</span>&lt;<span class="type">int</span>&gt;(<span class="type">const</span> <span class="type">int</span> &amp;__a, <span class="type">const</span> <span class="type">int</span> &amp;__b)</span><br><span class="line"><span class="comment">//也就是说不按上述类型的函数比较max会出锅,比如 max(0,(long long)1) 不能过编译</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h1><p>容器类也是左开右闭的区间,体现为 <code>[vc.begin(),vc.end())</code> ,千万别对vc.end()取元素值(事实上取这个值没意义,一般这种小RE不算RE的)<br>如果你想用迭代器方式访问最后一个元素可以用 <code>vc.rbegin()</code> 逆迭代器.逆迭代器是 <code>(rend(),rbegin()]</code> 的顺序,掉了个方向.仍然使用 <code>++</code> 自增运算符进行遍历.</p>
+<h2 id="bitset"><a href="#bitset" class="headerlink" title="bitset"></a>bitset</h2><p>不会用,挖坑.<br>我说真的我还没见过用bitset的题呢,见了再说吧…</p>
+<h2 id="array"><a href="#array" class="headerlink" title="array"></a>array</h2><p>只是一个普通的数组,声明时长度已经定死了,没有任何特点,当成普通数组用就可以了.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;array&lt;<span class="type">int</span>,114&gt;&gt;vc;<span class="comment">//声明一个二维数组,vc[514][113]的意思是先找vc的第515个元素,得到的是一个array,然后在array里面找第114个元素.</span></span><br></pre></td></tr></table></figure><br>由于array过于平淡,在这里不介绍任何成员函数.</p>
+<p>唯一需要介绍的是array的比较函数:以 <code>&lt;</code> 为例:从下标0开始遍历两个array,如果满足 <code>a&lt;b</code> 或 <code>a&gt;b</code> 就return 1或0,否则继续遍历.(和pair一样,先比第一个,再比第二个…)<br>array作为普通数组的占位符,可以简单理解为pair的上位替代.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>[10]&gt;mp;</span><br><span class="line">map&lt;<span class="type">int</span>,array&lt;<span class="type">int</span>,10&gt;&gt;mmp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	mp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">114</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>Flu也很惊讶,上面的代码居然能过编译…</p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加元素</span></span><br><span class="line">vc.<span class="built_in">push_back</span>(<span class="number">114514</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:vc)&#123;</span><br><span class="line"><span class="comment">//需要注意auto i是复制元素进行遍历的,如果你想修改原始vector需要用 for(auto&amp; i:vc) 引用传递</span></span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找</span></span><br><span class="line"><span class="comment">// 很遗憾,没有查找函数.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除(参数传递是一个指针)</span></span><br><span class="line">vc.<span class="built_in">erase</span>(vc.<span class="built_in">begin</span>());</span><br><span class="line"><span class="comment">//这玩意好像是复杂度爆表(因为会暴力把后面所有元素复制过来),别用这个.</span></span><br><span class="line"><span class="comment">//非得vc删东西就swap到末端然后pop_back(),否则不要考虑用vector维护.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 预留</span></span><br><span class="line">vc.<span class="built_in">resize</span>(<span class="number">100</span>);<span class="comment">//预留100个int的位置,此时[0,99]都可以正常访问,初始值是0.</span></span><br><span class="line">vc.<span class="built_in">reserve</span>(<span class="number">100</span>);<span class="comment">//预留100个int的位置,但只是预留位置了,你需要用push_back()逐渐占满这些位置,所以reserve之后[0,99]还是不确定值的状态</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空</span></span><br><span class="line">vc.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>注意set是去重的.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line"><span class="comment">//默认是小元素在前(也就是less&lt;int&gt;),你可以用greater&lt;int&gt;让大元素在前,例如set&lt;int,greater&lt;int&gt;&gt; sst;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加元素</span></span><br><span class="line">st.<span class="built_in">insert</span>(<span class="number">114514</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:st)&#123;</span><br><span class="line"><span class="comment">//一般情况下不建议在这里修改set的值,毕竟set很复杂,搞炸了怎么办</span></span><br><span class="line">	i=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找</span></span><br><span class="line">st.<span class="built_in">find</span>(<span class="number">114</span>);<span class="comment">//返回找到的指针</span></span><br><span class="line"><span class="comment">//如果没找到就返回 st.end()</span></span><br><span class="line"><span class="comment">/* Postscript:</span></span><br><span class="line"><span class="comment">STL容器类的指针都是 set&lt;int&gt;::iterator 的模样出现的,因为很长所以建议用 auto i=st.find(xxx)</span></span><br><span class="line"><span class="comment">我们比一个更复杂的例子:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">set&lt;pair&lt;int,int&gt;&gt;st;</span></span><br><span class="line"><span class="comment">set&lt;pair&lt;int,int&gt;&gt;::iterator it=st.find(&#123;114,514&#125;);</span></span><br><span class="line"><span class="comment">cout&lt;&lt;(*it).first;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">容器指针就是这么使用的,需要注意的是这个指针指向的元素是const类型的,自己不要私自直接改容器元素</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">st.<span class="built_in">upper_bound</span>(<span class="number">114</span>);<span class="comment">//set同时也维护了两个bound函数,用法不再赘述</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除(传参传指针或元素值都可以)</span></span><br><span class="line">st.<span class="built_in">erase</span>(st.<span class="built_in">begin</span>());</span><br><span class="line">st.<span class="built_in">erase</span>(<span class="number">114514</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空</span></span><br><span class="line">st.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure><br>需要注意的是,删除元素的时候树的形态会变,原来的指针部分会变成野指针.<br>举例1: <code>st.erase(it);</code> 这个时候it会变成野指针<br>举例2: 珂朵莉树对于set有一个小trick,见下面的板子:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Chtholly</span>&#123;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">		<span class="type">int</span> l,r;</span><br><span class="line">		<span class="keyword">mutable</span> i64 val;</span><br><span class="line">		<span class="type">char</span> <span class="keyword">operator</span> &lt;(<span class="type">const</span> node&amp; io)<span class="type">const</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> l&lt;io.l;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">node</span>(<span class="type">int</span> a,<span class="type">int</span> b,i64 c):<span class="built_in">l</span>(a),<span class="built_in">r</span>(b),<span class="built_in">val</span>(c)&#123;&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	set&lt;node&gt;st;</span><br><span class="line">	<span class="type">int</span>* dat;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">		dat=<span class="keyword">new</span> <span class="type">int</span>[n+<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">			fin&gt;&gt;dat[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> l=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">			<span class="keyword">if</span>(dat[l]!=dat[i])&#123;</span><br><span class="line">				st.<span class="built_in">insert</span>(&#123;l,i<span class="number">-1</span>,dat[l]&#125;);</span><br><span class="line">				l=i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		st.<span class="built_in">insert</span>(&#123;l,n,dat[l]&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	set&lt;node&gt;::<span class="function">iterator <span class="title">split</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">		<span class="keyword">auto</span> i=st.<span class="built_in">lower_bound</span>(&#123;pos,<span class="number">114514</span>,<span class="number">114514</span>&#125;);</span><br><span class="line">		<span class="keyword">if</span>(i!=st.<span class="built_in">end</span>()&amp;&amp;(*i).l==pos)&#123;</span><br><span class="line">			<span class="keyword">return</span> i;</span><br><span class="line">		&#125;</span><br><span class="line">		i--;</span><br><span class="line">		<span class="type">int</span> l=(*i).l;</span><br><span class="line">		<span class="type">int</span> r=(*i).r;</span><br><span class="line">		i64 val=(*i).val;</span><br><span class="line">		st.<span class="built_in">erase</span>(i);</span><br><span class="line">		st.<span class="built_in">insert</span>(&#123;l,pos<span class="number">-1</span>,val&#125;);</span><br><span class="line">		<span class="keyword">return</span> st.<span class="built_in">insert</span>(&#123;pos,r,val&#125;).first;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	珂朵莉树维护的是区间的信息,所以split函数负责二分出想要的区间,然后在特定的地方断开.</span></span><br><span class="line"><span class="comment">	因为这里涉及到添加删除元素,所以因为set的特性我们要先split r区间再split l区间.</span></span><br><span class="line"><span class="comment">	当成一个小trick就行了.</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">bbe</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,i64 val)</span></span>&#123;</span><br><span class="line">		<span class="keyword">auto</span> itr=<span class="built_in">split</span>(r+<span class="number">1</span>),itl=<span class="built_in">split</span>(l);</span><br><span class="line">		st.<span class="built_in">erase</span>(itl,itr);</span><br><span class="line">		st.<span class="built_in">insert</span>(&#123;l,r,val&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">aadd</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,i64 x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">auto</span> itr=<span class="built_in">split</span>(r+<span class="number">1</span>),itl=<span class="built_in">split</span>(l);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> i=itl;i!=itr;++i)&#123;</span><br><span class="line">			(*i).val+=x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">i64 <span class="title">rrangek</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">		vector&lt;node&gt;vc;</span><br><span class="line">		<span class="keyword">auto</span> itr=<span class="built_in">split</span>(r+<span class="number">1</span>),itl=<span class="built_in">split</span>(l);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> i=itl;i!=itr;++i)&#123;</span><br><span class="line">			vc.<span class="built_in">push_back</span>(*i);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(vc.<span class="built_in">begin</span>(),vc.<span class="built_in">end</span>(),[&amp;](node&amp; a,node&amp; b)&#123;</span><br><span class="line">			<span class="keyword">return</span> a.val&lt;b.val;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> i:vc)&#123;</span><br><span class="line">			<span class="type">int</span> del=i.r-i.l+<span class="number">1</span>;</span><br><span class="line">			k-=del;</span><br><span class="line">			<span class="keyword">if</span>(k&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">return</span> i.val;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">114514</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">i64 <span class="title">ppow</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> x,<span class="type">int</span> mod)</span></span>&#123;</span><br><span class="line">		i64 res=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">auto</span> itr=<span class="built_in">split</span>(r+<span class="number">1</span>),itl=<span class="built_in">split</span>(l);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">auto</span> i=itl;i!=itr;++i)&#123;</span><br><span class="line">			res=(res+<span class="built_in">qp</span>((*i).val%mod,x,mod)*((*i).r-(*i).l+<span class="number">1</span>)%mod)%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		res=(res+mod)%mod;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p>大致用法和set一样,只不过multiset允许多个元素.<br>值得注意的是,multiset删除元素也是完全删除,例如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	multiset&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">	st.<span class="built_in">insert</span>(<span class="number">10</span>);</span><br><span class="line">	st.<span class="built_in">insert</span>(<span class="number">10</span>);</span><br><span class="line">	st.<span class="built_in">insert</span>(<span class="number">10</span>);</span><br><span class="line">	st.<span class="built_in">insert</span>(<span class="number">10</span>);</span><br><span class="line">	st.<span class="built_in">insert</span>(<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> i:st)&#123;fout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;&#125;enter</span><br><span class="line"></span><br><span class="line">	st.<span class="built_in">erase</span>(<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> i:st)&#123;fout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*回显</span></span><br><span class="line"><span class="comment">10 10 10 10 10</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>,map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;mp;<span class="comment">//map是能嵌套各种奇怪容器的,这不罕见,毕竟map的本质是一个映射,只要你能搞清楚映射关系,map就能维护(暴论)</span></span><br><span class="line"></span><br><span class="line">mp.<span class="built_in">find</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:mp)&#123;</span><br><span class="line">	i.first;<span class="comment">//键是什么</span></span><br><span class="line">	i.second;<span class="comment">//键值是什么</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有一个小点是,map会对所有直接访问的元素建立新表,也就是说如果你用 <code>if(mp[0]==0)xxx;</code> 而不是 <code>if(mp.find(0)==mp.end())</code> 会让map对0建立索引,直接的影响就是 <code>mp.size()</code> 对不上,umap也有这个问题.</p>
+<h2 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h2><p>因为map本质是红黑树,它只需要一个比较运算符就能开出来,而umap本质是哈希表,你的自定义类需要写一个哈希方法才能过编译.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">float</span> aaa;</span><br><span class="line">	<span class="type">double</span> bbb;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> ccc;</span><br><span class="line">	<span class="built_in">node</span>(<span class="type">const</span> <span class="type">float</span>&amp; _aaa,<span class="type">const</span> <span class="type">double</span>&amp; _bbb,<span class="type">const</span> <span class="type">long</span> <span class="type">long</span>&amp; _ccc):<span class="built_in">aaa</span>(_aaa),<span class="built_in">bbb</span>(_bbb),<span class="built_in">ccc</span>(_ccc)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">nodeHash</span>&#123;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> node&amp; io)</span><span class="type">const</span></span>&#123;</span><br><span class="line">		<span class="type">int</span> res=io.aaa+io.bbb+io.ccc;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">unordered_map&lt;node,<span class="type">int</span>,nodeHash&gt;mp;</span><br></pre></td></tr></table></figure><br>上面的代码使用简单的加一起的哈希.(这里只是教你们怎么过编译,程序常数问题暂且不考虑,一般我们用val的3次方或者5次方取模表示哈希,当然如果你会写FNV哈希那更好了)</p>
+<p>其他用法和map差不多,不过这个在遍历的时候是按照加入的时间戳进行遍历的,先遍历最晚加进来的,和元素大小没有关系.</p>
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>不能for遍历,也没有几个方法,不容易写错.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt;pq;</span><br><span class="line"><span class="comment">//priority_queue&lt;元素,用什么容器存,怎么比较&gt; 容器名字;</span></span><br></pre></td></tr></table></figure><br>估计绝大多数人接触pq是在Dijkstra这里…<br>因为 <code>greater&lt;int&gt;</code> 的本质是对 <code>int</code> 调用内置的 <code>&gt;</code> 比较方法,所以我们完全可以这么写:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	<span class="built_in">node</span>(<span class="type">int</span> _val,<span class="type">int</span> __val)&#123;</span><br><span class="line">		val=_val+__val;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">bool</span> <span class="keyword">operator</span> &gt;(<span class="type">const</span> node&amp; io)<span class="type">const</span>&#123;</span><br><span class="line">		<span class="comment">//在这里改成&lt;的时候会因为greater调用&gt;的方法但是你没有而过不了编译</span></span><br><span class="line">		<span class="keyword">return</span> val&gt;io.val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;node,vector&lt;node&gt;,greater&lt;node&gt;&gt;pq;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	pq.<span class="built_in">push</span>(&#123;<span class="number">114</span>,<span class="number">514</span>&#125;);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="queue-stack-deque"><a href="#queue-stack-deque" class="headerlink" title="queue,stack,deque"></a>queue,stack,deque</h2><p>这几个数据结构没什么方法,也不能for遍历,直接用VsCode自带的补全就可以了.</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>“方法” 和 “函数” 其实是一回事.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">函数类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-%E5%8E%BB%E9%87%8D-%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.</span> <span class="toc-text">排序,去重,查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">其他不常用的函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E7%A2%8E%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">杂碎函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">容器类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bitset"><span class="toc-number">2.1.</span> <span class="toc-text">bitset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#array"><span class="toc-number">2.2.</span> <span class="toc-text">array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">2.3.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">2.4.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multiset"><span class="toc-number">2.5.</span> <span class="toc-text">multiset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">2.6.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-map"><span class="toc-number">2.7.</span> <span class="toc-text">unordered_map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#priority-queue"><span class="toc-number">2.8.</span> <span class="toc-text">priority_queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#queue-stack-deque"><span class="toc-number">2.9.</span> <span class="toc-text">queue,stack,deque</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2025/10/29/00016_SSSTL/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2025/10/29/00016_SSSTL/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2025/10/29/00016_SSSTL/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

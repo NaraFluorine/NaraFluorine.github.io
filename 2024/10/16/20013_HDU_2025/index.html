@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="航电…十场必须打满八场. 去年的经验表明,HDU主要考验数据结构… HDU2025-1 今年第一场的题乍一看全都不会,会的交几发全假了,人傻了. 1001 有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢? 喵喵结论题. 在做这题之前，我们需要知道 Anti_">
+    <meta name="description" content="航电…十场必须打满八场.去年的经验表明,HDU主要考验数据结构… HDU2025-1今年第一场的题乍一看全都不会,会的交几发全假了,人傻了. 1001有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢? 喵喵结论题.在做这题之前，我们需要知道 Anti_Nim：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="十场杭电HDU2025">
 <meta property="og:url" content="https://narafluorine.github.io/2024/10/16/20013_HDU_2025/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="航电…十场必须打满八场. 去年的经验表明,HDU主要考验数据结构… HDU2025-1 今年第一场的题乍一看全都不会,会的交几发全假了,人傻了. 1001 有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢? 喵喵结论题. 在做这题之前，我们需要知道 Anti_">
+<meta property="og:description" content="航电…十场必须打满八场.去年的经验表明,HDU主要考验数据结构… HDU2025-1今年第一场的题乍一看全都不会,会的交几发全假了,人傻了. 1001有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢? 喵喵结论题.在做这题之前，我们需要知道 Anti_Nim：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-16T14:16:10.000Z">
 <meta property="article:modified_time" content="2025-09-11T04:43:24.584Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
     
     
@@ -105,10 +105,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/10/16/20010___Linux___/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/10/16/20014_LG_2025/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/10/16/20011_NC_2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/10/16/30013_JS_Disallow/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">HDU2025-1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1001"><span class="toc-number">1.1.</span> <span class="toc-text">1001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005"><span class="toc-number">1.2.</span> <span class="toc-text">1005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1006"><span class="toc-number">1.3.</span> <span class="toc-text">1006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009"><span class="toc-number">1.4.</span> <span class="toc-text">1009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010"><span class="toc-number">1.5.</span> <span class="toc-text">1010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">HDU2025-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1012"><span class="toc-number">2.1.</span> <span class="toc-text">1012</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">HDU2025-3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-%E6%80%A7%E8%B4%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">3.1.</span> <span class="toc-text">1007 性质不同的数字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">HDU2025-4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1008"><span class="toc-number">4.1.</span> <span class="toc-text">1008</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">HDU2025-5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1002-%E9%81%BF%E7%A8%8E"><span class="toc-number">5.1.</span> <span class="toc-text">1002 避税</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E8%B7%83%E8%BF%81"><span class="toc-number">5.2.</span> <span class="toc-text">1004 跃迁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005-%E5%9B%9B%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8"><span class="toc-number">5.3.</span> <span class="toc-text">1005 四角洲行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-k-MEX"><span class="toc-number">5.4.</span> <span class="toc-text">1007 k-MEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010-%E9%9A%8F%E6%9C%BA%E5%8F%8D%E9%A6%88"><span class="toc-number">5.5.</span> <span class="toc-text">1010 随机反馈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">5.6.</span> <span class="toc-text">1012 最小值</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-1"><span class="toc-number">1.</span> <span class="toc-text">HDU2025-1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1001"><span class="toc-number">1.1.</span> <span class="toc-text">1001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005"><span class="toc-number">1.2.</span> <span class="toc-text">1005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1006"><span class="toc-number">1.3.</span> <span class="toc-text">1006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009"><span class="toc-number">1.4.</span> <span class="toc-text">1009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010"><span class="toc-number">1.5.</span> <span class="toc-text">1010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-2"><span class="toc-number">2.</span> <span class="toc-text">HDU2025-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1012"><span class="toc-number">2.1.</span> <span class="toc-text">1012</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-3"><span class="toc-number">3.</span> <span class="toc-text">HDU2025-3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-%E6%80%A7%E8%B4%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">3.1.</span> <span class="toc-text">1007 性质不同的数字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-4"><span class="toc-number">4.</span> <span class="toc-text">HDU2025-4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1008"><span class="toc-number">4.1.</span> <span class="toc-text">1008</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-5"><span class="toc-number">5.</span> <span class="toc-text">HDU2025-5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1002-%E9%81%BF%E7%A8%8E"><span class="toc-number">5.1.</span> <span class="toc-text">1002 避税</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E8%B7%83%E8%BF%81"><span class="toc-number">5.2.</span> <span class="toc-text">1004 跃迁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005-%E5%9B%9B%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8"><span class="toc-number">5.3.</span> <span class="toc-text">1005 四角洲行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-k-MEX"><span class="toc-number">5.4.</span> <span class="toc-text">1007 k-MEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010-%E9%9A%8F%E6%9C%BA%E5%8F%8D%E9%A6%88"><span class="toc-number">5.5.</span> <span class="toc-text">1010 随机反馈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">5.6.</span> <span class="toc-text">1012 最小值</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -183,14 +183,10 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>航电…十场必须打满八场.<br>
-去年的经验表明,HDU主要考验数据结构…</p>
-<h1><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/contest/problems?cid=1172">HDU2025-1</a></h1>
-<p>今年第一场的题乍一看全都不会,会的交几发全假了,人傻了.</p>
-<h2 id="1001">1001</h2>
-<p>有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢?</p>
-<p>喵喵结论题.<br>
-在做这题之前，我们需要知道 Anti_Nim：即在经典 Nim 游戏中，把获胜的条件改成最后一个将石子取完的人 <strong>失败</strong> 。我们有以下结论：</p>
+    <p>航电…十场必须打满八场.<br>去年的经验表明,HDU主要考验数据结构…</p>
+<h1 id="HDU2025-1"><a href="#HDU2025-1" class="headerlink" title="HDU2025-1"></a><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/contest/problems?cid=1172">HDU2025-1</a></h1><p>今年第一场的题乍一看全都不会,会的交几发全假了,人傻了.</p>
+<h2 id="1001"><a href="#1001" class="headerlink" title="1001"></a>1001</h2><p>有n个房间,每个房间内是一个独立的nim游戏:该房间谁没石子能拿了才能去下一个房间先手拿石子(最后没房间能去就输了),现在给你n个房间的情况,计算出房间有多少种先后排列能让先手Alice赢?</p>
+<p>喵喵结论题.<br>在做这题之前，我们需要知道 Anti_Nim：即在经典 Nim 游戏中，把获胜的条件改成最后一个将石子取完的人 <strong>失败</strong> 。我们有以下结论：</p>
 <ol>
 <li>当每堆石子的数量都为1时，异或和为0时先手获胜；</li>
 <li>当有至少一堆石子的个数大于1时，异或和不为0时先手获胜。</li>
@@ -203,75 +199,40 @@
 <li>当开头有偶数个1时，第一个非全1的房间的异或和为0时 Alice 必胜；</li>
 </ol>
 <p>计算方案数的时候，我们先不考虑偶数个全1的房间。然后我们枚举有多少个奇数个全1的房间放在最前面(以上题解原话)</p>
-<p>具体地:首先判断全是1的时候Alice赢还是输.<br>
-然后枚举奇数个1在前面的时候的排列,假设为i,对于i是奇数有:<br>
-$$\binom{cnt3+cnt2-1}{cnt3}\binom{cnt1+cnt2+cnt3-1-i}{cnt1-i}$$<br>
-(意思是,先处理非全是1的排列:举1个在最前面,剩下的随意,后者的意思是,所有剩下的位置除了选定的i个全是1堆和1个非1堆,剩下的由1堆随意排列)</p>
-<p>同理,对于i是偶数有:<br>
-$$\binom{cnt3+cnt2-1}{cnt2}\binom{cnt1+cnt2+cnt3-1-i}{cnt1-i}$$<br>
-最后res需要乘上<code>res=res*fac[cnt0]%mod*fac[cnt1]%mod*fac[cnt2]%mod*fac[cnt3]%mod*C(n,cnt0)%mod;</code>,因为上述房间性质一样就可以阶乘去判断,且最后偶数的房间可以任意从n中选位置.</p>
-<h2 id="1005">1005</h2>
-<p>分层图,对每个协会都建一个图,最后设置一个源点一个汇点跑最短路.</p>
-<h2 id="1006">1006</h2>
-<p>分析题干板子题…<br>
-这个题很无语的地方是,看起来数据是随便出的,然而不是…</p>
-<p>首先 <strong>没有任意两片山区一个高度</strong> 意味着不用tarjan,直接判断是不是比周围几个都高就需要建传送门.<br>
-然后 <strong>传送门建造费用极高</strong> ,告诉我们除了这些门,在联通时不会额外建立其他的传送门.<br>
-然后 <strong>114xx 5141xx 919810xx</strong> 这个公式看似随便出,结果因为高度对结果影响非常大,直接按照高度对点排序即可,事实上根本不需要用到最小生成树的算法.</p>
-<h2 id="1009">1009</h2>
-<p>找到最长的子序列满足两端的元素大于中间的所有值.</p>
-<p>不妨从高枚举,这样里面的数一定比这个值小.<br>
-然后往低枚举,假如在区间里,答案不会变化.<br>
-假如不在,这个时候某一个比这个数大的数字一定会加进区间内,答案就是 $(r-l+1)-(n-i-1)$ .</p>
-<h2 id="1010">1010</h2>
-<p>求中位数目前发现的trick:</p>
+<p>具体地:首先判断全是1的时候Alice赢还是输.<br>然后枚举奇数个1在前面的时候的排列,假设为i,对于i是奇数有:</p>
+<script type="math/tex; mode=display">\binom{cnt3+cnt2-1}{cnt3}\binom{cnt1+cnt2+cnt3-1-i}{cnt1-i}</script><p>(意思是,先处理非全是1的排列:举1个在最前面,剩下的随意,后者的意思是,所有剩下的位置除了选定的i个全是1堆和1个非1堆,剩下的由1堆随意排列)</p>
+<p>同理,对于i是偶数有:</p>
+<script type="math/tex; mode=display">\binom{cnt3+cnt2-1}{cnt2}\binom{cnt1+cnt2+cnt3-1-i}{cnt1-i}</script><p>最后res需要乘上<code>res=res*fac[cnt0]%mod*fac[cnt1]%mod*fac[cnt2]%mod*fac[cnt3]%mod*C(n,cnt0)%mod;</code>,因为上述房间性质一样就可以阶乘去判断,且最后偶数的房间可以任意从n中选位置.</p>
+<h2 id="1005"><a href="#1005" class="headerlink" title="1005"></a>1005</h2><p>分层图,对每个协会都建一个图,最后设置一个源点一个汇点跑最短路.</p>
+<h2 id="1006"><a href="#1006" class="headerlink" title="1006"></a>1006</h2><p>分析题干板子题……<br>这个题很无语的地方是,看起来数据是随便出的,然而不是…  </p>
+<p>首先 <strong>没有任意两片山区一个高度</strong> 意味着不用tarjan,直接判断是不是比周围几个都高就需要建传送门.<br>然后 <strong>传送门建造费用极高</strong> ,告诉我们除了这些门,在联通时不会额外建立其他的传送门.<br>然后 <strong>114xx 5141xx 919810xx</strong> 这个公式看似随便出,结果因为高度对结果影响非常大,直接按照高度对点排序即可,事实上根本不需要用到最小生成树的算法.</p>
+<h2 id="1009"><a href="#1009" class="headerlink" title="1009"></a>1009</h2><p>找到最长的子序列满足两端的元素大于中间的所有值.</p>
+<p>不妨从高枚举,这样里面的数一定比这个值小.<br>然后往低枚举,假如在区间里,答案不会变化.<br>假如不在,这个时候某一个比这个数大的数字一定会加进区间内,答案就是 $(r-l+1)-(n-i-1)$ .</p>
+<h2 id="1010"><a href="#1010" class="headerlink" title="1010"></a>1010</h2><p>求中位数目前发现的trick:</p>
 <ol>
 <li>二分</li>
 <li>枚举:中位数是某个特定的数的情况</li>
-<li>推平:枚举某个特定的数字之后,数字之间的关系就剩下单纯的大或者小,所以用1代替所有比枚举的p大的数,-1代替小的数.<br>
-然后求前缀和.这个数组的意思是,假如存在 $sum[r]==sum[l-1]$ 那么这个子串满足中位数是p(p必须在区间内).</li>
+<li>推平:枚举某个特定的数字之后,数字之间的关系就剩下单纯的大或者小,所以用1代替所有比枚举的p大的数,-1代替小的数.<br> 然后求前缀和.这个数组的意思是,假如存在 $sum[r]==sum[l-1]$ 那么这个子串满足中位数是p(p必须在区间内).</li>
 </ol>
-<p>本题没想到3.<br>
-然而本题中要求区间长度必须为奇数,怎么保证?</p>
+<p>本题没想到3.<br>然而本题中要求区间长度必须为奇数,怎么保证?</p>
 <blockquote>
-<p>1 0 -1 其实已经保证了.<br>
-假如换成&quot;区间长度必须为偶数&quot;呢?<br>
-把排列数字本身换成1或者-1即可.</p>
+<p>1 0 -1 其实已经保证了.<br>假如换成”区间长度必须为偶数”呢?<br>把排列数字本身换成1或者-1即可.</p>
+<h1 id="HDU2025-2"><a href="#HDU2025-2" class="headerlink" title="HDU2025-2"></a>HDU2025-2</h1><h2 id="1012"><a href="#1012" class="headerlink" title="1012"></a>1012</h2><p>首先发现每次只会选间隔2个或者间隔3个的(因为更大的间距不如选中间元素不劣)<br>然后直接搜索,克隆线性基即可.</p>
 </blockquote>
-<h1>HDU2025-2</h1>
-<h2 id="1012">1012</h2>
-<p>首先发现每次只会选间隔2个或者间隔3个的(因为更大的间距不如选中间元素不劣)<br>
-然后直接搜索,克隆线性基即可.</p>
 <p>注意使用 <code>new</code> 开数组的线性基在克隆的时候要一并克隆原函数,不然会一直是一个数组,会WA.</p>
-<h1>HDU2025-3</h1>
-<h2 id="1007-性质不同的数字">1007 性质不同的数字</h2>
-<p>将每个线段编号，观察数轴上的位置pos，把位置上所有覆盖的线段所构成的集合记为其状态，比如在pos=3的位置上有编号为{1,3,4}的三条线段覆盖，pos=3的状态即为{1,3,4},题目所求即整个数轴上有多少种不同的状态。</p>
+<h1 id="HDU2025-3"><a href="#HDU2025-3" class="headerlink" title="HDU2025-3"></a>HDU2025-3</h1><h2 id="1007-性质不同的数字"><a href="#1007-性质不同的数字" class="headerlink" title="1007 性质不同的数字"></a>1007 性质不同的数字</h2><p>将每个线段编号，观察数轴上的位置pos，把位置上所有覆盖的线段所构成的集合记为其状态，比如在pos=3的位置上有编号为{1,3,4}的三条线段覆盖，pos=3的状态即为{1,3,4},题目所求即整个数轴上有多少种不同的状态。</p>
 <p>所以我们需要对线段进行随机哈希,维护抑或和(因为抑或上区间两端等于没有抑或).</p>
-<h1>HDU2025-4</h1>
-<h2 id="1008">1008</h2>
-<p>赛时假了…</p>
+<h1 id="HDU2025-4"><a href="#HDU2025-4" class="headerlink" title="HDU2025-4"></a>HDU2025-4</h1><h2 id="1008"><a href="#1008" class="headerlink" title="1008"></a>1008</h2><p>赛时假了…</p>
 <p>正确做法是生成一个单调序列,然后从里面抽数字出来形成新的序列,答案不变更优就跳出.</p>
-<h1>HDU2025-5</h1>
-<p>唐比Flu赛时就过了一道题,剩下的全是队友写的…</p>
-<h2 id="1002-避税">1002 避税</h2>
-<p>二分答案,对这个答案进行check:<br>
-如果全装满都不够m,直接return 0.<br>
-然后尽量装满,假设一个元素竖着全部能装满,要取min.<br>
-否则先装满,对剩下的元素排个序,贪心的取最后几个能装的元素.<br>
-最后查验是否大于等于m即可.</p>
-<h2 id="1004-跃迁">1004 跃迁</h2>
-<p>置换的性质:结合律,所以我们可以尝试先算后面次方.<br>
-对于后面的次方,对于一个特定的q,一定能找到一个p0.<br>
-所以答案是 $(n!)^m$ ,赛时Flu认为答案是 $m(n!)$ 交还WA了一发…</p>
-<h2 id="1005-四角洲行动">1005 四角洲行动</h2>
-<p>注意到一个 1x2 能拆成两个1x1,一个1x3能被拆成一个1x1和一个1x2,一个2x2能被拆成两个1x2,其中他们除了1x1都是可以接着参加后续分拆的.</p>
+<h1 id="HDU2025-5"><a href="#HDU2025-5" class="headerlink" title="HDU2025-5"></a>HDU2025-5</h1><p>唐比Flu赛时就过了一道题,剩下的全是队友写的…</p>
+<h2 id="1002-避税"><a href="#1002-避税" class="headerlink" title="1002 避税"></a>1002 避税</h2><p>二分答案,对这个答案进行check:<br>如果全装满都不够m,直接return 0.<br>然后尽量装满,假设一个元素竖着全部能装满,要取min.<br>否则先装满,对剩下的元素排个序,贪心的取最后几个能装的元素.<br>最后查验是否大于等于m即可.</p>
+<h2 id="1004-跃迁"><a href="#1004-跃迁" class="headerlink" title="1004 跃迁"></a>1004 跃迁</h2><p>置换的性质:结合律,所以我们可以尝试先算后面次方.<br>对于后面的次方,对于一个特定的q,一定能找到一个p0.<br>所以答案是 $(n!)^m$ ,赛时Flu认为答案是 $m(n!)$ 交还WA了一发…</p>
+<h2 id="1005-四角洲行动"><a href="#1005-四角洲行动" class="headerlink" title="1005 四角洲行动"></a>1005 四角洲行动</h2><p>注意到一个 1x2 能拆成两个1x1,一个1x3能被拆成一个1x1和一个1x2,一个2x2能被拆成两个1x2,其中他们除了1x1都是可以接着参加后续分拆的.</p>
 <p>看起来直接dp非常麻烦,所以我们尝试转化为检验性问题:我们枚举ijk表示强制i个2x2被拆成1x2,j个1x3被拆成1x1和1x2,k个1x2被拆成1x1,所以对物品排个序做前缀和就可以O(1)判定最大值,问题就解决了.</p>
-<h2 id="1007-k-MEX">1007 k-MEX</h2>
-<h2 id="1010-随机反馈">1010 随机反馈</h2>
-<h2 id="1012-最小值">1012 最小值</h2>
-
+<h2 id="1007-k-MEX"><a href="#1007-k-MEX" class="headerlink" title="1007 k-MEX"></a>1007 k-MEX</h2><h2 id="1010-随机反馈"><a href="#1010-随机反馈" class="headerlink" title="1010 随机反馈"></a>1010 随机反馈</h2><h2 id="1012-最小值"><a href="#1012-最小值" class="headerlink" title="1012 最小值"></a>1012 最小值</h2>
   </div>
 </article>
+
 
 
         
@@ -303,7 +264,7 @@ $$\binom{cnt3+cnt2-1}{cnt2}\binom{cnt1+cnt2+cnt3-1-i}{cnt1-i}$$<br>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">HDU2025-1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1001"><span class="toc-number">1.1.</span> <span class="toc-text">1001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005"><span class="toc-number">1.2.</span> <span class="toc-text">1005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1006"><span class="toc-number">1.3.</span> <span class="toc-text">1006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009"><span class="toc-number">1.4.</span> <span class="toc-text">1009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010"><span class="toc-number">1.5.</span> <span class="toc-text">1010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">HDU2025-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1012"><span class="toc-number">2.1.</span> <span class="toc-text">1012</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">HDU2025-3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-%E6%80%A7%E8%B4%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">3.1.</span> <span class="toc-text">1007 性质不同的数字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">HDU2025-4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1008"><span class="toc-number">4.1.</span> <span class="toc-text">1008</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">HDU2025-5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1002-%E9%81%BF%E7%A8%8E"><span class="toc-number">5.1.</span> <span class="toc-text">1002 避税</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E8%B7%83%E8%BF%81"><span class="toc-number">5.2.</span> <span class="toc-text">1004 跃迁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005-%E5%9B%9B%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8"><span class="toc-number">5.3.</span> <span class="toc-text">1005 四角洲行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-k-MEX"><span class="toc-number">5.4.</span> <span class="toc-text">1007 k-MEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010-%E9%9A%8F%E6%9C%BA%E5%8F%8D%E9%A6%88"><span class="toc-number">5.5.</span> <span class="toc-text">1010 随机反馈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">5.6.</span> <span class="toc-text">1012 最小值</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-1"><span class="toc-number">1.</span> <span class="toc-text">HDU2025-1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1001"><span class="toc-number">1.1.</span> <span class="toc-text">1001</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005"><span class="toc-number">1.2.</span> <span class="toc-text">1005</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1006"><span class="toc-number">1.3.</span> <span class="toc-text">1006</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1009"><span class="toc-number">1.4.</span> <span class="toc-text">1009</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010"><span class="toc-number">1.5.</span> <span class="toc-text">1010</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-2"><span class="toc-number">2.</span> <span class="toc-text">HDU2025-2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1012"><span class="toc-number">2.1.</span> <span class="toc-text">1012</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-3"><span class="toc-number">3.</span> <span class="toc-text">HDU2025-3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-%E6%80%A7%E8%B4%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">3.1.</span> <span class="toc-text">1007 性质不同的数字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-4"><span class="toc-number">4.</span> <span class="toc-text">HDU2025-4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1008"><span class="toc-number">4.1.</span> <span class="toc-text">1008</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HDU2025-5"><span class="toc-number">5.</span> <span class="toc-text">HDU2025-5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1002-%E9%81%BF%E7%A8%8E"><span class="toc-number">5.1.</span> <span class="toc-text">1002 避税</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1004-%E8%B7%83%E8%BF%81"><span class="toc-number">5.2.</span> <span class="toc-text">1004 跃迁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1005-%E5%9B%9B%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8"><span class="toc-number">5.3.</span> <span class="toc-text">1005 四角洲行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1007-k-MEX"><span class="toc-number">5.4.</span> <span class="toc-text">1007 k-MEX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1010-%E9%9A%8F%E6%9C%BA%E5%8F%8D%E9%A6%88"><span class="toc-number">5.5.</span> <span class="toc-text">1010 随机反馈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1012-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">5.6.</span> <span class="toc-text">1012 最小值</span></a></li></ol></li></ol>
       </div>
     
 

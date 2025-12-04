@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="prompt 123456789101112131415161718支配数支配数是指有一半以上数字相同的正整数。例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。记D(N)为小于10^N的支配数的数目。例如，D(4)&#x3D;603，D(10)&#x3D;21893256。求D(2022)，并将你的答案对1e9+7取余。这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为">
+    <meta name="description" content="prompt123456789101112131415161718支配数支配数是指有一半以上数字相同的正整数。例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。记D(N)为小于10^N的支配数的数目。例如，D(4)&#x3D;603，D(10)&#x3D;21893256。求D(2022)，并将你的答案对1e9+7取余。这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为j">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Fluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0788.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="prompt 123456789101112131415161718支配数支配数是指有一半以上数字相同的正整数。例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。记D(N)为小于10^N的支配数的数目。例如，D(4)&#x3D;603，D(10)&#x3D;21893256。求D(2022)，并将你的答案对1e9+7取余。这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为">
+<meta property="og:description" content="prompt123456789101112131415161718支配数支配数是指有一半以上数字相同的正整数。例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。记D(N)为小于10^N的支配数的数目。例如，D(4)&#x3D;603，D(10)&#x3D;21893256。求D(2022)，并将你的答案对1e9+7取余。这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为j">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-16T09:19:00.685Z">
 <meta property="article:modified_time" content="2025-11-16T09:19:00.685Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
     
     
@@ -120,10 +120,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h1>prompt</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">支配数</span><br><span class="line">支配数是指有一半以上数字相同的正整数。</span><br><span class="line"></span><br><span class="line">例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。</span><br><span class="line"></span><br><span class="line">记D(N)为小于10^N的支配数的数目。例如，D(4)=603，D(10)=21893256。</span><br><span class="line"></span><br><span class="line">求D(2022)，并将你的答案对1e9+7取余。</span><br><span class="line"></span><br><span class="line">这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为j的时候的情况数(可以包含前导零),记ans[i]为长度为i的支配数的个数(也可以有前导零).那么我们有:</span><br><span class="line"></span><br><span class="line">1. 假设长度为i,支配数个数为j,那么包含前导零的答案为</span><br><span class="line">$$C_i^j\times10\times9^&#123;i-j&#125;$$</span><br><span class="line">(也就是先选出来填支配数的位置,然后枚举支配数是什么,剩下的数字除了支配数都可以随便选)</span><br><span class="line"></span><br><span class="line">2. ans[i]=\sum_j dp[i][j] 注意支配数字一定要严格大于数字长度的一半</span><br><span class="line">3. 设res为当前答案,那么res=ans[N]-ans[N-1]+ans[n-2]...(也就是减掉至少一个前导零的情况,加上至少两个前导零的情况,...)</span><br><span class="line">4. 记得取模.</span><br></pre></td></tr></table></figure>
-<h1>Gemini 2.5 Pro</h1>
-<p>感谢您提供解题思路。您的思路中，第1步和第2步（定义<code>ans[i]</code>为允许前导零的$i$位支配数数量）是正确的，但第3步（使用容斥原理计算最终答案）与问题的定义不符。</p>
+          <h1 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a>prompt</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">支配数</span><br><span class="line">支配数是指有一半以上数字相同的正整数。</span><br><span class="line"></span><br><span class="line">例如，2022是支配数，因为其四个数字中有三个是2。反之，2021不是一个支配数。</span><br><span class="line"></span><br><span class="line">记D(N)为小于10^N的支配数的数目。例如，D(4)=603，D(10)=21893256。</span><br><span class="line"></span><br><span class="line">求D(2022)，并将你的答案对1e9+7取余。</span><br><span class="line"></span><br><span class="line">这个题的思路是,记dp[i][j]表示长度为i,支配数字的个数为j的时候的情况数(可以包含前导零),记ans[i]为长度为i的支配数的个数(也可以有前导零).那么我们有:</span><br><span class="line"></span><br><span class="line">1. 假设长度为i,支配数个数为j,那么包含前导零的答案为</span><br><span class="line">$$C_i^j\times10\times9^&#123;i-j&#125;$$</span><br><span class="line">(也就是先选出来填支配数的位置,然后枚举支配数是什么,剩下的数字除了支配数都可以随便选)</span><br><span class="line"></span><br><span class="line">2. ans[i]=\sum_j dp[i][j] 注意支配数字一定要严格大于数字长度的一半</span><br><span class="line">3. 设res为当前答案,那么res=ans[N]-ans[N-1]+ans[n-2]...(也就是减掉至少一个前导零的情况,加上至少两个前导零的情况,...)</span><br><span class="line">4. 记得取模.</span><br></pre></td></tr></table></figure>
+<h1 id="Gemini-2-5-Pro"><a href="#Gemini-2-5-Pro" class="headerlink" title="Gemini 2.5 Pro"></a>Gemini 2.5 Pro</h1><p>感谢您提供解题思路。您的思路中，第1步和第2步（定义<code>ans[i]</code>为允许前导零的$i$位支配数数量）是正确的，但第3步（使用容斥原理计算最终答案）与问题的定义不符。</p>
 <p>$D(N)$ 是<strong>小于 $10^N$</strong> 的支配数（正整数）的数目。</p>
 <ul>
 <li>“小于 $10^N$” 意味着我们要计算所有长度为1、长度为2、…、一直到长度为 $N$ 的正整数。</li>
@@ -131,74 +129,53 @@
 </ul>
 <p>您的 <code>ans[i]</code>（我们称之为 $S(i)$）计算的是<strong>允许前导零</strong>的 $i$ 位支配数<em>字符串</em>的数量。我们需要的是 $A(i)$。</p>
 <p>下面是修正后的完整推导和计算过程：</p>
-<h3 id="1-重新定义-A-i-和-S-i">1. 重新定义 $A(i)$ 和 $S(i)$</h3>
-<ul>
-<li>
-<p>令 $S(i)$ 为长度为 $i$ 的<strong>允许前导零</strong>的支配数<em>字符串</em>的数量。</p>
+<h3 id="1-重新定义-A-i-和-S-i"><a href="#1-重新定义-A-i-和-S-i" class="headerlink" title="1. 重新定义 $A(i)$ 和 $S(i)$"></a>1. 重新定义 $A(i)$ 和 $S(i)$</h3><ul>
+<li><p>令 $S(i)$ 为长度为 $i$ 的<strong>允许前导零</strong>的支配数<em>字符串</em>的数量。</p>
 <ul>
 <li>如您的思路，我们枚举支配数字 $k \in {0, \dots, 9}$（10种选择）。</li>
 <li>枚举 $k$ 出现的次数 $j$，其中 $j$ 必须严格大于 $i/2$（即 $j \ge \lfloor i/2 \rfloor + 1$）。</li>
 <li>选择 $j$ 个位置放 $k$：$C_i^j$ 种方法。</li>
 <li>在剩下的 $i-j$ 个位置放任意<em>不是</em> $k$ 的数字：$9^{i-j}$ 种方法。</li>
-<li>由于 $j &gt; i/2$，不可能有两个数字同时成为支配数，所以我们直接求和：<br>
-$$S(i) = 10 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}$$</li>
+<li>由于 $j &gt; i/2$，不可能有两个数字同时成为支配数，所以我们直接求和：<script type="math/tex; mode=display">S(i) = 10 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}</script></li>
 <li>这与您的 <code>ans[i]</code> 定义一致。</li>
 </ul>
 </li>
-<li>
-<p>令 $A(i)$ 为长度为 $i$ 的<strong>正</strong>支配整数（即不允许前导零）的数量。</p>
+<li><p>令 $A(i)$ 为长度为 $i$ 的<strong>正</strong>支配整数（即不允许前导零）的数量。</p>
 <ul>
 <li>$A(i) = S(i) - B(i)$，其中 $B(i)$ 是长度为 $i$ 且<strong>以0开头</strong>的支配数<em>字符串</em>的数量。</li>
 </ul>
 </li>
 </ul>
-<h3 id="2-计算-B-i-（以0开头的支配数）">2. 计算 $B(i)$（以0开头的支配数）</h3>
-<p>$B(i)$ 是一个形如 “0…” 的 $i$ 位字符串，且它是支配数。</p>
+<h3 id="2-计算-B-i-（以0开头的支配数）"><a href="#2-计算-B-i-（以0开头的支配数）" class="headerlink" title="2. 计算 $B(i)$（以0开头的支配数）"></a>2. 计算 $B(i)$（以0开头的支配数）</h3><p>$B(i)$ 是一个形如 “0…” 的 $i$ 位字符串，且它是支配数。</p>
 <ul>
-<li>
-<p><strong>情况1：0是支配数。</strong></p>
+<li><p><strong>情况1：0是支配数。</strong></p>
 <ul>
 <li>0 出现了 $j &gt; i/2$ 次。</li>
 <li>第一个位置已经是0。我们需要从剩下的 $i-1$ 个位置中再选 $j-1$ 个位置放0：$C_{i-1}^{j-1}$ 种方法。</li>
 <li>在剩下的 $i-j$ 个位置放任意非0数字（1到9）：$9^{i-j}$ 种方法。</li>
-<li>总和：$\sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_{i-1}^{j-1} \times 9^{i-j}$</li>
+<li>总和：$\sum<em>{j=\lfloor i/2 \rfloor + 1}^{i} C</em>{i-1}^{j-1} \times 9^{i-j}$</li>
 </ul>
 </li>
-<li>
-<p><strong>情况2：$k \in {1, \dots, 9}$ 是支配数。</strong></p>
+<li><p><strong>情况2：$k \in {1, \dots, 9}$ 是支配数。</strong></p>
 <ul>
 <li>$k$ 出现了 $j &gt; i/2$ 次。</li>
 <li>第一个位置是0。我们需要从剩下的 $i-1$ 个位置中选 $j$ 个位置放 $k$：$C_{i-1}^{j}$ 种方法。</li>
 <li>在剩下的 $(i-1)-j$ 个位置放任意<em>不是</em> $k$ 的数字（可以包括0）：$9^{i-1-j}$ 种方法。</li>
-<li>有9个可能的 $k$，所以总和：$9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_{i-1}^{j} \times 9^{i-1-j}$</li>
+<li>有9个可能的 $k$，所以总和：$9 \times \sum<em>{j=\lfloor i/2 \rfloor + 1}^{i} C</em>{i-1}^{j} \times 9^{i-1-j}$</li>
 </ul>
 </li>
-<li>
-<p><strong>合并 $B(i)$:</strong><br>
-$$B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} \times 9^{i-j} + 9 \times C_{i-1}^{j} \times 9^{i-1-j})$$<br>
-$$B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} \times 9^{i-j} + C_{i-1}^{j} \times 9^{i-j})$$<br>
-$$B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} + C_{i-1}^{j}) \times 9^{i-j}$$</p>
-<ul>
-<li>根据帕斯卡恒等式 $C_{n-1}^{k-1} + C_{n-1}^{k} = C_n^k$：<br>
-$$B(i) = 1 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}$$</li>
+<li><p><strong>合并 $B(i)$:</strong></p>
+<script type="math/tex; mode=display">B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} \times 9^{i-j} + 9 \times C_{i-1}^{j} \times 9^{i-1-j})</script><script type="math/tex; mode=display">B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} \times 9^{i-j} + C_{i-1}^{j} \times 9^{i-j})</script><script type="math/tex; mode=display">B(i) = \sum_{j=\lfloor i/2 \rfloor + 1}^{i} (C_{i-1}^{j-1} + C_{i-1}^{j}) \times 9^{i-j}</script><ul>
+<li>根据帕斯卡恒等式 $C<em>{n-1}^{k-1} + C</em>{n-1}^{k} = C_n^k$：<script type="math/tex; mode=display">B(i) = 1 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}</script></li>
 </ul>
 </li>
 </ul>
-<h3 id="3-计算-A-i-和-D-N">3. 计算 $A(i)$ 和 $D(N)$</h3>
-<ul>
-<li>
-<p>现在我们可以求 $A(i)$：<br>
-$$A(i) = S(i) - B(i)$$<br>
-$$A(i) = \left(10 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}\right) - \left(1 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}\right)$$<br>
-$$A(i) = 9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}$$</p>
-</li>
-<li>
-<p>$D(N)$ 是所有长度从1到 $N$ 的正支配数之和：<br>
-$$D(N) = \sum_{i=1}^{N} A(i)$$<br>
-$$D(N) = \sum_{i=1}^{N} \left( 9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j} \right)$$</p>
-</li>
-<li>
-<p><strong>验证：</strong></p>
+<h3 id="3-计算-A-i-和-D-N"><a href="#3-计算-A-i-和-D-N" class="headerlink" title="3. 计算 $A(i)$ 和 $D(N)$"></a>3. 计算 $A(i)$ 和 $D(N)$</h3><ul>
+<li><p>现在我们可以求 $A(i)$：</p>
+<script type="math/tex; mode=display">A(i) = S(i) - B(i)</script><script type="math/tex; mode=display">A(i) = \left(10 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}\right) - \left(1 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}\right)</script><script type="math/tex; mode=display">A(i) = 9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j}</script></li>
+<li><p>$D(N)$ 是所有长度从1到 $N$ 的正支配数之和：</p>
+<script type="math/tex; mode=display">D(N) = \sum_{i=1}^{N} A(i)</script><script type="math/tex; mode=display">D(N) = \sum_{i=1}^{N} \left( 9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i^j \times 9^{i-j} \right)</script></li>
+<li><p><strong>验证：</strong></p>
 <ul>
 <li>$A(1) = 9 \times (C_1^1 \times 9^0) = 9$。（1, 2…9）</li>
 <li>$A(2) = 9 \times (C_2^2 \times 9^0) = 9$。（11, 22…99）</li>
@@ -208,16 +185,12 @@ $$D(N) = \sum_{i=1}^{N} \left( 9 \times \sum_{j=\lfloor i/2 \rfloor + 1}^{i} C_i
 </ul>
 </li>
 </ul>
-<h3 id="4-计算-D-2022-pmod-10-9-7">4. 计算 $D(2022) \pmod{10^9+7}$</h3>
-<p>我们需要计算 $D(2022) = \sum_{i=1}^{2022} A(i) \pmod{10^9+7}$。<br>
-这需要一个 $O(N^2)$ 的算法，其中 $N=2022$，这是完全可行的。</p>
+<h3 id="4-计算-D-2022-pmod-10-9-7"><a href="#4-计算-D-2022-pmod-10-9-7" class="headerlink" title="4. 计算 $D(2022) \pmod{10^9+7}$"></a>4. 计算 $D(2022) \pmod{10^9+7}$</h3><p>我们需要计算 $D(2022) = \sum_{i=1}^{2022} A(i) \pmod{10^9+7}$。<br>这需要一个 $O(N^2)$ 的算法，其中 $N=2022$，这是完全可行的。</p>
 <p>我们需要预先计算组合数 $C(n, k)$ 和 $9$ 的幂，全部在 $10^9+7$ 模下进行。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提高递归深度限制，以防万一（虽然迭代不需要）</span></span><br><span class="line">sys.setrecursionlimit(<span class="number">4000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_d_n</span>(<span class="params">N, MOD</span>):</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 1. 快速幂</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">power</span>(<span class="params">a, b</span>):</span><br><span class="line">        res = <span class="number">1</span></span><br><span class="line">        a %= MOD</span><br><span class="line">        <span class="keyword">while</span> b &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> b % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">                res = (res * a) % MOD</span><br><span class="line">            a = (a * a) % MOD</span><br><span class="line">            b //= <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 模逆元</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">modInverse</span>(<span class="params">n</span>):</span><br><span class="line">        <span class="keyword">return</span> power(n, MOD - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 预计算阶乘和阶乘逆元</span></span><br><span class="line">    fact = [<span class="number">1</span>] * (N + <span class="number">1</span>)</span><br><span class="line">    invfact = [<span class="number">1</span>] * (N + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">        fact[i] = (fact[i - <span class="number">1</span>] * i) % MOD</span><br><span class="line">    </span><br><span class="line">    invfact[N] = modInverse(fact[N])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">1</span>, <span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">        invfact[i] = (invfact[i + <span class="number">1</span>] * (i + <span class="number">1</span>)) % MOD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4. 预计算9的幂</span></span><br><span class="line">    pow9 = [<span class="number">1</span>] * (N + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        pow9[i] = (pow9[i - <span class="number">1</span>] * <span class="number">9</span>) % MOD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5. 组合数函数</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">combinations</span>(<span class="params">n, k</span>):</span><br><span class="line">        <span class="keyword">if</span> k &lt; <span class="number">0</span> <span class="keyword">or</span> k &gt; n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> k == <span class="number">0</span> <span class="keyword">or</span> k == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> fact[n] == <span class="number">0</span>: <span class="comment"># 应该不会发生</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        num = fact[n]</span><br><span class="line">        den = (invfact[k] * invfact[n - k]) % MOD</span><br><span class="line">        <span class="keyword">return</span> (num * den) % MOD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---------------------------------</span></span><br><span class="line">    <span class="comment">#  主计算</span></span><br><span class="line">    <span class="comment"># ---------------------------------</span></span><br><span class="line">    </span><br><span class="line">    total_D_N = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># i = 长度 (从 1 到 N)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># A(i) = 9 * sum( C(i,j) * 9^(i-j) )</span></span><br><span class="line">        current_A_i = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># j = 支配数字的个数</span></span><br><span class="line">        <span class="comment"># j 从 floor(i/2) + 1 开始</span></span><br><span class="line">        start_j = (i // <span class="number">2</span>) + <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(start_j, i + <span class="number">1</span>):</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># C(i, j)</span></span><br><span class="line">            comb = combinations(i, j)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 9^(i-j)</span></span><br><span class="line">            p9 = pow9[i - j]</span><br><span class="line">            </span><br><span class="line">            term = (comb * p9) % MOD</span><br><span class="line">            current_A_i = (current_A_i + term) % MOD</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># A(i) = 9 * sum(...)</span></span><br><span class="line">        current_A_i = (current_A_i * <span class="number">9</span>) % MOD</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># D(N) = D(N-1) + A(i)</span></span><br><span class="line">        total_D_N = (total_D_N + current_A_i) % MOD</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> total_D_N</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 运行 ---</span></span><br><span class="line">N = <span class="number">2022</span></span><br><span class="line">MOD = <span class="number">1000000007</span></span><br><span class="line"></span><br><span class="line">result = calculate_d_n(N, MOD)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;D(<span class="subst">&#123;N&#125;</span>) mod <span class="subst">&#123;MOD&#125;</span> = <span class="subst">&#123;result&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="最终答案">最终答案</h3>
-<p>运行上述代码，我们得到 $D(2022)$ 对 $10^9+7$ 取余的结果。</p>
+<h3 id="最终答案"><a href="#最终答案" class="headerlink" title="最终答案"></a>最终答案</h3><p>运行上述代码，我们得到 $D(2022)$ 对 $10^9+7$ 取余的结果。</p>
 <p>$D(2022) \pmod{10^9+7} = \mathbf{869384250}$</p>
-<h1>fun fact</h1>
-<p>Gemini最后给出的答案是错误的,但是gemini给的脚本的结果是正确的.</p>
+<h1 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h1><p>Gemini最后给出的答案是错误的,但是gemini给的脚本的结果是正确的.</p>
 
         
   </div>

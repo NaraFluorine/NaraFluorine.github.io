@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="感觉有很多神秘交互题… 然后他们的思路和传统题好像截然不同… 这里是Flu的交互题选做宣讲喵… CF1354G 最多有1000个位置,每个位置上放了一个石头或者一个礼物. 礼物一定比石头轻,石头一定一个重量. 现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较). 你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n&#x2F;2 . 神秘的询问次">
+    <meta name="description" content="感觉有很多神秘交互题…然后他们的思路和传统题好像截然不同…这里是Flu的交互题选做宣讲喵… CF1354G最多有1000个位置,每个位置上放了一个石头或者一个礼物.礼物一定比石头轻,石头一定一个重量.现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n&#x2F;2 . 神秘的询问次数…题解说,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/2025/09/29/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="感觉有很多神秘交互题… 然后他们的思路和传统题好像截然不同… 这里是Flu的交互题选做宣讲喵… CF1354G 最多有1000个位置,每个位置上放了一个石头或者一个礼物. 礼物一定比石头轻,石头一定一个重量. 现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较). 你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n&#x2F;2 . 神秘的询问次">
+<meta property="og:description" content="感觉有很多神秘交互题…然后他们的思路和传统题好像截然不同…这里是Flu的交互题选做宣讲喵… CF1354G最多有1000个位置,每个位置上放了一个石头或者一个礼物.礼物一定比石头轻,石头一定一个重量.现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n&#x2F;2 . 神秘的询问次数…题解说,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-29T09:18:39.147Z">
 <meta property="article:modified_time" content="2025-09-29T11:29:31.650Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
     
     
@@ -178,24 +178,15 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>感觉有很多神秘交互题…<br>
-然后他们的思路和传统题好像截然不同…<br>
-这里是Flu的交互题选做宣讲喵…</p>
-<h2 id="CF1354G">CF1354G</h2>
-<p>最多有1000个位置,每个位置上放了一个石头或者一个礼物.<br>
-礼物一定比石头轻,石头一定一个重量.<br>
-现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).<br>
-你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n/2 .</p>
-<p>神秘的询问次数…<br>
-题解说,我们如果能找到一个必然是石头的位置,那么我们就可以通过倍增在log次数内找到第一个是礼物的位置.<br>
-例如:1是石头,找2如果轻说明是礼物,否则也是石头,然后用这俩判断[3,4],递推…</p>
-<p>问题在于我们怎么找到这个石头.<br>
-观察发现50-log的15还剩35,机会很多,考虑随机化…</p>
-<p>我们假设1是石头,在剩下的序列里面随机抽几个位置和1比,如果存在一个大于的就说明不是石头.<br>
-因为礼物概率小于1/2,所以正确的概率不低于 (1/2)^t,t是抽查次数.</p>
+    <p>感觉有很多神秘交互题…<br>然后他们的思路和传统题好像截然不同…<br>这里是Flu的交互题选做宣讲喵…</p>
+<h2 id="CF1354G"><a href="#CF1354G" class="headerlink" title="CF1354G"></a>CF1354G</h2><p>最多有1000个位置,每个位置上放了一个石头或者一个礼物.<br>礼物一定比石头轻,石头一定一个重量.<br>现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).<br>你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n/2 .</p>
+<p>神秘的询问次数…<br>题解说,我们如果能找到一个必然是石头的位置,那么我们就可以通过倍增在log次数内找到第一个是礼物的位置.<br>例如:1是石头,找2如果轻说明是礼物,否则也是石头,然后用这俩判断[3,4],递推…</p>
+<p>问题在于我们怎么找到这个石头.<br>观察发现50-log的15还剩35,机会很多,考虑随机化…</p>
+<p>我们假设1是石头,在剩下的序列里面随机抽几个位置和1比,如果存在一个大于的就说明不是石头.<br>因为礼物概率小于1/2,所以正确的概率不低于 (1/2)^t,t是抽查次数.</p>
 
   </div>
 </article>
+
 
 
         

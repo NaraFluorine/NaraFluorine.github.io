@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,完了吧屏幕上还有点会被鼠标吸住,然后页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面(谁不喜欢华丽呢?但是华丽的代价就是卡,只好被拆开) 不是更好的电脑买不起,而是把华丽的特效拆开更有性价比.  	Click me   	function">
+    <meta name="description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,完了吧屏幕上还有点会被鼠标吸住,然后页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面(谁不喜欢华丽呢?但是华丽的代价就是卡,只好被拆开) 不是更好的电脑买不起,而是把华丽的特效拆开更有性价比.      Click me       fu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS-无限循环">
 <meta property="og:url" content="https://narafluorine.github.io/2024/11/11/40000_%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,完了吧屏幕上还有点会被鼠标吸住,然后页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面(谁不喜欢华丽呢?但是华丽的代价就是卡,只好被拆开) 不是更好的电脑买不起,而是把华丽的特效拆开更有性价比.  	Click me   	function">
+<meta property="og:description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,完了吧屏幕上还有点会被鼠标吸住,然后页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面(谁不喜欢华丽呢?但是华丽的代价就是卡,只好被拆开) 不是更好的电脑买不起,而是把华丽的特效拆开更有性价比.      Click me       fu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-11T12:24:34.000Z">
 <meta property="article:modified_time" content="2025-10-29T04:43:03.428Z">
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">这是Markdown标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#html-title"><span class="toc-number">2.</span> <span class="toc-text">这是一个HTML标题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html-title"><span class="toc-number">1.</span> <span class="toc-text">这是一个HTML标题</span></a></li></ol>
       </div>
     
   </span>
@@ -191,28 +191,35 @@
     <p>想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,完了吧屏幕上还有点会被鼠标吸住,然后页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面(谁不喜欢华丽呢?但是华丽的代价就是卡,只好被拆开)</p>
 <p>不是更好的电脑买不起,而是把华丽的特效拆开更有性价比.</p>
 <div>
-	<button οnclick="sayHello()">Click me</button>
+    <button οnclick="sayHello()">Click me</button>
 </div>
 <script>
-	function sayHello() {
-		alert('Hello from JavaScript');
-	}
+    function sayHello() {
+        alert('Hello from JavaScript');
+    }
 </script>
-<h1>这是Markdown标题</h1>
-<p>以下是HTML内容：</p>
+
+
+# 这是Markdown标题
+
+以下是HTML内容：
+
 <div>
   <h1 id="html-title">这是一个HTML标题</h1>
 </div>
+
 <style>
   #html-title {
     color: green;
   }
 </style>
+
 <script>
   document.getElementById('html-title').style.fontSize = '4em';
 </script>
   </div>
 </article>
+
 
 
         
@@ -244,7 +251,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">这是Markdown标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#html-title"><span class="toc-number">2.</span> <span class="toc-text">这是一个HTML标题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html-title"><span class="toc-number">1.</span> <span class="toc-text">这是一个HTML标题</span></a></li></ol>
       </div>
     
 

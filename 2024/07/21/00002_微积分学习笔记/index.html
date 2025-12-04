@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="重要公式 $$\sin\alpha&#x3D;\cos(\alpha-\frac\pi2)$$ (加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.) 和差化积: $$\sin\alpha+\sin\beta&#x3D;2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2$$ $$\sin\alpha-\sin\beta&#x3D;2\cos\">
+    <meta name="description" content="重要公式 \sin\alpha&#x3D;\cos(\alpha-\frac\pi2)(加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.) 和差化积: \sin\alpha+\sin\beta&#x3D;2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2\sin\alpha-\sin\beta&#x3D;2\cos\frac{\alpha+">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微积分学习笔记">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/21/00002_%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="重要公式 $$\sin\alpha&#x3D;\cos(\alpha-\frac\pi2)$$ (加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.) 和差化积: $$\sin\alpha+\sin\beta&#x3D;2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2$$ $$\sin\alpha-\sin\beta&#x3D;2\cos\">
+<meta property="og:description" content="重要公式 \sin\alpha&#x3D;\cos(\alpha-\frac\pi2)(加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.) 和差化积: \sin\alpha+\sin\beta&#x3D;2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2\sin\alpha-\sin\beta&#x3D;2\cos\frac{\alpha+">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-21T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-04-25T18:55:33.073Z">
+<meta property="article:modified_time" content="2025-12-03T09:37:03.215Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -105,7 +105,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2024/07/21/10026_%E5%B9%B3%E8%A1%A1%E6%A0%91/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2024/07/21/00007_%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%80%89%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/2024/07/21/00003_%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">求积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%8D%A2%E5%85%83%E6%B3%95-%E5%90%83%E6%95%B0%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">第一换元法(吃数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%8D%A2%E5%85%83%E6%B3%95-%E5%8F%8D%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">第二换元法(反函数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95-%E7%9C%9F%E7%A5%9E"><span class="toc-number">1.3.</span> <span class="toc-text">分部积分法(真神)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95"><span class="toc-number">2.</span> <span class="toc-text">第七章 空间解析几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">平面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF"><span class="toc-number">2.3.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF"><span class="toc-number">2.4.</span> <span class="toc-text">曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">曲面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">第一章 多元函数的极限和连续性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">第二章 多元函数的微分学及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">习题处理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">第三章 重积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">第四章 三重积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%85%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">换元问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E4%BD%93%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">旋转体计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green%E5%85%AC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Green公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stokes%E5%85%AC%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Stokes公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E5%85%AC%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">Gauss公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E4%B8%80%E6%8A%95%E5%BD%B1%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">合一投影法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">8.</span> <span class="toc-text">第一型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">9.</span> <span class="toc-text">第二型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">10.</span> <span class="toc-text">第一型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">11.</span> <span class="toc-text">第二型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0"><span class="toc-number">13.</span> <span class="toc-text">级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7%E5%88%A4%E5%AE%9A"><span class="toc-number">13.1.</span> <span class="toc-text">敛散性判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">14.</span> <span class="toc-text">任意项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B"><span class="toc-number">14.1.</span> <span class="toc-text">绝对收敛与条件收敛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">15.</span> <span class="toc-text">函数项级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0-%E6%99%AE%E9%80%9A%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="toc-number">16.</span> <span class="toc-text">幂级数(普通生成函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">16.1.</span> <span class="toc-text">幂级数运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B1%95%E5%BC%80%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">函数展开幂级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">18.</span> <span class="toc-text">傅里叶级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">19.</span> <span class="toc-text">常微分方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8C%B4%E5%8D%9A%E5%A3%AB%E2%80%A6"><span class="toc-number">20.</span> <span class="toc-text">猴博士…</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">求积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%8D%A2%E5%85%83%E6%B3%95-%E5%90%83%E6%95%B0%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">第一换元法(吃数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%8D%A2%E5%85%83%E6%B3%95-%E5%8F%8D%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">第二换元法(反函数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95-%E7%9C%9F%E7%A5%9E"><span class="toc-number">1.3.</span> <span class="toc-text">分部积分法(真神)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95"><span class="toc-number">2.</span> <span class="toc-text">第七章 空间解析几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">平面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF"><span class="toc-number">2.3.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF"><span class="toc-number">2.4.</span> <span class="toc-text">曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">曲面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">第一章 多元函数的极限和连续性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">第二章 多元函数的微分学及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">习题处理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%87%8D%E7%A7%AF%E5%88%86"><span class="toc-number"></span> <span class="toc-text">第三章 重积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86"><span class="toc-number"></span> <span class="toc-text">第四章 三重积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%85%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">换元问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E4%BD%93%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">旋转体计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green%E5%85%AC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Green公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stokes%E5%85%AC%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Stokes公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E5%85%AC%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">Gauss公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E4%B8%80%E6%8A%95%E5%BD%B1%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">合一投影法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">8.</span> <span class="toc-text">第一型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">9.</span> <span class="toc-text">第二型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">10.</span> <span class="toc-text">第一型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">11.</span> <span class="toc-text">第二型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0"><span class="toc-number">13.</span> <span class="toc-text">级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7%E5%88%A4%E5%AE%9A"><span class="toc-number">13.1.</span> <span class="toc-text">敛散性判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">14.</span> <span class="toc-text">任意项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B"><span class="toc-number">14.1.</span> <span class="toc-text">绝对收敛与条件收敛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">15.</span> <span class="toc-text">函数项级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0-%E6%99%AE%E9%80%9A%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="toc-number">16.</span> <span class="toc-text">幂级数(普通生成函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">16.1.</span> <span class="toc-text">幂级数运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B1%95%E5%BC%80%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">函数展开幂级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">18.</span> <span class="toc-text">傅里叶级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">19.</span> <span class="toc-text">常微分方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8C%B4%E5%8D%9A%E5%A3%AB%E2%80%A6"><span class="toc-number">20.</span> <span class="toc-text">猴博士…</span></a></li></ol>
       </div>
     
   </span>
@@ -172,7 +172,7 @@
       
     <div class="article-category">
         <i class="fa-solid fa-archive"></i>
-        <a class="category-link" href="/categories/DE/">DE</a>
+        <a class="category-link" href="/categories/DEAD/">DEAD</a>
     </div>
 
 
@@ -188,101 +188,51 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p><strong>重要公式</strong><br>
-$$\sin\alpha=\cos(\alpha-\frac\pi2)$$<br>
-(加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.)</p>
-<p><strong>和差化积</strong>:<br>
-$$\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2$$<br>
-$$\sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2$$<br>
-另外还有<br>
-$$\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2$$<br>
-$$\cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2$$<br>
-<strong>积化和差</strong>:<br>
-$$\sin\alpha\cos\beta=\frac12(\sin(\alpha+\beta)+\sin(\alpha-\beta))$$<br>
-另外还有<br>
-$$\cos\alpha\sin\beta=\frac12(\sin(\alpha+\beta)-\sin(\alpha-\beta))$$<br>
-$$\cos\alpha\cos\beta=\frac12(\cos(\alpha+\beta)+\cos(\alpha-\beta))$$<br>
-$$\sin\alpha\sin\beta=-\frac12(\cos(\alpha+\beta)-\cos(\alpha-\beta))$$<br>
-<strong>基本不等式</strong>：<br>
-$$\sqrt{\frac{a^2+b^2}{2}}\ge\frac{a+b}{2}\ge\sqrt{ab}\ge\frac{1}{\frac{1}{a}+\frac{1}{b}}$$</p>
-<h2 id="求积分">求积分</h2>
-<p>$$\begin{aligned}\int\frac{1}{x}\mathrm{d}x&amp;=\ln |x|+C\\int\frac{1}{\sqrt{1-x^2}}\mathrm{d}x&amp;=\arcsin x+C\\int-\frac{1}{\sqrt{1-x^2}}\mathrm dx&amp;=\arccos x+C\\int\frac{1}{\cos^2x}\mathrm{d}x=\int\sec^2x&amp;=\tan x+C\\int\frac{1}{\sin^2x}\mathrm{d}x=\int\csc^2x&amp;=-\cot x+C\\int\sec x\tan x\mathrm{d}x&amp;=\sec x+C\\int\csc x\cot x\mathrm{d}x&amp;=-\csc x+C\\int\tan x\mathrm{d}x&amp;=-\ln |\cos x|+C\\int\cot x\mathrm{d}x&amp;=\ln|\sin x|+C\\int\sec x\mathrm{d}x&amp;=\ln|\sec x+\tan x|+C\\int\csc x\mathrm{d}x&amp;=\ln|\csc x-\cot x|+C\\int\arcsin x\mathrm{d}x&amp;=x\arcsin x+\sqrt{1-x^2}+C\\int\arccos x\mathrm{d}x&amp;=x\arccos x-\sqrt{1-x^2}+C\\int\arctan x\mathrm{d}x&amp;=x\arctan x-\frac{\ln|x^2+1|}{2}+C\\int\frac{1}{a^2+x^2}\mathrm{d}x&amp;=\frac{1}{a}\arctan{\frac{x}{a}}+C\\int\frac{1}{x^2-a^2}\mathrm{d}x&amp;=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+C\\int\frac{1}{\sqrt{a^2-x^2}}\mathrm{d}x&amp;=\arcsin\frac{x}{a}+C\\int\frac{1}{\sqrt{x^2-a^2}}\mathrm{d}x&amp;=\ln|x+\sqrt{x^2-a^2}|+C\\int\frac{1}{\sqrt{x^2+a^2}}\mathrm{d}x&amp;=\ln(x+\sqrt{x^2+a^2})+C\end{aligned}$$</p>
-<h3 id="第一换元法-吃数法">第一换元法(吃数法)</h3>
-<p>$$\boxed{\int f(\phi(x))\phi’(x)\mathrm{d}x=\Big[\int f(u)\mathrm{d}u\Big]_{u=\phi(x)}}$$<br>
-其实就是吃掉部分函数,扔到$\mathrm dx$里面(还原一下),如:(注意吃掉的$\ln x$不加绝对值)<br>
-$$eg:\int\frac{1}{x\ln x}\mathrm dx=\int\frac{1}{\ln x}\mathrm{d}\ln x=\ln|\ln x|+C$$<br>
-当然对于复杂函数还是老老实实代换吧…</p>
-<h3 id="第二换元法-反函数法">第二换元法(反函数法)</h3>
-<p>$$\boxed{\int f(x)\mathrm dx=\Big[\int f[\psi(t)]\psi’(t)\mathrm dt\Big]_{t=\psi^{-1}(x)}}$$<br>
-应用:三角换元.利用两个众所周知的公式来换元消根号的:<br>
-$$\boxed{\begin{aligned}\sin^2x+\cos^2x&amp;=1\\tan^2x-\sec^2x&amp;=1\end{aligned}}$$</p>
-<h3 id="分部积分法-真神">分部积分法(真神)</h3>
-<p>$$\boxed{\int uv’\mathrm dx=uv-\int vu’\mathrm dx}$$</p>
-<h2 id="第七章-空间解析几何">第七章 空间解析几何</h2>
-<p>空间直角坐标系:左下角斜着伸出来叫x,横着叫y,往上走的叫z.<br>
-八个卦限,想象两个连成串的U形排在周围.</p>
-<h3 id="向量">向量</h3>
-<p>向量的样子:$\mathbf a=2\mathbf i+3\mathbf j+4\mathbf k$或$\mathbf a={2,3,4}$</p>
-<p><strong>求夹角</strong>:<br>
-$$\cos\theta=\frac{\mathbf{a\cdot b}}{|\mathbf a||\mathbf b|}$$</p>
-<p><strong>求投影</strong>:$\mathbf b$在$\mathbf a$上投影记作:<br>
-$$\mathrm{Prj}_\mathbf a\mathbf b=|\mathbf b|\cos\theta$$</p>
-<p>空间两点距离,向量加减运算略过,讲一个很重要的东西:<strong>向量叉乘</strong>.<br>
-$$\mathbf a=(a,b,c),\mathbf b=(d,e,f)$$<br>
-$$\mathbf a\times\mathbf b=\begin{vmatrix}\mathbf i&amp;\mathbf j&amp;\mathbf k\\a&amp;b&amp;c\\d&amp;e&amp;f\end{vmatrix}$$<br>
-向量叉乘的结果是个向量.它的方向是右手由$\mathbf a$握向$\mathbf b$时大拇指的方向.</p>
+    <p><strong>重要公式</strong></p>
+<script type="math/tex; mode=display">\sin\alpha=\cos(\alpha-\frac\pi2)</script><p>(加是提前,也就是坐标向左移,时间也一样,P在O后,应当加某个偏移量实现O的振动函数计算.)</p>
+<p><strong>和差化积</strong>:</p>
+<script type="math/tex; mode=display">\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2</script><script type="math/tex; mode=display">\sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2</script><p>另外还有</p>
+<script type="math/tex; mode=display">\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}2\cos\frac{\alpha-\beta}2</script><script type="math/tex; mode=display">\cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2</script><p><strong>积化和差</strong>:</p>
+<script type="math/tex; mode=display">\sin\alpha\cos\beta=\frac12(\sin(\alpha+\beta)+\sin(\alpha-\beta))</script><p>另外还有</p>
+<script type="math/tex; mode=display">\cos\alpha\sin\beta=\frac12(\sin(\alpha+\beta)-\sin(\alpha-\beta))</script><script type="math/tex; mode=display">\cos\alpha\cos\beta=\frac12(\cos(\alpha+\beta)+\cos(\alpha-\beta))</script><script type="math/tex; mode=display">\sin\alpha\sin\beta=-\frac12(\cos(\alpha+\beta)-\cos(\alpha-\beta))</script><p><strong>基本不等式</strong>：</p>
+<script type="math/tex; mode=display">\sqrt{\frac{a^2+b^2}{2}}\ge\frac{a+b}{2}\ge\sqrt{ab}\ge\frac{1}{\frac{1}{a}+\frac{1}{b}}</script><h2 id="求积分"><a href="#求积分" class="headerlink" title="求积分"></a>求积分</h2><script type="math/tex; mode=display">\begin{aligned}\int\frac{1}{x}\mathrm{d}x&=\ln |x|+C\\\int\frac{1}{\sqrt{1-x^2}}\mathrm{d}x&=\arcsin x+C\\\int-\frac{1}{\sqrt{1-x^2}}\mathrm dx&=\arccos x+C\\\int\frac{1}{\cos^2x}\mathrm{d}x=\int\sec^2x&=\tan x+C\\\int\frac{1}{\sin^2x}\mathrm{d}x=\int\csc^2x&=-\cot x+C\\\int\sec x\tan x\mathrm{d}x&=\sec x+C\\\int\csc x\cot x\mathrm{d}x&=-\csc x+C\\\int\tan x\mathrm{d}x&=-\ln |\cos x|+C\\\int\cot x\mathrm{d}x&=\ln|\sin x|+C\\\int\sec x\mathrm{d}x&=\ln|\sec x+\tan x|+C\\\int\csc x\mathrm{d}x&=\ln|\csc x-\cot x|+C\\\int\arcsin x\mathrm{d}x&=x\arcsin x+\sqrt{1-x^2}+C\\\int\arccos x\mathrm{d}x&=x\arccos x-\sqrt{1-x^2}+C\\\int\arctan x\mathrm{d}x&=x\arctan x-\frac{\ln|x^2+1|}{2}+C\\\int\frac{1}{a^2+x^2}\mathrm{d}x&=\frac{1}{a}\arctan{\frac{x}{a}}+C\\\int\frac{1}{x^2-a^2}\mathrm{d}x&=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+C\\\int\frac{1}{\sqrt{a^2-x^2}}\mathrm{d}x&=\arcsin\frac{x}{a}+C\\\int\frac{1}{\sqrt{x^2-a^2}}\mathrm{d}x&=\ln|x+\sqrt{x^2-a^2}|+C\\\int\frac{1}{\sqrt{x^2+a^2}}\mathrm{d}x&=\ln(x+\sqrt{x^2+a^2})+C\end{aligned}</script><h3 id="第一换元法-吃数法"><a href="#第一换元法-吃数法" class="headerlink" title="第一换元法(吃数法)"></a>第一换元法(吃数法)</h3><script type="math/tex; mode=display">\boxed{\int f(\phi(x))\phi'(x)\mathrm{d}x=\Big[\int f(u)\mathrm{d}u\Big]_{u=\phi(x)}}</script><p>其实就是吃掉部分函数,扔到$\mathrm dx$里面(还原一下),如:(注意吃掉的$\ln x$不加绝对值)</p>
+<script type="math/tex; mode=display">eg:\int\frac{1}{x\ln x}\mathrm dx=\int\frac{1}{\ln x}\mathrm{d}\ln x=\ln|\ln x|+C</script><p>当然对于复杂函数还是老老实实代换吧…</p>
+<h3 id="第二换元法-反函数法"><a href="#第二换元法-反函数法" class="headerlink" title="第二换元法(反函数法)"></a>第二换元法(反函数法)</h3><script type="math/tex; mode=display">\boxed{\int f(x)\mathrm dx=\Big[\int f[\psi(t)]\psi'(t)\mathrm dt\Big]_{t=\psi^{-1}(x)}}</script><p>应用:三角换元.利用两个众所周知的公式来换元消根号的:</p>
+<script type="math/tex; mode=display">\boxed{\begin{aligned}\sin^2x+\cos^2x&=1\\\tan^2x-\sec^2x&=1\end{aligned}}</script><h3 id="分部积分法-真神"><a href="#分部积分法-真神" class="headerlink" title="分部积分法(真神)"></a>分部积分法(真神)</h3><script type="math/tex; mode=display">\boxed{\int uv'\mathrm dx=uv-\int vu'\mathrm dx}</script><h2 id="第七章-空间解析几何"><a href="#第七章-空间解析几何" class="headerlink" title="第七章 空间解析几何"></a>第七章 空间解析几何</h2><p>空间直角坐标系:左下角斜着伸出来叫x,横着叫y,往上走的叫z.<br>八个卦限,想象两个连成串的U形排在周围.</p>
+<h3 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h3><p>向量的样子:$\mathbf a=2\mathbf i+3\mathbf j+4\mathbf k$或$\mathbf a={2,3,4}$</p>
+<p><strong>求夹角</strong>:</p>
+<script type="math/tex; mode=display">\cos\theta=\frac{\mathbf{a\cdot b}}{|\mathbf a||\mathbf b|}</script><p><strong>求投影</strong>:$\mathbf b$在$\mathbf a$上投影记作:</p>
+<script type="math/tex; mode=display">\mathrm{Prj}_\mathbf a\mathbf b=|\mathbf b|\cos\theta</script><p>空间两点距离,向量加减运算略过,讲一个很重要的东西:<strong>向量叉乘</strong>.</p>
+<script type="math/tex; mode=display">\mathbf a=(a,b,c),\mathbf b=(d,e,f)</script><script type="math/tex; mode=display">\mathbf a\times\mathbf b=\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\a&b&c\\d&e&f\end{vmatrix}</script><p>向量叉乘的结果是个向量.它的方向是右手由$\mathbf a$握向$\mathbf b$时大拇指的方向.</p>
 <p>向量点乘的结果为0代表两向量垂直,叉乘结果为零代表两向量共线.叉乘结果的意义是,求出来的向量的大小就是向量$\mathbf a,\mathbf b$围成平行四边形的面积.</p>
 <p>呐,判断平行才不需要这么复杂的办法.要知道,<strong>当$\mathbf a$与$\mathbf b$平行时,$\mathbf{a,b}$每一项都成比例</strong>.</p>
-<p>向量的<strong>混合积</strong>:<br>
-$$\mathbf a=(a,b,c),\mathbf b=(d,e,f),\mathbf c=(g,h,i)$$<br>
-$$[\mathbf{abc}]=(\mathbf a\times\mathbf b)\cdot\mathbf c=\begin{vmatrix}a&amp;b&amp;c\\d&amp;e&amp;f\\g&amp;h&amp;i\end{vmatrix}$$<br>
-且有<br>
-$$[\mathbf{abc}]=[\mathbf{bca}]=[\mathbf{cab}]$$<br>
-混合积的含义是$\mathbf{a,b,c}$围成平行六面体的体积,混合积为0的含义是三向量共平面.</p>
-<h3 id="平面">平面</h3>
-<p>平面公式的样子:<br>
-$$Ax+By+Cz+D=0$$</p>
-<p><strong>过三点的平面方程</strong>:直接设,然后代数,求出$A,B,C$都用$D$表示的式子,然后因为右端为0直接把$D$消了.</p>
+<p>向量的<strong>混合积</strong>:</p>
+<script type="math/tex; mode=display">\mathbf a=(a,b,c),\mathbf b=(d,e,f),\mathbf c=(g,h,i)</script><script type="math/tex; mode=display">[\mathbf{abc}]=(\mathbf a\times\mathbf b)\cdot\mathbf c=\begin{vmatrix}a&b&c\\d&e&f\\g&h&i\end{vmatrix}</script><p>且有</p>
+<script type="math/tex; mode=display">[\mathbf{abc}]=[\mathbf{bca}]=[\mathbf{cab}]</script><p>混合积的含义是$\mathbf{a,b,c}$围成平行六面体的体积,混合积为0的含义是三向量共平面.</p>
+<h3 id="平面"><a href="#平面" class="headerlink" title="平面"></a>平面</h3><p>平面公式的样子:</p>
+<script type="math/tex; mode=display">Ax+By+Cz+D=0</script><p><strong>过三点的平面方程</strong>:直接设,然后代数,求出$A,B,C$都用$D$表示的式子,然后因为右端为0直接把$D$消了.</p>
 <p><strong>平面的法向量</strong>: 若$\pi:Ax+By+Cz+D=0$,则$\mathbf n={A,B,C}\perp\pi$.</p>
-<p><strong>点法求面</strong>:记结论:<br>
-$$\small若平面\pi经过点M(x_0,y_0,z_0)且法向量为\mathbf n{A,B,C},\\则\pi:A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$</p>
-<p><strong>点到面距离</strong>:</p>
-<p>$$\boxed{d=\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}}$$</p>
-<h3 id="直线">直线</h3>
-<p>直线的样子:<br>
-$$\begin{cases}x+2y+3+4=0\\5x+6y+7z=0\end{cases}\small或\normalsize \frac{x+3}{11}=\frac{y}{45}=\frac{z-7}{14}$$</p>
-<p><strong>求两个面交线方程</strong>:直接联立.</p>
+<p><strong>点法求面</strong>:记结论:</p>
+<script type="math/tex; mode=display">\small若平面\pi经过点M(x_0,y_0,z_0)且法向量为\mathbf n\{A,B,C\},\\则\pi:A(x-x_0)+B(y-y_0)+C(z-z_0)=0</script><p><strong>点到面距离</strong>:</p>
+<script type="math/tex; mode=display">\boxed{d=\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}}</script><h3 id="直线"><a href="#直线" class="headerlink" title="直线"></a>直线</h3><p>直线的样子:</p>
+<script type="math/tex; mode=display">\begin{cases}x+2y+3+4=0\\5x+6y+7z=0\end{cases}\small或\normalsize \frac{x+3}{11}=\frac{y}{45}=\frac{z-7}{14}</script><p><strong>求两个面交线方程</strong>:直接联立.</p>
 <p><strong>切平面经过该直线</strong>:设(平面1)+$\lambda$(平面2)=0然后直接出法向量了,根本不用苦苦求切平面.</p>
-<p><strong>直线的平行线</strong>(方向向量):<br>
-$$\small 若\normalsize L:\begin{cases}A_1x+B_1y+C_1z+D_1=0\\A_2x+B_2y+C_2z+D_2=0\end{cases},\small则\boxed{\normalsize\mathbf s={A_1,B_1,C_1}\times{A_2,B_2,C_2}//L}$$<br>
-(如果给了上面俩等号的那个式子就感恩戴德吧,${11,45,14}$直接就是方向向量)</p>
-<p><strong>点方向求线</strong>:<br>
-$$若L过点M(x_0,y_0,z_0)且方向向量为\mathbf s{l,m,n},\\则\boxed{L:\frac{x-x_0}{l}=\frac{y-y_0}{m}=\frac{z-z_0}{n}}$$</p>
-<p><strong>点到直线距离</strong>(好麻烦啊):<br>
-$$先求点M(x_0,y_0,z_0)到直线L(其方向向量\mathbf s={l,m,n})的投影点M_P(x_p,y_p,z_p).$$<br>
-$$联立\begin{cases}l(x-x_0)+m(y-y_0)+n(z-z_0)=0\\直线方程\end{cases}求解M_P$$</p>
-<h3 id="曲线">曲线</h3>
-<p><strong>求$\begin{cases}x=x(t)\\y=y(t)\\z=z(t)\end{cases}$形式的曲线在某点切线与法平面</strong>:在点$(x(t_0),y(t_0),z(t_0))$的切线方程为:<br>
-$$\boxed{\frac{x-x(t_0)}{x’(t_0)}=\frac{y-y(t_0)}{y’(t_0)}=\frac{z-z(t_0)}{z’(t_0)}}$$<br>
-法平面方程为:<br>
-$$\boxed{x’(t_0)[x-x(t_0)]+y’(t_0)[y-y(t_0)]+z’(t_0)[z-z(t_0)]=0}$$</p>
-<p><strong>写在一起的曲线…</strong></p>
-<p>如$\begin{cases}x^2+y^2+z^2=6\\z=x^2+y^2\end{cases}$某点切线方程为:<br>
-$$\boxed{\frac{x-x_0}{1}=\frac{y-y_0}{y’_x(x_0)}=\frac{z-z_0}{z’_x(x_0)}}$$<br>
-法平面方程为:<br>
-$$\boxed{(x-x_0)+y’_x(y-y_0)+z’_x(z-z_0)=0}$$</p>
-<h3 id="曲面">曲面</h3>
-<p><strong>求某点的切平面和法线</strong>:切平面方程为:<br>
-$$\boxed{F’_x(x_0,y_0,z_0)(x-x_0)+F’_y(x_0,y_0,z_0)(y-y_0)+F’_z(x_0,y_0,z_0)(z-z_0)=0}$$<br>
-法线方程为:<br>
-$$\boxed{\frac{x-x_0}{F’_x(x_0,y_0,z_0)}=\frac{y-y_0}{F’_y(x_0,y_0,z_0)}=\frac{z-z_0}{F’_z(x_0,y_0,z_0)}}$$</p>
-<h2 id="第一章-多元函数的极限和连续性">第一章 多元函数的极限和连续性</h2>
-<p>平面点集写作$\mathbf R^n$,线性运算和线性空间同向量和坐标的运算.距离啊啥的公式就是多了几项而已.n维$\mathbf{Euclid}$空间就是n维空间.</p>
+<p><strong>直线的平行线</strong>(方向向量):</p>
+<script type="math/tex; mode=display">\small 若\normalsize L:\begin{cases}A_1x+B_1y+C_1z+D_1=0\\A_2x+B_2y+C_2z+D_2=0\end{cases},\small则\boxed{\normalsize\mathbf s=\{A_1,B_1,C_1\}\times\{A_2,B_2,C_2\}//L}</script><p>(如果给了上面俩等号的那个式子就感恩戴德吧,${11,45,14}$直接就是方向向量)</p>
+<p><strong>点方向求线</strong>:</p>
+<script type="math/tex; mode=display">若L过点M(x_0,y_0,z_0)且方向向量为\mathbf s\{l,m,n\},\\则\boxed{L:\frac{x-x_0}{l}=\frac{y-y_0}{m}=\frac{z-z_0}{n}}</script><p><strong>点到直线距离</strong>(好麻烦啊):</p>
+<script type="math/tex; mode=display">先求点M(x_0,y_0,z_0)到直线L(其方向向量\mathbf s=\{l,m,n\})的投影点M_P(x_p,y_p,z_p).</script><script type="math/tex; mode=display">联立\begin{cases}l(x-x_0)+m(y-y_0)+n(z-z_0)=0\\直线方程\end{cases}求解M_P</script><h3 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h3><p><strong>求 <script type="math/tex">\begin{cases}x=x(t)\\y=y(t)\\z=z(t)\end{cases}</script>形式的曲线在某点切线与法平面</strong>:在点$(x(t_0),y(t_0),z(t_0))$的切线方程为:</p>
+<script type="math/tex; mode=display">\boxed{\frac{x-x(t_0)}{x'(t_0)}=\frac{y-y(t_0)}{y'(t_0)}=\frac{z-z(t_0)}{z'(t_0)}}</script><p>法平面方程为:</p>
+<script type="math/tex; mode=display">\boxed{x'(t_0)[x-x(t_0)]+y'(t_0)[y-y(t_0)]+z'(t_0)[z-z(t_0)]=0}</script><p><strong>写在一起的曲线…</strong></p>
+<p>如<script type="math/tex">\begin{cases}x^2+y^2+z^2=6\\z=x^2+y^2\end{cases}</script>某点切线方程为:</p>
+<script type="math/tex; mode=display">\boxed{\frac{x-x_0}{1}=\frac{y-y_0}{y'_x(x_0)}=\frac{z-z_0}{z'_x(x_0)}}</script><p>法平面方程为:</p>
+<script type="math/tex; mode=display">\boxed{(x-x_0)+y'_x(y-y_0)+z'_x(z-z_0)=0}</script><h3 id="曲面"><a href="#曲面" class="headerlink" title="曲面"></a>曲面</h3><p><strong>求某点的切平面和法线</strong>:切平面方程为:</p>
+<script type="math/tex; mode=display">\boxed{F'_x(x_0,y_0,z_0)(x-x_0)+F'_y(x_0,y_0,z_0)(y-y_0)+F'_z(x_0,y_0,z_0)(z-z_0)=0}</script><p>法线方程为:</p>
+<script type="math/tex; mode=display">\boxed{\frac{x-x_0}{F'_x(x_0,y_0,z_0)}=\frac{y-y_0}{F'_y(x_0,y_0,z_0)}=\frac{z-z_0}{F'_z(x_0,y_0,z_0)}}</script><h2 id="第一章-多元函数的极限和连续性"><a href="#第一章-多元函数的极限和连续性" class="headerlink" title="第一章 多元函数的极限和连续性"></a>第一章 多元函数的极限和连续性</h2><p>平面点集写作$\mathbf R^n$,线性运算和线性空间同向量和坐标的运算.距离啊啥的公式就是多了几项而已.n维$\mathbf{Euclid}$空间就是n维空间.</p>
 <p><strong>邻域</strong>：$U(P_0,\delta)$就是距离点$P_0$小于$\delta$的区域。想象一个圆或者球体(不算边界).去心邻域就是不算那个点而已,写作$\mathring U$</p>
-<p><strong>内点,外点,边界点</strong>,就是周围有没有外点.证明很麻烦,写一下:设点集$E\subset \mathbf R^2$,对于点$P_0\in E$,若$\exists \delta&gt;0$,使得$U(P_0,\delta)\subset E$,则称$P_0$为点集$E$的<strong>内点</strong>.<br>
-边界点,外点同理,就这么证就完了.</p>
+<p><strong>内点,外点,边界点</strong>,就是周围有没有外点.证明很麻烦,写一下:设点集$E\subset \mathbf R^2$,对于点$P_0\in E$,若$\exists \delta&gt;0$,使得$U(P_0,\delta)\subset E$,则称$P_0$为点集$E$的<strong>内点</strong>.<br>边界点,外点同理,就这么证就完了.</p>
 <p><strong>开集</strong>:点集中的每一点都是它的内点,就叫开集.人话:不算边界的点集就是开集,想象一棵树刨掉树皮.</p>
-<p><strong>边界</strong>:写作$\partial E$,想象刨掉的树皮…</p>
+<p><strong>边界</strong>:写作$\partial E$,想象刨掉的树皮……</p>
 <p><strong>连通性</strong>:总存在完全属于点集的折线连接两点,这个点集称为连通的.想象一块一块的东西</p>
 <p>开区域:连通的开集.简称<strong>区域</strong>.闭区域就是开集并上边界,写作$\overline E=E\cup\partial E$.</p>
 <p><strong>聚点</strong>:附近有内点的点.内点必定是,外点必定不是,边界点可能是也可能不是,比如$E={(x,y)|x^2+y^2=0$或$1\le x^2+y^2&lt;4 }$中的0是边界点但不是聚点.闭集:所有聚点都属于它的点集.</p>
@@ -290,176 +240,90 @@ $$\boxed{\frac{x-x_0}{F’_x(x_0,y_0,z_0)}=\frac{y-y_0}{F’_y(x_0,y_0,z_0)}=\fr
 <p>多元函数:好几个变量的函数(废话)…</p>
 <p>题型:画图,指出是否为开区域,<strong>逆变换</strong>,重点讲逆变换.</p>
 <p>设$f(x+y,\frac{y}{x})=x^2+y^2$求$f(x,y)$</p>
-<p>思路:设$m=x+y$,$n=\frac{y}{x}$<br>
-分别求出x=啥啥,y=啥啥,然后回代式子即可,记得别忘了把mn用xy代替.</p>
+<p>思路:设$m=x+y$,$n=\frac{y}{x}$<br>分别求出x=啥啥,y=啥啥,然后回代式子即可,记得别忘了把mn用xy代替.</p>
 <p>练习:设$f(\sqrt{x^2+y^2},\arctan\frac{y}{x})=\frac{xy}{(x^2+y^2)^2}$求$f(x,y)$</p>
 <hr>
 <p><strong>二重极限</strong>:xy同时取极限得到的值.证明同极限的证明.注意,xy以任何方式趋于定点极限都一样才有这个极限成立.</p>
 <p>举个栗子:设$f(x,y)=\frac{xy}{x^2+y^2}$</p>
-<p>沿x轴沿y轴都好证,举个特例:沿直线y=kx时,极限不存在:<br>
-$$\lim_{(x,kx)\to(0,0)}\frac{xy}{x^2+y^2}=\lim_{x\to0}\frac{kx^2}{x^2+k^2x^2}=\frac{k}{1+k^2}\neq0$$</p>
-<p>这个时候就要靠构造能力了…构造抛物线啊,直线啊,啥的.</p>
+<p>沿x轴沿y轴都好证,举个特例:沿直线y=kx时,极限不存在:</p>
+<script type="math/tex; mode=display">\lim_{(x,kx)\to(0,0)}\frac{xy}{x^2+y^2}=\lim_{x\to0}\frac{kx^2}{x^2+k^2x^2}=\frac{k}{1+k^2}\neq0</script><p>这个时候就要靠构造能力了…构造抛物线啊,直线啊,啥的.</p>
 <p>求极限可以构造.构造不等式或者凑配,如求</p>
-<p>$$\begin{aligned}\lim_{(x,y)\to(1,0)}\frac{\sin(xy)}{y}&amp;=\lim_{(x,y)\to(1,0)}\Big[\frac{\sin(xy)}{xy}\cdot x\Big]\&amp;=\lim_{xy\to0}\frac{\sin(xy)}{xy}\cdot\lim_{x\to1}=1\end{aligned}$$</p>
-<p><strong>二次极限</strong>:先求一次极限,再求一次极限…可以证明,$f(x,y)$在点$(x_0,y_0)$处的二重极限和两个二次极限都存在时必相等,此时二次极限可以交换顺序.</p>
+<script type="math/tex; mode=display">\begin{aligned}\lim_{(x,y)\to(1,0)}\frac{\sin(xy)}{y}&=\lim_{(x,y)\to(1,0)}\Big[\frac{\sin(xy)}{xy}\cdot x\Big]\\&=\lim_{xy\to0}\frac{\sin(xy)}{xy}\cdot\lim_{x\to1}=1\end{aligned}</script><p><strong>二次极限</strong>:先求一次极限,再求一次极限…可以证明,$f(x,y)$在点$(x_0,y_0)$处的二重极限和两个二次极限都存在时必相等,此时二次极限可以交换顺序.</p>
 <p>多元函数<strong>连续性</strong>,对xy两元连续$\implies$对x,y连续,这个不能反过来推.一致连续和单元函数一毛一样.</p>
 <hr>
-<h2 id="第二章-多元函数的微分学及其应用">第二章 多元函数的微分学及其应用</h2>
-<p>偏导…著名的$\partial$符号将在这里学习到…</p>
+<h2 id="第二章-多元函数的微分学及其应用"><a href="#第二章-多元函数的微分学及其应用" class="headerlink" title="第二章 多元函数的微分学及其应用"></a>第二章 多元函数的微分学及其应用</h2><p>偏导…著名的$\partial$符号将在这里学习到…</p>
 <p><strong>求偏导</strong>:把要求的变量正常求导,对于不需要求偏导的看成常数.</p>
-<p>eg: $r=\sqrt{x^2+y^2+z^2}$ 求偏导数(没说哪个变元就都求导就好)<br>
-$$\frac{\partial r}{\partial x}=\frac{2x}{2\sqrt{x^2+y^2+z^2}}=\frac{x}{r}$$<br>
-根据自变量x,y,z在函数表达式中的对称性,可得<br>
-$$\frac{\partial r}{\partial y}=\frac{y}{r}<br>
-,\frac{\partial r}{\partial z}=\frac{z}{r}$$<br>
-几何意义:一张米皮,凹凸不平的,拿刀切开,变成一条一条的,那个条求导会吧,斜率就是求出来的偏导(凉皮…)</p>
+<p>eg: $r=\sqrt{x^2+y^2+z^2}$ 求偏导数(没说哪个变元就都求导就好)</p>
+<script type="math/tex; mode=display">\frac{\partial r}{\partial x}=\frac{2x}{2\sqrt{x^2+y^2+z^2}}=\frac{x}{r}</script><p>根据自变量x,y,z在函数表达式中的对称性,可得</p>
+<script type="math/tex; mode=display">\frac{\partial r}{\partial y}=\frac{y}{r}
+,\frac{\partial r}{\partial z}=\frac{z}{r}</script><p>几何意义:一张米皮,凹凸不平的,拿刀切开,变成一条一条的,那个条求导会吧,斜率就是求出来的偏导(凉皮…)</p>
 <p>已知函数xx,求在(xxx)点偏导写法:</p>
-<p>$$\boxed{\frac{\partial W}{\partial x}\Big|_{x=1,y=2,z=3}=xx}$$</p>
-<p><strong>关系</strong>:如下:<br>
-$$偏导连续\implies函数可微\implies\begin{cases}函数连续\\\not{\Updownarrow}\\函数能偏导\end{cases}$$<br>
-<strong>高阶偏导</strong>:看清次序,先对谁求导,结果再求一次偏导即可.(下面的是先对y再对x,虽然和先对x偏导和再对y偏导结果一样)<br>
-$$f_{yx}(x,y)=z_{yx}=\frac{\partial^2f}{\partial y\partial x}=\frac{\partial^2z}{\partial y\partial x}=\frac{\partial}{\partial x}\Big(\frac{\partial f}{\partial y}\Big)$$</p>
-<p><strong>多元复合函数偏导</strong>:$F=u+v+w,u=x+y,v=,w=$形如这样的式子求$\frac{\partial F}{\partial x}$公式如下:<br>
-$$\boxed{\frac{\partial F}{\partial x}=\frac{\partial F}{\partial u}\cdot\frac{\partial u}{\partial x}+\frac{\partial F}{\partial v}\cdot\frac{\partial v}{\partial x}+\frac{\partial F}{\partial w}\cdot\frac{\partial w}{\partial x}}$$<br>
-其实不仅仅考试,如果出了一个很恶心的式子也可以这么反着先设数再回代,如$z=e^{xy}\sin(x+y)$就可以$xy$设一个$u$,$x+y$设一个$v$.</p>
-<p><strong>多元隐函数的偏导</strong>:已知$x^2+2y^2+3z^2+xy+xz+yz=0$,求$\Large\frac{\partial z}{\partial x}$.解法如下:<br>
-首先要了解一个公式(别问我为啥,我就是一个复读机,渴望考试及格的无情的复读机):<br>
-$$\boxed{\frac{\partial z}{\partial x}=\large-\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial z}}}$$<br>
-我们需要先设F=那一坨,不让他等于0,分别对F求偏导,然后套公式.这里<strong>特别注意</strong>一个点:有些变量的偏导不能忽略.<br>
-例题:求上一个式子的二阶导.<br>
-$$\frac{\partial z}{\partial x}=-\frac{2x+y+z}{6z+x+y}$$<br>
-$$\begin{aligned}\frac{\partial^2z}{\partial x^2}&amp;=-\frac{\partial(\frac{2x+y+z}{6z+x+y})}{\partial x}\\&amp;=-\frac{\frac{\partial(2x+y+z)}{\partial x}(6z+x+y)-(2x+y+z)\frac{\partial(6z+x+y)}{\partial x}}{(6z+x+y)^2}\\&amp;=-\frac{(2+\frac{\partial z}{\partial x})(6z+x+y)-(2x+y+z)(6\frac{\partial z}{\partial x}+1)}{(6z+x+y)^2}\end{aligned}$$<br>
-<strong>注意</strong>:因为求z的偏导默认z是可以由x,y表示的,所以z不可以看成常数,要把之前算出来的加入计算</p>
-<p><strong>求多元函数全微分</strong>:有多少个变量就求多少个偏导<br>
-$$\boxed{\mathrm{d}z=\frac{\partial z}{\partial x}\mathrm{d}x+\frac{\partial z}{\partial y}\mathrm{d}y}$$<br>
-<strong>求多元复合函数的全微分</strong>:套娃<br>
-例题:已知$Z=u^2+v^3,u=x+y,v=3x+5y,$求$\mathrm{d}Z$<br>
-可以套上一个点的公式,求出<br>
-$$\mathrm{d}Z=3(x+y)^2\mathrm{d}u+3(3x+5y)^2\mathrm{d}v$$<br>
-然后分别求$\mathrm{d}u,\mathrm{d}v$,得到(并化简)<br>
-$$\begin{aligned}\mathrm{d}Z&amp;=3(x+y)^2(\mathrm{d}x+\mathrm{d}y)+3(3x+5y)^2(3\mathrm{d}x+5\mathrm{d}y)\\&amp;=[3(x+y)^2+9(3x+5y)^2]\mathrm{d}x+15[3(x+y)^2+15(3x+5y)^2]\mathrm{d}y\end{aligned}$$<br>
-高阶全微分:组合数公式…<br>
-$$\mathrm d^nz=\sum_{k=0}^{n}\mathrm C_n^k\frac{\partial^nz}{\partial x^k\partial y^{n-k}}\mathrm dx^k\mathrm dy^{n-k}$$<br>
-比如…<br>
-$$\mathrm d^2z=f_{xx}(x,y)\mathrm dx^2+2f_{xy}(x,y)\mathrm dx\mathrm dy+f_{yy}(x,y)\mathrm dy^2$$<br>
-<strong>已知全微分求未知数</strong><br>
-已知$(x^2+axy)\mathrm{d}x+(x^2+3y^2)\mathrm{d}y$为某函数全微分试确定$a$的值.<br>
-做法:先设$\mathrm{d}z=$那一坨,列出来这个式子:<br>
-$$\begin{cases}x^2+axy=\frac{\partial z}{\partial x}\\x^2+3y^2=\frac{\partial z}{\partial y}\end{cases}$$<br>
-然后根据这个式子求偏导求$a$的值:2<br>
-$$\boxed{\frac{\partial^2 z}{\partial x\partial y}=\frac{\partial^2 z}{\partial y\partial x}}$$<br>
-<strong>多元函数求极值</strong>:<br>
-<strong>1.</strong> 求出满足$\large\begin{cases}\frac{\partial z}{\partial x}=0\\frac{\partial z}{\partial y}=0\end{cases}$的$(x,y)$<br>
-<strong>2.</strong> 设$A=\large{\frac{\partial^2 z}{\partial x^2}},B=\frac{\partial^2 z}{\partial x\partial y},C=\frac{\partial^2 z}{\partial y^2}$,并将1的结果代入算出$A,B,C$具体数值<br>
-<strong>3.</strong> 判断<br>
-$$\boxed{B^2-AC\begin{cases}&lt;0\begin{cases}A&lt;0&amp;极大值点\\A&gt;0&amp;极小值点\end{cases}\\=0\qquad不确定\&gt;0\qquad不是极值点\end{cases}}$$</p>
-<p><strong>多元隐函数求极值</strong>:</p>
-<p><strong>1.</strong> 求出满足$\large\begin{cases}\frac{\partial z}{\partial x}=0\\\frac{\partial z}{\partial y}=0\\原方程\end{cases}$的$(x,y)$</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial W}{\partial x}\Big|_{x=1,y=2,z=3}=xx}</script><p><strong>关系</strong>:如下:</p>
+<script type="math/tex; mode=display">偏导连续\implies函数可微\implies\begin{cases}函数连续\\\not{\Updownarrow}\\函数能偏导\end{cases}</script><p><strong>高阶偏导</strong>:看清次序,先对谁求导,结果再求一次偏导即可.(下面的是先对y再对x,虽然和先对x偏导和再对y偏导结果一样)</p>
+<script type="math/tex; mode=display">f_{yx}(x,y)=z_{yx}=\frac{\partial^2f}{\partial y\partial x}=\frac{\partial^2z}{\partial y\partial x}=\frac{\partial}{\partial x}\Big(\frac{\partial f}{\partial y}\Big)</script><p><strong>多元复合函数偏导</strong>:$F=u+v+w,u=x+y,v=,w=$形如这样的式子求$\frac{\partial F}{\partial x}$公式如下:</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial F}{\partial x}=\frac{\partial F}{\partial u}\cdot\frac{\partial u}{\partial x}+\frac{\partial F}{\partial v}\cdot\frac{\partial v}{\partial x}+\frac{\partial F}{\partial w}\cdot\frac{\partial w}{\partial x}}</script><p>其实不仅仅考试,如果出了一个很恶心的式子也可以这么反着先设数再回代,如$z=e^{xy}\sin(x+y)$就可以$xy$设一个$u$,$x+y$设一个$v$.</p>
+<p><strong>多元隐函数的偏导</strong>:已知$x^2+2y^2+3z^2+xy+xz+yz=0$,求$\Large\frac{\partial z}{\partial x}$.解法如下:<br>首先要了解一个公式(别问我为啥,我就是一个复读机,渴望考试及格的无情的复读机):</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial z}{\partial x}=\large-\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial z}}}</script><p>我们需要先设F=那一坨,不让他等于0,分别对F求偏导,然后套公式.这里<strong>特别注意</strong>一个点:有些变量的偏导不能忽略.<br>例题:求上一个式子的二阶导.</p>
+<script type="math/tex; mode=display">\frac{\partial z}{\partial x}=-\frac{2x+y+z}{6z+x+y}</script><script type="math/tex; mode=display">\begin{aligned}\frac{\partial^2z}{\partial x^2}&=-\frac{\partial(\frac{2x+y+z}{6z+x+y})}{\partial x}\\&=-\frac{\frac{\partial(2x+y+z)}{\partial x}(6z+x+y)-(2x+y+z)\frac{\partial(6z+x+y)}{\partial x}}{(6z+x+y)^2}\\&=-\frac{(2+\frac{\partial z}{\partial x})(6z+x+y)-(2x+y+z)(6\frac{\partial z}{\partial x}+1)}{(6z+x+y)^2}\end{aligned}</script><p><strong>注意</strong>:因为求z的偏导默认z是可以由x,y表示的,所以z不可以看成常数,要把之前算出来的加入计算</p>
+<p><strong>求多元函数全微分</strong>:有多少个变量就求多少个偏导</p>
+<script type="math/tex; mode=display">\boxed{\mathrm{d}z=\frac{\partial z}{\partial x}\mathrm{d}x+\frac{\partial z}{\partial y}\mathrm{d}y}</script><p><strong>求多元复合函数的全微分</strong>:套娃<br>例题:已知$Z=u^2+v^3,u=x+y,v=3x+5y,$求$\mathrm{d}Z$<br>可以套上一个点的公式,求出</p>
+<script type="math/tex; mode=display">\mathrm{d}Z=3(x+y)^2\mathrm{d}u+3(3x+5y)^2\mathrm{d}v</script><p>然后分别求$\mathrm{d}u,\mathrm{d}v$,得到(并化简)</p>
+<script type="math/tex; mode=display">\begin{aligned}\mathrm{d}Z&=3(x+y)^2(\mathrm{d}x+\mathrm{d}y)+3(3x+5y)^2(3\mathrm{d}x+5\mathrm{d}y)\\&=[3(x+y)^2+9(3x+5y)^2]\mathrm{d}x+15[3(x+y)^2+15(3x+5y)^2]\mathrm{d}y\end{aligned}</script><p>高阶全微分:组合数公式…</p>
+<script type="math/tex; mode=display">\mathrm d^nz=\sum_{k=0}^{n}\mathrm C_n^k\frac{\partial^nz}{\partial x^k\partial y^{n-k}}\mathrm dx^k\mathrm dy^{n-k}</script><p>比如……</p>
+<script type="math/tex; mode=display">\mathrm d^2z=f_{xx}(x,y)\mathrm dx^2+2f_{xy}(x,y)\mathrm dx\mathrm dy+f_{yy}(x,y)\mathrm dy^2</script><p><strong>已知全微分求未知数</strong><br>已知$(x^2+axy)\mathrm{d}x+(x^2+3y^2)\mathrm{d}y$为某函数全微分试确定$a$的值.<br>做法:先设$\mathrm{d}z=$那一坨,列出来这个式子:</p>
+<script type="math/tex; mode=display">\begin{cases}x^2+axy=\frac{\partial z}{\partial x}\\x^2+3y^2=\frac{\partial z}{\partial y}\end{cases}</script><p>然后根据这个式子求偏导求$a$的值:2</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial^2 z}{\partial x\partial y}=\frac{\partial^2 z}{\partial y\partial x}}</script><p><strong>多元函数求极值</strong>:<br><strong>1.</strong> 求出满足$\large\begin{cases}\frac{\partial z}{\partial x}=0\\frac{\partial z}{\partial y}=0\end{cases}$的$(x,y)$<br><strong>2.</strong> 设$A=\large{\frac{\partial^2 z}{\partial x^2}},B=\frac{\partial^2 z}{\partial x\partial y},C=\frac{\partial^2 z}{\partial y^2}$,并将1的结果代入算出$A,B,C$具体数值<br><strong>3.</strong> 判断  </p>
+<script type="math/tex; mode=display">\boxed{B^2-AC\begin{cases}<0\begin{cases}A<0&极大值点\\A>0&极小值点\end{cases}\\=0\qquad不确定\\>0\qquad不是极值点\end{cases}}</script><p><strong>多元隐函数求极值</strong>:</p>
+<p><strong>1.</strong> 求出满足<script type="math/tex">\large\begin{cases}\frac{\partial z}{\partial x}=0\\\frac{\partial z}{\partial y}=0\\原方程\end{cases}</script>的$(x,y)$  </p>
 <p>别的同上</p>
-<p><strong>多元函数求最值</strong><br>
-<strong>1.</strong> 求出两个偏导都等于0的解<br>
-<strong>2.</strong> 找出定义域边界<br>
-<strong>3.</strong> 将1,2步的解和边界都带进去<br>
-<strong>4.</strong> 如果得到了式子,就求最大取值和最小取值</p>
-<p><strong>条件极值</strong>:$\mathbf{Lagrange}$乘数法:<br>
-<strong>1.</strong> 引入$L(x)=f(x)+\lambda\phi(x)$<br>
-<strong>2.</strong> 计算$\nabla L(x)=0$和$\phi(x)=0$(即满足条件和满足极值)<br>
-<strong>3.</strong> 根据实际情景判断是极大值还是极小值.</p>
+<p><strong>多元函数求最值</strong><br><strong>1.</strong> 求出两个偏导都等于0的解<br><strong>2.</strong> 找出定义域边界<br><strong>3.</strong> 将1,2步的解和边界都带进去<br><strong>4.</strong> 如果得到了式子,就求最大取值和最小取值</p>
+<p><strong>条件极值</strong>:$\mathbf{Lagrange}$乘数法:<br><strong>1.</strong> 引入$L(x)=f(x)+\lambda\phi(x)$<br><strong>2.</strong> 计算$\nabla L(x)=0$和$\phi(x)=0$(即满足条件和满足极值)<br><strong>3.</strong> 根据实际情景判断是极大值还是极小值.</p>
 <p><strong>多元函数的$\mathbf{Taylor}$公式</strong>:</p>
-<p><strong>带$\mathrm{Lagrange}$余项的n阶$\mathrm{Taylor}$公式</strong>:至少存在一个$\theta\in(0,1)$满足<br>
-$$f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+\sum^n_{k=1}\frac{1}{k!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\Big)^kf(x_0,y_0)+R_n$$<br>
-$$R_n=\frac{1}{(n+1)!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac\partial{\partial y}\Big)^{n+1}f(x_0+\theta\Delta x,y_0+\theta\Delta y)$$<br>
-<strong>带$\mathrm{Peano}$余项的n阶$\mathrm{Taylor}$公式</strong>:当$\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}\to0$有<br>
-$$f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+\sum^n_{k=1}\frac{1}{k!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\Big)^kf(x_0,y_0)+R_n$$<br>
-其中<br>
-$$R_n=o(\rho^n)$$</p>
-<p><strong>$\mathbf{Maclaurin}$公式</strong>:<br>
-$\small你在期待些什么?公式其实就是x_0,y_0从0开始而已,余项变都不带变的.$</p>
-<p><strong>拉格朗日中值定理</strong>:<br>
-$$f(x_0+\Delta x)-f(x_0)=f’(x_0+\theta\Delta x)\Delta x\qquad(0&lt;\theta&lt;1)$$<br>
-在二元函数上的拓展($\Delta z$叫做全增量,这式子越看越像前缀和):<br>
-$$\begin{aligned}\Delta z&amp;=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)\\&amp;=f_x(x_0+\theta_1\Delta x,y_0+\Delta y)\Delta x+f_y(x_0,y_0+\theta_2\Delta y)\Delta y\\&amp;=f_x(x_0,y_0+\theta_1\Delta y)\Delta x+f_y(x_0+\theta_2\Delta x,y_0+\Delta y)\Delta y\end{aligned}$$</p>
-<p>注意<strong>变限积分求导公式</strong>,用于解决积分求偏导的问题:<br>
-$$\boxed{\Big(\int^{b(x)}_{a(x)}f(t)\mathrm{d}t\Big)‘=b’(x)f(b(x))-a’(x)f(a(x))}$$</p>
-<p><strong>方向导数</strong>:按照方向向量的极限就是方向导数. $\mathbf e(\cos\alpha,\cos\beta)$ 是 $\mathbf l$ 同方向的单位向量,则</p>
-<p>$$\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=\lim _{t\to0^+}\frac{f(x_0+t\cos\alpha,y_0+t\cos\beta)-f(x_0,y_0)}{t}$$</p>
-<p>函数可微能推出来方向导数存在,方向导数可以由偏导计算.</p>
-<p>$$\boxed{\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\cos\beta}$$<br>
-<strong>梯度</strong>:<br>
-$$\boxed{\mathbf{grad}f(x_0,y_0)=\nabla f(x_0,y_0)=f_x(x_0,y_0)\mathbf i+f_y(x_0,y_0)\mathbf j}$$</p>
-<p>$\nabla$ 这玩意读作 $nabla$ ,又叫哈密顿算子.<br>
-$$\boxed{\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=\nabla f(x_0,y_0)\cdot\mathbf e_l}$$<br>
-发现,梯度其实划定了范围,该点方向导数的变化范围.</p>
-<p><strong>算子性质</strong>:(好像导数的性质啊)<br>
-$$\nabla(c_1u+c_2v)=c_1\nabla u+c_2\nabla v$$<br>
-$$\nabla uv=v\nabla u+u\nabla v$$<br>
-$$\nabla(\frac{u}{v})=\frac{v\nabla u-u\nabla v}{v^2}$$<br>
-$$\nabla f(u)=f’(u)\nabla u$$</p>
-<h3 id="习题处理">习题处理:</h3>
-<p>头函数求偏导:$eg:u=f(x-y+z,x^2+y^2-z^2)$做法:找项<br>
-答案:$u_x=f’_1+2xf’_2,u_y=-f’_1+2yf_2’,u_z=f’_1-2zf’_2$</p>
-<p>头函数求高阶导:把头函数写进去就很好求了:$eg:z=f(x^2+y)$<br>
-答案$z_{xx}=2f’(x^2+y)+4x^2f’'(x^2+y)$</p>
+<p><strong>带$\mathrm{Lagrange}$余项的n阶$\mathrm{Taylor}$公式</strong>:至少存在一个$\theta\in(0,1)$满足</p>
+<script type="math/tex; mode=display">f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+\sum^n_{k=1}\frac{1}{k!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\Big)^kf(x_0,y_0)+R_n</script><script type="math/tex; mode=display">R_n=\frac{1}{(n+1)!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac\partial{\partial y}\Big)^{n+1}f(x_0+\theta\Delta x,y_0+\theta\Delta y)</script><p><strong>带$\mathrm{Peano}$余项的n阶$\mathrm{Taylor}$公式</strong>:当$\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}\to0$有</p>
+<script type="math/tex; mode=display">f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+\sum^n_{k=1}\frac{1}{k!}\Big(\Delta x\frac{\partial}{\partial x}+\Delta y\frac{\partial}{\partial y}\Big)^kf(x_0,y_0)+R_n</script><p>其中</p>
+<script type="math/tex; mode=display">R_n=o(\rho^n)</script><p><strong>$\mathbf{Maclaurin}$公式</strong>:<br>$\small你在期待些什么?公式其实就是x_0,y_0从0开始而已,余项变都不带变的.$</p>
+<p><strong>拉格朗日中值定理</strong>:</p>
+<script type="math/tex; mode=display">f(x_0+\Delta x)-f(x_0)=f'(x_0+\theta\Delta x)\Delta x\qquad(0<\theta<1)</script><p>在二元函数上的拓展($\Delta z$叫做全增量,这式子越看越像前缀和):</p>
+<script type="math/tex; mode=display">\begin{aligned}\Delta z&=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)\\&=f_x(x_0+\theta_1\Delta x,y_0+\Delta y)\Delta x+f_y(x_0,y_0+\theta_2\Delta y)\Delta y\\&=f_x(x_0,y_0+\theta_1\Delta y)\Delta x+f_y(x_0+\theta_2\Delta x,y_0+\Delta y)\Delta y\end{aligned}</script><p>注意<strong>变限积分求导公式</strong>,用于解决积分求偏导的问题:</p>
+<script type="math/tex; mode=display">\boxed{\Big(\int^{b(x)}_{a(x)}f(t)\mathrm{d}t\Big)'=b'(x)f(b(x))-a'(x)f(a(x))}</script><p><strong>方向导数</strong>:按照方向向量的极限就是方向导数. $\mathbf e(\cos\alpha,\cos\beta)$ 是 $\mathbf l$ 同方向的单位向量,则</p>
+<script type="math/tex; mode=display">\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=\lim _{t\to0^+}\frac{f(x_0+t\cos\alpha,y_0+t\cos\beta)-f(x_0,y_0)}{t}</script><p>函数可微能推出来方向导数存在,方向导数可以由偏导计算.</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=f_x(x_0,y_0)\cos\alpha+f_y(x_0,y_0)\cos\beta}</script><p><strong>梯度</strong>:</p>
+<script type="math/tex; mode=display">\boxed{\mathbf{grad}f(x_0,y_0)=\nabla f(x_0,y_0)=f_x(x_0,y_0)\mathbf i+f_y(x_0,y_0)\mathbf j}</script><p>$\nabla$ 这玩意读作 $nabla$ ,又叫哈密顿算子.</p>
+<script type="math/tex; mode=display">\boxed{\frac{\partial f}{\partial l}\Big|_{(x_0,y_0)}=\nabla f(x_0,y_0)\cdot\mathbf e_l}</script><p>发现,梯度其实划定了范围,该点方向导数的变化范围.</p>
+<p><strong>算子性质</strong>:(好像导数的性质啊)</p>
+<script type="math/tex; mode=display">\nabla(c_1u+c_2v)=c_1\nabla u+c_2\nabla v</script><script type="math/tex; mode=display">\nabla uv=v\nabla u+u\nabla v</script><script type="math/tex; mode=display">\nabla(\frac{u}{v})=\frac{v\nabla u-u\nabla v}{v^2}</script><script type="math/tex; mode=display">\nabla f(u)=f'(u)\nabla u</script><h3 id="习题处理"><a href="#习题处理" class="headerlink" title="习题处理:"></a>习题处理:</h3><p>头函数求偏导:$eg:u=f(x-y+z,x^2+y^2-z^2)$做法:找项<br>答案:$u_x=f’_1+2xf’_2,u_y=-f’_1+2yf_2’,u_z=f’_1-2zf’_2$</p>
+<p>头函数求高阶导:把头函数写进去就很好求了:$eg:z=f(x^2+y)$<br>答案$z_{xx}=2f’(x^2+y)+4x^2f’’(x^2+y)$</p>
 <p>几何求偏导:该点函数分别求偏导组成的向量就是法向量,可以直接比较平行或垂直关系.</p>
-<h1>第三章 重积分</h1>
-<p>没错!你们赞(<s>骂</s>)不绝口的撬棍符号又回来了~这回还带着好兄弟来了…<br>
-$$\iint_D$$</p>
-<h1>第四章 三重积分</h1>
-<p>$$\iiint_\Omega$$</p>
-<h2 id="换元问题">换元问题</h2>
-<p>弧微分(线)能这么转换系数:<br>
-$$\mathrm ds=\sqrt{(\mathrm dx)^2+(\mathrm dy)^2+(\mathrm dz)^2}=…\mathrm dt$$<br>
-面积分能这么转换系数:<br>
-$$\mathrm dS=\sqrt{1+z_x^2+z_y^2}\mathrm dx\mathrm dy$$<br>
-同时带参数方程的xy可以转换如下:</p>
-<p>$$\begin{cases}<br>
-x=r\sin\theta\\<br>
-y=r\cos\theta<br>
-\end{cases},\theta\in[0,2\pi]$$<br>
-此时<br>
-$$\mathrm dx\mathrm dy=r\mathrm dr\mathrm d\theta$$<br>
-另<br>
-$$\begin{cases}<br>
-x=r\sin\theta\cos\varphi\\y=r\sin\theta\sin\varphi\\z=r\cos\theta\end{cases},\theta\in[0,2\pi],\varphi\in[0,\pi]$$<br>
-此时<br>
-$$\mathrm dx\mathrm dy\mathrm dz=r^2\sin\theta\mathrm dr\mathrm d\theta\mathrm d\varphi$$</p>
-<h2 id="旋转体计算">旋转体计算</h2>
-<p>函数 $y=\sqrt x$ 绕x=2,x轴旋转一周求体积表面积.<br>
-$$S=\int_0^12\pi\sqrt x\mathrm ds$$<br>
-其中2pi是旋转一个点旋转一周的线长,sqrtx就是函数, $\mathrm ds=\sqrt{(\mathrm dx)^2+(\mathrm dy)^2}=\sqrt{1+\frac1{4x}}\mathrm dx$</p>
-<p>体积比较简单:<br>
-$$V=\int_0^1\pi(\sqrt x)^2\mathrm dx$$<br>
-pir2就是面积的意思,直接dx就行.</p>
-<h2 id="概念">概念</h2>
-<p><strong>梯度</strong> :<br>
-$$\mathbf{grad}f(x_0,y_0)=\nabla f(x_0,y_0)=(f_x,f_y)$$<br>
-得到的是一个向量,用括号括起来就行,不需要写什么ijk的.</p>
-<p><strong>散度</strong> :<br>
-$$\mathrm{div},\mathbf{a}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}$$<br>
-<strong>旋度</strong> :<br>
-$$\mathbf{rot,a}=\begin{vmatrix}\mathbf i&amp;\mathbf j&amp;\mathbf k\\\frac{\partial}{\partial x}&amp;\frac{\partial}{\partial y}&amp;\frac{\partial}{\partial z}\\P&amp;Q&amp;R\end{vmatrix}$$</p>
-<h2 id="Green公式">Green公式</h2>
-<p>$$∫_C(P\mathrm dx+Q\mathrm dy)=∫_D​(\frac{∂Q}{∂x}−\frac{∂P}{∂y})\mathrm dx\mathrm dy$$</p>
-<h2 id="Stokes公式">Stokes公式</h2>
-<p>如果满足右手法则,还是个闭合曲线,就满足<br>
-$$\oint_{L}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_{\sum}\begin{vmatrix}\mathrm dy\mathrm dz&amp;\mathrm dz\mathrm dx&amp;\mathrm dx\mathrm dy\\\frac{\partial}{\partial x}&amp;\frac{\partial}{\partial y}&amp;\frac{\partial}{\partial z}\\P&amp;Q&amp;R\end{vmatrix}$$</p>
-<h2 id="Gauss公式">Gauss公式</h2>
-<p>面封闭,导数连续的时候可以用,dV就是求体积.<br>
-$$\unicode{8751} P\mathrm dy\mathrm dz+Q\mathrm dx\mathrm dz+R\mathrm dx\mathrm dy=\iiint_{Ω}(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})\mathrm dV$$</p>
-<h2 id="合一投影法">合一投影法</h2>
-<p>原理:<br>
-$$\mathrm dy\mathrm dz=-z_x\mathrm dx\mathrm dy,\mathrm dz\mathrm dx=-z_y\mathrm dx\mathrm dy$$<br>
-于是设外法向量是 $\overrightarrow n=(-z_x,-z_y,1)$<br>
-然后求偏导想办法搞出来.<br>
-$$\iint_{\sum}P\mathrm dy\mathrm dz+Q\mathrm dx\mathrm dz+R\mathrm dx\mathrm dy=\iint_{D_{xy}}P(-z_x)+Q(-z_y)+R\mathrm dx\mathrm dy$$</p>
-<h2 id="第一型曲线积分">第一型曲线积分</h2>
-<p>$$\int_Lf(x,y)\mathrm ds=\int_{\alpha}^{\beta}f(x(\theta),y(\theta))\cdot\sqrt{(x’(\theta))^2+(y’(\theta))^2}\mathrm d\theta,\alpha&lt;\beta$$<br>
-$$\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y’(x))^2}\mathrm dx,a&lt;b$$<br>
-性质:</p>
+<h1 id="第三章-重积分"><a href="#第三章-重积分" class="headerlink" title="第三章 重积分"></a>第三章 重积分</h1><p>没错!你们赞(<del>骂</del>)不绝口的撬棍符号又回来了~这回还带着好兄弟来了…</p>
+<script type="math/tex; mode=display">\iint_D</script><h1 id="第四章-三重积分"><a href="#第四章-三重积分" class="headerlink" title="第四章 三重积分"></a>第四章 三重积分</h1><script type="math/tex; mode=display">\iiint_\Omega</script><h2 id="换元问题"><a href="#换元问题" class="headerlink" title="换元问题"></a>换元问题</h2><p>弧微分(线)能这么转换系数:</p>
+<script type="math/tex; mode=display">\mathrm ds=\sqrt{(\mathrm dx)^2+(\mathrm dy)^2+(\mathrm dz)^2}=...\mathrm dt</script><p>面积分能这么转换系数:</p>
+<script type="math/tex; mode=display">\mathrm dS=\sqrt{1+z_x^2+z_y^2}\mathrm dx\mathrm dy</script><p>同时带参数方程的xy可以转换如下:</p>
+<script type="math/tex; mode=display">\begin{cases}
+x=r\sin\theta\\
+y=r\cos\theta
+\end{cases},\theta\in[0,2\pi]</script><p>此时</p>
+<script type="math/tex; mode=display">\mathrm dx\mathrm dy=r\mathrm dr\mathrm d\theta</script><p>另</p>
+<script type="math/tex; mode=display">\begin{cases}
+x=r\sin\theta\cos\varphi\\y=r\sin\theta\sin\varphi\\z=r\cos\theta\end{cases},\theta\in[0,2\pi],\varphi\in[0,\pi]</script><p>此时</p>
+<script type="math/tex; mode=display">\mathrm dx\mathrm dy\mathrm dz=r^2\sin\theta\mathrm dr\mathrm d\theta\mathrm d\varphi</script><h2 id="旋转体计算"><a href="#旋转体计算" class="headerlink" title="旋转体计算"></a>旋转体计算</h2><p>函数 $y=\sqrt x$ 绕x=2,x轴旋转一周求体积表面积.</p>
+<script type="math/tex; mode=display">S=\int_0^12\pi\sqrt x\mathrm ds</script><p>其中2pi是旋转一个点旋转一周的线长,sqrtx就是函数, $\mathrm ds=\sqrt{(\mathrm dx)^2+(\mathrm dy)^2}=\sqrt{1+\frac1{4x}}\mathrm dx$</p>
+<p>体积比较简单:</p>
+<script type="math/tex; mode=display">V=\int_0^1\pi(\sqrt x)^2\mathrm dx</script><p>pir2就是面积的意思,直接dx就行.</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>梯度</strong> :</p>
+<script type="math/tex; mode=display">\mathbf{grad}f(x_0,y_0)=\nabla f(x_0,y_0)=(f_x,f_y)</script><p>得到的是一个向量,用括号括起来就行,不需要写什么ijk的.</p>
+<p><strong>散度</strong> :</p>
+<script type="math/tex; mode=display">\mathrm{div}\,\mathbf{a}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}</script><p><strong>旋度</strong> :</p>
+<script type="math/tex; mode=display">\mathbf{rot\,a}=\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\\frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\P&Q&R\end{vmatrix}</script><h2 id="Green公式"><a href="#Green公式" class="headerlink" title="Green公式"></a>Green公式</h2><script type="math/tex; mode=display">∫_C(P\mathrm dx+Q\mathrm dy)=∫_D​(\frac{∂Q}{∂x}−\frac{∂P}{∂y})\mathrm dx\mathrm dy</script><h2 id="Stokes公式"><a href="#Stokes公式" class="headerlink" title="Stokes公式"></a>Stokes公式</h2><p>如果满足右手法则,还是个闭合曲线,就满足</p>
+<script type="math/tex; mode=display">\oint_{L}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_{\sum}\begin{vmatrix}\mathrm dy\mathrm dz&\mathrm dz\mathrm dx&\mathrm dx\mathrm dy\\\frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\P&Q&R\end{vmatrix}</script><h2 id="Gauss公式"><a href="#Gauss公式" class="headerlink" title="Gauss公式"></a>Gauss公式</h2><p>面封闭,导数连续的时候可以用,dV就是求体积.</p>
+<script type="math/tex; mode=display">\unicode{8751} P\mathrm dy\mathrm dz+Q\mathrm dx\mathrm dz+R\mathrm dx\mathrm dy=\iiint_{Ω}(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})\mathrm dV</script><h2 id="合一投影法"><a href="#合一投影法" class="headerlink" title="合一投影法"></a>合一投影法</h2><p>原理:</p>
+<script type="math/tex; mode=display">\mathrm dy\mathrm dz=-z_x\mathrm dx\mathrm dy,\mathrm dz\mathrm dx=-z_y\mathrm dx\mathrm dy</script><p>于是设外法向量是 $\overrightarrow n=(-z_x,-z_y,1)$<br>然后求偏导想办法搞出来.</p>
+<script type="math/tex; mode=display">\iint_{\sum}P\mathrm dy\mathrm dz+Q\mathrm dx\mathrm dz+R\mathrm dx\mathrm dy=\iint_{D_{xy}}P(-z_x)+Q(-z_y)+R\mathrm dx\mathrm dy</script><h2 id="第一型曲线积分"><a href="#第一型曲线积分" class="headerlink" title="第一型曲线积分"></a>第一型曲线积分</h2><script type="math/tex; mode=display">\int_Lf(x,y)\mathrm ds=\int_{\alpha}^{\beta}f(x(\theta),y(\theta))\cdot\sqrt{(x'(\theta))^2+(y'(\theta))^2}\mathrm d\theta,\alpha<\beta</script><script type="math/tex; mode=display">\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y'(x))^2}\mathrm dx,a<b</script><p>性质:  </p>
 <ol>
-<li>$\int_L1\mathrm ds=L$ 的长度</li>
+<li>$\int_L1\mathrm ds=L$ 的长度  </li>
 <li>若L关于y轴对称, $L_1$ 是L的 $x\ge 0$ 部分,有</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -470,7 +334,7 @@ $$\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y’(x))^2}\mathrm d
 <tbody>
 <tr>
 <td style="text-align:left">$f(-x,y)=f(x,y)$</td>
-<td style="text-align:left">$\int_Lf(x,y)\mathrm ds=2\int_{L_1}f(x,y)\mathrm ds$</td>
+<td style="text-align:left"><script type="math/tex">\int_{L}f(x,y)\mathrm{d}s = 2 \int_{L_1} f(x,y)\mathrm{d}s</script></td>
 </tr>
 <tr>
 <td style="text-align:left">$f(-x,y)=-f(x,y)$</td>
@@ -478,9 +342,11 @@ $$\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y’(x))^2}\mathrm d
 </tr>
 </tbody>
 </table>
-<ol start="3">
+</div>
+<ol>
 <li>若L关于x轴对称, $L_2$ 是L的 $y\ge0$ 部分,有</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -491,7 +357,7 @@ $$\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y’(x))^2}\mathrm d
 <tbody>
 <tr>
 <td style="text-align:left">$f(x,-y)=f(x,y)$</td>
-<td style="text-align:left">$\int_Lf(x,y)\mathrm ds=2\int_{L_2}f(x,y)\mathrm ds$</td>
+<td style="text-align:left"><script type="math/tex">\int_Lf(x,y)\mathrm ds=2\int_{L_2}f(x,y)\mathrm ds</script></td>
 </tr>
 <tr>
 <td style="text-align:left">$f(x,-y)=-f(x,y)$</td>
@@ -499,12 +365,11 @@ $$\int_Lf(x,y)\mathrm ds=\int_{a}^{b}f(x,y(x))\cdot\sqrt{1+(y’(x))^2}\mathrm d
 </tr>
 </tbody>
 </table>
-<h2 id="第二型曲线积分">第二型曲线积分</h2>
-<p>$\theta$ 从 $\alpha$ 到 $\beta$<br>
-$$\int_{L}P(x,y)\mathrm dx+Q(x,y)\mathrm dy=\int_{\alpha}^{\beta}(P(x(\theta),y(\theta))\cdot x’(\theta)+Q(x(\theta),y(\theta))\cdot y’(\theta))\mathrm dt$$<br>
-x从a到b<br>
-$$\int_LP(x,y)\mathrm dx+Q(x,y)\mathrm dy=\int_a^b(P(x,y(x))+Q(x,y(x))\cdot y’(x))\mathrm dx$$<br>
-性质计算 $\int_LP(x,y)\mathrm dx+Q(x,y)\mathrm dy$ :</p>
+</div>
+<h2 id="第二型曲线积分"><a href="#第二型曲线积分" class="headerlink" title="第二型曲线积分"></a>第二型曲线积分</h2><p>$\theta$ 从 $\alpha$ 到 $\beta$</p>
+<script type="math/tex; mode=display">\int_{L}P(x,y)\mathrm dx+Q(x,y)\mathrm dy=\int_{\alpha}^{\beta}(P(x(\theta),y(\theta))\cdot x'(\theta)+Q(x(\theta),y(\theta))\cdot y'(\theta))\mathrm dt</script><p>x从a到b</p>
+<script type="math/tex; mode=display">\int_LP(x,y)\mathrm dx+Q(x,y)\mathrm dy=\int_a^b(P(x,y(x))+Q(x,y(x))\cdot y'(x))\mathrm dx</script><p>性质计算 $\int_LP(x,y)\mathrm dx+Q(x,y)\mathrm dy$ :</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -519,39 +384,25 @@ $$\int_LP(x,y)\mathrm dx+Q(x,y)\mathrm dy=\int_a^b(P(x,y(x))+Q(x,y(x))\cdot y’
 </tr>
 <tr>
 <td style="text-align:left">L为正向(逆时针)无交叉封闭曲线,且PQ在L围城的区域里有一阶连续偏导</td>
-<td style="text-align:left">$\oint_LP\mathrm dx+Q\mathrm dy=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy$</td>
+<td style="text-align:left"><script type="math/tex">\oint_LP\mathrm dx+Q\mathrm dy=\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy</script></td>
 </tr>
 <tr>
 <td style="text-align:left">L为逆向(顺时针)无交叉封闭曲线,且PQ在L围城的区域里有一阶连续偏导</td>
-<td style="text-align:left">$\oint_LP\mathrm dx+Q\mathrm dy=-\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy$</td>
+<td style="text-align:left"><script type="math/tex">\oint_LP\mathrm dx+Q\mathrm dy=-\iint_{D}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy</script></td>
 </tr>
 </tbody>
 </table>
-<h2 id="第一型曲面积分">第一型曲面积分</h2>
-<ol>
-<li>求 $\sum:z=z(z,y)$ 计算 $\iint_{\sum}f(x,y,z)\mathrm ds$<br>
-步骤:1.画出 $\sum$ ,然后表示 $D_{xy}$ (也就是图形在xy区域投影)<br>
-2.将 $\sum$ 表示成z=?的形式,求出 $f(x,y,z(x,y))$<br>
-3.求出 $\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}$<br>
-4.带公式<br>
-$$\iint_{\sum}f(x,y,z)\mathrm ds=\iint_{D_{xy}}f(x,y,z(x,y))\cdot\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2}\mathrm dx\mathrm dy$$<br>
-(别的平面的映射也一样)</li>
+</div>
+<h2 id="第一型曲面积分"><a href="#第一型曲面积分" class="headerlink" title="第一型曲面积分"></a>第一型曲面积分</h2><ol>
+<li>求 $\sum:z=z(z,y)$ 计算 <script type="math/tex">\iint_{\sum}f(x,y,z)\mathrm ds</script><br>步骤:<br>1.画出 $\sum$ ,然后表示 $D_{xy}$ (也就是图形在xy区域投影)<br>2.将 $\sum$ 表示成z=?的形式,求出 $f(x,y,z(x,y))$<br>3.求出 <script type="math/tex">\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}</script><br>4.带公式<script type="math/tex; mode=display">\iint_{\sum}f(x,y,z)\mathrm ds=\iint_{D_{xy}}f(x,y,z(x,y))\cdot\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2}\mathrm dx\mathrm dy</script>(别的平面的映射也一样)<h2 id="第二型曲面积分"><a href="#第二型曲面积分" class="headerlink" title="第二型曲面积分"></a>第二型曲面积分</h2>计算 $\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz$<script type="math/tex; mode=display">\begin{cases}
+若从x正半轴向原点能看到曲面I,则有\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=\iint_{D_{yz}}P(x(y,z),y,z)\mathrm dy\mathrm dz\\
+若从x正半轴向原点看不到曲面I,则有\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=-\iint_{D_{yz}}P(x(y,z),y,z)\mathrm dy\mathrm dz\\
+若从x正半轴向原点看到曲面缩成曲线,则\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=0
+\end{cases}</script></li>
 </ol>
-<h2 id="第二型曲面积分">第二型曲面积分</h2>
-<p>计算 $\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz$<br>
-$$\begin{cases}<br>
-若从x正半轴向原点能看到曲面I,则有\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=\iint_{D_{yz}}P(x(y,z),y,z)\mathrm dy\mathrm dz\\<br>
-若从x正半轴向原点看不到曲面I,则有\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=-\iint_{D_{yz}}P(x(y,z),y,z)\mathrm dy\mathrm dz\\<br>
-若从x正半轴向原点看到曲面缩成曲线,则\iint_{\sum}P(x,y,z)\mathrm dy\mathrm dz=0<br>
-\end{cases}$$</p>
-<h2 id="例题">例题</h2>
-<ol>
-<li>单位化<br>
-$$\mathrm ds=\mathrm d\cos a x\mathrm d\cos by\mathrm d\cos cz$$<br>
-其中 $(\cos a,\cos b,\cos c)$ 是线段单位向量.</li>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
+<li>单位化<script type="math/tex; mode=display">\mathrm ds=\mathrm d\cos a x\mathrm d\cos by\mathrm d\cos cz</script>其中 $(\cos a,\cos b,\cos c)$ 是线段单位向量.<h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2>数项级数:数列</li>
 </ol>
-<h2 id="级数">级数</h2>
-<p>数项级数:数列</p>
 <p>{s_n}:前缀和</p>
 <p>几何级数:等比数列</p>
 <p>性质:</p>
@@ -561,121 +412,85 @@ $$\mathrm ds=\mathrm d\cos a x\mathrm d\cos by\mathrm d\cos cz$$<br>
 <li>在一个级数的前面加上有限项和删除有限项的级数敛散性不变(因为后面的级数相减趋于定值,改变前几项是没用的)</li>
 <li>收敛级数中任意加括号不改变收敛性也不改变和</li>
 </ol>
-<p>加括号的定义是把任意几项合并成一个数字,然后形成一个新的级数,如:<br>
-$$a-a+a-a+a…$$<br>
-发散,加括号形成<br>
-$$(a-a)+(a-a)+…$$<br>
-是收敛的.</p>
-<ol start="5">
+<p>加括号的定义是把任意几项合并成一个数字,然后形成一个新的级数,如:</p>
+<script type="math/tex; mode=display">a-a+a-a+a...</script><p>发散,加括号形成</p>
+<script type="math/tex; mode=display">(a-a)+(a-a)+...</script><p>是收敛的.</p>
+<ol>
 <li>数项级数收敛的必要条件是 $\lim_{n\to\infty}u_n=0$</li>
 </ol>
-<h3 id="敛散性判定">敛散性判定</h3>
-<p>正项级数:所有项均非负的级数.</p>
+<h3 id="敛散性判定"><a href="#敛散性判定" class="headerlink" title="敛散性判定"></a>敛散性判定</h3><p>正项级数:所有项均非负的级数.</p>
 <ol>
 <li>比较判别法:设正项级数 $u\le v$ ,若v收敛,则u收敛,若u发散,则v发散.</li>
 </ol>
-<p>结论: <strong>p级数</strong> :<br>
-$$\sum_{n=1}^{\infty}\frac1{n^p}=1+\frac 1{2^p}+\frac1{3^p}…$$<br>
-在 $p\le1$ 时,级数发散, $p&gt;1$ 时函数收敛.</p>
-<p><strong>极限形式</strong> :设<br>
-$$\lim_{n\to\infty}\frac uv=l$$<br>
-若 $0&lt;l&lt;+\infty$ ,则两个函数敛散性相同<br>
-若 $l=0$ 且v收敛,则u也收敛<br>
-若 $l=+\infty$ 且v发散,则u也发散.</p>
-<ol start="2">
-<li>
-<p>比值判别法:正项级数相邻两项之间的比较:<br>
-$$\lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\rho$$<br>
-然后当 $\rho&lt;1$ 时级数收敛, $\rho&gt;1$ 时级数发散,=1时可能发散也可能收敛.</p>
+<p>结论: <strong>p级数</strong> :</p>
+<script type="math/tex; mode=display">\sum_{n=1}^{\infty}\frac1{n^p}=1+\frac 1{2^p}+\frac1{3^p}...</script><p>在 $p\le1$ 时,级数发散, $p&gt;1$ 时函数收敛.</p>
+<p><strong>极限形式</strong> :设</p>
+<script type="math/tex; mode=display">\lim_{n\to\infty}\frac uv=l</script><p>若 $0&lt;l&lt;+\infty$ ,则两个函数敛散性相同<br>若 $l=0$ 且v收敛,则u也收敛<br>若 $l=+\infty$ 且v发散,则u也发散.</p>
+<ol>
+<li><p>比值判别法:正项级数相邻两项之间的比较:</p>
+<script type="math/tex; mode=display">\lim_{n\to\infty}\frac{u_{n+1}}{u_n}=\rho</script><p>然后当 $\rho<1$ 时级数收敛, $\rho>1$ 时级数发散,=1时可能发散也可能收敛.</p>
 </li>
-<li>
-<p>根值判别法(柯西判别法):正项级数u有<br>
-$$\lim_{n\to\infty}\sqrt[n]{u_n}=\rho$$<br>
-当&lt;1时级数收敛,&gt;1时级数发散,=1时敛散性不定.</p>
+<li><p>根值判别法(柯西判别法):正项级数u有</p>
+<script type="math/tex; mode=display">\lim_{n\to\infty}\sqrt[n]{u_n}=\rho</script><p>当<1时级数收敛,>1时级数发散,=1时敛散性不定.</p>
 </li>
-<li>
-<p>积分判别法(基本用不上)</p>
+<li><p>积分判别法(基本用不上)</p>
 </li>
 </ol>
 <p>函数f(x)是 $\ge1$ 上的非负递减函数,f(n)=u(n),级数收敛充要条件是无穷积分 $\int_{1}^{+\infty}f(x)\mathrm dx$ 收敛.</p>
-<h2 id="任意项级数">任意项级数</h2>
-<p><strong>柯西收敛准则</strong> :数项级数收敛的充要条件是 $\forall\varepsilon&gt;0,\exists N&gt;0,$ 当 $n&gt;N$ 时,对一切整数p有<br>
-$$|s_{n+p}-s_n|=\left|\sum_{k=n+1}^{n+p}u_k\right|&lt;\varepsilon$$<br>
-大概意思就是说,n越大的时候几项加一起结果越趋向0.</p>
-<p><strong>交错级数</strong> :<br>
-$$\sum_{n=1}^\infty(-1)^{n+1}u_n,(u_n&gt;0)$$<br>
-该交错级数收敛有 <strong>莱布尼茨判别法</strong> :1. $u_n\ge u_{n+1}$ 2. $\lim_{n\to \infty}u_n=0$</p>
+<h2 id="任意项级数"><a href="#任意项级数" class="headerlink" title="任意项级数"></a>任意项级数</h2><p><strong>柯西收敛准则</strong> :数项级数收敛的充要条件是 $\forall\varepsilon&gt;0,\exists N&gt;0,$ 当 $n&gt;N$ 时,对一切整数p有</p>
+<script type="math/tex; mode=display">|s_{n+p}-s_n|=\left|\sum_{k=n+1}^{n+p}u_k\right|<\varepsilon</script><p>大概意思就是说,n越大的时候几项加一起结果越趋向0.</p>
+<p><strong>交错级数</strong> :</p>
+<script type="math/tex; mode=display">\sum_{n=1}^\infty(-1)^{n+1}u_n,(u_n>0)</script><p>该交错级数收敛有 <strong>莱布尼茨判别法</strong> :  </p>
+<ol>
+<li><script type="math/tex; mode=display">u_n\ge u_{n+1}</script></li>
+<li><script type="math/tex; mode=display">\lim_{n\to \infty}u_n=0</script></li>
+</ol>
 <p><strong>特别注意</strong> :莱布尼茨判别法不是必要条件!!!</p>
-<h3 id="绝对收敛与条件收敛">绝对收敛与条件收敛</h3>
-<p>取绝对值后的级数收敛叫 <strong>绝对收敛</strong> ,若绝对值的级数发散但是原级数收敛叫 <strong>条件收敛</strong> .</p>
+<h3 id="绝对收敛与条件收敛"><a href="#绝对收敛与条件收敛" class="headerlink" title="绝对收敛与条件收敛"></a>绝对收敛与条件收敛</h3><p>取绝对值后的级数收敛叫 <strong>绝对收敛</strong> ,若绝对值的级数发散但是原级数收敛叫 <strong>条件收敛</strong> .</p>
 <p>如果用比值或者根值判定|u|发散,则u必定发散.</p>
-<p><s>级数乘法运算:uv两个收敛级数相乘的结果就是两个收敛值直接相乘的结果.</s></p>
-<h2 id="函数项级数">函数项级数</h2>
-<p><strong>收敛域,收敛区间</strong> :收敛区间是一个开区间,不用考虑端点的状况,收敛域需要考虑端点状况.</p>
-<p>每一项都是一个函数的级数.<br>
-$$\sum_{n=1}^\infty u_n(x)=u_1(x)+u_2(x)+…$$<br>
-I被称为所有函数的公共定义域,和式被称为I上的 <strong>函数项级数</strong> .<br>
-对于 $x_0$ 如果级数收敛,则被称为收敛点,否则称为发散点.<br>
-所有点的集合被称为 <strong>收敛域</strong> 或者 <strong>发散域</strong> .</p>
-<p>设收敛域是I,定义 $s(x)=\sum_{n=1}^\infty u_n(x)$ ,被称为和函数.<br>
-前n项和定义是 $s_n(x)=\sum_{k=1}^nu_k(x)$ .</p>
-<p>余项: $R_n(x)=s(x)-s_n(x)=\sum_{k=n+1}^\infty u_{k}(x)$</p>
-<h2 id="幂级数-普通生成函数">幂级数(<s>普通生成函数</s>)</h2>
-<p>多项式. $a_0+a_1x+a_2x^2+…$</p>
+<p><del>级数乘法运算:uv两个收敛级数相乘的结果就是两个收敛值直接相乘的结果.</del></p>
+<h2 id="函数项级数"><a href="#函数项级数" class="headerlink" title="函数项级数"></a>函数项级数</h2><p><strong>收敛域,收敛区间</strong> :收敛区间是一个开区间,不用考虑端点的状况,收敛域需要考虑端点状况.</p>
+<p>每一项都是一个函数的级数.</p>
+<script type="math/tex; mode=display">\sum_{n=1}^\infty u_n(x)=u_1(x)+u_2(x)+...</script><p>I被称为所有函数的公共定义域,和式被称为I上的 <strong>函数项级数</strong> .<br>对于 $x_0$ 如果级数收敛,则被称为收敛点,否则称为发散点.<br>所有点的集合被称为 <strong>收敛域</strong> 或者 <strong>发散域</strong> .</p>
+<p>设收敛域是I,定义 <script type="math/tex">s(x)=\sum_{n=1}^\infty u_n(x)</script> ,被称为和函数.<br>前n项和定义是 <script type="math/tex">s_n(x)=\sum_{k=1}^nu_k(x)</script> .  </p>
+<p>余项: <script type="math/tex">R_n(x)=s(x)-s_n(x)=\sum_{k=n+1}^\infty u_{k}(x)</script></p>
+<h2 id="幂级数-普通生成函数"><a href="#幂级数-普通生成函数" class="headerlink" title="幂级数(普通生成函数)"></a>幂级数(<del>普通生成函数</del>)</h2><p>多项式. $a_0+a_1x+a_2x^2+…$</p>
 <p><strong>阿贝尔定理</strong> :若级数在 $x=\overline x$ 收敛,则满足 $|x|&lt;|\overline x|$ 绝对收敛,反之若发散则 $|x|&gt;|\overline x|$ 发散.</p>
 <p>所以,幂级数的收敛域是一个以原点为中心的区间.设2R是长度,R被称为收敛半径,(-R,R)被称为收敛区间.</p>
-<p><strong>求收敛半径</strong> :若<br>
-$$\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho\quad或\quad\lim_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\rho$$<br>
-则收敛半径<br>
-$$R=\begin{cases}\frac 1\rho&amp;0&lt;\rho&lt;+\infty\\0&amp;\rho=+\infty\\+\infty&amp;\rho=0\end{cases}$$</p>
-<h3 id="幂级数运算">幂级数运算</h3>
-<p>首先,必须在收敛半径内,R=min(R1,R2).</p>
+<p><strong>求收敛半径</strong> :若</p>
+<script type="math/tex; mode=display">\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=\rho\quad或\quad\lim_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\rho</script><p>则收敛半径</p>
+<script type="math/tex; mode=display">R=\begin{cases}\frac 1\rho&0<\rho<+\infty\\0&\rho=+\infty\\+\infty&\rho=0\end{cases}</script><h3 id="幂级数运算"><a href="#幂级数运算" class="headerlink" title="幂级数运算"></a>幂级数运算</h3><p>首先,必须在收敛半径内,R=min(R1,R2).</p>
 <p>标准的多项式操作.</p>
 <p>两个幂级数加减得到的幂级数的半径有 $R\ge\min{R_1,R_2}$</p>
-<p><strong>分析运算</strong> :设收敛半径为R,和函数为s(x),则有</p>
+<p><strong>分析运算</strong> :设收敛半径为R,和函数为s(x),则有  </p>
 <ol>
 <li>s(x)连续,如果幂级数在边界收敛,那么就有左连续(或者右连续)</li>
 <li>s(x)可微,且求导之后的幂级数与原幂级数收敛半径相同.</li>
-<li>s(x)可积,且积分之后的幂级数与原幂级数收敛半径相同.</li>
+<li>s(x)可积,且积分之后的幂级数与原幂级数收敛半径相同.<h2 id="函数展开幂级数"><a href="#函数展开幂级数" class="headerlink" title="函数展开幂级数"></a>函数展开幂级数</h2>使用泰勒展开科技…</li>
 </ol>
-<h2 id="函数展开幂级数">函数展开幂级数</h2>
-<p>使用泰勒展开科技…</p>
 <p>间接法:使用求导或者积分等方法避免对原函数的直接泰勒展开.</p>
-<h2 id="傅里叶级数">傅里叶级数</h2>
-<p>大概意思就是,所有函数在 $[-\pi,\pi]$ 内能用包含正弦和余弦的级数模拟.公式<br>
-$$f(x)=\frac{a_0}2+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)$$<br>
-然后<br>
-$$a_0=\frac1\pi\int_{-\pi}^\pi f(x)\mathrm dx$$<br>
-$$a_k=\frac1\pi\int_{-\pi}^\pi f(x)\cos kx\mathrm dx,k=0,1,2,…$$<br>
-$$b_k=\frac1\pi\int_{-\pi}^\pi f(x)\sin kx\mathrm dx,k=0,1,2,…$$<br>
-放心,考试最多让你求一项,用分部积分应该能算出来.</p>
+<h2 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h2><p>大概意思就是,所有函数在 $[-\pi,\pi]$ 内能用包含正弦和余弦的级数模拟.公式</p>
+<script type="math/tex; mode=display">f(x)=\frac{a_0}2+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)</script><p>然后</p>
+<script type="math/tex; mode=display">a_0=\frac1\pi\int_{-\pi}^\pi f(x)\mathrm dx</script><script type="math/tex; mode=display">a_k=\frac1\pi\int_{-\pi}^\pi f(x)\cos kx\mathrm dx,k=0,1,2,...</script><script type="math/tex; mode=display">b_k=\frac1\pi\int_{-\pi}^\pi f(x)\sin kx\mathrm dx,k=0,1,2,...</script><p>放心,考试最多让你求一项,用分部积分应该能算出来.</p>
 <p>某题要求你只用正弦或者余弦展开,这个时候要想办法让函数变成奇函数或者偶函数,这就叫奇延拓或偶延拓,然后积分变成二倍的 $[0,\pi]$ 这个区间.</p>
-<h2 id="常微分方程">常微分方程</h2>
-<p>名词解释:</p>
+<h2 id="常微分方程"><a href="#常微分方程" class="headerlink" title="常微分方程"></a>常微分方程</h2><p>名词解释:</p>
 <p><strong>微分方程</strong> :含有自变量,未知函数(或倒数)或微分的方程.</p>
 <p><strong>常微分方程</strong> :未知函数是一元函数的方程.</p>
 <p><strong>阶</strong> :未知导数的最高阶.</p>
-<p><strong>线性微分方程</strong> :关于未知函数和导数都是线性的.下面前三个是,最后一个不是.<br>
-$$\frac{\mathrm dM}{\mathrm dt}=-kM,m\frac{\mathrm d^2x}{\mathrm dt^2}=-k\frac{\mathrm dx}{\mathrm dt}+mg,\frac{\mathrm d^2x}{\mathrm dt^2}=g\quad,y=y’^2-xy’+\frac{x^2}2$$</p>
-<p><strong>全微分方程</strong> :可以转换成某函数全微分的方程: $P(x,y)\mathrm dx+Q(x,y)\mathrm dy=0$ .</p>
-<p><strong>可分离变量方程</strong> :能拆成下面的被称作这个,右边是两个独立的一元函数之积.<br>
-$$\frac{\mathrm dy}{\mathrm dx}=f(x)g(y)$$</p>
-<p><strong>齐次方程</strong> :形如下面的.<br>
-$$\frac{\mathrm dy}{\mathrm dx}=\varphi(\frac yx)$$</p>
-<p><strong>一阶线性微分方程</strong> :长得像下面的:<br>
-$$\frac{\mathrm dy}{\mathrm dx}=p(x)y+q(x)$$<br>
-然后如果q(x)三0那就是 <strong>一阶齐次线性微分方程</strong> ,否则是 <strong>一阶非齐次线性方程</strong> .</p>
-<p><strong>齐次</strong> :所有未知变量的次数相等,判断可以把所有项乘上一个 $y^0$ 然后判断y的次方是不是相等的.<br>
-<strong>线性</strong> :上面的条件下,所有y都是1次方.</p>
-<h2 id="猴博士…">猴博士…</h2>
-<ol>
-<li>
-<p>求收敛半径:把 $|\lim_{n\to\infty}\frac{u_{n+1}}{u_n}|&lt;1$ 化成 $|x+?_1|&lt;?_2$ 的形式,然后 $?_2$ 就是半径(x系数必须是1).</p>
+<p><strong>线性微分方程</strong> :关于未知函数和导数都是线性的.下面前三个是,最后一个不是.</p>
+<script type="math/tex; mode=display">\frac{\mathrm dM}{\mathrm dt}=-kM,m\frac{\mathrm d^2x}{\mathrm dt^2}=-k\frac{\mathrm dx}{\mathrm dt}+mg,\frac{\mathrm d^2x}{\mathrm dt^2}=g\quad,y=y'^2-xy'+\frac{x^2}2</script><p><strong>全微分方程</strong> :可以转换成某函数全微分的方程: $P(x,y)\mathrm dx+Q(x,y)\mathrm dy=0$ .</p>
+<p><strong>可分离变量方程</strong> :能拆成下面的被称作这个,右边是两个独立的一元函数之积.</p>
+<script type="math/tex; mode=display">\frac{\mathrm dy}{\mathrm dx}=f(x)g(y)</script><p><strong>齐次方程</strong> :形如下面的.</p>
+<script type="math/tex; mode=display">\frac{\mathrm dy}{\mathrm dx}=\varphi(\frac yx)</script><p><strong>一阶线性微分方程</strong> :长得像下面的:</p>
+<script type="math/tex; mode=display">\frac{\mathrm dy}{\mathrm dx}=p(x)y+q(x)</script><p>然后如果q(x)三0那就是 <strong>一阶齐次线性微分方程</strong> ,否则是 <strong>一阶非齐次线性方程</strong> .</p>
+<p><strong>齐次</strong> :所有未知变量的次数相等,判断可以把所有项乘上一个 $y^0$ 然后判断y的次方是不是相等的.<br><strong>线性</strong> :上面的条件下,所有y都是1次方.</p>
+<h2 id="猴博士…"><a href="#猴博士…" class="headerlink" title="猴博士…"></a>猴博士…</h2><ol>
+<li><p>求收敛半径:把 <script type="math/tex">|\lim_{n\to\infty}\frac{u_{n+1}}{u_n}|<1</script> 化成 $|x+?_1|&lt;?_2$ 的形式,然后 $?_2$ 就是半径(x系数必须是1).</p>
 </li>
-<li>
-<p>级数 $\sum_{n=1}^\infty a_n(x+b)^n$ 在 $x=x_0(x_0\neq0)$ 时</p>
+<li><p>级数 $\sum_{n=1}^\infty a_n(x+b)^n$ 在 $x=x_0(x_0\neq0)$ 时</p>
 </li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -702,11 +517,10 @@ $$\frac{\mathrm dy}{\mathrm dx}=p(x)y+q(x)$$<br>
 </tr>
 </tbody>
 </table>
-<ol start="3">
-<li>符合 $y’=p(x)y+q(x)$ 格式求通解,直接带入:<br>
-$$y=e^{\int p(x)\mathrm dx}\left(\int q(x)e^{\int-p(x)\mathrm dx}\mathrm dx+C\right)$$</li>
-<li>可以将xy拆到等号两边的题目求通解:</li>
-</ol>
+</div>
+<ol>
+<li>符合 $y’=p(x)y+q(x)$ 格式求通解,直接带入:<script type="math/tex; mode=display">y=e^{\int p(x)\mathrm dx}\left(\int q(x)e^{\int-p(x)\mathrm dx}\mathrm dx+C\right)</script></li>
+<li><p>可以将xy拆到等号两边的题目求通解:</p>
 <blockquote>
 <ol>
 <li>先把y’变成 $\frac{\mathrm dy}{\mathrm dx}$</li>
@@ -714,17 +528,16 @@ $$y=e^{\int p(x)\mathrm dx}\left(\int q(x)e^{\int-p(x)\mathrm dx}\mathrm dx+C\ri
 <li>取积分,然后算出积分,得到答案($y=xxx+C$)</li>
 </ol>
 </blockquote>
-<ol start="5">
-<li>有复合部分的题目求通解</li>
+</li>
+<li><p>有复合部分的题目求通解</p>
+</li>
 </ol>
-<p>令u为重合部分,然后对x求偏导:<br>
-$$y=ux,y’=u+x\frac{\mathrm du}{\mathrm dx}$$<br>
-然后带入把两边分离出来求积分,最后再把u是啥带回去即可.</p>
-<ol start="6">
-<li>好几阶导=x啥啥求通解<br>
-首先x为0求 $\overline y$<br>
-然后将x化为 $x^me^{\lambda x}$ 的格式,求出 $m$ 和 $\lambda$ ,根据下表入的值确定k</li>
+<p>令u为重合部分,然后对x求偏导:</p>
+<script type="math/tex; mode=display">y=ux,,,y'=u+x\frac{\mathrm du}{\mathrm dx}</script><p>然后带入把两边分离出来求积分,最后再把u是啥带回去即可.</p>
+<ol>
+<li>好几阶导=x啥啥求通解<br>首先x为0求 $\overline y$<br>然后将x化为 $x^me^{\lambda x}$ 的格式,求出 $m$ 和 $\lambda$ ,根据下表入的值确定k</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -747,16 +560,15 @@ $$y=ux,y’=u+x\frac{\mathrm du}{\mathrm dx}$$<br>
 </tr>
 </tbody>
 </table>
-<p>然后带入下式:<br>
-$$y^{*}=x^{k} (b_0x^m+…+b_mx^0) e^{\lambda x}$$<br>
-将这个 $y*$ 当作y带入原式子求出b,进而求出 $y*$</p>
+</div>
+<p>然后带入下式:</p>
+<script type="math/tex; mode=display">y^{*}=x^{k} (b_0x^m+...+b_mx^0) e^{\lambda x}</script><p>将这个 $y<em>$ 当作y带入原式子求出b,进而求出 $y</em>$</p>
 <p>最后答案就是 $y=\overline y+y^*$ ,加一起就行.</p>
 <p>如果有好几项x,那就对每一个x的项求一个特解 $y^*_1$ ,然后最后还是加一起.</p>
-<ol start="7">
-<li>幂级数展开:设u=要求幂级数,然后代换.<br>
-然后对照表的公式展开<br>
-最后把a代换回去.</li>
+<ol>
+<li>幂级数展开:设u=要求幂级数,然后代换.<br>然后对照表的公式展开<br>最后把a代换回去.</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -766,34 +578,36 @@ $$y^{*}=x^{k} (b_0x^m+…+b_mx^0) e^{\lambda x}$$<br>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">$$e^u=\sum_{n=0}^\infty\frac1{n!}u^n$$</td>
+<td style="text-align:center"><script type="math/tex">e^u=\sum_{n=0}^\infty\frac1{n!}u^n</script></td>
 <td style="text-align:center">无</td>
 </tr>
 <tr>
-<td style="text-align:center">$$\sin a=\sum_{k=0}^\infty\frac{(-1)^k}{(2k+1)!}u^{2k+1}$$</td>
+<td style="text-align:center"><script type="math/tex">\sin a=\sum_{k=0}^\infty\frac{(-1)^k}{(2k+1)!}u^{2k+1}</script></td>
 <td style="text-align:center">无</td>
 </tr>
 <tr>
-<td style="text-align:center">$$\cos a=\sum_{k=0}^\infty\frac{(-1)^k}{(2k)!}u^{2k}$$</td>
+<td style="text-align:center"><script type="math/tex">\cos a=\sum_{k=0}^\infty\frac{(-1)^k}{(2k)!}u^{2k}</script></td>
 <td style="text-align:center">无</td>
 </tr>
 <tr>
-<td style="text-align:center">$$\ln(1+u)=\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}u^n$$</td>
-<td style="text-align:center">$-1&lt;u\le1$</td>
+<td style="text-align:center"><script type="math/tex">\ln(1+u)=\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n}u^n</script></td>
+<td style="text-align:center"><script type="math/tex">-1<u\le1</script></td>
 </tr>
 <tr>
-<td style="text-align:center">$$\frac1{1+u}=\sum_{n=0}^\infty(-1)^nu^n$$</td>
-<td style="text-align:center">$|u|&lt;1$</td>
+<td style="text-align:center"><script type="math/tex">\frac1{1+u}=\sum_{n=0}^\infty(-1)^nu^n</script></td>
+<td style="text-align:center"><script type="math/tex">\mathrm{abs}(u)<1</script></td>
 </tr>
 <tr>
-<td style="text-align:center">$$\frac1{1-u}=\sum_{n=0}^\infty u^n$$</td>
-<td style="text-align:center">$|u|&lt;1$</td>
+<td style="text-align:center"><script type="math/tex">\frac1{1-u}=\sum_{n=0}^\infty u^n</script></td>
+<td style="text-align:center"><script type="math/tex">\mathrm{abs}(u)<1</script></td>
 </tr>
 </tbody>
 </table>
+</div>
 
   </div>
 </article>
+
 
 
         
@@ -825,7 +639,7 @@ $$y^{*}=x^{k} (b_0x^m+…+b_mx^0) e^{\lambda x}$$<br>
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">求积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%8D%A2%E5%85%83%E6%B3%95-%E5%90%83%E6%95%B0%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">第一换元法(吃数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%8D%A2%E5%85%83%E6%B3%95-%E5%8F%8D%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">第二换元法(反函数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95-%E7%9C%9F%E7%A5%9E"><span class="toc-number">1.3.</span> <span class="toc-text">分部积分法(真神)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95"><span class="toc-number">2.</span> <span class="toc-text">第七章 空间解析几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">平面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF"><span class="toc-number">2.3.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF"><span class="toc-number">2.4.</span> <span class="toc-text">曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">曲面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">第一章 多元函数的极限和连续性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">第二章 多元函数的微分学及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">习题处理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">第三章 重积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">第四章 三重积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%85%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">换元问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E4%BD%93%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">旋转体计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green%E5%85%AC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Green公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stokes%E5%85%AC%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Stokes公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E5%85%AC%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">Gauss公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E4%B8%80%E6%8A%95%E5%BD%B1%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">合一投影法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">8.</span> <span class="toc-text">第一型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">9.</span> <span class="toc-text">第二型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">10.</span> <span class="toc-text">第一型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">11.</span> <span class="toc-text">第二型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0"><span class="toc-number">13.</span> <span class="toc-text">级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7%E5%88%A4%E5%AE%9A"><span class="toc-number">13.1.</span> <span class="toc-text">敛散性判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">14.</span> <span class="toc-text">任意项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B"><span class="toc-number">14.1.</span> <span class="toc-text">绝对收敛与条件收敛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">15.</span> <span class="toc-text">函数项级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0-%E6%99%AE%E9%80%9A%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="toc-number">16.</span> <span class="toc-text">幂级数(普通生成函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">16.1.</span> <span class="toc-text">幂级数运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B1%95%E5%BC%80%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">函数展开幂级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">18.</span> <span class="toc-text">傅里叶级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">19.</span> <span class="toc-text">常微分方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8C%B4%E5%8D%9A%E5%A3%AB%E2%80%A6"><span class="toc-number">20.</span> <span class="toc-text">猴博士…</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">求积分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%8D%A2%E5%85%83%E6%B3%95-%E5%90%83%E6%95%B0%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">第一换元法(吃数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%8D%A2%E5%85%83%E6%B3%95-%E5%8F%8D%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">第二换元法(反函数法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95-%E7%9C%9F%E7%A5%9E"><span class="toc-number">1.3.</span> <span class="toc-text">分部积分法(真神)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%A9%BA%E9%97%B4%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95"><span class="toc-number">2.</span> <span class="toc-text">第七章 空间解析几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">平面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF"><span class="toc-number">2.3.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF"><span class="toc-number">2.4.</span> <span class="toc-text">曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B2%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">曲面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">第一章 多元函数的极限和连续性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">第二章 多元函数的微分学及其应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">习题处理:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%87%8D%E7%A7%AF%E5%88%86"><span class="toc-number"></span> <span class="toc-text">第三章 重积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%B8%89%E9%87%8D%E7%A7%AF%E5%88%86"><span class="toc-number"></span> <span class="toc-text">第四章 三重积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%A2%E5%85%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">换元问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC%E4%BD%93%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">旋转体计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Green%E5%85%AC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Green公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stokes%E5%85%AC%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Stokes公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gauss%E5%85%AC%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">Gauss公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E4%B8%80%E6%8A%95%E5%BD%B1%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">合一投影法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">8.</span> <span class="toc-text">第一型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="toc-number">9.</span> <span class="toc-text">第二型曲线积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">10.</span> <span class="toc-text">第一型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%9E%8B%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86"><span class="toc-number">11.</span> <span class="toc-text">第二型曲面积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A7%E6%95%B0"><span class="toc-number">13.</span> <span class="toc-text">级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%9B%E6%95%A3%E6%80%A7%E5%88%A4%E5%AE%9A"><span class="toc-number">13.1.</span> <span class="toc-text">敛散性判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">14.</span> <span class="toc-text">任意项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%94%B6%E6%95%9B%E4%B8%8E%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B"><span class="toc-number">14.1.</span> <span class="toc-text">绝对收敛与条件收敛</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">15.</span> <span class="toc-text">函数项级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0-%E6%99%AE%E9%80%9A%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0"><span class="toc-number">16.</span> <span class="toc-text">幂级数(普通生成函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">16.1.</span> <span class="toc-text">幂级数运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B1%95%E5%BC%80%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">函数展开幂级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">18.</span> <span class="toc-text">傅里叶级数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">19.</span> <span class="toc-text">常微分方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8C%B4%E5%8D%9A%E5%A3%AB%E2%80%A6"><span class="toc-number">20.</span> <span class="toc-text">猴博士…</span></a></li></ol>
       </div>
     
 

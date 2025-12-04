@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="美好的新赛季从补题开始. pre  小心 $n$ 和 $m$ 写反. 注意数组不要开小或开大. 注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍. 注意模数是不是质数. 注意操作的顺序. 认真读题,模拟完样例再写程序. 注意清空数组 . 相信所有题都是可做的 . 感觉不可做的,有较高多项式复杂度暴">
+    <meta name="description" content="美好的新赛季从补题开始. pre 小心 $n$ 和 $m$ 写反.   注意数组不要开小或开大.   注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍.   注意模数是不是质数.   注意操作的顺序.   认真读题,模拟完样例再写程序.    注意清空数组 .   相信所有题都是可做的 .   感">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XCPC 2025">
 <meta property="og:url" content="https://narafluorine.github.io/2024/11/04/20006_XCPC_2025/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="美好的新赛季从补题开始. pre  小心 $n$ 和 $m$ 写反. 注意数组不要开小或开大. 注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍. 注意模数是不是质数. 注意操作的顺序. 认真读题,模拟完样例再写程序. 注意清空数组 . 相信所有题都是可做的 . 感觉不可做的,有较高多项式复杂度暴">
+<meta property="og:description" content="美好的新赛季从补题开始. pre 小心 $n$ 和 $m$ 写反.   注意数组不要开小或开大.   注意计算变量范围,不要能到 long long 的变量开 int . 感觉容易挂的地方写 assert . 感觉容易写挂的题,样例很弱的题一定要写对拍.   注意模数是不是质数.   注意操作的顺序.   认真读题,模拟完样例再写程序.    注意清空数组 .   相信所有题都是可做的 .   感">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-04T04:27:36.000Z">
 <meta property="article:modified_time" content="2025-10-15T09:07:42.685Z">
@@ -108,7 +108,7 @@
         <li><a class="icon" aria-label="上一篇" href="/2024/11/11/40000_%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/11/04/20008_CTF/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/04/20009_ATC_2025/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">10.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">杂题随机做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2043E"><span class="toc-number">13.1.</span> <span class="toc-text">CF2043E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gym103428F"><span class="toc-number">13.2.</span> <span class="toc-text">gym103428F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B74446"><span class="toc-number">13.3.</span> <span class="toc-text">洛谷4446</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC150D"><span class="toc-number">13.4.</span> <span class="toc-text">ARC150D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf1446c"><span class="toc-number">13.5.</span> <span class="toc-text">cf1446c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1778F"><span class="toc-number">13.6.</span> <span class="toc-text">CF1778F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1841C"><span class="toc-number">13.7.</span> <span class="toc-text">CF1841C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P1983"><span class="toc-number">13.8.</span> <span class="toc-text">P1983</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9211"><span class="toc-number">13.9.</span> <span class="toc-text">P9211</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2893"><span class="toc-number">13.10.</span> <span class="toc-text">P2893</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-%E8%AE%A1%E6%95%B0%E8%A7%86%E9%A2%91"><span class="toc-number">13.11.</span> <span class="toc-text">计数转01 计数视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-2-HihoCoder-1646"><span class="toc-number">13.12.</span> <span class="toc-text">计数转01 2 HihoCoder-1646</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%87-AGC030d"><span class="toc-number">13.13.</span> <span class="toc-text">计数转概率 AGC030d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%872-HDU-5396"><span class="toc-number">13.14.</span> <span class="toc-text">计数转概率2 HDU-5396</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P4424"><span class="toc-number">13.15.</span> <span class="toc-text">P4424</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P5339"><span class="toc-number">13.16.</span> <span class="toc-text">P5339</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abc306g"><span class="toc-number">13.17.</span> <span class="toc-text">[abc306g]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arc185a"><span class="toc-number">13.18.</span> <span class="toc-text">arc185a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9318"><span class="toc-number">13.19.</span> <span class="toc-text">P9318</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E5%B0%8F%E5%BC%8F%E5%AD%90"><span class="toc-number">13.20.</span> <span class="toc-text">神秘小式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2136F1"><span class="toc-number">13.21.</span> <span class="toc-text">CF2136F1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF696F"><span class="toc-number">13.22.</span> <span class="toc-text">CF696F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2120D"><span class="toc-number">13.23.</span> <span class="toc-text">CF2120D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2066C"><span class="toc-number">13.24.</span> <span class="toc-text">CF2066C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E-%E5%9C%A8cf%E8%83%BD%E5%B0%91%E7%94%A8umap%E5%B0%B1%E5%B0%91%E7%94%A8-%E5%8F%88%E8%A2%AB%E5%8D%A1%E4%BA%86%E2%80%A6"><span class="toc-number">13.24.1.</span> <span class="toc-text">严正声明:在cf能少用umap就少用!!!又被卡了…</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Even-Circuit"><span class="toc-number">13.25.</span> <span class="toc-text">Even Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacent-Add"><span class="toc-number">13.26.</span> <span class="toc-text">Adjacent Add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yelkrab"><span class="toc-number">13.27.</span> <span class="toc-text">Yelkrab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flipping-Paths"><span class="toc-number">13.28.</span> <span class="toc-text">Flipping Paths</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pre"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC2-5%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-1"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC2024%E6%B2%88%E9%98%B3%E7%AB%99"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-1"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A9%E6%A2%AF%E8%B5%9B2025"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-1"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-1"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-1"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-1"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VP"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">10.3.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%89%E6%9E%97%E7%9C%81%E8%B5%9B"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-1"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%9C%E5%8C%97%E8%B5%9B"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E9%A2%98%E9%9A%8F%E6%9C%BA%E5%81%9A"><span class="toc-number">13.</span> <span class="toc-text">杂题随机做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2043E"><span class="toc-number">13.1.</span> <span class="toc-text">CF2043E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gym103428F"><span class="toc-number">13.2.</span> <span class="toc-text">gym103428F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B74446"><span class="toc-number">13.3.</span> <span class="toc-text">洛谷4446</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC150D"><span class="toc-number">13.4.</span> <span class="toc-text">ARC150D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf1446c"><span class="toc-number">13.5.</span> <span class="toc-text">cf1446c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1778F"><span class="toc-number">13.6.</span> <span class="toc-text">CF1778F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1841C"><span class="toc-number">13.7.</span> <span class="toc-text">CF1841C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P1983"><span class="toc-number">13.8.</span> <span class="toc-text">P1983</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9211"><span class="toc-number">13.9.</span> <span class="toc-text">P9211</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2893"><span class="toc-number">13.10.</span> <span class="toc-text">P2893</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-%E8%AE%A1%E6%95%B0%E8%A7%86%E9%A2%91"><span class="toc-number">13.11.</span> <span class="toc-text">计数转01 计数视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-2-HihoCoder-1646"><span class="toc-number">13.12.</span> <span class="toc-text">计数转01 2 HihoCoder-1646</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%87-AGC030d"><span class="toc-number">13.13.</span> <span class="toc-text">计数转概率 AGC030d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%872-HDU-5396"><span class="toc-number">13.14.</span> <span class="toc-text">计数转概率2 HDU-5396</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P4424"><span class="toc-number">13.15.</span> <span class="toc-text">P4424</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P5339"><span class="toc-number">13.16.</span> <span class="toc-text">P5339</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abc306g"><span class="toc-number">13.17.</span> <span class="toc-text">[abc306g]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arc185a"><span class="toc-number">13.18.</span> <span class="toc-text">arc185a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9318"><span class="toc-number">13.19.</span> <span class="toc-text">P9318</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E5%B0%8F%E5%BC%8F%E5%AD%90"><span class="toc-number">13.20.</span> <span class="toc-text">神秘小式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2136F1"><span class="toc-number">13.21.</span> <span class="toc-text">CF2136F1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF696F"><span class="toc-number">13.22.</span> <span class="toc-text">CF696F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2120D"><span class="toc-number">13.23.</span> <span class="toc-text">CF2120D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2066C"><span class="toc-number">13.24.</span> <span class="toc-text">CF2066C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E-%E5%9C%A8cf%E8%83%BD%E5%B0%91%E7%94%A8umap%E5%B0%B1%E5%B0%91%E7%94%A8-%E5%8F%88%E8%A2%AB%E5%8D%A1%E4%BA%86%E2%80%A6"><span class="toc-number">13.24.1.</span> <span class="toc-text">严正声明:在cf能少用umap就少用!!!又被卡了…</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Even-Circuit"><span class="toc-number">13.25.</span> <span class="toc-text">Even Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacent-Add"><span class="toc-number">13.26.</span> <span class="toc-text">Adjacent Add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yelkrab"><span class="toc-number">13.27.</span> <span class="toc-text">Yelkrab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flipping-Paths"><span class="toc-number">13.28.</span> <span class="toc-text">Flipping Paths</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -189,390 +189,209 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>美好的新赛季从补题开始.</p>
-<h1>pre</h1>
-<ul>
-<li>小心 $n$ 和 $m$ 写反.</li>
-<li>注意数组不要开小或开大.</li>
+<h1 id="pre"><a href="#pre" class="headerlink" title="pre"></a>pre</h1><ul>
+<li>小心 $n$ 和 $m$ 写反.  </li>
+<li>注意数组不要开小或开大.  </li>
 <li>注意计算变量范围,不要能到 <code>long long</code> 的变量开 <code>int</code> .</li>
 <li>感觉容易挂的地方写 <code>assert</code> .</li>
-<li>感觉容易写挂的题,样例很弱的题一定要写对拍.</li>
-<li>注意模数是不是质数.</li>
-<li>注意操作的顺序.</li>
-<li>认真读题,模拟完样例再写程序.</li>
-<li><strong>注意清空数组</strong> .</li>
-<li><strong>相信所有题都是可做的</strong> .</li>
-<li>感觉不可做的,有较高多项式复杂度暴力的题,思考: <strong>分治</strong>,贪心,DP,线段树.</li>
-<li>感觉不可做的,有指数级复杂度暴力的最优化题,思考: 贪心,DP,<strong>流和割</strong>,暴搜加优化.</li>
-<li>感觉不可做的,有指数级暴力的数数题,思考: DP,行列式,暴搜加优化,拉格朗日插值,<strong>容斥</strong>,造自动机.</li>
-<li>后遭,交互题,考虑: 增量法,分治,暴搜策略.</li>
-<li>DP优化:凸优化(wqs),斜率优化,决策单调性,交换状态和值域,减少状态(包含常数上的).</li>
-<li>感觉不可做的题,考虑各个元素,集合之间有什么关系.</li>
-<li>就算过了样例,感觉没问题也要仔细分析一下各种情况,必要时对拍.</li>
-<li>分段函数用vector,常数比map小很多.</li>
-<li><strong>做题别急</strong> .</li>
-<li>任何n较大的,可以快速算单项的东西考虑分段打表.</li>
-<li>子区间问题有时可以类似最大子段和使用线段树维护,也有可能分治.</li>
+<li>感觉容易写挂的题,样例很弱的题一定要写对拍.  </li>
+<li>注意模数是不是质数.  </li>
+<li>注意操作的顺序.  </li>
+<li>认真读题,模拟完样例再写程序.   </li>
+<li><strong>注意清空数组</strong> .  </li>
+<li><strong>相信所有题都是可做的</strong> .  </li>
+<li>感觉不可做的,有较高多项式复杂度暴力的题,思考: <strong>分治</strong>,贪心,DP,线段树.  </li>
+<li>感觉不可做的,有指数级复杂度暴力的最优化题,思考: 贪心,DP,<strong>流和割</strong>,暴搜加优化.  </li>
+<li>感觉不可做的,有指数级暴力的数数题,思考: DP,行列式,暴搜加优化,拉格朗日插值,<strong>容斥</strong>,造自动机.  </li>
+<li>后遭,交互题,考虑: 增量法,分治,暴搜策略.  </li>
+<li>DP优化:凸优化(wqs),斜率优化,决策单调性,交换状态和值域,减少状态(包含常数上的).  </li>
+<li>感觉不可做的题,考虑各个元素,集合之间有什么关系.  </li>
+<li>就算过了样例,感觉没问题也要仔细分析一下各种情况,必要时对拍.   </li>
+<li>分段函数用vector,常数比map小很多.  </li>
+<li><strong>做题别急</strong> .  </li>
+<li>任何n较大的,可以快速算单项的东西考虑分段打表.  </li>
+<li>子区间问题有时可以类似最大子段和使用线段树维护,也有可能分治.  </li>
 </ul>
 <p>Flu感觉很妙的idea才会被留下来,剩余的直接删掉,我这不是题解区.</p>
-<h1><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1924?v=1">第一次集训</a></h1>
-<p>Flu出ABC,队友1的G疯狂WA,2的H没开出来.</p>
-<h2 id="K">K</h2>
-<p>位运算炸int了: <code>Map|=(str[i]=='#')&lt;&lt;i</code> 前面半句话会转成int导致i在64左右的范围会直接挂掉.</p>
-<h2 id="I">I</h2>
-<p>题解非常妙,横着看很难,我们发现构造的排列对于一个位置,下一个位置是固定的,也就是说竖着一个除了末尾的字符串下一个出现的位置也是固定的,所以直接哈希检查即可,非常妙的题.</p>
-<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/706236#overview">第二次集训</a></h1>
-<p>概况:配合的不好,中间出现至少三次两个人开一个题的情况,<br>
-Flu开局开A,队友B开局也开A,结果这个题到最后都没过,疯狂WA,-6,爽!<br>
-Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想写了扔给我…<br>
-作为看过AveMujica的人(<s>赤石,豪赤多赤</s>),Flu当然是很快写过了,</p>
+<h1 id="第一次集训"><a href="#第一次集训" class="headerlink" title="第一次集训"></a><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1924?v=1">第一次集训</a></h1><p>Flu出ABC,队友1的G疯狂WA,2的H没开出来.</p>
+<h2 id="K"><a href="#K" class="headerlink" title="K"></a>K</h2><p>位运算炸int了: <code>Map|=(str[i]==&#39;#&#39;)&lt;&lt;i</code> 前面半句话会转成int导致i在64左右的范围会直接挂掉.</p>
+<h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><p>题解非常妙,横着看很难,我们发现构造的排列对于一个位置,下一个位置是固定的,也就是说竖着一个除了末尾的字符串下一个出现的位置也是固定的,所以直接哈希检查即可,非常妙的题.</p>
+<h1 id="第二次集训"><a href="#第二次集训" class="headerlink" title="第二次集训"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/706236#overview">第二次集训</a></h1><p>概况:配合的不好,中间出现至少三次两个人开一个题的情况,,<br>Flu开局开A,队友B开局也开A,结果这个题到最后都没过,疯狂WA,-6,爽!<br>Qiank出了俩签到,Flu出了一个签到,Qiank开字符串假了然后不想写了扔给我…<br>作为看过AveMujica的人(<del>赤石,豪赤多赤</del>),Flu当然是很快写过了,,</p>
 <p>榜单也很好看,开始的时候是倒数第三,剩半个小时的时候出现神之一手,两分钟过两个题,然后一跃正数第三,难绷.</p>
-<h2 id="A">A</h2>
-<p>给定两个罗盘的度数,计算方位角.<br>
-实际上边界会变,取平均数的时候注意一下(赛时没注意到就WA好多发,)</p>
-<h2 id="C">C</h2>
-<p>题意:你对城市建筑拍一张照,得到像素图,建筑可以被简化为一根柱子.<br>
-你每次可以询问一个像素点,返回该点是建筑还是天空(没东西),求最高建筑的位置和高度.(交互题,你要在 $12000$ 次询问内返回答案)</p>
-<p>显而易见的结论是,对值域二分检查,nlogn绝对不够用.<br>
-然后mxx显然不会减小,对更高的值域二分,也显然不够用.<br>
-首先用一次检查mxx+1判断该楼会不会比当前更高,更高再二分.设想梯度图会被卡,还是不够用.</p>
-<p>我们已经到算法优化的极限了,怎么办???<br>
-随机化查询坐标.(我人傻了,这也行???)</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>给定两个罗盘的度数,计算方位角.<br>实际上边界会变,取平均数的时候注意一下(赛时没注意到就WA好多发,,)</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>题意:你对城市建筑拍一张照,得到像素图,建筑可以被简化为一根柱子.<br>你每次可以询问一个像素点,返回该点是建筑还是天空(没东西),求最高建筑的位置和高度.(交互题,你要在 $12000$ 次询问内返回答案)</p>
+<p>显而易见的结论是,对值域二分检查,nlogn绝对不够用.<br>然后mxx显然不会减小,对更高的值域二分,也显然不够用.<br>首先用一次检查mxx+1判断该楼会不会比当前更高,更高再二分.设想梯度图会被卡,还是不够用.  </p>
+<p>我们已经到算法优化的极限了,怎么办???<br>随机化查询坐标.(我人傻了,这也行???)</p>
 <p>于是这个题就被乱搞草过去了…</p>
-<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/707488#overview">第2.5次集训</a></h1>
-<p>周六和周天是两场集训,正常情况下参加一场即可,Flu周天去要电协的QQ群所以没参加,这是后来补题的.</p>
-<h2 id="F">F</h2>
-<p>括号匹配,但是&lt;&lt;和&gt;&gt;能匹配,&gt;&gt;和&lt;&lt;也能匹配上,给一个这俩组成的序列,你要输出按照括号规则匹配的结果.</p>
+<h1 id="第2-5次集训"><a href="#第2-5次集训" class="headerlink" title="第2.5次集训"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/707488#overview">第2.5次集训</a></h1><p>周六和周天是两场集训,正常情况下参加一场即可,Flu周天去要电协的QQ群所以没参加,这是后来补题的.</p>
+<h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p>括号匹配,但是&lt;&lt;和&gt;&gt;能匹配,&gt;&gt;和&lt;&lt;也能匹配上,给一个这俩组成的序列,你要输出按照括号规则匹配的结果.</p>
 <p>思路:我们强制最左端是 <code>[</code> 打头,不管他是&lt;&lt;还是&gt;&gt;,然后直接匹配即可.</p>
-<h2 id="D">D</h2>
-<p>难点在于给一个数n,你要把它分组,每组可以为0,组之间有顺序,而且你分的组要单调不增,你要O(1)算这个值.</p>
-<p>答案:爆典…<br>
-其实和n分成任意组(非0),每组不大于m的dp状态是一样的,难点在于证明.</p>
+<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>难点在于给一个数n,你要把它分组,每组可以为0,组之间有顺序,而且你分的组要单调不增,你要O(1)算这个值.</p>
+<p>答案:爆典……<br>其实和n分成任意组(非0),每组不大于m的dp状态是一样的,难点在于证明.</p>
 <p>你竖着想,5可以分成3和2,这是两根柱子.</p>
 <p>然而你横着想,因为单调不增所以你的柱子都是从左打头从右结尾的,而且宽度上限就是m,得证.</p>
 <p>于是Flu会算法还是没做出来,输!</p>
-<h2 id="A-2">A</h2>
-<p>给一个函数 $f((l,r))=(\min(a_{l-r}),\max(a_{l-r}))$ ,q次询问每次lr问最少几次可以让 $f(f(f(f(…f((l,r))))))$ 取到 $(1,n)$ .</p>
+<h2 id="A-1"><a href="#A-1" class="headerlink" title="A"></a>A</h2><p>给一个函数 $f((l,r))=(\min(a<em>{l-r}),\max(a</em>{l-r}))$ ,q次询问每次lr问最少几次可以让 $f(f(f(f(…f((l,r))))))$ 取到 $(1,n)$ .</p>
 <p>div1的E…有点不敢做.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578">ICPC2024沈阳站</a></h1>
-<h2 id="J">J</h2>
-<p>草,前四个最大值和后四个最大值比较,写的时候犯唐把队名和战力全用string存,结果真的能过样例,(int比较炸了)</p>
-<h2 id="B">B</h2>
-<p>构造两个数列满足 $a_ib_j\mod nm$ 不重.<br>
-大胆猜,nm不互质无解,然后尝试从nm出发,在n这里构造1+km%nm,在m这里构造1+kn%nm.</p>
-<h2 id="D-2">D</h2>
-<p>先来一个结论:交换两个元素对一个排列的逆序对奇偶性的变化取决于区间差,排列的整体左移右移多少次可以转换为区间上的很多次交换,所以逆序对奇偶性变化可以O(1)算出来.</p>
-<p>所以,给的其实是一个排列,然后交换AB实际上是假的,对哪交换都可以,只需要算出开始的逆序对奇偶性就行了,而且因为刚开始只需要计算奇偶性,甚至能O(n)算出来.</p>
-<h2 id="E">E</h2>
-<p>不会写状压dp了…</p>
-<p>温习一下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">1</span>&lt;&lt;<span class="number">16</span>][<span class="number">16</span>]<span class="comment">//状态为i,结尾为j时最小</span></span><br><span class="line"><span class="keyword">for</span> 枚举状态  </span><br><span class="line">	<span class="keyword">for</span> 枚举上一个结尾点</span><br><span class="line">		<span class="keyword">for</span> 枚举新加进去的二进制状态</span><br></pre></td></tr></table></figure>
-<h2 id="G">G</h2>
-<p>给n个点,这些点组成一个简单多边形,你最多询问n次,每次返回多边形在 $x=i$ 处的切片长度,你要回答多边形面积.</p>
-<p>很神秘的题.你要计算 $\int_{-1000}^{1000}f(x)\mathrm dx$ 的值,每次询问回答一个点的 $f(x)$ .<br>
-有一个性质:这个面积函数在x轴两点之间是线性变化的,于是考虑询问端点.具体地:<br>
-坐标都不相同:f(x)分了(n-1)段,询问分段点即可(两端是0).<br>
-有相同的:f(x)分了(n-2)段,询问最左最右两个端点,然后对分段区询问中点.</p>
+<h1 id="ICPC2024沈阳站"><a href="#ICPC2024沈阳站" class="headerlink" title="ICPC2024沈阳站"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105578">ICPC2024沈阳站</a></h1><h2 id="J"><a href="#J" class="headerlink" title="J"></a>J</h2><p>草,前四个最大值和后四个最大值比较,写的时候犯唐把队名和战力全用string存,结果真的能过样例,,(int比较炸了)</p>
+<h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><p>构造两个数列满足 $a_ib_j\mod nm$ 不重.<br>大胆猜,nm不互质无解,然后尝试从nm出发,在n这里构造1+km%nm,在m这里构造1+kn%nm.</p>
+<h2 id="D-1"><a href="#D-1" class="headerlink" title="D"></a>D</h2><p>先来一个结论:交换两个元素对一个排列的逆序对奇偶性的变化取决于区间差,排列的整体左移右移多少次可以转换为区间上的很多次交换,所以逆序对奇偶性变化可以O(1)算出来.</p>
+<p>所以,,,给的其实是一个排列,然后交换AB实际上是假的,对哪交换都可以,只需要算出开始的逆序对奇偶性就行了,而且因为刚开始只需要计算奇偶性,甚至能O(n)算出来.</p>
+<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p>不会写状压dp了…</p>
+<p>温习一下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">1</span>&lt;&lt;<span class="number">16</span>][<span class="number">16</span>]<span class="comment">//状态为i,结尾为j时最小</span></span><br><span class="line"><span class="keyword">for</span> 枚举状态  </span><br><span class="line">	<span class="keyword">for</span> 枚举上一个结尾点</span><br><span class="line">		<span class="keyword">for</span> 枚举新加进去的二进制状态</span><br></pre></td></tr></table></figure></p>
+<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p>给n个点,这些点组成一个简单多边形,你最多询问n次,每次返回多边形在 $x=i$ 处的切片长度,你要回答多边形面积.</p>
+<p>很神秘的题.你要计算 $\int_{-1000}^{1000}f(x)\mathrm dx$ 的值,每次询问回答一个点的 $f(x)$ .<br>有一个性质:这个面积函数在x轴两点之间是线性变化的,于是考虑询问端点.具体地:<br>坐标都不相同:f(x)分了(n-1)段,询问分段点即可(两端是0).<br>有相同的:f(x)分了(n-2)段,询问最左最右两个端点,然后对分段区询问中点.</p>
 <p>然而题目返回的是 <code>p/q</code> 的形式, pq 可能很大,使用longdouble最后向0.5取整(发现题目都是整数点,所以答案只可能是 <code>x.0</code> 或 <code>x.5</code> ).</p>
-<h2 id=""></h2>
-<h1><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/exam/problems/type/7">天梯赛2025</a></h1>
-<p>拒绝写解题报告,语文太烂了读不懂题.</p>
-<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708329">第三次集训</a></h1>
-<p>全是思维题.(中间试着打了一下CTF的Warm,感觉很好玩)<br>
-Flu被队友带飞了,一个题也没做出来…</p>
-<h2 id="A-3">A</h2>
-<p>有一个nm矩阵,部分格子有障碍物(*)否则为空,你要对空格子用[0,k]种颜色涂色,其中[1,k]种颜色同行同列只能出现一次,0颜色可以无限使用,设你用了z个0,代价是 $ck+dz$ ,cd是给定常数,求最小花费.</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h1 id="天梯赛2025"><a href="#天梯赛2025" class="headerlink" title="天梯赛2025"></a><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/994805046380707840/exam/problems/type/7">天梯赛2025</a></h1><p>拒绝写解题报告,语文太烂了读不懂题.</p>
+<h1 id="第三次集训"><a href="#第三次集训" class="headerlink" title="第三次集训"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708329">第三次集训</a></h1><p>全是思维题.(中间试着打了一下CTF的Warm,感觉很好玩)<br>Flu被队友带飞了,一个题也没做出来…</p>
+<h2 id="A-2"><a href="#A-2" class="headerlink" title="A"></a>A</h2><p>有一个nm矩阵,部分格子有障碍物(*)否则为空,你要对空格子用[0,k]种颜色涂色,其中[1,k]种颜色同行同列只能出现一次,0颜色可以无限使用,设你用了z个0,代价是 $ck+dz$ ,cd是给定常数,求最小花费.</p>
 <p>题解说是网络流,然而还有一种办法可过.</p>
-<h2 id="H">H</h2>
-<h2 id="E-2">E</h2>
-<p>有一个n节点的环,你每次可以选任意[1,m]个连续节点涂成黑色,对面也要这么做,不能涂色的人输,现在nm多组询问,对每次询问输出谁赢.</p>
+<h2 id="H"><a href="#H" class="headerlink" title="H"></a>H</h2><h2 id="E-1"><a href="#E-1" class="headerlink" title="E"></a>E</h2><p>有一个n节点的环,你每次可以选任意[1,m]个连续节点涂成黑色,对面也要这么做,不能涂色的人输,现在nm多组询问,对每次询问输出谁赢.</p>
 <blockquote>
 <p>先手第一步除非可以直接赢,否则环会被拆成链.然后后手除非m是1否则必然可以把链断成完全相同的两部分,然后后手只需要模仿先手就一定会赢.</p>
+<h2 id="G-1"><a href="#G-1" class="headerlink" title="G"></a>G</h2><p>给n个不覆盖的矩形,你要找出所有的对称轴.注意:假如正方形可能由一个长条+两个小正方形组成,这个正方形依旧有4条对称轴.</p>
 </blockquote>
-<h2 id="G-2">G</h2>
-<p>给n个不覆盖的矩形,你要找出所有的对称轴.注意:假如正方形可能由一个长条+两个小正方形组成,这个正方形依旧有4条对称轴.</p>
 <p>观察发现对称轴必须经过一个点,而且最多有四个,只要能够 $O(n\log n)$ 检查就已经赢了.由于矩形可能是拼起来的,所以常规记录线的方法不可行,要考虑用点记录矩形.</p>
-<p>结论:被偶数个矩形覆盖的点无效(矩形覆盖是仅限边界四个点的),如图</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-+      +-x-+</span><br><span class="line">| |      | | |</span><br><span class="line">x-+-+    x-x-x</span><br><span class="line">|   |    |   |</span><br><span class="line">+---+    +---+</span><br></pre></td></tr></table></figure>
-<p>然后直接翻转检查点即可.<br>
-但是不出意外的话是要出意外了,点绕直线对称的结论是啥来着?<br>
-$$Ax+By+C=0\\ x’=x_0-2A\frac{Ax_0+By_0+C}{A^2+B^2}\\ y’=y_0-2B\frac{Ax_0+By_0+C}{A^2+B^2}$$</p>
-<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708404">第四次集训</a></h1>
-<p>和银趴(Linux <strong>in</strong>stall <strong>par</strong>ty)撞了(悲).<br>
-全场唐完,刚开始是队友1的D见祖宗了,然后是队友1的G数组开小了(开1e5题干2e5),然后Flu的H结论对了但是不敢写(诈骗)一度悬置这个题.然后队友2的B疯狂WA,然后屡了一下思路之后过了.</p>
-<p>G:单调栈题,没做出来,后来发现是弹&quot;时间差&quot;个元素即可.<br>
-A:empty中场来到我这说, <code>0011</code> 就是 <code>gugugaga</code> (捣乱来了)…</p>
-<h2 id="A-4">A</h2>
-<p>括号树…是啥?</p>
-<p>首先把0011转换为括号匹配,可知合法不合法.然后建括号树进行拓扑序计数即可.<br>
-括号树:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">((())())</span><br><span class="line">   / \</span><br><span class="line">(())  ()</span><br><span class="line">  |</span><br><span class="line"> ()</span><br></pre></td></tr></table></figure>
-<p>以某个点为根的树拓扑序(子节点一定要出现在根节点前面)的个数:<br>
-$$n!\left(\prod_{i=1}^nsz_i\right)^{-1}$$<br>
-$sz_i$ 表示以 $i$ 节点为根的子树大小.</p>
+<p>结论:被偶数个矩形覆盖的点无效(矩形覆盖是仅限边界四个点的),如图<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-+      +-x-+</span><br><span class="line">| |      | | |</span><br><span class="line">x-+-+    x-x-x</span><br><span class="line">|   |    |   |</span><br><span class="line">+---+    +---+</span><br></pre></td></tr></table></figure><br>然后直接翻转检查点即可.<br>但是不出意外的话是要出意外了,点绕直线对称的结论是啥来着?</p>
+<script type="math/tex; mode=display">Ax+By+C=0\\\\ x'=x_0-2A\frac{Ax_0+By_0+C}{A^2+B^2}\\\\ y'=y_0-2B\frac{Ax_0+By_0+C}{A^2+B^2}</script><h1 id="第四次集训"><a href="#第四次集训" class="headerlink" title="第四次集训"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/708404">第四次集训</a></h1><p>和银趴(Linux <strong>in</strong>stall <strong>par</strong>ty)撞了(悲).<br>全场唐完,刚开始是队友1的D见祖宗了,然后是队友1的G数组开小了(开1e5题干2e5),然后Flu的H结论对了但是不敢写(诈骗)一度悬置这个题.然后队友2的B疯狂WA,然后屡了一下思路之后过了.</p>
+<p>G:单调栈题,没做出来,后来发现是弹”时间差”个元素即可.<br>A:empty中场来到我这说,, <code>0011</code> 就是 <code>gugugaga</code> (捣乱来了)…  </p>
+<h2 id="A-3"><a href="#A-3" class="headerlink" title="A"></a>A</h2><p>括号树…是啥?  </p>
+<p>首先把0011转换为括号匹配,可知合法不合法.然后建括号树进行拓扑序计数即可.<br>括号树:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">((())())</span><br><span class="line">   / \</span><br><span class="line">(())  ()</span><br><span class="line">  |</span><br><span class="line"> ()</span><br></pre></td></tr></table></figure><br>以某个点为根的树拓扑序(子节点一定要出现在根节点前面)的个数:</p>
+<script type="math/tex; mode=display">n!\left(\prod_{i=1}^nsz_i\right)^{-1}</script><p>$sz_i$ 表示以 $i$ 节点为根的子树大小.</p>
 <p>看别人的码才发现,逆元有一个 $O(n)$ 的递推方式,之前一直用的快速幂 $O(n\log n)$ 算逆元,常数大的不行.</p>
-<h2 id="E-3">E</h2>
-<p>给一张图代表城市,城市会被水淹,求从1点出发淹没所有城市的最小水高度.</p>
-<p>Flu原先想的是,一个城市被淹的时候走的都是最短路,所以直接对每个城市的边权取min然后对所有城市的min取max就行了,然而不对,比如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line">4/ \5</span><br><span class="line">2---3</span><br><span class="line">  1</span><br></pre></td></tr></table></figure>
-<p>这种情况最小边权是4,因为淹没了2之后淹没3是顺手的事.</p>
+<h2 id="E-2"><a href="#E-2" class="headerlink" title="E"></a>E</h2><p>给一张图代表城市,城市会被水淹,求从1点出发淹没所有城市的最小水高度.</p>
+<p>Flu原先想的是,一个城市被淹的时候走的都是最短路,所以直接对每个城市的边权取min然后对所有城市的min取max就行了,然而不对,比如<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line">4/ \5</span><br><span class="line">2---3</span><br><span class="line">  1</span><br></pre></td></tr></table></figure><br>这种情况最小边权是4,因为淹没了2之后淹没3是顺手的事.</p>
 <p>所以正解是最小生成树.(最小生成树咋求来着?排序边,并查集…)</p>
 <p>然后是网络流,有一个定理:</p>
 <blockquote>
 <p>最大流==最小割</p>
+<h2 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h2><p>有一个问题: <strong>哈密顿路</strong> 和 <strong>哈密顿回路</strong> 不是一个东西.前者只需要遍历就可以了,后者则需要状压DP.</p>
 </blockquote>
-<h2 id="C-2">C</h2>
-<p>有一个问题: <strong>哈密顿路</strong> 和 <strong>哈密顿回路</strong> 不是一个东西.前者只需要遍历就可以了,后者则需要状压DP.</p>
-<p>然而…<br>
-树上进行链的合并要动态维护sz,同时由于dp值会发生变化,要开一个辅助数组临时存放,然后在一整个链合并完之后在集中推平,草,合并链都不会写,这么唐吗…</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	sz[pos]=<span class="number">1</span>;dp[pos][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> v:edge[pos])&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(v);</span><br><span class="line">		<span class="built_in">fill</span>(tmp,tmp+<span class="number">400</span>,<span class="number">-1145141919810</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=sz[pos];++i)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=sz[v];++j)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;=<span class="built_in">min</span>(i+j<span class="number">-1</span>,<span class="number">2</span>*<span class="built_in">min</span>(i,j));++k)&#123;</span><br><span class="line">					tmp[i+j-k]=<span class="built_in">max</span>(tmp[i+j-k],k*num[pos]+dp[pos][i]+dp[v][j]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> _=<span class="number">1</span>;_&lt;=sz[pos]+sz[v];++_)&#123;</span><br><span class="line">			dp[pos][_]=tmp[_];</span><br><span class="line">		&#125;</span><br><span class="line">		sz[pos]+=sz[v];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1><a target="_blank" rel="noopener" href="https://vjudge.net/contest/714948">第五次集训</a></h1>
-<p>决定省赛谁打星的关键比赛,Flu队直接拿第一出线了(empty佬的恩情还不完…),第二次可以不参与了.</p>
-<h2 id="B-2">B</h2>
-<p>设 $f(x)$ 是一个数分解成质数的最小个数.<br>
-对于偶数,使用哥德巴赫猜想(除了2),必定能够拆成两个奇质数.<br>
-对于奇数,首先是拆成2和f(奇数-2),然而还可以拆成三个奇质数的和(偶数+奇质数,又是猜想),所以上界是3.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103486">VP</a></h1>
-<p>回想起来了括号匹配结论是卡特兰数.</p>
-<h2 id="I-Nim-Game">I Nim Game</h2>
-<p>读假题了…题干要求的是对区间加,然后区间判断nim能不能玩.</p>
+<p>然而…<br>树上进行链的合并要动态维护sz,同时由于dp值会发生变化,要开一个辅助数组临时存放,然后在一整个链合并完之后在集中推平,草,合并链都不会写,这么唐吗…<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos)</span></span>&#123;</span><br><span class="line">	sz[pos]=<span class="number">1</span>;dp[pos][<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> v:edge[pos])&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(v);</span><br><span class="line">		<span class="built_in">fill</span>(tmp,tmp+<span class="number">400</span>,<span class="number">-1145141919810</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=sz[pos];++i)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=sz[v];++j)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;=<span class="built_in">min</span>(i+j<span class="number">-1</span>,<span class="number">2</span>*<span class="built_in">min</span>(i,j));++k)&#123;</span><br><span class="line">					tmp[i+j-k]=<span class="built_in">max</span>(tmp[i+j-k],k*num[pos]+dp[pos][i]+dp[v][j]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> _=<span class="number">1</span>;_&lt;=sz[pos]+sz[v];++_)&#123;</span><br><span class="line">			dp[pos][_]=tmp[_];</span><br><span class="line">		&#125;</span><br><span class="line">		sz[pos]+=sz[v];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="第五次集训"><a href="#第五次集训" class="headerlink" title="第五次集训"></a><a target="_blank" rel="noopener" href="https://vjudge.net/contest/714948">第五次集训</a></h1><p>决定省赛谁打星的关键比赛,Flu队直接拿第一出线了(empty佬的恩情还不完…),第二次可以不参与了.</p>
+<h2 id="B-1"><a href="#B-1" class="headerlink" title="B"></a>B</h2><p>设 $f(x)$ 是一个数分解成质数的最小个数.<br>对于偶数,使用哥德巴赫猜想(除了2),必定能够拆成两个奇质数.<br>对于奇数,首先是拆成2和f(奇数-2),然而还可以拆成三个奇质数的和(偶数+奇质数,又是猜想),所以上界是3.</p>
+<h1 id="VP"><a href="#VP" class="headerlink" title="VP"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103486">VP</a></h1><p>回想起来了括号匹配结论是卡特兰数.</p>
+<h2 id="I-Nim-Game"><a href="#I-Nim-Game" class="headerlink" title="I Nim Game"></a>I Nim Game</h2><p>读假题了…题干要求的是对区间加,然后区间判断nim能不能玩.</p>
 <p>nim能不能玩是用线性基,然后区间加可以用树状数组差分解决.</p>
-<h2 id="C-Random-Number-Generator">C Random Number Generator</h2>
-<p>BSGS…<br>
-Flu学数学还没看出来这个,真成战犯了…</p>
-<p>回顾BSGS和二次剩余的区别:分别让求<br>
-$$a^x\equiv b\mod p$$<br>
-$$x^2\equiv a\mod p$$<br>
-这俩不一样…</p>
-<h2 id="-2"></h2>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105922">吉林省赛</a></h1>
-<blockquote>
+<h2 id="C-Random-Number-Generator"><a href="#C-Random-Number-Generator" class="headerlink" title="C Random Number Generator"></a>C Random Number Generator</h2><p>BSGS……………<br>Flu学数学还没看出来这个,真成战犯了…  </p>
+<p>回顾BSGS和二次剩余的区别:分别让求</p>
+<script type="math/tex; mode=display">a^x\equiv b\mod p</script><script type="math/tex; mode=display">x^2\equiv a\mod p</script><p>这俩不一样…</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h2><h1 id="吉林省赛"><a href="#吉林省赛" class="headerlink" title="吉林省赛"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105922">吉林省赛</a></h1><blockquote>
 <p>Flu:省赛铜直接退役.</p>
 </blockquote>
-<p>失误:开局QianK一直在开签到,签麻了.<br>
-失误:Flu线段树用mod当根,取模的时候炸了(我错了我错了).</p>
-<h2 id="C-3">C</h2>
-<p>如何计算巨运算符,如<br>
-$$pow=\sum_{x_1=0}^{n-1}\sum_{x_2=0}^{n-1}\sum_{x_3=0}^{n-1}a_{(x_1+x_2+…+x_n)\mod n}$$<br>
-最后发现最后一个就是sum数列或者prod数列,然后考虑向前处理:<br>
-碰到sum说明有n个这样的数列,所以乘n即可.<br>
-碰到prod要对其求n次方.</p>
-<h2 id="H-2">H</h2>
-<p>两段区间上要支持区间加上某个数字,你要判断两段区间可以任意交换顺序后是否相等.</p>
-<p>哈希.但是要考虑怎么哈希,赛时想到的方法有:</p>
+<p>失误:开局QianK一直在开签到,签麻了.<br>失误:Flu线段树用mod当根,取模的时候炸了(我错了我错了).  </p>
+<h2 id="C-2"><a href="#C-2" class="headerlink" title="C"></a>C</h2><p>如何计算巨运算符,如</p>
+<script type="math/tex; mode=display">pow=\sum_{x_1=0}^{n-1}\sum_{x_2=0}^{n-1}\sum_{x_3=0}^{n-1}a_{(x_1+x_2+...+x_n)\mod n}</script><p>最后发现最后一个就是sum数列或者prod数列,然后考虑向前处理:<br>碰到sum说明有n个这样的数列,所以乘n即可.<br>碰到prod要对其求n次方.</p>
+<h2 id="H-1"><a href="#H-1" class="headerlink" title="H"></a>H</h2><p>两段区间上要支持区间加上某个数字,你要判断两段区间可以任意交换顺序后是否相等.</p>
+<p>哈希.但是要考虑怎么哈希,赛时想到的方法有:  </p>
 <ol>
-<li>维护区间所有和的二次方和.(以及其加强版,维护三次方和(初始时再加一个随机偏移))</li>
+<li>维护区间所有和的二次方和.(以及其加强版,维护三次方和(初始时再加一个随机偏移))  </li>
 <li>选一个数做底,维护其a次方的和.</li>
 <li>维护区间所有数的抑或和.</li>
 </ol>
-<p>事实上,方法1很容易被卡,加强版过了这个题.<br>
-方法2好写好调,为什么不写?<br>
-其实做法3假了,因为区间加和不是区间抑或,所以是没法维护的…</p>
-<p>两段区间是分奇偶的,如何维护?<br>
-考虑把奇数做成正的,偶数做成负的,判断其加和是否为0即可(所以只需要一颗线段树).</p>
-<h2 id="OTH">OTH,</h2>
-<p>群U说可以直接把交互逻辑写进程序,然后留个开关即可.</p>
-<h1><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105924">东北赛</a></h1>
-<blockquote>
-<p>死磕BH失败,铜了…<br>
-成就:三色牌…(省赛金,东北赛银,全国邀请赛铜…)</p>
+<p>事实上,方法1很容易被卡,加强版过了这个题.<br>方法2好写好调,为什么不写?<br>其实做法3假了,因为区间加和不是区间抑或,所以是没法维护的…</p>
+<p>两段区间是分奇偶的,如何维护?<br>考虑把奇数做成正的,偶数做成负的,判断其加和是否为0即可(所以只需要一颗线段树).</p>
+<h2 id="OTH"><a href="#OTH" class="headerlink" title="OTH,"></a>OTH,</h2><p>群U说可以直接把交互逻辑写进程序,然后留个开关即可.</p>
+<h1 id="东北赛"><a href="#东北赛" class="headerlink" title="东北赛"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/105924">东北赛</a></h1><blockquote>
+<p>死磕BH失败,铜了…<br>成就:三色牌……(省赛金,东北赛银,全国邀请赛铜…)</p>
 </blockquote>
-<p>失误:死磕.<br>
-修正:多看题,在写代码之前禁止交流解法,防止被带偏.</p>
-<h1>杂题随机做</h1>
-<p>后面因为期末考试外加各种比赛的原因,根本补不完题,扔最后了…</p>
-<h2 id="CF2043E"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2043/E">CF2043E</a></h2>
-<p>你有两个矩阵AB,每次能对一行&amp;一个数,也可以对一列|一个数,问最终A能否转换为B.</p>
+<p>失误:死磕.<br>修正:多看题,在写代码之前禁止交流解法,防止被带偏.</p>
+<h1 id="杂题随机做"><a href="#杂题随机做" class="headerlink" title="杂题随机做"></a>杂题随机做</h1><p>后面因为期末考试外加各种比赛的原因,根本补不完题,扔最后了…</p>
+<h2 id="CF2043E"><a href="#CF2043E" class="headerlink" title="CF2043E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2043/E">CF2043E</a></h2><p>你有两个矩阵AB,每次能对一行&amp;一个数,也可以对一列|一个数,问最终A能否转换为B.</p>
 <p>正着想把A转成B很难,就倒过来想: <code>&amp;</code> 就是把一列0转换为通配符, <code>|</code> 就是把一行1转换为通配符,然后加到队列里宽搜一下,最后模糊匹配一下答案就出来了.</p>
-<h2 id="gym103428F"><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103428/problem/F">gym103428F</a></h2>
-<p>非常好的题.有n堆石子,两个人博弈,每次要拿前面拿的石子数的因数倍,且任选几个大于等于你要拿的数量的石堆拿走这么多石子,问保证你赢的情况下,你有多少种初始拿法?</p>
-<p>首先考虑1的情况,此时必胜当且仅当石堆中存在一个奇数堆,这样的话你把所有奇数堆变成偶数堆,然后 <strong>模仿</strong> 对面怎么拿,你是必赢的.<br>
-然后考虑不存在奇数堆的情况,全是偶数堆的话用1去拿显然是必输的,因为会被模仿.所以偶数堆直接全部除2直到出现奇数,此时问题变成前面一种情况.<br>
-答案就是(最小奇数+1)/2.</p>
-<h2 id="洛谷4446">洛谷4446</h2>
-<blockquote>
+<h2 id="gym103428F"><a href="#gym103428F" class="headerlink" title="gym103428F"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103428/problem/F">gym103428F</a></h2><p>非常好的题.有n堆石子,两个人博弈,每次要拿前面拿的石子数的因数倍,且任选几个大于等于你要拿的数量的石堆拿走这么多石子,问保证你赢的情况下,你有多少种初始拿法?</p>
+<p>首先考虑1的情况,此时必胜当且仅当石堆中存在一个奇数堆,这样的话你把所有奇数堆变成偶数堆,然后 <strong>模仿</strong> 对面怎么拿,你是必赢的.<br>然后考虑不存在奇数堆的情况,全是偶数堆的话用1去拿显然是必输的,因为会被模仿.所以偶数堆直接全部除2直到出现奇数,此时问题变成前面一种情况.<br>答案就是(最小奇数+1)/2.</p>
+<h2 id="洛谷4446"><a href="#洛谷4446" class="headerlink" title="洛谷4446"></a>洛谷4446</h2><blockquote>
 <p>把 $x^{1/4}$ 以内的质数全部除掉,剩下的一定是一个立方数或不可开方数.</p>
 </blockquote>
 <p>然后预处理 $x^{1/4}$ 以内的质数,同时处理 $x^{1/3}$ 以内的立方数,就可以对最后二分判定是不是立方数.</p>
-<h2 id="ARC150D"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc150_d">ARC150D</a></h2>
-<p>设E(Xi)为i点期望被选中的次数，那么 $ans=∑_{i=1}^n​E(X_i​)$ 。<br>
-设i点的深度为di。<br>
-如果一次操作选中了除1到i路径以外的的点，那么对i没有影响，所以只需要考虑选1到i路径上的点的情况。</p>
+<h2 id="ARC150D"><a href="#ARC150D" class="headerlink" title="ARC150D"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc150_d">ARC150D</a></h2><p>设E(Xi)为i点期望被选中的次数，那么 $ans=∑_{i=1}^n​E(X_i​)$ 。<br>设i点的深度为di。<br>如果一次操作选中了除1到i路径以外的的点，那么对i没有影响，所以只需要考虑选1到i路径上的点的情况。</p>
 <p>允许选中好点，但不算选中好点的贡献，这和原问题是等价的。</p>
 <p>所以问题可以转化为，di个点，每次等概率抽取一个点，抽到第di个点时贡献加1，一直抽直到所有点都被抽到过。</p>
 <p>假设已经被抽到过的点有k个，那么再抽一次抽到未被抽到的点的概率为 $\frac{d_i-k}{d_i}$ ，期望 $\frac{d_i}{d_i-k}$ 抽到下一个未被抽到的点（做某件事情成功的概率为p，期望做 $\frac1p$ 次成功）。</p>
-<p>所以把所有点都抽到的期望次数为 $\sum_{k=0}^{d_i-1}\frac{d_i}{d_i-k}=d_i\sum_{k=1}^{d_i}\frac1k$ ，每次抽到第di个点的概率都是 $\frac1{d_i}$ ，所以第di个点期望被抽到 $\sum_{k=1}^{d_i}\frac1k$ ,</p>
-<p>所以 $ans=\sum_{i=1}^n\sum_{j=1}^{d_i}\frac1j$ .</p>
+<p>所以把所有点都抽到的期望次数为 $\sum<em>{k=0}^{d_i-1}\frac{d_i}{d_i-k}=d_i\sum</em>{k=1}^{d<em>i}\frac1k$ ，每次抽到第di个点的概率都是 $\frac1{d_i}$ ，所以第di个点期望被抽到 $\sum</em>{k=1}^{d_i}\frac1k$ ,</p>
+<p>所以 $ans=\sum<em>{i=1}^n\sum</em>{j=1}^{d_i}\frac1j$ .</p>
 <blockquote>
-<p>连带:一个n面色子,问期望多少次能把所有面都投出来.<br>
-设f(i)表示当前n面色子,投出来了i种颜色.<br>
-$f(i+1)=f(i)+\frac{n}{n-i}=n\sum_{i=1}^n\frac 1i$</p>
+<p>连带:一个n面色子,问期望多少次能把所有面都投出来.<br>设f(i)表示当前n面色子,投出来了i种颜色.<br>$f(i+1)=f(i)+\frac{n}{n-i}=n\sum_{i=1}^n\frac 1i$</p>
+<h2 id="cf1446c"><a href="#cf1446c" class="headerlink" title="cf1446c"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1446/C">cf1446c</a></h2><p>给你一堆数,每个数字会找与这个数字抑或和最小的数字连边,最后会形成一张图,你要删掉最少的点使图联通,求最少删几个点.</p>
 </blockquote>
-<h2 id="cf1446c"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1446/C">cf1446c</a></h2>
-<p>给你一堆数,每个数字会找与这个数字抑或和最小的数字连边,最后会形成一张图,你要删掉最少的点使图联通,求最少删几个点.</p>
-<p>首先删点很复杂,我们转化为保留最多的点.<br>
-显然最后剩下的一定是一棵树,而且只有一对是互相是xor的最小值.</p>
-<p>联想trie树,树上的相邻节点之间满足xor最小(因为前面都一样,后面自然最小),所以建一个字典树维护01.</p>
-<p>如果只有左右儿子,直接返回即可.如果都有,那么根据最长往外延展1个的原理,是max(l,r)+1.<br>
-直接合并即可.</p>
-<h2 id="CF1778F"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1778/F">CF1778F</a></h2>
-<p>给你一棵树,树上有点权,每次你可以让一个整个子树乘上子树的gcd(最多做k次操作),问你根节点的值最后最大是多少.</p>
-<p>首先,假如没有k的限制,直接拓扑排序即可.<br>
-假如没有呢…首先维护子树gcd和所有数的ceilsqrt().<br>
-ceilsqrt:对于x有最小的c满足c^2是x的倍数.具体地,对x分解质因数之后所有p的次方取 $\lceil \frac i2\rceil$ 最后乘一起就可以了.</p>
+<p>首先删点很复杂,我们转化为保留最多的点.<br>显然最后剩下的一定是一棵树,而且只有一对是互相是xor的最小值.</p>
+<p>联想trie树,树上的相邻节点之间满足xor最小(因为前面都一样,后面自然最小),所以建一个字典树维护01.  </p>
+<p>如果只有左右儿子,直接返回即可.如果都有,那么根据最长往外延展1个的原理,是max(l,r)+1.<br>直接合并即可.</p>
+<h2 id="CF1778F"><a href="#CF1778F" class="headerlink" title="CF1778F"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1778/F">CF1778F</a></h2><p>给你一棵树,树上有点权,每次你可以让一个整个子树乘上子树的gcd(最多做k次操作),问你根节点的值最后最大是多少.</p>
+<p>首先,假如没有k的限制,直接拓扑排序即可.<br>假如没有呢…首先维护子树gcd和所有数的ceilsqrt().<br>ceilsqrt:对于x有最小的c满足c^2是x的倍数.具体地,对x分解质因数之后所有p的次方取 $\lceil \frac i2\rceil$ 最后乘一起就可以了.  </p>
 <p>首先,最后答案一定是根乘上根的一个因子.</p>
-<p>其次,因为维护哪里要乘哪里不乘很不方便,所以我们转化为一个判断性问题:<br>
-对于根节点,倒序枚举所有因子,判断假如说子树要变成这样最少要多少次,然后再比较,就可以很轻松得到答案.<br>
-所以写一个dfs(num,ko,val):<br>
-如果子树gcd是val因子,直接返回.<br>
-否则如果子树gcd的平方是val因子,那么需要对子树进行一次gcd操作,返回.<br>
-否则如果子树根节点的平方还不是val因子,或者这是个叶节点,那么无法完成操作.<br>
-然后要对子树进行操作:先操作子树,然后再操作根节点,对于每个子树w要把gcd(w)变成ceilsqrt(d)的倍数,这样就可以把根节点gcd^2(w)是d的倍数,否则完不成操作.<br>
-dfs传参即可.</p>
-<h2 id="CF1841C"><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1841/C">CF1841C</a></h2>
-<p>给你一个字符串,你最多能更改一位,求最大值.<br>
-字符串只有ABCDE五种字母,分值分别是1,10,100,1000,10000,一个字母贡献是正的当且仅当右边不存在严格比他字典序大的字母,如ABCDE的贡献是 $-1-10-100-1000+10000$ .</p>
+<p>其次,因为维护哪里要乘哪里不乘很不方便,所以我们转化为一个判断性问题:<br>对于根节点,倒序枚举所有因子,判断假如说子树要变成这样最少要多少次,然后再比较,就可以很轻松得到答案.<br>所以写一个dfs(num,ko,val):<br>如果子树gcd是val因子,直接返回.<br>否则如果子树gcd的平方是val因子,那么需要对子树进行一次gcd操作,返回.<br>否则如果子树根节点的平方还不是val因子,或者这是个叶节点,那么无法完成操作.<br>然后要对子树进行操作:先操作子树,然后再操作根节点,对于每个子树w要把gcd(w)变成ceilsqrt(d)的倍数,这样就可以把根节点gcd^2(w)是d的倍数,否则完不成操作.<br>dfs传参即可.</p>
+<h2 id="CF1841C"><a href="#CF1841C" class="headerlink" title="CF1841C"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1841/C">CF1841C</a></h2><p>给你一个字符串,你最多能更改一位,求最大值.<br>字符串只有ABCDE五种字母,分值分别是1,10,100,1000,10000,一个字母贡献是正的当且仅当右边不存在严格比他字典序大的字母,如ABCDE的贡献是 $-1-10-100-1000+10000$ .</p>
 <p>本来我认为是直接枚举每位是ABCDE,然后只要能O(1)算贡献就完事了,所以pre表示前缀最大,然后倒着枚举,这么着后半段是算出来的,前半段是枚举的,但是这么着会假,比如 <code>AExxxxxxxxx</code> 在枚举E后面的时候AE只会被单纯统计起来,没有大小关系,就会WA,想改正又很难写.</p>
 <p>正确做法是贪心,一个字符想改有两种情况:改大:最左侧的是最优的,能带来最少的负字符.改小:最右侧是最优的,因为有更大的概率是正贡献.所以对10个位置暴力改成其他字符,然后检查即可.</p>
-<h2 id="P1983"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1983">P1983</a></h2>
-<p>碰到什么高于什么,联想图论建模和差分约束.</p>
+<h2 id="P1983"><a href="#P1983" class="headerlink" title="P1983"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1983">P1983</a></h2><p>碰到什么高于什么,联想图论建模和差分约束.</p>
 <p>连边进行拓扑排序分层(找最长链).</p>
-<h2 id="P9211"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9211">P9211</a></h2>
-<p>随机化神仙题.</p>
-<p>我们发现,原字符串只会有 $1%$ 的字符会错,而且对你的容错率有足足 $3%$ ,检查没有什么很特殊的性质,考虑随机化.<br>
-随机化的步骤是:枚举 <strong>所有长度</strong> ,对所有长度随机 $500$ 个位置,假如说这个长度是对的,那么错误字符概率应该期望占比 $1%$ 左右.<br>
-所以要对长度随机,最后匹配最多的长度会进行深度匹配,也就是遍历所有位置取最大的那个字符.</p>
+<h2 id="P9211"><a href="#P9211" class="headerlink" title="P9211"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9211">P9211</a></h2><p>随机化神仙题.</p>
+<p>我们发现,原字符串只会有 $1\%$ 的字符会错,而且对你的容错率有足足 $3\%$ ,检查没有什么很特殊的性质,考虑随机化.<br>随机化的步骤是:枚举 <strong>所有长度</strong> ,对所有长度随机 $500$ 个位置,假如说这个长度是对的,那么错误字符概率应该期望占比 $1\%$ 左右.<br>所以要对长度随机,最后匹配最多的长度会进行深度匹配,也就是遍历所有位置取最大的那个字符.</p>
 <p>笔者本来以为是对长度随机化,所以shuffle了一下就开始深度匹配了,复杂度假的一批…</p>
-<h2 id="P2893"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2893">P2893</a></h2>
-<p>给一个序列,你可以把任意数字变大或变小,代价就是差的绝对值,问你把原数组变成单调不减或单调不增的数列的最小代价?</p>
-<p>非常典的题,有很多变式(六倍经验…).<br>
-首先有一个结论是,当原数组单调的时候,所取值一定在原数组出现过.</p>
-<p>设dpij表示第i个元素取第j个值,i之前元素满足单调的最小代价,有<br>
-$$dp_{ij}=\min(dp_{i-1,k}+abs(dat_i-val_j)),k\le j$$<br>
-注意到后半部分是不随k变化的,所以提出来:<br>
-$$dp_{ij}=\min(dp_{i-1,k})+abs(dat_i-val_j),k\le j$$<br>
-整一个前缀min就完事了.</p>
-<p>变式1:变成单调不降时最少动多少个元素? $n-LIS$ .</p>
-<p>变式2:变成单调 <strong>递增</strong> 的最小代价?<br>
-把原数组变为 $dat_i-i\to dat_i$ 然后再跑上面的,意思是我们已经扣掉了增益,然后直接加上就可以了.</p>
-<p>变式3:数据放大(想一个nlogn的做法):<br>
-(下面都在分析非下降数列)<br>
-根据贪心的原则,假如说当前有一个数字x,后面来了一个y,假如y不比x小,那么直接加入即可.<br>
-否则一定x变小或者y变大或者两者都有,但是这个和是一定的.所以显然是取更小的那个更优,于是加上abs之后把顶端max元素弹出,加入两个小的y.<br>
-贪心nlog即可.</p>
-<h2 id="计数转01-计数视频">计数转01 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BHtmzDEgL">计数视频</a></h2>
-<p>给一个0-(n-1)的排列,q次询问,每次询问区间[l,r]上所有子区间的mex和.</p>
+<h2 id="P2893"><a href="#P2893" class="headerlink" title="P2893"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2893">P2893</a></h2><p>给一个序列,你可以把任意数字变大或变小,代价就是差的绝对值,问你把原数组变成单调不减或单调不增的数列的最小代价?</p>
+<p>非常典的题,有很多变式(六倍经验…).<br>首先有一个结论是,当原数组单调的时候,所取值一定在原数组出现过.  </p>
+<p>设dpij表示第i个元素取第j个值,i之前元素满足单调的最小代价,有</p>
+<script type="math/tex; mode=display">dp_{ij}=\min(dp_{i-1,k}+abs(dat_i-val_j)),k\le j</script><p>注意到后半部分是不随k变化的,所以提出来:</p>
+<script type="math/tex; mode=display">dp_{ij}=\min(dp_{i-1,k})+abs(dat_i-val_j),k\le j</script><p>整一个前缀min就完事了.</p>
+<p>变式1:变成单调不降时最少动多少个元素? $n-LIS$ .  </p>
+<p>变式2:变成单调 <strong>递增</strong> 的最小代价?<br>把原数组变为 $dat_i-i\to dat_i$ 然后再跑上面的,意思是我们已经扣掉了增益,然后直接加上就可以了.</p>
+<p>变式3:数据放大(想一个nlogn的做法):<br>(下面都在分析非下降数列)<br>根据贪心的原则,假如说当前有一个数字x,后面来了一个y,假如y不比x小,那么直接加入即可.<br>否则一定x变小或者y变大或者两者都有,但是这个和是一定的.所以显然是取更小的那个更优,于是加上abs之后把顶端max元素弹出,加入两个小的y.<br>贪心nlog即可.</p>
+<h2 id="计数转01-计数视频"><a href="#计数转01-计数视频" class="headerlink" title="计数转01 计数视频"></a>计数转01 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BHtmzDEgL">计数视频</a></h2><p>给一个0-(n-1)的排列,q次询问,每次询问区间[l,r]上所有子区间的mex和.</p>
 <p>考虑转化计数方法:对于i=1~n询问即为区间上有多少个子区间满足mex&gt;=i,只需要枚举mex即可(也就是说012这个区间会因为存在0+1,存在01+1,存在012+1,答案是3)</p>
-<p>枚举0~i出现的最左端left(i)和最右端right(i),对于整个区间的贡献即为(left(i)-l+1)*(r-right(i)+1),也就是必须包含这个小的区间,拆开式子得到<br>
-$$ans=left(i)\times r-left(i)\times right(i)+left(i)-l\times r-right(i)+1$$<br>
-使用前缀和优化即可,对于一个区间二分查出最大的子区间left(i)和right(i)被包含的.</p>
-<h2 id="计数转01-2-HihoCoder-1646">计数转01 2 HihoCoder-1646</h2>
-<p>有 $n$ 个包含 01? 的串，每个串的 ? 可以填成 0/1。求在所有情况下把这些串插入字典树得到的树的大小的和。<br>
-$n \leq 20,|S| \leq 50$。</p>
-<p><strong>字典树大小</strong> 这个东西很难刻画。<br>
-我们使用经典等价转换：字典树大小等价于本质不同前缀个数，也就是所有串前缀的并。</p>
-<p>于是用容斥计算：$\sum_S (-1)^{|S|-1} LCP(S)$。<br>
-(用人话说:枚举所有n个字符串的子集,|S|表示枚举的子集大小.LCP(S)的意思是枚举的字符串这里面的公共前缀有多少个)</p>
+<p>枚举0~i出现的最左端left(i)和最右端right(i),对于整个区间的贡献即为(left(i)-l+1)*(r-right(i)+1),也就是必须包含这个小的区间,拆开式子得到</p>
+<script type="math/tex; mode=display">ans=left(i)\times r-left(i)\times right(i)+left(i)-l\times r-right(i)+1</script><p>使用前缀和优化即可,对于一个区间二分查出最大的子区间left(i)和right(i)被包含的.</p>
+<h2 id="计数转01-2-HihoCoder-1646"><a href="#计数转01-2-HihoCoder-1646" class="headerlink" title="计数转01 2 HihoCoder-1646"></a>计数转01 2 HihoCoder-1646</h2><p>有 $n$ 个包含 01? 的串，每个串的 ? 可以填成 0/1。求在所有情况下把这些串插入字典树得到的树的大小的和。<br>$n \leq 20,|S| \leq 50$。</p>
+<p><strong>字典树大小</strong> 这个东西很难刻画。<br>我们使用经典等价转换：字典树大小等价于本质不同前缀个数，也就是所有串前缀的并。</p>
+<p>于是用容斥计算：$\sum_S (-1)^{|S|-1} LCP(S)$。<br>(用人话说:枚举所有n个字符串的子集,|S|表示枚举的子集大小.LCP(S)的意思是枚举的字符串这里面的公共前缀有多少个)  </p>
 <p>直接状压n暴力check即可, $O(2^nn|S_i|)$ ,如果使用集合合并的神秘科技可以优化到 $O(2^n|S_i|)$ ,其中S_i是字符串最大长度.</p>
-<h2 id="计数转概率-AGC030d">计数转概率 AGC030d</h2>
-<p>直接枚举是会爆表的,尝试转成概率:每次有1/2的概率进行操作,最后的答案就是期望乘上2^q种情况.</p>
-<p>设fij表示i位置数字大于j位置数字的概率,一次交换只会影响xy直接比较的元素,所以有</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[x][y]=f[y][x]=<span class="built_in">v</span>(f[x][y],f[y][x]);</span><br><span class="line"><span class="function"><span class="keyword">for</span> j in <span class="title">range</span><span class="params">(<span class="number">1</span>,n+<span class="number">1</span>)</span>:</span></span><br><span class="line"><span class="function">	f[x][j]=</span>f[y][j]=<span class="built_in">v</span>(f[x][j],f[y][j]);</span><br><span class="line">	f[j][x]=f[j][y]=<span class="built_in">v</span>(f[j][x],f[j][y]);</span><br></pre></td></tr></table></figure>
-<p>最后直接相加再乘上情况数即可.</p>
-<h2 id="计数转概率2-HDU-5396">计数转概率2 HDU-5396</h2>
-<p>有一个表达式，长的是这样：$n$ 个数 $a_1,a_2,…,a_n$，每两个数之间有一个操作符号。每次可以选择一个操作符运算，直到只剩一个数，这个数就是表达式的结果。问所有情况下最后的数的和。 $n \leq 500$</p>
-<p>我们还是考虑转期望。令 $f_{l,r}$ 表示 $[l,r]$ 的答案。那么显然有转移 $f_{l,r}=\frac{1}{r-l}\sum_{k=l}^{r-1} v(f_{l,k},f_{k+1,r},opt_k)$，$v(x,y,opt)$ 表示 $x\ opt\ y$ 的结果。</p>
+<h2 id="计数转概率-AGC030d"><a href="#计数转概率-AGC030d" class="headerlink" title="计数转概率 AGC030d"></a>计数转概率 AGC030d</h2><p>直接枚举是会爆表的,尝试转成概率:每次有1/2的概率进行操作,最后的答案就是期望乘上2^q种情况.</p>
+<p>设fij表示i位置数字大于j位置数字的概率,一次交换只会影响xy直接比较的元素,所以有<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f[x][y]=f[y][x]=<span class="built_in">v</span>(f[x][y],f[y][x]);</span><br><span class="line"><span class="function"><span class="keyword">for</span> j in <span class="title">range</span><span class="params">(<span class="number">1</span>,n+<span class="number">1</span>)</span>:</span></span><br><span class="line"><span class="function">	f[x][j]=</span>f[y][j]=<span class="built_in">v</span>(f[x][j],f[y][j]);</span><br><span class="line">	f[j][x]=f[j][y]=<span class="built_in">v</span>(f[j][x],f[j][y]);</span><br></pre></td></tr></table></figure><br>最后直接相加再乘上情况数即可.</p>
+<h2 id="计数转概率2-HDU-5396"><a href="#计数转概率2-HDU-5396" class="headerlink" title="计数转概率2 HDU-5396"></a>计数转概率2 HDU-5396</h2><p>有一个表达式，长的是这样：$n$ 个数 $a_1,a_2,…,a_n$，每两个数之间有一个操作符号。每次可以选择一个操作符运算，直到只剩一个数，这个数就是表达式的结果。问所有情况下最后的数的和。 $n \leq 500$</p>
+<p>我们还是考虑转期望。令 $f<em>{l,r}$ 表示 $[l,r]$ 的答案。那么显然有转移 $f</em>{l,r}=\frac{1}{r-l}\sum<em>{k=l}^{r-1} v(f</em>{l,k},f_{k+1,r},opt_k)$，$v(x,y,opt)$ 表示 $x\ opt\ y$ 的结果。</p>
 <p>最后答案即为 $f_{1,n} \times (n-1)!$。</p>
-<h2 id="P4424"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4424">P4424</a></h2>
-<p>神秘找规律题.</p>
+<h2 id="P4424"><a href="#P4424" class="headerlink" title="P4424"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4424">P4424</a></h2><p>神秘找规律题.</p>
 <blockquote>
-<p>对于两个数ab,假设0是或,1是与,从a的低位按照b的低位二进制进行运算(a开头补0),结果等于 $a&gt;b$ .<br>
-例如 <code>a=0001</code> , <code>b=0010</code> ,运算结果 <code>0|0|0&amp;0|1=1</code> ,直接比较 <code>a&gt;b</code> 也是1(ab高位在右,按照字符串规则去看)</p>
+<p>对于两个数ab,假设0是或,1是与,从a的低位按照b的低位二进制进行运算(a开头补0),结果等于 $a&gt;b$ .<br>例如 <code>a=0001</code> , <code>b=0010</code> ,运算结果 <code>0|0|0&amp;0|1=1</code> ,直接比较 <code>a&gt;b</code> 也是1(ab高位在右,按照字符串规则去看)</p>
+<h2 id="P5339"><a href="#P5339" class="headerlink" title="P5339"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5339">P5339</a></h2><p>很棒的组合数学题,补齐了板子…</p>
 </blockquote>
-<h2 id="P5339"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5339">P5339</a></h2>
-<p>很棒的组合数学题,补齐了板子…</p>
-<p>在这里有结论:假设有四种颜色,每种颜色分别能涂abcd个格子,问你在长度为n的格子上有多少种涂颜色的方案.<br>
-考虑EGF(EGF卷积的意义就是随意插入混合),把这四个卷积起来最后取第n项就是答案.</p>
+<p>在这里有结论:假设有四种颜色,每种颜色分别能涂abcd个格子,问你在长度为n的格子上有多少种涂颜色的方案.<br>考虑EGF(EGF卷积的意义就是随意插入混合),把这四个卷积起来最后取第n项就是答案.</p>
 <p>实际卷的时候有一个事情:lim是比abcd和大的第一个2的幂,以及,abcd在做完NTT之后可以直接乘一起取模,然后再做FNTT.</p>
-<h2 id="abc306g">[abc306g]</h2>
-<p>神秘题.问你能否在一张图上走很大步回到原点.</p>
+<h2 id="abc306g"><a href="#abc306g" class="headerlink" title="[abc306g]"></a>[abc306g]</h2><p>神秘题.问你能否在一张图上走很大步回到原点.</p>
 <p>找环:考虑这些环大小的gcd是数字的倍数,建立正图反图,进行dfs,统计正图深度(反图用于统计谁可以到达原点,否则整这个环是无意义的.)</p>
-<p>然后进行环大小的统计:对于环大小有一个结论:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">abs</span>(dep[i]+<span class="number">1</span>-dep[j])</span><br></pre></td></tr></table></figure>
-<p>使用情景:对于任意正整数a,图上存在一个包含1点的,长度不是a倍数的环的充要条件是对于有向边ij满足深度在上面的式子.可以理解为环上从a到b可以正着走也可以反着走环,所以环的大小被&quot;拼出来&quot;.</p>
-<h2 id="arc185a"><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/arc185/tasks/arc185_a">arc185a</a></h2>
-<p>神秘题,看了五分钟不知道怎么写…</p>
-<p>最后还是看题解了,题解说每个人分别有n张牌(草,读假题了,我还以为一共n张牌呢)<br>
-题解说对于牌一致的情况,在剩最后一张牌前,一定不会输.<br>
-同时Alice赢面很大,要考虑Alice出完牌Bob剩一张牌的时候Alice会不会输.</p>
-<h2 id="P9318"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9318">P9318</a></h2>
-<p>一道手动分治的题…<br>
-对于某些数据范围,采取不同的做法…乐…</p>
-<p>题面:给你一个乐高墙,长w高h,你有两种方块,是1x1和1x2(高x长),你要用这两种方块铺满整个强,但是要求墙必须是坚固的(也就是相邻两个&quot;柱子&quot;之间必须至少有一个1x2连接在其中),问有多少种方案.</p>
-<p>首先考虑朴素的dp:dp[i][j]表示第i行有j个突起的情况数,有:<br>
-$$dp_{1,i}=\binom mi$$<br>
-$$dp_{i,j}=\sum_{k=1}^mdp_{i-1,k}\times\binom{m-k}j$$<br>
-$$ans=\sum_{i=1}^{m}dp_{n-1,i}$$<br>
-复杂度O(nm^2).过不去全部数据,考虑其他方案:<br>
-设dp[i]表示列数为m情况下有n行满足锁死的情况数,f[i]表示i行m列随便选的情况数,我们首先求出所有情况,再通过枚举&quot;中间线&quot;,强制左边锁死,右边随便,整栋墙就是不满足的,所以容斥减掉.<br>
-$$dp_i=f_i^m-\sum_{j=1}^{i-1}f_{i-j}^mdp_{j}$$<br>
-$$ans=dp_n$$<br>
-时间复杂度O(n^2).<br>
-此时需要我们手动均衡两种复杂度,均摊一下复杂度是 $O((nm)^{\frac43})$ …</p>
-<h2 id="神秘小式子">神秘小式子</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a|b=a^b^(a&amp;b)</span><br><span class="line">a|b=a+b-(a&amp;b)</span><br></pre></td></tr></table></figure>
-<h2 id="CF2136F1">CF2136F1</h2>
-<p>神秘交互题.首先全部填1能得到 $\lfloor\frac xn\rfloor$ ,然后考虑设计一个能够区分[1,n/2]的办法.</p>
+<p>然后进行环大小的统计:对于环大小有一个结论:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">abs</span>(dep[i]+<span class="number">1</span>-dep[j])</span><br></pre></td></tr></table></figure><br>使用情景:对于任意正整数a,图上存在一个包含1点的,长度不是a倍数的环的充要条件是对于有向边ij满足深度在上面的式子.可以理解为环上从a到b可以正着走也可以反着走环,所以环的大小被”拼出来”.</p>
+<h2 id="arc185a"><a href="#arc185a" class="headerlink" title="arc185a"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/arc185/tasks/arc185_a">arc185a</a></h2><p>神秘题,看了五分钟不知道怎么写…</p>
+<p>最后还是看题解了,,题解说每个人分别有n张牌(草,读假题了,我还以为一共n张牌呢)<br>题解说对于牌一致的情况,在剩最后一张牌前,一定不会输.<br>同时Alice赢面很大,要考虑Alice出完牌Bob剩一张牌的时候Alice会不会输.</p>
+<h2 id="P9318"><a href="#P9318" class="headerlink" title="P9318"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9318">P9318</a></h2><p>一道手动分治的题…<br>对于某些数据范围,采取不同的做法…乐…</p>
+<p>题面:给你一个乐高墙,长w高h,你有两种方块,是1x1和1x2(高x长),你要用这两种方块铺满整个强,但是要求墙必须是坚固的(也就是相邻两个”柱子”之间必须至少有一个1x2连接在其中),问有多少种方案.</p>
+<p>首先考虑朴素的dp:dp[i][j]表示第i行有j个突起的情况数,有:</p>
+<script type="math/tex; mode=display">dp_{1,i}=\binom mi</script><script type="math/tex; mode=display">dp_{i,j}=\sum_{k=1}^mdp_{i-1,k}\times\binom{m-k}j</script><script type="math/tex; mode=display">ans=\sum_{i=1}^{m}dp_{n-1,i}</script><p>复杂度O(nm^2).过不去全部数据,考虑其他方案:<br>设dp[i]表示列数为m情况下有n行满足锁死的情况数,f[i]表示i行m列随便选的情况数,我们首先求出所有情况,再通过枚举”中间线”,强制左边锁死,右边随便,整栋墙就是不满足的,所以容斥减掉.</p>
+<script type="math/tex; mode=display">dp_i=f_i^m-\sum_{j=1}^{i-1}f_{i-j}^mdp_{j}</script><script type="math/tex; mode=display">ans=dp_n</script><p>时间复杂度O(n^2).<br>此时需要我们手动均衡两种复杂度,均摊一下复杂度是 $O((nm)^{\frac43})$ …</p>
+<h2 id="神秘小式子"><a href="#神秘小式子" class="headerlink" title="神秘小式子"></a>神秘小式子</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a|b=a^b^(a&amp;b)</span><br><span class="line">a|b=a+b-(a&amp;b)</span><br></pre></td></tr></table></figure>
+<h2 id="CF2136F1"><a href="#CF2136F1" class="headerlink" title="CF2136F1"></a>CF2136F1</h2><p>神秘交互题.首先全部填1能得到 $\lfloor\frac xn\rfloor$ ,然后考虑设计一个能够区分[1,n/2]的办法.</p>
 <p>答案居然是构造 $[l,1,l,2,…,l,r]$ 这个能测出来,太惊讶了.</p>
-<h2 id="CF696F">CF696F</h2>
-<p>对于一个数组a,每次能选择一个两个元素并插一个平均数(整数)进去.直到这个数组再也不能插入数字结束,如果最后的数组是一个公差1的等差数列那么就是&quot;好&quot;的.<br>
-现在给你一个数列n,你要求出有多少个连续子数组是&quot;好&quot;的.</p>
-<p>非常妙的题.<br>
-首先发现公差绝对不是偶数,因为能再插一个数.<br>
-然后发现公差实际上是选出来的数两两差值的gcd.</p>
-<p>由于gcd在固定左端点时右端点的区间gcd是单调的,所以我们需要找到最左端的值,满足区间gcd是2的倍数.<br>
-相同数字会导致区间在check时出现(可以-不可以-可以)的局面,所以我们初始时应当排除掉相同数字做差出0的局面,也就是第二次二分得到最左端连续的数字.</p>
-<p>具体地:使用线段树的复杂度是建树nlog,查询log^2.<br>
-而使用st表则是建表nlog^2查询log(左端点和右端点取一个gcd就可以了)</p>
-<h2 id="CF2120D">CF2120D</h2>
-<p>给你一个矩阵的size,和元素的种类数,你需要确定一个最小的矩阵,满足矩阵内元素在最坏情况下填数,但是你按行按列删除后,最后剩下的元素完全一致的子矩阵的大小不小于给定的axb.</p>
-<p>比如给定</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2 1         1 1           1 1</span><br><span class="line">4 5 6    =&gt;   4 6      =&gt;   1 1</span><br><span class="line">1 8 1         1 1</span><br></pre></td></tr></table></figure>
-<p>最后能删成的矩阵大小是2x2.<br>
-你要在保证行最小的前提下最小化列,输出答案.</p>
-<p>神秘抽屉原理题.首先保证n行最小答案就是 k(a-1)+1 .<br>
-考虑什么时候m最小,首先最坏条件下m是一个上界.<br>
-我们考虑这个抽屉是多大的:可行的元素种类是从n行中选a行我们想要的,而且这个想要的是k种取值,答案就是k*C(n,a).<br>
-那么我们让这些元素有一种至少出现b次就是 k*C(n,a)*(n-1)+1.</p>
-<h2 id="CF2066C">CF2066C</h2>
-<p>给你一个数列,你有三个寄存器PQR,你要从头开始,每次必须选择寄存器的一个抑或上数列第i项,你必须随时保证存在PQR中两个的数字相等,问你有多少种操作方式(某次操作选了不同的寄存器就被视作不同操作.)</p>
-<p>神秘题.<br>
-因为PQR三个数必须抑或上a,所以任何时刻的P^Q^R都等于前缀抑或.<br>
-而且任意时刻有两个数相等,那么一定有一个数的值就是前缀抑或.<br>
-考虑dp:设 $dp_{i,j}$ 表示前i项,有一个数字是pre[i],剩下两个数字为j时候的答案,假如j=pre[i-1],那么随便选一个抑或就可以了,有 $dp_{i,pre[i]}\leftarrow 3dp_{i-1,pre[i-1]}$ ,假如j=pre[i],同理…</p>
-<h3 id="严正声明-在cf能少用umap就少用-又被卡了…">严正声明:在cf能少用umap就少用!!!又被卡了…</h3>
-<h2 id="Even-Circuit"><a target="_blank" rel="noopener" href="https://qoj.ac/contest/2506/problem/14019">Even Circuit</a></h2>
-<p>根据鸽巢定理…搜索范围不会超过值域上限…<br>
-所以这是个诈骗题,直接搜索就可以了…<br>
-但是还得加一个优化:从2e5的数组里面选很少个,应该枚举下一个选的位置,而不是记录总数量以及当前选不选.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> num,<span class="type">int</span> res,<span class="type">int</span> xx)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(ff==<span class="number">1</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(res&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[xx]!=<span class="number">0</span>)&#123;</span><br><span class="line">			ff=<span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			vis[xx]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(num&gt;n)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=num;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(i+<span class="number">1</span>,res<span class="number">-1</span>,xx^dat[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// dfs(num+1,res-1,xx^dat[num]);</span></span><br><span class="line">	<span class="comment">// dfs(num+1,res,xx);//用上面的别用下面的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Adjacent-Add"><a target="_blank" rel="noopener" href="https://qoj.ac/problem/14016">Adjacent Add</a></h2>
-<p>给你一个数组.每次操作可以在ai加上x(可以为负),ai+1加上kx(k给定),问你任意操作后数组能不能变成一样的.</p>
-<p>观察不变量:<br>
-$$C = A_1 - \frac{1}{K}A_2 + \frac{1}{K^2} A_3 + \dots + \left(-\frac{1}{K}\right)^{N-1} A_N$$<br>
-当整个数组相等时,长这样:<br>
-$$C = x - \frac{1}{K} x + \frac{1}{K^2} x + \dots + \left(-\frac{1}{K}\right)^{N-1} x$$<br>
-所以我们直接用两个式子相减,然后尽可能贴近这个值附近检查整数x是不是解就行了.</p>
+<h2 id="CF696F"><a href="#CF696F" class="headerlink" title="CF696F"></a>CF696F</h2><p>对于一个数组a,每次能选择一个两个元素并插一个平均数(整数)进去.直到这个数组再也不能插入数字结束,如果最后的数组是一个公差1的等差数列那么就是”好”的.<br>现在给你一个数列n,你要求出有多少个连续子数组是”好”的.</p>
+<p>非常妙的题.<br>首先发现公差绝对不是偶数,因为能再插一个数.<br>然后发现公差实际上是选出来的数两两差值的gcd.</p>
+<p>由于gcd在固定左端点时右端点的区间gcd是单调的,所以我们需要找到最左端的值,满足区间gcd是2的倍数.<br>相同数字会导致区间在check时出现(可以-不可以-可以)的局面,所以我们初始时应当排除掉相同数字做差出0的局面,也就是第二次二分得到最左端连续的数字.</p>
+<p>具体地:使用线段树的复杂度是建树nlog,查询log^2.<br>而使用st表则是建表nlog^2查询log(左端点和右端点取一个gcd就可以了)</p>
+<h2 id="CF2120D"><a href="#CF2120D" class="headerlink" title="CF2120D"></a>CF2120D</h2><p>给你一个矩阵的size,和元素的种类数,你需要确定一个最小的矩阵,满足矩阵内元素在最坏情况下填数,但是你按行按列删除后,最后剩下的元素完全一致的子矩阵的大小不小于给定的axb.</p>
+<p>比如给定<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2 1         1 1           1 1</span><br><span class="line">4 5 6    =&gt;   4 6      =&gt;   1 1</span><br><span class="line">1 8 1         1 1</span><br></pre></td></tr></table></figure><br>最后能删成的矩阵大小是2x2.<br>你要在保证行最小的前提下最小化列,输出答案.</p>
+<p>神秘抽屉原理题.首先保证n行最小答案就是 k(a-1)+1 .<br>考虑什么时候m最小,首先最坏条件下m是一个上界.<br>我们考虑这个抽屉是多大的:可行的元素种类是从n行中选a行我们想要的,而且这个想要的是k种取值,答案就是k<em>C(n,a).<br>那么我们让这些元素有一种至少出现b次就是 k\</em>C(n,a)*(n-1)+1.</p>
+<h2 id="CF2066C"><a href="#CF2066C" class="headerlink" title="CF2066C"></a>CF2066C</h2><p>给你一个数列,你有三个寄存器PQR,你要从头开始,每次必须选择寄存器的一个抑或上数列第i项,你必须随时保证存在PQR中两个的数字相等,问你有多少种操作方式(某次操作选了不同的寄存器就被视作不同操作.)</p>
+<p>神秘题.<br>因为PQR三个数必须抑或上a,所以任何时刻的P^Q^R都等于前缀抑或.<br>而且任意时刻有两个数相等,那么一定有一个数的值就是前缀抑或.<br>考虑dp:设 $dp<em>{i,j}$ 表示前i项,有一个数字是pre[i],剩下两个数字为j时候的答案,假如j=pre[i-1],那么随便选一个抑或就可以了,有 $dp</em>{i,pre[i]}\leftarrow 3dp_{i-1,pre[i-1]}$ ,假如j=pre[i],同理…</p>
+<h3 id="严正声明-在cf能少用umap就少用-又被卡了…"><a href="#严正声明-在cf能少用umap就少用-又被卡了…" class="headerlink" title="严正声明:在cf能少用umap就少用!!!又被卡了…"></a>严正声明:在cf能少用umap就少用!!!又被卡了…</h3><h2 id="Even-Circuit"><a href="#Even-Circuit" class="headerlink" title="Even Circuit"></a><a target="_blank" rel="noopener" href="https://qoj.ac/contest/2506/problem/14019">Even Circuit</a></h2><p>根据鸽巢定理…搜索范围不会超过值域上限…<br>所以这是个诈骗题,直接搜索就可以了…<br>但是还得加一个优化:从2e5的数组里面选很少个,应该枚举下一个选的位置,而不是记录总数量以及当前选不选.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> num,<span class="type">int</span> res,<span class="type">int</span> xx)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(ff==<span class="number">1</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span>(res&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[xx]!=<span class="number">0</span>)&#123;</span><br><span class="line">			ff=<span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			vis[xx]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(num&gt;n)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=num;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="built_in">dfs</span>(i+<span class="number">1</span>,res<span class="number">-1</span>,xx^dat[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// dfs(num+1,res-1,xx^dat[num]);</span></span><br><span class="line">	<span class="comment">// dfs(num+1,res,xx);//用上面的别用下面的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Adjacent-Add"><a href="#Adjacent-Add" class="headerlink" title="Adjacent Add"></a><a target="_blank" rel="noopener" href="https://qoj.ac/problem/14016">Adjacent Add</a></h2><p>给你一个数组.每次操作可以在ai加上x(可以为负),ai+1加上kx(k给定),问你任意操作后数组能不能变成一样的.</p>
+<p>观察不变量:</p>
+<script type="math/tex; mode=display">C = A_1 - \frac{1}{K}A_2 + \frac{1}{K^2} A_3 + \dots + \left(-\frac{1}{K}\right)^{N-1} A_N</script><p>当整个数组相等时,长这样:</p>
+<script type="math/tex; mode=display">C = x - \frac{1}{K} x + \frac{1}{K^2} x + \dots + \left(-\frac{1}{K}\right)^{N-1} x</script><p>所以我们直接用两个式子相减,然后尽可能贴近这个值附近检查整数x是不是解就行了.</p>
 <p>对于一个x:检查是不是解的时候可以用发散性正着检查,也可以用能否整除以及最后是不是x倒着检查.(经检验[-20~20]区间能过)</p>
-<h2 id="Yelkrab"><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1885/problem/9921">Yelkrab</a></h2>
-<p>放到字典树上,维护ans数组表示在队伍为j时的答案.<br>
-发现一个字典树节点sz++的时候只会对其所有因子产生贡献.<br>
-所以枚举因子暴力维护即可.</p>
-<h2 id="Flipping-Paths"><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1885/problem/9926">Flipping Paths</a></h2>
-<p>呃…首先,斜着的横行的W或者B奇偶性一致的时候就有解.<br>
-然后考虑贪心,每次取最下方的元素构造一条路径走过去即可.</p>
+<h2 id="Yelkrab"><a href="#Yelkrab" class="headerlink" title="Yelkrab"></a><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1885/problem/9921">Yelkrab</a></h2><p>放到字典树上,维护ans数组表示在队伍为j时的答案.<br>发现一个字典树节点sz++的时候只会对其所有因子产生贡献.<br>所以枚举因子暴力维护即可.</p>
+<h2 id="Flipping-Paths"><a href="#Flipping-Paths" class="headerlink" title="Flipping Paths"></a><a target="_blank" rel="noopener" href="https://qoj.ac/contest/1885/problem/9926">Flipping Paths</a></h2><p>呃…首先,斜着的横行的W或者B奇偶性一致的时候就有解.<br>然后考虑贪心,每次取最下方的元素构造一条路径走过去即可.</p>
 
   </div>
 </article>
+
 
 
         
@@ -604,7 +423,7 @@ $$C = x - \frac{1}{K} x + \frac{1}{K^2} x + \dots + \left(-\frac{1}{K}\right)^{N
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-2"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-2"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-4"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-3"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-2"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">10.3.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-3"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-2"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">杂题随机做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2043E"><span class="toc-number">13.1.</span> <span class="toc-text">CF2043E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gym103428F"><span class="toc-number">13.2.</span> <span class="toc-text">gym103428F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B74446"><span class="toc-number">13.3.</span> <span class="toc-text">洛谷4446</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC150D"><span class="toc-number">13.4.</span> <span class="toc-text">ARC150D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf1446c"><span class="toc-number">13.5.</span> <span class="toc-text">cf1446c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1778F"><span class="toc-number">13.6.</span> <span class="toc-text">CF1778F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1841C"><span class="toc-number">13.7.</span> <span class="toc-text">CF1841C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P1983"><span class="toc-number">13.8.</span> <span class="toc-text">P1983</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9211"><span class="toc-number">13.9.</span> <span class="toc-text">P9211</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2893"><span class="toc-number">13.10.</span> <span class="toc-text">P2893</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-%E8%AE%A1%E6%95%B0%E8%A7%86%E9%A2%91"><span class="toc-number">13.11.</span> <span class="toc-text">计数转01 计数视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-2-HihoCoder-1646"><span class="toc-number">13.12.</span> <span class="toc-text">计数转01 2 HihoCoder-1646</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%87-AGC030d"><span class="toc-number">13.13.</span> <span class="toc-text">计数转概率 AGC030d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%872-HDU-5396"><span class="toc-number">13.14.</span> <span class="toc-text">计数转概率2 HDU-5396</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P4424"><span class="toc-number">13.15.</span> <span class="toc-text">P4424</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P5339"><span class="toc-number">13.16.</span> <span class="toc-text">P5339</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abc306g"><span class="toc-number">13.17.</span> <span class="toc-text">[abc306g]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arc185a"><span class="toc-number">13.18.</span> <span class="toc-text">arc185a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9318"><span class="toc-number">13.19.</span> <span class="toc-text">P9318</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E5%B0%8F%E5%BC%8F%E5%AD%90"><span class="toc-number">13.20.</span> <span class="toc-text">神秘小式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2136F1"><span class="toc-number">13.21.</span> <span class="toc-text">CF2136F1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF696F"><span class="toc-number">13.22.</span> <span class="toc-text">CF696F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2120D"><span class="toc-number">13.23.</span> <span class="toc-text">CF2120D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2066C"><span class="toc-number">13.24.</span> <span class="toc-text">CF2066C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E-%E5%9C%A8cf%E8%83%BD%E5%B0%91%E7%94%A8umap%E5%B0%B1%E5%B0%91%E7%94%A8-%E5%8F%88%E8%A2%AB%E5%8D%A1%E4%BA%86%E2%80%A6"><span class="toc-number">13.24.1.</span> <span class="toc-text">严正声明:在cf能少用umap就少用!!!又被卡了…</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Even-Circuit"><span class="toc-number">13.25.</span> <span class="toc-text">Even Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacent-Add"><span class="toc-number">13.26.</span> <span class="toc-text">Adjacent Add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yelkrab"><span class="toc-number">13.27.</span> <span class="toc-text">Yelkrab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flipping-Paths"><span class="toc-number">13.28.</span> <span class="toc-text">Flipping Paths</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pre"><span class="toc-number">1.</span> <span class="toc-text">pre</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">2.</span> <span class="toc-text">第一次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">2.1.</span> <span class="toc-text">K</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.2.</span> <span class="toc-text">I</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">3.</span> <span class="toc-text">第二次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">3.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.2.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC2-5%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">4.</span> <span class="toc-text">第2.5次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">4.1.</span> <span class="toc-text">F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-1"><span class="toc-number">4.3.</span> <span class="toc-text">A</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC2024%E6%B2%88%E9%98%B3%E7%AB%99"><span class="toc-number">5.</span> <span class="toc-text">ICPC2024沈阳站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">5.1.</span> <span class="toc-text">J</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">5.2.</span> <span class="toc-text">B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-1"><span class="toc-number">5.3.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.4.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">5.5.</span> <span class="toc-text">G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">5.6.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A9%E6%A2%AF%E8%B5%9B2025"><span class="toc-number">6.</span> <span class="toc-text">天梯赛2025</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">7.</span> <span class="toc-text">第三次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-2"><span class="toc-number">7.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">7.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-1"><span class="toc-number">7.3.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-1"><span class="toc-number">7.4.</span> <span class="toc-text">G</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">8.</span> <span class="toc-text">第四次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-3"><span class="toc-number">8.1.</span> <span class="toc-text">A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-2"><span class="toc-number">8.2.</span> <span class="toc-text">E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-1"><span class="toc-number">8.3.</span> <span class="toc-text">C</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AC%A1%E9%9B%86%E8%AE%AD"><span class="toc-number">9.</span> <span class="toc-text">第五次集训</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-1"><span class="toc-number">9.1.</span> <span class="toc-text">B</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VP"><span class="toc-number">10.</span> <span class="toc-text">VP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Nim-Game"><span class="toc-number">10.1.</span> <span class="toc-text">I Nim Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Random-Number-Generator"><span class="toc-number">10.2.</span> <span class="toc-text">C Random Number Generator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">10.3.</span> <span class="toc-text"> </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%89%E6%9E%97%E7%9C%81%E8%B5%9B"><span class="toc-number">11.</span> <span class="toc-text">吉林省赛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-2"><span class="toc-number">11.1.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-1"><span class="toc-number">11.2.</span> <span class="toc-text">H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OTH"><span class="toc-number">11.3.</span> <span class="toc-text">OTH,</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%9C%E5%8C%97%E8%B5%9B"><span class="toc-number">12.</span> <span class="toc-text">东北赛</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E9%A2%98%E9%9A%8F%E6%9C%BA%E5%81%9A"><span class="toc-number">13.</span> <span class="toc-text">杂题随机做</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2043E"><span class="toc-number">13.1.</span> <span class="toc-text">CF2043E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gym103428F"><span class="toc-number">13.2.</span> <span class="toc-text">gym103428F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B74446"><span class="toc-number">13.3.</span> <span class="toc-text">洛谷4446</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC150D"><span class="toc-number">13.4.</span> <span class="toc-text">ARC150D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cf1446c"><span class="toc-number">13.5.</span> <span class="toc-text">cf1446c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1778F"><span class="toc-number">13.6.</span> <span class="toc-text">CF1778F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1841C"><span class="toc-number">13.7.</span> <span class="toc-text">CF1841C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P1983"><span class="toc-number">13.8.</span> <span class="toc-text">P1983</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9211"><span class="toc-number">13.9.</span> <span class="toc-text">P9211</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2893"><span class="toc-number">13.10.</span> <span class="toc-text">P2893</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-%E8%AE%A1%E6%95%B0%E8%A7%86%E9%A2%91"><span class="toc-number">13.11.</span> <span class="toc-text">计数转01 计数视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC01-2-HihoCoder-1646"><span class="toc-number">13.12.</span> <span class="toc-text">计数转01 2 HihoCoder-1646</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%87-AGC030d"><span class="toc-number">13.13.</span> <span class="toc-text">计数转概率 AGC030d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E8%BD%AC%E6%A6%82%E7%8E%872-HDU-5396"><span class="toc-number">13.14.</span> <span class="toc-text">计数转概率2 HDU-5396</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P4424"><span class="toc-number">13.15.</span> <span class="toc-text">P4424</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P5339"><span class="toc-number">13.16.</span> <span class="toc-text">P5339</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abc306g"><span class="toc-number">13.17.</span> <span class="toc-text">[abc306g]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arc185a"><span class="toc-number">13.18.</span> <span class="toc-text">arc185a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P9318"><span class="toc-number">13.19.</span> <span class="toc-text">P9318</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98%E5%B0%8F%E5%BC%8F%E5%AD%90"><span class="toc-number">13.20.</span> <span class="toc-text">神秘小式子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2136F1"><span class="toc-number">13.21.</span> <span class="toc-text">CF2136F1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF696F"><span class="toc-number">13.22.</span> <span class="toc-text">CF696F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2120D"><span class="toc-number">13.23.</span> <span class="toc-text">CF2120D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF2066C"><span class="toc-number">13.24.</span> <span class="toc-text">CF2066C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A5%E6%AD%A3%E5%A3%B0%E6%98%8E-%E5%9C%A8cf%E8%83%BD%E5%B0%91%E7%94%A8umap%E5%B0%B1%E5%B0%91%E7%94%A8-%E5%8F%88%E8%A2%AB%E5%8D%A1%E4%BA%86%E2%80%A6"><span class="toc-number">13.24.1.</span> <span class="toc-text">严正声明:在cf能少用umap就少用!!!又被卡了…</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Even-Circuit"><span class="toc-number">13.25.</span> <span class="toc-text">Even Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adjacent-Add"><span class="toc-number">13.26.</span> <span class="toc-text">Adjacent Add</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Yelkrab"><span class="toc-number">13.27.</span> <span class="toc-text">Yelkrab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flipping-Paths"><span class="toc-number">13.28.</span> <span class="toc-text">Flipping Paths</span></a></li></ol></li></ol>
       </div>
     
 
