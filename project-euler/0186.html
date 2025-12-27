@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vibe Coding. 乍一看被吓到了,60%难度只有一个带权并查集. User 12345678910111213141516171819202122网络连通性以下是一个有着一百万用户的忙碌电话系统的部分记录：编号	呼叫	接听1	200007	1000532	600183	5004393	600863	701497…	…	…编号为n的记录中，呼叫者的电话号码是Caller(n) &#x3D; S_&amp;#1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0186">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0186.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Vibe Coding. 乍一看被吓到了,60%难度只有一个带权并查集. User 12345678910111213141516171819202122网络连通性以下是一个有着一百万用户的忙碌电话系统的部分记录：编号	呼叫	接听1	200007	1000532	600183	5004393	600863	701497…	…	…编号为n的记录中，呼叫者的电话号码是Caller(n) &#x3D; S_&amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:12:47.279Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0186</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>Vibe Coding.<br>
+乍一看被吓到了,60%难度只有一个带权并查集.</p>
+<h2 id="User">User</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">网络连通性</span><br><span class="line"></span><br><span class="line">以下是一个有着一百万用户的忙碌电话系统的部分记录：</span><br><span class="line"></span><br><span class="line">编号	呼叫	接听</span><br><span class="line">1	200007	100053</span><br><span class="line">2	600183	500439</span><br><span class="line">3	600863	701497</span><br><span class="line">…	…	…</span><br><span class="line">编号为n的记录中，呼叫者的电话号码是Caller(n) = S_&#123;2n-1&#125;，接听者的电话号码是Called(n) = S_&#123;2n&#125;，其中S_&#123;1,2,3,…&#125;来自于所谓“延迟斐波那契随机数生成器”：</span><br><span class="line"></span><br><span class="line">对于1 ≤ k ≤ 55，Sk = [100003 - 200003k + 300007k^3] (modulo 1000000)</span><br><span class="line">对于56 ≤ k，Sk = [S_&#123;k-24&#125; + S_&#123;k-55&#125;] (modulo 1000000)</span><br><span class="line"></span><br><span class="line">如果Caller(n) = Called(n)，那么我们认为呼叫者拨错了号码，呼叫失败；否则我们认为呼叫成功。</span><br><span class="line"></span><br><span class="line">根据这份记录，如果X曾经呼叫过Y或者Y呼叫过X，则我们认为这两个电话用户X和Y是朋友。同样的，如果X是Y的朋友，Y是Z的朋友，那么我们说X是Z的朋友的朋友；我们可以同理组成更长的“朋友”链。</span><br><span class="line"></span><br><span class="line">首相的电话号码是524287。在多少次呼叫成功（不计呼叫失败）之后，99%的用户（包括首相）将会成为首相的朋友，或是朋友的朋友，或是朋友的朋友的朋友……？</span><br><span class="line"></span><br><span class="line">我的思路:维护一个带权并查集,每次打电话先检查两个人在不在一个集合,如果在那就忽略,不在就合并ab,每一次打完电话之后检查524287这个集合的大小是不是99%.</span><br><span class="line">我给你一个并查集板子,请使用c++写代码.</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">dsu</span>&#123;</span><br><span class="line">	<span class="type">int</span> *ko,n;</span><br><span class="line">	<span class="built_in">dsu</span>(<span class="type">int</span> num=<span class="number">1000000</span>):<span class="built_in">n</span>(num+<span class="number">5</span>)&#123;</span><br><span class="line">		ko=<span class="keyword">new</span> <span class="type">int</span>[num+<span class="number">5</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> num=<span class="number">-1</span>)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">-1</span>)num=n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;num;++i)&#123;</span><br><span class="line">			ko[i]=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">ffind</span><span class="params">(<span class="type">int</span> num)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> ko[num]==num?num:ko[num]=<span class="built_in">ffind</span>(ko[num]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">uunion</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;<span class="comment">//&lt;--</span></span><br><span class="line">		ko[<span class="built_in">ffind</span>(b)]=<span class="built_in">ffind</span>(a);</span><br><span class="line">	&#125;<span class="comment">//b被a合并 </span></span><br><span class="line">	<span class="function"><span class="type">char</span> <span class="title">isUnion</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">ffind</span>(a)==<span class="built_in">ffind</span>(b))?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="DeepSeek">DeepSeek</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我来帮你实现这个问题的解决方案。根据你的思路，使用并查集来维护朋友关系，并在每次成功呼叫后检查首相所在集合的大小是否达到总用户数的99%。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并查集结构体（根据你提供的模板）</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">dsu</span> &#123;</span><br><span class="line">    <span class="type">int</span> *parent, *size, n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">dsu</span>(<span class="type">int</span> num = <span class="number">1000000</span>) : <span class="built_in">n</span>(num) &#123;</span><br><span class="line">        parent = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">        size = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">        <span class="built_in">init</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ~<span class="built_in">dsu</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] parent;</span><br><span class="line">        <span class="keyword">delete</span>[] size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            parent[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;  <span class="comment">// 每个集合初始大小为1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">ffind</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parent[x] != x) &#123;</span><br><span class="line">            parent[x] = <span class="built_in">ffind</span>(parent[x]);  <span class="comment">// 路径压缩</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[x];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">uunion</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> rootA = <span class="built_in">ffind</span>(a);</span><br><span class="line">        <span class="type">int</span> rootB = <span class="built_in">ffind</span>(b);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (rootA == rootB) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 按大小合并，小的合并到大的</span></span><br><span class="line">        <span class="keyword">if</span> (size[rootA] &lt; size[rootB]) &#123;</span><br><span class="line">            parent[rootA] = rootB;</span><br><span class="line">            size[rootB] += size[rootA];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            parent[rootB] = rootA;</span><br><span class="line">            size[rootA] += size[rootB];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isUnion</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">ffind</span>(a) == <span class="built_in">ffind</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSize</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size[<span class="built_in">ffind</span>(x)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 延迟斐波那契随机数生成器</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LaggedFibonacciGenerator</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; S;</span><br><span class="line">    <span class="type">int</span> k;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LaggedFibonacciGenerator</span>() &#123;</span><br><span class="line">        S.<span class="built_in">resize</span>(<span class="number">56</span>, <span class="number">0</span>);  <span class="comment">// 使用1-based索引</span></span><br><span class="line">        k = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        k++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (k &lt;= <span class="number">55</span>) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> k3 = (<span class="type">long</span> <span class="type">long</span>)k * k * k;</span><br><span class="line">            S[k] = (<span class="number">100003LL</span> - <span class="number">200003LL</span> * k + <span class="number">300007LL</span> * k3) % <span class="number">1000000LL</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 确保有足够的元素</span></span><br><span class="line">            <span class="keyword">if</span> (k &gt;= S.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                S.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            S[k] = (S[k - <span class="number">24</span>] + S[k - <span class="number">55</span>]) % <span class="number">1000000LL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> S[k];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        S.<span class="built_in">clear</span>();</span><br><span class="line">        S.<span class="built_in">resize</span>(<span class="number">56</span>, <span class="number">0</span>);</span><br><span class="line">        k = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> TOTAL_USERS = <span class="number">1000000</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> PRIME_MINISTER = <span class="number">524287</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">double</span> TARGET_PERCENTAGE = <span class="number">0.99</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> TARGET_COUNT = TOTAL_USERS * TARGET_PERCENTAGE;</span><br><span class="line">    </span><br><span class="line">    <span class="function">dsu <span class="title">uf</span><span class="params">(TOTAL_USERS)</span></span>;</span><br><span class="line">    LaggedFibonacciGenerator generator;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> successfulCalls = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> currentCall = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 用于去重，防止重复初始化</span></span><br><span class="line">    <span class="type">bool</span> initialized = <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        currentCall++;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取呼叫者和接听者</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> caller = generator.<span class="built_in">next</span>();  <span class="comment">// S_&#123;2n-1&#125;</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> called = generator.<span class="built_in">next</span>();  <span class="comment">// S_&#123;2n&#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如果呼叫者和接听者相同，呼叫失败</span></span><br><span class="line">        <span class="keyword">if</span> (caller == called) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        successfulCalls++;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 将两个用户合并到同一个朋友圈</span></span><br><span class="line">        uf.<span class="built_in">uunion</span>(caller, called);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 检查首相所在集合的大小</span></span><br><span class="line">        <span class="type">int</span> pmGroupSize = uf.<span class="built_in">getSize</span>(PRIME_MINISTER);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 输出进度（可选，每10000次成功呼叫输出一次）</span></span><br><span class="line">        <span class="keyword">if</span> (successfulCalls % <span class="number">10000</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;成功呼叫次数: &quot;</span> &lt;&lt; successfulCalls </span><br><span class="line">                 &lt;&lt; <span class="string">&quot;, 首相朋友圈大小: &quot;</span> &lt;&lt; pmGroupSize </span><br><span class="line">                 &lt;&lt; <span class="string">&quot; (&quot;</span> &lt;&lt; (<span class="number">100.0</span> * pmGroupSize / TOTAL_USERS) &lt;&lt; <span class="string">&quot;%)&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 检查是否达到目标</span></span><br><span class="line">        <span class="keyword">if</span> (pmGroupSize &gt;= TARGET_COUNT) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;\n达到目标!&quot;</span> &lt;&lt; endl;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;成功呼叫次数: &quot;</span> &lt;&lt; successfulCalls &lt;&lt; endl;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;首相朋友圈大小: &quot;</span> &lt;&lt; pmGroupSize &lt;&lt; endl;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;占总用户比例: &quot;</span> &lt;&lt; (<span class="number">100.0</span> * pmGroupSize / TOTAL_USERS) &lt;&lt; <span class="string">&quot;%&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">## 关键点说明：</span><br><span class="line"></span><br><span class="line">1. **并查集优化**：</span><br><span class="line">   - 添加了`size`数组来跟踪每个集合的大小</span><br><span class="line">   - 实现了按大小合并的优化策略</span><br><span class="line">   - 在`getSize()`方法中可以快速获取首相所在集合的大小</span><br><span class="line"></span><br><span class="line">2. **延迟斐波那契生成器**：</span><br><span class="line">   - 实现了题目中描述的随机数生成器</span><br><span class="line">   - 使用`long long`防止整数溢出</span><br><span class="line">   - 正确实现了递推关系</span><br><span class="line"></span><br><span class="line">3. **主逻辑**：</span><br><span class="line">   - 只有当呼叫者和接听者不同时才认为是成功呼叫</span><br><span class="line">   - 每次成功呼叫后合并两个用户的集合</span><br><span class="line">   - 检查首相所在集合的大小是否达到总用户数的99%</span><br><span class="line">   - 添加了进度显示，可以观察程序运行过程</span><br><span class="line"></span><br><span class="line">4. **效率考虑**：</span><br><span class="line">   - 并查集操作的时间复杂度接近O(1)</span><br><span class="line">   - 每次只检查首相所在集合的大小，不需要遍历所有用户</span><br><span class="line">   - 内存使用合理（约8MB用于并查集）</span><br><span class="line"></span><br><span class="line">这个程序会持续运行，直到首相的朋友圈达到总用户数的99%，然后输出所需的成功呼叫次数。根据题目难度，这个次数可能会比较大，程序需要运行一段时间。</span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<ol>
+<li>
+<p>降智之后的GPT给的代码RE了,原因不明.</p>
+</li>
+<li>
+<p>Flu认为ds的v模型给的废话很多,总是&quot;生成测试代码&quot;之类的,一个简单需求能返回一堆代码吓死人.<br>
+但是写一些小代码挺好使的.<br>
+GPT和阶么奈适合写一些难的代码.</p>
+</li>
+</ol>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

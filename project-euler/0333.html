@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vibe Coding. User 1234567891011121314151617181920212223242526272829303132特殊分划所有的正整数可以进行如下的分划；分划的每一项都能表示成2i×3j，其中i,j ≥ 0。进一步地，我们只考虑任意一项不能整除其它项的分划。例如，分划17 &#x3D; 2 + 6 + 9 &#x3D; (21×30 + 21×31 + 20×32)是不合理的，因为2可">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0333">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0333.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Vibe Coding. User 1234567891011121314151617181920212223242526272829303132特殊分划所有的正整数可以进行如下的分划；分划的每一项都能表示成2i×3j，其中i,j ≥ 0。进一步地，我们只考虑任意一项不能整除其它项的分划。例如，分划17 &#x3D; 2 + 6 + 9 &#x3D; (21×30 + 21×31 + 20×32)是不合理的，因为2可">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:19:11.668Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0333</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>Vibe Coding.</p>
+<h2 id="User">User</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">特殊分划</span><br><span class="line"></span><br><span class="line">所有的正整数可以进行如下的分划；分划的每一项都能表示成2i×3j，其中i,j ≥ 0。</span><br><span class="line"></span><br><span class="line">进一步地，我们只考虑任意一项不能整除其它项的分划。</span><br><span class="line">例如，分划17 = 2 + 6 + 9 = (21×30 + 21×31 + 20×32)是不合理的，因为2可以整除6。分划17 = 16 + 1 = (24×30 + 20×30)同样是不合理的，因为1可以整除16。对17唯一合理的分划为8 + 9 = (23×30 + 20×32)。</span><br><span class="line"></span><br><span class="line">许多整数都有不止一种合理的分划，其中最小的为11，有如下两种分划。</span><br><span class="line">11 = 2 + 9 = (21×30 + 20×32)</span><br><span class="line">11 = 8 + 3 = (23×30 + 20×31)</span><br><span class="line"></span><br><span class="line">我们记P(n)为对n合理的分划数目。例如，P(11) = 2。</span><br><span class="line"></span><br><span class="line">再进一步，我们只考虑只有一种合理分划的素数q，如P(17)=1。</span><br><span class="line"></span><br><span class="line">所有使得P(q)=1的素数q &lt;100之和是233。</span><br><span class="line"></span><br><span class="line">求所有使得P(q)=1的素数q &lt;1000000之和。</span><br><span class="line"></span><br><span class="line">我的思路:</span><br><span class="line">不被整除的条件可以生成一个数列:</span><br><span class="line">num=2^&#123;a_1&#125;3^&#123;b_1&#125;+2^&#123;a_2&#125;3^&#123;b_2&#125;+...</span><br><span class="line">其中a必须严格递增,b要严格递减</span><br><span class="line"></span><br><span class="line">可以用一个类似背包dp的东西记录,设dp[i][2]是i这个数字能被表示的时候2和3的次幂值(所有能遍历到i的不重的情况),我们按照2降3升的顺序去枚举,显然2越大3越小的时候是最佳的,同时记录cnt[i]表示i这个数字被遍历过的次数,有多个解只取两个最优的即可.</span><br><span class="line"></span><br><span class="line">重头戏是转移的步骤:我们初始只给2^x3^0的数字赋值:cnt+=1,dp[2^x].push_back(&#123;x,0&#125;),然后维护一个队列,每次用i j代表新的2 3的次幂,保证i比x小,j比上一个转移的数字(在我这个例子里是0)大,然后入队.</span><br><span class="line"></span><br><span class="line">如果最优的两个解被更新才会再被加入队列重复更新.</span><br><span class="line"></span><br><span class="line">最后用欧拉筛计算一下区间内有多少个质数,同时统计答案.</span><br><span class="line">我给你一个欧拉筛的参考实现:</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>   vis[<span class="number">1000010</span>];<span class="comment">//存最小质因数,负的表示质数表中的位置(负的)</span></span><br><span class="line"><span class="type">int</span>  p[<span class="number">100010</span>],ptop=<span class="number">0</span>;<span class="comment">//存质数 </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sieve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;<span class="comment">//[1,n]</span></span><br><span class="line">	<span class="type">int</span> tmp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])&#123;</span><br><span class="line">			vis[i]=-(++ptop);</span><br><span class="line">			p[ptop]=i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=ptop&amp;&amp;i*p[j]&lt;=n;++j)&#123;</span><br><span class="line">			vis[i*p[j]]=p[j];</span><br><span class="line">			<span class="keyword">if</span>(i%p[j]==<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="GPT">GPT</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> uchar = <span class="type">unsigned</span> <span class="type">char</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> LIMIT = <span class="number">1000000</span>; <span class="comment">// consider primes q &lt; LIMIT</span></span><br><span class="line">    <span class="comment">// 1) generate all numbers of form 2^i * 3^j &lt; LIMIT grouped by i</span></span><br><span class="line">    vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; by_i; <span class="comment">// for each i: list of (j, value)</span></span><br><span class="line">    <span class="type">int</span> max_i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((<span class="number">1u</span>&lt;&lt;max_i) &lt; (<span class="type">unsigned</span>)LIMIT) ++max_i; <span class="comment">// (1&lt;&lt;max_i) &gt;= LIMIT</span></span><br><span class="line">    <span class="comment">// ensure max_i covers all i with 2^i &lt;= LIMIT</span></span><br><span class="line">    <span class="comment">// but we want i from 0 .. max_i-1</span></span><br><span class="line">    by_i.<span class="built_in">assign</span>(max_i, &#123;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;max_i;++i)&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> pow2 = <span class="number">1LL</span>&lt;&lt;i;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> val = pow2;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(val &lt; LIMIT)&#123;</span><br><span class="line">            by_i[i].<span class="built_in">push_back</span>(&#123;j, (<span class="type">int</span>)val&#125;);</span><br><span class="line">            ++j;</span><br><span class="line">            val = pow2;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">0</span>;t&lt;j; ++t) val *= <span class="number">3</span>; <span class="comment">// slow but j small; we&#x27;ll fix below</span></span><br><span class="line">            <span class="comment">// but above is incorrect (recomputes). We&#x27;ll instead multiply progressively below.</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Re-generate correctly: for each i, multiply by powers of 3</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;max_i;++i) by_i[i].<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;max_i;++i)&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> pow2 = <span class="number">1LL</span>&lt;&lt;i;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> v = pow2;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(v &lt; LIMIT)&#123;</span><br><span class="line">            by_i[i].<span class="built_in">push_back</span>(&#123;j,(<span class="type">int</span>)v&#125;);</span><br><span class="line">            ++j;</span><br><span class="line">            v *= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// find max_j across all</span></span><br><span class="line">    <span class="type">int</span> max_j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;vec: by_i) <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;pr: vec) max_j = <span class="built_in">max</span>(max_j, pr.first);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// We&#x27;ll do DP over i (0..max_i-1). State: prev_j index (0..max_j) or special prev = max_j+1 meaning &quot;no previous&quot;.</span></span><br><span class="line">    <span class="type">int</span> PSTATE = max_j + <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> MAXS = LIMIT; <span class="comment">// sums 0..LIMIT-1</span></span><br><span class="line">    <span class="comment">// use two layers of uchar arrays (saturated at 2)</span></span><br><span class="line">    <span class="function">vector&lt;uchar&gt; <span class="title">dp_prev</span><span class="params">((<span class="type">size_t</span>)PSTATE * MAXS)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;uchar&gt; <span class="title">dp_next</span><span class="params">((<span class="type">size_t</span>)PSTATE * MAXS)</span></span>;</span><br><span class="line">    <span class="keyword">auto</span> idx = [&amp;](<span class="type">int</span> prev, <span class="type">int</span> s)&#123; <span class="keyword">return</span> prev * MAXS + s; &#125;;</span><br><span class="line">    <span class="type">int</span> NO_PREV = PSTATE - <span class="number">1</span>;</span><br><span class="line">    dp_prev[<span class="built_in">idx</span>(NO_PREV,<span class="number">0</span>)] = <span class="number">1</span>; <span class="comment">// one way to have sum 0 with no previous chosen</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// iterate i</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;max_i;++i)&#123;</span><br><span class="line">        <span class="comment">// start dp_next as copy of dp_prev (option: skip this i)</span></span><br><span class="line">        dp_next = dp_prev; <span class="comment">// copy</span></span><br><span class="line">        <span class="comment">// for each possible previous state prev_p and for each allowed choice j in by_i[i] with j &lt; prev_p</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> prev_p=<span class="number">0</span>; prev_p&lt;PSTATE; ++prev_p)&#123;</span><br><span class="line">            <span class="comment">// optimization: skip if whole row is zero</span></span><br><span class="line">            <span class="type">bool</span> row_nonzero = <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> base = prev_p * MAXS;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> s=<span class="number">0</span>;s&lt;MAXS; ++s)&#123; <span class="keyword">if</span>(dp_prev[base + s])&#123; row_nonzero = <span class="literal">true</span>; <span class="keyword">break</span>; &#125; &#125;</span><br><span class="line">            <span class="keyword">if</span>(!row_nonzero) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;pr: by_i[i])&#123;</span><br><span class="line">                <span class="type">int</span> j = pr.first;</span><br><span class="line">                <span class="type">int</span> val = pr.second;</span><br><span class="line">                <span class="keyword">if</span>(prev_p != NO_PREV &amp;&amp; j &gt;= prev_p) <span class="keyword">continue</span>; <span class="comment">// must have j &lt; prev_p</span></span><br><span class="line">                <span class="comment">// add transitions: for all s where dp_prev[prev_p][s] &gt;0, add to dp_next[j][s+val]</span></span><br><span class="line">                <span class="type">int</span> dst_base = j * MAXS;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> s=<span class="number">0</span>; s + val &lt; MAXS; ++s)&#123;</span><br><span class="line">                    uchar ways = dp_prev[base + s];</span><br><span class="line">                    <span class="keyword">if</span>(!ways) <span class="keyword">continue</span>;</span><br><span class="line">                    uchar &amp;dst = dp_next[dst_base + s + val];</span><br><span class="line">                    <span class="type">int</span> sum = dst + ways;</span><br><span class="line">                    dst = (sum &gt;= <span class="number">2</span> ? <span class="number">2</span> : sum); <span class="comment">// saturate at 2</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        dp_prev.<span class="built_in">swap</span>(dp_next);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Now for each sum n (1..LIMIT-1) compute total ways P(n) = sum over prev states of dp_prev[prev][n]</span></span><br><span class="line">    <span class="function">vector&lt;uchar&gt; <span class="title">Pcount</span><span class="params">(MAXS)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> prev=<span class="number">0</span>; prev&lt;PSTATE; ++prev)&#123;</span><br><span class="line">        <span class="type">int</span> base = prev * MAXS;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> s=<span class="number">1</span>;s&lt;MAXS;++s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp_prev[base + s])&#123;</span><br><span class="line">                <span class="type">int</span> sum = Pcount[s] + dp_prev[base + s];</span><br><span class="line">                Pcount[s] = (sum &gt;= <span class="number">2</span> ? <span class="number">2</span> : sum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// sieve primes &lt; LIMIT (Euler sieve provided by user adapted)</span></span><br><span class="line">    <span class="type">int</span> n = LIMIT - <span class="number">1</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vis</span><span class="params">(LIMIT+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; primes; primes.<span class="built_in">reserve</span>(<span class="number">80000</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])&#123; vis[i] = -((<span class="type">int</span>)primes.<span class="built_in">size</span>()+<span class="number">1</span>); primes.<span class="built_in">push_back</span>(i); &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">size_t</span> j=<span class="number">0</span>;j&lt;primes.<span class="built_in">size</span>(); ++j)&#123;</span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> t = <span class="number">1LL</span> * i * primes[j];</span><br><span class="line">            <span class="keyword">if</span>(t&gt;n) <span class="keyword">break</span>;</span><br><span class="line">            vis[t] = primes[j];</span><br><span class="line">            <span class="keyword">if</span>(i % primes[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> answer = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> p: primes)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p &gt;= LIMIT) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(Pcount[p] == <span class="number">1</span>) answer += p;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; answer &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">我在画布上为你写好了一个 **可直接编译运行的 C++ 程序**（文件名：Count Pq Unique Prime Sum）。它实现了你思路的动态规划 —— 按 2 的幂次 i 从小到大枚举，每个 i 上最多选一个 3 的幂次 j，且保证所选 j 严格递减；把方案计数饱和到 2（只需要知道 0 / 1 / ≥2），最后用欧拉筛找出 &lt;1,000,000 的素数并把那些 P(q)=1 的素数相加输出总和。</span><br><span class="line"></span><br><span class="line">主要要点和实现细节（简短）：</span><br><span class="line"></span><br><span class="line">* 将所有 `2^i * 3^j &lt; 1e6` 的数按 i 分组（每个 i 上是若干 j）。</span><br><span class="line">* DP 状态为 `(prev_j, sum)`，其中 `prev_j` 表示上一次选择的 j（或特殊值表示还没选过），对 i 逐个转移：不选 i（状态保留），或在 i 上选一个 j（要求 j &lt; prev_j）并将和加上对应值。</span><br><span class="line">* 为节省空间和判断多解，只把计数用 `unsigned char` 存并对每项饱和到 2（0,1,&gt;=2）。</span><br><span class="line">* 最后把每个和 n 的所有 `prev_j` 状态累加（仍饱和到 2），得到 P(n) 的 0/1/≥2 分类，然后欧拉筛出素数并累加那些 P(q)==1 的质数。</span><br><span class="line">* 程序末尾直接输出所求的和（`long long` 打印）。</span><br><span class="line"></span><br><span class="line">我已经把完整代码放在画布（文本文件）里：**Count Pq Unique Prime Sum**。你可以直接把它保存为 `.cpp` 编译并运行（例如 `g++ -O2 -std=c++17 CountPq.cpp &amp;&amp; ./a.out`）。如果你希望我把代码优化得更快（例如进一步减少常数、改成位操作、或改用更快的稀疏转移方式），我可以直接在画布里给出改进版（已准备好，不需要你再重复任何细节）。</span><br><span class="line"></span><br><span class="line">要我现在把程序改为：</span><br><span class="line"></span><br><span class="line">* 输出每个满足 P(q)=1 的素数列表（除了总和）？</span><br><span class="line">* 或把上界改成别的值（例如 `10^7`）并估计时间/内存？</span><br><span class="line">  告诉我你的偏好，我会直接在画布上更新代码并说明预期影响。</span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<p>Flu觉得这个题更新答案的步骤挺麻烦的,但是GPT写对了,而且跑了2800ms,很快,出乎意料.</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

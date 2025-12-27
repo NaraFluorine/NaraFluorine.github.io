@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="UML图一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数+ public- private# protected- products:List&lt;Product&gt;函数:+ walk(参数):void&#x3D;默认返回值   单向关联:实线箭头,单方向持有对象(每个人都有一张船票)双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个顾客买了)自">
+    <meta name="description" content="UML图 一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数 + public - private # protected - products:List&lt;Product&gt; 函数: + walk(参数):void&#x3D;默认返回值 单向关联:实线箭头,单方向持有对象(每个人都有一张船票) 双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/2025/11/22/00015_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="UML图一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数+ public- private# protected- products:List&lt;Product&gt;函数:+ walk(参数):void&#x3D;默认返回值   单向关联:实线箭头,单方向持有对象(每个人都有一张船票)双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个顾客买了)自">
+<meta property="og:description" content="UML图 一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数 + public - private # protected - products:List&lt;Product&gt; 函数: + walk(参数):void&#x3D;默认返回值 单向关联:实线箭头,单方向持有对象(每个人都有一张船票) 双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-22T11:49:17.493Z">
 <meta property="article:modified_time" content="2025-12-03T08:05:51.104Z">
@@ -178,16 +178,54 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="UML图"><a href="#UML图" class="headerlink" title="UML图"></a>UML图</h2><p>一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数<br><code>+</code> public<br><code>-</code> private<br><code>#</code> protected<br><code>- products:List&lt;Product&gt;</code><br>函数:<br><code>+ walk(参数):void=默认返回值</code>  </p>
-<p>单向关联:实线箭头,单方向持有对象(每个人都有一张船票)<br>双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个顾客买了)<br>自关联:一根实线箭头自己指向自己(point类内部有一个point对象)</p>
-<p>强调”整体-部分”的关系(不一定非得持有多个部分的变量)<br>聚合关系:空心菱形+实线(菱形部位是多的),一个部门有很多员工(<code>-List&lt;Workers&gt;</code>),所以用聚合(部门与劳工的关系)<br>组合关系:实心菱形+实线,表示更强烈的聚合关系,一但整体对象不存在,那么部分对象也不会存在(身体与器官的关系)  </p>
-<p>依赖关系:虚线箭头,某个类的函数通过局部变量,或函数传递的参数是另一个类(人读书,书是一个对象,但是人只有”读”的函数和书有关,所以只构成依赖关系.)<br>继承关系:实线三角箭头(子类指向父类)耦合度最大的一种关系(你先是一个人才是一个学生,那么学生类继承”人类”)<br>实现关系:虚线三角箭头(实现的指向被实现的)某个类实现某个接口的时候可以用</p>
-<p>耦合度:泛化(继承)/实现&gt;组合&gt;聚合&gt;关联&gt;依赖<br>方法(函数)应向父类集中,数据应向子类集中(保持抽象)</p>
-<h2 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a>创建模式</h2><p>简单工厂模式:一个工厂生产好多产品<br>工厂方法模式:多个工厂生产<strong>一个产品族</strong><br>抽象工厂模式:多个工厂生产多个产品族(产品族:安卓手机苹果手机是一个产品族)<br>建造者模式:侧重构建一个复杂对象<br>原型模式:强调通过复制去创建对象(频繁创建等 )<br>单例模式:只有一个对象  </p>
-<p>类创建型模式： 将对象创建的工作推迟到子类。它使用继承来改变被实例化的类。<br>典型代表：工厂方法模式</p>
-<p>对象创建型模式： 将对象创建的工作委托给另一个对象。它使用对象组合来负责创建。<br>典型代表：抽象工厂模式、建造者模式、原型模式</p>
-<h2 id="结构模式"><a href="#结构模式" class="headerlink" title="结构模式"></a>结构模式</h2><p>适配器模式:转换接口<br>桥接模式:分离抽象和实现(强调多维度变化)<br>组合模式:(把一组相似的结构当成一个单一的结构)树形结构(菜单),抽象构件类(自组合,箭头指向自己)<br>装饰器模式:增强一个类,包装原有类,提供额外功能<br>外观模式:多个复杂功能提供一个一致的接口(减少对象的依赖,迪米特原则的应用)<br>享元模式:可以被多处复用的对象(五子棋只需要加载黑白两个棋子的图片然后通过享元进行绘制棋盘)<br>代理模式:客户不需要知道真实主体的存在,和代理交互即可(控制对象访问,租房找中介不找房东)eg:windows快捷方式.</p>
-<h2 id="行为模式"><a href="#行为模式" class="headerlink" title="行为模式"></a>行为模式</h2><p>职责链模式:用户不需要知道是谁执行这个请求.Handler(interface)自己到自己是一个空心菱形,分化出来两个handler(虚线箭头),然后用户直接使用handler1/2即可.<br>命令模式:根据不同的需求选择不同对象实现(比如交500返回安卓手机,交1000块钱返回苹果手机)<br>中介者模式:减少混乱依赖关系优化建图,为了维持联通,原先 $n^2$ 条边在引入中介后变成 $n$ 条边.<br>备忘录模式:用于保存和恢复对象状态<br>观察者模式:强调触发(触发链也是可以的,A触发B,B触发C…)<br>模板方法模式:类模式(允许在父类中定义一系列算法框架,然后子类机场提供具体实现)<br>迭代器模式:实现 <code>xx&lt;xx&gt;::iterator</code> 的模式<br>状态模式:好多具体状态实现箭头一个抽象状态(比如游戏角色的不同状态)<br>策略模式:根据不同的情况选择完全不同策略实现(注意:不同策略但是函数相同)(表现为好多个函数虚线箭头指向一个类)  </p>
+    <h2 id="UML图">UML图</h2>
+<p>一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数<br>
+<code>+</code> public<br>
+<code>-</code> private<br>
+<code>#</code> protected<br>
+<code>- products:List&lt;Product&gt;</code><br>
+函数:<br>
+<code>+ walk(参数):void=默认返回值</code></p>
+<p>单向关联:实线箭头,单方向持有对象(每个人都有一张船票)<br>
+双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个顾客买了)<br>
+自关联:一根实线箭头自己指向自己(point类内部有一个point对象)</p>
+<p>强调&quot;整体-部分&quot;的关系(不一定非得持有多个部分的变量)<br>
+聚合关系:空心菱形+实线(菱形部位是多的),一个部门有很多员工(<code>-List&lt;Workers&gt;</code>),所以用聚合(部门与劳工的关系)<br>
+组合关系:实心菱形+实线,表示更强烈的聚合关系,一但整体对象不存在,那么部分对象也不会存在(身体与器官的关系)</p>
+<p>依赖关系:虚线箭头,某个类的函数通过局部变量,或函数传递的参数是另一个类(人读书,书是一个对象,但是人只有&quot;读&quot;的函数和书有关,所以只构成依赖关系.)<br>
+继承关系:实线三角箭头(子类指向父类)耦合度最大的一种关系(你先是一个人才是一个学生,那么学生类继承&quot;人类&quot;)<br>
+实现关系:虚线三角箭头(实现的指向被实现的)某个类实现某个接口的时候可以用</p>
+<p>耦合度:泛化(继承)/实现&gt;组合&gt;聚合&gt;关联&gt;依赖<br>
+方法(函数)应向父类集中,数据应向子类集中(保持抽象)</p>
+<h2 id="创建模式">创建模式</h2>
+<p>简单工厂模式:一个工厂生产好多产品<br>
+工厂方法模式:多个工厂生产<strong>一个产品族</strong><br>
+抽象工厂模式:多个工厂生产多个产品族(产品族:安卓手机苹果手机是一个产品族)<br>
+建造者模式:侧重构建一个复杂对象<br>
+原型模式:强调通过复制去创建对象(频繁创建等 )<br>
+单例模式:只有一个对象</p>
+<p>类创建型模式： 将对象创建的工作推迟到子类。它使用继承来改变被实例化的类。<br>
+典型代表：工厂方法模式</p>
+<p>对象创建型模式： 将对象创建的工作委托给另一个对象。它使用对象组合来负责创建。<br>
+典型代表：抽象工厂模式、建造者模式、原型模式</p>
+<h2 id="结构模式">结构模式</h2>
+<p>适配器模式:转换接口<br>
+桥接模式:分离抽象和实现(强调多维度变化)<br>
+组合模式:(把一组相似的结构当成一个单一的结构)树形结构(菜单),抽象构件类(自组合,箭头指向自己)<br>
+装饰器模式:增强一个类,包装原有类,提供额外功能<br>
+外观模式:多个复杂功能提供一个一致的接口(减少对象的依赖,迪米特原则的应用)<br>
+享元模式:可以被多处复用的对象(五子棋只需要加载黑白两个棋子的图片然后通过享元进行绘制棋盘)<br>
+代理模式:客户不需要知道真实主体的存在,和代理交互即可(控制对象访问,租房找中介不找房东)eg:windows快捷方式.</p>
+<h2 id="行为模式">行为模式</h2>
+<p>职责链模式:用户不需要知道是谁执行这个请求.Handler(interface)自己到自己是一个空心菱形,分化出来两个handler(虚线箭头),然后用户直接使用handler1/2即可.<br>
+命令模式:根据不同的需求选择不同对象实现(比如交500返回安卓手机,交1000块钱返回苹果手机)<br>
+中介者模式:减少混乱依赖关系优化建图,为了维持联通,原先 $n^2$ 条边在引入中介后变成 $n$ 条边.<br>
+备忘录模式:用于保存和恢复对象状态<br>
+观察者模式:强调触发(触发链也是可以的,A触发B,B触发C…)<br>
+模板方法模式:类模式(允许在父类中定义一系列算法框架,然后子类机场提供具体实现)<br>
+迭代器模式:实现 <code>xx&lt;xx&gt;::iterator</code> 的模式<br>
+状态模式:好多具体状态实现箭头一个抽象状态(比如游戏角色的不同状态)<br>
+策略模式:根据不同的情况选择完全不同策略实现(注意:不同策略但是函数相同)(表现为好多个函数虚线箭头指向一个类)</p>
 
   </div>
 </article>
@@ -265,6 +303,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

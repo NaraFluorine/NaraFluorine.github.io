@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="GPT秒了. User 12345678910111213数的超幂数a的正整数b次超幂或迭代幂次，记作a↑↑b或ba，按照如下方式递归定义：a↑↑1 &#x3D; a,a↑↑(k+1) &#x3D; a^(a↑↑k).举例来说，3↑↑2 &#x3D; 3^3 &#x3D; 27，因此3↑↑3 &#x3D; 3^&#123;27&#125; &#x3D; 7625597484987，而3↑↑4约为10^&#123;3.6383346400240996*10^">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0188">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0188.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="GPT秒了. User 12345678910111213数的超幂数a的正整数b次超幂或迭代幂次，记作a↑↑b或ba，按照如下方式递归定义：a↑↑1 &#x3D; a,a↑↑(k+1) &#x3D; a^(a↑↑k).举例来说，3↑↑2 &#x3D; 3^3 &#x3D; 27，因此3↑↑3 &#x3D; 3^&#123;27&#125; &#x3D; 7625597484987，而3↑↑4约为10^&#123;3.6383346400240996*10^">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:12:16.234Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0188</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>GPT秒了.</p>
+<h2 id="User">User</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">数的超幂</span><br><span class="line"></span><br><span class="line">数a的正整数b次超幂或迭代幂次，记作a↑↑b或ba，按照如下方式递归定义：</span><br><span class="line"></span><br><span class="line">a↑↑1 = a,</span><br><span class="line">a↑↑(k+1) = a^(a↑↑k).</span><br><span class="line"></span><br><span class="line">举例来说，3↑↑2 = 3^3 = 27，因此3↑↑3 = 3^&#123;27&#125; = 7625597484987，而3↑↑4约为10^&#123;3.6383346400240996*10^&#123;12&#125;&#125;。</span><br><span class="line"></span><br><span class="line">求1777↑↑1855的最后8位数字。</span><br><span class="line">我的思路:</span><br><span class="line">不停的使用欧拉定理,对mod取很多次mod,直到phi变成1为止,使用快速幂递归处理即可.</span><br><span class="line">模数很小,可以暴力求欧拉函数.</span><br></pre></td></tr></table></figure>
+<h2 id="GPT">GPT</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">好 —— 我算过了，结论是：</span><br><span class="line"></span><br><span class="line">**1777↑↑1855 的最后 8 位是 `95962097`。**</span><br><span class="line"></span><br><span class="line">下面把用到的算法思路与关键细节简要说明（中文）：</span><br><span class="line"></span><br><span class="line">1. 记要算的数为 (A_1=1777)，高度为 (H=1855)，即</span><br><span class="line">   [</span><br><span class="line">   A_H = \underbrace&#123;1777^&#123;1777^&#123;\cdot^&#123;\cdot^&#123;1777&#125;&#125;&#125;&#125;&#125;_&#123;\text&#123;高度 &#125;1855&#125;.</span><br><span class="line">   ]</span><br><span class="line">   我们要算 (A_H \bmod 10^8)。</span><br><span class="line"></span><br><span class="line">2. 令 (m_0=10^8)，对模 (m) 使用 Euler 函数 (\varphi(m)) 构造模链</span><br><span class="line">   (m_0,m_1=\varphi(m_0),m_2=\varphi(m_1),\dots) 直到到达 (1)。</span><br><span class="line">   对 (10^8) 这条链为： (100000000,40000000,16000000,\dots,2,1)（长度远小于 1855）。</span><br><span class="line"></span><br><span class="line">3. 递归地从上往下计算（高度减小时把模换成 (\varphi(\cdot))）：</span><br><span class="line"></span><br><span class="line">   * 若当前模 (m=1)，则任何数模 (1) 为 (0)；</span><br><span class="line">   * 若高度为 1，直接取 (1777 \bmod m)；</span><br><span class="line">   * 否则先递归得到指数 (E) 关于模 (\varphi(m)) 的“模值”和一个标记 `is_large`（表示真实的指数是否至少 (\varphi(m))）。</span><br><span class="line"></span><br><span class="line">     * 若真实指数 (\ge \varphi(m))，按欧拉定理需把指数缩减为 (E_&#123;\bmod\varphi(m)&#125;+\varphi(m))（即在模 (\varphi(m)) 的余数上加上 (\varphi(m))）再作为幂的指数；</span><br><span class="line">     * 否则直接用真实的指数（即 (\ &lt;\varphi(m)) 的小整数）计算幂的模。</span><br><span class="line">       这个标记 `is_large` 能通过递归向下的比较（或者用对数判断 (a^E) 是否已超过当前模）来可靠得到。</span><br><span class="line"></span><br><span class="line">4. 由于底数 (1777) 与 (10^8) 互质，上述通过 (\varphi) 链进行的“模化并在必要时加上 (\varphi)”的做法是正确且充足的。</span><br><span class="line"></span><br><span class="line">我用上述方法（同时在递归中用对数判断小指数是否足以使 (a^E\ge m)）实现并计算，得到最终结果 `95962097`（恰好 8 位）。</span><br><span class="line"></span><br><span class="line">如果你想，我可以把用于验证与计算的 Python 实现贴出来，或者一步步展示模链与部分中间值供你检查。要看代码吗？</span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<p>GPT内置agent有py,但是ds没有,导致ds往往预测输出的时候全在瞎说,gpt会好一点.</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

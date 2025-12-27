@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="转载自Ujimatsu Chiya大佬. 令 $ N &#x3D; 10^{10} $。我们考虑这个问题的对立：$ N $ 以内有多少个数 $ n $，满足其最大的质因数 $ p $ 大于等于 $ n $ 的平方根？也就是说，$ p \geq \left\lfloor \frac{n}{p} \right\rfloor $。 假设质数集合为 $ P $。那么，考虑以每个质数 $ p $ 作为这个最大质因数，">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fluorine&#39;s blog">
+<meta property="og:title" content="pe-0668">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0668.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
 <meta property="og:description" content="转载自Ujimatsu Chiya大佬. 令 $ N &#x3D; 10^{10} $。我们考虑这个问题的对立：$ N $ 以内有多少个数 $ n $，满足其最大的质因数 $ p $ 大于等于 $ n $ 的平方根？也就是说，$ p \geq \left\lfloor \frac{n}{p} \right\rfloor $。 假设质数集合为 $ P $。那么，考虑以每个质数 $ p $ 作为这个最大质因数，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-15T22:12:29.901Z">
-<meta property="article:modified_time" content="2025-11-15T22:12:29.901Z">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:15:39.529Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="chaos">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
     
     
@@ -37,7 +37,7 @@
       
     
     <!-- title -->
-    <title>Fluorine&#39;s blog</title>
+    <title>pe-0668</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -124,9 +124,11 @@
 <p>令 $ N = 10^{10} $。我们考虑这个问题的对立：$ N $ 以内有多少个数 $ n $，满足其最大的质因数 $ p $ 大于等于 $ n $ 的平方根？也就是说，$ p \geq \left\lfloor \frac{n}{p} \right\rfloor $。</p>
 <p>假设质数集合为 $ P $。那么，考虑以每个质数 $ p $ 作为这个最大质因数，分开计算。那么，数 $ p, 2p, 3p, \ldots, (p - 1)p, p^2 $ 都是满足要求的数。</p>
 <p>因此，题目的答案为</p>
-<script type="math/tex; mode=display">N - \sum_{p \in P} \min \left( p, \left\lfloor \frac{N}{p} \right\rfloor \right) = N - \sum_{p \in P, p \leq \sqrt{N}} p - \sum_{p \in P, p > \sqrt{N}} \left\lfloor \frac{N}{p} \right\rfloor</script><p>对于式子的第二块，直接枚举 $\sqrt{N}$ 以内的质数并相加即可。</p>
+<p>$$N - \sum_{p \in P} \min \left( p, \left\lfloor \frac{N}{p} \right\rfloor \right) = N - \sum_{p \in P, p \leq \sqrt{N}} p - \sum_{p \in P, p &gt; \sqrt{N}} \left\lfloor \frac{N}{p} \right\rfloor$$</p>
+<p>对于式子的第二块，直接枚举 $\sqrt{N}$ 以内的质数并相加即可。</p>
 <p>对于式子的第三块，可以写成：</p>
-<script type="math/tex; mode=display">\sum_{p \in P, p > \sqrt{N}} \left| \frac{N}{p} \right| = \sum_{i=2}^{\lfloor \sqrt{N} \rfloor} \left( \pi \left( \frac{N}{i-1} \right) - \pi \left( \frac{N}{i} \right) \right) \cdot (i-1)</script><p>其中，$\pi(n)$ 是质数计数函数，即 $n$ 以内的质数个数。这条式子说明，有 $\pi \left( \frac{N}{i-1} \right) - \pi \left( \frac{N}{i} \right)$ 个质数 $p$ ,满足 $1 \sim N$ 中有 $i-1$ 个数是 $p$ 的倍数，它们的贡献为 $(i-1)$ 。</p>
+<p>$$\sum_{p \in P, p &gt; \sqrt{N}} \left| \frac{N}{p} \right| = \sum_{i=2}^{\lfloor \sqrt{N} \rfloor} \left( \pi \left( \frac{N}{i-1} \right) - \pi \left( \frac{N}{i} \right) \right) \cdot (i-1)$$</p>
+<p>其中，$\pi(n)$ 是质数计数函数，即 $n$ 以内的质数个数。这条式子说明，有 $\pi \left( \frac{N}{i-1} \right) - \pi \left( \frac{N}{i} \right)$ 个质数 $p$ ,满足 $1 \sim N$ 中有 $i-1$ 个数是 $p$ 的倍数，它们的贡献为 $(i-1)$ 。</p>
 <p>计算函数 $\pi$ 考虑使用<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LehmersFormula.html">Lehmer</a>公式帮助计算。</p>
 <p>代码不复制了.</p>
 <p>已严肃学习大佬 $O(\frac{n^{2/3}}{\log^2n})$ 的代码实现.</p>
@@ -144,6 +146,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

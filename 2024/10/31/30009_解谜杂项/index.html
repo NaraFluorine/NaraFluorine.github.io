@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="放一些小谜题. 蜘蛛竞走123456789B-x-x-x| | | |\x-x-x-x \| | | |\|A-x-x-x-x| | | |&#x2F;|x-x-x-x &#x2F;| | | |&#x2F;x-x-x-x 有这么一个网,A是你,B是你要追逐的对象.你先手,可以走到线另一端的x位置,同理B也可以沿着线游走.网格左边是5x4的矩形,网格右边连着一个度为5的大汇点.B判定为输当且仅当B无路可走,无路可走的定义是不存">
+    <meta name="description" content="CCBC等待补题.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解谜杂项">
 <meta property="og:url" content="https://narafluorine.github.io/2024/10/31/30009_%E8%A7%A3%E8%B0%9C%E6%9D%82%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="放一些小谜题. 蜘蛛竞走123456789B-x-x-x| | | |\x-x-x-x \| | | |\|A-x-x-x-x| | | |&#x2F;|x-x-x-x &#x2F;| | | |&#x2F;x-x-x-x 有这么一个网,A是你,B是你要追逐的对象.你先手,可以走到线另一端的x位置,同理B也可以沿着线游走.网格左边是5x4的矩形,网格右边连着一个度为5的大汇点.B判定为输当且仅当B无路可走,无路可走的定义是不存">
+<meta property="og:description" content="CCBC等待补题.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-31T00:18:38.000Z">
-<meta property="article:modified_time" content="2025-05-19T07:46:50.537Z">
+<meta property="article:modified_time" content="2025-12-22T14:17:38.091Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -137,10 +137,6 @@
     </div>
     
     
-      <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9C%98%E8%9B%9B%E7%AB%9E%E8%B5%B0"><span class="toc-number">1.</span> <span class="toc-text">蜘蛛竞走</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A5%9E%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">三神问题</span></a></li></ol>
-      </div>
-    
   </span>
 </div>
 
@@ -188,14 +184,7 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>放一些小谜题.</p>
-<h2 id="蜘蛛竞走"><a href="#蜘蛛竞走" class="headerlink" title="蜘蛛竞走"></a>蜘蛛竞走</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">B-x-x-x</span><br><span class="line">| | | |\</span><br><span class="line">x-x-x-x \</span><br><span class="line">| | | |\|</span><br><span class="line">A-x-x-x-x</span><br><span class="line">| | | |/|</span><br><span class="line">x-x-x-x /</span><br><span class="line">| | | |/</span><br><span class="line">x-x-x-x</span><br></pre></td></tr></table></figure>
-<p>有这么一个网,A是你,B是你要追逐的对象.你先手,可以走到线另一端的x位置,同理B也可以沿着线游走.网格左边是5x4的矩形,网格右边连着一个度为5的大汇点.B判定为输当且仅当B无路可走,无路可走的定义是不存在一条路径使移动之后距离A长度为1.</p>
-<p>我们发现,常规的拦截操作是无法拦住B的,你走一步他就能跑一步逃掉.如何破局呢?我们发现,初始时图上除了汇点之外,所有点可以按照奇偶关系涂两种颜色,相邻的点不同颜色,汇点不能涂任何颜色.初始时距离是偶数导致你移动变一种颜色B也会变一种颜色,导致你没法近身.此时,我们需要到汇点去刷自己的颜色,让他和B不一样,此时你能封住上下左三个方向的点,推进就能困死B,获得胜利.</p>
-<h2 id="三神问题"><a href="#三神问题" class="headerlink" title="三神问题"></a>三神问题</h2><p>三个神的贡品顺序你不知道(但是你知道贡品分别是给谁的),但是你可以向三个神随意提问,每次提问他们只会回答是或否.三神中一位只说真话,一位只说假话,还有一位可能说真话也可能说假话.而且,你不知道这个星球的语言,他们回答的 <code>YE5</code> 或者 <code>N0</code> 你不知道是对还是错的意思.如何区分他们以及贡品顺序呢?</p>
-<p>构造一个”通用的问题”,也就是说无论真假神都会说一样的话,比如 <em>你会一直说真话吗</em> 真会说真,假也会说真(他不会说真话,命题为假,但是他要说假话,所以也会说真)于是把真假和他们的语言建立了联系(变化神不用管他,肯定是说真的多),然后 <del>多提问几次把疯子去掉</del> 但是并不保险.</p>
-<p>有一个神奇做法是把逻辑和语言建立联系,如 <em>如果命题为真,你会回答 <code>YE5</code> 是吗</em> 真会说真,假也会说真,从而把真假建立了联系(可以看到,就算 <code>YE5</code> 是假的,回答也是一样的).然后我们的提问先从指认一个绝对不是变化神的人,然后辨明他自己是不是假神,以及不知道的那个是不是真神,问题完成.</p>
-<p>过程如下: <code>Q:如果左边那个是变化神,你会回答YE5吗</code> 如果回答是 <code>N0</code> :你不在和变化神交流的话,左边绝对不是变化神.如果你在和变化神交流的话,左边也肯定不是.如果答案是 <code>YE5</code> ,假如你还是在和变化神交流,那么左边右边都不是变化神,如果这个神不是变化神,右边就肯定不是变化神.综上,一个问题绝对能排除变化神.然后提问就简单了.</p>
+    <p>CCBC等待补题.</p>
 
   </div>
 </article>
@@ -230,10 +219,6 @@
 
     
     
-      <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9C%98%E8%9B%9B%E7%AB%9E%E8%B5%B0"><span class="toc-number">1.</span> <span class="toc-text">蜘蛛竞走</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A5%9E%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">三神问题</span></a></li></ol>
-      </div>
-    
 
     <div id="share-footer" style="display: none">
       <ul>
@@ -255,8 +240,6 @@
     <div id="actions-footer">
         <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
         
-          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        
         <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
         <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
     </div>
@@ -273,6 +256,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="二分听起来简单,实际上题看都看不出来… 为了根除这个祸患,Flu特立此专题. 例题 CF2037F 有好多怪物在坐标轴上,每个怪物有自己的血量,怪物不会动,你只能选一个点进行攻击,攻击伤害递减(如 1 2 3 2 1 这样递减的攻击,最中心是你的战力),给定战力求击杀k个怪物的最少攻击次数.  发现 攻击次数 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分.设攻击y次,战">
+    <meta name="description" content="二分听起来简单,实际上题看都看不出来… 为了根除这个祸患,Flu特立此专题. 例题  CF2037F 有好多怪物在坐标轴上,每个怪物有自己的血量,怪物不会动,你只能选一个点进行攻击,攻击伤害递减(如 1 2 3 2 1 这样递减的攻击,最中心是你的战力),给定战力求击杀k个怪物的最少攻击次数.  发现 攻击次数 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分. 设攻击y次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分">
 <meta property="og:url" content="https://narafluorine.github.io/2024/12/14/10032_%E4%BA%8C%E5%88%86/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="二分听起来简单,实际上题看都看不出来… 为了根除这个祸患,Flu特立此专题. 例题 CF2037F 有好多怪物在坐标轴上,每个怪物有自己的血量,怪物不会动,你只能选一个点进行攻击,攻击伤害递减(如 1 2 3 2 1 这样递减的攻击,最中心是你的战力),给定战力求击杀k个怪物的最少攻击次数.  发现 攻击次数 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分.设攻击y次,战">
+<meta property="og:description" content="二分听起来简单,实际上题看都看不出来… 为了根除这个祸患,Flu特立此专题. 例题  CF2037F 有好多怪物在坐标轴上,每个怪物有自己的血量,怪物不会动,你只能选一个点进行攻击,攻击伤害递减(如 1 2 3 2 1 这样递减的攻击,最中心是你的战力),给定战力求击杀k个怪物的最少攻击次数.  发现 攻击次数 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分. 设攻击y次">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-13T16:46:12.000Z">
 <meta property="article:modified_time" content="2025-04-25T19:00:36.869Z">
@@ -190,10 +190,12 @@
   <div class="content e-content" itemprop="articleBody">
     <p>二分听起来简单,实际上题看都看不出来…</p>
 <p>为了根除这个祸患,Flu特立此专题.</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ol>
+<h2 id="例题">例题</h2>
+<ol>
 <li>CF2037F 有好多怪物在坐标轴上,每个怪物有自己的血量,怪物不会动,你只能选一个点进行攻击,攻击伤害递减(如 1 2 3 2 1 这样递减的攻击,最中心是你的战力),给定战力求击杀k个怪物的最少攻击次数.</li>
 </ol>
-<p>发现 <strong>攻击次数</strong> 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分.<br>设攻击y次,战力为k,坐标是pos,对每一个点有 $y\max(0,m-|pos-x_i|)\ge h_i$ ,解方程得到 $\lceil\frac hy\rceil+x_i-m\le pos\le m-\lceil\frac hy\rceil+x_i$ 于是转化为区间有n条线段,找到是否存在一个点被k个线段覆盖,直接差分就可以了.(注意如果有一个点不会被消掉就不要进行贡献,不然整段区间是会被切开出现空当导致WA的)</p>
+<p>发现 <strong>攻击次数</strong> 是满足单调性的,也就是说这一次满足了下一次攻击也会满足条件,于是考虑二分.<br>
+设攻击y次,战力为k,坐标是pos,对每一个点有 $y\max(0,m-|pos-x_i|)\ge h_i$ ,解方程得到 $\lceil\frac hy\rceil+x_i-m\le pos\le m-\lceil\frac hy\rceil+x_i$ 于是转化为区间有n条线段,找到是否存在一个点被k个线段覆盖,直接差分就可以了.(注意如果有一个点不会被消掉就不要进行贡献,不然整段区间是会被切开出现空当导致WA的)</p>
 
   </div>
 </article>
@@ -271,6 +273,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

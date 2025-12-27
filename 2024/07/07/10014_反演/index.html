@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="莫比乌斯反演积性函数先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性常数函数 $1(n)&#x3D;1$ ,完全积性欧拉函数 $\varphi(n)&#x3D;\sum{i&#x3D;1}^n[\gcd(i,n)&#x3D;1]$ 也就是">
+    <meta name="description" content="莫比乌斯反演 积性函数 先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性 恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性 常数函数 $1(n)&#x3D;1$ ,完全积性 欧拉函数 $\varphi(n)&#x3D;\sum{i&#x3D;1}^n[\gcd(i,n)&#x3D;1]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反演">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/07/10014_%E5%8F%8D%E6%BC%94/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="莫比乌斯反演积性函数先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性常数函数 $1(n)&#x3D;1$ ,完全积性欧拉函数 $\varphi(n)&#x3D;\sum{i&#x3D;1}^n[\gcd(i,n)&#x3D;1]$ 也就是">
+<meta property="og:description" content="莫比乌斯反演 积性函数 先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有: 单位函数 $\varepsilon(n)&#x3D;[n&#x3D;1]$ ,完全积性 恒等函数 $\mathrm{id}k(n)&#x3D;n^k$ ,完全积性 常数函数 $1(n)&#x3D;1$ ,完全积性 欧拉函数 $\varphi(n)&#x3D;\sum{i&#x3D;1}^n[\gcd(i,n)&#x3D;1]">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-07T14:11:31.000Z">
-<meta property="article:modified_time" content="2025-08-17T13:06:40.811Z">
+<meta property="article:modified_time" content="2025-12-19T11:31:31.828Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="NumberTheory">
@@ -139,7 +139,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94"><span class="toc-number">1.</span> <span class="toc-text">莫比乌斯反演</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%8D%B7%E7%A7%AF%E5%BC%8F%E5%AD%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见卷积式子:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-mathrm-d-%E7%9A%84%E9%AB%98%E9%98%B6%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">关于 $\mathrm d$ 的高阶推导</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E4%B8%8D-%E5%BF%AB%E4%B9%90%E7%9A%84%E5%AF%BC%E5%BC%8F%E5%AD%90%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">(并不)快乐的导式子时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%AF%94%E8%BE%83%E7%89%9B%E9%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.5.</span> <span class="toc-text">一些比较牛逼的计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%8F%8D%E6%BC%94"><span class="toc-number">2.</span> <span class="toc-text">欧拉反演</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94"><span class="toc-number">3.</span> <span class="toc-text">二项式反演</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">莫比乌斯反演</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%8D%B7%E7%A7%AF%E5%BC%8F%E5%AD%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见卷积式子:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-mathrm-d-%E7%9A%84%E9%AB%98%E9%98%B6%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">关于 $\mathrm d$ 的高阶推导</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E4%B8%8D-%E5%BF%AB%E4%B9%90%E7%9A%84%E5%AF%BC%E5%BC%8F%E5%AD%90%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">(并不)快乐的导式子时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%AF%94%E8%BE%83%E7%89%9B%E9%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.5.</span> <span class="toc-text">一些比较牛逼的计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">欧拉反演</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">二项式反演</span></a></li></ol>
       </div>
     
   </span>
@@ -189,109 +189,226 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h1><h2 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h2><p>先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有:</p>
-<p>单位函数 $\varepsilon(n)=[n=1]$ ,完全积性<br>恒等函数 $\mathrm{id}<em>k(n)=n^k$ ,完全积性<br>常数函数 $1(n)=1$ ,完全积性<br>欧拉函数 $\varphi(n)=\sum</em>{i=1}^n[\gcd(i,n)=1]$ 也就是小于等于n和n互质的数的个数<br>除数函数 $\sigma<em>k(n)=\sum</em>{d|n}d^k$ ,其中 $\sigma_0$ 经常记作 $d$ 或 $\tau$ ,$\sigma_1$经常记作$\sigma$ .<br>莫比乌斯函数 $\mu(n)=\begin{cases}1&amp;n=1\0&amp;\exist d&gt;1,d^2|n\(-1)^{\omega(n)}&amp;otherwise\end{cases}$ ,是加性函数<br>(人话就是说,1是1,有完全平方数就是0,否则就是按照积性函数-1之间相乘.)<br>$\omega(n)$ 表示n的本质不同质因子个数</p>
+    <h1>莫比乌斯反演</h1>
+<h2 id="积性函数">积性函数</h2>
+<p>先了解以下卷积以及积性函数的定义:数论中的卷积默认是狄利克雷卷积,写作$*$,星号夹在两个函数中间.常见的积性函数有:</p>
+<p>单位函数 $\varepsilon(n)=[n=1]$ ,完全积性<br>
+恒等函数 $\mathrm{id}<em>k(n)=n^k$ ,完全积性<br>
+常数函数 $1(n)=1$ ,完全积性<br>
+欧拉函数 $\varphi(n)=\sum</em>{i=1}^n[\gcd(i,n)=1]$ 也就是小于等于n和n互质的数的个数<br>
+除数函数 $\sigma_k(n)=\sum_{d|n}d^k$ ,其中 $\sigma_0$ 经常记作 $d$ 或 $\tau$ ,$\sigma_1$经常记作$\sigma$ .<br>
+莫比乌斯函数 $\mu(n)=\begin{cases}1&amp;n=1\0&amp;\exist d&gt;1,d^2|n\(-1)^{\omega(n)}&amp;otherwise\end{cases}$ ,是加性函数<br>
+(人话就是说,1是1,有完全平方数就是0,否则就是按照积性函数-1之间相乘.)<br>
+$\omega(n)$ 表示n的本质不同质因子个数</p>
 <p>(加性函数,指满足 $f(ab)=f(a)+f(b)$ 的函数)</p>
-<p>积性函数推广:假如fg是积性函数,以下也都是积性函数:</p>
-<script type="math/tex; mode=display">f(x^p)\qquad f^p(x)\qquad f(x)g(x)\qquad f(x)*g(x)</script><h2 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h2><p>对于两个数论函数fg,定义其结果h</p>
-<script type="math/tex; mode=display">h(x)=\sum_{d|x}f(d)g(\frac xd)=\sum_{ab=x}f(a)g(b)</script><p>即为</p>
-<script type="math/tex; mode=display">h=f*g</script><blockquote>
-<p>性质:交换律结合律分配律.有一个特殊点的:<br>$f=g$ 和 $f<em>h=g</em>h$ 是充要条件,其中 $h(1)\neq0$ .</p>
+<p>积性函数推广:假如fg是积性函数,以下也都是积性函数:
+$$f(x^p)\qquad f^p(x)\qquad f(x)g(x)\qquad f(x)*g(x)$$</p>
+<h2 id="狄利克雷卷积">狄利克雷卷积</h2>
+<p>对于两个数论函数fg,定义其结果h
+$$h(x)=\sum_{d|x}f(d)g(\frac xd)=\sum_{ab=x}f(a)g(b)$$
+即为
+$$h=f*g$$</p>
+<blockquote>
+<p>性质:交换律结合律分配律.有一个特殊点的:<br>
+$f=g$ 和 $f<em>h=g</em>h$ 是充要条件,其中 $h(1)\neq0$ .</p>
 </blockquote>
 <p><strong>高维前缀和</strong>:铺垫一下,优化有用.高位前缀和就是状压dp,用于快速求解集合及其子集和.</p>
 <p>可以对这道题中的模型进行抽象化,即:对于任意数论函数f,积性函数g,在 $O(n\log\log n)$ 的时间复杂度内求出狄利克雷卷积h.</p>
 <p>将每个质数视为一个维度,则狄利克雷卷积就是一个带系数的高维前缀和,考虑分别处理每一个维度 $p_i$ ,每个 $p_k$ 都是一个物品,每个物品只转移一次,所以是一个01背包(DP统计所有方案的价值总和).物品 $p_k$ 的体积为 $p_k$ (这里总体积是每个物品的体积相乘),价值为 $g(p_k)$ (价值也相乘).</p>
-<h3 id="常见卷积式子"><a href="#常见卷积式子" class="headerlink" title="常见卷积式子:"></a>常见卷积式子:</h3><script type="math/tex; mode=display">\mathrm{id}*\mu=\varphi</script><script type="math/tex; mode=display">\varphi*1=\mathrm{id}</script><script type="math/tex; mode=display">\mu*1=\varepsilon</script><script type="math/tex; mode=display">1*1=\mathrm{d}</script><script type="math/tex; mode=display">\mathrm d*\mu=1*\varepsilon=1</script><p>若</p>
-<script type="math/tex; mode=display">f(n)=\sum_{d|n}g(d)</script><p>则</p>
-<script type="math/tex; mode=display">g(n)=\sum_{d|n}\mu(d)f(\frac nd)</script><script type="math/tex; mode=display">g(n)=\sum_{n|d}\mu(\frac dn)f(d)</script><h3 id="关于-mathrm-d-的高阶推导"><a href="#关于-mathrm-d-的高阶推导" class="headerlink" title="关于 $\mathrm d$ 的高阶推导"></a>关于 $\mathrm d$ 的高阶推导</h3><p>二元</p>
-<script type="math/tex; mode=display">\mathrm d(AB)=\sum_{i|A}\sum_{j|B}[\gcd(i,j)=1]</script><p>三元</p>
-<script type="math/tex; mode=display">\mathrm d(ABC)=\sum_{i|A}\sum_{j|B}\sum_{k|C}[\gcd(i,j)=1][\gcd(j,k)=1][\gcd(i,k)=1]</script><p>n维二元</p>
-<script type="math/tex; mode=display">\sigma^k(AB)=\sum_{i|A}\sum_{j|B}[\gcd(i,\frac Bj)=1](ij)^k</script><p>n维三元</p>
-<script type="math/tex; mode=display">\sigma^k(ABC)=\sum_{i|A}\sum_{j|B}\sum_{l|C}[\gcd(i,\frac Bj)=1][\gcd(i,\frac Cl)=1][\gcd(j,\frac Cl)=1](ijl)^k</script><h2 id="并不-快乐的导式子时间"><a href="#并不-快乐的导式子时间" class="headerlink" title="(并不)快乐的导式子时间"></a>(并不)快乐的导式子时间</h2><p>常见技巧:变换枚举变量,在类欧几里得算法的时候也会用到.有点像二重积分三重积分那里使用一个变量去反卡另一个变量的值域,这个比较难说清,自己做题理解一下.</p>
-<p>常用公式:</p>
-<script type="math/tex; mode=display">[\gcd(i,j)=k]=[\gcd(\frac ik,\frac jk)=1]</script><ul>
-<li>反演结论1:<script type="math/tex; mode=display">[\gcd(i,j)=1]=\sum_{d|\gcd(i,j)}\mu(d)=\sum_{d|i,j}\mu(d)</script></li>
+<h3 id="常见卷积式子">常见卷积式子:</h3>
+<p>$$\mathrm{id}<em>\mu=\varphi$$
+$$\varphi</em>1=\mathrm{id}$$
+$$\mu<em>1=\varepsilon$$
+$$1</em>1=\mathrm{d}$$
+$$\mathrm d*\mu=1*\varepsilon=1$$
+若
+$$f(n)=\sum_{d|n}g(d)$$
+则
+$$g(n)=\sum_{d|n}\mu(d)f(\frac nd)$$
+$$g(n)=\sum_{n|d}\mu(\frac dn)f(d)$$</p>
+<h3 id="关于-mathrm-d-的高阶推导">关于 $\mathrm d$ 的高阶推导</h3>
+<p>二元
+$$\mathrm d(AB)=\sum_{i|A}\sum_{j|B}[\gcd(i,j)=1]$$
+三元
+$$\mathrm d(ABC)=\sum_{i|A}\sum_{j|B}\sum_{k|C}[\gcd(i,j)=1][\gcd(j,k)=1][\gcd(i,k)=1]$$
+n维二元
+$$\sigma^k(AB)=\sum_{i|A}\sum_{j|B}<a href="ij">\gcd(i,\frac Bj)=1</a>^k$$
+n维三元
+$$\sigma^k(ABC)=\sum_{i|A}\sum_{j|B}\sum_{l|C}[\gcd(i,\frac Bj)=1][\gcd(i,\frac Cl)=1]<a href="ijl">\gcd(j,\frac Cl)=1</a>^k$$</p>
+<h2 id="并不-快乐的导式子时间">(并不)快乐的导式子时间</h2>
+<p>常见技巧:变换枚举变量,在类欧几里得算法的时候也会用到.有点像二重积分三重积分那里使用一个变量去反卡另一个变量的值域,这个比较难说清,自己做题理解一下.</p>
+<p>常用公式:
+$$[\gcd(i,j)=k]=[\gcd(\frac ik,\frac jk)=1]$$</p>
+<ul>
+<li>反演结论1:
+$$[\gcd(i,j)=1]=\sum_{d|\gcd(i,j)}\mu(d)=\sum_{d|i,j}\mu(d)$$</li>
 <li>结论2: 若 $f(n)=(1<em>g)(n)$ ,则 $g(n)=(\mu</em>f)(n)$ .</li>
-<li>结论3:(1~n中与n互质的数的和是这个)<script type="math/tex; mode=display">\sum_{i=1}^{d}i[\gcd(i,d)=1]=\frac{\varphi(d)d}2</script><blockquote>
-<p>结论3的证明:<br>与d互质的数成对出现.<br>若id互质则有d-i与d互质<br>这样的数有$\frac{\varphi(d)d}2$对.</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2></blockquote>
-</li>
+<li>结论3:(1~n中与n互质的数的和是这个)
+$$\sum_{i=1}^{d}i[\gcd(i,d)=1]=\frac{\varphi(d)d}2$$</li>
 </ul>
+<blockquote>
+<p>结论3的证明:<br>
+与d互质的数成对出现.<br>
+若id互质则有d-i与d互质<br>
+这样的数有$\frac{\varphi(d)d}2$对.</p>
+</blockquote>
+<h2 id="例题">例题</h2>
 <ol>
-<li>求<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\\=&\sum_{i=1}^n\sum_{j=1}^n\sum_{d|\gcd(i,j)}\varphi(d)\\=&\sum_{i=1}^n\sum_{j=1}^n\sum_{d|i,j}\varphi(d)\\=&\sum_{d=1}^n\Big\lfloor\frac nd\Big\rfloor^2\varphi(d)\end{aligned}</script></li>
+<li>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)\=&amp;\sum_{i=1}^n\sum_{j=1}^n\sum_{d|\gcd(i,j)}\varphi(d)\=&amp;\sum_{i=1}^n\sum_{j=1}^n\sum_{d|i,j}\varphi(d)\=&amp;\sum_{d=1}^n\Big\lfloor\frac nd\Big\rfloor^2\varphi(d)\end{aligned}$$</li>
 </ol>
 <blockquote>
-<p>第一步:一个数等于其因子的欧拉函数和,也就是 $\varphi=1<em>\mathrm{id}$ .<br>第二步:d如果是gcd的因子,则d一定同时是ij的因子.<br>第三步:改变枚举变量,先枚举d,考虑ij对于式子的贡献(这么想,假如d是d,i和j都可以是k</em>d,所以最大就是有 $\lfloor\frac nd\rfloor$ 个贡献,也就是这么多的 $\varphi(d)$ ,同时注意到后面式子完全和ij没关系了,放心转化即可.)</p>
+<p>第一步:一个数等于其因子的欧拉函数和,也就是 $\varphi=1*\mathrm{id}$ .<br>
+第二步:d如果是gcd的因子,则d一定同时是ij的因子.<br>
+第三步:改变枚举变量,先枚举d,考虑ij对于式子的贡献(这么想,假如d是d,i和j都可以是k*d,所以最大就是有 $\lfloor\frac nd\rfloor$ 个贡献,也就是这么多的 $\varphi(d)$ ,同时注意到后面式子完全和ij没关系了,放心转化即可.)</p>
 </blockquote>
-<ol>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)\\=&\sum_{k=1}^{\min(m,n)}\sum_{i=1}^n\sum_{j=1}^mk[\gcd(i,j)=k]\\=&\sum_{k=1}^{\min(m,n)}\sum_{i=1}^n\sum_{j=1}^mk[\gcd(\frac ik,\frac jk)=1]\\=&\sum_{k=1}^{\min(m,n)}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}k[\gcd(i,j)=1]\\=&\sum_{k=1}^{\min(m,n)}k\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\sum_{d|\gcd(i,j)}\mu(d)\\=&\sum_{k=1}^{\min}k\sum_{d=1}^{\min}\mu(d)\Big\lfloor\frac n{kd}\Big\rfloor\Big\lfloor\frac m{kd}\Big\rfloor\\=&\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\sum_{k|T}k\mu(\frac Tk)\\=&\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi(T)\end{aligned}</script><blockquote>
-<p>前三步是正常的推式子.<br>第四步上了反演结论.<br>第五步更换枚举变量消掉了两个 $\sum$ .<br>第六步使用T=kd代换,发现式子中的卷积关系.<br>第七步使用家喻户晓的 $\varphi=\mu*\mathrm{id}$ .</p>
+<ol start="2">
+<li>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)\=&amp;\sum_{k=1}^{\min(m,n)}\sum_{i=1}^n\sum_{j=1}^mk[\gcd(i,j)=k]\=&amp;\sum_{k=1}^{\min(m,n)}\sum_{i=1}^n\sum_{j=1}^mk[\gcd(\frac ik,\frac jk)=1]\=&amp;\sum_{k=1}^{\min(m,n)}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}k[\gcd(i,j)=1]\=&amp;\sum_{k=1}^{\min(m,n)}k\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\sum_{d|\gcd(i,j)}\mu(d)\=&amp;\sum_{k=1}^{\min}k\sum_{d=1}^{\min}\mu(d)\Big\lfloor\frac n{kd}\Big\rfloor\Big\lfloor\frac m{kd}\Big\rfloor\=&amp;\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\sum_{k|T}k\mu(\frac Tk)\=&amp;\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi(T)\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>前三步是正常的推式子.<br>
+第四步上了反演结论.<br>
+第五步更换枚举变量消掉了两个 $\sum$ .<br>
+第六步使用T=kd代换,发现式子中的卷积关系.<br>
+第七步使用家喻户晓的 $\varphi=\mu*\mathrm{id}$ .</p>
 </blockquote>
+<ol start="3">
+<li>
+<p>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)a_ia_j\
+=&amp;\sum_{d=1}^nd\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)=d]a_ia_j\
+=&amp;\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac nd\rfloor}[\gcd(i,j)=1]a_{di}a_{dj}\
+=&amp;\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac nd\rfloor}\sum_{e|i,j}\mu(e)a_{di}a_{dj}\
+=&amp;\sum_{d=1}^nd\sum_{e=1}^{n}\mu(e)\sum_{i=1}^{\lfloor\frac n{de}\rfloor}\sum_{j=1}^{\lfloor\frac n{de}\rfloor}a_{die}a_{dje}\
+=&amp;\sum_{T=1}^n\sum_{d|T}d\mu(\frac Td)\sum_{i=1}^{\lfloor\frac n{T}\rfloor}\sum_{j=1}^{\lfloor\frac n{T}\rfloor}a_{iT}a_{jT}\=&amp;\sum_{T=1}^n\varphi(T)\left(\sum_{i=1}^{\lfloor\frac n{T}\rfloor}a_{iT}\right)^2\end{aligned}$$
+直接预处理即可.</p>
 </li>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^n\gcd(i,j)a_ia_j\\
-=&\sum_{d=1}^nd\sum_{i=1}^n\sum_{j=1}^n[\gcd(i,j)=d]a_ia_j\\
-=&\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac nd\rfloor}[\gcd(i,j)=1]a_{di}a_{dj}\\
-=&\sum_{d=1}^nd\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac nd\rfloor}\sum_{e|i,j}\mu(e)a_{di}a_{dj}\\
-=&\sum_{d=1}^nd\sum_{e=1}^{n}\mu(e)\sum_{i=1}^{\lfloor\frac n{de}\rfloor}\sum_{j=1}^{\lfloor\frac n{de}\rfloor}a_{die}a_{dje}\\
-=&\sum_{T=1}^n\sum_{d|T}d\mu(\frac Td)\sum_{i=1}^{\lfloor\frac n{T}\rfloor}\sum_{j=1}^{\lfloor\frac n{T}\rfloor}a_{iT}a_{jT}\\=&\sum_{T=1}^n\varphi(T)\left(\sum_{i=1}^{\lfloor\frac n{T}\rfloor}a_{iT}\right)^2\end{aligned}</script><p>直接预处理即可.</p>
-</li>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^m\mathrm{lcm}(i,j)\\=&\sum_{i=1}^n\sum_{j=1}^m\frac{ij}{\gcd(i,j)}\\=&\sum_{i=1}^n\sum_{j=1}^m\sum_{k=1}^{\min}\frac{ij}{k}[\gcd(i,j)=k]\\=&\sum_{k=1}^{\min}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}ijk[\gcd(i,j)=1]\\=&\sum_{k=1}^{\min}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}ijk\sum_{d|\gcd(i,j)}\mu(d)\\=&\sum_{k=1}^{\min}k\sum_{d=1}^{\min(\lfloor\frac nk\rfloor,\lfloor\frac mk\rfloor)}d^2\mu(d)\sum_{i=1}^{\lfloor\frac n{kd}\rfloor}i\sum_{j=1}^{\lfloor\frac m{kd}\rfloor}j\\=&\sum_{T=1}^{\min}T\sum_{d|T}d\mu(d)\sum_{i=1}^{\lfloor\frac nT\rfloor}i\sum_{j=1}^{\lfloor\frac mT\rfloor}j\end{aligned}</script><blockquote>
-<p>前两步正常化卷积式子.<br>第三步特别注意,因为ij除以k,所以后面要乘上一个k.<br>第四步反演结论.<br>第五步特别注意乘上$d^2$,因为枚举d的时候从1开始意味着ij还会发生值的变化.<br>第六步就是最终答案.使用方法就是,先证明T后面的函数是一个积性函数,然后线性筛算出来,T那一项直接前缀和算出来,最后两项是等差数列直接套公式求.</p>
-</blockquote>
-</li>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^md(ij)\\=&\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}[\gcd(x,y)=1]\\=&\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}\sum_{d|\gcd(x,y)}\mu(d)\\=&\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}\sum_{d=1}^{\min}\mu(d)[d|\gcd(x,y)]\\=&\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}[d|\gcd(x,y)]\\=&\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^n\sum_{j=1}^m\Big\lfloor\frac ni\Big\rfloor\Big\lfloor\frac mj\Big\rfloor[d|\gcd(i,j)]\\=&\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big\lfloor\frac n{id}\Big\rfloor\Big\lfloor\frac m{jd}\Big\rfloor\\=&\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^{\lfloor\frac nd\rfloor}\Big\lfloor\frac n{id}\Big\rfloor\sum_{j=1}^{\lfloor\frac md\rfloor}\Big\lfloor\frac m{jd}\Big\rfloor\end{aligned}</script><blockquote>
-<p>第一步是约数公式.<br>第二步是莫反.<br>第三步把条件提出来,让d的条件变成区间.<br>第四步提出来 $\mu$ .<br>第五步考虑xy的贡献是这么多直接乘进去.<br>第六步是消掉最后条件的,方法为直接枚举di和dj.<br>第七步是最后整理式子,程序中可以数论分块解决(后面的 $f$ 可以 $O(n)$ 预处理).</p>
-</blockquote>
-</li>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\mathrm{lcm}(i,n)\\=&n\sum_{d|n}\sum_{i=1}^n\frac id[\gcd(i,n)=d]\\=&n\sum_{d|n}\sum_{i=1}^{\frac nd}i[\gcd(i,\frac nd)=1]\\=&n\sum_{d|n}\sum_{i=1}^{d}i[\gcd(i,d)=1]\\=&n\sum_{d|n}\frac{\varphi(d)d}{2}\end{aligned}</script><blockquote>
-<p>第一步注意,因为n是固定的所以d不能从1开始,需要 $d|n$ .<br>第二步注意因为n是不变的,而i是变的,所以只需要乘一个n就可以.<br>第三步是因为,n|d,所以 $\frac nd\in d$ ,就有这个式子.<br>第四步就是结论3.<br>然后计算d phid:发现是积性函数,如果是质数结果是p(p-1)+1,如果不是质数对其进行因数分解:若 $p|i$ 则 $g(ip)=g(i)g(p)$ ,若不整除则 $g(ip)=g(i)+p^2(g(i)-g(i/p))$</p>
-</blockquote>
-</li>
-<li><p>求(f()是斐波那契数列第几项)</p>
-<script type="math/tex; mode=display">\begin{aligned}&\prod_{i=1}^n\prod_{j=1}^mf(\gcd(i,j))\\=&\prod_{k=1}^{\min}f(k)^{\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}[\gcd(i,j)=1]}\\=&\prod_{k=1}^{\min}f(k)^{\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\sum_{e|\gcd(i,j)}\mu(e)}\\=&\prod_{k=1}^{\min}f(k)^{\sum_{e=1}^{\min(\lfloor\frac nk\rfloor,\lfloor\frac mk\rfloor)}\mu(e)\lfloor\frac n{ke}\rfloor\lfloor\frac m{ke}\rfloor}\\=&\prod_{T=1}^{\min}\prod_{k|T}f(k)^{\mu(\frac Tk)\lfloor\frac n{T}\rfloor\lfloor\frac m{T}\rfloor}\\=&\prod_{T=1}^{\min}\Big(\prod_{k|T}f(k)^{\mu(\frac Tk)}\Big)^{\lfloor\frac n{T}\rfloor\lfloor\frac m{T}\rfloor}\end{aligned}</script><blockquote>
-<p>第一步考虑斐波那契数列每一项对于答案的贡献(乘几次).<br>第二,三步莫反.<br>第四步是想把e的范围提出来,于是令T=ke,把T范围(其实就是原先e的范围)写在最下面.<br>第五步是解决方法:括号里的式子只与T有关,与nm无关,可以预处理,然后快速幂算出来结果加上去就可以了.</p>
-</blockquote>
-</li>
-<li><p>求</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\\=&\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min} d[\gcd(i,j)=d]\Big)^k\\=&\sum_{d=1}^{\min}\sum_{i=1}^n\sum_{j=1}^md^k[\gcd(i,j)=d]\\=&\sum_{d=1}^{\min}d^k\sum_{x=1}^{\lfloor\frac{\min}d\rfloor}\mu(x)\Big\lfloor\frac n{dx}\Big\rfloor\Big\lfloor\frac m{dx}\Big\rfloor\\=&\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\sum_{d|T}d^k\mu(\frac Td)\end{aligned}</script><p>其中</p>
-<script type="math/tex; mode=display">\begin{aligned}f(n)=&\sum_{d|T}d^k\mu(\frac Td)\\=&\prod_{p_i}f(p_i^{x_i})\\=&\prod_{p_i}(p_i^{x_i}\cdot\mu(1)+p_i^{k(x_i-1)}\cdot\mu(p_i))\\=&\prod_{p_i}p_i^{k(x_i-1)}(p_i^k-1)\end{aligned}</script><blockquote>
-<p>第一步是常见展开环节.<br>第二步是把次方乘进去(注意不要认为就是例1的phi的次方)<br>第三步是莫反.<br>第四步是令T=dx,代换进去.<br>最后的式子左边是积性函数,也就直接线筛处理了,复杂度 $O(n+T\sqrt n)$ .<br>找规律: $f(4)=2^6<em>f(2)=f(2)</em>(f(2)+1),f(12)=f(4)*f(3)$ ;</p>
-</blockquote>
+<li>
+<p>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\mathrm{lcm}(i,j)\=&amp;\sum_{i=1}^n\sum_{j=1}^m\frac{ij}{\gcd(i,j)}\=&amp;\sum_{i=1}^n\sum_{j=1}^m\sum_{k=1}^{\min}\frac{ij}{k}[\gcd(i,j)=k]\=&amp;\sum_{k=1}^{\min}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}ijk[\gcd(i,j)=1]\=&amp;\sum_{k=1}^{\min}\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}ijk\sum_{d|\gcd(i,j)}\mu(d)\=&amp;\sum_{k=1}^{\min}k\sum_{d=1}^{\min(\lfloor\frac nk\rfloor,\lfloor\frac mk\rfloor)}d^2\mu(d)\sum_{i=1}^{\lfloor\frac n{kd}\rfloor}i\sum_{j=1}^{\lfloor\frac m{kd}\rfloor}j\=&amp;\sum_{T=1}^{\min}T\sum_{d|T}d\mu(d)\sum_{i=1}^{\lfloor\frac nT\rfloor}i\sum_{j=1}^{\lfloor\frac mT\rfloor}j\end{aligned}$$</p>
 </li>
 </ol>
-<p>错误推法:</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\\=&\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min}d[\gcd(i,j)=d]\Big)^k\\=&\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}(d[\gcd(i,j)=1])^k\\=&\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big(\sum_{e|\gcd(i,j)} d\mu(e)\Big)^k\\=&\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}( d\mu(e))^k\\=&\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\Big\lfloor\frac n{de}\Big\rfloor\Big\lfloor\frac m{de}\Big\rfloor(d\mu(e))^k\\=&\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor(d\mu(\frac Td))^k\\=&\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi^k(d)\end{aligned}</script><blockquote>
+<blockquote>
+<p>前两步正常化卷积式子.<br>
+第三步特别注意,因为ij除以k,所以后面要乘上一个k.<br>
+第四步反演结论.<br>
+第五步特别注意乘上$d^2$,因为枚举d的时候从1开始意味着ij还会发生值的变化.<br>
+第六步就是最终答案.使用方法就是,先证明T后面的函数是一个积性函数,然后线性筛算出来,T那一项直接前缀和算出来,最后两项是等差数列直接套公式求.</p>
+</blockquote>
+<ol start="5">
+<li>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^md(ij)\=&amp;\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}[\gcd(x,y)=1]\=&amp;\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}\sum_{d|\gcd(x,y)}\mu(d)\=&amp;\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}\sum_{d=1}^{\min}\mu(d)[d|\gcd(x,y)]\=&amp;\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^n\sum_{j=1}^m\sum_{x|i}\sum_{y|j}[d|\gcd(x,y)]\=&amp;\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^n\sum_{j=1}^m\Big\lfloor\frac ni\Big\rfloor\Big\lfloor\frac mj\Big\rfloor[d|\gcd(i,j)]\=&amp;\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big\lfloor\frac n{id}\Big\rfloor\Big\lfloor\frac m{jd}\Big\rfloor\=&amp;\sum_{d=1}^{\min}\mu(d)\sum_{i=1}^{\lfloor\frac nd\rfloor}\Big\lfloor\frac n{id}\Big\rfloor\sum_{j=1}^{\lfloor\frac md\rfloor}\Big\lfloor\frac m{jd}\Big\rfloor\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>第一步是约数公式.<br>
+第二步是莫反.<br>
+第三步把条件提出来,让d的条件变成区间.<br>
+第四步提出来 $\mu$ .<br>
+第五步考虑xy的贡献是这么多直接乘进去.<br>
+第六步是消掉最后条件的,方法为直接枚举di和dj.<br>
+第七步是最后整理式子,程序中可以数论分块解决(后面的 $f$ 可以 $O(n)$ 预处理).</p>
+</blockquote>
+<ol start="6">
+<li>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\mathrm{lcm}(i,n)\=&amp;n\sum_{d|n}\sum_{i=1}^n\frac id[\gcd(i,n)=d]\=&amp;n\sum_{d|n}\sum_{i=1}^{\frac nd}i[\gcd(i,\frac nd)=1]\=&amp;n\sum_{d|n}\sum_{i=1}^{d}i[\gcd(i,d)=1]\=&amp;n\sum_{d|n}\frac{\varphi(d)d}{2}\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>第一步注意,因为n是固定的所以d不能从1开始,需要 $d|n$ .<br>
+第二步注意因为n是不变的,而i是变的,所以只需要乘一个n就可以.<br>
+第三步是因为,n|d,所以 $\frac nd\in d$ ,就有这个式子.<br>
+第四步就是结论3.
+然后计算d phid:发现是积性函数,如果是质数结果是p(p-1)+1,如果不是质数对其进行因数分解:若 $p|i$ 则 $g(ip)=g(i)g(p)$ ,若不整除则 $g(ip)=g(i)+p^2(g(i)-g(i/p))$</p>
+</blockquote>
+<ol start="7">
+<li>求(f()是斐波那契数列第几项)
+$$\begin{aligned}&amp;\prod_{i=1}^n\prod_{j=1}^mf(\gcd(i,j))\=&amp;\prod_{k=1}^{\min}f(k)^{\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}[\gcd(i,j)=1]}\=&amp;\prod_{k=1}^{\min}f(k)^{\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\sum_{e|\gcd(i,j)}\mu(e)}\=&amp;\prod_{k=1}^{\min}f(k)^{\sum_{e=1}^{\min(\lfloor\frac nk\rfloor,\lfloor\frac mk\rfloor)}\mu(e)\lfloor\frac n{ke}\rfloor\lfloor\frac m{ke}\rfloor}\=&amp;\prod_{T=1}^{\min}\prod_{k|T}f(k)^{\mu(\frac Tk)\lfloor\frac n{T}\rfloor\lfloor\frac m{T}\rfloor}\=&amp;\prod_{T=1}^{\min}\Big(\prod_{k|T}f(k)^{\mu(\frac Tk)}\Big)^{\lfloor\frac n{T}\rfloor\lfloor\frac m{T}\rfloor}\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>第一步考虑斐波那契数列每一项对于答案的贡献(乘几次).<br>
+第二,三步莫反.<br>
+第四步是想把e的范围提出来,于是令T=ke,把T范围(其实就是原先e的范围)写在最下面.<br>
+第五步是解决方法:括号里的式子只与T有关,与nm无关,可以预处理,然后快速幂算出来结果加上去就可以了.</p>
+</blockquote>
+<ol start="8">
+<li>求
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\=&amp;\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min} d[\gcd(i,j)=d]\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^n\sum_{j=1}^md^k[\gcd(i,j)=d]\=&amp;\sum_{d=1}^{\min}d^k\sum_{x=1}^{\lfloor\frac{\min}d\rfloor}\mu(x)\Big\lfloor\frac n{dx}\Big\rfloor\Big\lfloor\frac m{dx}\Big\rfloor\=&amp;\sum_{T=1}^{\min}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\sum_{d|T}d^k\mu(\frac Td)\end{aligned}$$
+其中
+$$\begin{aligned}f(n)=&amp;\sum_{d|T}d^k\mu(\frac Td)\=&amp;\prod_{p_i}f(p_i^{x_i})\=&amp;\prod_{p_i}(p_i^{x_i}\cdot\mu(1)+p_i^{k(x_i-1)}\cdot\mu(p_i))\=&amp;\prod_{p_i}p_i^{k(x_i-1)}(p_i^k-1)\end{aligned}$$</li>
+</ol>
+<blockquote>
+<p>第一步是常见展开环节.<br>
+第二步是把次方乘进去(注意不要认为就是例1的phi的次方)<br>
+第三步是莫反.<br>
+第四步是令T=dx,代换进去.<br>
+最后的式子左边是积性函数,也就直接线筛处理了,复杂度 $O(n+T\sqrt n)$ .<br>
+找规律: $f(4)=2^6<em>f(2)=f(2)</em>(f(2)+1),f(12)=f(4)*f(3)$ ;</p>
+</blockquote>
+<p>错误推法:
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\gcd(i,j)^k\=&amp;\sum_{i=1}^n\sum_{j=1}^m\Big(\sum_{d=1}^{\min}d[\gcd(i,j)=d]\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}(d[\gcd(i,j)=1])^k\=&amp;\sum_{d=1}^{\min}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}\Big(\sum_{e|\gcd(i,j)} d\mu(e)\Big)^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\sum_{i=1}^{\lfloor\frac nd\rfloor}\sum_{j=1}^{\lfloor\frac md\rfloor}( d\mu(e))^k\=&amp;\sum_{d=1}^{\min}\sum_{e=1}^{\lfloor\frac{\min}{d}\rfloor}\Big\lfloor\frac n{de}\Big\rfloor\Big\lfloor\frac m{de}\Big\rfloor(d\mu(e))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor(d\mu(\frac Td))^k\=&amp;\sum_{T=1}^{\min}\sum_{d|T}\Big\lfloor\frac n{T}\Big\rfloor\Big\lfloor\frac m{T}\Big\rfloor\varphi^k(d)\end{aligned}$$</p>
+<blockquote>
 <p><strong>错因分析</strong> :sum不可以随便提出来.默认 $(\sum\mu)^k=\sum(\mu^k)$ 这是不对的,根本就是两个函数.</p>
 </blockquote>
-<p>9.计算</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)\mathrm d(\gcd(i,j))\\=&\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)[\gcd(i,j)=k]\\=&\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)[\gcd(i,j)=1]\\=&\sum_{k=1}^{\min}\mathrm d(k)\sum_{e|\gcd(i,j)}\mu(e)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)\\=&\sum_{T=1}^{\min}\mathrm d(k)\mu(\frac Tk)\sum_{i=1}^{\lfloor\frac nT\rfloor}\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(iT)\mathrm d(jT)\\=&\sum_{T=1}^{\min}\sum_{i=1}^{\lfloor\frac nT\rfloor}\mathrm d(iT)\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(jT)\end{aligned}</script><blockquote>
-<p>第一步是枚举gcd.<br>第二步是除一个d.<br>第三步是莫反.<br>第四步是套路替换.<br>第五步是因为 $d*\mu=1$ ,直接消掉了.</p>
+<p>9.计算
+$$\begin{aligned}&amp;\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)\mathrm d(\gcd(i,j))\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^n\sum_{j=1}^m\mathrm d(i)\mathrm d(j)[\gcd(i,j)=k]\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)[\gcd(i,j)=1]\=&amp;\sum_{k=1}^{\min}\mathrm d(k)\sum_{e|\gcd(i,j)}\mu(e)\sum_{i=1}^{\lfloor\frac nk\rfloor}\sum_{j=1}^{\lfloor\frac mk\rfloor}\mathrm d(ik)\mathrm d(jk)\=&amp;\sum_{T=1}^{\min}\mathrm d(k)\mu(\frac Tk)\sum_{i=1}^{\lfloor\frac nT\rfloor}\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(iT)\mathrm d(jT)\=&amp;\sum_{T=1}^{\min}\sum_{i=1}^{\lfloor\frac nT\rfloor}\mathrm d(iT)\sum_{j=1}^{\lfloor\frac mT\rfloor}\mathrm d(jT)\end{aligned}$$</p>
+<blockquote>
+<p>第一步是枚举gcd.<br>
+第二步是除一个d.<br>
+第三步是莫反.<br>
+第四步是套路替换.<br>
+第五步是因为 $d*\mu=1$ ,直接消掉了.</p>
 </blockquote>
-<ol>
-<li><p>计算</p>
-<script type="math/tex; mode=display">\begin{aligned}&\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{\lfloor\frac Nj\rfloor}\sum_{q=1}^{\lfloor\frac Nj\rfloor}[\gcd(i,j)=1][\gcd(p,q)=1]\\=&\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,j)=1][\gcd(p,q)=j]\\=&\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,p,q)=1]\\=&\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}\sum_{d|\gcd(i,p,q)}\mu(d)\\=&\sum_{d=1}^N\sum_{i=1}^{\lfloor\frac Nd\rfloor}\sum_{p=1}^{\lfloor\frac Nd\rfloor}\sum_{q=1}^{\lfloor\frac Nd\rfloor}\mu(d)\\=&\sum_{d=1}^N\mu(d)\left\lfloor\frac Nd\right\rfloor^3\end{aligned}</script><blockquote>
-<p>我们发现把j带回去能得到更好的效果…<br>于是剩下的就简单了,基本上是板题.</p>
-</blockquote>
-</li>
-<li><p>给一个数列 $a_n$ ,如果两个数之间的 $\gcd$ 不等于1那就有一条通路,现在求从1到n的通路有多少条.(998244353取模)</p>
-</li>
+<ol start="10">
+<li>计算
+$$\begin{aligned}&amp;\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{\lfloor\frac Nj\rfloor}\sum_{q=1}^{\lfloor\frac Nj\rfloor}[\gcd(i,j)=1][\gcd(p,q)=1]\=&amp;\sum_{i=1}^{N}\sum_{j=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,j)=1][\gcd(p,q)=j]\=&amp;\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}[\gcd(i,p,q)=1]\=&amp;\sum_{i=1}^{N}\sum_{p=1}^{N}\sum_{q=1}^{N}\sum_{d|\gcd(i,p,q)}\mu(d)\=&amp;\sum_{d=1}^N\sum_{i=1}^{\lfloor\frac Nd\rfloor}\sum_{p=1}^{\lfloor\frac Nd\rfloor}\sum_{q=1}^{\lfloor\frac Nd\rfloor}\mu(d)\=&amp;\sum_{d=1}^N\mu(d)\left\lfloor\frac Nd\right\rfloor^3\end{aligned}$$</li>
 </ol>
-<p>设dp[i]表示从1到i有多少条路.转移: $dp<em>i=\sum</em>{j=1}^{i-1}dp_j[\gcd(a_i,a_j)\neq1]$ ,初始化dp1=1,答案是dpn.</p>
-<p>设 $s<em>i=\sum</em>{j=1}^idp<em>j$ ,上式转换成 $dp_i=s</em>{i-1}-\sum_{j=1}^{i-1}dp_j[\gcd(a_i,a_j)=1]$ ,莫反之后就是</p>
-<script type="math/tex; mode=display">dp_i=s_{i-1}-\sum_{j=1}^{i-1}dp_j\sum_{e|\gcd(a_i,a_j)}\mu(e)</script><p>怎么算这个式子呢……</p>
+<blockquote>
+<p>我们发现把j带回去能得到更好的效果…<br>
+于是剩下的就简单了,基本上是板题.</p>
+</blockquote>
+<ol start="11">
+<li>给一个数列 $a_n$ ,如果两个数之间的 $\gcd$ 不等于1那就有一条通路,现在求从1到n的通路有多少条.(998244353取模)</li>
+</ol>
+<p>设dp[i]表示从1到i有多少条路.转移: $dp_i=\sum_{j=1}^{i-1}dp_j[\gcd(a_i,a_j)\neq1]$ ,初始化dp1=1,答案是dpn.</p>
+<p>设 $s_i=\sum_{j=1}^idp_j$ ,上式转换成 $dp_i=s_{i-1}-\sum_{j=1}^{i-1}dp_j[\gcd(a_i,a_j)=1]$ ,莫反之后就是
+$$dp_i=s_{i-1}-\sum_{j=1}^{i-1}dp_j\sum_{e|\gcd(a_i,a_j)}\mu(e)$$
+怎么算这个式子呢…</p>
 <p>开一个桶表示所有在i前面有这个因子的dp和,于是直接枚举因子然后乘上mu就行了…</p>
-<h2 id="一些比较牛逼的计算"><a href="#一些比较牛逼的计算" class="headerlink" title="一些比较牛逼的计算"></a>一些比较牛逼的计算</h2><ol>
-<li>欧拉函数的定义:p是质数,有<script type="math/tex; mode=display">\varphi(j)=j\cdot\prod_{p|j}\frac{p-1}{p}</script></li>
-<li>计算卷积 $\mathrm{id}*\varphi$ :<a target="_blank" rel="noopener" href="https://www.cnblogs.com/PinkRabbit/p/8278728.html">摆结论</a>,由于直接分解即可,是 $O(\sqrt n)$ :<script type="math/tex; mode=display">n=p_1^{b_1}p_2^{b_2}...p_k^{b_k}</script><script type="math/tex; mode=display">\mathrm{id}*\varphi(n)=n\prod_{i=1}^k\frac{b_ip_i-b_i+p_i}{p_i}</script>缺点:一般积性函数计算,数论底子不扎实,化卷积式子(见题太少,紫题不满足需求了,建议来点黑的).</li>
+<ol start="11">
+<li>计算
+$$\begin{aligned}
+G(N)&amp;=\sum_{n=1}^N\sum_{i=1}^n(-1)^i\gcd(n,i^2)\
+&amp;=\sum_{i=1}^N(-1)^i\left(\sum_{n=i}^N\gcd(n,i^2)\right)
+\end{aligned}$$</li>
 </ol>
-<h1 id="欧拉反演"><a href="#欧拉反演" class="headerlink" title="欧拉反演"></a>欧拉反演</h1><script type="math/tex; mode=display">n=\sum_{d|n}\varphi(d)</script><h1 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h1><p>若有</p>
-<script type="math/tex; mode=display">f(x)=\sum_{i=x}\binom ixg(x)</script><p>则有</p>
-<script type="math/tex; mode=display">g(x)=\sum_{i=x}(-1)^{i-x}\binom ixf(x)</script><p>本质上是一个容斥式子,比如洛谷p5339的题解区.</p>
+<p>$$\sum_{n=1}^N\gcd(n,i^2)=\sum_{d\mid
+i^2}\left\lfloor\dfrac{N}{d}\right\rfloor\cdot \left(\sum_{e\mid
+d}\mu\left(\dfrac{d}{e}\right)\cdot e\right)=\sum_{d\mid
+i^2}\left\lfloor\dfrac{N}{d}\right\rfloor\cdot\varphi(d)$$</p>
+<p>$$\begin{aligned}
+G(N)&amp;=\sum_{i=1}^N(-1)^i\left(\sum_{d\mid i^2}\varphi(d)\cdot
+\left(\left\lfloor\dfrac{N}{d}\right\rfloor-\left\lfloor\dfrac{i-1}{d}\right\rfloor\right)\right)\
+&amp;=\sum_{d=1}^N\varphi(d)\left(\sum_{d\mid i^2}(-1)^i\cdot
+\left(\left\lfloor\dfrac{N}{d}\right\rfloor-\left\lfloor\dfrac{i-1}{d}\right\rfloor\right)\right)
+\end{aligned}$$</p>
+<p>后半部分在筛法的时候可以累加.</p>
+<h2 id="一些比较牛逼的计算">一些比较牛逼的计算</h2>
+<ol>
+<li>欧拉函数的定义:p是质数,有
+$$\varphi(j)=j\cdot\prod_{p|j}\frac{p-1}{p}$$</li>
+<li>计算卷积 $\mathrm{id}<em>\varphi$ :<a target="_blank" rel="noopener" href="https://www.cnblogs.com/PinkRabbit/p/8278728.html">摆结论</a>,由于直接分解即可,是 $O(\sqrt n)$ :
+$$n=p_1^{b_1}p_2^{b_2}…p_k^{b_k}$$
+$$\mathrm{id}</em>\varphi(n)=n\prod_{i=1}^k\frac{b_ip_i-b_i+p_i}{p_i}$$
+缺点:一般积性函数计算,数论底子不扎实,化卷积式子(见题太少,紫题不满足需求了,建议来点黑的).</li>
+</ol>
+<h1>欧拉反演</h1>
+<p>$$n=\sum_{d|n}\varphi(d)$$</p>
+<h1>二项式反演</h1>
+<p>若有
+$$f(x)=\sum_{i=x}\binom ixg(x)$$
+则有
+$$g(x)=\sum_{i=x}(-1)^{i-x}\binom ixf(x)$$
+本质上是一个容斥式子,比如洛谷p5339的题解区.</p>
 
   </div>
 </article>
@@ -327,7 +444,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94"><span class="toc-number">1.</span> <span class="toc-text">莫比乌斯反演</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%8D%B7%E7%A7%AF%E5%BC%8F%E5%AD%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见卷积式子:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-mathrm-d-%E7%9A%84%E9%AB%98%E9%98%B6%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">关于 $\mathrm d$ 的高阶推导</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E4%B8%8D-%E5%BF%AB%E4%B9%90%E7%9A%84%E5%AF%BC%E5%BC%8F%E5%AD%90%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">(并不)快乐的导式子时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%AF%94%E8%BE%83%E7%89%9B%E9%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.5.</span> <span class="toc-text">一些比较牛逼的计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E5%8F%8D%E6%BC%94"><span class="toc-number">2.</span> <span class="toc-text">欧拉反演</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94"><span class="toc-number">3.</span> <span class="toc-text">二项式反演</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">莫比乌斯反演</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">积性函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">狄利克雷卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%8D%B7%E7%A7%AF%E5%BC%8F%E5%AD%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">常见卷积式子:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-mathrm-d-%E7%9A%84%E9%AB%98%E9%98%B6%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">关于 $\mathrm d$ 的高阶推导</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E4%B8%8D-%E5%BF%AB%E4%B9%90%E7%9A%84%E5%AF%BC%E5%BC%8F%E5%AD%90%E6%97%B6%E9%97%B4"><span class="toc-number">1.3.</span> <span class="toc-text">(并不)快乐的导式子时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%AF%94%E8%BE%83%E7%89%9B%E9%80%BC%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">1.5.</span> <span class="toc-text">一些比较牛逼的计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">欧拉反演</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">二项式反演</span></a></li></ol>
       </div>
     
 
@@ -369,6 +486,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

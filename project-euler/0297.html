@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="被齐肯多夫定理骗了. 本来不知道怎么用不连续的斐波那契数字去表示一个数字,结果查了一下发现直接贪心表示即可,唐完了. 那么设feb(n)是不大于n的最大的斐波那契数列,能二分查出来. $$ f(n)&#x3D;f(feb(n)-1)+f(n-feb(n))+n-feb(n)+1 $$ 然后边界自己卡一下就可以了. f的式子前半段可以记忆化,后半段直接递归,算上set查找大概log^2级别. Vibe Cod">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0297">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0297.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="被齐肯多夫定理骗了. 本来不知道怎么用不连续的斐波那契数字去表示一个数字,结果查了一下发现直接贪心表示即可,唐完了. 那么设feb(n)是不大于n的最大的斐波那契数列,能二分查出来. $$ f(n)&#x3D;f(feb(n)-1)+f(n-feb(n))+n-feb(n)+1 $$ 然后边界自己卡一下就可以了. f的式子前半段可以记忆化,后半段直接递归,算上set查找大概log^2级别. Vibe Cod">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:13:56.158Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0297</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>被齐肯多夫定理骗了.<br>
+本来不知道怎么用不连续的斐波那契数字去表示一个数字,结果查了一下发现直接贪心表示即可,唐完了.</p>
+<p>那么设feb(n)是不大于n的最大的斐波那契数列,能二分查出来.</p>
+<p>$$
+f(n)=f(feb(n)-1)+f(n-feb(n))+n-feb(n)+1
+$$</p>
+<p>然后边界自己卡一下就可以了.<br>
+f的式子前半段可以记忆化,后半段直接递归,算上set查找大概log^2级别.</p>
+<p>Vibe Coding</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">long</span> <span class="type">long</span> F[<span class="number">100</span>];</span><br><span class="line">unordered_map&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">long</span> <span class="type">long</span>&gt; dp;</span><br><span class="line"></span><br><span class="line"><span class="comment">// S(n) = sum_&#123;i=1..n&#125; z(i)</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">S</span><span class="params">(<span class="type">long</span> <span class="type">long</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (dp.<span class="built_in">count</span>(n)) <span class="keyword">return</span> dp[n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到最大 Fibonacci F[k] ≤ n</span></span><br><span class="line">    <span class="type">int</span> k = <span class="built_in">upper_bound</span>(F, F + <span class="number">90</span>, n) - F - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="built_in">S</span>(F[k] - <span class="number">1</span>) + <span class="built_in">S</span>(n - F[k]) + (n - F[k] + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> dp[n] = res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造 Fibonacci 数列</span></span><br><span class="line">    F[<span class="number">0</span>] = <span class="number">1</span>;  <span class="comment">// 按题意：1, 2, 3, 5...</span></span><br><span class="line">    F[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; <span class="number">90</span>; i++) &#123;</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">if</span> (F[i] &gt; (<span class="type">long</span> <span class="type">long</span>)<span class="number">1e18</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n = (<span class="type">long</span> <span class="type">long</span>)<span class="number">1e17</span> - <span class="number">1</span>; <span class="comment">// 题目为 0 &lt; n &lt; 10^17 求 ∑z(n)</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">S</span>(n) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

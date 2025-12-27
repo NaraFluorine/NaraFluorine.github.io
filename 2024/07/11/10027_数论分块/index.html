@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="数论分块是简单的结论,这里相较于OIWiki上的叙述补充点东西. 数论分块结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是 \Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor代码:1234for(int l&#x3D;1,r;l&lt;&#x3D;n;l&#x3D;r+1)&#123;    r&#x3D;n&#x2F;(n&#x2F;l);    &#x2F;&#x2F;do">
+    <meta name="description" content="数论分块是简单的结论,这里相较于OIWiki上的叙述补充点东西. 数论分块 结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是 $$\Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor$$ 代码: 1234for(int l&#x3D;1,r;l&lt;&#x3D;n;l&#x3D;r+1)&#123;    r&#x3D;n&#x2F;(n&#x2F;l);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数论分块">
 <meta property="og:url" content="https://narafluorine.github.io/2024/07/11/10027_%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="数论分块是简单的结论,这里相较于OIWiki上的叙述补充点东西. 数论分块结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是 \Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor代码:1234for(int l&#x3D;1,r;l&lt;&#x3D;n;l&#x3D;r+1)&#123;    r&#x3D;n&#x2F;(n&#x2F;l);    &#x2F;&#x2F;do">
+<meta property="og:description" content="数论分块是简单的结论,这里相较于OIWiki上的叙述补充点东西. 数论分块 结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是 $$\Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor$$ 代码: 1234for(int l&#x3D;1,r;l&lt;&#x3D;n;l&#x3D;r+1)&#123;    r&#x3D;n&#x2F;(n&#x2F;l);">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-11T01:45:02.000Z">
 <meta property="article:modified_time" content="2025-04-25T19:00:17.838Z">
@@ -189,14 +189,21 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>数论分块是简单的结论,这里相较于OIWiki上的叙述补充点东西.</p>
-<h2 id="数论分块"><a href="#数论分块" class="headerlink" title="数论分块"></a>数论分块</h2><p>结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是</p>
-<script type="math/tex; mode=display">\Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor</script><p>代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)&#123;</span><br><span class="line">    r=n/(n/l);</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>时间复杂度是 $O(\sqrt n)$ .</p>
-<h2 id="多次分块"><a href="#多次分块" class="headerlink" title="多次分块"></a>多次分块</h2><p>有的时候要处理诸如 $\lfloor\frac nx\rfloor\lfloor\frac mx\rfloor$ 的两个都需要分块的式子.这个时候代码怎么写?很简单.如下:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r;l&lt;=<span class="built_in">min</span>(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">    r=<span class="built_in">min</span>(n/(n/l),m/(m/l));</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这其实就是一段一段的划分更细了.其时间复杂度是 $O(\sqrt n+\sqrt m)$ .</p>
+<h2 id="数论分块">数论分块</h2>
+<p>结论:对于区间lr,满足 $\lfloor\frac nx\rfloor$ 的最大区间边界是
+$$\Big\lfloor\frac n{\lfloor\frac nx\rfloor}\Big\rfloor$$
+代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r;l&lt;=n;l=r+<span class="number">1</span>)&#123;</span><br><span class="line">    r=n/(n/l);</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度是 $O(\sqrt n)$ .</p>
+<h2 id="多次分块">多次分块</h2>
+<p>有的时候要处理诸如 $\lfloor\frac nx\rfloor\lfloor\frac mx\rfloor$ 的两个都需要分块的式子.这个时候代码怎么写?很简单.如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r;l&lt;=<span class="built_in">min</span>(n,m);l=r+<span class="number">1</span>)&#123;</span><br><span class="line">    r=<span class="built_in">min</span>(n/(n/l),m/(m/l));</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这其实就是一段一段的划分更细了.其时间复杂度是 $O(\sqrt n+\sqrt m)$ .</p>
 <p>(本篇文章知识点极其简单,因为有一个人写的二次分块代码是这样,又难写又难调:)</p>
 <blockquote>
-<p>声明:以下代码是相对错误示例,太难调了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l1=<span class="number">1</span>,r1,l1&lt;=<span class="built_in">min</span>(n,m);l1=r1+<span class="number">1</span>)&#123;</span><br><span class="line">    r1=n/(n/l1);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l2=l1,r2,l2&lt;=r1;l2=r2+<span class="number">1</span>)&#123;</span><br><span class="line">        r2=m/(m/l1);<span class="comment">//其实这里错了,因为r2有可能越界</span></span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>声明:以下代码是相对错误示例,太难调了</p>
 </blockquote>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> l1=<span class="number">1</span>,r1,l1&lt;=<span class="built_in">min</span>(n,m);l1=r1+<span class="number">1</span>)&#123;</span><br><span class="line">    r1=n/(n/l1);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l2=l1,r2,l2&lt;=r1;l2=r2+<span class="number">1</span>)&#123;</span><br><span class="line">        r2=m/(m/l1);<span class="comment">//其实这里错了,因为r2有可能越界</span></span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
@@ -273,6 +280,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

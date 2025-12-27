@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vibe Coding. User 12345678910111213141516171819202122232425262728def calc(r,n&#x3D;5000):    res&#x3D;0    pre&#x3D;1    for k in range(1,n+1):        res+&#x3D;(900-3*k)*pre        pre*&#x3D;r    return resprint(calc(1.00000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0235">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0235.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Vibe Coding. User 12345678910111213141516171819202122232425262728def calc(r,n&#x3D;5000):    res&#x3D;0    pre&#x3D;1    for k in range(1,n+1):        res+&#x3D;(900-3*k)*pre        pre*&#x3D;r    return resprint(calc(1.00000">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:10:45.055Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0235</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>Vibe Coding.</p>
+<h2 id="User">User</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">calc</span>(<span class="params">r,n=<span class="number">5000</span></span>):</span><br><span class="line">    res=<span class="number">0</span></span><br><span class="line">    pre=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        res+=(<span class="number">900</span>-<span class="number">3</span>*k)*pre</span><br><span class="line">        pre*=r</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(calc(<span class="number">1.000000001</span>))<span class="comment"># -33007613.752469875</span></span><br><span class="line"><span class="built_in">print</span>(calc(<span class="number">1</span>))          <span class="comment"># -33007500</span></span><br><span class="line"><span class="built_in">print</span>(calc(<span class="number">2</span>))          <span class="comment"># -1991154775206948884126595067592662896273042938157647612372256094632779484027264780453138241368668238728519998429256967668726981505272498732522185805188443000607536912377746529870444160997421674556958204303463770939741208803110982374799844855355671758999937658398764288691670085654835870832115119828213461829329066490903696187163167073103219901417974477452251494173732241749630750454676214329480295775132463648051352728884331518397533318160548995795205484665834072226948429654363107075811908522395940569734206236095184590324500922774715710744873152032818033453830864089104688712863382529780713154071269001485444955213496996185866786626605746354810302049467383195713164812001208023961400327770073297137775440106721294495698714893412410220579006057103331901936515272193177828636792807957436969739813798937267338767763488940823385986650556083877868113878359259784025249745583076676821155292291210585632437909134407104962533269578909780033873413400376653167685892027339037922063328338936692933972123477902950298030272524770244037276214199509319423085658798177651557322142837969371593389390846434629142186306659651186528615359823151044890496333427886032614190014943561571037139985423292966950287669037564020044319943861778935288986215623692815957263782494931408519815151826542564353163916736747399339950801185813022215930312415975072659158636564652584385023435072715788679910693079120436014501273654907232497059635692391903577617521445434068901365014761024802117061349754576396769520117982888290241674659654346474375</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">等差比数列</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">已知等差比数列u(k) = (900-3k)r^&#123;k-1&#125;。</span></span><br><span class="line"><span class="string">记s(n) = Σ_&#123;k=1…n&#125;u(k)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">求使得s(5000) = -600,000,000,000的r值。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">将你的答案四舍五入至小数点后12位小数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">我的思路是:</span></span><br><span class="line"><span class="string">小数二分.</span></span><br><span class="line"><span class="string">首先发现1远远达不到预期值,但2超级大,所以答案应该介于1和2之间.</span></span><br><span class="line"><span class="string">我的calc函数已经写好,请你在这个基础上修改为decimal,获取更高精度,同时将s(5000)=-600,000,000,000的条件修改为s(5000)&lt;=xxx来方便二分.</span></span><br><span class="line"><span class="string">然后套一个二分,精度小于某个阈值就break,复杂度是O(-log eps*5000)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="GPT">GPT</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下面给你一个**可直接运行、采用 `decimal`、支持高精度二分搜索 r 的完整 Python 代码**。</span><br><span class="line">我保留了你现有的 `calc()` 结构，只是改成 `Decimal`，并加入二分框架，并允许使用 `target`（例如 `-600_000_000_000`）。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># ✅ **最终代码（Decimal + 二分查找 r）**</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> Decimal, getcontext</span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局高精度</span></span><br><span class="line">getcontext().prec = <span class="number">80</span>   <span class="comment"># 你可以再调高，例如 120</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc</span>(<span class="params">r, n=<span class="number">5000</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;返回 sum_&#123;k=1..n&#125; (900-3k) * r^(k-1)，使用 Decimal&quot;&quot;&quot;</span></span><br><span class="line">    res = Decimal(<span class="number">0</span>)</span><br><span class="line">    pre = Decimal(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">        res += (Decimal(<span class="number">900</span>) - Decimal(<span class="number">3</span>)*k) * pre</span><br><span class="line">        pre *= r</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_r</span>(<span class="params">target, n=<span class="number">5000</span>, eps=Decimal(<span class="params"><span class="string">&quot;1e-20&quot;</span></span>)</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;二分求解 r，使 s(n) = target（或最近逼近）&quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    lo = Decimal(<span class="number">1</span>)      <span class="comment"># s(5000)太大（不够负）</span></span><br><span class="line">    hi = Decimal(<span class="number">2</span>)      <span class="comment"># s(5000)超级负</span></span><br><span class="line">                         <span class="comment"># 你之前观察过：solution 在 (1,2)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 二分</span></span><br><span class="line">    <span class="keyword">while</span> hi - lo &gt; eps:</span><br><span class="line">        mid = (lo + hi) / <span class="number">2</span></span><br><span class="line">        s = calc(mid, n)</span><br><span class="line">        <span class="keyword">if</span> s &lt;= target:</span><br><span class="line">            hi = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            lo = mid</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (lo + hi) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================== 运行 ================================</span></span><br><span class="line">target = Decimal(<span class="string">&quot;-600000000000&quot;</span>)</span><br><span class="line">r = find_r(target)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;r ≈&quot;</span>, <span class="built_in">format</span>(r, <span class="string">&quot;.12f&quot;</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"># 🧠 **说明**</span><br><span class="line"></span><br><span class="line">### 1. 为什么能用二分？</span><br><span class="line"></span><br><span class="line">因为</span><br><span class="line">[</span><br><span class="line">s(r) = \sum_&#123;k=1&#125;^&#123;5000&#125; (900-3k),r^&#123;k-1&#125;</span><br><span class="line">]</span><br><span class="line">在 r &gt; 1 的区间严格单调递增（实际上越来越负 → 越来越大负数）。</span><br><span class="line"></span><br><span class="line">你之前的测试值也说明：</span><br><span class="line"></span><br><span class="line">| r           | s(5000,r)      |</span><br><span class="line">| ----------- | -------------- |</span><br><span class="line">| 1           | ≈ -3.30075×10⁷ |</span><br><span class="line">| 1.000000001 | 非常接近           |</span><br><span class="line">| 2           | 极度负，远超目标       |</span><br><span class="line"></span><br><span class="line">目标值 -6×10¹¹ 落在中间，区间唯一。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 🎯 **最终输出精度**</span><br><span class="line"></span><br><span class="line">你要求的是：</span><br><span class="line"></span><br><span class="line">&gt; 四舍五入至小数点后 12 位</span><br><span class="line"></span><br><span class="line">输出中使用了 `format(r, &quot;.12f&quot;)` 完成。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># 📌 **如果你需要我实际运行，给出最终 r 数值，也可以继续告诉我。**</span><br></pre></td></tr></table></figure>
+<h2 id="Fact">Fact</h2>
+<p>一发过了.</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

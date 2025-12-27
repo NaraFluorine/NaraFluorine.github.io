@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Vibe Coding… User 1234567891011121314151617181920212223242526272829303132能组成一种、两种、三种……不同方形基板的地砖数计数我们定义一个方形基板为一个拥有方形外框，中间有一个方形的“洞”且在水平和竖直方向上均对称的图形。用八块地砖我们只能拼出一种方形基板：一个3x3的方格，正中间有一个1x1的洞。然而，用32块地砖，我们能够拼">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0174">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0174.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Vibe Coding… User 1234567891011121314151617181920212223242526272829303132能组成一种、两种、三种……不同方形基板的地砖数计数我们定义一个方形基板为一个拥有方形外框，中间有一个方形的“洞”且在水平和竖直方向上均对称的图形。用八块地砖我们只能拼出一种方形基板：一个3x3的方格，正中间有一个1x1的洞。然而，用32块地砖，我们能够拼">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2025-12-17T00:02:35.926Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0174</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>Vibe Coding…</p>
+<h2 id="User">User</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">能组成一种、两种、三种……不同方形基板的地砖数计数</span><br><span class="line"></span><br><span class="line">我们定义一个方形基板为一个拥有方形外框，中间有一个方形的“洞”且在水平和竖直方向上均对称的图形。</span><br><span class="line"></span><br><span class="line">用八块地砖我们只能拼出一种方形基板：一个3x3的方格，正中间有一个1x1的洞。然而，用32块地砖，我们能够拼出两种不同的方形基板。</span><br><span class="line"></span><br><span class="line">xxxxxx </span><br><span class="line">xxxxxx</span><br><span class="line">xx  xx</span><br><span class="line">xx  xx</span><br><span class="line">xxxxxx</span><br><span class="line">xxxxxx</span><br><span class="line"></span><br><span class="line">xxxxxxxxx</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">xxxxxxxxx</span><br><span class="line"></span><br><span class="line">如果用t代表使用的地砖数，我们称t = 8是L(1)型的，而t = 32是L(2)型的。</span><br><span class="line"></span><br><span class="line">记N(n)为满足t ≤ 1000000且为L(n)型的t的个数；例如，N(15) = 832。</span><br><span class="line"></span><br><span class="line">对于1 ≤ n ≤ 10，求∑ N(n)。</span><br><span class="line"></span><br><span class="line">我的思路:</span><br><span class="line">设大圈为x,小圈为y,发现x,y同奇偶.  </span><br><span class="line">那么这一圈为x^2-y^2=(x+y)(x-y)必定为两个偶数.设u=x+y,v=x-y,u和v是两个偶数,且u&gt;v,直接暴力枚举即可,请给我对应的c++实现.</span><br></pre></td></tr></table></figure>
+<h2 id="GPT-降智">GPT(降智)</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">下面给你一个**可直接跑到 1e6** 的 **C++ 暴力枚举实现**，基于你给出的思路：</span><br><span class="line"></span><br><span class="line">* 外方形边长 = **x**</span><br><span class="line">* 内方形边长 = **y**（空洞）</span><br><span class="line">* 使用地砖数：**t = x² − y² = (x+y)(x−y)**</span><br><span class="line">* x,y 同奇偶 → (x+y)、(x−y) 都为 **偶数**</span><br><span class="line">* 设 **u = x+y, v = x−y**，则 **u &gt; v ≥ 2** 且都是偶数，且</span><br><span class="line">  [</span><br><span class="line">  x = \frac&#123;u+v&#125;&#123;2&#125;,\quad y = \frac&#123;u-v&#125;&#123;2&#125;</span><br><span class="line">  ]</span><br><span class="line">* 地砖数 t = uv</span><br><span class="line">* L(n) 的定义：某个 t 可以拼出 **恰好 n 种不同的 (x,y) 方案**。</span><br><span class="line"></span><br><span class="line">我们需要统计：</span><br><span class="line">[</span><br><span class="line">N(n)=|&#123;,t\le 10^6 \mid t\ \text&#123;是 L(n) 型&#125;&#125;|</span><br><span class="line">]</span><br><span class="line">输出 (\sum_&#123;n=1&#125;^&#123;10&#125; N(n))。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"># ✅ **C++ 实现（可直接跑）**</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> LIMIT = <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cnt</span><span class="params">(LIMIT + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// u = x+y, v = x-y, both even, u &gt; v &gt;= 2</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">2</span>; u &lt;= LIMIT; u += <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> v = <span class="number">2</span>; v &lt; u; v += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> t = <span class="number">1LL</span> * u * v;</span><br><span class="line">            <span class="keyword">if</span> (t &gt; LIMIT) <span class="keyword">break</span>;</span><br><span class="line">            cnt[t]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Count N(n) for n = 1..10</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">N</span><span class="params">(<span class="number">11</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">1</span>; t &lt;= LIMIT; t++) &#123;</span><br><span class="line">        <span class="type">int</span> c = cnt[t];</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">1</span> &lt;= c &amp;&amp; c &lt;= <span class="number">10</span>) N[c]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; n &lt;= <span class="number">10</span>; n++) ans += N[n];</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line"># 📌 说明</span><br><span class="line"></span><br><span class="line">### 枚举思路：</span><br><span class="line"></span><br><span class="line">* 双重循环枚举所有偶数的 **u,v**。</span><br><span class="line">* 保证 u&gt;v≥2，可以唯一恢复 x≥y≥0。</span><br><span class="line">* 所有有效的 t = uv ≤ 1,000,000 都计数一次。</span><br><span class="line">* cnt[t] 就是此 t 能构成多少不同的基板方案。</span><br><span class="line">* 然后统计 cnt[t]=n 的数量，就是 N(n)。</span><br><span class="line"></span><br><span class="line">算法复杂度约为 `O( (#even up to 1e6)^2 / 2 )`，但因为 t=uv ≤ 1e6 会快速 break，实际上跑得 **非常快（几十毫秒）**。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你需要：</span><br><span class="line">✔ 输出每个 N(n)</span><br><span class="line">✔ 验证已知的例子（如 N(15)=832）</span><br><span class="line">✔ 优化到更快版本</span><br><span class="line">✔ 改写成 Python 或加多线程</span><br><span class="line"></span><br><span class="line">我都可以继续提供。</span><br><span class="line"></span><br><span class="line">需要吗？</span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<p>Flu早些使用不降智的GPT模型,但提示词没说任何思路.</p>
+<h3 id="User-2">User</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">能组成一种、两种、三种……不同方形基板的地砖数计数</span><br><span class="line"></span><br><span class="line">我们定义一个方形基板为一个拥有方形外框，中间有一个方形的“洞”且在水平和竖直方向上均对称的图形。</span><br><span class="line"></span><br><span class="line">用八块地砖我们只能拼出一种方形基板：一个3x3的方格，正中间有一个1x1的洞。然而，用32块地砖，我们能够拼出两种不同的方形基板。</span><br><span class="line"></span><br><span class="line">xxxxxx </span><br><span class="line">xxxxxx</span><br><span class="line">xx  xx</span><br><span class="line">xx  xx</span><br><span class="line">xxxxxx</span><br><span class="line">xxxxxx</span><br><span class="line"></span><br><span class="line">xxxxxxxxx</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">x       x</span><br><span class="line">xxxxxxxxx</span><br><span class="line"></span><br><span class="line">如果用t代表使用的地砖数，我们称t = 8是L(1)型的，而t = 32是L(2)型的。</span><br><span class="line"></span><br><span class="line">记N(n)为满足t ≤ 1000000且为L(n)型的t的个数；例如，N(15) = 832。</span><br><span class="line"></span><br><span class="line">对于1 ≤ n ≤ 10，求∑ N(n)。</span><br></pre></td></tr></table></figure>
+<h3 id="GPT">GPT</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">先把“方形基板”的计数问题形式化并给出简单的判别法，再给出结果。</span><br><span class="line"></span><br><span class="line">把外正方形边长记为 (a)，内正方形洞的边长记为 (b)（整数，且 (a&gt;b\ge1)），所用地砖数</span><br><span class="line">[</span><br><span class="line">t=a^2-b^2=(a-b)(a+b).</span><br><span class="line">]</span><br><span class="line">令 (u=a-b,; v=a+b)，则 (t=uv)，且 (u) 与 (v) 同奇偶（因为 (a=(u+v)/2) 要为整数），且 (v&gt;u)（否则会导致 (b\le0)）。因此，一个 (t) 对应的不同基板数就是把 (t) 写成 (t=uv) 的因子对 ((u,v)) 的个数，满足 (u&lt;v) 且 (u,v) 同奇偶。</span><br><span class="line"></span><br><span class="line">按 (t) 中 2 的幂次 (e) 分情况可以得到一个简单公式：</span><br><span class="line"></span><br><span class="line">* 若 (t) 为奇数（(e=0)），所有因子都是奇数，符合条件的表示数为把所有不同的因子对 (u&lt;v) 数一遍，即 (\lfloor d(t)/2\rfloor)（(d(t)) 为 (t) 的约数个数）。</span><br><span class="line">* 若 (t) 恰好被 2 整除但不被 4 整除（(e=1)），不存在同奇偶的因子对，因此表示数为 0。</span><br><span class="line">* 若 (t) 至少被 4 整除（(e\ge2)），把 (u=2u&#x27;,\ v=2v&#x27;)，则 (t/4=u&#x27;v&#x27;)，符合条件的表示数等于把 (t/4) 的因子对 (u&#x27;&lt;v&#x27;) 数一遍，即 (\lfloor d(t/4)/2\rfloor)。</span><br><span class="line"></span><br><span class="line">用这一规则计算出小于等于 (10^6) 且对应表示数等于 (n) 的 (t) 个数 (N(n))。计算结果（按 (n) 从 1 到 10）为：</span><br><span class="line"></span><br><span class="line">(N(1)=100803)</span><br><span class="line">(N(2)=224222)</span><br><span class="line">(N(3)=34379)</span><br><span class="line">(N(4)=182746)</span><br><span class="line">(N(5)=4213)</span><br><span class="line">(N(6)=56425)</span><br><span class="line">(N(7)=954)</span><br><span class="line">(N(8)=70988)</span><br><span class="line">(N(9)=4977)</span><br><span class="line">(N(10)=6119).</span><br><span class="line"></span><br><span class="line">因此</span><br><span class="line">[</span><br><span class="line">\sum_&#123;n=1&#125;^&#123;10&#125; N(n)=685826.</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">如果你想我把完整程序贴出来（或改成更高效的素因子预处理版本、把上面 (N(n)) 的分布画成图），我可以直接给出代码与说明。</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># compute R(t) for t up to 1_000_000 and count N(n) for n=1..10</span></span><br><span class="line">limit = <span class="number">1_000_000</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">d</span>(<span class="params">n</span>):</span><br><span class="line">    cnt=<span class="number">1</span></span><br><span class="line">    <span class="comment"># compute number of divisors</span></span><br><span class="line">    i=<span class="number">2</span></span><br><span class="line">    nn=n</span><br><span class="line">    c=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> nn%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">        c+=<span class="number">1</span></span><br><span class="line">        nn//=<span class="number">2</span></span><br><span class="line">    cnt *= (c+<span class="number">1</span>)</span><br><span class="line">    p=<span class="number">3</span></span><br><span class="line">    <span class="keyword">while</span> p*p&lt;=nn:</span><br><span class="line">        c=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> nn%p==<span class="number">0</span>:</span><br><span class="line">            c+=<span class="number">1</span></span><br><span class="line">            nn//=p</span><br><span class="line">        cnt *= (c+<span class="number">1</span>)</span><br><span class="line">        p+=<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> nn&gt;<span class="number">1</span>:</span><br><span class="line">        cnt *= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> cnt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">R</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="comment"># decompose power of 2</span></span><br><span class="line">    e=<span class="number">0</span></span><br><span class="line">    tt=t</span><br><span class="line">    <span class="keyword">while</span> tt%<span class="number">2</span>==<span class="number">0</span> <span class="keyword">and</span> tt&gt;<span class="number">0</span>:</span><br><span class="line">        e+=<span class="number">1</span></span><br><span class="line">        tt//=<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> e==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> e==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> d(t)//<span class="number">2</span>  <span class="comment"># floor(d/2)</span></span><br><span class="line">    <span class="comment"># e&gt;=2</span></span><br><span class="line">    <span class="keyword">return</span> d(t//<span class="number">4</span>)//<span class="number">2</span></span><br><span class="line"></span><br><span class="line">cnt=Counter()</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, limit+<span class="number">1</span>):</span><br><span class="line">    r=R(t)</span><br><span class="line">    <span class="keyword">if</span> r&lt;=<span class="number">10</span> <span class="keyword">and</span> r&gt;=<span class="number">1</span>:</span><br><span class="line">        cnt[r]+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">sumN = <span class="built_in">sum</span>(cnt[n] <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>))</span><br><span class="line">cnt, sumN</span><br></pre></td></tr></table></figure>
+<p>GPT因为没注意到uv全是偶数,所以WA了…<br>
+这或许足以说明提示词工程的重要性???</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2025
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

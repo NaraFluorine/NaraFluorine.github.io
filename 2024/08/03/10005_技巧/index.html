@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="RT,这里写一些题目中总结的技巧. 卡时123456ti&#x3D;clock();&#x2F;&#x2F;开始运行的时间sec&#x3D;0.95*CLOCKS_PER_SEC;&#x2F;&#x2F;规定程序运行时间上限if(clock()-ti&gt;sec)&#123;	fout&lt;&lt;res;	exit(0);&#125; 一般而言不建议 clock() 函数调用太多次,会比较慢. VsCode选中好几行按 Tab 是好几行批量缩进,按">
+    <meta name="description" content="RT,这里写一些题目中总结的技巧. 卡时 123456ti&#x3D;clock();&#x2F;&#x2F;开始运行的时间sec&#x3D;0.95*CLOCKS_PER_SEC;&#x2F;&#x2F;规定程序运行时间上限if(clock()-ti&gt;sec)&#123;	fout&lt;&lt;res;	exit(0);&#125; 一般而言不建议 clock() 函数调用太多次,会比较慢. VsCode 选中好几行按 Tab 是好几行批量缩进,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="技巧">
 <meta property="og:url" content="https://narafluorine.github.io/2024/08/03/10005_%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="RT,这里写一些题目中总结的技巧. 卡时123456ti&#x3D;clock();&#x2F;&#x2F;开始运行的时间sec&#x3D;0.95*CLOCKS_PER_SEC;&#x2F;&#x2F;规定程序运行时间上限if(clock()-ti&gt;sec)&#123;	fout&lt;&lt;res;	exit(0);&#125; 一般而言不建议 clock() 函数调用太多次,会比较慢. VsCode选中好几行按 Tab 是好几行批量缩进,按">
+<meta property="og:description" content="RT,这里写一些题目中总结的技巧. 卡时 123456ti&#x3D;clock();&#x2F;&#x2F;开始运行的时间sec&#x3D;0.95*CLOCKS_PER_SEC;&#x2F;&#x2F;规定程序运行时间上限if(clock()-ti&gt;sec)&#123;	fout&lt;&lt;res;	exit(0);&#125; 一般而言不建议 clock() 函数调用太多次,会比较慢. VsCode 选中好几行按 Tab 是好几行批量缩进,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-03T15:36:16.000Z">
 <meta property="article:modified_time" content="2025-04-25T19:09:59.089Z">
@@ -189,31 +189,50 @@
 
   <div class="content e-content" itemprop="articleBody">
     <p>RT,这里写一些题目中总结的技巧.</p>
-<h2 id="卡时"><a href="#卡时" class="headerlink" title="卡时"></a>卡时</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ti=<span class="built_in">clock</span>();<span class="comment">//开始运行的时间</span></span><br><span class="line">sec=<span class="number">0.95</span>*CLOCKS_PER_SEC;<span class="comment">//规定程序运行时间上限</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">clock</span>()-ti&gt;sec)&#123;</span><br><span class="line">	fout&lt;&lt;res;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="卡时">卡时</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ti=<span class="built_in">clock</span>();<span class="comment">//开始运行的时间</span></span><br><span class="line">sec=<span class="number">0.95</span>*CLOCKS_PER_SEC;<span class="comment">//规定程序运行时间上限</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">clock</span>()-ti&gt;sec)&#123;</span><br><span class="line">	fout&lt;&lt;res;</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一般而言不建议 <code>clock()</code> 函数调用太多次,会比较慢.</p>
-<h2 id="VsCode"><a href="#VsCode" class="headerlink" title="VsCode"></a>VsCode</h2><p>选中好几行按 <code>Tab</code> 是好几行批量缩进,按 <code>Shift+Tab</code> 是全部减小缩进.</p>
-<h2 id="PyCharm"><a href="#PyCharm" class="headerlink" title="PyCharm"></a>PyCharm</h2><p>选中好几行,使用 <code>Ctrl+Alt+L</code> 批量格式化代码,包括但不限于删除多余空格,调整缩进…</p>
-<h2 id="取模映射"><a href="#取模映射" class="headerlink" title="取模映射"></a>取模映射</h2><p>如何让a按照取模规则投射到 <code>[1,b]</code> 的范围中去?答案很简单: <code>(a-1)%b+1</code> .</p>
-<h2 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h2><ol>
+<h2 id="VsCode">VsCode</h2>
+<p>选中好几行按 <code>Tab</code> 是好几行批量缩进,按 <code>Shift+Tab</code> 是全部减小缩进.</p>
+<h2 id="PyCharm">PyCharm</h2>
+<p>选中好几行,使用 <code>Ctrl+Alt+L</code> 批量格式化代码,包括但不限于删除多余空格,调整缩进…</p>
+<h2 id="取模映射">取模映射</h2>
+<p>如何让a按照取模规则投射到 <code>[1,b]</code> 的范围中去?答案很简单: <code>(a-1)%b+1</code> .</p>
+<h2 id="分段">分段</h2>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1419/C">空调</a>.一个空调有一个位置和温度,向两边传送温度,<code>+1</code>递增,问所有格子有多凉快.</li>
 </ol>
 <p><code>std</code>把空调向左传播和向右传播分开了,然后分别维护一个<code>L</code>和<code>R</code>表示向左传播向右传播的最小值,可以做一个DP.</p>
-<h2 id="max-element"><a href="#max-element" class="headerlink" title="max_element"></a>max_element</h2><p>返回最大元素的指针,如果有好几个返回最小的那个位置的指针.</p>
+<h2 id="max-element">max_element</h2>
+<p>返回最大元素的指针,如果有好几个返回最小的那个位置的指针.</p>
 <p><code>*max_element(a+1,a+1+n)</code></p>
-<h2 id="to-string"><a href="#to-string" class="headerlink" title="to_string"></a>to_string</h2><p>返回一个string类,是转换数字为字符串的方式(之一,比自己写方便)</p>
+<h2 id="to-string">to_string</h2>
+<p>返回一个string类,是转换数字为字符串的方式(之一,比自己写方便)</p>
 <p><code>string a=to_string(114514)</code></p>
-<h2 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h2><p><code>return 0&amp;printf(&quot;%d&quot;,dp);</code> 少写一句大括号.<br><code>!x</code> = <code>x!=0</code> , <code>~x</code> = <code>x!=-1</code> , <code>if(-1)</code> 这句话是真.</p>
-<h2 id="数组初始化"><a href="#数组初始化" class="headerlink" title="数组初始化"></a>数组初始化</h2><p><code>int a[114]&#123;&#125;</code> 这个大括号的作用就是初始化为0</p>
-<h2 id="循环枚举元素…"><a href="#循环枚举元素…" class="headerlink" title="循环枚举元素…"></a>循环枚举元素…</h2><p>牢记,循环的目的就是为了枚举,所以下次再碰到你只有一次机会能干嘛的时候有机会就考虑循环枚举元素.</p>
-<p>典例: 你有一个数列,你必须删掉一个元素,如果存在数列相邻两个数gcd不降的情况,输出yes.(枚举删掉哪个元素,算出前缀后缀单调不单调)<br>数据结构第二次第三题:你有一次坐地铁的机会,求s到t最短路.(枚举坐的地铁是哪个)  </p>
-<h2 id="如何统计一个元素在某个数组出现次数"><a href="#如何统计一个元素在某个数组出现次数" class="headerlink" title="如何统计一个元素在某个数组出现次数?"></a>如何统计一个元素在某个数组出现次数?</h2><p><code>count(a.begin(),a,end(),x)==cnt</code></p>
-<h2 id="统计一个数组中有多少个元素"><a href="#统计一个数组中有多少个元素" class="headerlink" title="统计一个数组中有多少个元素"></a>统计一个数组中有多少个元素</h2><p><code>set(vc.begin(),vc.end()).size()</code></p>
-<h2 id="判定是不是3的幂"><a href="#判定是不是3的幂" class="headerlink" title="判定是不是3的幂"></a>判定是不是3的幂</h2><p>取巧:在值域内找到最大的3的幂,然后判断的数直接取模.</p>
-<h2 id="取一个很大数字的前几位"><a href="#取一个很大数字的前几位" class="headerlink" title="取一个很大数字的前几位"></a>取一个很大数字的前几位</h2><p>考虑浮点数,计算的时候取log,然后在希望得到前几位的时候使用exp还原,如此精度就会集中在前面.</p>
-<p>现在考虑如何取出来前几位数字:数字的位数是 $len=\lfloor\log_{10}n\rfloor+1$ ,设x为n的最高5位数,有 $x=\frac{p}{10^{len-5}}$ ,两端取对数有</p>
-<script type="math/tex; mode=display">\log_{10}x=\log_{10}n-(len-5)</script><p>算出来前几位之后就可以了,注意换底公式.</p>
-<h2 id="是不是奇数"><a href="#是不是奇数" class="headerlink" title="是不是奇数"></a>是不是奇数</h2><p><code>if(a&amp;1)</code> <code>if(a&amp;1^1)</code></p>
-<h2 id="建立一个全是0的数组"><a href="#建立一个全是0的数组" class="headerlink" title="建立一个全是0的数组"></a>建立一个全是0的数组</h2><p><code>int a[114]&#123;&#125;</code></p>
+<h2 id="语法糖">语法糖</h2>
+<p><code>return 0&amp;printf(&quot;%d&quot;,dp);</code> 少写一句大括号.<br>
+<code>!x</code> = <code>x!=0</code> , <code>~x</code> = <code>x!=-1</code> , <code>if(-1)</code> 这句话是真.</p>
+<h2 id="数组初始化">数组初始化</h2>
+<p><code>int a[114]&#123;&#125;</code> 这个大括号的作用就是初始化为0</p>
+<h2 id="循环枚举元素…">循环枚举元素…</h2>
+<p>牢记,循环的目的就是为了枚举,所以下次再碰到你只有一次机会能干嘛的时候有机会就考虑循环枚举元素.</p>
+<p>典例: 你有一个数列,你必须删掉一个元素,如果存在数列相邻两个数gcd不降的情况,输出yes.(枚举删掉哪个元素,算出前缀后缀单调不单调)<br>
+数据结构第二次第三题:你有一次坐地铁的机会,求s到t最短路.(枚举坐的地铁是哪个)</p>
+<h2 id="如何统计一个元素在某个数组出现次数">如何统计一个元素在某个数组出现次数?</h2>
+<p><code>count(a.begin(),a,end(),x)==cnt</code></p>
+<h2 id="统计一个数组中有多少个元素">统计一个数组中有多少个元素</h2>
+<p><code>set(vc.begin(),vc.end()).size()</code></p>
+<h2 id="判定是不是3的幂">判定是不是3的幂</h2>
+<p>取巧:在值域内找到最大的3的幂,然后判断的数直接取模.</p>
+<h2 id="取一个很大数字的前几位">取一个很大数字的前几位</h2>
+<p>考虑浮点数,计算的时候取log,然后在希望得到前几位的时候使用exp还原,如此精度就会集中在前面.</p>
+<p>现在考虑如何取出来前几位数字:数字的位数是 $len=\lfloor\log_{10}n\rfloor+1$ ,设x为n的最高5位数,有 $x=\frac{p}{10^{len-5}}$ ,两端取对数有
+$$\log_{10}x=\log_{10}n-(len-5)$$
+算出来前几位之后就可以了,注意换底公式.</p>
+<h2 id="是不是奇数">是不是奇数</h2>
+<p><code>if(a&amp;1)</code> <code>if(a&amp;1^1)</code></p>
+<h2 id="建立一个全是0的数组">建立一个全是0的数组</h2>
+<p><code>int a[114]&#123;&#125;</code></p>
 
   </div>
 </article>
@@ -291,6 +310,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

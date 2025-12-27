@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="不能越过对角线你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数. C_n&#x3D;\frac1{n+1}\binom{2n}{n}证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种. 插板法求 $a_1+…+a_k&#x3D;n$">
+    <meta name="description" content="不能越过对角线 你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数. $$C_n&#x3D;\frac1{n+1}\binom{2n}{n}$$ 证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种. 插板法 求 $a_1+…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率与组合数学">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/12/10022_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="不能越过对角线你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数. C_n&#x3D;\frac1{n+1}\binom{2n}{n}证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种. 插板法求 $a_1+…+a_k&#x3D;n$">
+<meta property="og:description" content="不能越过对角线 你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数. $$C_n&#x3D;\frac1{n+1}\binom{2n}{n}$$ 证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种. 插板法 求 $a_1+…">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-12T06:01:57.000Z">
 <meta property="article:modified_time" content="2025-05-06T16:39:55.227Z">
@@ -188,42 +188,80 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="不能越过对角线"><a href="#不能越过对角线" class="headerlink" title="不能越过对角线"></a>不能越过对角线</h2><p>你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数.</p>
-<script type="math/tex; mode=display">C_n=\frac1{n+1}\binom{2n}{n}</script><p>证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种.</p>
-<h2 id="插板法"><a href="#插板法" class="headerlink" title="插板法"></a>插板法</h2><p>求 $a_1+…+a_k=n$ 的正整数解的个数.答案就是</p>
-<script type="math/tex; mode=display">\binom{n-1}{k-1}</script><p>非负整数解:借数.</p>
-<script type="math/tex; mode=display">\binom{n+k-1}{n}</script><p>每组至少要分到 $a_i$ 个呢?假设 $x’$ 是删完必须要加的,我们就转换为求非负解了.</p>
-<script type="math/tex; mode=display">\binom{n-\sum a_i+k-1}{n-\sum a_i}</script><p>不相邻排列:其实还是借数插在中间,然后组合.</p>
-<script type="math/tex; mode=display">\binom{n-k+1}{k}</script><h2 id="组合数公式"><a href="#组合数公式" class="headerlink" title="组合数公式"></a>组合数公式</h2><script type="math/tex; mode=display">\binom nm=\binom n{n-m}</script><script type="math/tex; mode=display">\binom nk+\binom n{k+1}=\binom{n+1}k</script><script type="math/tex; mode=display">\binom nk=\frac nk\binom{n-1}{k-1}</script><script type="math/tex; mode=display">\binom nm=\binom n{m-1}+\binom{n-1}{m-1}</script><p>DP求杨辉三角的时候用这个.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n\binom ni=2^n</script><p>二项式定理取a=1,b=1的特殊情况.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n(-1)^i\binom ni=[n=0]</script><p>二项式定理取a=1,b=-1的特殊情况.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^m\binom ni\binom m{n-i}=\binom{n+m}m,(n\ge m)</script><p>拆组合数的式子.某些数据结构题会遇到.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n\binom ni^2=\binom{2n}n</script><p>上一个式子的特殊情况(n=m).</p>
-<script type="math/tex; mode=display">\sum_{i=0}^ni\binom ni=n2^{n-1}</script><p>求导可证.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^ni^2\binom ni=\frac{n(n+1)}22^{n-1}</script><p>也是多项式求导可证.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n\binom ik=\binom {n+1}{k+1}</script><p>子集分析可证(这个就是上指标求和公式).</p>
-<script type="math/tex; mode=display">\binom nr\binom rk=\binom nk\binom{n-k}{r-k}</script><p>定义证明.</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n\binom{n-i}i=F_{n+1}</script><p>其中, $F_n$ 是斐波那契数列.</p>
-<p><strong>多重组合数</strong> :多重集的排列数就是多重组合数.多重集的排列可以理解为有一个集合 $S={n_1a_1,n_2a_2,…,n_ka_k}$ ,有这么多种相同元素,他的全排列叫做多重组合数,公式</p>
-<script type="math/tex; mode=display">\binom{n}{n_1,n_2,...,n_k}=\frac{n!}{\prod_{i=1}^kn_i!}</script><h2 id="圆排列"><a href="#圆排列" class="headerlink" title="圆排列"></a>圆排列</h2><p>部分圆排列公式:</p>
-<script type="math/tex; mode=display">Q_n^r=\frac{A_n^r}r=\frac{n!}{r\times(n-r)!}</script><h2 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h2><p>设 $f_n$ 是n个元素形成特定结构的方案数, $g_n$ 是从n个元素选 $i,i\ge0$ 个元素形成结构的方案数.根据f求g有</p>
-<script type="math/tex; mode=display">g_n=\sum_{i=0}^n\binom nif_i</script><p>根据g求f则有</p>
-<script type="math/tex; mode=display">f_n=\sum_{i=0}^n\binom ni(-1)^{n-i}g_i</script><p>这个逆推的过程就叫二项式反演.</p>
-<h2 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h2><script type="math/tex; mode=display">\left|\bigcup_{i=1}^nS_i\right|=\sum_{m=1}^n(-1)^{m-1}\sum_{a_i<a_{i+1}}\left|\bigcap_{i=1}^mS_{a_i}\right|</script><p>下面是求交的容斥.</p>
-<script type="math/tex; mode=display">\left|\bigcap_{i=1}^nS_i\right|=|U|-\left|\bigcup_{i=1}^n\overline{S_i}\right|</script><p><strong>容斥模型</strong> :式子</p>
-<script type="math/tex; mode=display">\left|\bigcap_{a_i<a_{i+1}}^{1\le i\le k}S_{a_i}\right|</script><p>的不定方程形式是</p>
-<script type="math/tex; mode=display">\sum_{i=1}^nx_i=m-\sum_{i=1}^k(b_{a_i}+1)</script><h2 id="容斥应用"><a href="#容斥应用" class="headerlink" title="容斥应用"></a>容斥应用</h2><ol>
+    <h2 id="不能越过对角线">不能越过对角线</h2>
+<p>你要走 $2n$ 步从 $(0,0)$ 到 $(n,n)$ ,但是不能越过对角线,求有多少种走法:卡特兰数.
+$$C_n=\frac1{n+1}\binom{2n}{n}$$
+证明:考虑越过对角线第一步,对后面的步数进行交换(往右换成往下,往下换成往右)然后会到达 $(n-1,n+1)$ 这个点,所以不合法情况就是 $\binom{2n}{n-1}$ 种.</p>
+<h2 id="插板法">插板法</h2>
+<p>求 $a_1+…+a_k=n$ 的正整数解的个数.答案就是
+$$\binom{n-1}{k-1}$$
+非负整数解:借数.
+$$\binom{n+k-1}{n}$$
+每组至少要分到 $a_i$ 个呢?假设 $x’$ 是删完必须要加的,我们就转换为求非负解了.
+$$\binom{n-\sum a_i+k-1}{n-\sum a_i}$$
+不相邻排列:其实还是借数插在中间,然后组合.
+$$\binom{n-k+1}{k}$$</p>
+<h2 id="组合数公式">组合数公式</h2>
+<p>$$\binom nm=\binom n{n-m}$$
+$$\binom nk+\binom n{k+1}=\binom{n+1}k$$
+$$\binom nk=\frac nk\binom{n-1}{k-1}$$
+$$\binom nm=\binom n{m-1}+\binom{n-1}{m-1}$$
+DP求杨辉三角的时候用这个.
+$$\sum_{i=0}^n\binom ni=2^n$$
+二项式定理取a=1,b=1的特殊情况.
+$$\sum_{i=0}^n(-1)^i\binom ni=[n=0]$$
+二项式定理取a=1,b=-1的特殊情况.
+$$\sum_{i=0}^m\binom ni\binom m{n-i}=\binom{n+m}m,(n\ge m)$$
+拆组合数的式子.某些数据结构题会遇到.
+$$\sum_{i=0}^n\binom ni^2=\binom{2n}n$$
+上一个式子的特殊情况(n=m).
+$$\sum_{i=0}^ni\binom ni=n2^{n-1}$$
+求导可证.
+$$\sum_{i=0}^ni^2\binom ni=\frac{n(n+1)}22^{n-1}$$
+也是多项式求导可证.
+$$\sum_{i=0}^n\binom ik=\binom {n+1}{k+1}$$
+子集分析可证(这个就是上指标求和公式).
+$$\binom nr\binom rk=\binom nk\binom{n-k}{r-k}$$
+定义证明.
+$$\sum_{i=0}^n\binom{n-i}i=F_{n+1}$$
+其中, $F_n$ 是斐波那契数列.</p>
+<p><strong>多重组合数</strong> :多重集的排列数就是多重组合数.多重集的排列可以理解为有一个集合 $S={n_1a_1,n_2a_2,…,n_ka_k}$ ,有这么多种相同元素,他的全排列叫做多重组合数,公式
+$$\binom{n}{n_1,n_2,…,n_k}=\frac{n!}{\prod_{i=1}^kn_i!}$$</p>
+<h2 id="圆排列">圆排列</h2>
+<p>部分圆排列公式:
+$$Q_n^r=\frac{A_n^r}r=\frac{n!}{r\times(n-r)!}$$</p>
+<h2 id="二项式反演">二项式反演</h2>
+<p>设 $f_n$ 是n个元素形成特定结构的方案数, $g_n$ 是从n个元素选 $i,i\ge0$ 个元素形成结构的方案数.根据f求g有
+$$g_n=\sum_{i=0}^n\binom nif_i$$
+根据g求f则有
+$$f_n=\sum_{i=0}^n\binom ni(-1)^{n-i}g_i$$
+这个逆推的过程就叫二项式反演.</p>
+<h2 id="容斥原理">容斥原理</h2>
+<p>$$\left|\bigcup_{i=1}^nS_i\right|=\sum_{m=1}^n(-1)^{m-1}\sum_{a_i&lt;a_{i+1}}\left|\bigcap_{i=1}^mS_{a_i}\right|$$
+下面是求交的容斥.
+$$\left|\bigcap_{i=1}^nS_i\right|=|U|-\left|\bigcup_{i=1}^n\overline{S_i}\right|$$
+<strong>容斥模型</strong> :式子
+$$\left|\bigcap_{a_i&lt;a_{i+1}}^{1\le i\le k}S_{a_i}\right|$$
+的不定方程形式是
+$$\sum_{i=1}^nx_i=m-\sum_{i=1}^k(b_{a_i}+1)$$</p>
+<h2 id="容斥应用">容斥应用</h2>
+<ol>
 <li>硬币计数:给四种硬币的面值,n次询问每次询问给出四种硬币的数量以及s表示这么多个硬币能够拼凑出s的方案数.</li>
 </ol>
-<p>套模型:也就是求解</p>
-<script type="math/tex; mode=display">\sum_{i=1}^4C_ix_i=S-\sum_{i=1}^kC_{a_i}(D_{a_i}+1)</script><p>我们首先考虑无限金币,此时就是完全背包.假如一枚金币超过了应当的容量,就要减去对应的差值,枚举子集即可.</p>
-<h2 id="常见误区"><a href="#常见误区" class="headerlink" title="常见误区"></a>常见误区</h2><ol>
-<li>误用组合数<br>概述:由于上一个选了之后会影响下一次选的概率,导致单纯组合数的结果并不是概率出来的结果.</li>
+<p>套模型:也就是求解
+$$\sum_{i=1}^4C_ix_i=S-\sum_{i=1}^kC_{a_i}(D_{a_i}+1)$$
+我们首先考虑无限金币,此时就是完全背包.假如一枚金币超过了应当的容量,就要减去对应的差值,枚举子集即可.</p>
+<h2 id="常见误区">常见误区</h2>
+<ol>
+<li>误用组合数<br>
+概述:由于上一个选了之后会影响下一次选的概率,导致单纯组合数的结果并不是概率出来的结果.</li>
 </ol>
 <blockquote>
-<p>例子:n张A票n张B票,买票的时候是抛硬币决定卖哪张票,问最后两个位置是相同票的概率,此时设想第一位选了一种的时候第二位会发生概率变换导致单纯组合数的概率并不是真正的概率.(问题出在结果判定上,假如没另一种票了就直接剩下的一样,也就是说组合数的概率不一样)</p>
-<script type="math/tex; mode=display">\xcancel{\frac{n-1}{2n-1}}</script><p>正解:DP,其实也能算组合数,假设最后两张票不一样,就会是前2n-2张票有n-1张A和B票.这个时候的概率就是</p>
-<script type="math/tex; mode=display">P=C^{n-1}_{2n-2}\Big(\frac12\Big)^{2n-2}=\frac{(2n-2)!}{4^{n-1}(n-1)!(n-1)!}</script><p>实现O(n)计算.答案是1-P.</p>
+<p>例子:n张A票n张B票,买票的时候是抛硬币决定卖哪张票,问最后两个位置是相同票的概率,此时设想第一位选了一种的时候第二位会发生概率变换导致单纯组合数的概率并不是真正的概率.(问题出在结果判定上,假如没另一种票了就直接剩下的一样,也就是说组合数的概率不一样)
+$$\xcancel{\frac{n-1}{2n-1}}$$
+正解:DP,其实也能算组合数,假设最后两张票不一样,就会是前2n-2张票有n-1张A和B票.这个时候的概率就是
+$$P=C^{n-1}_{2n-2}\Big(\frac12\Big)^{2n-2}=\frac{(2n-2)!}{4^{n-1}(n-1)!(n-1)!}$$
+实现O(n)计算.答案是1-P.</p>
 </blockquote>
 
   </div>
@@ -302,6 +340,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>

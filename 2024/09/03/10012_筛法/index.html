@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="区间筛例题:每次给一对 $l,r$ ,求区间内的质数有多少个.范围是 $l\le r\le10^{12},b-a\le10^6$. 首先要明白一个常见的道理: 区间 $[a,b]$ 内最大的质因数是 $\sqrt b$ .所以我们要先打好1e6内的表,然后利用坐标偏移再打好lr的表即可. 看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,”一个数的最小质因数不会">
+    <meta name="description" content="区间筛 例题:每次给一对 $l,r$ ,求区间内的质数有多少个. 范围是 $l\le r\le10^{12},b-a\le10^6$. 首先要明白一个常见的道理: 区间 $[a,b]$ 内最大的质因数是 $\sqrt b$ .所以我们要先打好1e6内的表,然后利用坐标偏移再打好lr的表即可. 看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,&quot;一个数的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="筛法">
 <meta property="og:url" content="https://narafluorine.github.io/2024/09/03/10012_%E7%AD%9B%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="区间筛例题:每次给一对 $l,r$ ,求区间内的质数有多少个.范围是 $l\le r\le10^{12},b-a\le10^6$. 首先要明白一个常见的道理: 区间 $[a,b]$ 内最大的质因数是 $\sqrt b$ .所以我们要先打好1e6内的表,然后利用坐标偏移再打好lr的表即可. 看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,”一个数的最小质因数不会">
+<meta property="og:description" content="区间筛 例题:每次给一对 $l,r$ ,求区间内的质数有多少个. 范围是 $l\le r\le10^{12},b-a\le10^6$. 首先要明白一个常见的道理: 区间 $[a,b]$ 内最大的质因数是 $\sqrt b$ .所以我们要先打好1e6内的表,然后利用坐标偏移再打好lr的表即可. 看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,&quot;一个数的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-03T07:51:05.000Z">
 <meta property="article:modified_time" content="2025-04-25T18:59:24.190Z">
@@ -188,9 +188,11 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h2 id="区间筛"><a href="#区间筛" class="headerlink" title="区间筛"></a>区间筛</h2><p>例题:每次给一对 $l,r$ ,求区间内的质数有多少个.<br>范围是 $l\le r\le10^{12},b-a\le10^6$.</p>
+    <h2 id="区间筛">区间筛</h2>
+<p>例题:每次给一对 $l,r$ ,求区间内的质数有多少个.
+范围是 $l\le r\le10^{12},b-a\le10^6$.</p>
 <p>首先要明白一个常见的道理: 区间 $[a,b]$ 内最大的质因数是 $\sqrt b$ .所以我们要先打好1e6内的表,然后利用坐标偏移再打好lr的表即可.</p>
-<p>看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,”一个数的最小质因数不会超过 $\sqrt n$ “这个结论,然后先质数筛,再对每个数进行质因数分解O(logn).然后利用唯一分解定理把约数组合拼上去即可.</p>
+<p>看到 $10^{12}$ 的数据范围要想到区间筛.因为数据范围这么大的话,一般要用到,&quot;一个数的最小质因数不会超过 $\sqrt n$ &quot;这个结论,然后先质数筛,再对每个数进行质因数分解O(logn).然后利用唯一分解定理把约数组合拼上去即可.</p>
 
   </div>
 </article>
@@ -268,6 +270,10 @@
     2024-2025
     Fluorine Wengers
   </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
   <div class="footer-right">
     <nav>
       <ul>
