@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="user 1234567891011121314151617181920212223242526272829303132333435斐波那契字对于任意两个数字串A和B，我们定义FA,B为序列(A,B,AB,BAB,ABBAB,…)，其中每一项都是拼接前两项而成。进一步的，取FA,B中首次包含至少n个数字的项，记其第n个数字为DA,B(n)。举例如下：取A&#x3D;1415926535，B&#x3D;89793238">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0230">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0230.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="user 1234567891011121314151617181920212223242526272829303132333435斐波那契字对于任意两个数字串A和B，我们定义FA,B为序列(A,B,AB,BAB,ABBAB,…)，其中每一项都是拼接前两项而成。进一步的，取FA,B中首次包含至少n个数字的项，记其第n个数字为DA,B(n)。举例如下：取A&#x3D;1415926535，B&#x3D;89793238">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.500Z">
+<meta property="article:modified_time" content="2026-01-06T15:09:20.921Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -112,6 +112,18 @@
    -->
     </ul>
   </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
 </header>
 
         
@@ -120,7 +132,26 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <h2 id="user">user</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">斐波那契字</span><br><span class="line"></span><br><span class="line">对于任意两个数字串A和B，我们定义FA,B为序列(A,B,AB,BAB,ABBAB,…)，其中每一项都是拼接前两项而成。</span><br><span class="line"></span><br><span class="line">进一步的，取FA,B中首次包含至少n个数字的项，记其第n个数字为DA,B(n)。</span><br><span class="line"></span><br><span class="line">举例如下：</span><br><span class="line"></span><br><span class="line">取A=1415926535，B=8979323846。我们希望找出DA,B(35)。</span><br><span class="line"></span><br><span class="line">FA,B的前几项分别是：</span><br><span class="line">1415926535</span><br><span class="line">8979323846</span><br><span class="line">14159265358979323846</span><br><span class="line">897932384614159265358979323846</span><br><span class="line">1415926535897932384689793238461415*9*265358979323846</span><br><span class="line"></span><br><span class="line">因此DA,B(35)是第五项的第35个数字，也就是9。</span><br><span class="line"></span><br><span class="line">现在我们取A是圆周率π小数点后的100位数字：</span><br><span class="line"></span><br><span class="line">14159265358979323846264338327950288419716939937510</span><br><span class="line">58209749445923078164062862089986280348253421170679</span><br><span class="line"></span><br><span class="line">B是接下来的再100位数字：</span><br><span class="line"></span><br><span class="line">82148086513282306647093844609550582231725359408128</span><br><span class="line">48111745028410270193852110555964462294895493038196 .</span><br><span class="line"></span><br><span class="line">求∑_&#123;n = 0,1,…,17&#125;   10^&#123;n&#125;× D_&#123;A,B&#125;((127+19n)×7^&#123;n&#125;)。</span><br><span class="line"></span><br><span class="line">我的思路:首先计算这个斐波那契数列每个数字的长度.</span><br><span class="line">然后设计函数f(num,pos)代表数列第num项的第pos个数字,判断如果在前部则f(num-2,pos),如果在后部则f(num-1,pos-len[num-2]),如果落到游戏初始存储AB的数字则直接返回.</span><br><span class="line"></span><br><span class="line">请给我c++代码,可以用string存储,不用真的计算这么大的数字.</span><br></pre></td></tr></table></figure>
+<h2 id="gpt">gpt</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">你的思路是**完全正确而且是标准解法**，这题本质就是一个「**斐波那契字 + 第 k 位查询**」的问题，不能真的拼字符串，只能靠**长度 + 递归/迭代回溯**。</span><br><span class="line"></span><br><span class="line">下面我会直接给你一份**可用的、结构清晰的 C++ 实现**，完全符合你描述的 `f(num, pos)` 思路，并且**不会真的生成巨大的字符串**。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 一、核心思路回顾（与你一致）</span><br><span class="line"></span><br><span class="line">定义：</span><br><span class="line"></span><br><span class="line">* `F[0] = A`</span><br><span class="line">* `F[1] = B`</span><br><span class="line">* `F[n] = F[n-2] + F[n-1]`</span><br><span class="line"></span><br><span class="line">我们只维护：</span><br><span class="line"></span><br><span class="line">* `len[n] = |F[n]|`（可能非常大，用 `unsigned long long`，并做上界截断）</span><br><span class="line"></span><br><span class="line">查询函数：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>char get(n, pos):
+如果 n == 0 或 n == 1，直接从 A/B 中取
+如果 pos &lt;= len[n-2] → get(n-2, pos)
+否则 → get(n-1, pos - len[n-2])</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、实现细节说明</span><br><span class="line"></span><br><span class="line">### 1️⃣ 长度上界截断（非常重要）</span><br><span class="line"></span><br><span class="line">`(127 + 19n) * 7^n` 在 n=17 时已经极其巨大</span><br><span class="line">但我们只关心 **pos 不超过查询最大值**</span><br><span class="line"></span><br><span class="line">所以：</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">len[i] = min(len[i-2] + len[i-1], LIMIT);</span><br></pre></td></tr></table></figure>
+<p>其中 <code>LIMIT</code> 设为大于最大查询位置即可（比如 <code>1e18</code>）。</p>
+<hr>
+<h3 id="2️⃣-不用递归（防止栈爆）">2️⃣ 不用递归（防止栈爆）</h3>
+<p>我们用 <strong>while 循环向下跳转</strong>。</p>
+<hr>
+<h2 id="三、完整-C-代码（可直接用）">三、完整 C++ 代码（可直接用）</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">```cpp</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">using ull = unsigned long long;</span><br><span class="line">const ull LIMIT = (ull)1e18;</span><br><span class="line"></span><br><span class="line">string A, B;</span><br><span class="line">vector&lt;ull&gt; lenF;</span><br><span class="line"></span><br><span class="line">/* 查询 F[n] 的第 pos 位（1-indexed） */</span><br><span class="line">char getDigit(int n, ull pos) &#123;</span><br><span class="line">    while (n &gt;= 2) &#123;</span><br><span class="line">        if (pos &lt;= lenF[n - 2]) &#123;</span><br><span class="line">            n = n - 2;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            pos -= lenF[n - 2];</span><br><span class="line">            n = n - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // n == 0 or 1</span><br><span class="line">    return (n == 0 ? A[pos - 1] : B[pos - 1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(nullptr);</span><br><span class="line"></span><br><span class="line">    // A: π 小数点后前 100 位</span><br><span class="line">    A =</span><br><span class="line">        &quot;14159265358979323846264338327950288419716939937510&quot;</span><br><span class="line">        &quot;58209749445923078164062862089986280348253421170679&quot;;</span><br><span class="line"></span><br><span class="line">    // B: 接下来的 100 位</span><br><span class="line">    B =</span><br><span class="line">        &quot;82148086513282306647093844609550582231725359408128&quot;</span><br><span class="line">        &quot;48111745028410270193852110555964462294895493038196&quot;;</span><br><span class="line"></span><br><span class="line">    // 预处理长度</span><br><span class="line">    int MAXN = 100;  // 足够大</span><br><span class="line">    lenF.resize(MAXN);</span><br><span class="line">    lenF[0] = A.size();</span><br><span class="line">    lenF[1] = B.size();</span><br><span class="line"></span><br><span class="line">    for (int i = 2; i &lt; MAXN; i++) &#123;</span><br><span class="line">        lenF[i] = min(lenF[i - 2] + lenF[i - 1], LIMIT);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 计算答案</span><br><span class="line">    long long ans = 0;</span><br><span class="line">    ull pow7 = 1;</span><br><span class="line"></span><br><span class="line">    for (int n = 0; n &lt;= 17; n++) &#123;</span><br><span class="line">        ull pos = (127 + 19ULL * n) * pow7;</span><br><span class="line"></span><br><span class="line">        // 找到第一个 lenF[k] &gt;= pos</span><br><span class="line">        int k = 0;</span><br><span class="line">        while (lenF[k] &lt; pos) k++;</span><br><span class="line"></span><br><span class="line">        char d = getDigit(k, pos);</span><br><span class="line">        ans += (long long)(d - &#x27;0&#x27;) * (long long)pow(10, n);</span><br><span class="line"></span><br><span class="line">        pow7 *= 7;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 四、复杂度分析</span><br><span class="line"></span><br><span class="line">* **预处理长度**：`O(MAXN)`</span><br><span class="line">* **每次查询**：`O(k)`，k ≈ 80</span><br><span class="line">* **总复杂度**：极小，瞬间完成</span><br><span class="line">* **空间**：只存字符串 + 长度数组</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 五、为什么这是“最优解”</span><br><span class="line"></span><br><span class="line">✔ 不构造任何大字符串</span><br><span class="line">✔ 只走索引与长度</span><br><span class="line">✔ 和你给出的思路 **完全一致**</span><br><span class="line">✔ 可直接过 Project Euler / NOI / 数论竞赛级别题目</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你愿意，我可以：</span><br><span class="line"></span><br><span class="line">* 给你 **递归版本**</span><br><span class="line">* 给你 **模板化版本**</span><br><span class="line">* 或帮你 **把这个抽象成通用 Fibonacci Word 查询类**</span><br><span class="line"></span><br><span class="line">只要一句话 👍</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<p>gpt一发过了.</p>
+
         
   </div>
 </article>
@@ -131,7 +162,7 @@
     Copyright &copy;
     
     
-    2024-2025
+    2024-2026
     Fluorine Wengers
   </div>
   <!-- 不蒜子统计 -->
@@ -161,6 +192,24 @@
       </ul>
     </nav>
   </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
 </footer>
 
     </div>

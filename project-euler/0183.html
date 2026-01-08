@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="user 12345678910111213141516171819202122232425最大拆分乘积N是一个正整数，将N拆分成k个相等的部分，记r &#x3D; N&#x2F;k，也即N &#x3D; r + r + … + r。记P是这些拆分的乘积，也即P &#x3D; r × r × … × r &#x3D; r^k。例如，将11拆分成5个相等的部分，11 &#x3D; 2.2 + 2.2 + 2.2 + 2.2 + 2.2，那么P &#x3D; 2.2^5">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0183">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0183.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="user 12345678910111213141516171819202122232425最大拆分乘积N是一个正整数，将N拆分成k个相等的部分，记r &#x3D; N&#x2F;k，也即N &#x3D; r + r + … + r。记P是这些拆分的乘积，也即P &#x3D; r × r × … × r &#x3D; r^k。例如，将11拆分成5个相等的部分，11 &#x3D; 2.2 + 2.2 + 2.2 + 2.2 + 2.2，那么P &#x3D; 2.2^5">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.491Z">
+<meta property="article:modified_time" content="2026-01-07T01:03:34.453Z">
 <meta property="article:author" content="Fluorine Wengers">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -112,6 +112,18 @@
    -->
     </ul>
   </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
 </header>
 
         
@@ -120,7 +132,16 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <h2 id="user">user</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">最大拆分乘积</span><br><span class="line"></span><br><span class="line">N是一个正整数，将N拆分成k个相等的部分，记r = N/k，也即N = r + r + … + r。</span><br><span class="line">记P是这些拆分的乘积，也即P = r × r × … × r = r^k。</span><br><span class="line"></span><br><span class="line">例如，将11拆分成5个相等的部分，11 = 2.2 + 2.2 + 2.2 + 2.2 + 2.2，那么P = 2.2^5 = 51.53632。</span><br><span class="line"></span><br><span class="line">对于给定的N，记M(N) = Pmax。</span><br><span class="line"></span><br><span class="line">计算可得，N = 11时，这个最大值是在将其拆分成四等份时得到的，此时Pmax = (11/4)^4，也就是说M(11) = 14641/256 = 57.19140625，这是一个有限小数。</span><br><span class="line"></span><br><span class="line">然而，对于N = 8，这个最大值是在将其拆分成三等份时得到的，此时M(8) = 512/27，不是有限小数。</span><br><span class="line"></span><br><span class="line">若M(N)不是有限小数，记D(N) = N，反之记D(N) = -N。</span><br><span class="line"></span><br><span class="line">例如，对于5 ≤ N ≤ 100，ΣD(N) 为2438。</span><br><span class="line"></span><br><span class="line">对于5 ≤ N ≤ 10000，求ΣD(N)。</span><br><span class="line"></span><br><span class="line">我的思路:直接暴力计算即可:枚举每个数字,然后枚举每个拆分的大小,确定哪个拆分最大后把分数表示出来判断是不是有限小数即可.</span><br><span class="line"></span><br><span class="line">注意:1. 你可以使用log存储数字和判断最大值.</span><br><span class="line">2.  先对分母分子求gcd,然后分母除掉gcd剩下的部分不能含有2和5以外的因子,否则是无限小数.</span><br><span class="line"></span><br><span class="line">请给我python代码.</span><br></pre></td></tr></table></figure>
+<h2 id="gpt">gpt</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">下面给你一份**严格按你给出的思路**实现、可直接运行的 Python 代码，核心点包括：</span><br><span class="line"></span><br><span class="line">* 用 `log` 比较不同拆分数 `k` 下的乘积大小，避免大数溢出</span><br><span class="line">* 找到使 ( P = (N/k)^k ) 最大的整数 `k`</span><br><span class="line">* 将 ( (N/k)^k ) 视为分数 ( \frac&#123;N^k&#125;&#123;k^k&#125; )，用 `gcd` 约分</span><br><span class="line">* 判断约分后分母是否只含有质因子 `2` 和 `5`</span><br><span class="line">* 根据是否有限小数决定 `D(N)` 的符号并累加</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 数学说明（简要）</span><br><span class="line"></span><br><span class="line">* 连续情况下最大值在 ( k = N/e ) 附近</span><br><span class="line">* 这里只允许 **整数 k**，所以枚举即可</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">\frac&#123;N^k&#125;&#123;k^k&#125;</span><br><span class="line">\quad\Rightarrow\quad</span><br><span class="line">\gcd(N^k, k^k) = \gcd(N, k)^k</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">* 约分后分母为</span><br><span class="line">  [</span><br><span class="line">  \left(\frac&#123;k&#125;&#123;\gcd(N,k)&#125;\right)^k</span><br><span class="line">  ]</span><br><span class="line">* 分母只含 `2,5` ⇒ **有限小数**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### Python 实现</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> gcd, log</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_finite_decimal</span>(<span class="params">N, k</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    判断 (N/k)^k 是否是有限小数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    g = gcd(N, k)</span><br><span class="line">    denom = k // g  <span class="comment"># 约分后的分母底数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 去掉 2 和 5</span></span><br><span class="line">    <span class="keyword">while</span> denom % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        denom //= <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> denom % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        denom //= <span class="number">5</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> denom == <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">best_k</span>(<span class="params">N</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    找到使 (N/k)^k 最大的整数 k</span></span><br><span class="line"><span class="string">    使用 log 比较</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    best_val = -<span class="number">1e100</span></span><br><span class="line">    best_k = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        val = k * (log(N) - log(k))  <span class="comment"># log((N/k)^k)</span></span><br><span class="line">        <span class="keyword">if</span> val &gt; best_val:</span><br><span class="line">            best_val = val</span><br><span class="line">            best_k = k</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> best_k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_sum_D</span>(<span class="params">limit=<span class="number">10000</span></span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> N <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, limit + <span class="number">1</span>):</span><br><span class="line">        k = best_k(N)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> is_finite_decimal(N, k):</span><br><span class="line">            total -= N</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            total += N</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(compute_sum_D(<span class="number">10000</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">### 复杂度与说明</span><br><span class="line"></span><br><span class="line">* 时间复杂度：</span><br><span class="line">  [</span><br><span class="line">  O\left(\sum_&#123;N=5&#125;^&#123;10000&#125; N\right) \approx 5 \times 10^7</span><br><span class="line">  ]</span><br><span class="line">  在 Python 中 **可接受（几秒内）**</span><br><span class="line"></span><br><span class="line">* 若你想进一步优化：</span><br><span class="line"></span><br><span class="line">  * `k` 只需枚举 `max(1, int(N/e)-5)` 到 `int(N/e)+5`</span><br><span class="line">  * 因为最大值一定在 `N/e` 附近</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你愿意，我可以帮你写一个 **优化版（只枚举 ~10 个 k）** 或者改成 **C++ 高性能版本**。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact">fun fact</h2>
+<p>我认为分数会爆i128,所以让gpt写py了</p>
+<p>一发过,应该是没问题的.</p>
+
         
   </div>
 </article>
@@ -131,7 +152,7 @@
     Copyright &copy;
     
     
-    2024-2025
+    2024-2026
     Fluorine Wengers
   </div>
   <!-- 不蒜子统计 -->
@@ -161,6 +182,24 @@
       </ul>
     </nav>
   </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
 </footer>
 
     </div>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="2025JLU计网A试题回忆 注意:本试卷为软件普班同学使用的试卷(计网A),卓班他们用的是计网C,计科同学考的是计网(计科没有ABC之分),其中卓班据说是考研题.这三套试卷并行导致网上关于JLU计网期末的资料相当混杂,请您在阅读这篇文章之前先检查一下您是不是受众?  注意:这是回忆试卷,有的题记的不准 简答题(6分*8个)  三种上网的方式  DNS四个作用?本地DNS怎么工作的?DNS如何递归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络学习笔记">
+<meta property="og:url" content="https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="2025JLU计网A试题回忆 注意:本试卷为软件普班同学使用的试卷(计网A),卓班他们用的是计网C,计科同学考的是计网(计科没有ABC之分),其中卓班据说是考研题.这三套试卷并行导致网上关于JLU计网期末的资料相当混杂,请您在阅读这篇文章之前先检查一下您是不是受众?  注意:这是回忆试卷,有的题记的不准 简答题(6分*8个)  三种上网的方式  DNS四个作用?本地DNS怎么工作的?DNS如何递归">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://narafluorine.github.io/images/network_1.png">
+<meta property="og:image" content="https://narafluorine.github.io/images/network_2.png">
+<meta property="og:image" content="https://narafluorine.github.io/images/network_3.png">
+<meta property="article:published_time" content="2024-01-17T15:21:27.000Z">
+<meta property="article:modified_time" content="2026-01-07T18:02:52.965Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://narafluorine.github.io/images/network_1.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>计算机网络学习笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/05/01/10000_%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/01/16/00016_SSSTL/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&text=计算机网络学习笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&is_video=false&description=计算机网络学习笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络学习笔记&body=Check out this article: https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&name=计算机网络学习笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&t=计算机网络学习笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2025JLU%E8%AE%A1%E7%BD%91A%E8%AF%95%E9%A2%98%E5%9B%9E%E5%BF%86"><span class="toc-number">1.</span> <span class="toc-text">2025JLU计网A试题回忆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E8%AE%A1%E7%BD%91A%E8%AF%95%E5%8D%B7-%E5%9B%BE%E7%89%87%E7%89%88"><span class="toc-number">2.</span> <span class="toc-text">2024计网A试卷(图片版)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-number"></span> <span class="toc-text">笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E5%B8%A7%E9%95%BF"><span class="toc-number">1.</span> <span class="toc-text">最短帧长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRC"><span class="toc-number">3.</span> <span class="toc-text">CRC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E5%88%86%E6%89%8B"><span class="toc-number">4.</span> <span class="toc-text">三次握手 四次分手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">更新路由表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0"><span class="toc-number">6.</span> <span class="toc-text">超时重传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87-%E9%87%8D%E4%BC%A0-%E5%81%8F%E7%A7%BB%E5%AD%97%E6%AE%B5-MF%E5%80%BC"><span class="toc-number">7.</span> <span class="toc-text">数据报分片 重传 偏移字段 MF值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%8A%A5%E6%96%87%E6%AE%B5"><span class="toc-number">8.</span> <span class="toc-text">TCP报文段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-number">9.</span> <span class="toc-text">信道利用率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%A8%E9%99%90%E5%80%BC"><span class="toc-number">10.</span> <span class="toc-text">门限值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98pad"><span class="toc-number">11.</span> <span class="toc-text">神秘pad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text">曼彻斯特编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-number">13.</span> <span class="toc-text">计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E7%94%A8"><span class="toc-number">14.</span> <span class="toc-text">复用</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        计算机网络学习笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-01-17T15:21:27.000Z" class="dt-published" itemprop="datePublished">2024-01-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/DEAD/">DEAD</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Network/" rel="tag">Network</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="2025JLU计网A试题回忆"><a href="#2025JLU计网A试题回忆" class="headerlink" title="2025JLU计网A试题回忆"></a>2025JLU计网A试题回忆</h2><blockquote>
+<p>注意:本试卷为<strong>软件普班</strong>同学使用的试卷(计网A),卓班他们用的是计网C,计科同学考的是计网(计科没有ABC之分),其中卓班据说是考研题.<br>这三套试卷并行导致网上关于JLU计网期末的资料相当混杂,请您在阅读这篇文章之前先检查一下您是不是受众?</p>
+</blockquote>
+<p><strong>注意</strong>:这是回忆试卷,有的题记的不准</p>
+<p>简答题(6分*8个)</p>
+<ol>
+<li><p>三种上网的方式</p>
+</li>
+<li><p>DNS四个作用?本地DNS怎么工作的?DNS如何递归的?为什么根DNS不能递归?</p>
+</li>
+<li><p>两个传输层数据流协议</p>
+</li>
+<li><p>NAT是什么？结合下图讲讲NAT的工作过程?</p>
+</li>
+<li><p>?</p>
+</li>
+<li><p>?</p>
+</li>
+<li><p>?</p>
+</li>
+<li><p>简述AP…主动扫描和被动扫描…?</p>
+</li>
+</ol>
+<p>大题(8分*6个+4分*1个)</p>
+<ol>
+<li><p>?</p>
+</li>
+<li><p>自定义了一个网络算时延</p>
+</li>
+<li><p>(4分)udp和tcp有三个字节的数据xxxxxxxx xxxxxxxx xxxxxxxx，现在要你校验一下,输出什么？为什么要用反码？错一个bit能查出来吗？错两个呢？</p>
+</li>
+<li><p>ip地址分配(子网划分典题)</p>
+</li>
+<li><p>?</p>
+</li>
+<li><p>有一个网络，各种问你ARP的实现，特别深，深到xx要不要给YY转发ARP请求,XX收到这个请求该怎么做云云</p>
+</li>
+<li><p>DMCA(错排)码，你要算两个正交的结果，你还要算加密的结果，全程画图(考研一般是给结果反推01,这个是给01你要输出结果,而且两个这样的01还要正交,很麻烦)</p>
+</li>
+</ol>
+<h2 id="2024计网A试卷-图片版"><a href="#2024计网A试卷-图片版" class="headerlink" title="2024计网A试卷(图片版)"></a>2024计网A试卷(图片版)</h2><p><img src="../../../../images/network_1.png" alt=""></p>
+<p><img src="../../../../images/network_2.png" alt=""></p>
+<p><img src="../../../../images/network_3.png" alt=""></p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>个人建议至少完整两天才不会挂科,否则非常极限.</p>
+<p>听别人说写满就不会挂科,不知道真的假的.</p>
+<p>计网大致知识<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53077632/article/details/129333995">看这个博客</a>,但是软件计网A很难.<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gonghr/p/16867666.html">不知道这个有没有用</a></p>
+<h2 id="最短帧长"><a href="#最短帧长" class="headerlink" title="最短帧长"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dE421c7z4">最短帧长</a></h2><script type="math/tex; mode=display">最短帧长=争用期\times 数据率</script><script type="math/tex; mode=display">争用期=2\tau</script><script type="math/tex; mode=display">(最短传播时延)\tau=\frac{路长}{传播速率}</script><h2 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1be4y1i78u">子网划分</a></h2><p>网络位:ip地址前面的数字.<br>主机位:ip地址除了网络位后面的数字(他俩加起来位数必须是32)<br>网络前缀:/<strong>24</strong>这个加粗的数字就是网络前缀</p>
+<p>这个格式的ip:(192.168.18.0/24):意思是前24位是固定的网络位,后面的随便划分网络位和主机位<br>子网掩码:地址位全1主机位全0的地址:(192.168.18.0/24)对应的子网掩码就是(255.255.255.0)</p>
+<p>主机位不能全0,也不能全1(所以子网最小ip是 $0…01$ , 最大ip是 $1…10$ )</p>
+<p>给定主机位:用 $2^n-2\ge x$ 找到一个最小的n作为主机位,剩下的全是网络位,子网就是剩下的所有状态.<br>给定子网数: $2^n\ge y$ 找到一个最小的n作为子网位,然后前面直接推即可,剩下的全是主机位.<br>给定好几个部门的主机:从大到小排序,大的先划分,还用主机数划分主机位,剩下的网络位全是0,后面的子网随着前面的至少一个变成1之后继续划分即可.</p>
+<p>补充:默认网关地址:当前主机位1…10的地址.<br>默认广播地址:主机位全1的地址.<br>该网络的网络地址:主机位全0的地址</p>
+<p>受限广播地址:255.255.255.255所有网络的受限广播地址都是这个.<br>本机网络地址:0.0.0.0所有本机网络地址都是0.0.0.0  </p>
+<p>地址空间:划分完网络位的所有可能主机位.<br><strong>有效</strong>地址空间:除掉主机位全0全1的地址.</p>
+<p>五类地址:ABCDE,前缀分别见下表.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A 0</span><br><span class="line">B 10</span><br><span class="line">C 110</span><br><span class="line">D 1110</span><br><span class="line"></span><br><span class="line">E 1111</span><br></pre></td></tr></table></figure>
+<p>他们的地址位分别是8,16,24,32,32.</p>
+<p>可用地址位:满足前缀的地址除掉地址位全0和全1剩下的所有地址(不考虑主机位)<br>所以判断什么地址靠前四位就能判断了.</p>
+<h2 id="CRC"><a href="#CRC" class="headerlink" title="CRC"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12e411F7fd">CRC</a></h2><p>题型1 计算余数<br>补0:取多项式最高位补几个0,如 $x^3$ 补三个0.<br>除法:多项式除法,注意是xor运算不是加减运算.<br>最后取补0的位数,把校验码和源码拼起来作为答案.</p>
+<p>题型2 校验误码<br>直接进行多项式运算,能除尽就是没问题,否则有误码.</p>
+<h2 id="三次握手-四次分手"><a href="#三次握手-四次分手" class="headerlink" title="三次握手 四次分手"></a>三次握手 四次分手</h2><p>名词解释:<br>SYN:同步位,SYN=1表示进行连接请求<br>ACK:确认位,ACK=1确认有效,否则确认无效<br>ack:确认号(小写),对方发过来的确认号+1<br>seq:序号 </p>
+<p>首先我们画出标准的</p>
+<p>TCP连接<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SYN=1,seq=x(随机)</span><br><span class="line">-------------&gt;(实际上是一条斜线)</span><br><span class="line"></span><br><span class="line">SYN=1,ACK=1,ack=x+1,seq=y(随机)</span><br><span class="line">&lt;-------------</span><br><span class="line"></span><br><span class="line">      ACK=1,ack=y+1</span><br><span class="line">-------------&gt;</span><br><span class="line">(代表连接好了,可以传输数据了)</span><br></pre></td></tr></table></figure></p>
+<p>断开连接<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">FIN=1,seq=u</span><br><span class="line">-------------&gt;(此时服务器端B是半关闭状态,还能传数据)</span><br><span class="line"></span><br><span class="line">ACK=1,ack=u+1,seq=v</span><br><span class="line">&lt;-------------</span><br><span class="line">    (还有什么数据赶紧传)</span><br><span class="line">        &lt;=====</span><br><span class="line">FIN=1,ACK=1,ack=u+1,seq=w</span><br><span class="line">&lt;-------------</span><br><span class="line"></span><br><span class="line">ACK=1,ack=w+1,seq=u+1</span><br><span class="line">-------------&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="更新路由表"><a href="#更新路由表" class="headerlink" title="更新路由表"></a>更新路由表</h2><p>用路由表x更新路由表y</p>
+<p>首先所有距离都+1,代表从被更新的路由走到更新路由的距离,然后from全部改成这个路由.<br>然后用这个新表更新路由:如果原先路由和这个路由一样,则无条件改成这个距离,无论距离变大还是变小.<br>如果原先不存在这条路,那就新加上.<br>如果原先的路更短且路由不一样,可以保持不变.</p>
+<p>原先R6路由表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>距离</th>
+<th>下一跳路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net2</td>
+<td>3</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Net3</td>
+<td>4</td>
+<td>R5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>R4发来的更新表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>距离</th>
+<th>下一跳路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net1</td>
+<td>3</td>
+<td>R1</td>
+</tr>
+<tr>
+<td>Net2</td>
+<td>4</td>
+<td>R2</td>
+</tr>
+<tr>
+<td>Net3</td>
+<td>1</td>
+<td>直接交付</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>答:修改后的R4信息:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>距离</th>
+<th>下一跳路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net1</td>
+<td>4</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Net2</td>
+<td>5</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Net3</td>
+<td>2</td>
+<td>R4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>修改后的R6信息:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>目的网络</th>
+<th>距离</th>
+<th>下一跳路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net1</td>
+<td>4</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Net2</td>
+<td>5</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Net3</td>
+<td>2</td>
+<td>R4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="超时重传"><a href="#超时重传" class="headerlink" title="超时重传"></a>超时重传</h2><p>RTT:往返时间<br>RTO:超时重传时间  </p>
+<p>加权平均往返时间RTT</p>
+<script type="math/tex; mode=display">新的RTT_S=(1-\alpha)\times 旧的RTT_S+\alpha\times 新的RTT样本</script><p>RFC建议标准: $\alpha=0.125$  </p>
+<script type="math/tex; mode=display">RTT_{D1}=RTT_1/2</script><script type="math/tex; mode=display">新的RTT_D=(1-\alpha)\times 旧的RTT_D+\beta\times|RTT_S-新的RTT样本|</script><p>(是当前的RTTS1,不是全局的RTTS)</p>
+<p>RFC建议标准: $\alpha=0.25$  </p>
+<script type="math/tex; mode=display">RTO=RTT_S+4\times RTT_D</script><p>发生重传时不测量RTT,直接把RTO变成二倍然后重传数据</p>
+<h2 id="数据报分片-重传-偏移字段-MF值"><a href="#数据报分片-重传-偏移字段-MF值" class="headerlink" title="数据报分片 重传 偏移字段 MF值"></a>数据报分片 重传 偏移字段 MF值</h2><p>一个数据报长度为 4000 字节（固定首部长度）。现在经过一个网络传送，但此网络能够传送的最大数据长度为 1500 字节。试问应当划分为几个短些的数据报片？各数据报片的数据字段长度、片偏移字段和 MF 标志应为何数值？</p>
+<p>答: 数据报4000-&gt;数据大小3980字节(剪掉20字节报头)<br>一次能传送的数据:1500-20=1480字节<br>除掉最后一片外,其余报片要是8的倍数</p>
+<p>所以拆成1480,1480,1020,列表:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据长度</th>
+<th>字段</th>
+<th>片偏移</th>
+<th>MF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1500B</td>
+<td>1480B</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1500B</td>
+<td>1480B</td>
+<td>185</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1040B</td>
+<td>1020B</td>
+<td>370</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>MF:后面还有没有数据,有就是1,没有就是0.<br>片偏移:一片是8B,偏移就是这个不算这个数据的前缀和/8的值</p>
+<h2 id="TCP报文段"><a href="#TCP报文段" class="headerlink" title="TCP报文段"></a>TCP报文段</h2><p>eg:A向B发送两个报文段,序号是90和120.<br>(1)第一个报文段携带多少个字节的数据?<br>(2)主机B收到第一个报文段后发回的确认号应当是多少?<br>(3)如果B收到第二个报文段后发回的确认中的确认号为200,试问A发送的第二个报文段中的数据有多少个字节?<br>(4)如果A发送的第一个报文段丢失了,但第二个报文段到达了B.B在第二个报文段到达后向A发送确认.试问这确认号应该为多少?</p>
+<p>只需要记住,序号是”这段报文起头的数据的序号”.<br>(1)所以第一段承载[90,119],也就是30字节.<br>(2)牢记”确认号是服务器想收到的报文段的编号”,所以正常发回应该是120.<br>(3)直接反推,80字节.<br>(4)丢失意味没收到,所以确认号应该是90.</p>
+<h2 id="信道利用率"><a href="#信道利用率" class="headerlink" title="信道利用率"></a>信道利用率</h2><script type="math/tex; mode=display">信道利用率=\frac{发送数据的时间\left(\frac{周期内发送比特数}{数据传输速率}\right)}{发送周期T}</script><script type="math/tex; mode=display">信道利用率=\frac{L_1}{L_1+L_2+2tv}</script><p>其中 L_1是发送帧长,L_2是确认帧长,t是传播时长和传播速率.</p>
+<p>等待协议:直接算:两倍单向时延+发送时延+确认帧时延(有可能和发送时延一样)<br>后退N帧协议:求出帧头序号长度n,2^n代表能同时传这么多帧,然后用上面算出来的时延直接除: $2^n/t$<br>选择重传协议: $2^{n-1}/t$  </p>
+<h2 id="门限值"><a href="#门限值" class="headerlink" title="门限值"></a>门限值</h2><p>sstresh(慢开始门限值)<br>拥塞窗口(超时的极限值)</p>
+<p>列表即知.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">轮次</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">窗口大小</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>规律:首先以2^n增长,在第一次接触/超过门限的时候值为门限,同时门限/=2.<br>超过门限之后就按照1的速度增长,直到触及极限的时候归1,仍然从2^n增长,注意门限新变化,超过门限之后仍然1增长.</p>
+<h2 id="神秘pad"><a href="#神秘pad" class="headerlink" title="神秘pad"></a>神秘pad</h2><p>7E-&gt;7D 7E<br>7D-&gt;7D 5D<br>X<20 -> 7D X+20</p>
+<p>01pad:碰到5个1直接pad0,解密也是直接删就行.</p>
+<h2 id="曼彻斯特编码"><a href="#曼彻斯特编码" class="headerlink" title="曼彻斯特编码"></a>曼彻斯特编码</h2><p>曼彻斯特编码:高跳低-&gt;1,低跳高0<br>差分曼彻斯特编码:图像和原来不变:0,图像和原来翻转了1.  </p>
+<h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><p>时延带宽积=时延x带宽<br>发送窗口:floor(带宽积/帧大小)<br>序号数:log2(2x发送窗口),有来有回的</p>
+<h2 id="复用"><a href="#复用" class="headerlink" title="复用"></a>复用</h2><p>FDM 频分复用(无线电占用不同波长,注意无论这个波长忙不忙都不会分给别人)<br>TDM 时分复用(操作系统的时间片机制,一个周期内这三个都干)<br>STDM 统计时分复用(上面某个时间片内做完了TDM会闲着,STDM会分给别人)<br>WDM 波分复用(好多波长的光拧成一股信号传播,有光复用器和光分用器,还有放大器)  </p>
+<p>CDM 码分复用(大题)<br>1对方发送1<br>-1对方发送0<br>0对方未发送  </p>
+<p>CDMA:<br>就是,A(+1,-1,…)和好几个站点同时通信,最后他们运算得到码片(+2,-2,…),求A对这个通信得到的结果.<br>答案是直接求正交,<script type="math/tex">1*2+(-1)*(-2)+...</script>最后得到一个值再除向量长度n得到是+1-1还是0.  </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2025JLU%E8%AE%A1%E7%BD%91A%E8%AF%95%E9%A2%98%E5%9B%9E%E5%BF%86"><span class="toc-number">1.</span> <span class="toc-text">2025JLU计网A试题回忆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024%E8%AE%A1%E7%BD%91A%E8%AF%95%E5%8D%B7-%E5%9B%BE%E7%89%87%E7%89%88"><span class="toc-number">2.</span> <span class="toc-text">2024计网A试卷(图片版)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="toc-number"></span> <span class="toc-text">笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E5%B8%A7%E9%95%BF"><span class="toc-number">1.</span> <span class="toc-text">最短帧长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRC"><span class="toc-number">3.</span> <span class="toc-text">CRC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%9B%9B%E6%AC%A1%E5%88%86%E6%89%8B"><span class="toc-number">4.</span> <span class="toc-text">三次握手 四次分手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">更新路由表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0"><span class="toc-number">6.</span> <span class="toc-text">超时重传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87-%E9%87%8D%E4%BC%A0-%E5%81%8F%E7%A7%BB%E5%AD%97%E6%AE%B5-MF%E5%80%BC"><span class="toc-number">7.</span> <span class="toc-text">数据报分片 重传 偏移字段 MF值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%8A%A5%E6%96%87%E6%AE%B5"><span class="toc-number">8.</span> <span class="toc-text">TCP报文段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-number">9.</span> <span class="toc-text">信道利用率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%A8%E9%99%90%E5%80%BC"><span class="toc-number">10.</span> <span class="toc-text">门限值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%A7%98pad"><span class="toc-number">11.</span> <span class="toc-text">神秘pad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text">曼彻斯特编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-number">13.</span> <span class="toc-text">计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E7%94%A8"><span class="toc-number">14.</span> <span class="toc-text">复用</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&text=计算机网络学习笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&is_video=false&description=计算机网络学习笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络学习笔记&body=Check out this article: https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络学习笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&name=计算机网络学习笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/01/17/00017_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&t=计算机网络学习笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Python先看Python速成,剩下的是STL对各种语言的映射. 初等函数str(),int(),float() 格式转换ord() 求一个字(或字符)的编码(字母返回ascii码,中文返回Unicode码,必须传参传一个字或字符)chr() 上述求编码的逆操作,对数字求编码出来的字符len(x) 求一个字符串的长度a.sort() 会对数列a进行排序sorted(a) 会对a进行排序,同时返回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python,Java,Regex">
+<meta property="og:url" content="https://narafluorine.github.io/2024/05/04/10003_Python_Java/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Python先看Python速成,剩下的是STL对各种语言的映射. 初等函数str(),int(),float() 格式转换ord() 求一个字(或字符)的编码(字母返回ascii码,中文返回Unicode码,必须传参传一个字或字符)chr() 上述求编码的逆操作,对数字求编码出来的字符len(x) 求一个字符串的长度a.sort() 会对数列a进行排序sorted(a) 会对a进行排序,同时返回">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-04T15:21:27.000Z">
+<meta property="article:modified_time" content="2026-01-07T19:30:33.023Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Regex">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Python,Java,Regex</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/05/05/10004_%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86-%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/05/03/10002_Python%E6%9D%BF%E5%AD%90/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/05/04/10003_Python_Java/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&text=Python,Java,Regex"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&is_video=false&description=Python,Java,Regex"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python,Java,Regex&body=Check out this article: https://narafluorine.github.io/2024/05/04/10003_Python_Java/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&name=Python,Java,Regex&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&t=Python,Java,Regex"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python"><span class="toc-number">1.</span> <span class="toc-text">Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.1.1.</span> <span class="toc-text">namespace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">1.2.1.</span> <span class="toc-text">set()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math"><span class="toc-number">1.3.</span> <span class="toc-text">math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mpmath"><span class="toc-number">1.4.</span> <span class="toc-text">mpmath</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decimal"><span class="toc-number">1.5.</span> <span class="toc-text">decimal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gmpy2"><span class="toc-number">1.6.</span> <span class="toc-text">gmpy2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BBclass"><span class="toc-number">1.7.</span> <span class="toc-text">类class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.8.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E5%B7%A7-%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">技巧&#x2F;特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv2"><span class="toc-number">2.1.</span> <span class="toc-text">opencv2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java"><span class="toc-number">3.</span> <span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.2.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">3.3.</span> <span class="toc-text">指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#auto"><span class="toc-number">3.4.</span> <span class="toc-text">auto</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Regex-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Regex(正则表达式)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%99"><span class="toc-number">4.1.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">4.2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Regex"><span class="toc-number">4.3.</span> <span class="toc-text">C_Regex</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E6%9D%BF%E5%AD%90"><span class="toc-number">5.</span> <span class="toc-text">Java板子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">5.1.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91-lazy"><span class="toc-number">5.2.</span> <span class="toc-text">线段树(lazy)</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Python,Java,Regex
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-05-04T15:21:27.000Z" class="dt-published" itemprop="datePublished">2024-05-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Java/" rel="tag">Java</a>, <a class="p-category" href="/tags/Python/" rel="tag">Python</a>, <a class="p-category" href="/tags/Regex/" rel="tag">Regex</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><p>先看<a target="_blank" rel="noopener" href="https://learnxinyminutes.com/zh-cn/python/">Python速成</a>,剩下的是STL对各种语言的映射.</p>
+<h2 id="初等函数"><a href="#初等函数" class="headerlink" title="初等函数"></a>初等函数</h2><p><code>str(),int(),float()</code> 格式转换<br><code>ord()</code> 求一个字(或字符)的编码(字母返回ascii码,中文返回Unicode码,必须传参传一个字或字符)<br><code>chr()</code> 上述求编码的逆操作,对数字求编码出来的字符<br><code>len(x)</code> 求一个字符串的长度<br><code>a.sort()</code> 会对数列a进行排序<br><code>sorted(a)</code> 会对a进行排序,同时返回一个新的排好序的列表<br><code>b=list(reversed(a))</code>  返回一个反转的列表,原列表不会改变.<br><code>round(xx,eps)</code>把x舍入到小数点后eps位<br><code>eval()</code> 可以取变量值,比如 <code>eval(n3)</code> 能返回n3这个变量的值</p>
+<h3 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h3><p>在指定名字空间内执行语句.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">namespace=&#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">2</span>,<span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&#x27;a+b&#x27;</span>,namespace)</span><br></pre></td></tr></table></figure></p>
+<h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h3 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h3><p><code>a=set()</code> 创建一个无序但是不重复的集合.</p>
+<p><code>add()</code> 添加一个元素<br><code>update()</code> 添加多个元素<br><code>remove()</code> 删除元素,如果不存在会发生错误<br><code>discard()</code> 删除元素不会引发错误<br><code>clear()</code> 删除所有元素<br><code>|</code> 集合的并运算(好高级啊)<br><code>&amp;</code> 集合的交运算<br><code>-</code> 差集<br><code>^</code> 对称差集(只在一个集合中出现的元素)  </p>
+<h2 id="math"><a href="#math" class="headerlink" title="math"></a>math</h2><p><code>log(a,b)</code> 求 $\log_ba$<br><code>sqrt(x)</code> 开根.</p>
+<h2 id="mpmath"><a href="#mpmath" class="headerlink" title="mpmath"></a>mpmath</h2><p>比math库更高精度的任意位数高精度库.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mpmath.mp.dps=<span class="number">100</span> <span class="comment">#设置精度位数是100位</span></span><br><span class="line">mpmath.cos(x) <span class="comment">#计算cos</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="decimal"><a href="#decimal" class="headerlink" title="decimal"></a>decimal</h2><p>十进制定点和浮点运算库,具有完全正确的十进制浮点运算结果,而且可以修改精度.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> *</span><br><span class="line">getcontext().prec=<span class="number">6</span>   <span class="comment">#修改精度为小数点后六位</span></span><br><span class="line">res=Decimal(<span class="number">1</span>).sqrt() <span class="comment">#Decmial是一个对象,内部函数的开根比math库精确</span></span><br><span class="line"><span class="keyword">if</span> res==Decimal(<span class="built_in">str</span>(res)).to_integral_value(): <span class="comment"># 判断一个数是不是整数</span></span><br></pre></td></tr></table></figure></p>
+<p>草台班子库,以后用就用 <code>gmpy2.mpz</code></p>
+<h2 id="gmpy2"><a href="#gmpy2" class="headerlink" title="gmpy2"></a>gmpy2</h2><p>很好用的数学库.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n=gmpy2.mpz(<span class="string">&#x27;一个9000位的数字&#x27;</span>)</span><br></pre></td></tr></table></figure><br>直接输入会爆sys,怎么改也没用,只能使用别的库绕过.</p>
+<h2 id="类class"><a href="#类class" class="headerlink" title="类class"></a>类class</h2><p>首先了解几个宏:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,xx</span>):</span><br><span class="line">        <span class="comment"># 合构函数,变量在这里声明</span></span><br><span class="line">        self.x=xx <span class="comment"># 在这里声明变量和参数作为类的内部变量(public)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__del__</span>(<span class="params">self</span>): <span class="comment"># 析构函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__lt__</span>(<span class="params">self,other</span>):</span><br><span class="line">        <span class="comment"># &lt; 自定义比较器,然后这个类就能用sorted()</span></span><br><span class="line">        <span class="keyword">return</span> self.val&lt;other.val</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__gt__</span>(<span class="params">self,other</span>): <span class="comment"># &gt;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__le__</span>(<span class="params">self,other</span>): <span class="comment"># &lt;=</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__ge__</span>(<span class="params">self,other</span>): <span class="comment"># &gt;=</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__eq__</span>(<span class="params">self,other</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 这个是类的自定义&quot;标准单个输出&quot;,用于接输出流</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;A<span class="subst">&#123;self.x&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure><br>其他函数写起来就不难了.</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>一维数组:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[]</span><br><span class="line">a.append(<span class="number">114</span>)</span><br></pre></td></tr></table></figure><br>一维数组预留空间:(注意里面一定要有元素,否则30个空列表也是空列表)<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">30</span>*[<span class="number">0</span>]</span><br></pre></td></tr></table></figure><br>二维数组:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array=[[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line"><span class="comment"># in C: array[3][2]</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="技巧-特性"><a href="#技巧-特性" class="headerlink" title="技巧/特性"></a>技巧/特性</h1><ol>
+<li>读多个一行用空格隔开的整数:知道有多少个数:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,c=<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split())</span><br></pre></td></tr></table></figure>
+不知道有多少个数:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">num_list=<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().split()))</span><br></pre></td></tr></table></figure></li>
+<li>Python re了可能是因为很大的整数转字符串爆了(有最大限制),用这个取消限制:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys.set_int_max_str_digits(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>和其他大多数程序一样,按Ctrl+C立刻结束程序.</p>
+</li>
+<li><p><code>int(&#39;1&#39;)=1</code> Python的字符串1转成数字1直接就是1,不是ascii码</p>
+</li>
+<li><p>函数返回值的特性:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.cos(Decimal(<span class="number">114514</span>))</span><br></pre></td></tr></table></figure>
+<p>的返回值是 <code>float</code> 不是 <code>Decimal</code> (感觉Decimal也是草台班子库,比不了mpmath半根)</p>
+</li>
+<li><p><code>try except</code> 上一句执行失败抛错误了就执行下面的东西,在base16,32,64的随机加密然后找flag有奇效(密码经常可能解密失败出现乱码)</p>
+</li>
+<li><p>Python直接写入二进制,比如直接写入一个 <code>0xAA</code> 之类的数字:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;res.bin&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    a=<span class="number">10</span></span><br><span class="line">    f.write(<span class="built_in">bytes</span>([a]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这里(非一层缩进)写代码文件会被关闭.</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>Crypto.Util.number.getPrime(114)</code> 用于生成二进制位是 <code>114</code> 的随机质数.</p>
+</li>
+<li><p><code>enumerate(dat)</code> 用于将一个数组加一个下标,形成类似”下标-数据”的格式.</p>
+</li>
+<li><p>数组冒号用法: <code>a[j:k]</code> 一个冒号是切片,返回区间的数组,出现负数表示倒数第某个位置.<br><code>a[i:j:k]</code> 新增的k表示步长,负数表示倒着枚举.</p>
+</li>
+<li><p><code>type()</code> 输出一个变量的类型</p>
+</li>
+<li><p>在Python中,字符串是 <strong>不可变的</strong> ,如果想使用类似string的要把字符串转换成列表,然后对列表进行操作,然后再转回字符串,如:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;abcdef&#x27;</span></span><br><span class="line">ss=<span class="built_in">list</span>(s)</span><br><span class="line">ss[<span class="number">0</span>]=<span class="string">&#x27;z&#x27;</span></span><br><span class="line">s=<span class="string">&#x27;&#x27;</span>.join(ss)</span><br><span class="line"><span class="built_in">print</span>(s) <span class="comment">#zbcdef</span></span><br></pre></td></tr></table></figure></li>
+<li><p>算一个一元函数的最小值点:使用 <code>scipy.optimize</code> 的 <code>fminbound(func,l,r)</code> 秒了(精度默认1e-5),谁还退火啊…</p>
+</li>
+<li><p>写欧拉筛的时候碰到的问题:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ptop=<span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sieve</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="comment"># global ptop</span></span><br><span class="line">    ...</span><br><span class="line">    ptop+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>变量类型的ptop默认不能访问全局变量,然后就报错.解法:ptop加上全局标签,表示使用全局的那个ptop(数组是默认使用全局的,因为复制的开销可能很大)</p>
+</li>
+<li><p>字典的遍历:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dic=&#123;<span class="number">1</span>:<span class="string">&#x27;A&#x27;</span>,<span class="number">2</span>:<span class="string">&#x27;B&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dic:</span><br><span class="line">    <span class="built_in">print</span>(i)<span class="comment"># 1 2</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> dic.items():</span><br><span class="line">    <span class="built_in">print</span>(i,j)<span class="comment"># 1 A 2 B</span></span><br></pre></td></tr></table></figure></li>
+<li>numpy的矩阵使用:<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mat=numpy.array([</span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>], <span class="comment"># 1 2</span></span><br><span class="line">    [<span class="number">3</span>,<span class="number">4</span>], <span class="comment"># 3 4 创建一个这么矩阵</span></span><br><span class="line">])</span><br><span class="line">mat@maat <span class="comment"># 这个是矩阵乘法,不是*号</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="opencv2"><a href="#opencv2" class="headerlink" title="opencv2"></a>opencv2</h2><p>opencv2存储图像的本质是一个numpy数组,所以两个图像的严格比较记得写 <code>.any()</code> 或 <code>.all()</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">image = cv2.imread(<span class="string">&#x27;out2.png&#x27;</span>) <span class="comment"># 读图像</span></span><br><span class="line"><span class="keyword">if</span> image <span class="keyword">is</span> <span class="literal">None</span>: <span class="comment"># 判空</span></span><br><span class="line">    exit()</span><br><span class="line">iimg=image[y_begin:y_end,x_begin:x_end]</span><br><span class="line">iiimg=image[????]</span><br><span class="line"><span class="keyword">if</span> (iimg==iiimg).<span class="built_in">all</span>(): <span class="comment"># 图像完全一致</span></span><br><span class="line">    xx</span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">&#x27;a.png&#x27;</span>,iimg) <span class="comment"># 写入文件</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;Cropped Image&#x27;</span>,iimg) <span class="comment"># 弹窗展示你的图片</span></span><br><span class="line">cv2.waitKey(<span class="number">0</span>) <span class="comment"># 等待用户按键</span></span><br><span class="line">cv2.destroyAllWindows() <span class="comment"># 结束</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p>先看<a target="_blank" rel="noopener" href="https://learnxinyminutes.com/zh-cn/java/">Java速成</a>.</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main&#123;</span><br><span class="line">        Scanner sc=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        t=sc.nextInt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> [][][][][][]dat=<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">1</span>][<span class="number">2</span>][<span class="number">3</span>][<span class="number">4</span>][<span class="number">5</span>][<span class="number">6</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>除了Java的几种基本类型(int string float double long byte boolean short)在函数中是复制传参的之外,所有类型的传递参数都是引用.也就是说,函数传参int,改变不会影响外部的值,传参abc(自定义类)传的是一个指针,abc怎么变不影响abc.(里面的东西),但是abc.xx变了会影响外部.</p>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>使用 <code>var</code> 关键字可得到类似效果.</p>
+<h1 id="Regex-正则表达式"><a href="#Regex-正则表达式" class="headerlink" title="Regex(正则表达式)"></a>Regex(正则表达式)</h1><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ol>
+<li>一个字符最多只能被匹配一次,匹配上之后不会再参与后续匹配.</li>
+<li>正则表达式总是倾向于单次匹配最少的字符,如 <code>1?1?1</code> 匹配 <code>1111</code> 结果是得到一个 <code>111</code> 而不是字符更多的四个 <code>1</code> </li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-syntax.html">正则入门</a><br><a target="_blank" rel="noopener" href="https://www.jyshare.com/front-end/854/">正则测试</a><br><a target="_blank" rel="noopener" href="https://regexlearn.com/zh-cn/learn/regex101">正则交互学习</a></p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p><code>[]</code> 里面划定字符集,匹配一个,里面可以 <code>a-z</code> 这么用.<br><code>[^]</code> 否定字符集.  </p>
+<p>字符后面加上下面的字符控制前面一个字符的出现数量:<br><code>+</code> $[1,+\infty)$<br><code>*</code> $[0,+\infty)$<br><code>?</code> $[0,1]$<br><code>&#123;a,b&#125;</code> $[a,b]$ 精确次数控制,ab可以不填,表示0或infty</p>
+<h2 id="C-Regex"><a href="#C-Regex" class="headerlink" title="C_Regex"></a>C_Regex</h2><p>新的C++标准已经加上了regex(虽然时间复杂度比较玄学)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">cin&gt;&gt;s;</span><br><span class="line">s=<span class="built_in">regex_replace</span>(s,<span class="built_in">regex</span>(R<span class="string">&quot;A&quot;</span>),<span class="string">&quot;B&quot;</span>);</span><br><span class="line">cout&lt;&lt;s;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Java板子"><a href="#Java板子" class="headerlink" title="Java板子"></a>Java板子</h1><blockquote>
+<p>严正声明:算竞少用Java,太慢了!!!<br>笔者的<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">线段树1</a>板子的C++跑了<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/148684928">195ms</a>,然而Java近乎完全相同的写法直接用Scanner被卡常了,参考<a target="_blank" rel="noopener" href="https://oj.xjtuicpc.com/article/4">这个</a>改过之后跑了<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/249094216">6.96s</a>,慢20倍还真不是开玩笑的.</p>
+<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> StreamTokenizer st=<span class="keyword">new</span> <span class="title class_">StreamTokenizer</span>(<span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in)));</span><br><span class="line">    <span class="keyword">static</span> PrintWriter pw=<span class="keyword">new</span> <span class="title class_">PrintWriter</span>(<span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(System.out)));</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">Int</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        st.nextToken();</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>) st.nval;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">Long</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        st.nextToken();</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">long</span>) st.nval;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="type">StreamTokenizer</span> <span class="variable">st</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StreamTokenizer</span>(<span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in)));   </span><br><span class="line">            st.nextToken();<span class="type">int</span> n=(<span class="type">int</span>)st.nval;<span class="comment">//输入n</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//代码主体</span></span><br><span class="line"></span><br><span class="line">            <span class="type">PrintWriter</span> <span class="variable">pw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrintWriter</span>(<span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(System.out));</span><br><span class="line">            pw.println(n);<span class="comment">//输出n</span></span><br><span class="line">            pw.flush();</span><br><span class="line">            pw.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="线段树-lazy"><a href="#线段树-lazy" class="headerlink" title="线段树(lazy)"></a>线段树(lazy)</h2><p>支持区间加的板子.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SegTree</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">node</span>&#123;</span><br><span class="line">        <span class="type">int</span> l,r;</span><br><span class="line">        <span class="type">long</span> val,lazy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span>[] ddat;</span><br><span class="line">    <span class="keyword">public</span> node[] dat;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> top;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SegTree</span><span class="params">()</span>&#123;</span><br><span class="line">        top=<span class="number">0</span>;</span><br><span class="line">        ddat=<span class="keyword">new</span> <span class="title class_">long</span>[<span class="number">100010</span>];</span><br><span class="line">        dat=<span class="keyword">new</span> <span class="title class_">node</span>[<span class="number">300010</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;dat.length;i++)&#123;</span><br><span class="line">            dat[i]=<span class="keyword">new</span> <span class="title class_">node</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">bbuild</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;=r)&#123;</span><br><span class="line">            ++top;</span><br><span class="line">            dat[top].val=ddat[l];</span><br><span class="line">            dat[top].lazy=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> top;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>,tmp=++top;</span><br><span class="line">        dat[tmp].l=bbuild(l,mid);</span><br><span class="line">        dat[tmp].r=bbuild(mid+<span class="number">1</span>,r);</span><br><span class="line">        pushup(tmp);</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pushdown</span><span class="params">(<span class="type">int</span> mod,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(dat[mod].lazy!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            dat[dat[mod].l].val+=dat[mod].lazy*(mid-l+<span class="number">1</span>);</span><br><span class="line">            dat[dat[mod].r].val+=dat[mod].lazy*(r-mid);</span><br><span class="line">            </span><br><span class="line">            dat[dat[mod].l].lazy+=dat[mod].lazy;</span><br><span class="line">            dat[dat[mod].r].lazy+=dat[mod].lazy;</span><br><span class="line">            dat[mod].lazy=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pushup</span><span class="params">(<span class="type">int</span> mod)</span>&#123;</span><br><span class="line">        dat[mod].val=dat[dat[mod].l].val+dat[dat[mod].r].val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">qquery</span><span class="params">(<span class="type">int</span> mod,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> tl,<span class="type">int</span> tr)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tl&lt;=l&amp;&amp;r&lt;=tr)&#123;</span><br><span class="line">            <span class="keyword">return</span> dat[mod].val;</span><br><span class="line">        &#125;</span><br><span class="line">        pushdown(mod,l,r);</span><br><span class="line">        <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="type">long</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(tl&lt;=mid)res+=qquery(dat[mod].l,l,mid,tl,tr);</span><br><span class="line">        <span class="keyword">if</span>(tr&gt;mid)res+=qquery(dat[mod].r,mid+<span class="number">1</span>,r,tl,tr);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">aadd</span><span class="params">(<span class="type">int</span> mod,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> tl,<span class="type">int</span> tr,<span class="type">long</span> val)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tl&lt;=l&amp;&amp;r&lt;=tr)&#123;</span><br><span class="line">            dat[mod].lazy+=val;</span><br><span class="line">            dat[mod].val+=val*(r-l+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        pushdown(mod,l,r);</span><br><span class="line">        <span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(tl&lt;=mid)aadd(dat[mod].l,l,mid,tl,tr,val);</span><br><span class="line">        <span class="keyword">if</span>(tr&gt;mid)aadd(dat[mod].r,mid+<span class="number">1</span>,r,tl,tr,val);</span><br><span class="line">        pushup(mod);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python"><span class="toc-number">1.</span> <span class="toc-text">Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">初等函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#namespace"><span class="toc-number">1.1.1.</span> <span class="toc-text">namespace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93"><span class="toc-number">1.2.</span> <span class="toc-text">标准库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">1.2.1.</span> <span class="toc-text">set()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math"><span class="toc-number">1.3.</span> <span class="toc-text">math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mpmath"><span class="toc-number">1.4.</span> <span class="toc-text">mpmath</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decimal"><span class="toc-number">1.5.</span> <span class="toc-text">decimal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gmpy2"><span class="toc-number">1.6.</span> <span class="toc-text">gmpy2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BBclass"><span class="toc-number">1.7.</span> <span class="toc-text">类class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.8.</span> <span class="toc-text">数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E5%B7%A7-%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">技巧&#x2F;特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv2"><span class="toc-number">2.1.</span> <span class="toc-text">opencv2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java"><span class="toc-number">3.</span> <span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.2.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">3.3.</span> <span class="toc-text">指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#auto"><span class="toc-number">3.4.</span> <span class="toc-text">auto</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Regex-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">Regex(正则表达式)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%88%99"><span class="toc-number">4.1.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-number">4.2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Regex"><span class="toc-number">4.3.</span> <span class="toc-text">C_Regex</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E6%9D%BF%E5%AD%90"><span class="toc-number">5.</span> <span class="toc-text">Java板子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">5.1.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91-lazy"><span class="toc-number">5.2.</span> <span class="toc-text">线段树(lazy)</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/05/04/10003_Python_Java/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&text=Python,Java,Regex"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&is_video=false&description=Python,Java,Regex"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python,Java,Regex&body=Check out this article: https://narafluorine.github.io/2024/05/04/10003_Python_Java/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&title=Python,Java,Regex"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&name=Python,Java,Regex&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/05/04/10003_Python_Java/&t=Python,Java,Regex"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

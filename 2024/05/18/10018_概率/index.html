@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="在这里放一些常见的概率模型.  如果某件事情发生的概率是p,那么期望进行多少次试验才能让p发生的次数是1&#x2F;p.  模式匹配问题猴子每次会在键盘上随机敲击一个字母,请问出现指定字符串s的期望敲击次数是多少?  结论:期望次数是 \sum V^l其中V表示值域大小(所有字母的集合大小),l表示字符串所有前缀等于后缀的长度.如 ABRACADABRA ,答案是 $26^{11}+26^{4}+26$ ,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率">
+<meta property="og:url" content="https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="在这里放一些常见的概率模型.  如果某件事情发生的概率是p,那么期望进行多少次试验才能让p发生的次数是1&#x2F;p.  模式匹配问题猴子每次会在键盘上随机敲击一个字母,请问出现指定字符串s的期望敲击次数是多少?  结论:期望次数是 \sum V^l其中V表示值域大小(所有字母的集合大小),l表示字符串所有前缀等于后缀的长度.如 ABRACADABRA ,答案是 $26^{11}+26^{4}+26$ ,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-18T15:21:27.000Z">
+<meta property="article:modified_time" content="2026-01-08T03:08:13.989Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>概率</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/05/19/10019_DP/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/05/17/10017_%E6%8E%A8%E5%BC%8F%E5%AD%90/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&text=概率"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&is_video=false&description=概率"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=概率&body=Check out this article: https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&name=概率&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&t=概率"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">模式匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%BF%E8%83%BD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">势能法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9C%E6%97%B6%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">停时定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0-%E7%AE%80%E5%8D%95%E7%89%88"><span class="toc-number">4.</span> <span class="toc-text">随机游走(简单版)</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        概率
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-05-18T15:21:27.000Z" class="dt-published" itemprop="datePublished">2024-05-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Math/" rel="tag">Math</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>在这里放一些常见的概率模型.</p>
+<ol>
+<li>如果某件事情发生的概率是p,那么期望进行多少次试验才能让p发生的次数是1/p.</li>
+</ol>
+<h2 id="模式匹配问题"><a href="#模式匹配问题" class="headerlink" title="模式匹配问题"></a>模式匹配问题</h2><p>猴子每次会在键盘上随机敲击一个字母,请问出现指定字符串s的期望敲击次数是多少?</p>
+<blockquote>
+<p>结论:期望次数是</p>
+<script type="math/tex; mode=display">\sum V^l</script><p>其中V表示值域大小(所有字母的集合大小),l表示字符串所有前缀等于后缀的长度.<br>如 <code>ABRACADABRA</code> ,答案是 $26^{11}+26^{4}+26$ ,因为前缀A和后缀A匹配,前缀ABRA和后缀ABRA匹配,整个字符串是前后缀匹配的.</p>
+</blockquote>
+<p>(引用)这个结论乍一看违反直观，为什么首次出现正正和正反的期望次数不相同？这是因为，模式等待中途失败时，模式的头部和尾部重合越多，就越容易从头再来；而重合的越少，就越容易从中间继续。在得到正面的情况下，接下来等待正正失败（出现反），就要从头再来等两个正面；而等待正反失败（出现正），则还是得到正面，仍只需等一个反面。</p>
+<h2 id="势能法"><a href="#势能法" class="headerlink" title="势能法"></a>势能法</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/houzhiyuan/p/17991053">看这个</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ez-lcw/p/16843253.html">看这个</a></p>
+<ol>
+<li><p>CF1025G 有n个公司可能是自由的或者被合并的,每次会随机选出ab两个自由公司,然后等概率让a合并b或b合并a,被合并的公司的所有子公司都会变成自由状态,求第一次所有公司被一家公司合并的期望次数.</p>
+<p><strong>势能法</strong> :设S是当前局面,F(S)是当前局面势能,F(N)是结束局面的势能,令F(N)-F(S)是期望次数.将局面势能落到具体每个节点的势能: $F(S)=\sum f(a_i)$ ,其中 $a_i$ 是每个节点的势能,只和这颗”树”的大小有关.</p>
+<p>随机两个数ab,模拟合并的过程:</p>
+<script type="math/tex; mode=display">f(a)+f(b)+1=\frac{af(0)+bf(0)+f(a+1)+b(b+1)}{2}</script><p>前面是ab的势能和, $+1$ 是因为发生一次合并之后势能总要往高走(不然怎么算期望),然后根据轮换对称性可以直接把ab独立出来:</p>
+<script type="math/tex; mode=display">f(a)+\frac12=\frac{af(0)+f(a+1)}{2}</script><p>由于势能是一个相对的概念,f(0)可以随便取,取0得到</p>
+<script type="math/tex; mode=display">f(a)=2^a-1</script><p>加起来减一下即可.</p>
+</li>
+</ol>
+<h2 id="停时定理"><a href="#停时定理" class="headerlink" title="停时定理"></a>停时定理</h2><p>这一部分的题很难,cf几乎都在2800-3500左右.</p>
+<h2 id="随机游走-简单版"><a href="#随机游走-简单版" class="headerlink" title="随机游走(简单版)"></a>随机游走(简单版)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">o-o-o-o-o</span><br><span class="line">q1^     q2</span><br><span class="line"> now</span><br></pre></td></tr></table></figure>
+<p>你在一条链上.你有 $\frac12$ 的概率往左走一格, $\frac12$ 的概率往右走一格.走到最左端(0)有 $q_1$ 的概率赢,走到最右端有 $q_2$ 的概率赢.求你最终赢的概率.</p>
+<p>结论:在距离0 $x$ 点位置的概率是 $\frac{x}{n+1}q_1+\frac{n+1-x}{n+1}q_2$ ,直观理解就是调和一下.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">模式匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%BF%E8%83%BD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">势能法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9C%E6%97%B6%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">停时定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0-%E7%AE%80%E5%8D%95%E7%89%88"><span class="toc-number">4.</span> <span class="toc-text">随机游走(简单版)</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&text=概率"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&is_video=false&description=概率"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=概率&body=Check out this article: https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&title=概率"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&name=概率&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/05/18/10018_%E6%A6%82%E7%8E%87/&t=概率"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
