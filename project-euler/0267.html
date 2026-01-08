@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="你开始有一块钱,你每轮把 $f$ 倍率的钱拿去下注,每次翻硬币正面朝上可以获得这么多钱,反面朝上就失去这么多钱.1e3轮之后你的钱有概率突破1e9,问选取最合适的 $f$ 使概率最大,你有多大概率超过1e9. 首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有 $$W(n)&#x3D;(1+2f)^{n}(1-f)^{N-n}$$ 显然这个函数是单调">
+    <meta name="description" content="你开始有一块钱,你每轮把 $f$ 倍率的钱拿去下注,每次翻硬币正面朝上可以获得这么多钱,反面朝上就失去这么多钱.1e3轮之后你的钱有概率突破1e9,问选取最合适的 $f$ 使概率最大,你有多大概率超过1e9. 首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有 W(n)&#x3D;(1+2f)^{n}(1-f)^{N-n}显然这个函数是单调的,直观理">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0267">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0267.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="你开始有一块钱,你每轮把 $f$ 倍率的钱拿去下注,每次翻硬币正面朝上可以获得这么多钱,反面朝上就失去这么多钱.1e3轮之后你的钱有概率突破1e9,问选取最合适的 $f$ 使概率最大,你有多大概率超过1e9. 首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有 $$W(n)&#x3D;(1+2f)^{n}(1-f)^{N-n}$$ 显然这个函数是单调">
+<meta property="og:description" content="你开始有一块钱,你每轮把 $f$ 倍率的钱拿去下注,每次翻硬币正面朝上可以获得这么多钱,反面朝上就失去这么多钱.1e3轮之后你的钱有概率突破1e9,问选取最合适的 $f$ 使概率最大,你有多大概率超过1e9. 首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有 W(n)&#x3D;(1+2f)^{n}(1-f)^{N-n}显然这个函数是单调的,直观理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T01:05:08.617Z">
@@ -133,11 +133,9 @@
   <div class="content" itemprop="articleBody">
       
           <p>你开始有一块钱,你每轮把 $f$ 倍率的钱拿去下注,每次翻硬币正面朝上可以获得这么多钱,反面朝上就失去这么多钱.1e3轮之后你的钱有概率突破1e9,问选取最合适的 $f$ 使概率最大,你有多大概率超过1e9.</p>
-<p>首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有
-$$W(n)=(1+2f)^{n}(1-f)^{N-n}$$
-显然这个函数是单调的,直观理解为赢的次数越多钱越多.那么必定存在一个最小的 $n$ 值 $n_0$ 满足 $W(n)\ge M$ ,列式子如下:
-$$n\ge\frac{\log M-N\log(1-f)}{\log(1+2f)-\log(1-f)}$$
-我们要求右边函数的最小值,使用 <code>scipy.optimize</code> 的 <code>fminbound</code> 解决,得到 $n_0=\lceil h(x_0)\rceil$ .</p>
+<p>首先把加法化成乘法:正反面朝上分别会获得 $(1+2f),(1-f)$ .所以丢N次硬币假设正面次数为n,有</p>
+<script type="math/tex; mode=display">W(n)=(1+2f)^{n}(1-f)^{N-n}</script><p>显然这个函数是单调的,直观理解为赢的次数越多钱越多.那么必定存在一个最小的 $n$ 值 $n_0$ 满足 $W(n)\ge M$ ,列式子如下:</p>
+<script type="math/tex; mode=display">n\ge\frac{\log M-N\log(1-f)}{\log(1+2f)-\log(1-f)}</script><p>我们要求右边函数的最小值,使用 <code>scipy.optimize</code> 的 <code>fminbound</code> 解决,得到 $n_0=\lceil h(x_0)\rceil$ .</p>
 <p>剩下的就简单了,答案是 $\frac{\sum_{i=n_0}^N\binom{N}{i}}{2^N}$</p>
 
         

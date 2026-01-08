@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="直接求…吗? 本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大. 让GPT写了一个暴力算的才发现求出来这个数就很困难… 仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了. 那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和… 最后摆烂抄大佬的.">
+    <meta name="description" content="直接求…吗?本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大. 让GPT写了一个暴力算的才发现求出来这个数就很困难…仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了.那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和…   最后摆烂抄大佬的.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0288">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0288.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="直接求…吗? 本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大. 让GPT写了一个暴力算的才发现求出来这个数就很困难… 仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了. 那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和… 最后摆烂抄大佬的.">
+<meta property="og:description" content="直接求…吗?本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大. 让GPT写了一个暴力算的才发现求出来这个数就很困难…仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了.那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和…   最后摆烂抄大佬的.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T00:10:09.203Z">
@@ -132,11 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p>直接求…吗?<br>
-本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大.</p>
-<p>让GPT写了一个暴力算的才发现求出来这个数就很困难…<br>
-仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了.<br>
-那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和…</p>
+          <p>直接求…吗?<br>本来以为瓶颈在于阶乘中p的个数这个式子,实际上瓶颈在于计算这个pxx这个数,不取模的,非常大.</p>
+<p>让GPT写了一个暴力算的才发现求出来这个数就很困难…<br>仔细一看发现这玩意破坏了原先LCG的很宽的值域,变的和p一样非常小,联想生成函数了.<br>那么,阶乘中含p这玩意也和p有关,带进去发现需要用前缀和…  </p>
 <p>最后摆烂抄大佬的.</p>
 
         

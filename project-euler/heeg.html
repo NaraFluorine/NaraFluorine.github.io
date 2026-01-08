@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="problem Heegner Among all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer. 在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让">
+    <meta name="description" content="problem HeegnerAmong all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer.在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让 $\">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-heeg">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/heeg.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="problem Heegner Among all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer. 在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让">
+<meta property="og:description" content="problem HeegnerAmong all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer.在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让 $\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T15:34:03.827Z">
@@ -132,18 +132,10 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h2 id="problem-Heegner">problem Heegner</h2>
-<p>Among all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer.<br>
-在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让 $\cos(\pi\sqrt n)$ 最接近整数的数.</p>
-<h1>题解(spoiler)</h1>
-<p>查阅资料:
-$$e^{ix}=\cos x+i\sin x$$
-$$\cos z=\frac{e^{iz}+e^{-iz}}2$$
-$$\sin z=\frac{e^{iz}-e^{-iz}}{2i}$$
-直接带式子算就行.(真的吗?)<br>
-然后被炸 <code>long double</code> 精度,发现事情没有这么简单.<br>
-最后用python的mpmath库过去了,负数去exp大小能有e42这么大,普通python也会炸精度.</p>
-<p>事实上查阅维基百科得知&quot;黑格尔数&quot;,页面有一个马尔努金常数,说e的多少次方pi非常接近整数,直接OSINT出来了,根本不用算.</p>
+          <h2 id="problem-Heegner"><a href="#problem-Heegner" class="headerlink" title="problem Heegner"></a>problem Heegner</h2><p>Among all non-square integers $n$ with absolute value not exceeding $10^3$ , find the value of $n$ such that $\cos(\pi\sqrt n)$ is closest to an integer.<br>在绝对值不超过 $10^3$ 的所有非平方数整数中,找到让 $\cos(\pi\sqrt n)$ 最接近整数的数.</p>
+<h1 id="题解-spoiler"><a href="#题解-spoiler" class="headerlink" title="题解(spoiler)"></a>题解(spoiler)</h1><p>查阅资料:</p>
+<script type="math/tex; mode=display">e^{ix}=\cos x+i\sin x</script><script type="math/tex; mode=display">\cos z=\frac{e^{iz}+e^{-iz}}2</script><script type="math/tex; mode=display">\sin z=\frac{e^{iz}-e^{-iz}}{2i}</script><p>直接带式子算就行.(真的吗?)<br>然后被炸 <code>long double</code> 精度,发现事情没有这么简单.<br>最后用python的mpmath库过去了,负数去exp大小能有e42这么大,普通python也会炸精度.</p>
+<p>事实上查阅维基百科得知”黑格尔数”,页面有一个马尔努金常数,说e的多少次方pi非常接近整数,直接OSINT出来了,根本不用算.</p>
 
         
   </div>

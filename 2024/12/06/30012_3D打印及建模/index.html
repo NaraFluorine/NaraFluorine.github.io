@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="3D打印文件格式有哪些?stl 3mf amf obj 等. refPLA需要后处理层纹，打磨有粗磨、湿磨（可以用电动威克斯老鼠砂打磨大面积）、刷丙酮亚克力胶、上牙膏灰补土、水补，再反复精细打磨补喷、喷漆上色、上水性保护器比如易刷刷，处理完表面其实就是高分子树脂了，面材结实而里面是PLA还是别的什么一点都不重要了，相当于鸡蛋白外面挂一层牢固的鸡蛋壳。不拿去打砸，放个十来年应该一点问题没有。还想进一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D打印,建模,工学">
+<meta property="og:url" content="https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="3D打印文件格式有哪些?stl 3mf amf obj 等. refPLA需要后处理层纹，打磨有粗磨、湿磨（可以用电动威克斯老鼠砂打磨大面积）、刷丙酮亚克力胶、上牙膏灰补土、水补，再反复精细打磨补喷、喷漆上色、上水性保护器比如易刷刷，处理完表面其实就是高分子树脂了，面材结实而里面是PLA还是别的什么一点都不重要了，相当于鸡蛋白外面挂一层牢固的鸡蛋壳。不拿去打砸，放个十来年应该一点问题没有。还想进一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://narafluorine.github.io/images/3d_plates.webp">
+<meta property="article:published_time" content="2024-12-06T15:21:27.000Z">
+<meta property="article:modified_time" content="2026-01-08T06:31:22.018Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Others">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://narafluorine.github.io/images/3d_plates.webp">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>3D打印,建模,工学</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/12/07/30013_JS_Disallow/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/12/05/30010_%E6%9C%89%E8%B6%A3%E6%96%87%E6%A1%88/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&text=3D打印,建模,工学"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&is_video=false&description=3D打印,建模,工学"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3D打印,建模,工学&body=Check out this article: https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&name=3D打印,建模,工学&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&t=3D打印,建模,工学"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3D%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">3D打印文件格式有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref"><span class="toc-number">2.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMS%E6%80%8E%E4%B9%88%E7%9C%81%E9%92%B1%E5%B0%81%E7%AE%B1"><span class="toc-number">3.</span> <span class="toc-text">AMS怎么省钱封箱?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%81%E4%B8%89%E6%A0%B7"><span class="toc-number">4.</span> <span class="toc-text">老三样?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E4%BB%B6%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%82%AC%E5%9E%82%E5%A4%84%E6%9C%89%E5%8D%95%E5%90%91%E6%AF%9B%E5%88%BA-%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B"><span class="toc-number">6.</span> <span class="toc-text">打印件六边形悬垂处有单向毛刺,怎么回事?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%8C%E5%AD%90"><span class="toc-number">7.</span> <span class="toc-text">牌子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E5%B9%B3%E9%9D%A2%E6%89%93%E5%8D%B0%E6%9D%BF%E6%97%B6%E5%87%BA%E7%8E%B0%E9%BD%90%E6%95%B4%E7%9A%84%E9%B1%BC%E9%B3%9E%E7%BA%B9-%E5%BA%95%E9%9D%A2-%E6%98%AF%E4%BB%80%E4%B9%88%E4%BA%8B%E6%83%85"><span class="toc-number">8.</span> <span class="toc-text">用平面打印板时出现齐整的鱼鳞纹(底面)是什么事情?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%8D%E7%A7%B0"><span class="toc-number">9.</span> <span class="toc-text">工件名称??</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E7%8E%A9%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text">另一种玩法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">11.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%9D%BF"><span class="toc-number">12.</span> <span class="toc-text">打印板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%91%E9%92%A2%E7%BA%BF"><span class="toc-number">13.</span> <span class="toc-text">塑钢线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%BB%91%E8%89%B2%E5%A1%91%E9%92%A2%E7%BA%BF%E4%B8%8D%E8%83%BD%E6%89%93%E5%8D%B0"><span class="toc-number">13.1.</span> <span class="toc-text">为什么黑色塑钢线不能打印?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%B5%AE%E9%9B%95"><span class="toc-number">14.</span> <span class="toc-text">打印浮雕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%87%8D%E6%95%B0%E6%8D%AE"><span class="toc-number">15.</span> <span class="toc-text">克重数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pending"><span class="toc-number">16.</span> <span class="toc-text">Pending</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%A7%8D%E8%AE%BA%E8%B0%83"><span class="toc-number">17.</span> <span class="toc-text">一种论调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5"><span class="toc-number">18.</span> <span class="toc-text">耗材干燥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">19.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">20.</span> <span class="toc-text">为什么XX?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E8%89%B2"><span class="toc-number">21.</span> <span class="toc-text">上色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B5%E6%84%9F%E6%94%B6%E9%9B%86"><span class="toc-number"></span> <span class="toc-text">灵感收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">通配符类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E7%9C%8B%E4%B8%8D%E4%B8%AD%E7%94%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">中看不中用类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">实用类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%98%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">如何变现?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%89%B2%E5%BD%A9"><span class="toc-number"></span> <span class="toc-text">色彩</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Blender%E5%BB%BA%E6%A8%A1%E6%95%99%E7%A8%8B"><span class="toc-number"></span> <span class="toc-text">Blender建模教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E4%BD%8D"><span class="toc-number">0.1.</span> <span class="toc-text">键位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-number">0.2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E7%82%B9"><span class="toc-number">0.3.</span> <span class="toc-text">中心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E4%BD%93%E7%A7%BB%E5%8A%A8-%E8%BD%B4%E5%BF%83%E7%82%B9"><span class="toc-number">0.4.</span> <span class="toc-text">物体移动,轴心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%9D%90%E6%A0%87"><span class="toc-number">0.5.</span> <span class="toc-text">局部坐标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E7%AF%87"><span class="toc-number"></span> <span class="toc-text">建模篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E7%9A%84%E6%B3%95%E5%90%91"><span class="toc-number">0.1.</span> <span class="toc-text">面的法向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">建模操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">修改器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps%E2%80%A6"><span class="toc-number">3.</span> <span class="toc-text">ps…</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%AD%A6"><span class="toc-number"></span> <span class="toc-text">工学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AD%E6%A1%A5%E9%93%9D"><span class="toc-number">1.</span> <span class="toc-text">断桥铝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%84%8A%E9%94%A1%E6%9D%BE%E9%A6%99%E9%85%8D%E6%96%B9"><span class="toc-number">2.</span> <span class="toc-text">焊锡松香配方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%B6%E6%B0%B4"><span class="toc-number">3.</span> <span class="toc-text">胶水</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BA%8A%E5%B8%98%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">安装床帘经验总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WD-40-%E6%9B%BF%E6%8D%A2"><span class="toc-number">5.</span> <span class="toc-text">WD-40 替换</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        3D打印,建模,工学
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-12-06T15:21:27.000Z" class="dt-published" itemprop="datePublished">2024-12-06</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Others/" rel="tag">Others</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="3D打印文件格式有哪些"><a href="#3D打印文件格式有哪些" class="headerlink" title="3D打印文件格式有哪些?"></a>3D打印文件格式有哪些?</h2><p><code>stl</code> <code>3mf</code> <code>amf</code> <code>obj</code> 等.</p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>PLA需要后处理层纹，打磨有粗磨、湿磨（可以用电动威克斯老鼠砂打磨大面积）、刷丙酮亚克力胶、上牙膏灰补土、水补，再反复精细打磨补喷、喷漆上色、上水性保护器比如易刷刷，处理完表面其实就是高分子树脂了，面材结实而里面是PLA还是别的什么一点都不重要了，相当于鸡蛋白外面挂一层牢固的鸡蛋壳。不拿去打砸，放个十来年应该一点问题没有。还想进一步，你可以翻模，搞AB树脂或硬石膏长久保存。</p>
+<h2 id="AMS怎么省钱封箱"><a href="#AMS怎么省钱封箱" class="headerlink" title="AMS怎么省钱封箱?"></a>AMS怎么省钱封箱?</h2><p>使用自带的塑料袋加扎带即可.</p>
+<h2 id="老三样"><a href="#老三样" class="headerlink" title="老三样?"></a>老三样?</h2><p>打磨 补土 电镀</p>
+<h2 id="工件向上最大倾斜度"><a href="#工件向上最大倾斜度" class="headerlink" title="工件向上最大倾斜度"></a>工件向上最大倾斜度</h2><p>还没测.</p>
+<h2 id="打印件六边形悬垂处有单向毛刺-怎么回事"><a href="#打印件六边形悬垂处有单向毛刺-怎么回事" class="headerlink" title="打印件六边形悬垂处有单向毛刺,怎么回事?"></a>打印件六边形悬垂处有单向毛刺,怎么回事?</h2><p>可能是润滑轴不到位导致,或降低打印速度,或加强散热风扇风速或烘干耗材</p>
+<h2 id="牌子"><a href="#牌子" class="headerlink" title="牌子"></a>牌子</h2><p>兰博(Flu用的)<br>Jayo(听说是三绿换牌子走的低端市场,应该挺好使的)  </p>
+<h2 id="用平面打印板时出现齐整的鱼鳞纹-底面-是什么事情"><a href="#用平面打印板时出现齐整的鱼鳞纹-底面-是什么事情" class="headerlink" title="用平面打印板时出现齐整的鱼鳞纹(底面)是什么事情?"></a>用平面打印板时出现齐整的鱼鳞纹(底面)是什么事情?</h2><p>没调平好.</p>
+<h2 id="工件名称"><a href="#工件名称" class="headerlink" title="工件名称??"></a>工件名称??</h2><p>方钢 方管 </p>
+<h2 id="另一种玩法"><a href="#另一种玩法" class="headerlink" title="另一种玩法"></a>另一种玩法</h2><p>在连接分件的时候用电烙铁压一圈小金属条或者订书钉进去,然后再补土刮腻子打磨喷涂</p>
+<h2 id="无AMS多色打印"><a href="#无AMS多色打印" class="headerlink" title="无AMS多色打印"></a>无AMS多色打印</h2><p>原理:可以把工件纵向切开,中间插入缓冲层,然后换料,然后继续打印就可以实现无AMS的多色打印.</p>
+<p>然而实操的时候有一个坑就是,右边能拖动的条能插暂停层的是当前准备打第几层, <strong>但是</strong> 左边的模型显示是打完第几层之后的状态.比如你要打一个名字扣,板子10层,名字10层凸显在上面,你需要在第11层加暂停层.</p>
+<h2 id="打印板"><a href="#打印板" class="headerlink" title="打印板"></a>打印板</h2><p><img src="../../../../images/3d_plates.webp" alt=""></p>
+<p>上面光鲜亮丽的那个板子会因为光栅效应导致打印出来的物品也可以让光色散,底座五颜六色反光的效果.</p>
+<h2 id="塑钢线"><a href="#塑钢线" class="headerlink" title="塑钢线"></a>塑钢线</h2><p>塑钢线是一种农用物品,用于户外拉遮阳棚等用的东西,材质是PE,听说能够用于3D打印,59元9斤,这种13元一千克的耗材如果能成功打印工件的话直接耗材自由了.</p>
+<p>首先,因为白色塑钢线透明,所以不能用拓竹的自动流量校准.</p>
+<p>打印速度一定要慢,群U说最大速度体积是8.</p>
+<p>为什么有的时候能挤出有的时候不能挤出?</p>
+<h3 id="为什么黑色塑钢线不能打印"><a href="#为什么黑色塑钢线不能打印" class="headerlink" title="为什么黑色塑钢线不能打印?"></a>为什么黑色塑钢线不能打印?</h3><p>网上说,黑色塑钢线会粘床,严重的会清理不干净废板子,因为黑色是室外用的,添加抗紫外线耐晒抗老化的东西,并不是垃圾料.</p>
+<h2 id="打印浮雕"><a href="#打印浮雕" class="headerlink" title="打印浮雕"></a>打印浮雕</h2><p>先转成灰度图,然后上传到网站转成stl,然后直接打印就行.</p>
+<p>注意有些人物的笑容会因为灰度不够被抹掉,这个时候一定要看清楚会不会被抹掉(比方说红叶的浮雕就是笑容不明显然后打印出来的笑容甚至断开成两半了)</p>
+<p>可以使用makerlab或者<a target="_blank" rel="noopener" href="https://3dp.rocks/">这个网站</a>在线转浮雕.</p>
+<h2 id="克重数据"><a href="#克重数据" class="headerlink" title="克重数据"></a>克重数据</h2><p>对于Flu PETG这种材质,密度基本准确.记录表:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">预估重量(拓竹切片软件,g)</th>
+<th style="text-align:center">实际重量(g)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">109.94</td>
+<td style="text-align:center">108.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一卷兰博全新耗材重量(1kg,刚开封,算上卷的重量):1167.0g<br>兰博空盘重量:160.0g</p>
+<h2 id="Pending"><a href="#Pending" class="headerlink" title="Pending"></a>Pending</h2><p>竹子CHT三孔铬锆铜喷嘴0.2mm(一个喷嘴才三块钱).</p>
+<p>耗材种类:<br>pla petg tpu (abs asa  pa pc) pet</p>
+<p>激光金属3d打印  cnc</p>
+<blockquote>
+<p>据说耗材生意十分赚钱,除了竹子价格死硬,其他厂商都喜欢搞价格歧视,某些时间可能优惠幅度巨大,日常高价收割耗材不敏感客户,优惠时收割价格敏感客户,最后在特殊渠道收割铁公鸡客户,一定要注意,价格是由供需决定的,而不是成本.</p>
+</blockquote>
+<p>BMCU多色系统</p>
+<h2 id="一种论调"><a href="#一种论调" class="headerlink" title="一种论调"></a>一种论调</h2><p>水分在高分子熔融加工中，虽然通常是不利因素，会使材料降解，变脆等等。但是从另一角度来说，水分可以作为一种“增塑剂”。水分可以削弱聚合物分子间的作用力，一定程度上降低熔融温度和玻璃化温度，减小熔体的粘度。说人话，吸潮的耗材在相同温度流量参数下，具有更高的流动性，实际挤出量往往更高，可以称一下打印样条的质量，看看吸潮的耗材打印的样条是不是比干燥的耗材更重。然后烘干后再秤一下.看看重量变化大不大，如果变化不大，就能够说明挤出了更多的耗材，水分的”恶化”作用和”增速作用”达到了一种抵消，所以结果差距不大。另外就是这几种材料吸湿率总体不高，应该测尼龙,那是真要命</p>
+<h2 id="耗材干燥"><a href="#耗材干燥" class="headerlink" title="耗材干燥"></a>耗材干燥</h2><p>干燥剂选项:</p>
+<ol>
+<li>分子筛干燥剂(大约3~5元每斤)</li>
+<li>变色硅胶干燥剂</li>
+<li>生石灰(灰太大)</li>
+</ol>
+<p>设备选项:</p>
+<ol>
+<li>大的带密封的盒子</li>
+<li>精密仪器干燥柜</li>
+<li>碗筷消毒柜</li>
+</ol>
+<p>耗材要求:</p>
+<ol>
+<li>PA类的肯定要放干燥箱,而且是开箱立马放干燥箱(最好保存湿度15%以下)</li>
+</ol>
+<h2 id="如何拆支撑"><a href="#如何拆支撑" class="headerlink" title="如何拆支撑"></a>如何拆支撑</h2><p>你就是缺尖嘴钳和锉刀,别的没了.</p>
+<h2 id="为什么XX"><a href="#为什么XX" class="headerlink" title="为什么XX?"></a>为什么XX?</h2><ol>
+<li><p>为什么会听到咔咔的声音?是打印机撞到模型了吗?</p>
+<p>那是打印机打较大模型时,模型中间会凉下来,然后支撑脱落时发出的声音.</p>
+</li>
+<li><p>支撑为什么一掰就掉</p>
+<p>因为支撑是一整根完整的空柱子,叠起来长得像一棵树.支撑在与模型连接的地方是一堆点,减小在这里的强度,所以支撑很好掰,掰掉的地方会留下点作为痕迹,用砂纸打磨也许能做好.</p>
+</li>
+<li><p>为什么材料还没打几层就破了个大洞?是不是局部受热不均?</p>
+<p>答:没有洗板子,之前的油沾到了上面导致不粘板子,然后就导致打印一层比一层偏最后出现大洞.所以 <strong>推荐每次打印完取下来模型就洗一次板子,保证下次打印的成功率</strong> .还有可能是耗材时间长了.</p>
+</li>
+<li><p>为什么不着床!!!(翘边,炒面)</p>
+<p>因为热床不粘.对于纹理PIE板使用肥皂洗一下,然后再用无纺布擦干(注意不能是纸巾,会残留碎屑在上面导致打印失败),无纺布可以带酒精也可以不带.不粘平台解决办法1是好好洗洗,2是调节喷头距离,3就是用胶棒</p>
+</li>
+<li><p>硅胶干燥剂的活性恢复方法:建议4次回温之后扔掉硅胶.放入铝箔盒中放到烤箱中100度,每5min拿出来观察硅胶情况并搅拌,约30min,直到不含水分,或者暴晒直到颜色回来.</p>
+</li>
+</ol>
+<h2 id="上色"><a href="#上色" class="headerlink" title="上色"></a>上色</h2><p>三种方案:</p>
+<ol>
+<li>直液式丙烯马克笔(先上色,再平涂,最后用光油固定)</li>
+<li>补土打底+手涂水性漆(Flu选择这个,星影和酋长大陆,,)+湿盘(水+烘培油纸,).</li>
+<li>丝绸金(这种本身颜色足够鲜艳的)PLA</li>
+</ol>
+<h1 id="灵感收集"><a href="#灵感收集" class="headerlink" title="灵感收集"></a>灵感收集</h1><p>买了打印机之后总要打点什么…所以需要收集灵感,免得打印机过度吃灰导致出问题.</p>
+<h2 id="通配符类"><a href="#通配符类" class="headerlink" title="通配符类"></a>通配符类</h2><p>温度塔:看拉丝情况决定打印温度的<br>回抽塔:看拉丝情况决定回抽长度最小是多少的<br>针织模型:什么都有,顶部经常出现扎手的刺,此时需要调整回抽速度或回抽高度(一般是调高点),温度也要适当调一下.针织模型属于单色打也很好看的东西,比较理想.</p>
+<h2 id="中看不中用类"><a href="#中看不中用类" class="headerlink" title="中看不中用类"></a>中看不中用类</h2><p>福字挂件,窗花剪纸<br>透明材料打印海豚(内嵌的)(要看透明PETG打印技巧wiki)<br>六边形搁物架,用嵌子卡在两个中间保证不散.<br>任意浮雕,先扔ps里转灰度图,然后扔<br>任意名字挂件,简单的图片</p>
+<h2 id="实用类"><a href="#实用类" class="headerlink" title="实用类"></a>实用类</h2><p>印章()<br>发夹(多色无需ams)</p>
+<h2 id="如何变现"><a href="#如何变现" class="headerlink" title="如何变现?"></a>如何变现?</h2><ol>
+<li>拓竹发布模型收获赞助变现</li>
+<li>扎根行业提出解决方案等别人复刻</li>
+<li>卷代打</li>
+<li>摆地摊,,</li>
+</ol>
+<h1 id="色彩"><a href="#色彩" class="headerlink" title="色彩"></a>色彩</h1><ol>
+<li>绿色士兵小人  </li>
+<li></li>
+</ol>
+<hr>
+<h1 id="Blender建模教程"><a href="#Blender建模教程" class="headerlink" title="Blender建模教程"></a>Blender建模教程</h1><p>(听的KurTips网课,简单学了一手)</p>
+<h3 id="键位"><a href="#键位" class="headerlink" title="键位"></a>键位</h3><p>鼠标中键:挪动视角,观察空间<br>Shift+鼠标中键:移动空间(右上角小手)<br>滚轮:缩放空间(右上角的放大镜)<br>右上角的三色轴拖动旋转:转动空间<br>摄像机视图:右上角摄像机<br>正交视图:右上角网格  </p>
+<p>删除物体:Del<br>恢复操作:Ctrl+Z<br>新建物体:Shift+a<br>移动物体:G(这个状态按xyz会沿着对应方向移动),退出状态是左键<br>缩放物体:S(这个状态按xyz会沿着对应方向移动),退出状态是左键<br>旋转物体:R(按xyz会沿着对应方向移动,默认是你的视图方向旋转),退出状态是左键<br>隐藏物体:H(Shift+H会隐藏所有没有被选中的物体,看右上角场景那里的小眼睛)<br>恢复某些性质:Alt+X(加S撤销缩放,加R撤销旋转,加G撤销位移(回到原先的位置了))<br>复制物体:Shift+D移动并复制(复制并移动是两步,撤销的时候会发现其实已经复制出来了)</p>
+<p>选中:分为框选(不可调位置)和单选(随便调位置)还有刷选(快捷键C,刷到哪里选择哪里)和套索(从鼠标末端到鼠标起点的一个闭合平面),在鼠标框那里长按调整,注意要选到物体中心才算</p>
+<p>切换视图:单击XYZ轴可以变换成单方向的视图.<br>还有一种方法: <code>~</code> 进入Tab目录,显示当前的视图<br>小键盘福利:<br>1正视图3右视图7顶视图9把当前视图反过来<br>2468是上下左右方向的微调(一次15度)</p>
+<p>面板:每一个面板都可以转换成其他的操作面板.面板转换在左上角.可替换可拆分,鼠标在窗口四角出现加号的时候可以拉,往别的窗口拉会合并,往自己的窗口拉会分裂.</p>
+<p>搞乱了可以在上方加号新建布局恢复.<br>Ctrl+Space可以最大化当前面板,再按一次恢复.</p>
+<p>键盘上的/斜杠:按一下可以让选中的物体单独显示,再按一下退出.</p>
+<p>0:进入摄像机视图</p>
+<p>摄像机快速对正:在摄像机视图按n勾选锁定摄像机,然后就可以直接在摄像机视图调整了.</p>
+<p>blender有两个渲染器,一个叫eevee,一个叫cycles.eevee是实时渲染,快,相对不占资源,缺点是没有光线追踪,很多光线阴影细节不佳,需要额外更多参数辅助.cycles更加逼真高级,能模拟出物理世界里非常细节的光线阴影,缺点是慢,比eevee慢10倍以上.`</p>
+<h3 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h3><p>游标在哪里,新建的东西就会出现在哪里.</p>
+<p>移动游标:选中工具下面是游标工具,点这个工具移动即可.<br>或者正常的选中模式,Shift+右键 也可以移动游标.<br>Shift+C 游标回到原点.</p>
+<p>游标可以当成轴心点用.把物体的轴心点换成游标的话,就可以绕着游标进行转动.</p>
+<h3 id="中心点"><a href="#中心点" class="headerlink" title="中心点"></a>中心点</h3><p>每个物体都会有一个中心点,记录物体的信息.</p>
+<p>右上角选项可以选择”仅影响原点”,然后挪动原点和物体的相对位置.</p>
+<p>立方体的原点默认在中心,这个时候伸长是原点向两边伸长的.</p>
+<h3 id="物体移动-轴心点"><a href="#物体移动-轴心点" class="headerlink" title="物体移动,轴心点"></a>物体移动,轴心点</h3><p>移动模式下按Ctrl有吸附功能</p>
+<p>轴心点可以变成边界框中心,质心,各自的中心,以及活动元素.活动元素是多选物体时最后被选中的元素.</p>
+<h3 id="局部坐标"><a href="#局部坐标" class="headerlink" title="局部坐标"></a>局部坐标</h3><p>和世界坐标不一样的,旋转跟着物体转的这么一个坐标.</p>
+<p>如何调用局部坐标?只要按两次坐标轴就可以在全局和局部坐标中切换了.</p>
+<h1 id="建模篇"><a href="#建模篇" class="headerlink" title="建模篇"></a>建模篇</h1><p>模型编辑模式:Tab切换物体模式.<br>按Tab同时移动鼠标会进入丙菜单,出现一个物体的好多种模式.</p>
+<p>选择点线面:大键盘123分别对应,默认是点.(鼠标切换那里在左上角),按Shift可以同时选点线面</p>
+<p>鼠标选择:按w快速切换选中规则,框选刷选,etc.<br>框选是b,刷选是c,注意快捷键进入刷选状态时经常出现其他键都按不了,只能刷选,这个时候按住鼠标中键擦除刚刚选中的点,退出按esc或者右键在空白位置</p>
+<p>反选:选中一块点,按ctrl+i反选这个物体其他的所有点<br>按shift可以选择一些不连续的点,按ctrl可以把两个点之间的最短路径连起来.</p>
+<p>选择相连元素:选一个点按L可以选择所有与这个点相连的点(连什么地方要把鼠标走到那里)(是以四边形计算的,有的时候三角面跨不过去,要用鼠标选)</p>
+<p>选择一个圈(环):选择一个点按alt双击想选的环(横向,纵向,etc)</p>
+<p>随机选择:鼠标防选择上随机选择一些点线面</p>
+<p>扩大选择:按ctrl++(小键盘)或ctrl+-(小键盘)可以扩大选择范围或者缩小</p>
+<p>透视模式:alt+Z切换,这个时候可以选中背面的点</p>
+<p>点线面操纵:g移动r旋转s缩放</p>
+<p>删除点线面:选择某些东西按x选择删除哪些东西</p>
+<p>删点:点消失了,和点直接相连的边也消失了,和面直接相连的面也消失了<br>删边:边消失了,和面直接相连的面也消失了<br>删面:面消失了</p>
+<p>融并:会删东西,但是剩下的会缝起来,不会出现一个大洞</p>
+<h3 id="面的法向"><a href="#面的法向" class="headerlink" title="面的法向"></a>面的法向</h3><p>到右上角找到面朝向打开即可看到一个面的正反,蓝色是正面红色是反面</p>
+<p>按shift+n,选一下内向就可以转换朝向.</p>
+<p>法线:面法线垂直于面(浅蓝),顶点法线垂直于切线方向(深蓝),拆分法线(浅粉色,用的比较少,游戏开发会自定义法线)</p>
+<h2 id="建模操作"><a href="#建模操作" class="headerlink" title="建模操作"></a>建模操作</h2><p>左侧边栏:笔 标注,注释<br>测量工具:量工件多大的.<br>新建工具:快速拉出来一个新模型</p>
+<p>挤出:先切换到面模式,然后e挤出一个面(挤出并移动)s缩小(这个面),点挤出是一个面(快速挤出是ctrl+右键),线挤出是一个面.注意e是挤出冰移动,撤销的时候注意一下两个面重合<br>挤出流形:避免重复边的问题.<br>沿法线挤出:rt.<br>单独挤出:立方体切片之后选择多个面挤出会连在一起(一起挤出的),然后单独挤出不会出现这种情况,用于做手指</p>
+<p>向内挤出:i(这个不是挤出并移动)</p>
+<p>倒角(把角磨圆):ctrl+B拉出来一个角(边模式),滑动鼠标滚轮增加细分面(更圆滑)</p>
+<p>环切(腰斩):从中间截断整个物体(ctrl+r),滑动滚轮可以增加或者减少段数点一下确定段数,再点一下确定位置,右键可以自动吸附在最中间的地方</p>
+<p>合并:选择两个点,m合并到中间,按距离的意思是如果两个点的距离小于多少就合并.</p>
+<p>断开:v,一个点要有三条边支持,然后断开的时候就是和别的面不粘了.</p>
+<p>填充:alt双击环选一整个环,然后按住f这个面就被封住了.(被填充了)</p>
+<p>右键细分:可以增加一个边.</p>
+<p>切刀:k进入切刀模式,右键或者空格退出,切刀可以把物体切成好多个面.</p>
+<p>桥接:ctrl+E,只有一个物体才能够桥接.两个物体变一个物体用ctrl+j.</p>
+<p>分离:p,先进透视,选中想分离的物体,按p(这个时候一个物体会变成两个物体…)</p>
+<p>三角面转四边面:Alt+J,调整max shape angle(uv图不变)</p>
+<p><strong>尽量不要在物体模式下缩放,在编辑模式下缩放.如果物体模式缩放了,记得应用下这个缩放.</strong></p>
+<h2 id="修改器"><a href="#修改器" class="headerlink" title="修改器"></a>修改器</h2><p>好处是不破坏模型,而且可以叠加多个.</p>
+<p>大概就是,有很多个修改器,可以实现不对模型进行改动的前提下进行渲染和建模,方便撤回和调整.</p>
+<h2 id="ps…"><a href="#ps…" class="headerlink" title="ps…"></a>ps…</h2><p>Flu的Blender用起来会有电流声…不知道是什么原因,挪动鼠标能听到滋滋滋的声音…现在的显卡都这么猛的吗???还是我电脑要完了???</p>
+<h1 id="工学"><a href="#工学" class="headerlink" title="工学"></a>工学</h1><h2 id="断桥铝"><a href="#断桥铝" class="headerlink" title="断桥铝"></a>断桥铝</h2><p>铝制窗户框,可以隔热.</p>
+<h2 id="焊锡松香配方"><a href="#焊锡松香配方" class="headerlink" title="焊锡松香配方"></a>焊锡松香配方</h2><p>25%松香溶解到75%的(无水)酒精当中</p>
+<h2 id="胶水"><a href="#胶水" class="headerlink" title="胶水"></a>胶水</h2><p>ab胶(丙烯酸基实用性强,用3m 乐泰 天山 回天) 补土 uv胶 502 补鞋胶 油性胶 5800胶水</p>
+<h2 id="安装床帘经验总结"><a href="#安装床帘经验总结" class="headerlink" title="安装床帘经验总结"></a>安装床帘经验总结</h2><ol>
+<li>尽量避免在304不锈钢上打孔,非常难开,半天只有一个小眼</li>
+<li>尽量避免在普通钢铁上打孔,尝试使用纸张填充的方法给杆子限位.</li>
+</ol>
+<h2 id="WD-40-替换"><a href="#WD-40-替换" class="headerlink" title="WD-40 替换"></a>WD-40 替换</h2><p>CRC5-56</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3D%E6%89%93%E5%8D%B0%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">3D打印文件格式有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref"><span class="toc-number">2.</span> <span class="toc-text">ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMS%E6%80%8E%E4%B9%88%E7%9C%81%E9%92%B1%E5%B0%81%E7%AE%B1"><span class="toc-number">3.</span> <span class="toc-text">AMS怎么省钱封箱?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%81%E4%B8%89%E6%A0%B7"><span class="toc-number">4.</span> <span class="toc-text">老三样?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%91%E4%B8%8A%E6%9C%80%E5%A4%A7%E5%80%BE%E6%96%9C%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">工件向上最大倾斜度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E4%BB%B6%E5%85%AD%E8%BE%B9%E5%BD%A2%E6%82%AC%E5%9E%82%E5%A4%84%E6%9C%89%E5%8D%95%E5%90%91%E6%AF%9B%E5%88%BA-%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B"><span class="toc-number">6.</span> <span class="toc-text">打印件六边形悬垂处有单向毛刺,怎么回事?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%8C%E5%AD%90"><span class="toc-number">7.</span> <span class="toc-text">牌子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E5%B9%B3%E9%9D%A2%E6%89%93%E5%8D%B0%E6%9D%BF%E6%97%B6%E5%87%BA%E7%8E%B0%E9%BD%90%E6%95%B4%E7%9A%84%E9%B1%BC%E9%B3%9E%E7%BA%B9-%E5%BA%95%E9%9D%A2-%E6%98%AF%E4%BB%80%E4%B9%88%E4%BA%8B%E6%83%85"><span class="toc-number">8.</span> <span class="toc-text">用平面打印板时出现齐整的鱼鳞纹(底面)是什么事情?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%90%8D%E7%A7%B0"><span class="toc-number">9.</span> <span class="toc-text">工件名称??</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E7%8E%A9%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text">另一种玩法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0AMS%E5%A4%9A%E8%89%B2%E6%89%93%E5%8D%B0"><span class="toc-number">11.</span> <span class="toc-text">无AMS多色打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%9D%BF"><span class="toc-number">12.</span> <span class="toc-text">打印板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%91%E9%92%A2%E7%BA%BF"><span class="toc-number">13.</span> <span class="toc-text">塑钢线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%BB%91%E8%89%B2%E5%A1%91%E9%92%A2%E7%BA%BF%E4%B8%8D%E8%83%BD%E6%89%93%E5%8D%B0"><span class="toc-number">13.1.</span> <span class="toc-text">为什么黑色塑钢线不能打印?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E6%B5%AE%E9%9B%95"><span class="toc-number">14.</span> <span class="toc-text">打印浮雕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%87%8D%E6%95%B0%E6%8D%AE"><span class="toc-number">15.</span> <span class="toc-text">克重数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pending"><span class="toc-number">16.</span> <span class="toc-text">Pending</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%A7%8D%E8%AE%BA%E8%B0%83"><span class="toc-number">17.</span> <span class="toc-text">一种论调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%9D%90%E5%B9%B2%E7%87%A5"><span class="toc-number">18.</span> <span class="toc-text">耗材干燥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%86%E6%94%AF%E6%92%91"><span class="toc-number">19.</span> <span class="toc-text">如何拆支撑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88XX"><span class="toc-number">20.</span> <span class="toc-text">为什么XX?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E8%89%B2"><span class="toc-number">21.</span> <span class="toc-text">上色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B5%E6%84%9F%E6%94%B6%E9%9B%86"><span class="toc-number"></span> <span class="toc-text">灵感收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">通配符类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E7%9C%8B%E4%B8%8D%E4%B8%AD%E7%94%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">中看不中用类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">实用类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%98%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">如何变现?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%89%B2%E5%BD%A9"><span class="toc-number"></span> <span class="toc-text">色彩</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Blender%E5%BB%BA%E6%A8%A1%E6%95%99%E7%A8%8B"><span class="toc-number"></span> <span class="toc-text">Blender建模教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%AE%E4%BD%8D"><span class="toc-number">0.1.</span> <span class="toc-text">键位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-number">0.2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%BF%83%E7%82%B9"><span class="toc-number">0.3.</span> <span class="toc-text">中心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E4%BD%93%E7%A7%BB%E5%8A%A8-%E8%BD%B4%E5%BF%83%E7%82%B9"><span class="toc-number">0.4.</span> <span class="toc-text">物体移动,轴心点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%9D%90%E6%A0%87"><span class="toc-number">0.5.</span> <span class="toc-text">局部坐标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E7%AF%87"><span class="toc-number"></span> <span class="toc-text">建模篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E7%9A%84%E6%B3%95%E5%90%91"><span class="toc-number">0.1.</span> <span class="toc-text">面的法向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">建模操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">修改器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps%E2%80%A6"><span class="toc-number">3.</span> <span class="toc-text">ps…</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%AD%A6"><span class="toc-number"></span> <span class="toc-text">工学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AD%E6%A1%A5%E9%93%9D"><span class="toc-number">1.</span> <span class="toc-text">断桥铝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%84%8A%E9%94%A1%E6%9D%BE%E9%A6%99%E9%85%8D%E6%96%B9"><span class="toc-number">2.</span> <span class="toc-text">焊锡松香配方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%B6%E6%B0%B4"><span class="toc-number">3.</span> <span class="toc-text">胶水</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BA%8A%E5%B8%98%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">安装床帘经验总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WD-40-%E6%9B%BF%E6%8D%A2"><span class="toc-number">5.</span> <span class="toc-text">WD-40 替换</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&text=3D打印,建模,工学"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&is_video=false&description=3D打印,建模,工学"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3D打印,建模,工学&body=Check out this article: https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&title=3D打印,建模,工学"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&name=3D打印,建模,工学&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/12/06/30012_3D%E6%89%93%E5%8D%B0%E5%8F%8A%E5%BB%BA%E6%A8%A1/&t=3D打印,建模,工学"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

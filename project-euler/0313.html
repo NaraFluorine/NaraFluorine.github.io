@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:    f(n,m) 2 3 4 5     2 5 9 15 21   3  13 17 23   4   21 25   5    29    发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$ ,F">
+    <meta name="description" content="肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:     f(n,m) 2 3 4 5     2 5 9 15 21   3  13 17 23   4   21 25   5    29     发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0313">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0313.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:    f(n,m) 2 3 4 5     2 5 9 15 21   3  13 17 23   4   21 25   5    29    发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$ ,F">
+<meta property="og:description" content="肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:     f(n,m) 2 3 4 5     2 5 9 15 21   3  13 17 23   4   21 25   5    29     发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T01:07:21.088Z">
@@ -133,6 +133,7 @@
   <div class="content" itemprop="articleBody">
       
           <p>肯定先找规律,显然最后的空格在哪里不是我们关心的,所以f(n,m)具有对称性,我们采取手模的方式:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -174,6 +175,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>发现斜角是+8,斜角第一直出是+4,之后都是+6.我们要在表内寻找 $p^2$ ,因为斜角增长是8,所以整张表会接近 $\frac{p^2_m}8$ ,Flu计算所有质数平方模6的后缀和,也就是说一个数字匹配上了之后整个剩余系中余数相同的也能匹配上,所以双指针l是斜角,r是质数,复杂度 $O(\frac{1e12}8)$ ,实际上跑了三分钟左右.</p>
 <p>论坛里说直接把整个式子算出来(m&gt;n有f(m,n)=8m+2n-13)然后对每个质数算贡献也行.</p>
 

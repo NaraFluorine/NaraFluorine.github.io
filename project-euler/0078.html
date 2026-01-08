@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="整数划分:把一个整数表示成若干别的数字的加和形式. 使用dp可以让复杂度压成 $n^2$ ,还不够. 上网查阅结论得知,划分数 $p(n)$ 有以下性质: $$p(k)&#x3D;p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-+±-…$$ 其中p(0)认为是1,负的认为是0. 其中这个减掉的数列叫做 五边形数 ,满足通项公式(注意这个通项是正负交替的">
+    <meta name="description" content="整数划分:把一个整数表示成若干别的数字的加和形式. 使用dp可以让复杂度压成 $n^2$ ,还不够. 上网查阅结论得知,划分数 $p(n)$ 有以下性质: p(k)&#x3D;p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-++--...其中p(0)认为是1,负的认为是0. 其中这个减掉的数列叫做 五边形数 ,满足通项公式(注意这个通项是正负交替的,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0078">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0078.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="整数划分:把一个整数表示成若干别的数字的加和形式. 使用dp可以让复杂度压成 $n^2$ ,还不够. 上网查阅结论得知,划分数 $p(n)$ 有以下性质: $$p(k)&#x3D;p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-+±-…$$ 其中p(0)认为是1,负的认为是0. 其中这个减掉的数列叫做 五边形数 ,满足通项公式(注意这个通项是正负交替的">
+<meta property="og:description" content="整数划分:把一个整数表示成若干别的数字的加和形式. 使用dp可以让复杂度压成 $n^2$ ,还不够. 上网查阅结论得知,划分数 $p(n)$ 有以下性质: p(k)&#x3D;p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-++--...其中p(0)认为是1,负的认为是0. 其中这个减掉的数列叫做 五边形数 ,满足通项公式(注意这个通项是正负交替的,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T00:49:39.303Z">
@@ -134,12 +134,10 @@
       
           <p>整数划分:把一个整数表示成若干别的数字的加和形式.</p>
 <p>使用dp可以让复杂度压成 $n^2$ ,还不够.</p>
-<p>上网查阅结论得知,划分数 $p(n)$ 有以下性质:
-$$p(k)=p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-+±-…$$
-其中p(0)认为是1,负的认为是0.</p>
-<p>其中这个减掉的数列叫做 <strong>五边形数</strong> ,满足通项公式(注意这个通项是正负交替的, $0,1,-1,2,-2,…$ )
-$$a_n=n(3n-1)/2,n\in{0,\pm1,\pm2,\pm3,…}$$
-然后求能被1000000整除的那一项就可以计算了,注意对1000000取模就不会炸int.</p>
+<p>上网查阅结论得知,划分数 $p(n)$ 有以下性质:</p>
+<script type="math/tex; mode=display">p(k)=p(k-1)+p(k-2)-p(k-5)-p(k-7)+p(k-12)+p(k-15)-p(k-22)-++--...</script><p>其中p(0)认为是1,负的认为是0.</p>
+<p>其中这个减掉的数列叫做 <strong>五边形数</strong> ,满足通项公式(注意这个通项是正负交替的, $0,1,-1,2,-2,…$ )</p>
+<script type="math/tex; mode=display">a_n=n(3n-1)/2,n\in\{0,\pm1,\pm2,\pm3,...\}</script><p>然后求能被1000000整除的那一项就可以计算了,注意对1000000取模就不会炸int.</p>
 
         
   </div>

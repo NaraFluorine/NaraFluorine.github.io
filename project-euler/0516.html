@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="5-光滑数是指最大质因数不超过5的数.你要在1e12范围内对于欧拉函数是光滑数的所有数字求和. 发现满足条件的数字一定有以下性质: $$2^a3^b5^cp_1p_2…$$ 其中abc随便取,后面的p数组都满足 $p-1&#x3D;2^x3^y5^z$ . 于是暴搜所有前半部分和质数部分,拼一起求和. 但是实际上比较考验剪枝能力. 常规枚举每个质数选和不选会T飞. 对于一个质数,我们枚举和这个质数下一个相乘">
+    <meta name="description" content="5-光滑数是指最大质因数不超过5的数.你要在1e12范围内对于欧拉函数是光滑数的所有数字求和. 发现满足条件的数字一定有以下性质: 2^a3^b5^cp_1p_2...其中abc随便取,后面的p数组都满足 $p-1&#x3D;2^x3^y5^z$ .于是暴搜所有前半部分和质数部分,拼一起求和. 但是实际上比较考验剪枝能力.常规枚举每个质数选和不选会T飞.对于一个质数,我们枚举和这个质数下一个相乘的质数,然后">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0516">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0516.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="5-光滑数是指最大质因数不超过5的数.你要在1e12范围内对于欧拉函数是光滑数的所有数字求和. 发现满足条件的数字一定有以下性质: $$2^a3^b5^cp_1p_2…$$ 其中abc随便取,后面的p数组都满足 $p-1&#x3D;2^x3^y5^z$ . 于是暴搜所有前半部分和质数部分,拼一起求和. 但是实际上比较考验剪枝能力. 常规枚举每个质数选和不选会T飞. 对于一个质数,我们枚举和这个质数下一个相乘">
+<meta property="og:description" content="5-光滑数是指最大质因数不超过5的数.你要在1e12范围内对于欧拉函数是光滑数的所有数字求和. 发现满足条件的数字一定有以下性质: 2^a3^b5^cp_1p_2...其中abc随便取,后面的p数组都满足 $p-1&#x3D;2^x3^y5^z$ .于是暴搜所有前半部分和质数部分,拼一起求和. 但是实际上比较考验剪枝能力.常规枚举每个质数选和不选会T飞.对于一个质数,我们枚举和这个质数下一个相乘的质数,然后">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T14:42:29.163Z">
@@ -133,14 +133,10 @@
   <div class="content" itemprop="articleBody">
       
           <p>5-光滑数是指最大质因数不超过5的数.你要在1e12范围内对于欧拉函数是光滑数的所有数字求和.</p>
-<p>发现满足条件的数字一定有以下性质:
-$$2^a3^b5^cp_1p_2…$$
-其中abc随便取,后面的p数组都满足 $p-1=2^x3^y5^z$ .
-于是暴搜所有前半部分和质数部分,拼一起求和.</p>
-<p>但是实际上比较考验剪枝能力.<br>
-常规枚举每个质数选和不选会T飞.<br>
-对于一个质数,我们枚举和这个质数下一个相乘的质数,然后递归下去,同时排序之后一旦大于立刻剪枝,这样的质数选择是单调且不重的,而且才能真正快速的算出来答案,见代码:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">u32 res;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> num,i64 prod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=top;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(tmp[i]*prod&gt;lim)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			res+=tmp[i]*prod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=num;i&lt;=ttop;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(prod*pp[i]&lt;=lim)</span><br><span class="line">			<span class="built_in">dfs2</span>(i+<span class="number">1</span>,prod*pp[i]);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现满足条件的数字一定有以下性质:</p>
+<script type="math/tex; mode=display">2^a3^b5^cp_1p_2...</script><p>其中abc随便取,后面的p数组都满足 $p-1=2^x3^y5^z$ .<br>于是暴搜所有前半部分和质数部分,拼一起求和.</p>
+<p>但是实际上比较考验剪枝能力.<br>常规枚举每个质数选和不选会T飞.<br>对于一个质数,我们枚举和这个质数下一个相乘的质数,然后递归下去,同时排序之后一旦大于立刻剪枝,这样的质数选择是单调且不重的,而且才能真正快速的算出来答案,见代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">u32 res;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> num,i64 prod)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=top;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(tmp[i]*prod&gt;lim)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			res+=tmp[i]*prod;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=num;i&lt;=ttop;++i)&#123;</span><br><span class="line">		<span class="keyword">if</span>(prod*pp[i]&lt;=lim)</span><br><span class="line">			<span class="built_in">dfs2</span>(i+<span class="number">1</span>,prod*pp[i]);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
         
   </div>
 </article>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="上回书说到,Flu网络赛第一场第六,后面两场全部打崩了,只拿到了一站.而且分赛站的时候是谁剩哪里就去哪里…最后只拿到了IC成都站. 然而事情有转机,吉大拿到了两张外卡,然后优先给我们了,当时我们在南京和沈阳两站之间徘徊…empty提议说南京没去过所以选南京,qiank同意了,Flu自然是因为缺少调查所以没意见的. 然而这是一个非常错误的决定.因为CC有一站强度非常高,据说铜牌线大概是三百多.难搞.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ICPC 2025">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="上回书说到,Flu网络赛第一场第六,后面两场全部打崩了,只拿到了一站.而且分赛站的时候是谁剩哪里就去哪里…最后只拿到了IC成都站. 然而事情有转机,吉大拿到了两张外卡,然后优先给我们了,当时我们在南京和沈阳两站之间徘徊…empty提议说南京没去过所以选南京,qiank同意了,Flu自然是因为缺少调查所以没意见的. 然而这是一个非常错误的决定.因为CC有一站强度非常高,据说铜牌线大概是三百多.难搞.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-08T08:22:00.000Z">
+<meta property="article:modified_time" content="2026-01-08T08:24:26.482Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Contest">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>ICPC 2025</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/12/27/00018_passwd_equals_fluorine/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&text=ICPC 2025"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&is_video=false&description=ICPC 2025"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ICPC 2025&body=Check out this article: https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&name=ICPC 2025&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&t=ICPC 2025"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC-Regional-Chengdu-ICPC%E5%8C%BA%E5%9F%9F%E8%B5%9B%E6%88%90%E9%83%BD%E7%AB%99"><span class="toc-number">1.</span> <span class="toc-text">ICPC Regional Chengdu ICPC区域赛成都站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-n"><span class="toc-number">1.1.</span> <span class="toc-text">day -n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2-Fri"><span class="toc-number">1.2.</span> <span class="toc-text">day -2 Fri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-Sat"><span class="toc-number">1.3.</span> <span class="toc-text">day -1 Sat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">1.4.</span> <span class="toc-text">day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">1.5.</span> <span class="toc-text">day 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC-Regional-Nanjing-ICPC%E5%8C%BA%E5%9F%9F%E8%B5%9B%E5%8D%97%E4%BA%AC%E7%AB%99"><span class="toc-number">2.</span> <span class="toc-text">ICPC Regional Nanjing ICPC区域赛南京站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-n-1"><span class="toc-number">2.1.</span> <span class="toc-text">day -n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2-Fri-1"><span class="toc-number">2.2.</span> <span class="toc-text">day -2 Fri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-Sat-1"><span class="toc-number">2.3.</span> <span class="toc-text">day -1 Sat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0-Sun"><span class="toc-number">2.4.</span> <span class="toc-text">day 0 Sun</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-1"><span class="toc-number">2.5.</span> <span class="toc-text">day 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostScript"><span class="toc-number">3.</span> <span class="toc-text">PostScript</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        ICPC 2025
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-08T08:22:00.000Z" class="dt-published" itemprop="datePublished">2026-01-08</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Contest/" rel="tag">Contest</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>上回书说到,Flu网络赛第一场第六,后面两场全部打崩了,只拿到了一站.<br>而且分赛站的时候是谁剩哪里就去哪里…<br>最后只拿到了IC成都站.</p>
+<p>然而事情有转机,吉大拿到了两张外卡,然后优先给我们了,当时我们在南京和沈阳两站之间徘徊…<br>empty提议说南京没去过所以选南京,qiank同意了,Flu自然是因为缺少调查所以没意见的.</p>
+<p>然而这是一个非常错误的决定.<br>因为CC有一站强度非常高,据说铜牌线大概是三百多.<br>难搞.</p>
+<h1 id="ICPC-Regional-Chengdu-ICPC区域赛成都站"><a href="#ICPC-Regional-Chengdu-ICPC区域赛成都站" class="headerlink" title="ICPC Regional Chengdu ICPC区域赛成都站"></a>ICPC Regional Chengdu ICPC区域赛成都站</h1><h2 id="day-n"><a href="#day-n" class="headerlink" title="day -n"></a>day -n</h2><p>订机票和酒店.按照榜上的酒店顺着订,然后打电话到那个最贵的酒店的时候还有房间(免费早餐),然后就定下来了.<br>订机票,我们三人打算一起坐一趟航班(好报销),然后…<br>看到一个周二周转烟台的航班,比周一中转的航班还便宜,所以一行人订了这个航班,然后被lus否了,说你想多逗留一天需要邀请函,否则你不能证明你是去烟台旅游去了!!!为由直接否定掉了报销,于是一行人又退票订这个周一中专呼和浩特的航班,被资本做局了,啥也没干先亏一百多.</p>
+<h2 id="day-2-Fri"><a href="#day-2-Fri" class="headerlink" title="day -2 Fri"></a>day -2 Fri</h2><p>周五,早早起了床.<br>约定大家在北一门口集合,empty忘带手提包,qiank来晚了.<br>大家打出租车到长春站,然后打算吃麦.<br>但是麦还得过一条街,所以一行人决定吃德克士.<br>然而德克士尽管全是预制菜仍然要保证现炸现卖,作为一个快餐店,而且还是大上午的,就是不多炸一点.<br>我们买了6个汉堡4对辣翅,差点没赶上火车.</p>
+<p>然后坐飞机到成都,路上云很漂亮.<br>到成都以后empty的包被神人拿错了,明明书包上都有empty的名字…<br>又在机场等了半个小时,神人才来(果然是个女的).<br>神人第一句话不是道歉,也不是”我的包在哪里”,而是”你们机场怎么找到我联系方式的”,然后就是”你们机场怎么这么不尊重个人信息,说查就查…”又闹腾好久.<br>天府机场距离比赛地点(郫都区)非常远,成都太大了.<br>坐了两个小时的地铁到达市中心,empty提议吃火锅.<br>大家网上找了一家不错的火锅店,然而都到九点了门外还需要排队取号,叫到号才能进(排队30人).<br>旁边的水派火锅没人,Flu提议就去这家得了,qiank本来认为旁边的火锅这么多人,这家几乎没人,绝对有什么说法,但还是同意了…  </p>
+<p>水派火锅,据说火锅汤底能喝.<br>这是正宗成都火锅,说是鸳鸯锅,实际上整个锅是两个同心圆,里面的小锅是番茄的,外面的大锅全是辣锅,铺满了各种花椒辣椒,还有红油(好害怕)<br>成都火锅没有麻酱😭…<br>这个辣锅的麻椒放的挺多.<br>这家店免费提供一个叫做腊肠箜饭的东西,简直是仙品,巨好吃.</p>
+<p>吃完饭之后已经十一点了,打车回宾馆了.</p>
+<h2 id="day-1-Sat"><a href="#day-1-Sat" class="headerlink" title="day -1 Sat"></a>day -1 Sat</h2><p>宾馆有游戏厅,还有免费早餐.</p>
+<p>一听说有游戏厅,Flu去看了看.工作人员问你要用这个屋子吗?Flu说是,因为qiank,empty和msc他们队的人有要德州的.<br>结果包一个屋子需要掏钱,188四小时,血亏(Flu没问价格就直接同意了😭😭😭,但是富哥qiank请了)<br>一副牌十块,这家店真黑,但是来都来了,钱也掏了,那还是玩吧…<br>一副牌当作手牌,另一幅牌当作筹码,黑色是1红色是5…<br>empty总是用散牌吓人,但是这么做风险很大导致empty第一个破产(乐)<br>然后就玩到了凌晨四点.</p>
+<p>睡觉起来已经十点半了,打车赶到签到的地方.<br>没有找哥哥要签名拍照,来晚了损失一个亿.<br>热身赛打的一塌糊涂,无所谓了.</p>
+<p>中午吃的是冒烤鸭,看起来是烤鸭用冒菜的方式又做了一下,非常好吃,但是因为鸭肉比鸡肉柴一点,啃的时候总是红油溅很多.  </p>
+<p>晚上qiank说要做安卓作业(是真的安卓作业不是那个形容词的安卓),实际上每次Flu偷窥qiank电脑的时候都是小丑牌.<br>Flu上楼找msc大人继续德州了.<br>Flu很快输光了筹码,qiank这个时候上去玩德州(据说实际上没打几把就开始王者了).  </p>
+<p>自己点自己的外卖吃,酒店有自己的机器人可以运外卖,看起来很高级(实际上速度很慢),不过机器人故障的时候会有工作人员自己送外卖(就是那个问我要不要开游戏间的那个人)</p>
+<blockquote>
+<p>今天输的有多惨,明天赢的就有多麻.<br>— msc</p>
+</blockquote>
+<h2 id="day-0"><a href="#day-0" class="headerlink" title="day 0"></a>day 0</h2><p>大早起就起床了,去酒店吃早餐.</p>
+<p>酒店有黄油抹面包吃,还有煎培根,还有牛角包等面包,管饱的,Flu感觉很好吃,qiank认为一般,不配这个酒店的价位.还得是比赛当天清晨,整个酒店全是ap,淡黄奶龙色的衣服十分显眼.</p>
+<p>比赛前先唠会嗑,讲讲比如说我们怎么把整个F区所有电脑都断电之类的(好恶俗)<br>开局发现有人过了G,qiank马上看G,empty只要不下令绝对从A开始看,Flu就比较随机,开局锁定了J(后来被证明也是签),上去写J过了,到这里还算顺利.</p>
+<p>然后qiank写G喜提WA,还好第二发改对了.</p>
+<p>然后empty在给我讲A,我认为empty讲的很烂,决定自己读题.<br>Flu认为只需要判断正确错误就可以了,原样输出应该没错,交一发WA了.<br>empty认为原样输出有大问题,所以构造了一个解,交上去也WA了.<br>empty认为自己的代码没问题只是精度有点问题,开始卡精度,原来是*10的代码现在改成*100再交一发,又WA了.<br>Flu认为自己的做法没有问题,只是区间精度炸了,所以取了个闭区间,交了一发还是WA.<br>Flu急了,上个厕所冷静一下.  </p>
+<p>Flu上厕所的时候想到可能会出负数的情况,回来的时候在empty代码构造解的基础上改了改,改对了.</p>
+<p>然后过的最多的就是B和L.<br>Flu看B是图论,这个时候empty认为B是倍增,qiank认为不是,疯狂叉人,认为写的不对.<br>Flu看L是主席树+dfn序维护,empty认为赛场L过的飞快,应该不是很复杂的数据结构,然后全队讨论L讨论半天还是没结果. </p>
+<p>后半场了,empty认为L是启发式合并,Flu认为不是,想叉掉empty的做法,但是没有阻止empty上机.</p>
+<p>封榜之后Flu写B的dp方程有点问题,打印之后看出来了.<br>empty在Flu看打印代码的时候调L,本地一直RE.<br>Flu把empty打印赶下机之后写B,交了一发过.  </p>
+<p>最后Flu发现empty不会用set,然后在右边看empty写代码的qiank也没看出来,唐完了.<br>问题回溯:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i:st)&#123;</span><br><span class="line">	<span class="keyword">if</span>(xxx)&#123;</span><br><span class="line">		st.<span class="built_in">erase</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>i</code> 是正在遍历的东西,删掉之后自然出野指针了,然后就re了呗…<br>这么简单的东西两个人都不知道???<br>不知道也不问???</p>
+<p>比赛结束,empty问msc L是什么,真的是启发式合并,发出尖锐爆鸣声.<br>我们最终是4题558罚时,封榜前一直是铁牌区十几名.<br>开始滚榜,最后我们是铜尾,铜牌区倒数第一名,激动的我们和隔壁队(稳铜,谁也不认识谁)抱了起来…</p>
+<p>本场血战总结出几个教训:</p>
+<blockquote>
+<ol>
+<li><p>叉人的条件<br> 如果你有叉掉之后你认为的”正确”做法,那么可以给出你的”正确”做法.<br> 对于你认为代码会WA的地方要给出明确数据.<br> 对于你认为代码会TLE的地方要给出数据的大致构造.<br> 以上都没有的话,你应该闭嘴并相信队友.<br>尽量说”试一下这个数据”而不是”我来叉你了”,会给别人很大的心理负担</p>
+</li>
+<li><p>平时训练<br>平时没空调队VP的都是铜牌题铁牌题,都是不到仨小时就散伙了,自然比赛的时候被卡题红温,也是情理之中的现象.</p>
+</li>
+<li><p>“算法注册表”<br>Flu赛后认为L的启发式合并是真没想到这个做法,也许从启发式合并的角度去想这个问题就能做出来了.<br> 所以Flu提倡,每个人列一个清单出来,清单内容是你会的算法,赛时如果不知道这个题怎么做就O(n)枚举你会的算法,尝试从这个角度去维护数据什么的.</p>
+</li>
+</ol>
+</blockquote>
+<p>这个铜牌是天上掉下来的,4题558罚时是铜,4题563罚时就是铁牌了…<br>这场成都站强度也是真的高,8题手速慢了就喜提银牌了,俗称”慢8out”</p>
+<p>好在没空调队突破了俊杰charles的预言(铁),成功拿到了牌子…</p>
+<p>晚上大家有时间了,去吃那个排队叫号才能吃到的火锅(荣胜和).<br>然后排了一个半时队,终于能进去吃了…<br>这个火锅是四分之一清汤,四分之三是辣的,有麻酱,不过是纯麻酱,用油碟提味加的.<br>Flu:这个汤全是油块,辣椒不多,感觉这个汤不辣(笑)<br>实际上这个汤比前天的还要辣…煮了一个毛肚吃瞬间后悔了,真辣啊啊啊啊啊<br>Flu到外面买了一个大百事,三个人两个不吃辣,给喝完了.<br>感觉经此一役之后Flu能吃辣了…</p>
+<blockquote>
+<p>成都这里有需要排队等一个半小时才能吃到的神秘火锅,似乎大家都喜欢用大众点评.</p>
+</blockquote>
+<h2 id="day-1"><a href="#day-1" class="headerlink" title="day 1"></a>day 1</h2><p>准备走人.今天还在酒店吃早餐的感觉没几个人了,可能很多人是比完赛发完牌子就走的.<br>赶了很久的车,吃了两顿飞机餐,到长春本来决定吃烤肉的但是因为时间太晚了还是作罢.<br>返程的飞机餐巨难吃,给了个油炒芹菜踩了qiank的雷,牛肉饭左边是一种神秘深绿色菜嚼起来就像吃草.  </p>
+<h1 id="ICPC-Regional-Nanjing-ICPC区域赛南京站"><a href="#ICPC-Regional-Nanjing-ICPC区域赛南京站" class="headerlink" title="ICPC Regional Nanjing ICPC区域赛南京站"></a>ICPC Regional Nanjing ICPC区域赛南京站</h1><h2 id="day-n-1"><a href="#day-n-1" class="headerlink" title="day -n"></a>day -n</h2><p>酒店订的非常晚,官方合作的酒店全部订满了…<br>后续发现所谓”官方合作”的酒店在谈妥的时候均有不同程度的涨价,原来谈妥价格=max(历史波动价格)</p>
+<p>前瞻榜上说CCPC有一站(好像是济南站)的强度非常高,铜牌是网络赛三百多(成都的线是网络赛五百多)<br>然后ic沈阳和这个cc是同时进行比赛,也就是说ic沈阳的强度会非常低,也就是说在外卡南京和沈阳二选一的时候Flu已经输麻了(再次强调)</p>
+<h2 id="day-2-Fri-1"><a href="#day-2-Fri-1" class="headerlink" title="day -2 Fri"></a>day -2 Fri</h2><p>不知道为什么四点才睡着觉,然后八点半在闹钟不小心订成晚上八点半的情况下居然起来了…<br>洗了个头就没时间了,赶紧出门,发现队友正好在上出租车.<br>抓紧跑过去,然后书包带就断了<br>开局不利,后面只能拎着或者单肩背电脑了,,  </p>
+<p>empty前一天有Linux实验,然后中途跑了和我们VP来了,最后电脑和学生证一起被锁在B108,,<br>好在大早起拿到了.</p>
+<p>QianK的身份证在成都站莫名其妙的丢失了,然后用的电子版身份证明.<br>长春机场有一家叫做”满宝馄饨”的餐厅,卖的馄饨非常便宜,一碗10个猪肉馄饨只要17,就算是在外面感觉也得十几,真没想到机场还能吃到这么平价的东西,以后来机场可以不吃饭了.  </p>
+<p>实际上店员会默认你点套餐,是42,你需要特别指出你单点,然后就是非常便宜的17,有点像隐藏菜单.  </p>
+<blockquote>
+<p>QianK:仙品.<br>Flu:Truth👍🏻</p>
+</blockquote>
+<p>lus说来长春,结果这几天全部和他们那帮团队在开会,我还想着蹭lus一顿饭吃他个几百的,但是计划泡汤了…</p>
+<p>为什么这一站开局就这么不顺…<br>这回我们是三人三间屋子,反正管报销(自信.jpg)</p>
+<p>到南京之后Flu想的第一件事居然是鸭科夫…<br>打通关之后点外卖吃了一家烤鸭,甜的卤料很不错,但是没吃饱,又下单了一家扬州炒饭和白粥喝.</p>
+<h2 id="day-1-Sat-1"><a href="#day-1-Sat-1" class="headerlink" title="day -1 Sat"></a>day -1 Sat</h2><p>吸取了成都站早餐餐厅还不错但是少去一次的教训,这次Flu很早起床就去餐厅了.<br>然而这个餐厅里面的东西简直不能吃:火腿肠是全淀粉的吃起来黏糊糊的,什么肉都没有,连牛奶都要掺水.<br>走之前吃了一个烧麦和包子,全场好像就这俩能吃.</p>
+<p>投壶,中了四个,差点拿到小fufu(虽然来晚了已经没有小fufu了),最后拿到了个草…罐子,能种的那种.</p>
+<p>南航的食堂非常糟糕,餐券只能在指定的餐厅和指定的档口用,而且必须一单用完,食堂的菜又贵又难吃,亏麻了,根本没算账就被划了25.</p>
+<p>热身赛尝试使用了一个简单的命令,哥哥爱用.<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">submit -p A aaa.cpp</span><br></pre></td></tr></table></figure></p>
+<p>然后尝试测试一下评测姬的性能,被 <code>g++</code> 的神秘编译优化暴打了…<br>经测试1s的评测姬是跑不过5e7的rand取模的,代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">50000000</span>;++i)&#123;</span><br><span class="line">	res=(res+<span class="built_in">rand</span>())%mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>坚决不要res直接加上i,否则会被编译器直接优化掉,最开始测的能过1e11,还以为是神机…</p>
+<p>我们吸取了中午南航糟糕食堂的教训,晚餐券都拿来换饮料了,大概是能换五瓶饮料,南京物价真高.</p>
+<p>和 <code>guitar_jasmine</code> 他们队一起去吃南京大排档,吃到了金陵烤鸭.这个烤鸭会淋一种神秘汤汁,是甜口的,然后也不卷春饼吃.<br>还有一种好像叫民国美龄粥的粥,也是甜口的,有点黏糊,喝起来有种奶香,感觉至少加了大米,牛奶,燕麦,糖.<br>还有一个海鲜豆腐脑,很鲜,但是除了鲜好像没别的,只是豆腐脑用海鲜汤然后再勾个芡.  </p>
+<p>呃,南京大排档虽然好吃但全是小碗菜,晚上我们都觉得很饿,出来买夜宵吃了. </p>
+<h2 id="day-0-Sun"><a href="#day-0-Sun" class="headerlink" title="day 0 Sun"></a>day 0 Sun</h2><p>回笼觉瘾犯了,本来七点半醒了,然后不知道为什么又开睡了,后来被队友用门铃叫醒,已经八点半了…<br>最后被迫来南航的糟糕餐厅吃点东西,买了个包子(自费啊啊啊,为什么没早餐券),还有一个看起来是雪媚娘实际上是面包的东西.  </p>
+<p>凭借Flu良好的信用,开局占机子,拆散中文题面,写一下关同步流的板子.<br>根榜的Qiank会C了上去写,一发WA.<br>审计代码发现QianK在Flu的代码基础上直接写的,但是Flu有 <code>cin&gt;&gt;t</code> ,QianK用的scanf,然后关了同步流自然就炸了.<br>然后补一发过了.<br>empty会K了,上去写,又WA了,审计代码之后发现坐标读反了(先读的y再读的x),补一发又过了.  </p>
+<p>哎哎,真是一队苦命鸳鸯,签到都这么唐吗…</p>
+<p>然后是F,整场一直在卡F.Flu猜测可能是神秘根号分治,被否了.<br>empty想到了一个O(wq)的写法,属于是卡一卡能过的范围,上去写果不其然T了.<br>卡了很久之后开始看G,分析了一通.<br>I,期望题,看起来可做但是不知道怎么搞.  </p>
+<p>后来发现如果当前集合已经联通,那么不用再遍历子集了,直接break,这个神秘优化让复杂度正确了,封榜后终于过了F.  </p>
+<p>最后三题铜了.<br>小碰瓷:拱队长他们四题但是罚时爆炸,I题差一点就做出来了但是没做出来,最后也铜了.<br><code>guitar_jasmine</code> 他们队四题但是罚时很小最后银了.</p>
+<blockquote>
+<p>拱队好像气炸了,因为没考虑能零元购吃饭的情况,所以把判断的 <code>&gt;</code> 改成 <code>&gt;=</code> 就能过,本来能银的…</p>
+</blockquote>
+<p>晚上吃的是鸭得堡,也算吃上南京鸭血粉丝汤了.<br>学会了怎么用美团买券然后线下验券下单.<br>这一碗的汤非常白,感觉用科技了.<br>鸭血粉丝汤里面主要是粉丝还有鸭血,鸭肝,鸭肾,鸭肠,还有豆腐泡.  </p>
+<h2 id="day-1-1"><a href="#day-1-1" class="headerlink" title="day 1"></a>day 1</h2><p>晚上不知道为什么睡不着觉.<br>凌晨四点才睡着,然后十点就醒了.</p>
+<p>打了会游戏.<br>然后一点四十六被催退房,TLE了还得加钱.<br>所谓退房只需要把房卡给了就行了,还是能再进屋子里歇会和收拾东西的,只是没电了.</p>
+<p>然后发现整个吉大三支队伍返程坐的同一趟航班,有点难绷了.<br>晚上吃的烧烤(经典老杨太太),由大善人QianK请客,orz.<br>QianK要退役考研了,让我们为他祈祷.  </p>
+<h1 id="PostScript"><a href="#PostScript" class="headerlink" title="PostScript"></a>PostScript</h1><p>之后我也要摆烂了,但是我馋A103的冰箱空调,还想再水一年ACM队.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC-Regional-Chengdu-ICPC%E5%8C%BA%E5%9F%9F%E8%B5%9B%E6%88%90%E9%83%BD%E7%AB%99"><span class="toc-number">1.</span> <span class="toc-text">ICPC Regional Chengdu ICPC区域赛成都站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-n"><span class="toc-number">1.1.</span> <span class="toc-text">day -n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2-Fri"><span class="toc-number">1.2.</span> <span class="toc-text">day -2 Fri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-Sat"><span class="toc-number">1.3.</span> <span class="toc-text">day -1 Sat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">1.4.</span> <span class="toc-text">day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">1.5.</span> <span class="toc-text">day 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ICPC-Regional-Nanjing-ICPC%E5%8C%BA%E5%9F%9F%E8%B5%9B%E5%8D%97%E4%BA%AC%E7%AB%99"><span class="toc-number">2.</span> <span class="toc-text">ICPC Regional Nanjing ICPC区域赛南京站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-n-1"><span class="toc-number">2.1.</span> <span class="toc-text">day -n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-2-Fri-1"><span class="toc-number">2.2.</span> <span class="toc-text">day -2 Fri</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-Sat-1"><span class="toc-number">2.3.</span> <span class="toc-text">day -1 Sat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0-Sun"><span class="toc-number">2.4.</span> <span class="toc-text">day 0 Sun</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1-1"><span class="toc-number">2.5.</span> <span class="toc-text">day 1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostScript"><span class="toc-number">3.</span> <span class="toc-text">PostScript</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&text=ICPC 2025"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&is_video=false&description=ICPC 2025"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ICPC 2025&body=Check out this article: https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&title=ICPC 2025"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&name=ICPC 2025&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/08/20019_ICPC_2025/&t=ICPC 2025"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

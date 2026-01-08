@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="解方程. $$\frac1x+\frac1y&#x3D;\frac1n$$ 因为xyn都是整数,所以显然xy都大于n. 设y&#x3D;n+k,带入求出x的方程 $$x&#x3D;n+\frac{n^2}{k}$$ 于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上)">
+    <meta name="description" content="解方程. \frac1x+\frac1y&#x3D;\frac1n因为xyn都是整数,所以显然xy都大于n.设y&#x3D;n+k,带入求出x的方程 x&#x3D;n+\frac{n^2}{k}于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上),由于这个题要求解大于">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0110">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0110.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="解方程. $$\frac1x+\frac1y&#x3D;\frac1n$$ 因为xyn都是整数,所以显然xy都大于n. 设y&#x3D;n+k,带入求出x的方程 $$x&#x3D;n+\frac{n^2}{k}$$ 于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上)">
+<meta property="og:description" content="解方程. \frac1x+\frac1y&#x3D;\frac1n因为xyn都是整数,所以显然xy都大于n.设y&#x3D;n+k,带入求出x的方程 x&#x3D;n+\frac{n^2}{k}于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上),由于这个题要求解大于">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T00:55:35.592Z">
@@ -133,11 +133,8 @@
   <div class="content" itemprop="articleBody">
       
           <p>解方程.</p>
-<p>$$\frac1x+\frac1y=\frac1n$$</p>
-<p>因为xyn都是整数,所以显然xy都大于n.<br>
-设y=n+k,带入求出x的方程</p>
-<p>$$x=n+\frac{n^2}{k}$$</p>
-<p>于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上),由于这个题要求解大于一个数,我们暴搜每个质数的次方,逆着算出来即可.</p>
+<script type="math/tex; mode=display">\frac1x+\frac1y=\frac1n</script><p>因为xyn都是整数,所以显然xy都大于n.<br>设y=n+k,带入求出x的方程</p>
+<script type="math/tex; mode=display">x=n+\frac{n^2}{k}</script><p>于是答案就是 $d(n^2)-1$ ,具体地,我们对n进行质因数分解,设当前质数为p,次方为q,对总共答案的贡献是 $2q+1$ ,所有解就是把贡献乘起来,然后除二加一(因为xy可以交换,+1是把xy相同的解加上),由于这个题要求解大于一个数,我们暴搜每个质数的次方,逆着算出来即可.</p>
 
         
   </div>

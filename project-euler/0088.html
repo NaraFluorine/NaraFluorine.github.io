@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次) 这是一道40%的题,卡了Flu一个寒假. 观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000. 但是发现有例外: $$k&#x3D;5,{1,1,2,2,2}$$ 于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个">
+    <meta name="description" content="长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次) 这是一道40%的题,卡了Flu一个寒假. 观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000. 但是发现有例外: k&#x3D;5,\{1,1,2,2,2\}于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个长度,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0088">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0088.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次) 这是一道40%的题,卡了Flu一个寒假. 观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000. 但是发现有例外: $$k&#x3D;5,{1,1,2,2,2}$$ 于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个">
+<meta property="og:description" content="长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次) 这是一道40%的题,卡了Flu一个寒假. 观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000. 但是发现有例外: k&#x3D;5,\{1,1,2,2,2\}于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个长度,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T00:51:36.874Z">
@@ -135,12 +135,10 @@
           <p>长度为n的集合,满足所有元素的和等于所有元素的积,求对于长度为2-12000的集合,最小的这样的积和数组成的集合的和(即相同积和数只算一次)</p>
 <p>这是一道40%的题,卡了Flu一个寒假.</p>
 <p>观察样例,发现有个通解是 ${1,1,1,1,…,2,k}$ ,所以答案上界呼之欲出,就是24000.</p>
-<p>但是发现有例外:
-$$k=5,{1,1,2,2,2}$$
-于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个长度,单个的复杂度是 $O(\sqrt n)$ 的.</p>
+<p>但是发现有例外:</p>
+<script type="math/tex; mode=display">k=5,\{1,1,2,2,2\}</script><p>于是考虑对每个数暴力分解,然后求出这个数可能匹配上哪个长度,单个的复杂度是 $O(\sqrt n)$ 的.</p>
 <p>但是所有数字一起分解就会省不少事,我们使用dfs,记录当前深度,乘积,加和,然后在dfs中进行分解.同时为了避免出现 $6=3\times2=2\times3$ 的情况,额外记录一个num表示上一个因数,保证因数单调,也就是每个分解最多出现1次,然后更新答案即可,复杂度如下,Flu不知道是多少,反正实际上跑的飞快(可能是数据太小了).</p>
-<p>$$O(\sum_{i=1}^{12000}(2+d(i)))$$</p>
-<p>d(i)是i的因数个数</p>
+<script type="math/tex; mode=display">O(\sum_{i=1}^{12000}(2+d(i)))</script><p>d(i)是i的因数个数</p>
 
         
   </div>

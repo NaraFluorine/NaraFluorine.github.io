@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="很奇怪的概率题.网上的解法: $$P(1个比特从0翻到1)&#x3D;\frac12$$ $$P(1个比特在N轮后还是0)&#x3D;(\frac12)^n$$ $$P(1个比特在N轮后翻到1)&#x3D;1-(\frac12)^N$$ $$P(N轮后所有比特都是1)&#x3D;(1-(\frac12)^N)^{32}$$ $$P(在第N轮所有比特正好翻到1)&#x3D;(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1">
+    <meta name="description" content="很奇怪的概率题.网上的解法: P(1个比特从0翻到1)&#x3D;\frac12P(1个比特在N轮后还是0)&#x3D;(\frac12)^nP(1个比特在N轮后翻到1)&#x3D;1-(\frac12)^NP(N轮后所有比特都是1)&#x3D;(1-(\frac12)^N)^{32}P(在第N轮所有比特正好翻到1)&#x3D;(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1})^{32}E&#x3D;\sum_{i&#x3D;1}^{\">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0000">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0323.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="很奇怪的概率题.网上的解法: $$P(1个比特从0翻到1)&#x3D;\frac12$$ $$P(1个比特在N轮后还是0)&#x3D;(\frac12)^n$$ $$P(1个比特在N轮后翻到1)&#x3D;1-(\frac12)^N$$ $$P(N轮后所有比特都是1)&#x3D;(1-(\frac12)^N)^{32}$$ $$P(在第N轮所有比特正好翻到1)&#x3D;(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1">
+<meta property="og:description" content="很奇怪的概率题.网上的解法: P(1个比特从0翻到1)&#x3D;\frac12P(1个比特在N轮后还是0)&#x3D;(\frac12)^nP(1个比特在N轮后翻到1)&#x3D;1-(\frac12)^NP(N轮后所有比特都是1)&#x3D;(1-(\frac12)^N)^{32}P(在第N轮所有比特正好翻到1)&#x3D;(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1})^{32}E&#x3D;\sum_{i&#x3D;1}^{\">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T01:09:56.515Z">
@@ -132,14 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p>很奇怪的概率题.网上的解法:
-$$P(1个比特从0翻到1)=\frac12$$
-$$P(1个比特在N轮后还是0)=(\frac12)^n$$
-$$P(1个比特在N轮后翻到1)=1-(\frac12)^N$$
-$$P(N轮后所有比特都是1)=(1-(\frac12)^N)^{32}$$
-$$P(在第N轮所有比特正好翻到1)=(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1})^{32}$$
-$$E=\sum_{i=1}^{\infty}i((1-(\frac12)^i)^{32}-(1-(\frac12)^{i-1})^{32})$$</p>
-
+          <p>很奇怪的概率题.网上的解法:</p>
+<script type="math/tex; mode=display">P(1个比特从0翻到1)=\frac12</script><script type="math/tex; mode=display">P(1个比特在N轮后还是0)=(\frac12)^n</script><script type="math/tex; mode=display">P(1个比特在N轮后翻到1)=1-(\frac12)^N</script><script type="math/tex; mode=display">P(N轮后所有比特都是1)=(1-(\frac12)^N)^{32}</script><script type="math/tex; mode=display">P(在第N轮所有比特正好翻到1)=(1-(\frac12)^N)^{32}-(1-(\frac12)^{N-1})^{32}</script><script type="math/tex; mode=display">E=\sum_{i=1}^{\infty}i((1-(\frac12)^i)^{32}-(1-(\frac12)^{i-1})^{32})</script>
         
   </div>
 </article>

@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="所有1e18以内的数字按照数字大小排序去掉前导零后加一起,取模. 刚开始以为是一个数位dp题,一直不敢做. 但是&quot;排序&quot;的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字. 但是这启示我们对数位dfs,只要递增枚举就可以. 先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献. 一个数字在指定最长长度的贡献是">
+    <meta name="description" content="所有1e18以内的数字按照数字大小排序去掉前导零后加一起,取模. 刚开始以为是一个数位dp题,一直不敢做.但是”排序”的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字.但是这启示我们对数位dfs,只要递增枚举就可以.先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献.一个数字在指定最长长度的贡献是 \binom{lim}{li">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0885">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0885.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="所有1e18以内的数字按照数字大小排序去掉前导零后加一起,取模. 刚开始以为是一个数位dp题,一直不敢做. 但是&quot;排序&quot;的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字. 但是这启示我们对数位dfs,只要递增枚举就可以. 先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献. 一个数字在指定最长长度的贡献是">
+<meta property="og:description" content="所有1e18以内的数字按照数字大小排序去掉前导零后加一起,取模. 刚开始以为是一个数位dp题,一直不敢做.但是”排序”的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字.但是这启示我们对数位dfs,只要递增枚举就可以.先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献.一个数字在指定最长长度的贡献是 \binom{lim}{li">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T15:19:49.316Z">
@@ -133,13 +133,8 @@
   <div class="content" itemprop="articleBody">
       
           <p>所有1e18以内的数字按照数字大小排序去掉前导零后加一起,取模.</p>
-<p>刚开始以为是一个数位dp题,一直不敢做.<br>
-但是&quot;排序&quot;的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字.<br>
-但是这启示我们对数位dfs,只要递增枚举就可以.<br>
-先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献.<br>
-一个数字在指定最长长度的贡献是
-$$\binom{lim}{lim-sum}\binom{sum}{a_1}\binom{sum-a_1}{a_2}…\binom{a_9}{a_9}$$
-意思就是在指定长度内所有数字随便枚举,反正最后前导零被去掉.然后乘上dfs的数字,取个模就结束了.</p>
+<p>刚开始以为是一个数位dp题,一直不敢做.<br>但是”排序”的性质保证数位dp不好合并,因为要保证之前的数字都大于或小于新枚举的数字.<br>但是这启示我们对数位dfs,只要递增枚举就可以.<br>先简单dp一下,发现1e18的时候递增的数字只有不到4e6个,于是直接dfs枚举所有递增数字算贡献.<br>一个数字在指定最长长度的贡献是</p>
+<script type="math/tex; mode=display">\binom{lim}{lim-sum}\binom{sum}{a_1}\binom{sum-a_1}{a_2}...\binom{a_9}{a_9}</script><p>意思就是在指定长度内所有数字随便枚举,反正最后前导零被去掉.然后乘上dfs的数字,取个模就结束了.</p>
 
         
   </div>

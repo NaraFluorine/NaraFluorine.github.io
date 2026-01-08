@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="求解分数 $\frac ab$ 在n位的小数情况(n&#x3D;1e7). 我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求 $$\frac{a\times10^{n-1}\mod b}{b}$$ 这个数字的小数第一位,即 $$\left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\r">
+    <meta name="description" content="求解分数 $\frac ab$ 在n位的小数情况(n&#x3D;1e7). 我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求 \frac{a\times10^{n-1}\mod b}{b}这个数字的小数第一位,即 \left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\right\rf">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0820">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0820.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="求解分数 $\frac ab$ 在n位的小数情况(n&#x3D;1e7). 我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求 $$\frac{a\times10^{n-1}\mod b}{b}$$ 这个数字的小数第一位,即 $$\left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\r">
+<meta property="og:description" content="求解分数 $\frac ab$ 在n位的小数情况(n&#x3D;1e7). 我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求 \frac{a\times10^{n-1}\mod b}{b}这个数字的小数第一位,即 \left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\right\rf">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T15:23:03.301Z">
@@ -133,11 +133,9 @@
   <div class="content" itemprop="articleBody">
       
           <p>求解分数 $\frac ab$ 在n位的小数情况(n=1e7).</p>
-<p>我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求
-$$\frac{a\times10^{n-1}\mod b}{b}$$
-这个数字的小数第一位,即
-$$\left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\right\rfloor$$</p>
-
+<p>我们把小数点右移,得到 $\frac{a}{b}\times10^{n-1}$ ,而且我们不需要知道整数部分情况,所以求</p>
+<script type="math/tex; mode=display">\frac{a\times10^{n-1}\mod b}{b}</script><p>这个数字的小数第一位,即</p>
+<script type="math/tex; mode=display">\left\lfloor\frac{10\times(a\times10^{n-1}\mod b)}{b}\right\rfloor</script>
         
   </div>
 </article>

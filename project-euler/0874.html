@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了. 这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1. 所以答案就是把上面那个数字进行分解,然后取质数相加取max. 写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是">
+    <meta name="description" content="这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了.这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1.所以答案就是把上面那个数字进行分解,然后取质数相加取max.   写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0874">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0874.html">
 <meta property="og:site_name" content="Fluorine&#39;s blog">
-<meta property="og:description" content="这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了. 这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1. 所以答案就是把上面那个数字进行分解,然后取质数相加取max. 写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是">
+<meta property="og:description" content="这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了.这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1.所以答案就是把上面那个数字进行分解,然后取质数相加取max.   写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
 <meta property="article:modified_time" content="2025-12-17T15:28:36.115Z">
@@ -132,11 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p>这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了.<br>
-这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1.<br>
-所以答案就是把上面那个数字进行分解,然后取质数相加取max.</p>
-<p>写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是m-1,算贡献.<br>
-看起来n是7000,复杂度很大,实际上跑到大约1400左右就出最大值了,如果你看到数字几乎不变了,不妨交一发.</p>
+          <p>这么思考:刚开始所有数字全是0,每次往随机数组上加1,总共加k个,这是一轮,直到加到会爆k的限制时不加了.<br>这个时候假设所有数组都是 $k-1$ ,会剩下 $n(m-1)\mod m$ 个数字在数组里面-1.<br>所以答案就是把上面那个数字进行分解,然后取质数相加取max.  </p>
+<p>写一个 $O(n^3)$ 的dp即可,设dpij表示前i个数字,使用k个token的最大值,然后计算答案时强制i后面的数字全部是m-1,算贡献.<br>看起来n是7000,复杂度很大,实际上跑到大约1400左右就出最大值了,如果你看到数字几乎不变了,不妨交一发.</p>
 <p>有人说这是个卷积形式,不妨使用FFT优化到 $O(n^2\log n)$ .</p>
 
         
