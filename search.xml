@@ -682,9 +682,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -761,34 +761,9 @@
       
         <tags>
             
+            <tag> Algorithm </tag>
+            
             <tag> Math </tag>
-            
-            <tag> Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>离散化</title>
-      <link href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
-      <url>/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
-      
-        <content type="html"><![CDATA[<p>离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.</p><p>离散化步骤:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure></p><p>对应函数解释:<br><code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br><code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br><code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p><h3 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h3><p>排序标准用<code>&lt;</code>连接的就是结果.比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line"><span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p><p>附:函数调用未知函数的格式是这样:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure><br>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> ACM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Algorithm </tag>
             
         </tags>
       
@@ -827,6 +802,31 @@
       <url>/2024/06/04/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/</url>
       
         <content type="html"><![CDATA[<p>感觉有很多神秘交互题.<br>然后他们的思路和传统题好像截然不同…  </p><h2 id="CF1354G"><a href="#CF1354G" class="headerlink" title="CF1354G"></a>CF1354G</h2><p>最多有1000个位置,每个位置上放了一个石头或者一个礼物.<br>礼物一定比石头轻,石头一定一个重量.<br>现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).<br>你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n/2 .</p><p>神秘的询问次数.<br>题解说,我们如果能找到一个必然是石头的位置,那么我们就可以通过倍增在log次数内找到第一个是礼物的位置.<br>例如:1是石头,找2如果轻说明是礼物,否则也是石头,然后用这俩判断[3,4],递推.</p><p>问题在于我们怎么找到这个石头.<br>观察发现50-log的15还剩35,机会很多,考虑随机化…</p><p>我们假设1是石头,在剩下的序列里面随机抽几个位置和1比,如果存在一个大于的就说明不是石头.<br>因为礼物概率小于1/2,所以正确的概率不低于 (1/2)^t,t是抽查次数.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>离散化</title>
+      <link href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
+      <url>/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<p>离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.</p><p>离散化步骤:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure></p><p>对应函数解释:<br><code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br><code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br><code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p><h3 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h3><p>排序标准用<code>&lt;</code>连接的就是结果.比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line"><span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p><p>附:函数调用未知函数的格式是这样:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure><br>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量.</p>]]></content>
       
       
       <categories>
@@ -1140,9 +1140,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -1369,9 +1369,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -1650,9 +1650,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
             <tag> Python </tag>
             
@@ -1679,11 +1679,11 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Cpp </tag>
             
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -1708,11 +1708,11 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Cpp </tag>
             
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
         </tags>
       
@@ -2180,8 +2180,6 @@
             
             <tag> Hello </tag>
             
-            <tag> Math </tag>
-            
             <tag> Physics </tag>
             
             <tag> Cpp </tag>
@@ -2189,6 +2187,8 @@
             <tag> Linux </tag>
             
             <tag> Algorithm </tag>
+            
+            <tag> Math </tag>
             
             <tag> ComputerScience </tag>
             
