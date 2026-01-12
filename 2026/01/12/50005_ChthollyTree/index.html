@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="说句闲话：研究珂学的最好方法是A了这道题祝你们成功（滑稽 $\mathrm{noip}\,\small{毒瘤}$    @Unknown_Error 真不懂你们抄题解AC有啥牛逼的。。 $\mathrm{noip}\,\small{毒瘤}$     @Unknown_Error 有本事自己想自己写啊，网上复制粘贴谁不会 $\mathrm{Unknown\_Error}$   @noip 不要以为你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crypto3-ChthollyTree">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="说句闲话：研究珂学的最好方法是A了这道题祝你们成功（滑稽 $\mathrm{noip}\,\small{毒瘤}$    @Unknown_Error 真不懂你们抄题解AC有啥牛逼的。。 $\mathrm{noip}\,\small{毒瘤}$     @Unknown_Error 有本事自己想自己写啊，网上复制粘贴谁不会 $\mathrm{Unknown\_Error}$   @noip 不要以为你">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-12T04:57:40.000Z">
+<meta property="article:modified_time" content="2026-01-12T05:02:34.243Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Crypto">
+<meta property="article:tag" content="OSINT">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Crypto3-ChthollyTree</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/12/50004_FluFaithfulCrypto/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&text=Crypto3-ChthollyTree"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&is_video=false&description=Crypto3-ChthollyTree"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto3-ChthollyTree&body=Check out this article: https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&name=Crypto3-ChthollyTree&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&t=Crypto3-ChthollyTree"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B4%E5%8F%A5%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%A0%94%E7%A9%B6%E7%8F%82%E5%AD%A6%E7%9A%84%E6%9C%80%E5%A5%BD%E6%96%B9%E6%B3%95%E6%98%AF"><span class="toc-number">1.</span> <span class="toc-text">说句闲话：研究珂学的最好方法是</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A%E4%BA%86%E8%BF%99%E9%81%93%E9%A2%98"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">A了这道题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9D%E4%BD%A0%E4%BB%AC%E6%88%90%E5%8A%9F%EF%BC%88%E6%BB%91%E7%A8%BD"><span class="toc-number">1.1.</span> <span class="toc-text">祝你们成功（滑稽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%B0%81%E4%BA%86%E6%88%91%EF%BC%8C%E4%BC%9A%E8%AE%A9%E5%85%A8%E5%A4%A9%E4%B8%8B%E7%9A%84oiers%E7%9F%A5%E9%81%93%EF%BC%8C%E6%B4%9B%E8%B0%B7%E7%AE%A1%E7%90%86%E5%91%98%E7%9A%84%E8%85%90%E6%9C%BD%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">1.2.</span> <span class="toc-text">如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B7%E5%B0%86%E4%BC%9A%E8%87%AD%E5%90%8D%E6%98%AD%E8%91%97"><span class="toc-number">2.</span> <span class="toc-text">洛谷将会臭名昭著</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hint-1"><span class="toc-number">3.</span> <span class="toc-text">hint -1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hint-0"><span class="toc-number">4.</span> <span class="toc-text">hint 0</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Crypto3-ChthollyTree
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-12T04:57:40.000Z" class="dt-published" itemprop="datePublished">2026-01-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/PUZZLE/">PUZZLE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Crypto/" rel="tag">Crypto</a>, <a class="p-category" href="/tags/OSINT/" rel="tag">OSINT</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="说句闲话：研究珂学的最好方法是"><a href="#说句闲话：研究珂学的最好方法是" class="headerlink" title="说句闲话：研究珂学的最好方法是"></a>说句闲话：研究珂学的最好方法是</h1><h4 id="A了这道题"><a href="#A了这道题" class="headerlink" title="A了这道题"></a>A了这道题</h4><h2 id="祝你们成功（滑稽"><a href="#祝你们成功（滑稽" class="headerlink" title="祝你们成功（滑稽"></a>祝你们成功（滑稽</h2><blockquote>
+<p>$\mathrm{noip}\,\small{毒瘤}$   </p>
+<p>@Unknown_Error 真不懂你们抄题解AC有啥牛逼的。。</p>
+<p>$\mathrm{noip}\,\small{毒瘤}$    </p>
+<p>@<a target="_blank" rel="noopener" href="https://www.luogu.com/space/show?uid=75446">Unknown_Error</a> 有本事自己想自己写啊，网上复制粘贴谁不会</p>
+<p>$\mathrm{Unknown\_Error}$  </p>
+<p>@<a target="_blank" rel="noopener" href="https://www.luogu.com/space/show?uid=3296">noip</a> 不要以为你是管理员你就可以乱诬蔑人，不要以为你做不来就乱说别人。你没有证据！！！洛谷，就是管理员享有最高权力，你认为我是抄的，你就棕吧，你甚至可以封我的号。但是，群众的眼睛是雪亮的！！！！</p>
+<h2 id="如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！"><a href="#如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！" class="headerlink" title="如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！"></a>如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！</h2><h1 id="洛谷将会臭名昭著"><a href="#洛谷将会臭名昭著" class="headerlink" title="洛谷将会臭名昭著"></a>洛谷将会臭名昭著</h1></blockquote>
+<p>你谷小学生真珂怕……(本题试图复刻某谷经典场面,链接保留原来的链接,炸了才是正常情况)</p>
+<p>但如你所见这是一道Crypto题目,你需要把flag找出来交上去.</p>
+<p><a href="../../../../attachment/ChthollyTree.rar">附件</a></p>
+<p><a href="../../../../puzzle/ChthollyTree">提交地址</a></p>
+<p>Author:@<a href="https://narafluorine.github.io">NaraFluorine</a></p>
+<h1 id="hint-1"><a href="#hint-1" class="headerlink" title="hint -1"></a>hint -1</h1><blockquote>
+<p>$\mathrm{kkksc03}\,\small{吉祥物}$  </p>
+<p>没事，就算洛谷臭名昭著，也要棕了你。</p>
+</blockquote>
+<p>(这是个假hint)</p>
+<h1 id="hint-0"><a href="#hint-0" class="headerlink" title="hint 0"></a>hint 0</h1><p>你可以参考以下函数理解 <code>xpoly</code> 的意义:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xmul</span>(<span class="params">a,b</span>):</span><br><span class="line">    res=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> b&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> b&amp;<span class="number">1</span>:</span><br><span class="line">            res^=a</span><br><span class="line">        a&lt;&lt;=<span class="number">1</span></span><br><span class="line">        b&gt;&gt;=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B4%E5%8F%A5%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%A0%94%E7%A9%B6%E7%8F%82%E5%AD%A6%E7%9A%84%E6%9C%80%E5%A5%BD%E6%96%B9%E6%B3%95%E6%98%AF"><span class="toc-number">1.</span> <span class="toc-text">说句闲话：研究珂学的最好方法是</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A%E4%BA%86%E8%BF%99%E9%81%93%E9%A2%98"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">A了这道题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9D%E4%BD%A0%E4%BB%AC%E6%88%90%E5%8A%9F%EF%BC%88%E6%BB%91%E7%A8%BD"><span class="toc-number">1.1.</span> <span class="toc-text">祝你们成功（滑稽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%B0%81%E4%BA%86%E6%88%91%EF%BC%8C%E4%BC%9A%E8%AE%A9%E5%85%A8%E5%A4%A9%E4%B8%8B%E7%9A%84oiers%E7%9F%A5%E9%81%93%EF%BC%8C%E6%B4%9B%E8%B0%B7%E7%AE%A1%E7%90%86%E5%91%98%E7%9A%84%E8%85%90%E6%9C%BD%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-number">1.2.</span> <span class="toc-text">如果你封了我，会让全天下的oiers知道，洛谷管理员的腐朽！！！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B7%E5%B0%86%E4%BC%9A%E8%87%AD%E5%90%8D%E6%98%AD%E8%91%97"><span class="toc-number">2.</span> <span class="toc-text">洛谷将会臭名昭著</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hint-1"><span class="toc-number">3.</span> <span class="toc-text">hint -1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hint-0"><span class="toc-number">4.</span> <span class="toc-text">hint 0</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&text=Crypto3-ChthollyTree"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&is_video=false&description=Crypto3-ChthollyTree"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto3-ChthollyTree&body=Check out this article: https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&title=Crypto3-ChthollyTree"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&name=Crypto3-ChthollyTree&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/12/50005_ChthollyTree/&t=Crypto3-ChthollyTree"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

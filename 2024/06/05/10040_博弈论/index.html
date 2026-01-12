@@ -14,10 +14,10 @@
 <meta property="og:description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息. sg函数必输状态的sg值为0.其他状态的sg值为mex(所有可到达的子状态). 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为xor(所有子游戏的sg) nim游戏每次可以从一堆石子拿走任意个数,不能不拿,谁拿不了就输. 结论:所有石子xor为0必输,其余情况必赢.证明:假设当前xor不">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-05T15:21:27.000Z">
-<meta property="article:modified_time" content="2026-01-08T05:01:49.347Z">
+<meta property="article:modified_time" content="2026-01-11T15:40:57.267Z">
 <meta property="article:author" content="Fluorine Wengers">
-<meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Math">
+<meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
     
     
@@ -109,7 +109,7 @@
         <li><a class="icon" aria-label="上一篇" href="/2024/09/01/20005_XCPC2024/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10038_%E5%88%86%E6%B2%BB/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -196,6 +196,9 @@
 <p>结论:所有石子xor为0必输,其余情况必赢.<br>证明:假设当前xor不为0,前手必定能构造一个方案满足拿走之后剩余的xor为0,然后效仿后手拿即可.  </p>
 <h1 id="反nim游戏"><a href="#反nim游戏" class="headerlink" title="反nim游戏"></a>反nim游戏</h1><h1 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://pe-cn.github.io/649/">小质数棋盘硬币游戏</a><br>首先硬币的两维是独立的,考虑分开.<br>打表出硬币的sg序列为 <code>0,0,1,1,2,2,3,3,4</code> ,硬币的sg可以用维度mex起来.<br>所有的独立硬币xor起来.</li>
+</ol>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://pe-cn.github.io/260/">爆搜优化</a><br>每次拿石头之后存在三堆石头之间的差是固定的,能够用三个表O(1)维护,进而能够O(n^3)枚举答案,<a target="_blank" rel="noopener" href="https://ujimatsu-chiya.github.io/project-euler/260/">ref</a>.</li>
 </ol>
 
   </div>

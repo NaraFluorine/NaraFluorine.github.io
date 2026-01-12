@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Heat">
+<meta property="og:url" content="https://narafluorine.github.io/puzzle/Heat.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-12T03:14:32.000Z">
+<meta property="article:modified_time" content="2026-01-12T04:35:41.135Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="OSINT">
+<meta property="article:tag" content="Misc">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Heat</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Fluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="1d60a67a8eb36b49e678346f107b6ea91648837ada1bd5c8ae6f7ecd587c3abe">1c6239b398c7e7daba0a9ce7ba04fdc7f7e2ecc9545b59de655517283f4ee4dcc11571ae58306fbcc9321b353a08c624fa0cefa1ff554c59734eb75f6d33e33b0fc7fbd589db8c19d23db774479376f2667d0e2f043156da02f641538332a57e34268c441248072107435628a4a67d8d6d5cbcec34fa8b98347d27cbdbacd1377fa8d6e0d920f2bea61d66e6b20bf725c0e541e5881ff58c1c69ad9eca926b40e1d719d8b2f31ab2dd06db11cffbe9cc1934285b027513a46a2e54b5164d439c99ac5f7c003d21d1116b783b86f14a66edc2efbb78142e9fb782a9085e90dfbab3f1ed95c99b99de0b5b432a3938d5f3013d2bfcfdbb2832094091deae83ea7bf6f3a7f1f111b419c9f398355d7903c9b051399fbb64e2def71c7bdb6eff6cf6dcee2f1696d04dfcb2761ea7a9727bf1a8333944dd8bc30eb3cef9beb6542bdcb6737c8c3fac718456e9d4be9168f2b4bab4ec213a8ccd1010a0a9d65067f58b4af797647e4baaf5d09c4329e5cf64d090bc71337bc15124b91e63505b880d14f21478a1532d2f83179198afaa08e45de2d5fd3f2a000a1812ca8049dc132e9f4fe2a6e299c51a1bc4260fa8a0653a04c63bf4a4f13afb8784a19c650edf94959f62c346b25cad37d2304626511c1f98184023c6dfc30bed67d83cc3a363cfc1bb461d5c2b05a94326536f44ba17575c119752b55bcd93753dbb910a2c03131e356feafdeaa56713149f25787e23b804c4d8854c904c0eee1213f7e151a3680ebafbd40430dbd174418537a88adb4e860256ca2e751c6cc9d0a79d6666e13d8107f5ac8114f2c2c80a68e189dcfb24f85399fd3740a037485385a7390cf65e58c8d6a656069ba6026a7678a404f74f90c2e92a7e381140fcecf7f42ae6bf4883f6b5cc5baa4f42ca1ed612f675546b362bff8f8ab9c5889c882ec5826cfb81c88a272dfa3fa9851cb1bf2a898654d4522f7989c39f0c7eabc2c769922ba50572ac0858cfe02d5284b20424c719a2e67ee7cb1d3b17ded79d6341bcfca43a1981ef28c45572b1bb9cc7ed51395515d388b84344c3f784857c8cc5344f841171aa9c06692dc4050ff0ac869eba20b8d72676d97ba1a54847940458f984d836dd8c4c3aa028b6ecc25a919bdf712e6cf50c6aa263101d7b71a257683ecbec2d6363f5ed9eeb9ca99e49b933ad1196fc99fd58bc8e4c0774ac9dca309b4b227e69433fdc57bf861e8eefedf83e9fe4938ff60541786027dbf6b6d921e6bd7a4d172e316b374391b5be28a09c5f58240eaf10514aae268840985256efde32c0513499d7083a10707ba9f4c8e1b3dc973f88adfccd3dda325b2546c1b9a63e18854d4af1c398c9535f0e360ef4ddf82881547937db5f7507fc7951e6862b0cb95aa7bdcfecab65c9a64bc3201e13115c61037cf0bee8e6941a7a03bc4dc0664a88ac860a25c971fe59395f11ed948bf29e36df</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">在此提交Heat谜题的答案</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+    <!-- Giscus 评论系统 -->
+  <!-- <script src="https://giscus.app/client.js"
+        data-repo="narafluorine/narafluorine.github.io"
+        data-repo-id="[在此输入仓库 ID]"
+        data-category="[在此输入分类名]"
+        data-category-id="[在此输入分类 ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script> -->
+    <!-- Giscus 评论系统 -->
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
