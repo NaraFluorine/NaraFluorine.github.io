@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="2023级的数据结构程序与开发是1.5学分,实验占50分,考试占50分.授课老师:qgn(奶龙 斗笠 大剑老师) 实验这门课看起来是数据库课程,实际上是Java课程.实验有11个任务,网上能直接查到源代码,稍微改改就是自己的了. 虽然这门课十分老掉牙,老师也建议大家用A103的XP机子(配好环境了)做,不然建议用XP虚拟机做,但其实实验能直接用自己电脑做的. 方法和老师的资料有点不一样.  找ib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库应用程序开发">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="2023级的数据结构程序与开发是1.5学分,实验占50分,考试占50分.授课老师:qgn(奶龙 斗笠 大剑老师) 实验这门课看起来是数据库课程,实际上是Java课程.实验有11个任务,网上能直接查到源代码,稍微改改就是自己的了. 虽然这门课十分老掉牙,老师也建议大家用A103的XP机子(配好环境了)做,不然建议用XP虚拟机做,但其实实验能直接用自己电脑做的. 方法和老师的资料有点不一样.  找ib">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T05:58:20.000Z">
+<meta property="article:modified_time" content="2026-01-13T06:02:55.236Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="MySql">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>数据库应用程序开发</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/13/50008_DeOSINT/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/12/50005_ChthollyTree/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&text=数据库应用程序开发"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&is_video=false&description=数据库应用程序开发"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据库应用程序开发&body=Check out this article: https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&name=数据库应用程序开发&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&t=数据库应用程序开发"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%80%83%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E9%A9%B1%E5%8A%A8-%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%85%B3%E9%97%AD%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">加载驱动,链接数据库,关闭数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E4%BA%BA%E6%B6%A8%E8%96%AA5-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">所有人涨薪5% 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%A1%8C%E6%8F%92%E5%85%A5-%E5%A4%9A%E8%A1%8C%E6%8F%92%E5%85%A5-%E5%AD%90%E6%9F%A5%E8%AF%A2%E6%8F%92%E5%85%A5"><span class="toc-number">2.4.</span> <span class="toc-text">单行插入,多行插入,子查询插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%91%98%E5%B7%A5"><span class="toc-number">2.5.</span> <span class="toc-text">删除员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL"><span class="toc-number">2.6.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LOB"><span class="toc-number">2.7.</span> <span class="toc-text">LOB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLOB-%E5%BE%88%E9%95%BF%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-number">2.7.1.</span> <span class="toc-text">CLOB(很长的字符)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BLOB-%E5%BE%88%E9%95%BF%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="toc-number">2.7.2.</span> <span class="toc-text">BLOB(很长的二进制)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%94%81"><span class="toc-number">2.8.</span> <span class="toc-text">加锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8A%A8%E9%BC%A0%E6%A0%87"><span class="toc-number">2.9.</span> <span class="toc-text">可动鼠标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.10.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        数据库应用程序开发
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-13T05:58:20.000Z" class="dt-published" itemprop="datePublished">2026-01-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/DEAD/">DEAD</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Java/" rel="tag">Java</a>, <a class="p-category" href="/tags/MySql/" rel="tag">MySql</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>2023级的数据结构程序与开发是1.5学分,实验占50分,考试占50分.<br>授课老师:qgn(奶龙 斗笠 大剑老师)</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>这门课看起来是数据库课程,实际上是Java课程.<br>实验有11个任务,网上能直接查到源代码,稍微改改就是自己的了.</p>
+<p>虽然这门课十分老掉牙,老师也建议大家用A103的XP机子(配好环境了)做,不然建议用XP虚拟机做,但其实实验能<strong>直接用自己电脑做</strong>的.</p>
+<p>方法和老师的资料有点不一样.</p>
+<ul>
+<li><p>找ibm官网<a target="_blank" rel="noopener" href="https://www.ibm.com/products/db2/get-started">下载db2</a><br>直接下载</p>
+</li>
+<li><p>按照老师ppt的流程安装.不同的是:<br>不要按照老师说的创建一个账号为 <code>student</code> 密码也是 <code>student</code> 的账户,只要不创建,后面会省心很多,管理员组也不用配置.</p>
+</li>
+<li><p>开始安装,直到右下角出现绿色圆图标代表安装成功.</p>
+</li>
+<li><p>注册许可证,按照<a target="_blank" rel="noopener" href="https://www.ibm.com/docs/zh/db2/12.1.x?topic=licenses-db2">ibm文档</a>进行</p>
+</li>
+<li><p>打开”db2 第一步”,安装SAMPLE数据库(这很重要!后面的实验围绕SAMPLE数据库进行)</p>
+</li>
+<li><p>打开IntellIj,新建一个java项目.</p>
+</li>
+<li><p>导入外部库:有一个jar文件需要导入,忘了是什么了(Flu做完实验就删环境,因为db2开机自启动),导入之后程序就能连接上数据库.</p>
+</li>
+<li><p>Java开发:<br>由于我们在自己电脑上开发程序,所以代码和其他人写的不太一样,具体表现在连接数据库不一样,其他的都能照抄.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyJDBC.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyJDBC</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123; <span class="comment">//内部静态类</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不需要加载上面的驱动,实验仍然会成功,估计是导入ij能导入外部库.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample=DriverManager.getConnection(<span class="string">&quot;jdbc:db2:SAMPLE&quot;</span>,<span class="string">&quot;lenovo&quot;</span>,<span class="string">&quot;123456&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>把类里面static中链接数据库的部分删掉.<br>然后只用上面一句话就能连上数据库,lenovo用你自己的用户名,123456用你自己电脑的密码.</p>
+<p>剩下的开发过程和其他人是一样的,别人怎么做你就怎么做.</p>
+</li>
+</ul>
+<p>配环境有点红温,因为ppt说有一个db2控制中心,我始终找不到,而且”db2第一步”的界面和ppt也不一样.<br>我打算放弃的时候发现了一个特殊的jar能够帮程序连接数据库,实验突然跑通了.<br>我为EMPLOYEE表创建TEMPL别名的的时候失败了,不知道为什么,不过别名是小问题,后面实验还是能正常做,改成EMPLOYEE就行.</p>
+<p>整体实验时间建议1+3h,前1h下载资料.  </p>
+<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><p>网上能找到很多笔记,大致考点只有下面几个,背好下面这些代码基本上挂不了(qgn:如果你觉得平时分占50%然后考试就不好好写,那我是不捞你的)</p>
+<h2 id="加载驱动-链接数据库-关闭数据库"><a href="#加载驱动-链接数据库-关闭数据库" class="headerlink" title="加载驱动,链接数据库,关闭数据库"></a>加载驱动,链接数据库,关闭数据库</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span>);<span class="comment">//加载驱动</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Connection conn=Drivermanager.getConnection(<span class="string">&quot;jdbc.db2.SAMPLE&quot;</span>,<span class="string">&quot;admin&quot;</span>,<span class="string">&quot;admin&quot;</span>);</span><br><span class="line">        <span class="comment">//xx</span></span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="所有人涨薪5-异常处理"><a href="#所有人涨薪5-异常处理" class="headerlink" title="所有人涨薪5% 异常处理"></a>所有人涨薪5% 异常处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UpdateSalaryAndCheck</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> EmployeeTable.getConnection();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            con.setAutoCommit(<span class="literal">false</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;UPDATE Employ SET salary=1.05*salary&quot;</span>;</span><br><span class="line">            <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> con.createstatement();</span><br><span class="line">            <span class="type">int</span> <span class="variable">updateCount</span> <span class="operator">=</span> stmt.executeUpdate(sql);</span><br><span class="line">            System.out.println(<span class="string">&quot;更新行数：&quot;</span> + updateCount);</span><br><span class="line">            con.commit();</span><br><span class="line">            stmt.close();</span><br><span class="line">            con.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">SQLState</span> <span class="operator">=</span> e.getSQLState();</span><br><span class="line">            <span class="keyword">if</span> (sQLState.equals(<span class="string">&quot;22003&quot;</span>)) &#123;<span class="comment">//记住这个数字是超出范围,42818是参数不匹配</span></span><br><span class="line">                System.out.println(<span class="string">&quot;数值超出范围&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h2 id="单行插入-多行插入-子查询插入"><a href="#单行插入-多行插入-子查询插入" class="headerlink" title="单行插入,多行插入,子查询插入"></a>单行插入,多行插入,子查询插入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ VALUES(?,?,?,?,?)&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">pstmt.setInt(<span class="number">2</span>,<span class="number">114</span>);</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">pstmt.executeUpdate();</span><br><span class="line"></span><br><span class="line"><span class="comment">//多行</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ VALUES(?,?,?,?,?)&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">pstmt.setInt(<span class="number">2</span>,<span class="number">114</span>);</span><br><span class="line">...</span><br><span class="line">pstmt.addBatch();</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>[] cnt=pstmt.executeBatch();</span><br><span class="line"></span><br><span class="line"><span class="comment">//子查询</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ(empno,name,age,salary) &quot;</span>+</span><br><span class="line"><span class="string">&quot;SELECT empno,name,age,salary FROM templ WHERE empno=?&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
+<h2 id="删除员工"><a href="#删除员工" class="headerlink" title="删除员工"></a>删除员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employ <span class="keyword">WHERE</span> empno<span class="operator">=</span>?</span><br></pre></td></tr></table></figure>
+<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(rs.wasNull())&#123;</span><br><span class="line">    pstmt.setNull(<span class="number">1</span>,Types.DOUBLE);</span><br><span class="line">    pstmt.executeUpdate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LOB"><a href="#LOB" class="headerlink" title="LOB"></a>LOB</h2><h3 id="CLOB-很长的字符"><a href="#CLOB-很长的字符" class="headerlink" title="CLOB(很长的字符)"></a>CLOB(很长的字符)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    <span class="comment">// empno = rs.getString(1);</span></span><br><span class="line">    <span class="comment">// resumefmt = rs.getString(2);</span></span><br><span class="line">    res = rs.getClob(<span class="number">3</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> (<span class="type">int</span>)res.length();</span><br><span class="line">    <span class="type">String</span> <span class="variable">resout</span> <span class="operator">=</span> res.getSubString(<span class="number">1</span>, len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="BLOB-很长的二进制"><a href="#BLOB-很长的二进制" class="headerlink" title="BLOB(很长的二进制)"></a>BLOB(很长的二进制)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  读</span></span><br><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:/a.jpg&quot;</span>);</span><br><span class="line"><span class="type">BufferedInputStream</span> <span class="variable">imageInput</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(file));</span><br><span class="line">pstmt.setBinaryStream(<span class="number">1</span>, imageInput, (<span class="type">int</span>)file.length());</span><br><span class="line">pstmt.executeUpdate();</span><br><span class="line"><span class="comment">//  写</span></span><br><span class="line"><span class="type">Blob</span> <span class="variable">blob</span> <span class="operator">=</span> (Blob)rs.getBlob(<span class="number">1</span>);</span><br><span class="line"><span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> blob.getBinaryStream();</span><br><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:/backa.jpg&quot;</span>);</span><br><span class="line"><span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FIleOutputStream</span>(file);</span><br><span class="line"><span class="type">int</span> c;</span><br><span class="line"><span class="keyword">while</span>((c = inputStream.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">    fos.write(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h2><p>就是 <code>for update</code> 和 <code>where current of</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs=stmt.executeQuery(</span><br><span class="line">    <span class="string">&quot;SELECT salary FROM Employ FOR UPDATE&quot;</span>);</span><br><span class="line">String updateSql=<span class="string">&quot;UPDATE Employ SET name=? WHERE CURRENT OF &quot;</span>;</span><br><span class="line">String cursorName=rs.getCursorName();</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(updateSql+cursorName);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">    String name=rs.getString(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(name.equals(<span class="string">&quot;Smith&quot;</span>))&#123;</span><br><span class="line">        String newname=<span class="string">&quot;Jock&quot;</span>;</span><br><span class="line">        pstmt.setString(<span class="number">1</span>,newname);</span><br><span class="line">        pstmt.executeUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">pstmt.close();</span><br><span class="line">rs.close();</span><br></pre></td></tr></table></figure>
+<h2 id="可动鼠标"><a href="#可动鼠标" class="headerlink" title="可动鼠标"></a>可动鼠标</h2><p>查询Employee表信息，定义可自由移动数据集，从最后一行向前读取数据，输出Employee表的相关信息。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.createStatement(</span><br><span class="line">    ResultSet.TYPE_SCROLL_INSENSITIVE,</span><br><span class="line">    ResultSet.CONCUR_READ_ONLY);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT empno, ename, salary FROM Employee&quot;</span>;</span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql)</span><br><span class="line"></span><br><span class="line">rs.afterLast();</span><br><span class="line"><span class="keyword">while</span> (rs.previous()) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">empno</span>  <span class="operator">=</span> rs.getString(<span class="number">1</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">ename</span>  <span class="operator">=</span> rs.getString(<span class="number">2</span>);</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">sal</span> <span class="operator">=</span> rs.getBigDecimal(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    System.out.xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://github.com/lycatears/jlu-db2">1</a> <a target="_blank" rel="noopener" href="https://github.com/ChenGeng0102/JLU/">2</a> <a target="_blank" rel="noopener" href="https://eazydevelop-community.eazytec-cloud.com/6911b81b5511483559e5ebb5.html">3</a>  </p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%80%83%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E9%A9%B1%E5%8A%A8-%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%85%B3%E9%97%AD%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">加载驱动,链接数据库,关闭数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E6%9C%89%E4%BA%BA%E6%B6%A8%E8%96%AA5-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">所有人涨薪5% 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%A1%8C%E6%8F%92%E5%85%A5-%E5%A4%9A%E8%A1%8C%E6%8F%92%E5%85%A5-%E5%AD%90%E6%9F%A5%E8%AF%A2%E6%8F%92%E5%85%A5"><span class="toc-number">2.4.</span> <span class="toc-text">单行插入,多行插入,子查询插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%91%98%E5%B7%A5"><span class="toc-number">2.5.</span> <span class="toc-text">删除员工</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL"><span class="toc-number">2.6.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LOB"><span class="toc-number">2.7.</span> <span class="toc-text">LOB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CLOB-%E5%BE%88%E9%95%BF%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-number">2.7.1.</span> <span class="toc-text">CLOB(很长的字符)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BLOB-%E5%BE%88%E9%95%BF%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="toc-number">2.7.2.</span> <span class="toc-text">BLOB(很长的二进制)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%94%81"><span class="toc-number">2.8.</span> <span class="toc-text">加锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8A%A8%E9%BC%A0%E6%A0%87"><span class="toc-number">2.9.</span> <span class="toc-text">可动鼠标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.10.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&text=数据库应用程序开发"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&is_video=false&description=数据库应用程序开发"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=数据库应用程序开发&body=Check out this article: https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=数据库应用程序开发"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&name=数据库应用程序开发&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&t=数据库应用程序开发"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

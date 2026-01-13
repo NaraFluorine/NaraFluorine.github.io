@@ -4,7 +4,117 @@
   
     
     <entry>
-      <title>Crypto3-ChthollyTree</title>
+      <title>OSINT-Dungeon</title>
+      <link href="/2026/01/16/50006_Dungeon/"/>
+      <url>/2026/01/16/50006_Dungeon/</url>
+      
+        <content type="html"><![CDATA[<p>问题:地下室人头顶的字符串是什么?</p><p><a href="../../../../puzzle/Dungeon">提交地址</a></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PUZZLE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Misc </tag>
+            
+            <tag> OSINT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OSINT-Cola</title>
+      <link href="/2026/01/13/50007_Cola/"/>
+      <url>/2026/01/13/50007_Cola/</url>
+      
+        <content type="html"><![CDATA[<p>问题:有一瓶经典500mL的可口可乐饮料.</p><p>把Coke®起头的这段文字的每行开头的字拼起来作为你的答案.</p><p>举例:如果你发现你的可乐上文字如下:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Coke®</span><br><span class="line">畅饮可口可乐汽水的美味 配料:水,果葡糖浆,白砂</span><br><span class="line">糖,...</span><br><span class="line">aaa,bbb,ccc</span><br><span class="line">Lorem </span><br><span class="line">服务电话:4008989000 产品标准号:GB/T 10792</span><br></pre></td></tr></table></figure><p>那么你要提交 <code>C畅糖aL服</code> 作为答案.(页面另一边营养成分表及下面的文字不需要提交)</p><p><a href="../../../../puzzle/Cola">提交地址</a></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint0"><a href="#hint0" class="headerlink" title="hint0"></a>hint0</h2><p>目标可乐整瓶没有任何二维码.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PUZZLE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Physics </tag>
+            
+            <tag> Misc </tag>
+            
+            <tag> OSINT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OSINT-Music1</title>
+      <link href="/2026/01/13/50008_DeOSINT/"/>
+      <url>/2026/01/13/50008_DeOSINT/</url>
+      
+        <content type="html"><![CDATA[<p>问题:请填补下面的歌词.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">花花草草 甚麽都好食</span><br><span class="line">家貓野貓 好貓都好食</span><br><span class="line">生生死死 甚麽都可食</span><br><span class="line">最怕浪費 從頭吃到翼</span><br><span class="line"></span><br><span class="line">三餐一宿 甚麽都想食</span><br><span class="line">_________________</span><br><span class="line">蒼天碧海 食得都可食</span><br><span class="line">會吃會喝 個人有價值</span><br></pre></td></tr></table></figure><p>答案格式: <code>？？？？_？？？？？</code> 请使用下划线代替歌词的空格.</p><p><a href="../../../../attachment/Music1.rar">音乐附件下载</a></p><p><a href="../../../../puzzle/Music1">提交地址</a></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>即使是名人唱的曲子,即使拿到部分歌词,这个题就能轻松做出来吗?</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PUZZLE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Misc </tag>
+            
+            <tag> OSINT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库应用程序开发</title>
+      <link href="/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+      <url>/2026/01/13/00020_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<p>2023级的数据结构程序与开发是1.5学分,实验占50分,考试占50分.<br>授课老师:qgn(奶龙 斗笠 大剑老师)</p><h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>这门课看起来是数据库课程,实际上是Java课程.<br>实验有11个任务,网上能直接查到源代码,稍微改改就是自己的了.</p><p>虽然这门课十分老掉牙,老师也建议大家用A103的XP机子(配好环境了)做,不然建议用XP虚拟机做,但其实实验能<strong>直接用自己电脑做</strong>的.</p><p>方法和老师的资料有点不一样.</p><ul><li><p>找ibm官网<a href="https://www.ibm.com/products/db2/get-started">下载db2</a><br>直接下载</p></li><li><p>按照老师ppt的流程安装.不同的是:<br>不要按照老师说的创建一个账号为 <code>student</code> 密码也是 <code>student</code> 的账户,只要不创建,后面会省心很多,管理员组也不用配置.</p></li><li><p>开始安装,直到右下角出现绿色圆图标代表安装成功.</p></li><li><p>注册许可证,按照<a href="https://www.ibm.com/docs/zh/db2/12.1.x?topic=licenses-db2">ibm文档</a>进行</p></li><li><p>打开”db2 第一步”,安装SAMPLE数据库(这很重要!后面的实验围绕SAMPLE数据库进行)</p></li><li><p>打开IntellIj,新建一个java项目.</p></li><li><p>导入外部库:有一个jar文件需要导入,忘了是什么了(Flu做完实验就删环境,因为db2开机自启动),导入之后程序就能连接上数据库.</p></li><li><p>Java开发:<br>由于我们在自己电脑上开发程序,所以代码和其他人写的不太一样,具体表现在连接数据库不一样,其他的都能照抄.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyJDBC.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyJDBC</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123; <span class="comment">//内部静态类</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>不需要加载上面的驱动,实验仍然会成功,估计是导入ij能导入外部库.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sample=DriverManager.getConnection(<span class="string">&quot;jdbc:db2:SAMPLE&quot;</span>,<span class="string">&quot;lenovo&quot;</span>,<span class="string">&quot;123456&quot;</span>);</span><br></pre></td></tr></table></figure><p>把类里面static中链接数据库的部分删掉.<br>然后只用上面一句话就能连上数据库,lenovo用你自己的用户名,123456用你自己电脑的密码.</p><p>剩下的开发过程和其他人是一样的,别人怎么做你就怎么做.</p></li></ul><p>配环境有点红温,因为ppt说有一个db2控制中心,我始终找不到,而且”db2第一步”的界面和ppt也不一样.<br>我打算放弃的时候发现了一个特殊的jar能够帮程序连接数据库,实验突然跑通了.<br>我为EMPLOYEE表创建TEMPL别名的的时候失败了,不知道为什么,不过别名是小问题,后面实验还是能正常做,改成EMPLOYEE就行.</p><p>整体实验时间建议1+3h,前1h下载资料.  </p><h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><p>网上能找到很多笔记,大致考点只有下面几个,背好下面这些代码基本上挂不了(qgn:如果你觉得平时分占50%然后考试就不好好写,那我是不捞你的)</p><h2 id="加载驱动-链接数据库-关闭数据库"><a href="#加载驱动-链接数据库-关闭数据库" class="headerlink" title="加载驱动,链接数据库,关闭数据库"></a>加载驱动,链接数据库,关闭数据库</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;COM.ibm.db2.jdbc.app.DB2Driver&quot;</span>);<span class="comment">//加载驱动</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Connection conn=Drivermanager.getConnection(<span class="string">&quot;jdbc.db2.SAMPLE&quot;</span>,<span class="string">&quot;admin&quot;</span>,<span class="string">&quot;admin&quot;</span>);</span><br><span class="line">        <span class="comment">//xx</span></span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="所有人涨薪5-异常处理"><a href="#所有人涨薪5-异常处理" class="headerlink" title="所有人涨薪5% 异常处理"></a>所有人涨薪5% 异常处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UpdateSalaryAndCheck</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> EmployeeTable.getConnection();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            con.setAutoCommit(<span class="literal">false</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;UPDATE Employ SET salary=1.05*salary&quot;</span>;</span><br><span class="line">            <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> con.createstatement();</span><br><span class="line">            <span class="type">int</span> <span class="variable">updateCount</span> <span class="operator">=</span> stmt.executeUpdate(sql);</span><br><span class="line">            System.out.println(<span class="string">&quot;更新行数：&quot;</span> + updateCount);</span><br><span class="line">            con.commit();</span><br><span class="line">            stmt.close();</span><br><span class="line">            con.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(SQLException e)&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">SQLState</span> <span class="operator">=</span> e.getSQLState();</span><br><span class="line">            <span class="keyword">if</span> (sQLState.equals(<span class="string">&quot;22003&quot;</span>)) &#123;<span class="comment">//记住这个数字是超出范围,42818是参数不匹配</span></span><br><span class="line">                System.out.println(<span class="string">&quot;数值超出范围&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h2 id="单行插入-多行插入-子查询插入"><a href="#单行插入-多行插入-子查询插入" class="headerlink" title="单行插入,多行插入,子查询插入"></a>单行插入,多行插入,子查询插入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ VALUES(?,?,?,?,?)&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">pstmt.setInt(<span class="number">2</span>,<span class="number">114</span>);</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">pstmt.executeUpdate();</span><br><span class="line"></span><br><span class="line"><span class="comment">//多行</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ VALUES(?,?,?,?,?)&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">pstmt.setInt(<span class="number">2</span>,<span class="number">114</span>);</span><br><span class="line">...</span><br><span class="line">pstmt.addBatch();</span><br><span class="line"></span><br><span class="line"><span class="type">int</span>[] cnt=pstmt.executeBatch();</span><br><span class="line"></span><br><span class="line"><span class="comment">//子查询</span></span><br><span class="line">String sql=<span class="string">&quot;INSERT INTO Employ(empno,name,age,salary) &quot;</span>+</span><br><span class="line"><span class="string">&quot;SELECT empno,name,age,salary FROM templ WHERE empno=?&quot;</span>;</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(sql);</span><br><span class="line">pstmt.setString(<span class="number">1</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">pstmt.executeUpdate();</span><br></pre></td></tr></table></figure><h2 id="删除员工"><a href="#删除员工" class="headerlink" title="删除员工"></a>删除员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Employ <span class="keyword">WHERE</span> empno<span class="operator">=</span>?</span><br></pre></td></tr></table></figure><h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(rs.wasNull())&#123;</span><br><span class="line">    pstmt.setNull(<span class="number">1</span>,Types.DOUBLE);</span><br><span class="line">    pstmt.executeUpdate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="LOB"><a href="#LOB" class="headerlink" title="LOB"></a>LOB</h2><h3 id="CLOB-很长的字符"><a href="#CLOB-很长的字符" class="headerlink" title="CLOB(很长的字符)"></a>CLOB(很长的字符)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    <span class="comment">// empno = rs.getString(1);</span></span><br><span class="line">    <span class="comment">// resumefmt = rs.getString(2);</span></span><br><span class="line">    res = rs.getClob(<span class="number">3</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> (<span class="type">int</span>)res.length();</span><br><span class="line">    <span class="type">String</span> <span class="variable">resout</span> <span class="operator">=</span> res.getSubString(<span class="number">1</span>, len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="BLOB-很长的二进制"><a href="#BLOB-很长的二进制" class="headerlink" title="BLOB(很长的二进制)"></a>BLOB(很长的二进制)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  读</span></span><br><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:/a.jpg&quot;</span>);</span><br><span class="line"><span class="type">BufferedInputStream</span> <span class="variable">imageInput</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(file));</span><br><span class="line">pstmt.setBinaryStream(<span class="number">1</span>, imageInput, (<span class="type">int</span>)file.length());</span><br><span class="line">pstmt.executeUpdate();</span><br><span class="line"><span class="comment">//  写</span></span><br><span class="line"><span class="type">Blob</span> <span class="variable">blob</span> <span class="operator">=</span> (Blob)rs.getBlob(<span class="number">1</span>);</span><br><span class="line"><span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> blob.getBinaryStream();</span><br><span class="line"><span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:/backa.jpg&quot;</span>);</span><br><span class="line"><span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FIleOutputStream</span>(file);</span><br><span class="line"><span class="type">int</span> c;</span><br><span class="line"><span class="keyword">while</span>((c = inputStream.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">    fos.write(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h2><p>就是 <code>for update</code> 和 <code>where current of</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs=stmt.executeQuery(</span><br><span class="line">    <span class="string">&quot;SELECT salary FROM Employ FOR UPDATE&quot;</span>);</span><br><span class="line">String updateSql=<span class="string">&quot;UPDATE Employ SET name=? WHERE CURRENT OF &quot;</span>;</span><br><span class="line">String cursorName=rs.getCursorName();</span><br><span class="line">PreparedStatement pstmt=con.prepareStatement(updateSql+cursorName);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">    String name=rs.getString(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(name.equals(<span class="string">&quot;Smith&quot;</span>))&#123;</span><br><span class="line">        String newname=<span class="string">&quot;Jock&quot;</span>;</span><br><span class="line">        pstmt.setString(<span class="number">1</span>,newname);</span><br><span class="line">        pstmt.executeUpdate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">pstmt.close();</span><br><span class="line">rs.close();</span><br></pre></td></tr></table></figure><h2 id="可动鼠标"><a href="#可动鼠标" class="headerlink" title="可动鼠标"></a>可动鼠标</h2><p>查询Employee表信息，定义可自由移动数据集，从最后一行向前读取数据，输出Employee表的相关信息。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.createStatement(</span><br><span class="line">    ResultSet.TYPE_SCROLL_INSENSITIVE,</span><br><span class="line">    ResultSet.CONCUR_READ_ONLY);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT empno, ename, salary FROM Employee&quot;</span>;</span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql)</span><br><span class="line"></span><br><span class="line">rs.afterLast();</span><br><span class="line"><span class="keyword">while</span> (rs.previous()) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">empno</span>  <span class="operator">=</span> rs.getString(<span class="number">1</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">ename</span>  <span class="operator">=</span> rs.getString(<span class="number">2</span>);</span><br><span class="line">    <span class="type">BigDecimal</span> <span class="variable">sal</span> <span class="operator">=</span> rs.getBigDecimal(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    System.out.xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/lycatears/jlu-db2">1</a> <a href="https://github.com/ChenGeng0102/JLU/">2</a> <a href="https://eazydevelop-community.eazytec-cloud.com/6911b81b5511483559e5ebb5.html">3</a>  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DEAD </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySql </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Crypto-ChthollyTree</title>
       <link href="/2026/01/12/50005_ChthollyTree/"/>
       <url>/2026/01/12/50005_ChthollyTree/</url>
       
@@ -31,7 +141,7 @@
     
     
     <entry>
-      <title>Crypto2-Faithful</title>
+      <title>Crypto-Faithful</title>
       <link href="/2026/01/12/50004_FluFaithfulCrypto/"/>
       <url>/2026/01/12/50004_FluFaithfulCrypto/</url>
       
@@ -58,7 +168,7 @@
     
     
     <entry>
-      <title>Crypto1-定位紊乱</title>
+      <title>Crypto-定位紊乱</title>
       <link href="/2026/01/12/50003_FluCrypto/"/>
       <url>/2026/01/12/50003_FluCrypto/</url>
       
@@ -85,11 +195,11 @@
     
     
     <entry>
-      <title>Farm</title>
+      <title>OSINT-Farm</title>
       <link href="/2026/01/12/50002_Farm/"/>
       <url>/2026/01/12/50002_Farm/</url>
       
-        <content type="html"><![CDATA[<p>问题:我在wplace-石嘴山市-前进农场藏了一个flag,请找出来.</p><p><img src="../../../../images/farm_0.png" alt="图炸了"></p><p>请提交完整的 <code>flag&#123;????&#125;</code> 不要只提交 <code>????</code> .</p><p><a href="../../../../puzzle/Farm">提交地址</a></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>本题预期是一个简单的OSINT题目.</p><h2 id="hint0"><a href="#hint0" class="headerlink" title="hint0"></a>hint0</h2><p>AI不能解决该题,你要靠你自己.</p>]]></content>
+        <content type="html"><![CDATA[<p>问题:我在wplace-石嘴山市-前进农场藏了一个flag,请找出来.</p><p><img src="../../../../images/farm_0.png" alt="图炸了"></p><p>请提交完整的 <code>flag&#123;????&#125;</code> 不要只提交 <code>????</code> .</p><p><a href="../../../../puzzle/Farm">提交地址</a></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p>]]></content>
       
       
       <categories>
@@ -112,11 +222,11 @@
     
     
     <entry>
-      <title>Heat</title>
+      <title>MISC-Heat</title>
       <link href="/2026/01/12/50001_Heat/"/>
       <url>/2026/01/12/50001_Heat/</url>
       
-        <content type="html"><![CDATA[<p>问题:吉林大学特色课程除了高等耐热学还有什么?</p><p><a href="../../../../puzzle/Heat">提交地址</a> <strong>注意</strong>:答案是三个汉字,由于hexo-encrypt插件的特性,请你把答案复制到剪切板,在提交页面使用”粘贴”提交答案.</p><p>答案格式: <code>？？学</code> 三个汉字</p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>本题预期是吉大人能够”不假思索”答出来的题目.</p><h2 id="hint0"><a href="#hint0" class="headerlink" title="hint0"></a>hint0</h2><p>AI不能解决该题,你要靠你自己.</p>]]></content>
+        <content type="html"><![CDATA[<p>问题:吉林大学特色课程除了高等耐热学还有什么?</p><p><a href="../../../../puzzle/Heat">提交地址</a> <strong>注意</strong>:答案是三个汉字,由于hexo-encrypt插件的特性,请你把答案复制到剪切板,在提交页面使用”粘贴”提交答案.</p><p>答案格式: <code>？？学</code> 三个汉字</p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>本题预期是吉大人能够”不假思索”答出来的题目.</p>]]></content>
       
       
       <categories>
@@ -139,11 +249,11 @@
     
     
     <entry>
-      <title>Color</title>
+      <title>MISC-Color</title>
       <link href="/2026/01/12/50000_Color/"/>
       <url>/2026/01/12/50000_Color/</url>
       
-        <content type="html"><![CDATA[<p>问题:皇室战争最出名的颜色是什么?</p><p><a href="../../../../puzzle/Color">提交地址</a></p><p>答案格式: <code>^c[0-9a-f]&#123;8&#125;$</code></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>“最出名”的定义:SEO(搜索引擎优化)的意义最大,即搜索颜色得到的结果中与皇室战争有关的内容被排在前面的最多.</p><p>我找到了一种颜色,满足搜索这个颜色的结果全是皇室战争,但是搜索皇室战争不一定找得到这个颜色,现在你需要提交这个特殊的颜色.</p><h2 id="hint0"><a href="#hint0" class="headerlink" title="hint0"></a>hint0</h2><p>这是一道OSINT(开源情报)题目.</p><h2 id="hint1"><a href="#hint1" class="headerlink" title="hint1"></a>hint1</h2><p>Flu试过了常见的AI,全都不能通过这个题目,你也许要靠自己回答问题.</p>]]></content>
+        <content type="html"><![CDATA[<p>问题:皇室战争最出名的颜色是什么?</p><p><a href="../../../../puzzle/Color">提交地址</a></p><p>答案格式: <code>^c[0-9a-f]&#123;8&#125;$</code></p><p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p><h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>“最出名”的定义:SEO(搜索引擎优化)的意义最大,即搜索颜色得到的结果中与皇室战争有关的内容被排在前面的最多.</p><p>我找到了一种颜色,满足搜索这个颜色的结果全是皇室战争,但是搜索皇室战争不一定找得到这个颜色,现在你需要提交这个特殊的颜色.</p>]]></content>
       
       
       <categories>
@@ -158,6 +268,31 @@
             <tag> Misc </tag>
             
             <tag> OSINT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件工程学习笔记</title>
+      <link href="/2026/01/09/00019_%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2026/01/09/00019_%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="UML图-设计模式照搬"><a href="#UML图-设计模式照搬" class="headerlink" title="UML图(设计模式照搬)"></a>UML图(设计模式照搬)</h2><p>一个方框三个格子,第一格是名字,第二格是成员变量,第三格是成员函数<br><code>+</code> public<br><code>-</code> private<br><code>#</code> protected<br><code>- products:List&lt;Product&gt;</code><br>函数:<br><code>+ walk(参数):void=默认返回值</code>  </p><p>单向关联:实线箭头,单方向持有对象(每个人都有一张船票)<br>双向关联:一根实线,互相持有对方对象(顾客买了什么产品(ArrayList),产品被哪个顾客买了)<br>自关联:一根实线箭头自己指向自己(point类内部有一个point对象)</p><p>强调”整体-部分”的关系(不一定非得持有多个部分的变量)<br>聚合关系:空心菱形+实线(菱形部位是多的),一个部门有很多员工(<code>-List&lt;Workers&gt;</code>),所以用聚合(部门与劳工的关系)<br>组合关系:实心菱形+实线,表示更强烈的聚合关系,一但整体对象不存在,那么部分对象也不会存在(身体与器官的关系)  </p><p>依赖关系:虚线箭头,某个类的函数通过局部变量,或函数传递的参数是另一个类(人读书,书是一个对象,但是人只有”读”的函数和书有关,所以只构成依赖关系.)<br>继承关系:实线三角箭头(子类指向父类)耦合度最大的一种关系(你先是一个人才是一个学生,那么学生类继承”人类”)<br>实现关系:虚线三角箭头(实现的指向被实现的)某个类实现某个接口的时候可以用</p><p>耦合度:泛化(继承)/实现&gt;组合&gt;聚合&gt;关联&gt;依赖<br>方法(函数)应向父类集中,数据应向子类集中(保持抽象)</p><h2 id="数据流图"><a href="#数据流图" class="headerlink" title="数据流图"></a>数据流图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+----------+</span><br><span class="line">| 源点/终点 |</span><br><span class="line">+----------+</span><br><span class="line"></span><br><span class="line">圈住(处理)</span><br><span class="line"></span><br><span class="line">-----------&gt; 数据流(全是实线)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+------------</span><br><span class="line">|数据存储</span><br><span class="line">+------------</span><br></pre></td></tr></table></figure><p>输入-&gt;圈住,处理-&gt;输出</p><p>两个方框的实体之间不能有数据流.</p><h3 id="变换数据流图"><a href="#变换数据流图" class="headerlink" title="变换数据流图"></a>变换数据流图</h3><p>好多步骤,链很长(一直变换)</p><h3 id="事务数据流图"><a href="#事务数据流图" class="headerlink" title="事务数据流图"></a>事务数据流图</h3><p>树形结构,不同结局(决策点)</p><h2 id="软件结构图"><a href="#软件结构图" class="headerlink" title="软件结构图"></a>软件结构图</h2><p>两次分解.<br>第一次分解是一拆三,第二次分解是具体功能细分,看类型.<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">+------+</span><br><span class="line">| 模块 |</span><br><span class="line">+------+</span><br><span class="line"></span><br><span class="line">----------</span><br><span class="line">调用</span><br><span class="line"></span><br><span class="line">○--------&gt;</span><br><span class="line">数据(传递)</span><br><span class="line"></span><br><span class="line">●--------&gt;</span><br><span class="line">控制信息</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">模块</span><br><span class="line">/|\</span><br><span class="line">输入 处理 输出</span><br><span class="line">/|\/|\/|\</span><br><span class="line">各种子函数,比如&quot;获取xxx&quot;,计算xx,保存xx</span><br></pre></td></tr></table></figure></p><h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>程序复杂度: 判断数+1<br>环路复杂度: V-E+2(边数-顶点数+2)=原子判定数+1</p><h2 id="流图"><a href="#流图" class="headerlink" title="流图"></a>流图</h2><p>把程序流程图转成流图删掉所有判定,仅用圈节点箭头表示,注意 and 和 or要拆开成不同节点</p><h2 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h2><p>白盒:<br>判定覆盖:每个if的真假取到就行<br>条件覆盖:每个原子语句都真假取到:(a&amp;&amp;b)a和b都要取到真假<br>路径覆盖:所有路径取过一遍.</p><p>黑盒:<br>等价类分析:合法的,不合法的  </p><h2 id="MTTF"><a href="#MTTF" class="headerlink" title="MTTF"></a>MTTF</h2><p>第一问是标记重捕.</p><p>MTTF = IT/[K(ET-Ec)]<br>其中IT=程序长度，K=常数，ET=总错误数，Ec=已改正错误数<br>首先根据给出的式子算常数k,然后根据第二个式子算剩下的错误</p><h2 id="用例图"><a href="#用例图" class="headerlink" title="用例图"></a>用例图</h2><p>小人<br>矩形<br>直线代表这个人能用的功能<br>虚线箭头A—&gt;B include:A是主模块,A被调用B必被调用<br>A&lt;—B extend:A是主模块,A被调用B不一定被调用   </p><h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><p>虚线生命线,直线箭头是请求,虚线箭头是回显.<br>最后用实线方框圈住生命线的活跃时期.</p><h2 id="判定表"><a href="#判定表" class="headerlink" title="判定表"></a>判定表</h2><p>xxx是各种人,aaabbbccc是状态,这个人有没有这个状态,有就是1,没有就是0.<br>√是这个状态有没有被调用.</p><p>xxx 1<br>xxx 0<br>xxx 1<br>aaa √<br>bbb<br>ccc</p><h2 id="Jackson图"><a href="#Jackson图" class="headerlink" title="Jackson图"></a>Jackson图</h2><p>全部都是矩形方块.<br>元素标干什么(或编号).<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  A</span><br><span class="line"> /|\</span><br><span class="line">B C D <span class="comment">//代表A的模块先做B再C再D</span></span><br></pre></td></tr></table></figure><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I*代表循环</span><br><span class="line">S o代表分支(只能选一个)</span><br><span class="line">数字代表执行几次.</span><br></pre></td></tr></table></figure></p><h2 id="UML状态图"><a href="#UML状态图" class="headerlink" title="UML状态图"></a>UML状态图</h2><p>实心圆代表起始节点,实心圆+外面套一个圈代表结束节点,中间所有元素原型或判定的菱形.</p><h2 id="工程网络图"><a href="#工程网络图" class="headerlink" title="工程网络图"></a>工程网络图</h2><p>用一个圆表示节点.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设下面是个圆.</span></span><br><span class="line">+-+-+</span><br><span class="line">|A|<span class="number">3</span>|<span class="comment"># 最早开始时间(最短路)</span></span><br><span class="line">| +-+</span><br><span class="line">| |<span class="number">5</span>|<span class="comment"># 最晚开始时间</span></span><br><span class="line">+-+-+</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面是边.</span></span><br><span class="line">  <span class="number">114</span>(<span class="number">20</span>)</span><br><span class="line">------------&gt;</span><br><span class="line"><span class="comment"># 边权 能拖延的最长时间</span></span><br></pre></td></tr></table></figure></p><h2 id="程序流程图"><a href="#程序流程图" class="headerlink" title="程序流程图"></a>程序流程图</h2><p>最经典的哪个菱形判定…那个图</p><h2 id="PAD图"><a href="#PAD图" class="headerlink" title="PAD图"></a>PAD图</h2><p>没劲.</p><h2 id="N-S盒图"><a href="#N-S盒图" class="headerlink" title="N-S盒图"></a>N-S盒图</h2><p>没劲.(这三者都用于描述程序,只是画图方法不太一致,看一眼就懂了)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DEAD </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ComputerScience </tag>
             
         </tags>
       
@@ -934,11 +1069,11 @@
     
     
     <entry>
-      <title>离散化</title>
-      <link href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
-      <url>/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
+      <title>分治系列</title>
+      <link href="/2024/06/04/10038_%E5%88%86%E6%B2%BB/"/>
+      <url>/2024/06/04/10038_%E5%88%86%E6%B2%BB/</url>
       
-        <content type="html"><![CDATA[<p>离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.</p><p>离散化步骤:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure></p><p>对应函数解释:<br><code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br><code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br><code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p><h3 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h3><p>排序标准用<code>&lt;</code>连接的就是结果.比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line"><span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p><p>附:函数调用未知函数的格式是这样:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure><br>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量.</p>]]></content>
+        <content type="html"><![CDATA[<p>分治即”分而治之”,根据不同的数据范围选用不同的处理方法.</p><h2 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h2><p>看<a href="https://www.bilibili.com/video/BV1i5oqY7Eur">这个视频</a>了解一下三维CDQ是怎么运作的.<br>然后过一个板子题(陌上花开).</p><p>正常的二位偏序是使用排序降掉一维,使用线性结构(树状数组,线段树等)降掉一维.<br>假如碰到三维偏序,就需要想办法再降一维,这个时候CDQ应运而生.</p><p><strong>注意</strong> :CDQ分治只能解决元素不同的情况,否则需要进行离散化(去重)再算贡献,因为贡献是相同元素也可以给自己有贡献.</p><p>网上有n维偏序的板子能直接抄.</p><h2 id="根号分治"><a href="#根号分治" class="headerlink" title="根号分治"></a>根号分治</h2><p>看<a href="https://www.luogu.com.cn/article/5gtqzd4a">这个博客</a></p><h2 id="手工分治"><a href="#手工分治" class="headerlink" title="手工分治"></a>手工分治</h2><p>手动判断数据范围,手动选择合适的算法.举例:<br><a href="https://www.luogu.com.cn/problem/P9318">乐高墙</a></p>]]></content>
       
       
       <categories>
@@ -959,11 +1094,11 @@
     
     
     <entry>
-      <title>分治系列</title>
-      <link href="/2024/06/04/10038_%E5%88%86%E6%B2%BB/"/>
-      <url>/2024/06/04/10038_%E5%88%86%E6%B2%BB/</url>
+      <title>离散化</title>
+      <link href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
+      <url>/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
       
-        <content type="html"><![CDATA[<p>分治即”分而治之”,根据不同的数据范围选用不同的处理方法.</p><h2 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h2><p>看<a href="https://www.bilibili.com/video/BV1i5oqY7Eur">这个视频</a>了解一下三维CDQ是怎么运作的.<br>然后过一个板子题(陌上花开).</p><p>正常的二位偏序是使用排序降掉一维,使用线性结构(树状数组,线段树等)降掉一维.<br>假如碰到三维偏序,就需要想办法再降一维,这个时候CDQ应运而生.</p><p><strong>注意</strong> :CDQ分治只能解决元素不同的情况,否则需要进行离散化(去重)再算贡献,因为贡献是相同元素也可以给自己有贡献.</p><p>网上有n维偏序的板子能直接抄.</p><h2 id="根号分治"><a href="#根号分治" class="headerlink" title="根号分治"></a>根号分治</h2><p>看<a href="https://www.luogu.com.cn/article/5gtqzd4a">这个博客</a></p><h2 id="手工分治"><a href="#手工分治" class="headerlink" title="手工分治"></a>手工分治</h2><p>手动判断数据范围,手动选择合适的算法.举例:<br><a href="https://www.luogu.com.cn/problem/P9318">乐高墙</a></p>]]></content>
+        <content type="html"><![CDATA[<p>离散化作用就是把值域较大的数据建立一个映射放到值域较小的范围里面.</p><p>离散化步骤:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n);</span><br><span class="line">m=<span class="built_in">unique</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+n)-dat<span class="number">-1</span>;</span><br><span class="line"><span class="comment">//m是实际不重合元素个数.</span></span><br><span class="line"><span class="comment">//tmp是每个元素离散化之后的值(排名).</span></span><br><span class="line">tmp=<span class="built_in">upper_bound</span>(dat+<span class="number">1</span>,dat+<span class="number">1</span>+m,val)-dat<span class="number">-1</span>;</span><br></pre></td></tr></table></figure></p><p>对应函数解释:<br><code>sort</code>排序,啥也不说是默认从小往大排序.写cmp可以实现自定义排序规则.<br><code>upper_bound</code>是二分返回第一个<strong>大于</strong>元素的地址.<br><code>lower_bound</code>二分返回第一个<strong>不小于</strong>元素的地址.</p><h3 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h3><p>排序标准用<code>&lt;</code>连接的就是结果.比如<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(a.a==b.a)<span class="keyword">return</span> a.b&gt;b.b;</span><br><span class="line"><span class="keyword">return</span> a.a&lt;b.a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>以上代码首先按照a从小到大(<code>&lt;</code>的顺序)排序,a一样按b从大到小排序.</p><p>附:函数调用未知函数的格式是这样:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.a&gt;b.a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ssort</span><span class="params">(node* head,<span class="type">char</span> cc(node a,node b))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">cc</span>(tmp,ttmp))&#123;</span><br><span class="line">        <span class="comment">//交换...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用:</span></span><br><span class="line"><span class="built_in">ssort</span>(stuhead,cmp11);</span><br><span class="line"><span class="comment">//函数名字写上就行了...程序会自动调用</span></span><br></pre></td></tr></table></figure><br>排序的时候有用,多重排序规则可以一个排序函数完成多种排序,大大降低码量.</p>]]></content>
       
       
       <categories>
@@ -2344,19 +2479,19 @@
             
             <tag> Hello </tag>
             
-            <tag> Physics </tag>
-            
             <tag> Math </tag>
             
             <tag> Cpp </tag>
+            
+            <tag> Physics </tag>
             
             <tag> Linux </tag>
             
             <tag> Algorithm </tag>
             
-            <tag> ComputerScience </tag>
-            
             <tag> MySql </tag>
+            
+            <tag> ComputerScience </tag>
             
             <tag> Network </tag>
             
@@ -2380,9 +2515,9 @@
             
             <tag> Misc </tag>
             
-            <tag> OSINT </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> OSINT </tag>
             
         </tags>
       
