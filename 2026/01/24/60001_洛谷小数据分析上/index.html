@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真.本文采用CC-BY-NC-SA 4.0协议,转载请注明出处喵~(&#x3D;^･ω･^). 前言本文含有 AI Generated 内容,使用 GPT 负责数据获取和数据分析,正文是手敲的,读者可以放心.Fluu喜欢使用半角英文符号(排版方便),如观感不适请立即退出. 绪论   Fluu想收集一些神秘的网页,看了看自己 $1600$ 多个网页的收">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷小数据分析 - 上">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真.本文采用CC-BY-NC-SA 4.0协议,转载请注明出处喵~(&#x3D;^･ω･^). 前言本文含有 AI Generated 内容,使用 GPT 负责数据获取和数据分析,正文是手敲的,读者可以放心.Fluu喜欢使用半角英文符号(排版方便),如观感不适请立即退出. 绪论   Fluu想收集一些神秘的网页,看了看自己 $1600$ 多个网页的收">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/h9b9adif.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/pj64pyrf.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/mqhyp01z.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/p9m69ory.png">
+<meta property="article:published_time" content="2026-01-23T16:23:21.000Z">
+<meta property="article:modified_time" content="2026-01-26T10:27:24.733Z">
+<meta property="article:author" content="Fluorine Wengers">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/h9b9adif.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>洛谷小数据分析 - 上</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/26/60003_%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7%E5%A4%AA%E9%95%BF%E4%B8%8D%E7%9C%8B%E7%89%88/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/21/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&text=洛谷小数据分析 - 上"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&is_video=false&description=洛谷小数据分析 - 上"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=洛谷小数据分析 - 上&body=Check out this article: https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&name=洛谷小数据分析 - 上&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&t=洛谷小数据分析 - 上"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%AD%A3%E5%9C%A8%E6%96%BD%E5%B7%A5%E4%B8%AD-%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%95%B0%E6%8D%AE%E6%B2%A1%E7%88%AC%E5%AE%8C-%E4%B8%8B%E9%9D%A2%E7%9A%84%E9%85%8D%E5%9B%BE%E7%9C%8B%E4%B8%AA%E4%B9%90%E5%B0%B1%E5%A5%BD%E5%88%AB%E5%BD%93%E7%9C%9F"><span class="toc-number">1.</span> <span class="toc-text">文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%AA%E8%AE%BA"><span class="toc-number"></span> <span class="toc-text">绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C"><span class="toc-number">1.</span> <span class="toc-text">注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2-amp-tag"><span class="toc-number">2.</span> <span class="toc-text">颜色&amp;tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%B3%A8"><span class="toc-number">3.</span> <span class="toc-text">关注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%95%E5%80%BC"><span class="toc-number">4.</span> <span class="toc-text">咕值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%A9%E5%AD%90"><span class="toc-number">5.</span> <span class="toc-text">钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E7%BA%A7%E5%88%86"><span class="toc-number">6.</span> <span class="toc-text">等级分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E9%A2%98%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">刷题量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B4%E5%83%8F"><span class="toc-number">8.</span> <span class="toc-text">头像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%9E%E5%A4%B4%E5%83%8F%E7%9A%84%E6%A6%82%E7%8E%87"><span class="toc-number">8.1.</span> <span class="toc-text">撞头像的概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AD%E4%B9%89%E6%92%9E%E5%A4%B4%E5%83%8F"><span class="toc-number">8.2.</span> <span class="toc-text">狭义撞头像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E6%92%9E%E5%A4%B4%E5%83%8F"><span class="toc-number">8.3.</span> <span class="toc-text">广义撞头像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FluuArchive"><span class="toc-number">9.</span> <span class="toc-text">FluuArchive</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95-PostScript"><span class="toc-number"></span> <span class="toc-text">附录 PostScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E2%80%A6"><span class="toc-number">1.</span> <span class="toc-text">爬虫…?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E2%80%A6"><span class="toc-number">2.</span> <span class="toc-text">多线程…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B7%E6%9C%80%E7%A5%9E%E7%A7%98%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-number">3.</span> <span class="toc-text">洛谷最神秘的用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E6%9C%89%E4%B8%8B%E7%AF%87%E5%90%97"><span class="toc-number">4.</span> <span class="toc-text">会有下篇吗?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">数据下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%9C%89%E4%B8%AA%E6%83%B3%E6%B3%95%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">我有个想法…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text">可视化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="toc-number"></span> <span class="toc-text">致谢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B"><span class="toc-number"></span> <span class="toc-text">下</span></a>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        洛谷小数据分析 - 上
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wengers</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-23T16:23:21.000Z" class="dt-published" itemprop="datePublished">2026-01-24</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/LIVE/">LIVE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>, <a class="p-category" href="/tags/Math/" rel="tag">Math</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="文章正在施工中-原因是数据没爬完-下面的配图看个乐就好别当真"><a href="#文章正在施工中-原因是数据没爬完-下面的配图看个乐就好别当真" class="headerlink" title="文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真."></a>文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真.</h2><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC-BY-NC-SA 4.0协议</a>,转载请注明出处喵~(=^･ω･^).</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文含有 <code>AI Generated</code> 内容,使用 <code>GPT</code> 负责数据获取和数据分析,正文是手敲的,读者可以放心.<br>Fluu喜欢使用半角英文符号(排版方便),如观感不适请立即退出.</p>
+<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote>
+<p>  Fluu想收集一些神秘的网页,看了看自己 $1600$ 多个网页的收藏夹,决定<a target="_blank" rel="noopener" href="https://github.com/NaraFluorine/FluuArchive">开一个repo</a>.<br>  但这么做是不持久的,Fluu必须找一个稳定的源头.<br>  哪里的神秘网页最多呢?当然是洛谷的个人简介.<br>  于是这篇文章诞生了,收集神秘网页才是Fluu本来的目的,分析用户行为是顺带的事.  </p>
+</blockquote>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>定义<strong>有效用户</strong>为能看到个人简介的用户.<br>定义<strong>无效用户</strong>为看不到个人简介的用户.</p>
+<p>无效用户有以下几种情况:</p>
+<ul>
+<li>找不到用户(主动销号)</li>
+<li>该用户已被封禁(封号斗罗)</li>
+<li>该用户未通过实名认证(不是真人)</li>
+<li>用户不可见或请先登录(隐藏自己)</li>
+</ul>
+<p>截至 $2026$ 年 $1$ 月 $18$ 日 $11:55\,(\mathrm{UTC}+8)$ ,洛谷用户总注册量大致为</p>
+<script type="math/tex; mode=display">2058697</script><p>各种用户占比为:</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/h9b9adif.png" alt=""></p>
+<p>笔者个人推测找不到用户其实是销号了.洛谷销号的流程比较麻烦,限制也很多,可以参考<a target="_blank" rel="noopener" href="https://help.luogu.com.cn/manual/luogu/account/deletion">官方文档</a>,所以洛谷销号的人非常少,符合占比.</p>
+<p>无效用户能爬到的信息如下:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;uid&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span> </span><br><span class="line">    <span class="attr">&quot;data&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;errorCode&quot;</span><span class="punctuation">:</span> <span class="number">404</span><span class="punctuation">,</span> </span><br><span class="line">        <span class="attr">&quot;errorType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;</span><span class="punctuation">,</span> </span><br><span class="line">        <span class="attr">&quot;errorMessage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;找不到用户&quot;</span><span class="punctuation">,</span> </span><br><span class="line">        <span class="attr">&quot;errorData&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>没有任何有效信息,账号注册的时间戳也只能通过之上之下最近的有效用户推断,所以下面的分析<strong>只基于有效用户</strong>.</p>
+<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>每年的洛谷用户注册量图表如下:</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/pj64pyrf.png" alt=""></p>
+<p>洛谷在蒸蒸日上.</p>
+<p>不过我们也可以看到OI的旺季和淡季,往往从每年7月开始,持续好几个月.</p>
+<h2 id="颜色-amp-tag"><a href="#颜色-amp-tag" class="headerlink" title="颜色&amp;tag"></a>颜色&amp;tag</h2><p>洛谷的名字颜色有以下几种:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">灰色 蓝色 绿色 橙色 红色 紫色 棕色</span><br><span class="line">Grey Blue Green Orange Red Purple Cheater</span><br></pre></td></tr></table></figure>
+<p>(作弊者的颜色爬到就是Cheater,不是Brown)</p>
+<p>用户可以有badge.</p>
+<p>我们统计了洛谷各种名字颜色的占比:</p>
+<p>——————————-等待图像插入———————-</p>
+<p>我们统计了洛谷有badge的名字的占比:</p>
+<p>——————————-等待图像插入———————-</p>
+<p>给出洛谷所有tag的词云:</p>
+<p>——————————-等待图像插入———————-</p>
+<h2 id="关注"><a href="#关注" class="headerlink" title="关注"></a>关注</h2><p>洛谷各种人的关注数为:</p>
+<h2 id="咕值"><a href="#咕值" class="headerlink" title="咕值"></a>咕值</h2><p>有咕值的用户为</p>
+<h2 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h2><p><strong>注意</strong>:由于部分选手藏钩子,本条目数据可能有严重偏差.</p>
+<h2 id="等级分"><a href="#等级分" class="headerlink" title="等级分"></a>等级分</h2><blockquote>
+<p>  洛谷等级分就图一乐.<br>  $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ — 某不知名OIer</p>
+</blockquote>
+<p>定义<strong>活跃用户</strong>为至少打过6场比赛的用户.<br>洛谷活跃用户的rating分布图为:</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/mqhyp01z.png" alt=""></p>
+<p>洛谷名字颜色只和咕值有关,而等级分对咕值的影响十分有限,所以洛谷等级分没有特别的趋向性,比如上紫就收手的人,整体就体现为正态分布了.</p>
+<p>我们用名字颜色对等级分图表染色后的rating分布图为:</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/p9m69ory.png" alt=""></p>
+<p>可以看到等级分对于咕值有影响,但不多.</p>
+<h2 id="刷题量"><a href="#刷题量" class="headerlink" title="刷题量"></a>刷题量</h2><p>本条目</p>
+<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><p>洛谷每张头像会被压缩成100*100的webp.</p>
+<p>我们爬取了全站所有用户的头像,把除掉默认头像的用户拼在一起…</p>
+<p>30*50=150人…</p>
+<h3 id="撞头像的概率"><a href="#撞头像的概率" class="headerlink" title="撞头像的概率"></a>撞头像的概率</h3><blockquote>
+<p>  在洛谷,随机两个人撞头像的概率是多少?</p>
+</blockquote>
+<p>我们首先明确撞头像的定义:</p>
+<p>狭义撞头像:两个头像完全相同.<br>广义撞头像:两个头像表达的人物/动物/物品相同.</p>
+<p>按照定义依次计算.</p>
+<h3 id="狭义撞头像"><a href="#狭义撞头像" class="headerlink" title="狭义撞头像"></a>狭义撞头像</h3><h3 id="广义撞头像"><a href="#广义撞头像" class="headerlink" title="广义撞头像"></a>广义撞头像</h3><h2 id="FluuArchive"><a href="#FluuArchive" class="headerlink" title="FluuArchive"></a>FluuArchive</h2><h1 id="附录-PostScript"><a href="#附录-PostScript" class="headerlink" title="附录 PostScript"></a>附录 PostScript</h1><h2 id="爬虫…"><a href="#爬虫…" class="headerlink" title="爬虫…?"></a>爬虫…?</h2><p>访问<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/robots.txt">洛谷的爬虫协议</a>,可以看见以下内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: *</span><br><span class="line">Disallow: /record</span><br><span class="line">Disallow: /recordnew</span><br><span class="line">Disallow: /paste</span><br></pre></td></tr></table></figure>
+<p>Fluu的爬虫只爬取 <code>https://www\.luogu\.com/user/\d+</code> ,是符合网站规范的.<br>而且Fluu的爬虫单线程平均每 $0.36\mathrm s$ 才发起一个请求,爬了半个月才把数据爬完,对洛谷的影响可以忽略不计.</p>
+<h2 id="多线程…"><a href="#多线程…" class="headerlink" title="多线程…"></a>多线程…</h2><p>Fluu不是没试过多线程爬虫,但不知道为什么更慢,最后改回单线程的了.<br>Fluu闲聊的时候会和其他同学汇报爬取进度,开了多线程之后明显变慢了,而且为了维持”Fluu单线程”这个flag还要伪造时间戳,具体地,在powershell中执行以下命令:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\SucksFluorine\python\PJ1\.venv\Scripts&gt; <span class="variable">$</span>(<span class="built_in">Get-Item</span> <span class="string">&quot;signatures.txt&quot;</span>).LastWriteTime = <span class="string">&quot;1999/01/01 10:30:00&quot;</span></span><br></pre></td></tr></table></figure>
+<p>上面的语句就是在修改”修改时间”戳.</p>
+<p>最后发现这种办法又慢又麻烦,改回单线程了.</p>
+<p>后来发现使用cmd直接跑python比pycharm跑python爬数据要快很多倍,原因未知.</p>
+<h2 id="洛谷最神秘的用户"><a href="#洛谷最神秘的用户" class="headerlink" title="洛谷最神秘的用户"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/discuss/1233229">洛谷最神秘的用户</a></h2><p>Fluu的爬虫没有处理异常,所以碰到这个特殊的用户直接15s超时结束程序了.<br>还好Fluu保存数据的形式是”每爬到一个用户就在文件末尾加一行”,不至于彻底裂开.  </p>
+<p>在讨论中,有人指出了洛谷有另一个<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/list?pid=CF1A">神秘链接</a>,点进去也会爆502.</p>
+<p>这或许能开一期洛谷规则怪谈.</p>
+<h2 id="会有下篇吗"><a href="#会有下篇吗" class="headerlink" title="会有下篇吗?"></a>会有下篇吗?</h2><p>上文神秘用户讨论中,有人希望Fluu能爬一下团队名字.<br>如果顺利的话,下篇将爬取和分析团队信息.</p>
+<h2 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h2><p>为防范麻瓜,AI和bot,你需要通过特别的人机验证才能获得下载链接.</p>
+<p>具体地,你需要算出<a href="https://narafluorine.github.io/2026/01/20/50009_Lattice1/">这个页面</a>的flag(保证有解),提交正确拿到这个题的后门(backdoor)字符串后,把后门字符串提交到这个页面来获得下载链接(听起来很麻烦,实际上只需要做一道题就行了).</p>
+<p>本文数据包含:</p>
+<ul>
+<li>爬到的数据</li>
+<li>爬虫代码</li>
+<li>画图代码</li>
+</ul>
+<p>为防范CS某N,Fluu不能分享博客的markdown文件.</p>
+<blockquote>
+<p>  特别注意:</p>
+<ol>
+<li>由于爬自己的user值会额外返回realname,email,phone等敏感信息,Fluu对数据集中关于自己的部分数据做了一点必要的修改.  </li>
+<li>由于上文神秘用户的存在,Fluu跳过了这个用户,没有ta的数据.  </li>
+<li>由于前期测试多线程的时候收到了两个429,部分数据的顺序有点混乱,不过有uid,问题不大.  </li>
+<li>由于Fluu不卖课,私聊Fluu要数据是无效的.</li>
+</ol>
+</blockquote>
+<h2 id="我有个想法…"><a href="#我有个想法…" class="headerlink" title="我有个想法…"></a>我有个想法…</h2><p>Fluu很高兴与你合作!直接私信NaraFluorine即可.</p>
+<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>藏钩子的两个level全是0.</p>
+<p>洛谷中各种颜色用户占比(条形图)</p>
+<p>拥有tag用户的占比</p>
+<p>作弊者tag占比</p>
+<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p><a target="_blank" rel="noopener" href="https://chatgpt.com/">Chat-GPT</a>(Code大神)<br><a target="_blank" rel="noopener" href="https://github.com/neise1">neise1</a>(PWN大神)<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/375208">LawrenceSivan</a>(测试了特殊的用户链接)<br><a target="_blank" rel="noopener" href="https://codeforces.com/profile/chaoson">chaoson</a>(提供情绪价值)<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/1">kkksc03</a>(for the Luogu platform)<br><a target="_blank" rel="noopener" href="https://www.python.org/">python</a>(任劳任怨)<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/*">All of you</a>(广大用户为Fluu提供数据来源,Fluu在此谢过了)</p>
+<h1 id="下"><a href="#下" class="headerlink" title="下"></a>下</h1><p>团队从1000开始,不是从1开始,原因未知.</p>
+<p>截至2026年1月25日14:50,洛谷共有大约</p>
+<script type="math/tex; mode=display">122575-999=121576</script><p>个团队.</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%AD%A3%E5%9C%A8%E6%96%BD%E5%B7%A5%E4%B8%AD-%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%95%B0%E6%8D%AE%E6%B2%A1%E7%88%AC%E5%AE%8C-%E4%B8%8B%E9%9D%A2%E7%9A%84%E9%85%8D%E5%9B%BE%E7%9C%8B%E4%B8%AA%E4%B9%90%E5%B0%B1%E5%A5%BD%E5%88%AB%E5%BD%93%E7%9C%9F"><span class="toc-number">1.</span> <span class="toc-text">文章正在施工中,原因是数据没爬完,下面的配图看个乐就好别当真.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%AA%E8%AE%BA"><span class="toc-number"></span> <span class="toc-text">绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number"></span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C"><span class="toc-number">1.</span> <span class="toc-text">注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2-amp-tag"><span class="toc-number">2.</span> <span class="toc-text">颜色&amp;tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%B3%A8"><span class="toc-number">3.</span> <span class="toc-text">关注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%95%E5%80%BC"><span class="toc-number">4.</span> <span class="toc-text">咕值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%A9%E5%AD%90"><span class="toc-number">5.</span> <span class="toc-text">钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E7%BA%A7%E5%88%86"><span class="toc-number">6.</span> <span class="toc-text">等级分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E9%A2%98%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">刷题量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%B4%E5%83%8F"><span class="toc-number">8.</span> <span class="toc-text">头像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%9E%E5%A4%B4%E5%83%8F%E7%9A%84%E6%A6%82%E7%8E%87"><span class="toc-number">8.1.</span> <span class="toc-text">撞头像的概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AD%E4%B9%89%E6%92%9E%E5%A4%B4%E5%83%8F"><span class="toc-number">8.2.</span> <span class="toc-text">狭义撞头像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E6%92%9E%E5%A4%B4%E5%83%8F"><span class="toc-number">8.3.</span> <span class="toc-text">广义撞头像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FluuArchive"><span class="toc-number">9.</span> <span class="toc-text">FluuArchive</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95-PostScript"><span class="toc-number"></span> <span class="toc-text">附录 PostScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E2%80%A6"><span class="toc-number">1.</span> <span class="toc-text">爬虫…?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E2%80%A6"><span class="toc-number">2.</span> <span class="toc-text">多线程…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%9B%E8%B0%B7%E6%9C%80%E7%A5%9E%E7%A7%98%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-number">3.</span> <span class="toc-text">洛谷最神秘的用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E6%9C%89%E4%B8%8B%E7%AF%87%E5%90%97"><span class="toc-number">4.</span> <span class="toc-text">会有下篇吗?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">数据下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%9C%89%E4%B8%AA%E6%83%B3%E6%B3%95%E2%80%A6"><span class="toc-number">6.</span> <span class="toc-text">我有个想法…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text">可视化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="toc-number"></span> <span class="toc-text">致谢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B"><span class="toc-number"></span> <span class="toc-text">下</span></a>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&text=洛谷小数据分析 - 上"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&is_video=false&description=洛谷小数据分析 - 上"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=洛谷小数据分析 - 上&body=Check out this article: https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&title=洛谷小数据分析 - 上"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&name=洛谷小数据分析 - 上&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/&t=洛谷小数据分析 - 上"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wengers
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
