@@ -10,7 +10,7 @@
   <id>https://narafluorine.github.io/</id>
   
   <author>
-    <name>Fluorine Wengers</name>
+    <name>Fluorine Wang</name>
     
   </author>
   
@@ -277,9 +277,9 @@
     <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
     
     
-    <category term="Java" scheme="https://narafluorine.github.io/tags/Java/"/>
-    
     <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
+    
+    <category term="Java" scheme="https://narafluorine.github.io/tags/Java/"/>
     
   </entry>
   

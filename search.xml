@@ -245,9 +245,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> MySql </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -1211,31 +1211,6 @@
     
     
     <entry>
-      <title>交互题</title>
-      <link href="/2024/06/04/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/"/>
-      <url>/2024/06/04/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>感觉有很多神秘交互题.<br>然后他们的思路和传统题好像截然不同…  </p><h2 id="CF1354G"><a href="#CF1354G" class="headerlink" title="CF1354G"></a>CF1354G</h2><p>最多有1000个位置,每个位置上放了一个石头或者一个礼物.<br>礼物一定比石头轻,石头一定一个重量.<br>现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).<br>你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n/2 .</p><p>神秘的询问次数.<br>题解说,我们如果能找到一个必然是石头的位置,那么我们就可以通过倍增在log次数内找到第一个是礼物的位置.<br>例如:1是石头,找2如果轻说明是礼物,否则也是石头,然后用这俩判断[3,4],递推.</p><p>问题在于我们怎么找到这个石头.<br>观察发现50-log的15还剩35,机会很多,考虑随机化…</p><p>我们假设1是石头,在剩下的序列里面随机抽几个位置和1比,如果存在一个大于的就说明不是石头.<br>因为礼物概率小于1/2,所以正确的概率不低于 (1/2)^t,t是抽查次数.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> ACM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>离散化</title>
       <link href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
       <url>/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
@@ -1266,6 +1241,31 @@
       <url>/2024/06/04/10038_%E5%88%86%E6%B2%BB/</url>
       
         <content type="html"><![CDATA[<p>分治即”分而治之”,根据不同的数据范围选用不同的处理方法.</p><h2 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h2><p>看<a href="https://www.bilibili.com/video/BV1i5oqY7Eur">这个视频</a>了解一下三维CDQ是怎么运作的.<br>然后过一个板子题(陌上花开).</p><p>正常的二位偏序是使用排序降掉一维,使用线性结构(树状数组,线段树等)降掉一维.<br>假如碰到三维偏序,就需要想办法再降一维,这个时候CDQ应运而生.</p><p><strong>注意</strong> :CDQ分治只能解决元素不同的情况,否则需要进行离散化(去重)再算贡献,因为贡献是相同元素也可以给自己有贡献.</p><p>网上有n维偏序的板子能直接抄.</p><h2 id="根号分治"><a href="#根号分治" class="headerlink" title="根号分治"></a>根号分治</h2><p>看<a href="https://www.luogu.com.cn/article/5gtqzd4a">这个博客</a></p><h2 id="手工分治"><a href="#手工分治" class="headerlink" title="手工分治"></a>手工分治</h2><p>手动判断数据范围,手动选择合适的算法.举例:<br><a href="https://www.luogu.com.cn/problem/P9318">乐高墙</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>交互题</title>
+      <link href="/2024/06/04/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/"/>
+      <url>/2024/06/04/10039_%E4%BA%A4%E4%BA%92%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>感觉有很多神秘交互题.<br>然后他们的思路和传统题好像截然不同…  </p><h2 id="CF1354G"><a href="#CF1354G" class="headerlink" title="CF1354G"></a>CF1354G</h2><p>最多有1000个位置,每个位置上放了一个石头或者一个礼物.<br>礼物一定比石头轻,石头一定一个重量.<br>现在你有一杆秤,每次会告诉你左边重,右边重还是一样重(你能一次选好多个位置上的东西放一起比较).<br>你有最多50次询问,要求找到一个保证是礼物的位置,礼物数量不会超过 n/2 .</p><p>神秘的询问次数.<br>题解说,我们如果能找到一个必然是石头的位置,那么我们就可以通过倍增在log次数内找到第一个是礼物的位置.<br>例如:1是石头,找2如果轻说明是礼物,否则也是石头,然后用这俩判断[3,4],递推.</p><p>问题在于我们怎么找到这个石头.<br>观察发现50-log的15还剩35,机会很多,考虑随机化…</p><p>我们假设1是石头,在剩下的序列里面随机抽几个位置和1比,如果存在一个大于的就说明不是石头.<br>因为礼物概率小于1/2,所以正确的概率不低于 (1/2)^t,t是抽查次数.</p>]]></content>
       
       
       <categories>
@@ -2118,9 +2118,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Cpp </tag>
+            
+            <tag> Math </tag>
             
             <tag> Algorithm </tag>
             
@@ -2147,9 +2147,9 @@
       
         <tags>
             
-            <tag> Math </tag>
-            
             <tag> Cpp </tag>
+            
+            <tag> Math </tag>
             
             <tag> Algorithm </tag>
             
@@ -2648,19 +2648,19 @@
             
             <tag> Hello </tag>
             
-            <tag> Math </tag>
+            <tag> Physics </tag>
             
             <tag> Cpp </tag>
             
             <tag> Linux </tag>
             
-            <tag> Physics </tag>
-            
-            <tag> ComputerScience </tag>
+            <tag> Math </tag>
             
             <tag> Algorithm </tag>
             
             <tag> MySql </tag>
+            
+            <tag> ComputerScience </tag>
             
             <tag> Network </tag>
             
@@ -2676,17 +2676,17 @@
             
             <tag> Game </tag>
             
+            <tag> Misc </tag>
+            
             <tag> Reverse </tag>
             
             <tag> PWN </tag>
             
             <tag> Crypto </tag>
             
-            <tag> Misc </tag>
+            <tag> OSINT </tag>
             
             <tag> JavaScript </tag>
-            
-            <tag> OSINT </tag>
             
             <tag> AI </tag>
             
