@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://narafluorine.github.io/images/luogu_team_registrations.png">
 <meta property="og:image" content="https://narafluorine.github.io/images/luogu_team_comm.png">
 <meta property="article:published_time" content="2026-01-27T02:38:15.000Z">
-<meta property="article:modified_time" content="2026-01-29T15:04:00.367Z">
+<meta property="article:modified_time" content="2026-01-29T16:05:53.525Z">
 <meta property="article:author" content="Fluorine Wang">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="AI">
@@ -200,7 +200,7 @@
 <p>  Fluu想收集一些神秘网页,看了看自己 $1600$ 多个网页的收藏夹,决定<a target="_blank" rel="noopener" href="https://github.com/NaraFluorine/FluuArchive">开一个repo</a>.<br>  但这么做是不持久的,Fluu必须找一个稳定的源头.<br>  哪里的神秘网页最多呢?当然是洛谷的个人简介.<br>  于是这篇文章诞生了,收集神秘网页才是Fluu本来的目的,分析用户特征是顺带的事.  </p>
 </blockquote>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>团队从 $1000$ 开始,不是从 $1$ 开始,原因未知.</p>
-<p>截至 $2026$ 年 $1$ 月 $25$ 日 $14:50$ ,洛谷共有约</p>
+<p>截至 $2026$ 年 $1$ 月 $25$ 日 $14:50\,(\mathrm{UTC}+8)$ ,洛谷共有约</p>
 <script type="math/tex; mode=display">122575-999=121576</script><p>个团队.<br>团队不能设置为不可见,数据应该是所见即所得.</p>
 <h2 id="分布"><a href="#分布" class="headerlink" title="分布"></a>分布</h2><p>洛谷各种团队占比图表为:</p>
 <p><img src="../../../../images/luogu_team_types.png" alt=""></p>
@@ -1449,7 +1449,7 @@
 </div>
 <h1 id="附录-PostScript"><a href="#附录-PostScript" class="headerlink" title="附录 PostScript"></a>附录 PostScript</h1><h2 id="爬虫…"><a href="#爬虫…" class="headerlink" title="爬虫…?"></a>爬虫…?</h2><p>访问<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/robots.txt">洛谷的爬虫协议</a>,可以看见以下内容:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: *</span><br><span class="line">Disallow: /record</span><br><span class="line">Disallow: /recordnew</span><br><span class="line">Disallow: /paste</span><br></pre></td></tr></table></figure>
-<p>Fluu的爬虫只爬取 <code>https://www\.luogu\.com/user/\d+</code> ,是符合网站规范的.  </p>
+<p>Fluu的爬虫只爬取 <code>https://www\.luogu\.com/team/\d+</code> ,是符合网站规范的.  </p>
 <p>因为爬取团队需要建立连接才能成功登录,仅靠cookie是不行的,登录后后才能获取团队的简介,而且洛谷国际站上没有团队的数据,所以Fluu用了 <code>selenium</code> 模块(其实是GPT说的)模拟建立链接的过程手动登录之后靠这个sessionid支撑对话,后续用python获取元素.</p>
 <h2 id="洛谷墙"><a href="#洛谷墙" class="headerlink" title="洛谷墙"></a>洛谷墙</h2><p>Fluu第一次爬的时候没有设置爬取间隔,导致触发洛谷墙被ban IP了,现简单介绍一下洛谷墙:</p>
 <p>大概是短时间内有500个请求就会触发洛谷墙,ban掉你的IP,持续时间约10min,然后自动解封,就能继续爬.<br>再触发洛谷墙的后果未知.”短时间”的计算方式也未知.</p>
