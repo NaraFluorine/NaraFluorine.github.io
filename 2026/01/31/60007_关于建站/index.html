@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="网络上的众多博客,用什么技术栈的都有,Fluu在这里简单总结一下. 静态站点VuePressHexo(本篇博客架构即为hexo)HugoAstro   动态站点WordPressHalo   你可能需要考虑支持的东西博客评论utterancesValineWalineGiscusTwikooArtalk   博客反垃圾评论Akismet RSS订阅内嵌PDF支持hexo pdf 博文加密hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="网络上的众多博客,用什么技术栈的都有,Fluu在这里简单总结一下. 静态站点VuePressHexo(本篇博客架构即为hexo)HugoAstro   动态站点WordPressHalo   你可能需要考虑支持的东西博客评论utterancesValineWalineGiscusTwikooArtalk   博客反垃圾评论Akismet RSS订阅内嵌PDF支持hexo pdf 博文加密hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-31T13:09:55.058Z">
+<meta property="article:modified_time" content="2026-02-06T16:11:59.280Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Fluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/31/60008_%E6%B5%85%E6%8E%A2%E9%9F%B3%E6%B8%B8/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/30/60009_%E4%B8%80%E8%A8%80/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">静态站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%AB%99%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">动态站点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E6%94%AF%E6%8C%81%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number"></span> <span class="toc-text">你可能需要考虑支持的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">博客评论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%8F%8D%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA"><span class="toc-number">1.1.</span> <span class="toc-text">博客反垃圾评论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS%E8%AE%A2%E9%98%85"><span class="toc-number">2.</span> <span class="toc-text">RSS订阅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%B5%8CPDF%E6%94%AF%E6%8C%81"><span class="toc-number">3.</span> <span class="toc-text">内嵌PDF支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E6%96%87%E5%8A%A0%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text">博文加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1"><span class="toc-number">5.</span> <span class="toc-text">访问量统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%BD%E7%9C%8B%E7%9A%84%E5%B0%8F%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">好看的小插件</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-31T13:09:55.058Z" class="dt-published" itemprop="datePublished">2026-01-31</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>网络上的众多博客,用什么技术栈的都有,Fluu在这里简单总结一下.</p>
+<h2 id="静态站点"><a href="#静态站点" class="headerlink" title="静态站点"></a>静态站点</h2><p><a target="_blank" rel="noopener" href="https://v2.vuepress.vuejs.org/zh/">VuePress</a><br><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>(本篇博客架构即为hexo)<br><a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a><br><a target="_blank" rel="noopener" href="https://astro.build/">Astro</a>  </p>
+<h2 id="动态站点"><a href="#动态站点" class="headerlink" title="动态站点"></a>动态站点</h2><p><a target="_blank" rel="noopener" href="https://wordpress.com/">WordPress</a><br><a target="_blank" rel="noopener" href="https://www.halo.run/">Halo</a>  </p>
+<h1 id="你可能需要考虑支持的东西"><a href="#你可能需要考虑支持的东西" class="headerlink" title="你可能需要考虑支持的东西"></a>你可能需要考虑支持的东西</h1><h2 id="博客评论"><a href="#博客评论" class="headerlink" title="博客评论"></a>博客评论</h2><p><a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a><br><a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a><br><a target="_blank" rel="noopener" href="https://waline.js.org/">Waline</a><br><a target="_blank" rel="noopener" href="https://giscus.app/">Giscus</a><br><a target="_blank" rel="noopener" href="https://twikoo.js.org/">Twikoo</a><br><a target="_blank" rel="noopener" href="https://artalk.js.org/">Artalk</a>  </p>
+<h3 id="博客反垃圾评论"><a href="#博客反垃圾评论" class="headerlink" title="博客反垃圾评论"></a>博客反垃圾评论</h3><p><a target="_blank" rel="noopener" href="https://akismet.com/">Akismet</a></p>
+<h2 id="RSS订阅"><a href="#RSS订阅" class="headerlink" title="RSS订阅"></a>RSS订阅</h2><h2 id="内嵌PDF支持"><a href="#内嵌PDF支持" class="headerlink" title="内嵌PDF支持"></a>内嵌PDF支持</h2><p><a target="_blank" rel="noopener" href="https://github.com/superalsrk/hexo-pdf">hexo pdf</a></p>
+<h2 id="博文加密"><a href="#博文加密" class="headerlink" title="博文加密"></a>博文加密</h2><p><a target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt">hexo encrypt</a>  </p>
+<h2 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h2><p><a target="_blank" rel="noopener" href="https://busuanzi.ibruce.info/">不蒜子</a><br><a target="_blank" rel="noopener" href="https://www.vercount.one/">Vercount</a></p>
+<h2 id="好看的小插件"><a href="#好看的小插件" class="headerlink" title="好看的小插件"></a>好看的小插件</h2>
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">静态站点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%AB%99%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">动态站点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E6%94%AF%E6%8C%81%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number"></span> <span class="toc-text">你可能需要考虑支持的东西</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">博客评论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%8F%8D%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA"><span class="toc-number">1.1.</span> <span class="toc-text">博客反垃圾评论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSS%E8%AE%A2%E9%98%85"><span class="toc-number">2.</span> <span class="toc-text">RSS订阅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%B5%8CPDF%E6%94%AF%E6%8C%81"><span class="toc-number">3.</span> <span class="toc-text">内嵌PDF支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E6%96%87%E5%8A%A0%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text">博文加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1"><span class="toc-number">5.</span> <span class="toc-text">访问量统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%BD%E7%9C%8B%E7%9A%84%E5%B0%8F%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">好看的小插件</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/31/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

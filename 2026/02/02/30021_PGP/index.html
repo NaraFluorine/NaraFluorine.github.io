@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性) 比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,Fluu英语不好不会解密,只记得大家把 is 加密成 ehs),使用化学元素的元素名对应相对原子质量进行加密(Fluu想出来的,到现在还在用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PGP与Fluu的密码管理">
+<meta property="og:url" content="https://narafluorine.github.io/2026/02/02/30021_PGP/index.html">
+<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:description" content="Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性) 比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,Fluu英语不好不会解密,只记得大家把 is 加密成 ehs),使用化学元素的元素名对应相对原子质量进行加密(Fluu想出来的,到现在还在用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-01T20:55:03.000Z">
+<meta property="article:modified_time" content="2026-02-01T22:21:34.798Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="Crypto">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>PGP与Fluu的密码管理</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/02/06/40001_Webp%E6%9F%A5%E7%9C%8B%E5%99%A8/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/02/01/50010_%E8%81%9E%E3%81%93%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/02/30021_PGP/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&text=PGP与Fluu的密码管理"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&is_video=false&description=PGP与Fluu的密码管理"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PGP与Fluu的密码管理&body=Check out this article: https://narafluorine.github.io/2026/02/02/30021_PGP/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&name=PGP与Fluu的密码管理&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/02/30021_PGP/&t=PGP与Fluu的密码管理"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        PGP与Fluu的密码管理
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-02-01T20:55:03.000Z" class="dt-published" itemprop="datePublished">2026-02-02</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Crypto/" rel="tag">Crypto</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性)</p>
+<p>比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,Fluu英语不好不会解密,只记得大家把 <code>is</code> 加密成 <code>ehs</code>),使用化学元素的元素名对应相对原子质量进行加密(Fluu想出来的,到现在还在用,不过更多用在娱乐场景中,比如发了篇檄文不想让正主直接看到)</p>
+<h2 id="元素加密法"><a href="#元素加密法" class="headerlink" title="元素加密法"></a>元素加密法</h2><p>元素加密法, $\color{red}—-红色是不存在的元素$</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">速译表</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$\color{yellow}A$</td>
+<td style="text-align:left">$Cm~248$ 锔</td>
+<td style="text-align:left">$Ga~70$ 镓</td>
+<td style="text-align:left">$Lu~175$ 镥</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}A~5$</td>
+<td style="text-align:left">$Cn~285$ 鿔</td>
+<td style="text-align:left">$Gd~157$ 钆</td>
+<td style="text-align:left">$Lv~293$ 𫟷</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ac~227$ 锕</td>
+<td style="text-align:left">$Co~60$ 钴</td>
+<td style="text-align:left">$Ge~73$ 锗</td>
+<td style="text-align:left">$\color{yellow}M$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ag~108$ 银</td>
+<td style="text-align:left">$Cr~52$ 铬</td>
+<td style="text-align:left">$\color{yellow}H$</td>
+<td style="text-align:left">$\color{red}M~67$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Al~27$ 铝</td>
+<td style="text-align:left">$Cs~133$ 铯</td>
+<td style="text-align:left">$H~1$ 氢</td>
+<td style="text-align:left">$Mc~288$ 镆</td>
+</tr>
+<tr>
+<td style="text-align:left">$Am~243$ 镅</td>
+<td style="text-align:left">$Cu~64$ 铜</td>
+<td style="text-align:left">$He~4$ 氦</td>
+<td style="text-align:left">$Md~258$ 钔</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ar~41$ 氩</td>
+<td style="text-align:left">$\color{yellow}D$</td>
+<td style="text-align:left">$Hf~179$ 铪</td>
+<td style="text-align:left">$Mg~24$ 镁</td>
+</tr>
+<tr>
+<td style="text-align:left">$As~75$ 砷</td>
+<td style="text-align:left">$D~2$ 氘</td>
+<td style="text-align:left">$Hg~201$ 汞</td>
+<td style="text-align:left">$Mn~55$ 锰</td>
+</tr>
+<tr>
+<td style="text-align:left">$At~210$ 砹</td>
+<td style="text-align:left">$Db~268$ 𬭊</td>
+<td style="text-align:left">$Ho~165$ 钬</td>
+<td style="text-align:left">$Mo~96$ 钼</td>
+</tr>
+<tr>
+<td style="text-align:left">$Au~197$ 金</td>
+<td style="text-align:left">$Ds~281$ 𫟼</td>
+<td style="text-align:left">$Hs~277$ 𬭶</td>
+<td style="text-align:left">$Mt~276$ 鿏</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{yellow}B$</td>
+<td style="text-align:left">$Dy~163$ 镝</td>
+<td style="text-align:left">$\color{yellow}I$</td>
+<td style="text-align:left">$\color{yellow}N$</td>
+</tr>
+<tr>
+<td style="text-align:left">$B~11$ 硼</td>
+<td style="text-align:left">$\color{yellow}E$</td>
+<td style="text-align:left">$I~127$ 碘</td>
+<td style="text-align:left">$N~14$ 氮</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ba~137$ 钡</td>
+<td style="text-align:left">$\color{red}E~8$</td>
+<td style="text-align:left">$In~115$ 铟</td>
+<td style="text-align:left">$Na~23$ 钠</td>
+</tr>
+<tr>
+<td style="text-align:left">$Be~9$ 铍</td>
+<td style="text-align:left">$Er~167$ 铒</td>
+<td style="text-align:left">$Ir~192$ 铱</td>
+<td style="text-align:left">$Nb~93$ 铌</td>
+</tr>
+<tr>
+<td style="text-align:left">$Bh~270$ 𬭛</td>
+<td style="text-align:left">$Es~252$ 锿</td>
+<td style="text-align:left">$\color{yellow}J$</td>
+<td style="text-align:left">$Nd~144$ 钕</td>
+</tr>
+<tr>
+<td style="text-align:left">$Bi~211$ 铋</td>
+<td style="text-align:left">$Eu~152$ 铕</td>
+<td style="text-align:left">$\color{red}J~15$</td>
+<td style="text-align:left">$Ne~20$ 氖</td>
+</tr>
+<tr>
+<td style="text-align:left">$Bk~247$ 锫</td>
+<td style="text-align:left">$\color{yellow}F$</td>
+<td style="text-align:left">$\color{yellow}K$</td>
+<td style="text-align:left">$Nh~284$ 鿭</td>
+</tr>
+<tr>
+<td style="text-align:left">$Br~80$ 溴</td>
+<td style="text-align:left">$F~19$ 氟</td>
+<td style="text-align:left">$K~39$ 钾</td>
+<td style="text-align:left">$Ni~59$ 镍</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{yellow}C$</td>
+<td style="text-align:left">$Fe~56$ 铁</td>
+<td style="text-align:left">$Kr~84$ 氪</td>
+<td style="text-align:left">$No~259$ 锘</td>
+</tr>
+<tr>
+<td style="text-align:left">$C~12$ 碳</td>
+<td style="text-align:left">$Fl~289$ 𫓧</td>
+<td style="text-align:left">$\color{yellow}L$</td>
+<td style="text-align:left">$Np~237$ 镎</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ca~40$ 钙</td>
+<td style="text-align:left">$Fm~257$ 镄</td>
+<td style="text-align:left">$\color{red}L~180$</td>
+<td style="text-align:left">$\color{yellow}O$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Cd~112$ 镉</td>
+<td style="text-align:left">$Fr~223$ 钫</td>
+<td style="text-align:left">$La~139$ 镧</td>
+<td style="text-align:left">$O~16$ 氧</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ce~140$ 铈</td>
+<td style="text-align:left">$\color{yellow}G$</td>
+<td style="text-align:left">$Li~7$ 锂</td>
+<td style="text-align:left">$Og~295$ 鿫</td>
+</tr>
+<tr>
+<td style="text-align:left">$Cf~251$ 锎</td>
+<td style="text-align:left">$\color{red}G~90$</td>
+<td style="text-align:left">$Lr~262$ 铹</td>
+<td style="text-align:left">$Os~190$ 锇</td>
+</tr>
+<tr>
+<td style="text-align:left">$Cl~36$ 氯</td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+</tr>
+<tr>
+<td style="text-align:left">原</td>
+<td style="text-align:left">表格</td>
+<td style="text-align:left">的</td>
+<td style="text-align:left">背面</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+<td style="text-align:left"><code>---</code></td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{yellow}P$</td>
+<td style="text-align:left">$Rb~85$ 铷</td>
+<td style="text-align:left">$Sn~119$ 锡</td>
+<td style="text-align:left">$\color{yellow}V$</td>
+</tr>
+<tr>
+<td style="text-align:left">$P~31$ 磷</td>
+<td style="text-align:left">$Re~186$ 铼</td>
+<td style="text-align:left">$Sr~88$ 锶</td>
+<td style="text-align:left">$V~51$ 钒</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pa~231$ 镤</td>
+<td style="text-align:left">$Rf~265$ 𬬻</td>
+<td style="text-align:left">$\color{yellow}T$</td>
+<td style="text-align:left">$\color{yellow}W$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pb~207$ 铅</td>
+<td style="text-align:left">$Rg~280$ 𬬭</td>
+<td style="text-align:left">$T~3$ 氚</td>
+<td style="text-align:left">$W~184$ 钨</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pd~106$ 钯</td>
+<td style="text-align:left">$Rh~103$ 铑</td>
+<td style="text-align:left">$Ta~181$ 钽</td>
+<td style="text-align:left">$\color{yellow}X$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pm~145$ 钷</td>
+<td style="text-align:left">$Rn~222$ 氡</td>
+<td style="text-align:left">$Tb~159$ 铽</td>
+<td style="text-align:left">$\color{red}X~107$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Po~209$ 钋</td>
+<td style="text-align:left">$Ru~101$ 钌</td>
+<td style="text-align:left">$Tc~98$ 锝</td>
+<td style="text-align:left">$Xe~131$ 氙</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pr~141$ 镨</td>
+<td style="text-align:left">$\color{yellow}S$</td>
+<td style="text-align:left">$Te~128$ 碲</td>
+<td style="text-align:left">$\color{yellow}Y$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pt~195$ 铂</td>
+<td style="text-align:left">$S~32$ 硫</td>
+<td style="text-align:left">$Th~232$ 钍</td>
+<td style="text-align:left">$Y~89$ 钇</td>
+</tr>
+<tr>
+<td style="text-align:left">$Pu~244$ 钚</td>
+<td style="text-align:left">$Sb~122$ 锑</td>
+<td style="text-align:left">$Ti~48$ 钛</td>
+<td style="text-align:left">$Yb~173$ 镱</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{yellow}Q$</td>
+<td style="text-align:left">$Sc~45$ 钪</td>
+<td style="text-align:left">$Tl~204$ 铊</td>
+<td style="text-align:left">$\color{yellow}Z$</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}Q~29$</td>
+<td style="text-align:left">$Se~79$ 硒</td>
+<td style="text-align:left">$Tm~169$ 铥</td>
+<td style="text-align:left">$\color{red}Z~86$</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{yellow}R$</td>
+<td style="text-align:left">$Sg~271$ 𬭳</td>
+<td style="text-align:left">$Ts~294$ 鿬</td>
+<td style="text-align:left">$Zn~65$ 锌</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}R~37$</td>
+<td style="text-align:left">$Si~28$ 硅</td>
+<td style="text-align:left">$\color{yellow}U$</td>
+<td style="text-align:left">$Zr~91$ 锆</td>
+</tr>
+<tr>
+<td style="text-align:left">$Ra~226$ 镭</td>
+<td style="text-align:left">$Sm~150$ 钐</td>
+<td style="text-align:left">$U~238$ 铀</td>
+<td style="text-align:left"><code>---</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">速查表</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$1~H$</td>
+<td style="text-align:left">$2~D$</td>
+<td style="text-align:left">$3~T$</td>
+<td style="text-align:left">$4~He$</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}5~A$</td>
+<td style="text-align:left">$7~Li$</td>
+<td style="text-align:left">$\color{red}8~E$</td>
+<td style="text-align:left">$9~Be$</td>
+</tr>
+<tr>
+<td style="text-align:left">$11~B$</td>
+<td style="text-align:left">$12~C$</td>
+<td style="text-align:left">$14~N$</td>
+<td style="text-align:left">$\color{red}15~J$</td>
+</tr>
+<tr>
+<td style="text-align:left">$16~O$</td>
+<td style="text-align:left">$19~F$</td>
+<td style="text-align:left">$20~Ne$</td>
+<td style="text-align:left">$23~Na$</td>
+</tr>
+<tr>
+<td style="text-align:left">$24~Mg$</td>
+<td style="text-align:left">$27~Al$</td>
+<td style="text-align:left">$28~Si$</td>
+<td style="text-align:left">$\color{red}29~Q$</td>
+</tr>
+<tr>
+<td style="text-align:left">$31~P$</td>
+<td style="text-align:left">$32~S$</td>
+<td style="text-align:left">$36~Cl$</td>
+<td style="text-align:left">$\color{red}37~R$</td>
+</tr>
+<tr>
+<td style="text-align:left">$39~K$</td>
+<td style="text-align:left">$40~Ca$</td>
+<td style="text-align:left">$41~Ar$</td>
+<td style="text-align:left">$45~Sc$</td>
+</tr>
+<tr>
+<td style="text-align:left">$48~Ti$</td>
+<td style="text-align:left">$51~V$</td>
+<td style="text-align:left">$52~Cr$</td>
+<td style="text-align:left">$55~Mn$</td>
+</tr>
+<tr>
+<td style="text-align:left">$56~Fe$</td>
+<td style="text-align:left">$59~Ni$</td>
+<td style="text-align:left">$60~Co$</td>
+<td style="text-align:left">$64~Cu$</td>
+</tr>
+<tr>
+<td style="text-align:left">$65~Zn$</td>
+<td style="text-align:left">$\color{red}67~M$</td>
+<td style="text-align:left">$70~Ga$</td>
+<td style="text-align:left">$73~Ge$</td>
+</tr>
+<tr>
+<td style="text-align:left">$75~As$</td>
+<td style="text-align:left">$79~Se$</td>
+<td style="text-align:left">$80~Br$</td>
+<td style="text-align:left">$84~Kr$</td>
+</tr>
+<tr>
+<td style="text-align:left">$85~Rb$</td>
+<td style="text-align:left">$\color{red}86~Z$</td>
+<td style="text-align:left">$88~Sr$</td>
+<td style="text-align:left">$89~Y$</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}90~G$</td>
+<td style="text-align:left">$91~Zr$</td>
+<td style="text-align:left">$93~Nb$</td>
+<td style="text-align:left">$96~Mo$</td>
+</tr>
+<tr>
+<td style="text-align:left">$98~Tc$</td>
+<td style="text-align:left">$101~Ru$</td>
+<td style="text-align:left">$103~Rh$</td>
+<td style="text-align:left">$106~Pd$</td>
+</tr>
+<tr>
+<td style="text-align:left">$\color{red}107~X$</td>
+<td style="text-align:left">$108~Ag$</td>
+<td style="text-align:left">$112~Cd$</td>
+<td style="text-align:left">$115~In$</td>
+</tr>
+<tr>
+<td style="text-align:left">$119~Sn$</td>
+<td style="text-align:left">$122~Sb$</td>
+<td style="text-align:left">$127~I$</td>
+<td style="text-align:left">$128~Te$</td>
+</tr>
+<tr>
+<td style="text-align:left">$131~Xe$</td>
+<td style="text-align:left">$133~Cs$</td>
+<td style="text-align:left">$137~Ba$</td>
+<td style="text-align:left">$139~La$</td>
+</tr>
+<tr>
+<td style="text-align:left">$140~Ce$</td>
+<td style="text-align:left">$141~Pr$</td>
+<td style="text-align:left">$144~Nd$</td>
+<td style="text-align:left">$145~Pm$</td>
+</tr>
+<tr>
+<td style="text-align:left">$150~Sm$</td>
+<td style="text-align:left">$152~Eu$</td>
+<td style="text-align:left">$157~Gd$</td>
+<td style="text-align:left">$159~Tb$</td>
+</tr>
+<tr>
+<td style="text-align:left">$163~Dy$</td>
+<td style="text-align:left">$165~Ho$</td>
+<td style="text-align:left">$167~Er$</td>
+<td style="text-align:left">$169~Tm$</td>
+</tr>
+<tr>
+<td style="text-align:left">$173~Yb$</td>
+<td style="text-align:left">$175~Lu$</td>
+<td style="text-align:left">$179~Hf$</td>
+<td style="text-align:left">$\color{red}180~L$</td>
+</tr>
+<tr>
+<td style="text-align:left">$181~Ta$</td>
+<td style="text-align:left">$184~W$</td>
+<td style="text-align:left">$186~Re$</td>
+<td style="text-align:left">$190~Os$</td>
+</tr>
+<tr>
+<td style="text-align:left">$192~Ir$</td>
+<td style="text-align:left">$195~Pt$</td>
+<td style="text-align:left">$197~Au$</td>
+<td style="text-align:left">$201~Hg$</td>
+</tr>
+<tr>
+<td style="text-align:left">$204~Tl$</td>
+<td style="text-align:left">$207~Pb$</td>
+<td style="text-align:left">$209~Po$</td>
+<td style="text-align:left">$210~At$</td>
+</tr>
+<tr>
+<td style="text-align:left">$211~Bi$</td>
+<td style="text-align:left">$222~Rn$</td>
+<td style="text-align:left">$223~Fr$</td>
+<td style="text-align:left">$226~Ra$</td>
+</tr>
+<tr>
+<td style="text-align:left">$227~Ac$</td>
+<td style="text-align:left">$231~Pa$</td>
+<td style="text-align:left">$232~Th$</td>
+<td style="text-align:left">$237~Np$</td>
+</tr>
+<tr>
+<td style="text-align:left">$238~U$</td>
+<td style="text-align:left">$243~Am$</td>
+<td style="text-align:left">$244~Pu$</td>
+<td style="text-align:left">$247~Bk$</td>
+</tr>
+<tr>
+<td style="text-align:left">$248~Cm$</td>
+<td style="text-align:left">$251~Cf$</td>
+<td style="text-align:left">$252~Es$</td>
+<td style="text-align:left">$257~Fm$</td>
+</tr>
+<tr>
+<td style="text-align:left">$258~Md$</td>
+<td style="text-align:left">$259~No$</td>
+<td style="text-align:left">$262~Lr$</td>
+<td style="text-align:left">$265~Rf$</td>
+</tr>
+<tr>
+<td style="text-align:left">$268~Db$</td>
+<td style="text-align:left">$270~Bh$</td>
+<td style="text-align:left">$271~Sg$</td>
+<td style="text-align:left">$276~Mt$</td>
+</tr>
+<tr>
+<td style="text-align:left">$277~Hs$</td>
+<td style="text-align:left">$280~Rg$</td>
+<td style="text-align:left">$281~Ds$</td>
+<td style="text-align:left">$284~Nh$</td>
+</tr>
+<tr>
+<td style="text-align:left">$285~Cn$</td>
+<td style="text-align:left">$288~Mc$</td>
+<td style="text-align:left">$289~Fl$</td>
+<td style="text-align:left">$293~Lv$</td>
+</tr>
+<tr>
+<td style="text-align:left">$294~Ts$</td>
+<td style="text-align:left">$295~Og$</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Fluu在当时面临一个难题:密码存储.</p>
+<p>当时的Fluu是没有自己电脑的,用手机存储密码来回粘贴1不安全2很麻烦,纸记又很容易丢,自己全记住又很容易忘.</p>
+<p>最后Fluu创造了”公私钥法”来管理Fluu的所有密码(<strong>注意</strong>:这不是密码学上的公私钥定义.为了还原Fluu当时喜欢学一个名词就乱用的形格,特地采用”公私钥”作为称谓)</p>
+<h2 id="“公私钥法”"><a href="#“公私钥法”" class="headerlink" title="“公私钥法”"></a>“公私钥法”</h2><p>首先自己记住一串很长的随机字符串作为公钥,比如(这里采用Fluu曾用过的密码)Fluu皇室战争账号的UID:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#288LP8Q9U</span><br></pre></td></tr></table></figure>
+<p>然后对这个公钥进行处理,比如变成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#288LP8Q9Uqq    记作 1111qq</span><br><span class="line">#288lp8q9uwx    记作 0000wx</span><br></pre></td></tr></table></figure>
+<p>对公钥的大小写进行变换,从而达到”密码又安全又好记”的效果.</p>
+<blockquote>
+<p>  <strong>尝试攻击</strong> :首先需要拿到公钥,然后还要知道哪一位是被修改的,然后还需要知道怎么修改,而且就算拿到私钥,存储的都是诸如 <code>1111qq</code> 之类不知所云的东西,生成逻辑必须全部理解才能成功攻破这一套密码.</p>
+</blockquote>
+<p>不过现在的各大app都能手机重置密码了,这么做的成本已经远大于收益,所以Fluu认为这一套密码是很成功的,如果你不想用密码管理器的话.</p>
+<p>但在2026年,Fluu要告别这一套系统了.  </p>
+<h2 id="拥抱密码管理器"><a href="#拥抱密码管理器" class="headerlink" title="拥抱密码管理器"></a>拥抱密码管理器</h2><p>Fluu这几年用自创密码机制的感受就是,麻烦.  </p>
+<ul>
+<li><p>这个密码系统的第一个缺点就是<strong>不被很好的支持</strong>.<br>比如某些银行的登陆密码不能有 <code>.</code> 这个字符,然而登录的时候不会告诉你登录的时候不能输入 <code>.</code> ,导致你的公钥直接被废,造成额外的记忆量(去记哪些平台不能输入 <code>.</code>,哪些平台连 <code>#</code> 都不能输入)</p>
+</li>
+<li><p>这个密码系统的第二个缺点就是<strong>更新很麻烦</strong>.<br>你需要手动维护这么一个 <code>Crypto.md</code> 作为你的”私钥表”防止忘记,久而久之这个”私钥表”会越来越长,这个时候需要担心的往往不是密码长什么样,而是你当初是怎么登录的(比如用Google还是Github还是手机号还是邮箱,哪个邮箱),所以你还需要维护你的账户信息,造成额外的记忆量.</p>
+</li>
+</ul>
+<p>综上,这个密码机制虽然好处多多但还是干不过密码管理器,最后Fluu在26年2月1日从Chrome自带的密码管理器换上了bitwarden.<br>由于第一天用bitwarden,后续有什么感受再说吧.  </p>
+<p>这篇博文的主题就是密码管理,我认为此时提及bitwarden不是广告.</p>
+<h2 id="PGP-amp-GPG"><a href="#PGP-amp-GPG" class="headerlink" title="PGP &amp; GPG"></a>PGP &amp; GPG</h2><p>先来一段小历史:</p>
+<blockquote>
+<p>  某年,有个人想加密传输消息,所以创造了PGP(Pretty Good Privacy),然后广泛传播,但它是商业软件,不能自由使用.<br>  后来,GNU开发了一个能兼容PGP的加密产品,名字叫GPG(GNU Privacy Guard).</p>
+</blockquote>
+<p>所以PGP和GPG是两个非常相近的概念,至少体感上差不多.</p>
+<p>笔者参考<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/07/gpg.html">这篇文章</a>安装了Windows的Kleopatra,开箱即用.</p>
+<p>最后Fluu也是可以签名的人了,<a href="../../../../attachment/PublicKey.gpg">公钥链接</a>.</p>
+<h2 id="签名-加密原理"><a href="#签名-加密原理" class="headerlink" title="签名/加密原理"></a>签名/加密原理</h2><p>最后附上一段加密/解密/签名/验证的原理.</p>
+<p>有一个系统叫非对称加密系统,加密和解密用两个不同的钥匙.一个通俗的比喻就是,建筑队来你家装修需要你家门钥匙,但你不希望他们装修完了还能进你家门,所以你的钥匙和建筑队的钥匙是两种钥匙,你拿到的是私钥和公钥,建筑队拿到的是公钥.</p>
+<p>那么我们重新解释一下上面的名词:<br>加密:你用你的私钥锁上门;同理建筑队能用公钥锁门.<br>解密:如果用私钥锁上门可以用公钥开门,如果用公钥锁上门可以用私钥开.<br>签名:你在屋子里留一张字条(描述你屋子的信息),然后用你的私钥锁门.<br>验证:建筑队公钥开门后看到字条,核对屋子里和你字条的描述一致,签名的验证就成功了,如果进了贼把你的屋子翻得一团乱不符合你的字条,那么签名将会失败.</p>
+<p>实际密码实现和这个差不多,不过实际上签名只是验证文件有没有被篡改,所以并没有”锁门”,只是把锁锁好之后挂上了.</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/02/30021_PGP/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&text=PGP与Fluu的密码管理"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&is_video=false&description=PGP与Fluu的密码管理"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PGP与Fluu的密码管理&body=Check out this article: https://narafluorine.github.io/2026/02/02/30021_PGP/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&title=PGP与Fluu的密码管理"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/02/30021_PGP/&name=PGP与Fluu的密码管理&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/02/30021_PGP/&t=PGP与Fluu的密码管理"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
