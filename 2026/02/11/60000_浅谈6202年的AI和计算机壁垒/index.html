@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈6202年的AI与计算机围城">
+<meta property="og:url" content="https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-11T14:27:59.000Z">
+<meta property="article:modified_time" content="2026-02-11T14:27:55.553Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="论断筒">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>浅谈6202年的AI与计算机围城</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&text=浅谈6202年的AI与计算机围城"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&is_video=false&description=浅谈6202年的AI与计算机围城"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈6202年的AI与计算机围城&body=Check out this article: https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&name=浅谈6202年的AI与计算机围城&description=这里有东西被加密了,需要输入密码查看喵."><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&t=浅谈6202年的AI与计算机围城"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        浅谈6202年的AI与计算机围城
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-02-11T14:27:59.000Z" class="dt-published" itemprop="datePublished">2026-02-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/LIVE/">LIVE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/" rel="tag">论断筒</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="1c2ed7680b31a65ac583d8bb507bdb52d0fb43ffac7ad8ad9a853226566ddcf5">9f17034b5e966acb492f292e059ed2da4c3cef17b9e3d81042e9b070fbf2ebea8c814237a20840ff999f5a4ff6d935f8cce4a153d8876063d7ca47ef043458d52f899c5b96078f497bfa82cdbce2c3bc84b3b5f75c24dbc225ff739ed0ace73dbd727cd875319485b18e69c6a88c8d94674763c8d4ff193f0cf9c6b900478b81f7c75e011d7fe3a7900c7aef803ac99db32f5a8662545c28dc4eeefcda462abed7dc57708b9a1867651dc79370aa47e467a2a1944293788e9c899ec2f64c11b86f1c9901af3d2867a1145182f60c0f44ac22c88d6348b12bd27c7a2cc41a4273d14ec1a3d801b38c0ff9eb3b9328538e82a77c189471e21bc3dd040ed7a994b9920f95fe4f6101a2d59d22e135339a4229938986568169d21508c667b920520a33b8a111db80d3e40b4a14e629b0144fef2ca0d798113b6304e7f10cb474115dda2cb7f74fff56b57048ed8e396183257ad38fc25301e82af63c6098d3c71aa54cca6d32efb2324668c843d801a295aedf355d3795e270378c56d76d3328e6688f6e1ef299438e2b065e1f982f01dabcd7075b64b769148e657a0b91f92a8de01c597cb446594fd2a62731e498002bd1799dad6f561f528ac1968fdd09c91dc642572807b05b06c02258625f658ce85b2b3fe55f9a9965ad9f3e29909e7246bcb682be552daeffa9e4d92a8316ae88309a41b08f0389db4156f2133bbc11a878a0be602385aaa081081d1acbad3e6472e4a60c5f2f5453280c6517d8f4d3053ecca598c008742efce3194067ea30ff46a77367c81930005c7fc85e4d015cdb361046f16dd7911b99e8cc91680b17a0eb45783ea5322c147b782491872bfc9b3ddd0c92637fb4f2f77f4c135b48eee8e90c72254648de4168d8c4d4aa1fbea22116636b9a1a26cfdecae6baf717a7d2aa97da1ca7d6081839d5cd3c49fb0fb54efd8c912c723ebdb6921d7e068335ec8bc61d40c97bd743677023b23b1df523f73ec21b7fac2ea941b7a5b15f0e1e15b2325ed9e62ac75b71c3a438d70fe28717657ea6c046e8b46b3fcb7d962cf8e399a91de1440a1abbc605fc802e6b640c8e3b2f677e4de82b3d9ef784132b56af0f792910c0686b32695db72967bac5935cd5465ad01ab4132546d69aa110a10796523f4782e820e49848b5cefc5cd967407bc15d822a0974b7a64fad2a7dc5c2ec4e302d44426b363c0d8b742a88336312fac70c2b446b4ad82acc5bf4bfbdf640fadf6af0b0ef682062451e7c106acc3cc6c6f9b5ee5a4fc243939daaf6d255cfc58f229f93dd0e6152ee86b3baaf63fd7f8cad2ce8c47676d8381506684d842e90e1037149796acd394ef295bf18e267d9a65c704a312f85ece089608b585b40b2bc006ec741cd3d06e08079a0d71e79642be107427daf8b302285f94d6228e613bf199192194f37502afa1426afa6e2ac53629e9d8aa6c62bdeac18a81cee3727ffeccad3bd64ee76e4574fe6dac43631447a560a707ab908b36f9ef7e37f2257c48306ed6f725c574bbf0553dcd077fd4d87bdf7982e07770d7c5b68ed686583b32d36b303606a77f6fa50dd03699d975e3270e441c0715753010e3592759fe41a2c51d9feb7f975599e1dbb1dfd9a23f7a49f20c806b8612e6d5fb19827f7fcff21780ffc98f6214c1b13688e23cba94d17d138286a5b38b30ed52c682055d6755f4af85246fcb8cb8ab6f2928b7304003dc5d0e7d93a67ac9f5013689fc40832d114a74375af1843b69ec2504d6111e82c54584328f67fc95b875c4eb3598045cbc9eb67d92b6e906679b315d431b9b6037968f69fbddc21503f01163d058a8d1f678ab4417a5fc61ded87bc71b179b58f06938c0e33cf30333e0f0efa728a3d52b71c1b02c645a7a328f2bdfd839ed688c7867a31dc3ee960b73cd223363131ccfddbf8d411a4a006992b9e4e4761bed520ae7a50605dd93fd1753f143a703b76f554dc026f297a5b6c80b7022647a1dfa578f680e92382e6550b433cb0632de8990468a0f435a875483a5baa3e4a481cdd574d8aaf900df72542369dadf04a21f993a2169ffa38b7ff7f36acdc9e09a19a0f28729a5b86119df2debc3272710d77b018a314e3334a70a000cb43bee0c16e28df263a13f2e7c2b50c3439ce9ec6758ef5bf568ecce1b31bed4f9aefdbacf4fa3ddb3761bfe0404de9a4dd9d93ab137bd53ab26e48bda73c8e8ac4412c534f2893c236a6a5f85e33a53f7fd6b413ba502a3dae70aa091de3bba83e0d054bc51c2937e2d269aa1408c1c2769ed96f64411909f393c02e4cb1c96630849530f9018cc785db72308dde6c2b9343c9b85e336f74dfbc7af29607619c7ad8bc2b3f8f96f7e7e4d1bae0f6072c98d3fdcc4eb27544274aa5ae874719f34ba2b4eea62433e8abfe6461887cffaef822fb92e3c94ba6cde0470c6f88d87b9f7f98920f2a49534cbfc1dceed4c355598e42a5864529c864e85d2e2941de8ed36654327b6a2e0d5a8dedb66f6fccc96dd0b1c0927487a30cfbd899cfec4a1b3e29b9a9cf6e4af5bf2f12ce7d8cd1b226f81ebdf09510b7754a7d6bfb9585382191a7768a7b31250fc18e42d6f0b0ce26d5d8244b7d43030de3a865314d879fe700d29a977a05728bd752e3fab026fec96d42268ebce0d96b8cd2ce8cd6a89d9640edd895249f630ca96f786e7a60939e7746474bc5940775bef8430c26f99585e0812e347b6a8d8fd6fdf690713e3cddc72f13347e73f0d16eae086ae741dd2bdeccb258a7a706122c11459454e7ea7ca447c0235ac24efea1932e02696c39e953de779f996af51c3f8271eeeee702775d87932e7d3553f79a400b331b90052aa71bfe9f67fdcf242e426ee0cac5853fe6d8e961d5b380d5f151ae3733bfb7f829d61da79707715f5a17c9aa6c92937a6acb0328ce4c57a5a8c02aaf945d3a9fc9bd53bdbc335e1bd1dc6e1244c8e0661d003d7f8e045dcd3f0fcae99b110971e0969fb10637fd4ebf95daa44b53764f2aba0237f69721f1d8a3ba640f4cb0dccdb6ba1e63a00610380e07d27a23d4af93dcfafb9fd9ddbb8113844be5a93641a9d859a0979ec4c8073ac562044188e70ee899082279de39be5c2116719cb61146fcdba9f6c0976191ad207c22aee949ef223c2e7a9e6cd9de1ea898bc7fe3b8a85cf56934621df5c7badc327b22208f621ccda2321baf48196d51f3d1b19e8fd4ac857b804c3f2dabb55a1277f20f9eeb5b13ae03919d8ffd1e2a652e4c126282faf348ef0035ddf8f4662ba7f576d3b43a2ca71f9b4ab75dd019970144199a2a88b6711382e70cd5dff92f0e37be2fad69330a4ee6aa40f4039a808cfba64314df5494573a84a3668ad673177f68f3ad7c15c1872ecaceb5c97d880b0eef2d3c65df35c4399f91be9b29929c50c3c657728c5416504316d8e96decd650224ed14f7cec0f41c0170bf30b3464a58c31532ba948ebabd62e3355bf34c8e7cd29311b6548072be8107eff8e21d96ceffd997bd1ea51f9dcb47961df488e89daeae38f55679327564c59350fcfc9cd579885a2e0131076a8963519259842d9e67cf1fad72cfead90c50f5c7c3e1bb1a464ea9ede00979d983a2f4e34cd2434336952d18191b2c3c071bcecb902759f46a3bb6e1d2ad18d053bcf6207f2a1088d89b49fc69dba6c360e7957d61ac7da10cef0374634e32e694b30e34821571121671d6a4a596bf95aaa6742f9379f8972f5cd9c08246979fa02766cf04eccd57b1749f6c13b7f21f674d80f1a38f3c77a43e145101f6a99fdc92cc1a732faaa69ed4ab0f6966da7dda8342869912f3646657a6fc3b0f57ebccecbb20155f13a1d9d8a054c6e867c2e46762823bdf4329c8d9b081f5a95c3f16e41a88231a0c837c46b1cfd69637c2340abc448d0ca4713791c68ee6036d8d4ed2afb49a0c91191c194d13718dad270d5242284d94dcb1ec34380cce93ac9c06e4ad6a6f43b52cb44ac43a333f45325e18b3a8968e5f17450d98ecfa127f208b1e1bd3420987d055a6536a938a1c828a1334b3ff097a1d18fda4b384735d9424b90af874c85f281000114041fdeca2d2ecc64d97005b54b304ad9394751afd0968f2ebaf7bbc4265cb06cce9c9efc9c77ce630db144c5b42c16ff456dbee41764eabb02140aa5da236fae9351b7c409fa79da027961db38c76fe7dc52074e8029aa85d2125ffd42e3277f5f6ddc77874f07baa7b9d83d7baf764746600de515cd9caea1e7a97dff4b9fb13d37ad0195f8bd7266255d1a5bf7bcddede66fc9406ba95b94acc5e343fe830e6ec1de6188fa23ad8ab2a50cde52570cd65dfe0cf2ffb77c148ccd86ea7c662e77c7fd3d3ee4a196ecffa0851c7dfc2c6dc07c7bf23448c36ae7a9c340a758ba4626d05d3886753f2400a80228cd079f439bc65244a1d6f51d3b006bf92aaa18ec4db030cccbb9a9cedb0aef960b144a4768ee1cad35d790433e84bd8de9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Fluu在心中想了一个优雅的8位数字,请回答</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&text=浅谈6202年的AI与计算机围城"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&is_video=false&description=浅谈6202年的AI与计算机围城"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈6202年的AI与计算机围城&body=Check out this article: https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&name=浅谈6202年的AI与计算机围城&description=这里有东西被加密了,需要输入密码查看喵."><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&t=浅谈6202年的AI与计算机围城"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+  <!-- 不蒜子统计 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <!-- 不蒜子统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

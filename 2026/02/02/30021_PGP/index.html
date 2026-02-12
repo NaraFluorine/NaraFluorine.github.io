@@ -10,11 +10,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="PGP与Fluu的密码管理">
 <meta property="og:url" content="https://narafluorine.github.io/2026/02/02/30021_PGP/index.html">
-<meta property="og:site_name" content="Fluorine&#39;s blog">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性) 比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,Fluu英语不好不会解密,只记得大家把 is 加密成 ehs),使用化学元素的元素名对应相对原子质量进行加密(Fluu想出来的,到现在还在用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-01T20:55:03.000Z">
-<meta property="article:modified_time" content="2026-02-01T22:21:34.798Z">
+<meta property="article:modified_time" content="2026-02-07T12:29:01.757Z">
 <meta property="article:author" content="Fluorine Wang">
 <meta property="article:tag" content="Crypto">
 <meta name="twitter:card" content="summary">
@@ -70,7 +70,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Fluorine's blog" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
 </head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -676,7 +676,7 @@
 </div>
 <p>Fluu在当时面临一个难题:密码存储.</p>
 <p>当时的Fluu是没有自己电脑的,用手机存储密码来回粘贴1不安全2很麻烦,纸记又很容易丢,自己全记住又很容易忘.</p>
-<p>最后Fluu创造了”公私钥法”来管理Fluu的所有密码(<strong>注意</strong>:这不是密码学上的公私钥定义.为了还原Fluu当时喜欢学一个名词就乱用的形格,特地采用”公私钥”作为称谓)</p>
+<p>最后Fluu创造了”公私钥法”来管理Fluu的所有密码(<strong>注意</strong>:这不是密码学的公私钥定义.为了还原Fluu当时喜欢学一个名词就乱用的性格,特地采用”公私钥”作为称谓)</p>
 <h2 id="“公私钥法”"><a href="#“公私钥法”" class="headerlink" title="“公私钥法”"></a>“公私钥法”</h2><p>首先自己记住一串很长的随机字符串作为公钥,比如(这里采用Fluu曾用过的密码)Fluu皇室战争账号的UID:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#288LP8Q9U</span><br></pre></td></tr></table></figure>
 <p>然后对这个公钥进行处理,比如变成</p>
