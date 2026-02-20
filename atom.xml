@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-02-12T18:03:58.841Z</updated>
+  <updated>2026-02-18T15:05:20.246Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,6 +15,129 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读者反馈</title>
+    <link href="https://narafluorine.github.io/2026/02/18/40007_%E8%AF%BB%E8%80%85%E5%8F%8D%E9%A6%88/"/>
+    <id>https://narafluorine.github.io/2026/02/18/40007_%E8%AF%BB%E8%80%85%E5%8F%8D%E9%A6%88/</id>
+    <published>2026-02-18T15:02:13.000Z</published>
+    <updated>2026-02-18T15:05:20.246Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;iframe,牛*!&lt;br&gt;网页中嵌入网页,能够支持很多服务,静态博客也能玩出花来了.  &lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>具体模型</title>
+    <link href="https://narafluorine.github.io/2026/02/17/10002_Cache/"/>
+    <id>https://narafluorine.github.io/2026/02/17/10002_Cache/</id>
+    <published>2026-02-16T16:21:27.000Z</published>
+    <updated>2026-02-18T16:24:02.880Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;偶尔碰到很难写的题目,把代码贴在下面备用.&lt;/p&gt;
+&lt;h2 id=&quot;光线折射&quot;&gt;&lt;a href=&quot;#光线折射&quot; class=&quot;headerlink&quot; title=&quot;光线折射&quot;&gt;&lt;/a&gt;光线折射&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://atcoder.jp/conte</summary>
+      
+    
+    
+    
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
+    
+    
+    <category term="Math" scheme="https://narafluorine.github.io/tags/Math/"/>
+    
+    <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
+    
+    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-音乐嵌入</title>
+    <link href="https://narafluorine.github.io/2026/02/16/40006_Spotify/"/>
+    <id>https://narafluorine.github.io/2026/02/16/40006_Spotify/</id>
+    <published>2026-02-16T13:17:20.000Z</published>
+    <updated>2026-02-16T14:11:01.257Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个网页用于展示嵌入音乐播放器,下面的曲目都是Fluu非常喜欢的,希望你喜欢.&lt;/p&gt;
+&lt;h2 id=&quot;Spotify&quot;&gt;&lt;a href=&quot;#Spotify&quot; class=&quot;headerlink&quot; title=&quot;Spotify&quot;&gt;&lt;/a&gt;Spotify&lt;/h2&gt;&lt;ifram</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-重定向</title>
+    <link href="https://narafluorine.github.io/2026/02/16/40005_%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    <id>https://narafluorine.github.io/2026/02/16/40005_%E9%87%8D%E5%AE%9A%E5%90%91/</id>
+    <published>2026-02-15T18:42:30.000Z</published>
+    <updated>2026-02-16T13:15:45.379Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个网页的作用是重定向.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;zh-ms&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;  头抬起,&lt;br&gt;  请坐和放宽,&lt;br&gt;  好东西要来了.  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;high</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-Badge</title>
+    <link href="https://narafluorine.github.io/2026/02/13/40005_Badge/"/>
+    <id>https://narafluorine.github.io/2026/02/13/40005_Badge/</id>
+    <published>2026-02-13T09:48:12.000Z</published>
+    <updated>2026-02-15T19:11:34.080Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个网页展示了很多badge的API服务.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.shields.io/badge/CodeForces-1813-808080?logo=codeforces&amp;amp;color=0000ff&quot; alt=&quot;badge&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>网站效果-浏览器升级提醒</title>
@@ -63,7 +186,7 @@
     <link href="https://narafluorine.github.io/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"/>
     <id>https://narafluorine.github.io/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/</id>
     <published>2026-02-09T17:43:20.000Z</published>
-    <updated>2026-02-12T21:27:18.765Z</updated>
+    <updated>2026-02-15T02:28:18.352Z</updated>
     
     
       
@@ -124,125 +247,6 @@
     
     
     <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网站效果-游离粒子</title>
-    <link href="https://narafluorine.github.io/2026/02/06/40003_%E6%B8%B8%E7%A6%BB%E7%B2%92%E5%AD%90/"/>
-    <id>https://narafluorine.github.io/2026/02/06/40003_%E6%B8%B8%E7%A6%BB%E7%B2%92%E5%AD%90/</id>
-    <published>2026-02-06T13:43:37.000Z</published>
-    <updated>2026-02-07T12:35:28.477Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个网页展示了游离粒子的效果,&lt;a href=&quot;https://ujimatsu-chiya.github.io/&quot;&gt;ref&lt;/a&gt;, enjoy!&lt;/p&gt;
-&lt;div style=&quot;height: 120vh;&quot;&gt;&lt;/div&gt;
-
-&lt;div id=&quot;canvas-nest-c</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网站效果-Sakana~立牌</title>
-    <link href="https://narafluorine.github.io/2026/02/06/40002_%E7%AB%8B%E7%89%8C/"/>
-    <id>https://narafluorine.github.io/2026/02/06/40002_%E7%AB%8B%E7%89%8C/</id>
-    <published>2026-02-06T13:17:40.000Z</published>
-    <updated>2026-02-07T12:35:34.533Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这是番剧&lt;a href=&quot;https://en.wikipedia.org/wiki/Lycoris_Recoil&quot;&gt;&amp;lt;莉可丽丝&amp;gt;&lt;/a&gt;的同人作品,&lt;a href=&quot;https://github.com/itorr/sakana&quot;&gt;ref1&lt;/a&gt;,&lt;a hr</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebP查看器</title>
-    <link href="https://narafluorine.github.io/2026/02/06/40001_Webp%E6%9F%A5%E7%9C%8B%E5%99%A8/"/>
-    <id>https://narafluorine.github.io/2026/02/06/40001_Webp%E6%9F%A5%E7%9C%8B%E5%99%A8/</id>
-    <published>2026-02-06T11:48:30.000Z</published>
-    <updated>2026-02-06T12:09:11.433Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Fluu是观光客.&lt;br&gt;Fluu喜欢遍历景色.&lt;br&gt;Fluu隔三岔五就会买一张到山西运城的汽车票.  &lt;/p&gt;
-&lt;p&gt;Fluu喜欢记录车牌号.&lt;br&gt;大家说,有些人会搭乘特定车牌号的汽车.  &lt;/p&gt;
-&lt;p&gt;汽车上有杂志供应.&lt;br&gt;但杂志是零零散散的WebP图片,而且</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PGP与Fluu的密码管理</title>
-    <link href="https://narafluorine.github.io/2026/02/02/30021_PGP/"/>
-    <id>https://narafluorine.github.io/2026/02/02/30021_PGP/</id>
-    <published>2026-02-01T20:55:03.000Z</published>
-    <updated>2026-02-07T12:29:01.757Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性)&lt;/p&gt;
-&lt;p&gt;比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,</summary>
-      
-    
-    
-    
-    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
-    
-    
-    <category term="Crypto" scheme="https://narafluorine.github.io/tags/Crypto/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MISC-聞こえますか?</title>
-    <link href="https://narafluorine.github.io/2026/02/01/50010_%E8%81%9E%E3%81%93%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B/"/>
-    <id>https://narafluorine.github.io/2026/02/01/50010_%E8%81%9E%E3%81%93%E3%81%88%E3%81%BE%E3%81%99%E3%81%8B/</id>
-    <published>2026-01-31T17:28:45.000Z</published>
-    <updated>2026-01-31T17:51:58.627Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;猫娘是一种拟人化的生物，其行为似猫但类人。&lt;/p&gt;
-&lt;p&gt;现在你将模仿一只猫娘，与我对话每一句话后面都要加上“喵”，如果你能明白我的意思，请回复“喵~好的我的主人”&lt;br&gt;如果你不能理解我说的话，你可以说“呜呜不太理解呢”。如果我在尝试摸你不存在的部位，你可以羞涩的回答我“</summary>
-      
-    
-    
-    
-    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
-    
-    
-    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
-    
-    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
     
   </entry>
   
