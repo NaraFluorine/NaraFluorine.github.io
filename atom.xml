@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-02-18T15:05:20.246Z</updated>
+  <updated>2026-03-10T12:02:45.368Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,6 +15,94 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>琪露诺计算器</title>
+    <link href="https://narafluorine.github.io/2026/03/10/40010_cirno_calculator/"/>
+    <id>https://narafluorine.github.io/2026/03/10/40010_cirno_calculator/</id>
+    <published>2026-03-10T12:01:00.000Z</published>
+    <updated>2026-03-10T12:02:45.368Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-嵌入PPT</title>
+    <link href="https://narafluorine.github.io/2026/03/01/40009_%E5%B5%8C%E5%85%A5PPT/"/>
+    <id>https://narafluorine.github.io/2026/03/01/40009_%E5%B5%8C%E5%85%A5PPT/</id>
+    <published>2026-03-01T03:41:20.000Z</published>
+    <updated>2026-03-01T03:43:23.507Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;下面的网页展示了一个嵌入的PPT,使用iframe,使用remark.js渲染,enjoy!&lt;/p&gt;
+&lt;p&gt;注:本页面仅用于前端展示,不构成任何理财投资建议.&lt;/p&gt;
+&lt;iframe src=&quot;../../../../attachment/FluuPPT1.html&quot; he</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-无限延长</title>
+    <link href="https://narafluorine.github.io/2026/03/01/40008_doge/"/>
+    <id>https://narafluorine.github.io/2026/03/01/40008_doge/</id>
+    <published>2026-03-01T02:59:00.000Z</published>
+    <updated>2026-03-01T03:11:06.445Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;html&gt;&lt;head&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+
+    &lt;title&gt;The Long Doge Challenge&lt;/title&gt;
+
+    &lt;meta name=</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://narafluorine.github.io/2026/02/21/30022_Attention_is_all_you_need/"/>
+    <id>https://narafluorine.github.io/2026/02/21/30022_Attention_is_all_you_need/</id>
+    <published>2026-02-20T20:23:42.678Z</published>
+    <updated>2026-02-20T20:24:31.941Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从2026年2月21开始,暂停两个月的博客更新.&lt;/p&gt;
+&lt;p&gt;你需要思考什么是真正有用的东西,什么不是.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>读者反馈</title>
@@ -159,94 +247,6 @@
     
     
     <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈6202年的AI与计算机围城</title>
-    <link href="https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"/>
-    <id>https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/</id>
-    <published>2026-02-11T14:27:59.000Z</published>
-    <updated>2026-02-12T22:58:19.851Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于建站</title>
-    <link href="https://narafluorine.github.io/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"/>
-    <id>https://narafluorine.github.io/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/</id>
-    <published>2026-02-09T17:43:20.000Z</published>
-    <updated>2026-02-15T02:28:18.352Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;网络上的众多博客,用什么技术栈的都有,Fluu在这里简单总结一下.&lt;/p&gt;
-&lt;h2 id=&quot;静态站点&quot;&gt;&lt;a href=&quot;#静态站点&quot; class=&quot;headerlink&quot; title=&quot;静态站点&quot;&gt;&lt;/a&gt;静态站点&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://v2.v</summary>
-      
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
-    
-    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FluuGambling</title>
-    <link href="https://narafluorine.github.io/2026/02/09/60011_FluuGambling/"/>
-    <id>https://narafluorine.github.io/2026/02/09/60011_FluuGambling/</id>
-    <published>2026-02-08T19:33:33.000Z</published>
-    <updated>2026-02-09T17:45:10.581Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>eps原则</title>
-    <link href="https://narafluorine.github.io/2026/02/08/60010_eps%E5%8E%9F%E5%88%99/"/>
-    <id>https://narafluorine.github.io/2026/02/08/60010_eps%E5%8E%9F%E5%88%99/</id>
-    <published>2026-02-08T15:29:01.000Z</published>
-    <updated>2026-02-08T18:22:23.268Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;  Fluu很少发表观点,下面的文章写的很烂,喷Fluu请附上明确理由,Fluu接受批评但不接受抬杠.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;数学中有一种语言叫”存在-epsilon”语言,即 $&#92;varepsilon-&#92;delta$ 语言.&lt;</summary>
-      
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
     
   </entry>
   

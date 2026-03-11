@@ -14,7 +14,7 @@
 <meta property="og:description" content="Fluu喜欢解谜.Fluu在初中为了能够和隔壁班的王浩(化名,他的真名和Fluu有两个字完全一样)用加密信息传输报文,研究了一系列的密码.(后来被认定为传统密码,几乎不具有安全性) 比如模拟钟表的时针分针建立密码表,使用音标符号代替单词进行加密(王浩想出来的,Fluu英语不好不会解密,只记得大家把 is 加密成 ehs),使用化学元素的元素名对应相对原子质量进行加密(Fluu想出来的,到现在还在用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-01T20:55:03.000Z">
-<meta property="article:modified_time" content="2026-02-07T12:29:01.757Z">
+<meta property="article:modified_time" content="2026-02-25T06:44:55.072Z">
 <meta property="article:author" content="Fluorine Wang">
 <meta property="article:tag" content="Crypto">
 <meta name="twitter:card" content="summary">
@@ -138,7 +138,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-hexo-blog-encrypt-upd20260220"><span class="toc-number">6.</span> <span class="toc-text">关于 hexo-blog-encrypt (upd20260220)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-1Password-UPD20260225"><span class="toc-number">7.</span> <span class="toc-text">关于 1Password(UPD20260225)</span></a></li></ol>
       </div>
     
   </span>
@@ -707,6 +707,34 @@
 <p>有一个系统叫非对称加密系统,加密和解密用两个不同的钥匙.一个通俗的比喻就是,建筑队来你家装修需要你家门钥匙,但你不希望他们装修完了还能进你家门,所以你的钥匙和建筑队的钥匙是两种钥匙,你拿到的是私钥和公钥,建筑队拿到的是公钥.</p>
 <p>那么我们重新解释一下上面的名词:<br>加密:你用你的私钥锁上门;同理建筑队能用公钥锁门.<br>解密:如果用私钥锁上门可以用公钥开门,如果用公钥锁上门可以用私钥开.<br>签名:你在屋子里留一张字条(描述你屋子的信息),然后用你的私钥锁门.<br>验证:建筑队公钥开门后看到字条,核对屋子里和你字条的描述一致,签名的验证就成功了,如果进了贼把你的屋子翻得一团乱不符合你的字条,那么签名将会失败.</p>
 <p>实际密码实现和这个差不多,不过实际上签名只是验证文件有没有被篡改,所以并没有”锁门”,只是把锁锁好之后挂上了.</p>
+<h2 id="关于-hexo-blog-encrypt-upd20260220"><a href="#关于-hexo-blog-encrypt-upd20260220" class="headerlink" title="关于 hexo-blog-encrypt (upd20260220)"></a>关于 hexo-blog-encrypt (upd20260220)</h2><p>Fluu在逛互联网的时候发现有人对这个插件的能力表示质疑,一个最典型的论调是:</p>
+<blockquote>
+<p>  hexo是静态博客,密码也是静态的,那么加密没有意义.</p>
+</blockquote>
+<p>首先需要了解一下hexo-blog-encrypt是什么东西,他使用 <code>AES-CBC256</code> 加密规范.<br>什么是 <code>AES-CBC256</code> ?</p>
+<p>先用一个例子讲一讲AES有多安全:</p>
+<blockquote>
+<p>  经过五年的甄选流程，高级加密标准由美国国家标准与技术研究院（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。现在，高级加密标准已然成为对称密钥加密中最流行的算法之一。<br>  — 维基百科<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86">高级加密标准</a></p>
+</blockquote>
+<p>美国政府都在用,所以应该相信他是安全的,不然我也没什么更好的证明方法,不妨直接解密Fluu的博客试试看能不能成功.</p>
+<p>那么稍微详细一点,Fluu大致讲解一下AES的工作流程.</p>
+<p>首先文章会被拆成16个bytes,每个byte是8个二进制位,也就是能表示256个数字.<br>然后密钥也是16个byte,少的会补足多的会叠加,总之密钥也会被整成16个bytes.<br>然后AES会进行很复杂的变换操作,包括但不限于行变换,抑或运算,映射运算(有一个S盒),而且这样的运算有好几轮(可逆),具体算法实现不讲,感兴趣可以查找网上的实现,这不是重点.<br>然后就加密完成了,得到了16个混乱的bytes.  </p>
+<p>一篇文章很长,显然不只有16个bytes,所以我们要分块进行加密.<br>如果每块都是一个密钥,直接加密,最后拼起来,这叫 <code>ECB</code> .<br>肯定有人能想到,这样的话如果两个块信息完全一致,加密的结果也会是一致的.<br>这会非常危险,写字可能感受不到,但如果加密一个白底的图片,比如Linux企鹅,那么相同的块加密结果相同,攻击者能看出大致轮廓来,信息就暴露了.</p>
+<p>所以我们额外添加一点噪音,比如说上一个块加密的结果抑或上下一个还没加密的块,然后再抑或上 <code>iv</code> (一个固定的噪音),这样每个块就不会一样了(或者说极大概率不会一样了),这就是 <code>CBC</code> .<br>至此完整的加密流程就完成了.</p>
+<p>但是还有人能发现,AES本身全是算法,没有任何”比较”的成分,也就是说随便输入一个密码都能完成解密.</p>
+<p>这就是AES的高明之处了,只能通过解密出来的结果人为(或者上nlp机器学习)认定解密的结果有没有意义,但是只有密钥对了才能拿到作者的内容.  </p>
+<p>现在来讲讲hexo-blog-encrypt插件是怎么实现的:噪声 <code>iv</code> 写死,然后对密钥”加盐”(也就是弄乱密钥),整成16bytes,再进行 <code>AES-CBC256</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> keySalt = <span class="title function_">textToArray</span>(<span class="string">&#x27;hexo-blog-encrypt的作者们都是大帅比!&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ivSalt = <span class="title function_">textToArray</span>(<span class="string">&#x27;hexo-blog-encrypt是地表最强Hexo加密插件!&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>然后插件会在需要加密的博客内容前加上 <code>&lt;hbe-prefix&gt;&lt;/hbe-prefix&gt;</code> 标签,如果解密结果是这个,那么解密成功.<br>剩下的内容就没什么好说的了,加密,js脚本,密码验证.</p>
+<p>现在讲一讲如何攻击这个插件.<br>首先看密钥的值域:一共256位bit,每一位bit都可以是1可以是0,那么值域是 $2^{256}$ ,也就是最坏需要 $2^{256}$ 次解密才能解密正确,这个数字大概是 $1.16\times 10^{77}$ .<br>现代计算机一秒能执行约 $3\times 10^8$ 次运算,假设1s能进行1次解密,按照一天10000s,一年1000天计算,足足要算 $1.16\times 10^{62}$ 年,所以直接攻击AES的方法是不可行的,真有这个算力完全可以去挖矿:比特币的原理是谁挖到了币就广播一下,然后大家更改到新区块上,通过长链鉴定谁的比特币是有效的.那么假设你有这么星际量的算力,足够干翻地球所有矿机,然后比特币会因为你的垄断暴跌,交易所瞬间拔电源(不能卖),引发市场对加密货币的恐慌,无数人爆仓上天台,你虽然挖到海量比特币但是大家不承认就变成了电子垃圾,因为比特币的初衷就是”去中心化”,下一步就是黑灰产找到了你希望你洗一洗他们的钱(加密洗钱的路被你堵死了不找你找谁),或者攻击政府的网站,视奸时代来临力,每个上网的人只能获取有限公共的服务,然后就是人类回归柜台和无线电时代…</p>
+<p>所以与其猜加密的密钥,不如去猜文章的密码是什么,毕竟网上真的有很多密码设置 <code>123456</code> 的人,如果这样的人很少的话Fluu不会开这篇文章讲自己的故事的.  </p>
+<p>至于密钥怎么猜…那就很玄学了,不知道,反正肯定比直接猜密钥要便捷.</p>
+<blockquote>
+<p>  特别注意,插件的密钥会被混淆的,因为密钥也必须达到16bytes,所以填的密码是 <code>123456</code> 最后加密的不是 <code>123456</code> ,是不好描述的神秘字符串,所以”加密的密钥”和”文章的密码”是两个东西,要稍微区分一下.</p>
+</blockquote>
+<p>大家担心的破解问题无论何时都能发生而且都在发生,只是在你的服务器上检验对不对,和黑客自己检验对不对而已,没准给黑客惹毛了直接ddos你,得不偿失.</p>
+<p>密码的意义也不是彻底断绝数据泄露,而是让数据的保险期尽可能拉长,让别人尽量看不出来你的内容,所以他是有意义的,而不是”反正能拿到源码,怎么加密都无所谓”,不然密码学也不会发展这么多年,也不会有Shadowsocks和GFW正在进行的大战,也不会有Trojan和Vmess等各种协议层出不穷.</p>
+<h2 id="关于-1Password-UPD20260225"><a href="#关于-1Password-UPD20260225" class="headerlink" title="关于 1Password(UPD20260225)"></a>关于 1Password(UPD20260225)</h2><p>从V2ex论坛上发现1password涨价到 $47.88 一年(折合329.61),这下不能用了,bitwarden大赢特赢.<br><a target="_blank" rel="noopener" href="https://v2ex.com/t/1193850">ref</a></p>
 
   </div>
 </article>
@@ -755,7 +783,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E5%8A%A0%E5%AF%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">元素加密法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%85%AC%E7%A7%81%E9%92%A5%E6%B3%95%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">“公私钥法”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E6%8A%B1%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">拥抱密码管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PGP-amp-GPG"><span class="toc-number">4.</span> <span class="toc-text">PGP &amp; GPG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D-%E5%8A%A0%E5%AF%86%E5%8E%9F%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">签名&#x2F;加密原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-hexo-blog-encrypt-upd20260220"><span class="toc-number">6.</span> <span class="toc-text">关于 hexo-blog-encrypt (upd20260220)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-1Password-UPD20260225"><span class="toc-number">7.</span> <span class="toc-text">关于 1Password(UPD20260225)</span></a></li></ol>
       </div>
     
 

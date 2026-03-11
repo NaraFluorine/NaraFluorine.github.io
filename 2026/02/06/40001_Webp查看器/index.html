@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="Fluu是观光客.Fluu喜欢遍历景色.Fluu隔三岔五就会买一张到山西运城的汽车票.   Fluu喜欢记录车牌号.大家说,有些人会搭乘特定车牌号的汽车.   汽车上有杂志供应.但杂志是零零散散的WebP图片,而且有人扫图一张图截成两半,Fluu很难办.为了让旅途更加舒适,Fluu Vibe了一个小工具.      (function() {     const styles &#x3D; &#96;">
+    <meta name="description" content="Fluu是观光客.Fluu喜欢遍历景色.Fluu隔三岔五就会买一张到山西运城的汽车票.   Fluu喜欢记录车牌号.大家说,有些人会搭乘特定车牌号的汽车.   汽车上有杂志供应.但杂志是零零散散的WebP图片,而且有人扫图一张图截成两半,Fluu很难办.为了让旅途更加舒适,Fluu Vibe了一个小工具.        (function() {     const styles &#x3D; &#96;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebP查看器">
 <meta property="og:url" content="https://narafluorine.github.io/2026/02/06/40001_Webp%E6%9F%A5%E7%9C%8B%E5%99%A8/index.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="Fluu是观光客.Fluu喜欢遍历景色.Fluu隔三岔五就会买一张到山西运城的汽车票.   Fluu喜欢记录车牌号.大家说,有些人会搭乘特定车牌号的汽车.   汽车上有杂志供应.但杂志是零零散散的WebP图片,而且有人扫图一张图截成两半,Fluu很难办.为了让旅途更加舒适,Fluu Vibe了一个小工具.      (function() {     const styles &#x3D; &#96;">
+<meta property="og:description" content="Fluu是观光客.Fluu喜欢遍历景色.Fluu隔三岔五就会买一张到山西运城的汽车票.   Fluu喜欢记录车牌号.大家说,有些人会搭乘特定车牌号的汽车.   汽车上有杂志供应.但杂志是零零散散的WebP图片,而且有人扫图一张图截成两半,Fluu很难办.为了让旅途更加舒适,Fluu Vibe了一个小工具.        (function() {     const styles &#x3D; &#96;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-02-06T11:48:30.000Z">
-<meta property="article:modified_time" content="2026-02-06T12:09:11.433Z">
+<meta property="article:modified_time" content="2026-03-10T12:40:13.627Z">
 <meta property="article:author" content="Fluorine Wang">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -189,6 +189,8 @@
 <p>汽车上有杂志供应.<br>但杂志是零零散散的WebP图片,而且有人扫图一张图截成两半,Fluu很难办.<br>为了让旅途更加舒适,Fluu Vibe了一个小工具.  </p>
 <div id="webp-viewer-host"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
 <script>
 (function() {
     const styles = `
@@ -214,7 +216,13 @@
             margin-bottom: 20px;
             z-index: 100;
         }
-        #btn {
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #btn-folder, #btn-zip {
             padding: 12px 30px;
             background: #2c2c2c;
             color: #fff;
@@ -225,12 +233,25 @@
             font-size: 14px;
             transition: all 0.2s;
         }
-        #btn:hover { 
+        #btn-folder:hover, #btn-zip:hover { 
             background: #3c3c3c; 
             border-color: #666;
             transform: translateY(-1px);
         }
-        #btn:active { transform: translateY(0); }
+        #btn-folder:active, #btn-zip:active { transform: translateY(0); }
+        #btn-zip {
+            background: #1e3a5f;
+            border-color: #2a5a8f;
+        }
+        #btn-zip:hover {
+            background: #2a4a7f;
+            border-color: #4a8acf;
+        }
+        #btn-folder:disabled, #btn-zip:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
         #width-control {
             display: flex;
             align-items: center;
@@ -303,6 +324,9 @@
             border-radius: 4px;
             border: 1px solid #333;
         }
+        .hidden-file-input {
+            display: none;
+        }
     `;
 
     const host = document.getElementById('webp-viewer-host');
@@ -312,7 +336,10 @@
     shadow.innerHTML = `<style>${styles}</style>
         <div id="viewer">
             <div id="controls">
-                <button id="btn">选择文件夹</button>
+                <div class="btn-group">
+                    <button id="btn-folder">选择文件夹</button>
+                    <button id="btn-zip">上传 ZIP 文件</button>
+                </div>
                 <div id="width-control">
                     <span>宽度</span>
                     <input type="range" id="width-slider" min="20" max="100" value="60">
@@ -321,13 +348,16 @@
             </div>
             <div id="stat">等待选择...</div>
             <div id="img-box"></div>
-        </div>`;
+        </div>
+        <input type="file" id="zip-input" class="hidden-file-input" accept=".zip,application/zip,application/x-zip-compressed">`;
 
     const box = shadow.getElementById('img-box');
-    const btn = shadow.getElementById('btn');
+    const btnFolder = shadow.getElementById('btn-folder');
+    const btnZip = shadow.getElementById('btn-zip');
     const stat = shadow.getElementById('stat');
     const slider = shadow.getElementById('width-slider');
     const widthValue = shadow.getElementById('width-value');
+    const zipInput = shadow.getElementById('zip-input');
 
     // 宽度拖动条逻辑
     slider.addEventListener('input', (e) => {
@@ -336,14 +366,78 @@
         host.style.setProperty('--viewer-width', val + '%');
     });
 
-    if (!('showDirectoryPicker' in window)) {
-        stat.textContent = '请使用 Chrome/Edge 浏览器';
-        btn.disabled = true;
-        btn.style.opacity = '0.5';
-        return;
+    // 检查浏览器支持
+    const hasDirectoryPicker = 'showDirectoryPicker' in window;
+    if (!hasDirectoryPicker) {
+        btnFolder.disabled = true;
+        btnFolder.title = '您的浏览器不支持文件夹选择，请使用 Chrome/Edge';
+        stat.textContent = '提示: 您的浏览器不支持文件夹选择，请使用 ZIP 上传功能';
     }
 
-    btn.addEventListener('click', async () => {
+    // 统一的图片渲染函数
+    async function renderImages(files, sourceName) {
+        // files: Array of {name: string, getData: async () => Blob/ArrayBuffer/File}
+
+        if (files.length === 0) {
+            stat.textContent = '未找到 webp 文件';
+            return;
+        }
+
+        // 按文件名排序（自然排序）
+        files.sort((a, b) => a.name.localeCompare(b.name, undefined, {numeric: true}));
+
+        box.innerHTML = '';
+        stat.textContent = `加载 ${files.length} 张...`;
+
+        // 分批加载避免卡顿
+        for (let i = 0; i < files.length; i += 5) {
+            const batch = files.slice(i, i + 5);
+            const frag = document.createDocumentFragment();
+
+            for (const fileInfo of batch) {
+                try {
+                    const data = await fileInfo.getData();
+                    let url;
+
+                    if (data instanceof File) {
+                        url = URL.createObjectURL(data);
+                    } else if (data instanceof Blob) {
+                        url = URL.createObjectURL(data);
+                    } else if (data instanceof ArrayBuffer) {
+                        const blob = new Blob([data]);
+                        url = URL.createObjectURL(blob);
+                    } else {
+                        continue;
+                    }
+
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.className = 'webp-img';
+                    img.loading = 'lazy';
+                    img.alt = fileInfo.name;
+                    img.onerror = () => {
+                        img.style.height = '50px';
+                        img.style.background = '#2a1f1f';
+                    };
+                    frag.appendChild(img);
+                } catch (err) {
+                    console.error('加载图片失败:', fileInfo.name, err);
+                }
+            }
+            box.appendChild(frag);
+            stat.textContent = `${Math.min(i + 5, files.length)}/${files.length}`;
+
+            // 让出主线程
+            await new Promise(r => setTimeout(r, 0));
+        }
+
+        stat.textContent = `${sourceName}: ${files.length} 张`;
+    }
+
+    // 文件夹选择逻辑
+    btnFolder.addEventListener('click', async () => {
+        if (!hasDirectoryPicker) return;
+
         try {
             const dir = await window.showDirectoryPicker();
             stat.textContent = '扫描中...';
@@ -351,42 +445,77 @@
             const files = [];
             for await (const entry of dir.values()) {
                 if (entry.kind === 'file' && entry.name.toLowerCase().endsWith('.webp')) {
-                    files.push(entry);
+                    files.push({
+                        name: entry.name,
+                        getData: async () => await entry.getFile()
+                    });
                 }
             }
 
-            if (files.length === 0) {
-                stat.textContent = '未找到 webp 文件';
-                return;
-            }
-
-            files.sort((a, b) => a.name.localeCompare(b.name, undefined, {numeric: true}));
-            box.innerHTML = '';
-            stat.textContent = `加载 ${files.length} 张...`;
-
-            for (let i = 0; i < files.length; i += 5) {
-                const batch = files.slice(i, i + 5);
-                const frag = document.createDocumentFragment();
-
-                for (const f of batch) {
-                    const file = await f.getFile();
-                    const url = URL.createObjectURL(file);
-                    const img = document.createElement('img');
-                    img.src = url;
-                    img.className = 'webp-img';
-                    img.loading = 'lazy';
-                    img.onerror = () => img.style.height = '50px';
-                    frag.appendChild(img);
-                }
-                box.appendChild(frag);
-                stat.textContent = `${Math.min(i + 5, files.length)}/${files.length}`;
-            }
-            stat.textContent = `完成: ${files.length} 张`;
+            await renderImages(files, '文件夹');
 
         } catch (e) {
-            if (e.name !== 'AbortError') stat.textContent = '错误: ' + e.message;
+            if (e.name !== 'AbortError') {
+                stat.textContent = '错误: ' + e.message;
+                console.error(e);
+            }
         }
     });
+
+    // ZIP 文件处理逻辑
+    btnZip.addEventListener('click', () => {
+        zipInput.click();
+    });
+
+    zipInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // 检查是否为 ZIP 文件
+        if (!file.name.toLowerCase().endsWith('.zip') && 
+            file.type !== 'application/zip' && 
+            file.type !== 'application/x-zip-compressed') {
+            stat.textContent = '请选择 ZIP 文件';
+            return;
+        }
+
+        stat.textContent = '正在解压...';
+
+        try {
+            const zipData = await file.arrayBuffer();
+            const zip = await JSZip.loadAsync(zipData);
+
+            const webpFiles = [];
+
+            // 遍历 ZIP 中的所有文件
+            for (const [path, zipEntry] of Object.entries(zip.files)) {
+                // 跳过文件夹和隐藏文件
+                if (zipEntry.dir || path.startsWith('__MACOSX') || path.includes('/.')) {
+                    continue;
+                }
+
+                // 检查是否为 WebP 文件
+                if (path.toLowerCase().endsWith('.webp')) {
+                    // 从路径中提取文件名
+                    const name = path.split('/').pop();
+                    webpFiles.push({
+                        name: name,
+                        getData: async () => await zipEntry.async('blob')
+                    });
+                }
+            }
+
+            await renderImages(webpFiles, 'ZIP');
+
+        } catch (err) {
+            stat.textContent = '解压失败: ' + err.message;
+            console.error('ZIP 解压错误:', err);
+        } finally {
+            // 清空 input 以便重复选择同一文件
+            zipInput.value = '';
+        }
+    });
+
 })();
 </script>
   </div>

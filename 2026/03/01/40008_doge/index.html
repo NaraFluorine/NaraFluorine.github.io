@@ -1,0 +1,999 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>The Long Doge Challenge</title>
+
+    <meta name="description" content="The website of the one and only long doge challenge. Don&#39;t forget to PRINT!">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://longdogechallenge.com/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://longdogechallenge.com/assets/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-width: 800px;
+        min-height: 100%;
+        font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+      }
+
+      .wrapper {
+        padding-top: 30vh;
+        width: 220px;
+        margin: auto;
+      }
+
+      .info {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+
+      pre {
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .textwow {
+        cursor: pointer;
+        position: absolute;
+        font-size: 33px;
+        font-weight: bold;
+        -webkit-text-stroke: 1px white;
+      }
+
+      .print {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+
+      .sitter {
+        position: fixed;
+        bottom: 15px;
+        font-family: monospace;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .watch {
+        background: rgba(0, 0, 0, 0.07);
+        padding: 10px 15px;
+        border-radius: 22px;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      .left {
+        left: 15px;
+      }
+
+      .right {
+        right: 15px;
+      }
+
+      .twitch {
+        color: #6441a5;
+      }
+
+      .yt {
+        color: #c4302b;
+      }
+
+      .info span {
+        font-weight: bold;
+      }
+
+      .largewow {
+        position: absolute;
+        font-size: 240px;
+        transform: translateX(-50%);
+        z-index: -2;
+        -webkit-text-stroke: 4px white;
+      }
+
+      .rainbow {
+        color: hotpink;
+        animation: rainbow 1500ms ease infinite;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .secretwow {
+        display: inline-block;
+        cursor: pointer;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC);
+      }
+
+      .secretwow.found {
+        font-weight: bold;
+      }
+
+      .print {
+        cursor: pointer;
+      }
+
+      .hatted {
+        display: none;
+      }
+
+      .spinLeft {
+        animation: spinLeft 700ms forwards infinite;
+      }
+
+      .spinRight {
+        animation: spinRight 700ms forwards infinite;
+      }
+      .watch pre {
+        display: inline;
+        text-transform: none;
+      }
+
+      .how {
+        width: 33px;
+        height: 33px;
+        display: inline-flex;
+        background-repeat: no-repeat;
+        background-color: rgba(0, 0, 0, 0.07);
+        border-radius: 50%;
+        background-size: 20px 20px;
+        background-position: center;
+        vertical-align: top;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      @media (max-width: 700px) {
+        .sitter {
+          display: none;
+        }
+      }
+
+      @keyframes rainbow {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      @keyframes spinLeft {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spinRight {
+        0% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @media print {
+        .print,
+        .sitter {
+          display: none;
+        }
+
+        .info {
+          position: absolute;
+        }
+      }
+    </style>
+</head>
+  <body>
+    <div class="info">
+      <h1>LONG DOGE CHALLENGE 无限狗狗挑战</h1>
+      <h1>ref:https://longdogechallenge.com/</h1>
+      <div class="stat">
+        <div id="longcontainer">
+          Your doge is <span id="length">wow wow</span> long
+        </div>
+
+        <div id="wowers">You have collected <span id="wows">11</span> wows</div>
+
+        <div id="largewowcontainer" class="hidden">
+          You have collected <span id="largeWows">0</span> LARGE wows
+        </div>
+
+        <div id="rainbowwowcontainer" class="hidden">
+          You have rainbowed <span id="rainbow">0</span> wows
+        </div>
+
+        <div id="dogeprimecontainer" class="hidden">
+          DogePrime is <span id="dogeprime">INACTIVE</span>
+        </div>
+
+        <div id="secretwowcontainer" class="hidden">
+          You have found <span id="secretwow">0</span>/<span id="secretwowtotal">100</span>
+          Secret Wows
+        </div>
+
+        <div id="fibowowcontainer" class="hidden">
+          FibonacciDoge is <span id="fibo">INACTIVE</span>
+        </div>
+      </div>
+    </div>
+    <div class="print"><h1>CLICK TO PRINT!</h1></div>
+    <div class="wrapper">
+      <pre class="hatted">          ▄▄▄▄▄▄▄▄▄▄▄▄
+        ▄▀█▀█▄██████████▄▄
+       ▐██████████████████▌
+       ███████████████████▌
+      ▐███████████████████▌
+      █████████████████████▄
+   ▄█▐█▄█▀█████████████▀█▄█▐█▄
+ ▄██▌██████▄█▄█▄█▄█▄█▄█████▌██▌
+▐████▄▀▀▀▀████████████▀▀▀▀▄███
+▐█████████▄▄▄▄▄▄▄▄▄▄▄▄██████▀
+▀▀████████████████████████▀
+  ▌▒▒▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒▒▐
+ ▐▒▒▒▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▌
+ ▌░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌ 
+▌▒▒▒▄██▄▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▐ 
+▐▒▒▐▄█▄█▌▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▒▒▌
+▐▒▒▐▀▐▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▐ 
+ ▌▒▒▀▄▄▄▄▄▄▀▒▒▒▒▒▒▒░▒░▒░▒▒▒▌ 
+ ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌ 
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒░▒▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌
+</pre>
+      <pre class="head">        ▄               ▄    
+        ▌▒█           ▄▀▒▌   
+        ▌▒▒█        ▄▀▒▒▒▐   
+       ▐▄█▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐   
+     ▄▄▀▒▒▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐   
+   ▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌   
+  ▐▒▒▒▄▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▌  
+  ▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐  
+ ▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌ 
+ ▌░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌ 
+▌▒▒▒▄██▄▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▐ 
+▐▒▒▐▄█▄█▌▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▒▒▌
+▐▒▒▐▀▐▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▐ 
+ ▌▒▒▀▄▄▄▄▄▄▀▒▒▒▒▒▒▒░▒░▒░▒▒▒▌ 
+ ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐  
+  ▀▄▒▒▒▒▒▒░▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒░▒▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌  
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌  
+  ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▐  
+  ▀▄▒▒▒▒▒▒▒▒░▒▒▒▒▒░▒▒▄▒▒▒▒▌
+</pre>
+      <pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre>
+    <pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre><pre class="neck">   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+   ▀▄▒▒▒▒░▒▒▒▒▒▒▒▒▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+   ▀▄▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+   ▄▀▒▒▒░▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▒▌
+  ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▒▄▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒▄▒▒▒▒▌
+</pre></div>
+    <script>
+const wrapper = document.querySelector(".wrapper")
+const neck = document.querySelector(".neck")
+const wowEl = document.querySelector("#wows")
+
+const largeWowContainer = document.querySelector("#largewowcontainer")
+const rainbowWowContainer = document.querySelector("#rainbowwowcontainer")
+const dogePrimeContainer = document.querySelector("#dogeprimecontainer")
+const secretWowContainer = document.querySelector("#secretwowcontainer")
+const fibowowcontainer = document.querySelector("#fibowowcontainer")
+
+const largewowEl = document.querySelector("#largeWows")
+const lengthEl = document.querySelector("#length")
+const rainbowsEl = document.querySelector("#rainbow")
+const dogePrimeEl = document.querySelector("#dogeprime")
+const secretWowEl = document.querySelector("#secretwow")
+const fiboWowEl = document.querySelector("#fibo")
+
+let wows = 0
+let largewows = 0
+let rainbowwows = 0
+let secretwows = 0
+let minidoges = 0
+const primeWows = []
+const largeWowsRequired = 10
+
+let fibonacciChallengeStarted = false
+let fibonacciChallengeComplete = false
+const fibonacciWows = []
+const fibonacciSecretWows = []
+let dogePrime = false
+
+document.querySelector(".print").addEventListener("click", () => {
+  if (fibonacciChallengeComplete) {
+    document.querySelector(".head").style.display = "none"
+    document.querySelector(".hatted").style.display = "block"
+  }
+  window.print()
+})
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        injectNeck(entry)
+      }
+    })
+  },
+  { rootMargin: "0px 0px 200% 0px" }
+)
+
+document.addEventListener("click", onBodyClick)
+
+window.onscroll = function(ev) {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+    const lastEl = document.querySelector(".neck:last-child")
+    injectNeck({ target: lastEl })
+  }
+}
+
+function injectNeck(entry) {
+  // Stops observing the old neck element
+  observer.unobserve(entry.target)
+
+  const clonedNeck = neck.cloneNode(true)
+  wrapper.appendChild(clonedNeck)
+  observer.observe(clonedNeck)
+
+  injectWow()
+}
+
+function injectWow() {
+  wows++
+  wowEl.innerText = wows
+
+  const newWow = document.createElement("div")
+  newWow.className = "textwow"
+  newWow.innerText = "WOW"
+  newWow.style.left = 100 + Math.random() * (window.innerWidth - 300) + "px"
+  newWow.style.top = wrapper.offsetHeight - 200 + "px"
+  document.body.appendChild(newWow)
+
+  if (isPrime(wows)) {
+    primeWows.push(newWow)
+  }
+
+  if (isFibonacci(wows)) {
+    fibonacciWows.push(newWow)
+  }
+
+  if (wows === 10) {
+    lengthEl.innerText = "wow wow"
+  }
+
+  if (wows === 50) {
+    lengthEl.innerText = "wow wow wow"
+  }
+
+  if (wows === 100) {
+    lengthEl.innerText = "much wow"
+  }
+
+  if (wows === 150) {
+    lengthEl.innerText = "long much wow"
+  }
+
+  if (wows === 250) {
+    lengthEl.innerText = "very long much wow"
+  }
+
+  if (wows === 500) {
+    lengthEl.innerText = "wow very long much wow"
+  }
+
+  if (wows === 1000) {
+    lengthEl.innerText = "much wow very long much wow!"
+  }
+
+  if (wows === 2000) {
+    lengthEl.innerText = "much wow very long much wow!!"
+  }
+
+  if (wows === 3000) {
+    lengthEl.innerText = "much wow very long much wow!!!"
+  }
+
+  if (wows === 5000) {
+    lengthEl.innerText = "!!much wow very long much wow!!"
+  }
+
+  if (wows === 10000) {
+    lengthEl.innerText = "many many wow amaze"
+  }
+
+  if (wows === 30000) {
+    lengthEl.innerText = "amaze wow dont forget to print!"
+  }
+
+  if (wows === 50000) {
+    lengthEl.innerText = "wowwowowowowowowowowowowwoow"
+  }
+
+  if (wows === 80000) {
+    lengthEl.innerText = "wowwowowowowowowowowowowwooweeeeeeeeee"
+  }
+
+  if (wows > 200 && Math.random() > 0.99) {
+    injectLargeWow()
+  }
+}
+
+function injectLargeWow() {
+  largewows++
+  largewowEl.innerText = largewows
+
+  largeWowContainer.classList.remove("hidden")
+
+  const newWow = document.createElement("div")
+  newWow.className = "largewow"
+  newWow.innerText = "WOW"
+  newWow.style.left = "50%"
+  newWow.style.top = wrapper.offsetHeight - 200 + "px"
+  document.body.appendChild(newWow)
+
+  // Release the text about the large wows on exactly 15
+  if(largewows === largeWowsRequired) {
+    rainbowwowcontainer.classList.remove("hidden")
+    dogePrimeContainer.classList.remove("hidden")
+  }
+}
+
+function isPrime(n) {
+  if (n < 2) return false
+  var q = Math.floor(Math.sqrt(n))
+
+  for (var i = 2; i <= q; i++) {
+    if (n % i == 0) {
+      return false
+    }
+  }
+
+  return true
+}
+
+function isSquare(n) {
+  return n > 0 && Math.sqrt(n) % 1 === 0
+}
+
+function isFibonacci(numberToCheck) {
+  return (
+    isSquare(5 * numberToCheck * numberToCheck + 4) ||
+    isSquare(5 * numberToCheck * numberToCheck - 4)
+  )
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+}
+
+function onBodyClick(e) {
+  if (e.target.className === "textwow" && largewows >= largeWowsRequired) {
+    rainbowwows++
+    e.target.classList.add("rainbow")
+
+    rainbowsEl.innerText = rainbowwows
+
+    let count = 0
+    // Check if they have achieved dogePrime
+    let isPrime = primeWows.every((wowEl) => {
+      count++
+      return wowEl.classList.contains("rainbow")
+    })
+
+    // Activate doge prime
+    if (dogePrime === false && isPrime === true) {
+      dogePrime = true
+      dogePrimeEl.innerText = "ACTIVE"
+      setupSecretWows()
+    } else if (count !== primeWows.length) {
+      dogePrimeEl.innerText = "INACTIVE (" + count + '/' + primeWows.length + ")"
+    }
+  }
+
+  if (e.target.className === "secretwow") {
+    e.target.classList.add("found")
+    secretwows++
+    secretWowEl.innerText = secretwows
+
+    if (secretwows === 100) {
+      fibonacciChallengeStarted = true
+      fibowowcontainer.classList.remove("hidden")
+    }
+  }
+
+  if (fibonacciChallengeStarted) {
+    if (
+      e.target.classList.contains("textwow") ||
+      e.target.classList.contains("secretwow")
+    ) {
+      if (e.target.classList.contains("spinLeft")) {
+        e.target.classList.remove("spinLeft")
+        e.target.classList.add("spinRight")
+      } else if (e.target.classList.contains("spinRight")) {
+        e.target.classList.remove("spinRight")
+        e.target.classList.add("spinLeft")
+      } else {
+        e.target.classList.add("spinLeft")
+      }
+
+      checkAllFiboWows()
+    }
+  }
+}
+
+function checkAllFiboWows() {
+  let successConfirmed = true
+  let innerText = 'INACTIVE '
+
+  let right = true
+  let chainOfLengthRegular = 0
+  for (let i = 0; i < fibonacciWows.length; i++) {
+    if (fibonacciWows[i].classList.contains(right ? "spinRight" : "spinLeft")) {
+      right = !right
+      chainOfLengthRegular++
+    } else {
+      successConfirmed = false
+      break
+    }
+  }
+
+  innerText += "\n (" + chainOfLengthRegular + '/' + fibonacciWows.length + ') Regular (LRL) \n'
+
+  right = false
+  let chainofLengthSecret = 0
+  for (let i = 0; i < fibonacciSecretWows.length; i++) {
+    if (
+      fibonacciSecretWows[i].classList.contains(
+        right ? "spinRight" : "spinLeft"
+      )
+    ) {
+      chainofLengthSecret++
+      right = !right
+    } else {
+      successConfirmed = false
+      break
+    }
+  }
+
+  innerText += "(" + chainofLengthSecret + '/' + fibonacciSecretWows.length + ') Secret (RLR)'
+
+  if (successConfirmed) {
+    fibonacciChallengeComplete = true
+    fibo.innerText = "COMPLETE (NOW PRINT!)"
+  } else {
+    fibonacciChallengeComplete = false
+    fibo.innerText = innerText
+  }
+}
+
+function setupSecretWows() {
+  secretWowContainer.classList.remove("hidden")
+
+  const allnecks = document.querySelectorAll(".neck")
+  let allnecksAsArray = Array.apply(null, allnecks)
+  allnecksAsArray.shift() // remove first item
+
+  shuffleArray(allnecksAsArray)
+  shuffleArray(allnecksAsArray)
+
+  // Do this for first 100 shuffled neck pieces
+  let total = 100
+
+  for (let i = 0; i < total; i++) {
+    let neckItem = allnecksAsArray[i]
+    let pieces = neckItem.innerText.split("\n")
+    const pieceIndex = Math.floor(Math.random() * (pieces.length - 1))
+    const injectionIndex = 5 + Math.floor(Math.random() * 18)
+    pieces[pieceIndex] =
+      pieces[pieceIndex].slice(0, injectionIndex) +
+      '<span class="secretwow">WOW</span>' +
+      pieces[pieceIndex].slice(injectionIndex + 3)
+    neckItem.innerHTML = pieces.join("\n")
+  }
+
+  const allSecretwows = document.querySelectorAll(".secretwow")
+  const secretWowsAsArray = Array.apply(null, allSecretwows)
+  for (let i = 0; i < secretWowsAsArray.length; i++) {
+    if (isFibonacci(i + 1)) {
+      fibonacciSecretWows.push(secretWowsAsArray[i])
+    }
+  }
+}
+
+observer.observe(neck)
+    </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./The Long Doge Challenge_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C6TVJFK786');
+</script>
+
+<div class="textwow" style="left: 901.933px; top: 1428px;">WOW</div><div class="textwow" style="left: 1124.25px; top: 1860px;">WOW</div><div class="textwow" style="left: 823.468px; top: 2292px;">WOW</div><div class="textwow" style="left: 534.878px; top: 2724px;">WOW</div><div class="textwow" style="left: 1146.24px; top: 3156px;">WOW</div><div class="textwow" style="left: 1185.72px; top: 3588px;">WOW</div><div class="textwow" style="left: 1101.19px; top: 4020px;">WOW</div><div class="textwow" style="left: 681.401px; top: 4452px;">WOW</div><div class="textwow" style="left: 734.944px; top: 4884px;">WOW</div><div class="textwow" style="left: 620.215px; top: 5316px;">WOW</div><div class="textwow" style="left: 569.004px; top: 5748px;">WOW</div></body>
+
+</html>
