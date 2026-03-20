@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-03-10T12:02:45.368Z</updated>
+  <updated>2026-03-20T07:49:51.064Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fluu的抽象简历</title>
+    <link href="https://narafluorine.github.io/2026/03/20/20021_%E7%AE%80%E5%8E%86/"/>
+    <id>https://narafluorine.github.io/2026/03/20/20021_%E7%AE%80%E5%8E%86/</id>
+    <published>2026-03-20T07:18:00.000Z</published>
+    <updated>2026-03-20T07:49:51.064Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>突发奇想</title>
+    <link href="https://narafluorine.github.io/2026/03/15/60012_How_To_Wash_Money/"/>
+    <id>https://narafluorine.github.io/2026/03/15/60012_How_To_Wash_Money/</id>
+    <published>2026-03-14T16:17:27.000Z</published>
+    <updated>2026-03-15T10:45:24.942Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小马面经</title>
+    <link href="https://narafluorine.github.io/2026/03/14/20020_%E5%B0%8F%E9%A9%AC%E9%9D%A2%E7%BB%8F/"/>
+    <id>https://narafluorine.github.io/2026/03/14/20020_%E5%B0%8F%E9%A9%AC%E9%9D%A2%E7%BB%8F/</id>
+    <published>2026-03-14T05:20:00.000Z</published>
+    <updated>2026-03-20T07:52:06.574Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本文为降低搜索权重,设置了一个非常简单的密码.&lt;/p&gt;
+&lt;p&gt;笔者于ACM秋招群看到了小马的内推实习,本着随便投投的心态,参加了面试.&lt;br&gt;笔者大概投了六份简历左右,就约了两次面,真没想到笔者居然这么值钱.&lt;br&gt;发现中小厂更倾向于oq笔者,就是,反正你是来讨经验的,我也</summary>
+      
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    
+  </entry>
   
   <entry>
     <title>琪露诺计算器</title>
@@ -132,7 +193,7 @@
     <link href="https://narafluorine.github.io/2026/02/17/10002_Cache/"/>
     <id>https://narafluorine.github.io/2026/02/17/10002_Cache/</id>
     <published>2026-02-16T16:21:27.000Z</published>
-    <updated>2026-02-18T16:24:02.880Z</updated>
+    <updated>2026-03-14T10:11:10.788Z</updated>
     
     
       
@@ -146,9 +207,9 @@
     <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
     
     
-    <category term="Math" scheme="https://narafluorine.github.io/tags/Math/"/>
-    
     <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
+    
+    <category term="Math" scheme="https://narafluorine.github.io/tags/Math/"/>
     
     <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
     
@@ -166,79 +227,6 @@
       
     <summary type="html">&lt;p&gt;这个网页用于展示嵌入音乐播放器,下面的曲目都是Fluu非常喜欢的,希望你喜欢.&lt;/p&gt;
 &lt;h2 id=&quot;Spotify&quot;&gt;&lt;a href=&quot;#Spotify&quot; class=&quot;headerlink&quot; title=&quot;Spotify&quot;&gt;&lt;/a&gt;Spotify&lt;/h2&gt;&lt;ifram</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网站效果-重定向</title>
-    <link href="https://narafluorine.github.io/2026/02/16/40005_%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>https://narafluorine.github.io/2026/02/16/40005_%E9%87%8D%E5%AE%9A%E5%90%91/</id>
-    <published>2026-02-15T18:42:30.000Z</published>
-    <updated>2026-02-16T13:15:45.379Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个网页的作用是重定向.  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;zh-ms&lt;/strong&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;  头抬起,&lt;br&gt;  请坐和放宽,&lt;br&gt;  好东西要来了.  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;high</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网站效果-Badge</title>
-    <link href="https://narafluorine.github.io/2026/02/13/40005_Badge/"/>
-    <id>https://narafluorine.github.io/2026/02/13/40005_Badge/</id>
-    <published>2026-02-13T09:48:12.000Z</published>
-    <updated>2026-02-15T19:11:34.080Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个网页展示了很多badge的API服务.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://img.shields.io/badge/CodeForces-1813-808080?logo=codeforces&amp;amp;color=0000ff&quot; alt=&quot;badge&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网站效果-浏览器升级提醒</title>
-    <link href="https://narafluorine.github.io/2026/02/13/40004_%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E6%A3%80%E6%9F%A5/"/>
-    <id>https://narafluorine.github.io/2026/02/13/40004_%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E6%A3%80%E6%9F%A5/</id>
-    <published>2026-02-12T17:59:59.000Z</published>
-    <updated>2026-02-12T18:03:58.841Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个网页会检查你的浏览器,如果落后版本会弹出窗口提醒,enjoy(?)&lt;/p&gt;
-&lt;h2 id=&quot;ref&quot;&gt;&lt;a href=&quot;#ref&quot; class=&quot;headerlink&quot; title=&quot;ref&quot;&gt;&lt;/a&gt;ref&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://browse</summary>
       
     
     
