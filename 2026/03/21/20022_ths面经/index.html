@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="THS面经">
+<meta property="og:url" content="https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这里有东西被加密了,需要输入密码查看喵.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-20T17:21:00.000Z">
+<meta property="article:modified_time" content="2026-03-20T19:29:40.553Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="论断筒">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>THS面经</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/04/02/20020_%E5%B0%8F%E9%A9%AC%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/03/20/20021_%E7%AE%80%E5%8E%86/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&text=THS面经"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&is_video=false&description=THS面经"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=THS面经&body=Check out this article: https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&name=THS面经&description=这里有东西被加密了,需要输入密码查看喵."><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&t=THS面经"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        THS面经
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-03-20T17:21:00.000Z" class="dt-published" itemprop="datePublished">2026-03-21</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/LIVE/">LIVE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/" rel="tag">论断筒</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="4aac2a9b61876565a34e6340aa32a995f79e91f68d47cec2c5a127acdb8d26f2">f7505c2897cf76878937afcc8ab76d2cb15414bf79f66ce89b17a5fb4e439bf5f35df0229776248c6dba1e2d9826ef5f67e663679178d24b466fa9911a5285f5b6fa9832a744572393ec67cd3ccbd1a4c9dd11a7ad8e67ea1bb71ac5093da7eafb2529c6d79e2ac30bcdc2d24c2c1c1b4eef9669c2581d99d8a412c7b56edb91598ff941a7a232e6e99008fb012afb576af6ce1ebde6ff9a79b43b3dbad35067f588e4c214d228faf3009cd9e70f07852518f61ed3b0874020052c45b934c1bfca0838d014d41cc365fc8efbd7f2a2ea522a1431c6dbe37896672bd076a8703ad6e83353126ab502430cda0a68b63ff47dc457f2a223d33f4cbe62f20f421f094ad57d0ed11048ea4c0f368e4de55b73beb887ef1ebc5c7b75b6f88ec279eb6cd9c818cb4c71222f5af36fa77fd3028fbb1686922de6699338d47a71924ecd5ab18420d06fa1a04ceee24ae07e8ebc06dca3523843b4b89870b0f85a7355309cccbf58b8035c67738039c0e1069c79c66fe3279e2399293a7da96f6740befa327f57ea9bf6b86e6c051b8443e55584c6d55e218324d0f634690a17b1810f11ee67bf28ae2a9caaeaa64c1085203b60cba72d5867e137ce70aecb820d7bdfa21b65b52ec5443cdf07dfef53be0bb7961e8a63724377a18e1c5d1061f3d95466cb122e4bf2e57a86bbd8308d285120774fed0478a49187d575e6662e0e47ba584470ed25ce42b076e6030e2be42eabab476051c07d28b80ca246ccff715d5d9db1de3f44d06dfcdecbfea6ede5fcb8dc0cc3659778a1437b33d517b87d9fd2413ce13e9dcb1c3c971962a0e5b7fa2c92c252c8e67f8b5ec6e7c1d1adb16180c8d2902db6fc42fdf092a56ed9fc4876103ee018a2c88ae9ee008600a4e8f66ff292f108b872c0553339de495458cb5f4f716fe0e775294c4f569ad8ea3e50bd539eb0c2a33071ddbdab3f6704e553b2415a82758b82a89502028ed888496ed63a950d17f8de9f90dff32ab9f33b49ef8ff4fbe12abe593746694cadc071021d2019cb5bf8b7a7102cd05a972f8bc88e93ed9b0a11793ca93a46a033b8ff7bf5d1046eb4583eac76299f231eb664c356f5244826b9e9ba9b50e1735552192081173a9d46fceb8d6acab0c7e6cf9eeb7872ee51e01df1e1b5b88ee49d79bc507160a6562891fad64337c248393203f8b5acc7227da5c6ea259d224d98a8f5e552eabe3c1f485886c99ec4d3fdfeb7a5a5bd12d4081a7909617057f30beb01210caf34fa95b0e494a06e30f9b626e7a41556fb9dd57067f889f0987f13fd71478e46b0cfd2faf9b08c7b74c0030c3434a726eb9f9f0c222310b2c8e8852ad61807684acf858a6c4b357f4a4d809c9c6969fb4cad0620bc588e9f86f74e3159ed57124d1bfbe1e69c6b609fa3dace1710118513c177b6edf4bcb294530f1dbdae4dfc31b2242e347b9f038550bd4cc5282890cd5845c123f4b2adf0cfb3c5081dc4bab11e815ec2ae39c25fb69ff12625c3991a3a499790d89777a7517c57fb3ff93fa6e7b8a5de4f3c9f408e6c47b592d484c8be7a7a2a5096257b609a20a6d0037301a7ac02f620856775053f0bd16842731cdf9d1863b51a5aa5130ae88646c8aa807229c702db4871d9ca0fff9b419e570a5cfae7d3c2325ddbeb2ca86b9d10ec82c756b7bae97cdfd6d8c07c86022280e3ff083673e0ab16c467121a25011ee910ee96b44dab13d3320d83f2202933aae916038129e3c00e848bdd6cafcc74996f3a33854b023d873631b0ac0839c62a17680204754284871f8c04f7cbd7299538c1c8494a7c0670e8a95981c191026acd5e0445fdc60bcc3712bde93a85b5eee9db506db0768b2f6f58b3ca3da4938a9000ecc140ffecdd915e05949a40513e2e15f0a5875741b806935e860efbde0aaf2b31a93993cfe12a48ddea374efea06808d4e7e1e2f36bfaadb9a95c34dd9b0bdd70270cdbf9818427046784454eb8410df6cb96d6150753bff92b6ece1244063696f5796053c8b3763c398c4c3b3612a64cb80b68305e5fe8519122ee4c3d76cc67b021049c7ca3617f88662441d5a31e076ba6cc875ec780c20d8d82b794c9a526637dce631dd018e968dd784ee1458f1da07ade40874a013ab45151d5d5ca11dcf632f92c33e4cbd60a1f39b9acf289de08f3954dc4badc200ba48b1da1dbe5bcb445ea83d6dca22d88efdbb51aa3a89ea269cce31031308ea7fe90b81119f8499278589c409c356d7e77eb99497b</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">THS是哪家公司</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&text=THS面经"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&is_video=false&description=THS面经"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=THS面经&body=Check out this article: https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&title=THS面经"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&name=THS面经&description=这里有东西被加密了,需要输入密码查看喵."><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/&t=THS面经"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
