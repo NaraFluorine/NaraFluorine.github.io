@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-04-04T17:30:51.370Z</updated>
+  <updated>2026-04-15T20:33:56.246Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,11 +17,121 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/"/>
+    <id>https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/</id>
+    <published>2026-04-15T20:22:30.000Z</published>
+    <updated>2026-04-15T20:33:56.246Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ICPC 深圳邀请赛 游记</title>
+    <link href="https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/"/>
+    <id>https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/</id>
+    <published>2026-04-13T08:41:35.000Z</published>
+    <updated>2026-04-13T15:47:17.201Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;day-n&quot;&gt;&lt;a href=&quot;#day-n&quot; class=&quot;headerlink&quot; title=&quot;day -n&quot;&gt;&lt;/a&gt;day -n&lt;/h2&gt;&lt;p&gt;因为24年香港站的时候没办港卡,然后26年汇丰宣布新卡要有管理费了,不然套牢一万…&lt;br&gt;这都是Fluu做攻略不</summary>
+      
+    
+    
+    
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
+    
+    
+    <category term="Contest" scheme="https://narafluorine.github.io/tags/Contest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSAPP学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/04/09/60019_CSAPP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://narafluorine.github.io/2026/04/09/60019_CSAPP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2026-04-09T06:11:30.000Z</published>
+    <updated>2026-04-09T06:12:13.747Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+    
+    
+    
+    
+    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OSINT-泥砖菜盘</title>
+    <link href="https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"/>
+    <id>https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/</id>
+    <published>2026-04-07T09:07:12.000Z</published>
+    <updated>2026-04-13T15:11:26.566Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;请听…&lt;/p&gt;
+&lt;div style=&quot;display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: </summary>
+      
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
+    
+    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写字加点</title>
+    <link href="https://narafluorine.github.io/2026/04/06/60018_%E5%86%99%E5%AD%97%E5%8A%A0%E7%82%B9/"/>
+    <id>https://narafluorine.github.io/2026/04/06/60018_%E5%86%99%E5%AD%97%E5%8A%A0%E7%82%B9/</id>
+    <published>2026-04-06T13:56:32.000Z</published>
+    <updated>2026-04-06T13:57:53.546Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Fluu以李永乐老师为例展示这个现象,该视频为公开视频,&lt;a href=&quot;https://www.bilibili.com/video/BV1ttQdBAE9B/&quot;&gt;链接&lt;/a&gt;,Fluu截取一帧:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../images/l</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
     <title>3D打印分享会</title>
     <link href="https://narafluorine.github.io/2026/04/04/60017_3D%E6%89%93%E5%8D%B0%E5%88%86%E4%BA%AB%E4%BC%9A/"/>
     <id>https://narafluorine.github.io/2026/04/04/60017_3D%E6%89%93%E5%8D%B0%E5%88%86%E4%BA%AB%E4%BC%9A/</id>
     <published>2026-04-04T07:34:55.000Z</published>
-    <updated>2026-04-04T17:30:51.370Z</updated>
+    <updated>2026-04-05T05:08:12.460Z</updated>
     
     
       
@@ -93,7 +203,7 @@
     <link href="https://narafluorine.github.io/2026/04/03/60014_%E6%9D%8E%E5%A4%A7%E9%9C%84%E6%8A%95%E8%B5%84%E6%88%98%E7%95%A5(%E7%AC%AC%E4%B8%89%E7%89%88)%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>https://narafluorine.github.io/2026/04/03/60014_%E6%9D%8E%E5%A4%A7%E9%9C%84%E6%8A%95%E8%B5%84%E6%88%98%E7%95%A5(%E7%AC%AC%E4%B8%89%E7%89%88)%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</id>
     <published>2026-04-03T03:21:05.000Z</published>
-    <updated>2026-04-04T17:36:11.903Z</updated>
+    <updated>2026-04-09T06:16:35.824Z</updated>
     
     
     <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
@@ -112,7 +222,7 @@
     <link href="https://narafluorine.github.io/2026/04/02/50011_alphabet/"/>
     <id>https://narafluorine.github.io/2026/04/02/50011_alphabet/</id>
     <published>2026-04-02T08:59:00.000Z</published>
-    <updated>2026-04-02T09:18:23.717Z</updated>
+    <updated>2026-04-07T09:05:20.268Z</updated>
     
     
       
@@ -131,104 +241,6 @@
     <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
     
     <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小马智行游记</title>
-    <link href="https://narafluorine.github.io/2026/04/02/20020_%E5%B0%8F%E9%A9%AC%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://narafluorine.github.io/2026/04/02/20020_%E5%B0%8F%E9%A9%AC%E9%9D%A2%E7%BB%8F/</id>
-    <published>2026-04-02T05:20:00.000Z</published>
-    <updated>2026-04-04T17:39:52.500Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>THS面经</title>
-    <link href="https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://narafluorine.github.io/2026/03/21/20022_ths%E9%9D%A2%E7%BB%8F/</id>
-    <published>2026-03-20T17:21:00.000Z</published>
-    <updated>2026-03-20T19:29:40.553Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fluu的抽象简历</title>
-    <link href="https://narafluorine.github.io/2026/03/20/20021_%E7%AE%80%E5%8E%86/"/>
-    <id>https://narafluorine.github.io/2026/03/20/20021_%E7%AE%80%E5%8E%86/</id>
-    <published>2026-03-20T07:18:00.000Z</published>
-    <updated>2026-04-04T17:40:08.125Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>突发奇想</title>
-    <link href="https://narafluorine.github.io/2026/03/15/60012_How_To_Wash_Money/"/>
-    <id>https://narafluorine.github.io/2026/03/15/60012_How_To_Wash_Money/</id>
-    <published>2026-03-14T16:17:27.000Z</published>
-    <updated>2026-03-15T10:45:24.942Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
-    
-    
-    <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>琪露诺计算器</title>
-    <link href="https://narafluorine.github.io/2026/03/10/40010_cirno_calculator/"/>
-    <id>https://narafluorine.github.io/2026/03/10/40010_cirno_calculator/</id>
-    <published>2026-03-10T12:01:00.000Z</published>
-    <updated>2026-03-10T12:02:45.368Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;html lang=&quot;zh-CN&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;</summary>
-      
-    
-    
-    
     
   </entry>
   
