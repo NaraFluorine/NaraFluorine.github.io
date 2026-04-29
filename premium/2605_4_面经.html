@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这个公司是文远知行… T1给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.小球没有进洞就会一直滚动,此时代价视为无穷. n">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NaraFluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/premium/2605_4_%E9%9D%A2%E7%BB%8F.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这个公司是文远知行… T1给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.小球没有进洞就会一直滚动,此时代价视为无穷. n">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-26T08:56:38.643Z">
+<meta property="article:modified_time" content="2026-04-26T08:56:38.643Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NaraFluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>这个公司是文远知行…</p>
+<h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.<br>同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.<br>小球没有进洞就会一直滚动,此时代价视为无穷.</p>
+<script type="math/tex; mode=display">n<=3000</script><p>样例<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 7</span><br><span class="line">3 1</span><br><span class="line">5 10</span><br><span class="line">6 1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
+<p>解释:在1,3,4钻孔,钻孔代价为(7+1+1)=9,滚动代价为2(2处小球从3滚到1),答案为11.</p>
+<p>刚开始认为是区间dp,写了个 $O(n^3)$ 的做法,过了60%.<br>然后联想:每一个区间假设是最左边打孔,区间所有的点都滚动到最左边,那么这个区间的代价可以O(1)前缀和算出来.<br>然后我们要用这些区间覆盖整个区间,保证最小代价.  </p>
+<p>联想到了什么?<br>对,图论.  </p>
+<p>这个小区间可以被抽象为一个从 $l$ 到 $r+1$ 的边,那么区间覆盖求最小代价就可以被抽象为找从 $1$ 到 $n+1$ 的最短路.<br>得到了 $O(n^2\log n)$ 的做法,交了通过80%,还是不够.  </p>
+<p>此时Fluu想不到更好的做法了,考虑玄学优化,那就是对加边下手.<br>我们为什么要加好多个边?就是因为拆成多个边大概率更优,因为最右边的小球滚到最左边代价肯定越来越大.<br>那么我们限制一下边的最长范围,比如 $\sqrt n$ ,交了WA,80%,但是23ms一个点.<br>再卡一下,$5\sqrt n$ ,过了…  </p>
+<p>吓哭了.问AI都说是斜率优化,完全不会的…  </p>
+<h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>你初始在0点,数轴上一共有n个落脚点,坐标会给你.你有两个选择:<br>直接跳跃,长度最多是x.<br>使用技能喷气加速,最多跳的长度为y.<br>求你到达最后一个落脚点至少使用多少次技能,到不了输出-1.</p>
+<p>简单贪心,能x跳过去就不用技能,迫不得已用技能的时候要跳到离当前点最远且小于y的地方.</p>
+<h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>给一棵树,每一个点有权重w,q次询问f(u,v)=(uv路径上所有点的和)(uv路径上所有点的抑或)<br>lca</p>
+<p>做完剩半个小时,还行…</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

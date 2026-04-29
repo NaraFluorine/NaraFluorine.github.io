@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这个厂是腾讯. 面试明令要求不要录屏录像,那就回忆一下自己做了什么… 时间线0429 一面05 一面然而事实上一面没什么八股,正常 暴露的问题一面爆了一个大锅.  mmap部分的细节需要了解一下,比如为什么要用mmap 内存的缺页中断是什么 以及你写的数据库是什么数据库?kv还是关系还是什么?  好在面试官没给挂,Fluu谢过… 二面">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NaraFluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/premium/2605_6_%E9%9D%A2%E7%BB%8F.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这个厂是腾讯. 面试明令要求不要录屏录像,那就回忆一下自己做了什么… 时间线0429 一面05 一面然而事实上一面没什么八股,正常 暴露的问题一面爆了一个大锅.  mmap部分的细节需要了解一下,比如为什么要用mmap 内存的缺页中断是什么 以及你写的数据库是什么数据库?kv还是关系还是什么?  好在面试官没给挂,Fluu谢过… 二面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-29T18:10:37.775Z">
+<meta property="article:modified_time" content="2026-04-29T18:10:37.775Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NaraFluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>这个厂是腾讯.</p>
+<p>面试明令要求不要录屏录像,那就回忆一下自己做了什么…</p>
+<h2 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h2><p>0429 一面<br>05</p>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>然而事实上一面没什么八股,正常</p>
+<h3 id="暴露的问题"><a href="#暴露的问题" class="headerlink" title="暴露的问题"></a>暴露的问题</h3><p>一面爆了一个大锅.</p>
+<ol>
+<li>mmap部分的细节需要了解一下,比如为什么要用mmap</li>
+<li>内存的缺页中断是什么</li>
+<li>以及你写的数据库是什么数据库?kv还是关系还是什么?</li>
+</ol>
+<p>好在面试官没给挂,Fluu谢过…</p>
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这个厂是拼多多,不是量化厂. 四个题,Fluu睡过头了,只有1h时间,拼尽全力只答了2.45…本来想当怯战蜥蜴的,但是一想到下一次笔试在半个月后,这个恐怖的罚时让Fluu不能接受,最后硬着上了…答的很烂,但是Fluu真尽力了… T1 95%有n个任务,要么占用a个token和b的时间,要么占用c的token和d的时间,任务可以不做现在有m的token和t的时间,问你最多能做多少个任务. 由于实在没">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NaraFluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/premium/2605_5_%E9%9D%A2%E7%BB%8F.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这个厂是拼多多,不是量化厂. 四个题,Fluu睡过头了,只有1h时间,拼尽全力只答了2.45…本来想当怯战蜥蜴的,但是一想到下一次笔试在半个月后,这个恐怖的罚时让Fluu不能接受,最后硬着上了…答的很烂,但是Fluu真尽力了… T1 95%有n个任务,要么占用a个token和b的时间,要么占用c的token和d的时间,任务可以不做现在有m的token和t的时间,问你最多能做多少个任务. 由于实在没">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-29T17:58:18.285Z">
+<meta property="article:modified_time" content="2026-04-29T17:58:18.285Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NaraFluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>这个厂是拼多多,不是量化厂.</p>
+<p>四个题,Fluu睡过头了,只有1h时间,拼尽全力只答了2.45…<br>本来想当怯战蜥蜴的,但是一想到下一次笔试在半个月后,这个恐怖的罚时让Fluu不能接受,最后硬着上了…<br>答的很烂,但是Fluu真尽力了…</p>
+<h2 id="T1-95"><a href="#T1-95" class="headerlink" title="T1 95%"></a>T1 95%</h2><p>有n个任务,要么占用a个token和b的时间,要么占用c的token和d的时间,任务可以不做<br>现在有m的token和t的时间,问你最多能做多少个任务.</p>
+<p>由于实在没什么时间了,Fluu写的dfs,意外发现好像是正解…<br>但是只有95%是hyw???Fluu代码这么烂的吗dfs常数巨大???</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="type">int</span> pos = i &amp; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = A; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = B; k &gt;= <span class="number">0</span>; k--)</span><br><span class="line">            f[pos^<span class="number">1</span>][j][k] = f[pos][j][k];</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = A; j &gt;= a; j--)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = B; k &gt;= b; k--)</span><br><span class="line">            f[pos^<span class="number">1</span>][j][k] = <span class="built_in">max</span>(f[pos^<span class="number">1</span>][j][k], f[pos][j-a][k-b] + <span class="number">1</span>);</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = A; j &gt;= a; j--)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = B; k &gt;= b; k--)</span><br><span class="line">            f[pos^<span class="number">1</span>][j][k] = <span class="built_in">max</span>(f[pos^<span class="number">1</span>][j][k], f[pos][j-a][k-b] + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T2-0"><a href="#T2-0" class="headerlink" title="T2 0%"></a>T2 0%</h2><p>有m个槽位,每个槽位上放一个热度值.<br>有n个新闻,每个新闻只能放在热度值 $[l_i,r_i]$ 的范围内.最后问你最多能放多少个新闻.  </p>
+<p>排序然后set乱搞一下就过了…<br>Fluu会T2但是没时间写了,喜提爆零.</p>
+<h2 id="T3-100"><a href="#T3-100" class="headerlink" title="T3 100%"></a>T3 100%</h2><p>给你一个地图( $n\times m&lt;=1e6$ )和一堆关系,关系为 $a\, b\, op$ 意思是a拼图在b拼图的xx方向…<br>保证拼图联通(不需要通过形状拟合拼图),保证信息不冲突.</p>
+<p>直接还原即可,但是这个题的方位是 LRUB 不是LRUD,特别注意一下即可…</p>
+<h2 id="T4-50"><a href="#T4-50" class="headerlink" title="T4 50%"></a>T4 50%</h2><p>给一颗有根树.树上可以自己标关键节点,关键节点距离是一棵树上从一个点出发向根走到最近的关键节点所经过的边数(自己就是关键节点边数为0)的最大值,问在标定关键节点最多为k的情况下最小的关键节点距离是多少…</p>
+<p>Fluu本来认为是单纯搜一个dep然后用类似取模的方式加起来就行,一交才发现不对…  </p>
+<p>后续:感觉这个题是个神秘二分,d越小消耗的k越大,有单调性能直接二分…<br>然后二分的时候搜索子树未被覆盖的点的深度最大值…</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不该睡觉…不该沉迷Mr.Beast的视频…</p>
+<p>04.30:果不出其然的挂了,那确实活该了…</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-04-25T11:04:47.086Z</updated>
+  <updated>2026-04-27T18:50:33.260Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://narafluorine.github.io/2026/04/28/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"/>
+    <id>https://narafluorine.github.io/2026/04/28/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/</id>
+    <published>2026-04-27T18:39:24.803Z</published>
+    <updated>2026-04-27T18:50:33.260Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;并行,分布式还有通信题是最近xcpc兴起的很好玩的一系列题.&lt;/p&gt;
+&lt;p&gt;本篇主题为并行计算.&lt;/p&gt;
+&lt;h2 id=&quot;并行计算&quot;&gt;&lt;a href=&quot;#并行计算&quot; class=&quot;headerlink&quot; title=&quot;并行计算&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://q</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>阿里面经</title>
     <link href="https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/"/>
     <id>https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/</id>
     <published>2026-04-25T05:34:32.000Z</published>
-    <updated>2026-04-25T11:04:47.086Z</updated>
+    <updated>2026-04-25T11:07:15.048Z</updated>
     
     
       
@@ -48,16 +68,10 @@
     <link href="https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/"/>
     <id>https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/</id>
     <published>2026-04-24T16:05:59.000Z</published>
-    <updated>2026-04-25T11:04:55.904Z</updated>
+    <updated>2026-04-29T21:37:16.553Z</updated>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;2026/04/20,Fluu正式退出吉林大学ACM队.&lt;br&gt;Away from ACM,再见.  &lt;/p&gt;
-&lt;p&gt;如果Fluu能有什么感想的话,那就是,别碰ACM.&lt;/p&gt;
-&lt;p&gt;Fluu从未在博客其他地方讲述过自己的黑历史,就在这里一起讲清楚吧…&lt;/p&gt;
-&lt;h2 id</summary>
-      
+    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
     
     
     
@@ -105,9 +119,9 @@
     
     <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
     
-    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
-    
     <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
     
   </entry>
   
@@ -215,34 +229,6 @@
     
     
     <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3D打印分享会</title>
-    <link href="https://narafluorine.github.io/2026/04/04/60017_3D%E6%89%93%E5%8D%B0%E5%88%86%E4%BA%AB%E4%BC%9A/"/>
-    <id>https://narafluorine.github.io/2026/04/04/60017_3D%E6%89%93%E5%8D%B0%E5%88%86%E4%BA%AB%E4%BC%9A/</id>
-    <published>2026-04-04T07:34:55.000Z</published>
-    <updated>2026-04-16T16:17:34.193Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这里是Fluu.&lt;/p&gt;
-&lt;p&gt;3月21日呢,Fluu在吉大南区办了一个3D打印分享会,在这里做个总结吧.&lt;/p&gt;
-&lt;p&gt;首先把分享会的PPT和补充资料放在这里:&lt;/p&gt;
-
-
-	&lt;div class=&quot;row&quot;&gt;
-    &lt;embed src=&quot;../../../../at</summary>
-      
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
     
     
     <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
