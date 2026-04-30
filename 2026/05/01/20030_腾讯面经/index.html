@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="本来是不敢投腾子后端的,首先是语言不对口(C++转Go),其次怕被挂了之后脏面评…但是小吉书的学长从腾子下来了,mt想让学长内推几个人,不要求对口,只要能大方表达自己,会用AI工具,能独立思考解决问题就能来干(面试造火箭,到岗打螺丝.jpg).好机会!Fluu把简历送到后,学长的mt看着不错,就投了…   然而据说投了第二天简历就被别的组锁了,后续也是这个组约面.Codebuddy,虽然是后台但感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯后台开发面经">
+<meta property="og:url" content="https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="本来是不敢投腾子后端的,首先是语言不对口(C++转Go),其次怕被挂了之后脏面评…但是小吉书的学长从腾子下来了,mt想让学长内推几个人,不要求对口,只要能大方表达自己,会用AI工具,能独立思考解决问题就能来干(面试造火箭,到岗打螺丝.jpg).好机会!Fluu把简历送到后,学长的mt看着不错,就投了…   然而据说投了第二天简历就被别的组锁了,后续也是这个组约面.Codebuddy,虽然是后台但感">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-30T17:19:30.000Z">
+<meta property="article:modified_time" content="2026-04-30T17:42:29.237Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="论断筒">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>腾讯后台开发面经</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/05/01/10041_Kaggle/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&text=腾讯后台开发面经"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&is_video=false&description=腾讯后台开发面经"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=腾讯后台开发面经&body=Check out this article: https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&name=腾讯后台开发面经&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&t=腾讯后台开发面经"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E4%B8%AA%E5%B9%BF%E5%91%8A%E5%85%88"><span class="toc-number">1.</span> <span class="toc-text">打个广告先</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%A6%A2-JLUer%E4%B8%93%E5%B1%9EApp%E3%80%8C%E5%90%91%E5%8C%97%E3%80%8D%E7%A1%AC%E6%A0%B8%E4%B8%8A%E7%BA%BF%EF%BC%81"><span class="toc-number"></span> <span class="toc-text">🦢 JLUer专属App「向北」硬核上线！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Timeline"><span class="toc-number">1.</span> <span class="toc-text">Timeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E9%95%BF%E7%9A%84%E8%AF%9D"><span class="toc-number">2.</span> <span class="toc-text">学长的话</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2"><span class="toc-number"></span> <span class="toc-text">一面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E6%92%95"><span class="toc-number">1.</span> <span class="toc-text">手撕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%97%AE"><span class="toc-number">2.</span> <span class="toc-text">反问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        腾讯后台开发面经
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-04-30T17:19:30.000Z" class="dt-published" itemprop="datePublished">2026-05-01</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/LIVE/">LIVE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/" rel="tag">论断筒</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>本来是不敢投腾子后端的,首先是语言不对口(C++转Go),其次怕被挂了之后脏面评…<br>但是小吉书的学长从腾子下来了,mt想让学长内推几个人,不要求对口,只要能大方表达自己,会用AI工具,能独立思考解决问题就能来干(面试造火箭,到岗打螺丝.jpg).<br>好机会!Fluu把简历送到后,学长的mt看着不错,就投了…  </p>
+<p>然而据说投了第二天简历就被别的组锁了,后续也是这个组约面.<br>Codebuddy,虽然是后台但感觉是智能体开发岗,无论如何有鹅选鹅了,求求一定要中啊,转语言什么的都是小问题!</p>
+<p>腾子禁止录屏录音,但没说不让传面经(毕竟大厂嘛,面经满天飞是在所难免的事,而且禁止传面经之后搞不好还会有人用面经收费),所以Fluu没录,这是回忆的面试.</p>
+<h2 id="打个广告先"><a href="#打个广告先" class="headerlink" title="打个广告先"></a>打个广告先</h2><p>小吉书学长帮忙投递简历的,所以Fluu帮忙打一个小吉书的广告,希望能做一点有用的事……  </p>
+<h1 id="🦢-JLUer专属App「向北」硬核上线！"><a href="#🦢-JLUer专属App「向北」硬核上线！" class="headerlink" title="🦢 JLUer专属App「向北」硬核上线！"></a>🦢 JLUer专属App「向北」硬核上线！</h1><p>吉大人自己的“小吉书”来啦：<br>✨ 核心体验：全能互助社区、匿名温暖树洞、私信一键交友、校务通知速递、专属“向北大鹅”表情包！<br>🚀 即将上线：社团大厅、校园打分榜、一键导入课表。<br>🔗 立即下载：<a target="_blank" rel="noopener" href="https://northward.zone/">https://northward.zone/</a> </p>
+<p>💻 【开发招新启事】<br>欢迎有热情的 Flutter / Java 技术栈同学加入！</p>
+<p>模式：目前是纯吉大学生非盈利组织，无老板、无DDL、无报酬</p>
+<p>收获：挂靠开放原子开源社团，可获志愿时长与基金会评优推奖机会。高含金量实战项目，用户数量可观，绝对是丰富简历的求职利器！</p>
+<p>加入方式：直接联系 <code>Fluu(NaraFluorine),QQ:3275529098;WX:A3275529098</code> 即可，小吉书团队挺缺人的，非常渴望大佬的加入。<br>（话说当初Fluu是单纯想看看大项目是怎么起的所以才选择加入小吉书的来着）</p>
+<h2 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h2><p>0420 投递<br>0421 简历被别的组锁了<br>0421 做了做素质测评(全是人情世故题,某某人怎么怎么样,你觉得是为什么)<br>0429 一面(腾子约面是三个时间邮件发你自己选一个,集中在两天内)  </p>
+<p>期货:<br>0506 二面(能赢吗?)  </p>
+<h2 id="学长的话"><a href="#学长的话" class="headerlink" title="学长的话"></a>学长的话</h2><p>不涉及任何个人信息,只是关于求职策略的说明,所以Fluu认为能放出来.</p>
+<blockquote>
+<p>肯定需要面试的，不过一面话语权很大，因为是他带你，基本你和他聊得可以，后面几轮是老板和hr，别暴露啥大问题比如说难沟通啊这种，都能过得。目前他对你简历挺满意的  </p>
+<p>这玩样就是简历看对眼了，聊天没啥问题，就概率很大的，目前他觉得你比他从简历库里捞出来的人都好</p>
+<p>是暑期实习，不保证能转正，这个得等老板那边看看有多少hc，不过讲道理你干得好肯定大家都会帮你争取</p>
+<p>csig后台开发 部门随便填</p>
+</blockquote>
+<h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><p>Fluu用的hexo主题是cactus,有一个比较难受的点是一级标题反而是没有右侧栏索引的,所以用标题要从二级标题开始用,不然就要魔改索引.  </p>
+<p>面试官非常年轻.<br>整场面试都在笑.  </p>
+<p>腾子的面试官真的看Fluu博客了,有一种公开处刑的感觉,莫名害羞但又说不出来的奇怪,可能是博客涉及关于自己的故事最近写的比较多…</p>
+<p>面试官看着Fluu博客,第一个问题是,讲讲你的经历吧…<br>Fluu讲的是3D打印和建模的经历,然后讲了讲小马的事.  </p>
+<p>然后面试官问:”你为什么不推荐打ACM?”(这个是Fluu退队博文上的一句话)<br>Fluu的回答是1.AI大人杀穿了2.有很多高中的OI爷,有备而来3.如果单纯想保研有更优解(CTF)4.如果单纯就业也有更优解(Kaggle,问过华子hr说是硕士打Kaggle的多,那说明本科打Kaggle更有竞争力了)</p>
+<p>然后问了Fluu怎么写前端的,因为面试官发现博文有”网站效果”系列的文章.<br>顺带扯了扯用AI提取最关键的JS渲染部分然后粘到自己的文章,大概的过程.</p>
+<p>然后讲了讲自己的项目,洛谷的神秘项目.</p>
+<p>然后出了一道手撕,非常快的写过了,讲了讲细节.  </p>
+<h2 id="手撕"><a href="#手撕" class="headerlink" title="手撕"></a>手撕</h2><p>给定二叉树,求最长直径.(dp板子题,飞快的过了,甚至是无根树的版本)</p>
+<p>面试官的拷打:1.你的dp过程是什么样的?<br>为什么你用vc记录边?(因为当成无根树处理了)<br>为什么你的dfs(1,0)选定参数是1?(因为无根树,随便选,只要在树上就行,dfs(2,0)只要有2那么答案也对)</p>
+<p>然后八股记不太清了,只记得为什么要用mmap(磁盘文件映射),以及mmap为什么快?<br>然后缺页中断和虚拟内存这块需要预习一下.  </p>
+<h2 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h2><ol>
+<li>什么时候上班什么时候下班一周干几天?</li>
+</ol>
+<p>面试官:哇这么快就问这个吗?你就不怕我挂你吗?(差不多是这个意思)<br>面试官没记错的话在这说了”挂”这个字,感觉这个以后这个问题要谨慎问,每个人的雷点都不太一样.<br>10 8 5,很正常了.</p>
+<ol>
+<li>公司对于某些网站的支持情况?比如github.huggingface之类的?</li>
+</ol>
+<p>那当然是能看了…(一般互联网公司都能吧,所以感觉这个反问问题也能删了…)</p>
+<ol>
+<li>公司对于AI coding的工具支持?</li>
+</ol>
+<p>主要就是codebuddy用的比较多,当然其他的也管报销.<br>毕竟自己开发的工具自己用当然最便宜了…  </p>
+<ol>
+<li>公司主要语言?</li>
+</ol>
+<p>Go.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>碰上年轻人了.<br>虽然面试官真的说了”挂”这个字,但还是给过了,万幸…<br>不知道面试官后来再看Fluu博客发现这个面经已经挂上去之后是什么感受…</p>
+<p>Fluu这几天发现:  </p>
+<ol>
+<li>裸投ai infra=找死,首先是硕士很多,其次是没有对口项目仅靠牌子几乎都简历挂了,以后要考虑多去github逛逛提几个pr加强一下开源项目经验,再打打Kaggle涨涨rp.</li>
+<li>华子太恐怖了,都是说华子收一般的985 211,然后进去就干平淡的工作,感觉华子的黑暗大于ai infra了,如果拿到华子ai infra了考虑秋招结束春招前去一去,这样至少建立上冲过大厂更有背书,能洗掉华子的黑暗.</li>
+<li>Fluu能接受后台开发了,虽然是远航老路,但是真的很好使,不然就干C++开发没有什么特别烂的前途但也没有什么非常好的前途…</li>
+<li>虽然拿到了一个1000/d的offer但是是个量化炒币qd啊,很大概率前程不会很好(因为不合规),所以拒了,而且一两天之后还不后悔,这似乎是Fluu做过为数不多不后悔的重大决定了…</li>
+</ol>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E4%B8%AA%E5%B9%BF%E5%91%8A%E5%85%88"><span class="toc-number">1.</span> <span class="toc-text">打个广告先</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%A6%A2-JLUer%E4%B8%93%E5%B1%9EApp%E3%80%8C%E5%90%91%E5%8C%97%E3%80%8D%E7%A1%AC%E6%A0%B8%E4%B8%8A%E7%BA%BF%EF%BC%81"><span class="toc-number"></span> <span class="toc-text">🦢 JLUer专属App「向北」硬核上线！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Timeline"><span class="toc-number">1.</span> <span class="toc-text">Timeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E9%95%BF%E7%9A%84%E8%AF%9D"><span class="toc-number">2.</span> <span class="toc-text">学长的话</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2"><span class="toc-number"></span> <span class="toc-text">一面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E6%92%95"><span class="toc-number">1.</span> <span class="toc-text">手撕</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%97%AE"><span class="toc-number">2.</span> <span class="toc-text">反问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&text=腾讯后台开发面经"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&is_video=false&description=腾讯后台开发面经"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=腾讯后台开发面经&body=Check out this article: https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&title=腾讯后台开发面经"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&name=腾讯后台开发面经&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/&t=腾讯后台开发面经"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

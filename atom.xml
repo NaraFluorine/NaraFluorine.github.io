@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-04-27T18:50:33.260Z</updated>
+  <updated>2026-04-30T17:46:47.125Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,22 +17,74 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/04/28/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"/>
-    <id>https://narafluorine.github.io/2026/04/28/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/</id>
-    <published>2026-04-27T18:39:24.803Z</published>
-    <updated>2026-04-27T18:50:33.260Z</updated>
+    <title>并行计算与ACM</title>
+    <link href="https://narafluorine.github.io/2026/05/04/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"/>
+    <id>https://narafluorine.github.io/2026/05/04/10042_%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/</id>
+    <published>2026-05-03T17:43:29.000Z</published>
+    <updated>2026-04-30T17:46:47.125Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;并行,分布式还有通信题是最近xcpc兴起的很好玩的一系列题.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;并行,分布式还有通信题是最近xcpc兴起的很好玩的一系列题.&lt;br&gt;最近想看看怎么写cuda算子,可以的话顺带给青云悲贡献一个题.&lt;/p&gt;
 &lt;p&gt;本篇主题为并行计算.&lt;/p&gt;
-&lt;h2 id=&quot;并行计算&quot;&gt;&lt;a href=&quot;#并行计算&quot; class=&quot;headerlink&quot; title=&quot;并行计算&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://q</summary>
+&lt;h2 id=&quot;并行计算&quot;&gt;&lt;a href=&quot;#并行计算&quot; class=&quot;headerlink&quot; </summary>
       
     
     
     
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
+    
+    
+    <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
+    
+    <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kaggle笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/01/10041_Kaggle/"/>
+    <id>https://narafluorine.github.io/2026/05/01/10041_Kaggle/</id>
+    <published>2026-04-30T17:47:20.000Z</published>
+    <updated>2026-04-30T17:47:45.546Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;想打kaggle玩了…&lt;/p&gt;
+&lt;h2 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; title=&quot;Pandas&quot;&gt;&lt;/a&gt;Pandas&lt;/h2&gt;&lt;p&gt;处理表格很有用的工具.&lt;/p&gt;
+&lt;figure class=&quot;high</summary>
+      
+    
+    
+    
+    <category term="GAME" scheme="https://narafluorine.github.io/categories/GAME/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯后台开发面经</title>
+    <link href="https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"/>
+    <id>https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/</id>
+    <published>2026-04-30T17:19:30.000Z</published>
+    <updated>2026-04-30T17:42:29.237Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本来是不敢投腾子后端的,首先是语言不对口(C++转Go),其次怕被挂了之后脏面评…&lt;br&gt;但是小吉书的学长从腾子下来了,mt想让学长内推几个人,不要求对口,只要能大方表达自己,会用AI工具,能独立思考解决问题就能来干(面试造火箭,到岗打螺丝.jpg).&lt;br&gt;好机会!Flu</summary>
+      
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
     
   </entry>
   
@@ -41,13 +93,13 @@
     <link href="https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/"/>
     <id>https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/</id>
     <published>2026-04-25T05:34:32.000Z</published>
-    <updated>2026-04-25T11:07:15.048Z</updated>
+    <updated>2026-04-30T16:53:34.230Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;timeline&quot;&gt;&lt;a href=&quot;#timeline&quot; class=&quot;headerlink&quot; title=&quot;timeline&quot;&gt;&lt;/a&gt;timeline&lt;/h2&gt;&lt;p&gt;逆天阿里笔试,过了上一个才能看下一个题,太逆天了,完全不知道怎么分配时间.&lt;/p&gt;
-&lt;h2 </summary>
+    <summary type="html">&lt;p&gt;逆天阿里笔试,过了上一个才能看下一个题,完全不知道怎么分配时间,出现了第一题最难,而且不知道第二题和第三题更简单一些,所以第一题超过了预期时间直接交暴力,然后快速过第二题第三题最后剩7min结束但是没题可做的滑稽场面.&lt;/p&gt;
+&lt;h2 id=&quot;timeline&quot;&gt;&lt;a hr</summary>
       
     
     
@@ -68,7 +120,7 @@
     <link href="https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/"/>
     <id>https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/</id>
     <published>2026-04-24T16:05:59.000Z</published>
-    <updated>2026-04-29T21:37:16.553Z</updated>
+    <updated>2026-04-30T18:14:09.156Z</updated>
     
     
     <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
@@ -83,31 +135,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/04/21/10041_Kaggle/"/>
-    <id>https://narafluorine.github.io/2026/04/21/10041_Kaggle/</id>
-    <published>2026-04-21T12:05:35.615Z</published>
-    <updated>2026-04-23T13:16:53.318Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;想打kaggle玩了…&lt;/p&gt;
-&lt;h2 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; title=&quot;Pandas&quot;&gt;&lt;/a&gt;Pandas&lt;/h2&gt;&lt;p&gt;处理表格很有用的工具.&lt;/p&gt;
-&lt;figure class=&quot;high</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>CMU 15445 学习笔记</title>
     <link href="https://narafluorine.github.io/2026/04/17/60020_CMU_15445_%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://narafluorine.github.io/2026/04/17/60020_CMU_15445_%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2026-04-17T05:15:20.000Z</published>
-    <updated>2026-04-25T11:05:36.394Z</updated>
+    <updated>2026-04-30T15:59:18.741Z</updated>
     
     
     <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
@@ -117,20 +149,20 @@
     
     <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
     
-    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
-    
     <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
     
     <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>&lt;加密&gt;安娜与AI视频</title>
     <link href="https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/"/>
     <id>https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/</id>
     <published>2026-04-15T20:22:30.000Z</published>
-    <updated>2026-04-23T09:31:34.359Z</updated>
+    <updated>2026-04-30T18:19:45.302Z</updated>
     
     
     <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
@@ -140,9 +172,9 @@
     <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
     
     
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
     <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
     
   </entry>
   
@@ -209,29 +241,6 @@
     <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
     
     <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>写字加点</title>
-    <link href="https://narafluorine.github.io/2026/04/06/60018_%E5%86%99%E5%AD%97%E5%8A%A0%E7%82%B9/"/>
-    <id>https://narafluorine.github.io/2026/04/06/60018_%E5%86%99%E5%AD%97%E5%8A%A0%E7%82%B9/</id>
-    <published>2026-04-06T13:56:32.000Z</published>
-    <updated>2026-04-06T13:57:53.546Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Fluu以李永乐老师为例展示这个现象,该视频为公开视频,&lt;a href=&quot;https://www.bilibili.com/video/BV1ttQdBAE9B/&quot;&gt;链接&lt;/a&gt;,Fluu截取一帧:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../../../images/l</summary>
-      
-    
-    
-    
-    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
-    
-    
-    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
     
   </entry>
   
