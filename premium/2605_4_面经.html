@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这个公司是文远知行… T1给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.小球没有进洞就会一直滚动,此时代价视为无穷. n">
+    <meta name="description" content="这里有东西被加密了,需要输入密码查看喵.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NaraFluorine&#39;s blog">
+<meta property="og:title" content="文远知行面经">
 <meta property="og:url" content="https://narafluorine.github.io/premium/2605_4_%E9%9D%A2%E7%BB%8F.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="这个公司是文远知行… T1给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.小球没有进洞就会一直滚动,此时代价视为无穷. n">
+<meta property="og:description" content="这里有东西被加密了,需要输入密码查看喵.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-04-26T08:56:38.643Z">
-<meta property="article:modified_time" content="2026-04-26T08:56:38.643Z">
+<meta property="article:published_time" content="2026-05-04T09:34:33.061Z">
+<meta property="article:modified_time" content="2026-05-04T09:34:33.061Z">
 <meta property="article:author" content="Fluorine Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,7 @@
       
     
     <!-- title -->
-    <title>NaraFluorine&#39;s blog</title>
+    <title>文远知行面经</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -132,21 +132,18 @@
 
   <div class="content" itemprop="articleBody">
       
-          <p>这个公司是文远知行…</p>
-<h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>给一个数轴木板,上面有 $n$ 个点,每个点有坐标 $x$ 和钻孔代价 $c$ ,你只能在这些点上钻孔.<br>同样,每个点上有一个小球.你可以给任意点钻孔,钻完孔后所有小球会向左滚动,直到进入钻好的孔中(一个孔可以容纳无限的小球),定义代价为所有钻孔的代价和小球滚动的代价和,求这个最小代价.<br>小球没有进洞就会一直滚动,此时代价视为无穷.</p>
-<script type="math/tex; mode=display">n<=3000</script><p>样例<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 7</span><br><span class="line">3 1</span><br><span class="line">5 10</span><br><span class="line">6 1</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
-<p>解释:在1,3,4钻孔,钻孔代价为(7+1+1)=9,滚动代价为2(2处小球从3滚到1),答案为11.</p>
-<p>刚开始认为是区间dp,写了个 $O(n^3)$ 的做法,过了60%.<br>然后联想:每一个区间假设是最左边打孔,区间所有的点都滚动到最左边,那么这个区间的代价可以O(1)前缀和算出来.<br>然后我们要用这些区间覆盖整个区间,保证最小代价.  </p>
-<p>联想到了什么?<br>对,图论.  </p>
-<p>这个小区间可以被抽象为一个从 $l$ 到 $r+1$ 的边,那么区间覆盖求最小代价就可以被抽象为找从 $1$ 到 $n+1$ 的最短路.<br>得到了 $O(n^2\log n)$ 的做法,交了通过80%,还是不够.  </p>
-<p>此时Fluu想不到更好的做法了,考虑玄学优化,那就是对加边下手.<br>我们为什么要加好多个边?就是因为拆成多个边大概率更优,因为最右边的小球滚到最左边代价肯定越来越大.<br>那么我们限制一下边的最长范围,比如 $\sqrt n$ ,交了WA,80%,但是23ms一个点.<br>再卡一下,$5\sqrt n$ ,过了…  </p>
-<p>吓哭了.问AI都说是斜率优化,完全不会的…  </p>
-<h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>你初始在0点,数轴上一共有n个落脚点,坐标会给你.你有两个选择:<br>直接跳跃,长度最多是x.<br>使用技能喷气加速,最多跳的长度为y.<br>求你到达最后一个落脚点至少使用多少次技能,到不了输出-1.</p>
-<p>简单贪心,能x跳过去就不用技能,迫不得已用技能的时候要跳到离当前点最远且小于y的地方.</p>
-<h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>给一棵树,每一个点有权重w,q次询问f(u,v)=(uv路径上所有点的和)(uv路径上所有点的抑或)<br>lca</p>
-<p>做完剩半个小时,还行…</p>
-
+          <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="5e81ff21e13693c7db062d5b81e403a24340c9c4047b7910d93d6cf800def4de">59e0dbb5adee0f6e0e3c08dcac09dd57ed82ab8f10697a6f43e0251567096ec09feb789f466dc5dd509f6e39e651ffaa5e6746bd743f1f0a46ad5cdc6540d739a0160097a0c894d62687acf4a8ead43f2eefbeb9d57a75a183008ce3806c9c6c89c2a15667a00383919eb52ee3681ea2678ccb51c6d1532570767d5008152a6fac5ede2fa3b1dd1c13279c0f9f67c4e544b0d60dc6a47cc374567bb10e197cd51cbf803cd2d58e491aa74b46fe8e602db04b46ee1fc1ee705158e0281a8dba08176b100d5e90fffe8de338c8f1ce163d450f02c499b790f58a069008628735b3d32c6d661f093c7de290f79e7fe9c46992cca4eee1d0d6c46550f9265c3680150cd77a55a443e136a2d33c8707b52a7ba5e0ea466e9b281e7518cc535087fe1b8b555bf716d55e74cac109f1bde250a01806f90f40a0cdc3348d774304448ddde91cc34161d6b57ef2383b935047cd329690f48ae59d99abba5d80fbe6d497e302ef7fc8124052efa51e4fcb12d548180250837f6711d4d2a9f983ea0008ce22ccf2b8eb57a88d7d3586499a898738b629fb14e717574f6b1399f6c10bbf3b918fa14b6e10c512ce4eb15d6c88bd30d4b3ab20adf834c7d5416af7a6887ce2673fde9854004e703f1c9440b774b454e34e555adfded450c62c843e2b0aa748dfe79bd4cb13d6ef202bed51c37c6e43d05cbb8a0f411b9b893a7c43d3325f036b41feeff4cb6925c0c66173b4dbbe5cd5906f8cc88a59945158babdf99b9b29b7b8655b175bc7552a3c849a136ad7bbaca513129df53d5a1d31f1f92a876b155a1406268cdc59a604d9d697acae5fe686a3aad3d2b32bfb744ea45ba5b8a504118bde17f0192f7b136d3803baed19cb1fb6e8b5aec8a5cf0b1530913cafec28e12c1a80787eadb9433eaa6fbdfc8f333401b25a11aa5a7aeed747899bf35ac1192fbd483a8b2d748b0f3490572ec004c5e56334e15cf2eddf6921afb81947db44774301f5234e47ebc42a664ee1dc5718e4903d20212186548204ed8ba533589cc6aa3389023c2de134e7ea6243417589f7f1da11c1cf62a3f979c662532f180db7b0c4b0111dd5261ec15eda45b6d8e4e81c80471912d0eea5b4393a7ad76e9ec059eee31917be281fb55d90f86415395bab31caef67434cdc9be90cb8a4947c160fcb7c7933682f6fa440f48887267142723dc90017e254a7908309443db623655dd5eee7a84ab69ffa2d708922fa258627af506067314ddb9d245faede051d3c03b4100bb9e3c2b6ea4318d1fbabe6777e5354ba62187e670407260f5da6a493dd96dec245fe130c8c950ec40a574fbdc87198f0398f48e88a4ab16dcda423c099767d4aec03b82de688478b8f40b24e65f9df73cd79472dd81f13e28f7812e20373d414813e6c8f1d36da70499a763d5c1618ee0e75c92d37dfe89dc2a409e27839406ec430e638d70d48f25b4f3c48eeeb5689c89da2cd871bd882fbabbcf7a49a07795abba04a23ad2c92fad349d6821a57802628f598d08bfc4d2fbe6d553c0c291b8b7783b96290cffc56629dbb6352380962e5b7a363dc5767c5d26fbc847ae675f43f64e8b64202a41cd373cd2913506545663c293f1495ff22fe59b7effdb5eb76e35a62ddb99654b52c7960f3a253924ec16739579245cca2ec44d9f5cd15edca3cf4fcb03a3abb3923479270d7f07e1b28656508cdc936ee3279fd32c8b088b32c604f98853ec75687260203db13dc26de65c03bea44cf60e784b13a580e444dcd548f09996909f4bd4d814fb4829b198c1a9bdc66a81cd487a6ce372ee5fbd0f02735e94887e2838038341466783143eba3fc7386f0785b25c0740dd3a682d6b9982635c956d445dcb0081d6e8d94b683bea7289d6d96077a96f950850c0da5a8ef7491428fd71948fda4a8adc9f142cf4df9d1ba9c0d962b0b327f7fbbebde7889e1b19c3bf2b81e67af4573a5cbb09ed2a9c132d86f53cd98996a8623aacdbae199dd5d919d86d0dc58c916f53b16ed57264626e7671cce1081a66e9f7e99a8f2511a2b54778d179d74c1919a98c6033f1cf22e1c6435176e40284e0eb2bd54f47a2076cc52989b34140e661d8f7d4f6bc27b7f3901bb75355522de2dfd25f9fcce7687b5d3a22c818299c237a40cea89fed767f3bff3a7e547cd6fea5b7a74a4b40891729aa9adb1ad1d9dcba04481024d99cd14222daf0452ddb8811e653f74f3a5503c49bdb148539ca9bcbcd00ea093fa380e711fd511be3873ed344f8da1ec2b661cc0d2afb4ae3cfd3be01d494c37e1f7c055ac722b4c2c8d0cbd6a1a5bd57af3ac7347bf1fb648336eabce605a1b0c27de8c3574992f329ee65039c729236f423aa677fdb1de6c087e94a015cc0400ee2e0ad27d2fd96811c8cf9ea1504723d2e8b2072eb9bec8c00623896a846dc6fee12e09328263fc1a2a319945ff95dfb9242d3ed300426ffa4382bd788d47d7a9a5c28addbca09bddde76c8cbd87ade2e9c05d4148769d0cba370966cf3db09f81aae62425ff82c0417488e50ec13a0e250de7b861f1a3a01510350bc18f6a1db8eaeab4c2e5e56c09050bfe3845386727467aa5b33900cdc6a185bca08707b5162a43cf5b0273626eca69cc7fc7850cab654c3bb03b9c8d5310c5d1a6ef2cd69c6ad7d77d7569ae846f87a26a6d9f773f5591b86075597e5009fe069467b64763f86ec5f3e18c875e2195e182d88a6edfb50731333c18f528306e854fbb4775872f8b2f093d9650a772607fefab9fb7f7cd286c94d3169025115e55a7f775c9adae95bf3891538e21a40ab534b37d1c3b68ca7d00d9cbf7b3429b29a3abc906229ce2994df0ba8a555749405056b205f71c89bde0141d6119794d5b36777bc82eb81b30914a16c87f4dcd1e7ec31fbc8f8e4f7cd13af060d771fbaacdc04cf19c543a7fb5d49f46db5af8743ae3622d641db906b16b7bdb494778c94ae9256fbc6ba6d46fb3c77f0aa64481020664787061646602336756914b7d999ca2895c937f7ade2eef3036b3395bbbb984c3faf7e6697fecb655be72ecb84cac275fa66e03ca8d59b8c0ec32e4adfd87728d9714e6ab45416804fc36b5f530097ecbebb000facaf294a7a3348d989db599a0d340cda92dbcaa1b457846e50d7a192cff1fa8be9f444b21715b73318c590d1c3ce0837b184505c150cebb638973bbcb71b18cef195e77ae3130332766ae73f746312c752634af564bbd27cb58a6b431628168345075d74bbbb7c81c7d64197ed94eb8865085a09ec594357ff6a7b2ccf5c570a61f26a049cbb015f720cf08a6826babab1b476ff606f7b1a7bfaca92dd6b8868af6c17efeed29fb0d6adb8ae1b350307038650d1568f3da10ce3daa8f8057c7101897777d399558893344372350d247d9ca7c4fca2fd5ef370187b83f4e381e9c25039b8ca48be82558326534a63617bb7bf489e766aff082e3adccca6ac3824141cb01903f41da318b5d96e90e8dd106deed148aabbaebbd52f65f3f802687440f1314d316d8c593a2ce573825b0eb9eddeac0a3a52225b952c4a79ae39bdf1a235d6dfb0ce53dd1c93afc28f4d6398d55a2ba3c0532b172eab26af81b96159311afbfb258a4c0e0c9c5d63c3b204b9e10d8535ca8de9d28f56d5fcc577f26abfac55e423e24f9601159bcd74c745c083ce9300191b1cc6e71f750ff6de10e497bd8606297259fab85e8acc695f853c10117aa7f4db6be4260c3283080dc31e13fe1ba3fe1c43957f2a7ea3c0a1f251184de595e852f0575c258209f31bbfd37669ced35ef5809d1f7a473da2c1ff48293b86647cbdfe3dd552614c52f593ef07697e74021a8be79da269b556cd510e07691dcb6a5466b54f55577f64c9426e0f8a86a33b8aceea46be1a5b097e7e463620eea1d1bb91fcb09c98f185c2f5b687619ed86fb2c1c8362993136b7bf2969708921dc2002befe0f36ecf40652f60e94c5754e332d916130861193a18b831d8ebb72f1bb1896792484cf48afc38c9c2bafa66d732efcabc7562fdd3055dbe4ce5118c203ca19e69f7d14ddd4db21c41fbbcdb035292f7a18e2d3f48c1f696fc0fb6029d45a3453a0ea006ad82d76649e8ed79410ececacec33b41215420900b736ea5e253f8e7543c0dec83b2a9b71091ff99398f163781005e05829dfff8734feab196f4b1c82eb5f0b6edca5ce14a2d1aa1ded86c6e2150901b0dbcbc61ea92ef9a8e8d8b699d485cff4d64393b31a58816aab369597c8581c598dd25245df9ced078afa9b1a2e3ee28b9aa728a8b0aef584ded8a1029e36ced4a1398ca158df946fe3189e417d7b0af3cc850308e887ff3c50b79784b9f953d02284f45369cf82de6cdd83ae00f217a7cfbeb92f70ae54b902720cfccfc6f42ef0ee36cf5f254</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">提交26年5月的订阅密钥</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
         
   </div>
 </article>

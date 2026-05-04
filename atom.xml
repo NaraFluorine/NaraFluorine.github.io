@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-04-30T17:46:47.125Z</updated>
+  <updated>2026-05-04T09:51:35.801Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>爆破博客</title>
+    <link href="https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/"/>
+    <id>https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/</id>
+    <published>2029-12-31T17:01:01.000Z</published>
+    <updated>2026-05-04T09:51:35.801Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Fluu做了一个爆破 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件密码的工具,对于使用 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件加密的博客,都可以破解,比如说Fluu自己的博客.&lt;/p&gt;
+&lt;h2 id=&quot;为什么Fluu要加密某</summary>
+      
+    
+    
+    
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-数字响应</title>
+    <link href="https://narafluorine.github.io/2026/05/04/40011_%E5%93%8D%E5%BA%94%E6%96%87%E5%AD%97/"/>
+    <id>https://narafluorine.github.io/2026/05/04/40011_%E5%93%8D%E5%BA%94%E6%96%87%E5%AD%97/</id>
+    <published>2026-05-04T12:35:10.000Z</published>
+    <updated>2026-05-04T12:41:34.829Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;同学有想搭博客的,然后想做一下数字响应.&lt;br&gt;Fluu Vibe了一个样例(就是本页面),意在说明,这些需求是很简单能实现的东西,现在互联网的技术壁垒基本没多少了,只是好的idea比较稀缺,enjoy!&lt;/p&gt;
+&lt;div style=&quot;font-family: syste</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拼多多笔试凉经</title>
+    <link href="https://narafluorine.github.io/2026/05/04/20031_%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%AC%94%E8%AF%95%E5%87%89%E7%BB%8F/"/>
+    <id>https://narafluorine.github.io/2026/05/04/20031_%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%AC%94%E8%AF%95%E5%87%89%E7%BB%8F/</id>
+    <published>2026-05-04T09:35:49.000Z</published>
+    <updated>2026-05-04T09:37:18.303Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;四个题,Fluu睡过头了,只有1h时间,拼尽全力只答了2.45…&lt;br&gt;本来想当怯战蜥蜴的,但是一想到下一次笔试在半个月后,这个恐怖的罚时让Fluu不能接受,最后硬着上了…&lt;br&gt;答的很烂,但是Fluu真尽力了…&lt;/p&gt;
+&lt;h2 id=&quot;T1-95&quot;&gt;&lt;a href=&quot;#T</summary>
+      
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
+    
+  </entry>
   
   <entry>
     <title>并行计算与ACM</title>
@@ -39,6 +110,29 @@
     <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
     
     <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>音乐鉴赏</title>
+    <link href="https://narafluorine.github.io/2026/05/02/60021_%E5%96%9C%E6%AC%A2%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/"/>
+    <id>https://narafluorine.github.io/2026/05/02/60021_%E5%96%9C%E6%AC%A2%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</id>
+    <published>2026-05-02T14:49:30.000Z</published>
+    <updated>2026-05-04T10:42:13.670Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Fluu的歌单比较杂,有些音乐甚至互联网上找不到(当然铀土上总是有的)…&lt;/p&gt;
+&lt;h1 id=&quot;严正声明&quot;&gt;&lt;a href=&quot;#严正声明&quot; class=&quot;headerlink&quot; title=&quot;严正声明&quot;&gt;&lt;/a&gt;严正声明&lt;/h1&gt;&lt;p&gt;Fluu不是音乐专业的,没有学过任何</summary>
+      
+    
+    
+    
+    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    
+    
+    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
     
   </entry>
   
@@ -71,7 +165,7 @@
     <link href="https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"/>
     <id>https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/</id>
     <published>2026-04-30T17:19:30.000Z</published>
-    <updated>2026-04-30T17:42:29.237Z</updated>
+    <updated>2026-05-04T09:29:36.119Z</updated>
     
     
       
@@ -149,98 +243,11 @@
     
     <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
     
-    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
-    
     <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
     
-    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&lt;加密&gt;安娜与AI视频</title>
-    <link href="https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/"/>
-    <id>https://narafluorine.github.io/2026/04/16/20024_AI_Video_With_ANNA/</id>
-    <published>2026-04-15T20:22:30.000Z</published>
-    <updated>2026-04-30T18:19:45.302Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ICPC 深圳邀请赛 游记</title>
-    <link href="https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/"/>
-    <id>https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/</id>
-    <published>2026-04-13T08:41:35.000Z</published>
-    <updated>2026-04-13T15:47:17.201Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;day-n&quot;&gt;&lt;a href=&quot;#day-n&quot; class=&quot;headerlink&quot; title=&quot;day -n&quot;&gt;&lt;/a&gt;day -n&lt;/h2&gt;&lt;p&gt;因为24年香港站的时候没办港卡,然后26年汇丰宣布新卡要有管理费了,不然套牢一万…&lt;br&gt;这都是Fluu做攻略不</summary>
-      
-    
-    
-    
-    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
-    
-    
-    <category term="Contest" scheme="https://narafluorine.github.io/tags/Contest/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSAPP学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/04/09/60019_CSAPP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://narafluorine.github.io/2026/04/09/60019_CSAPP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2026-04-09T06:11:30.000Z</published>
-    <updated>2026-04-18T14:09:01.270Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    
-    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
-    
     <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
     
-  </entry>
-  
-  <entry>
-    <title>OSINT-泥砖菜盘</title>
-    <link href="https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"/>
-    <id>https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/</id>
-    <published>2026-04-07T09:07:12.000Z</published>
-    <updated>2026-04-13T15:11:26.566Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;请听…&lt;/p&gt;
-&lt;div style=&quot;display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: </summary>
-      
-    
-    
-    
-    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
-    
-    
-    <category term="Game" scheme="https://narafluorine.github.io/tags/Game/"/>
-    
-    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
+    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
     
   </entry>
   

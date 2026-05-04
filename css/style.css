@@ -841,8 +841,13 @@ body {
 #header-post #toc a:hover {
   color: #d480aa;
 }
+#header-post #toc .toc-level-1 {
+  color: #2bbc8a;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
 #header-post #toc .toc-level-1 > .toc-link {
-  display: none;
+  color: #2bbc8a;
 }
 #header-post #toc .toc-level-2 {
   color: #c9cacc;
@@ -1021,8 +1026,13 @@ body {
 #footer-post #toc-footer a:hover {
   color: #d480aa;
 }
+#footer-post #toc-footer .toc-level-1 {
+  color: #2bbc8a;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
 #footer-post #toc-footer .toc-level-1 > .toc-link {
-  display: none;
+  color: #2bbc8a;
 }
 #footer-post #toc-footer .toc-level-2 {
   color: #c9cacc;
