@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-05-04T09:51:35.801Z</updated>
+  <updated>2026-05-04T12:48:44.440Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -21,13 +21,12 @@
     <link href="https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/"/>
     <id>https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/</id>
     <published>2029-12-31T17:01:01.000Z</published>
-    <updated>2026-05-04T09:51:35.801Z</updated>
+    <updated>2026-05-04T12:48:44.440Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;Fluu做了一个爆破 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件密码的工具,对于使用 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件加密的博客,都可以破解,比如说Fluu自己的博客.&lt;/p&gt;
-&lt;h2 id=&quot;为什么Fluu要加密某</summary>
+    <summary type="html">&lt;p&gt;Fluu做了一个爆破 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件密码的工具,对于使用 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件加密的博客,都可以破解,只是密码不同,需要的爆破时间不一样而已,比如说Fluu自己的博客.&lt;/p&gt;</summary>
       
     
     
@@ -118,13 +117,13 @@
     <link href="https://narafluorine.github.io/2026/05/02/60021_%E5%96%9C%E6%AC%A2%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/"/>
     <id>https://narafluorine.github.io/2026/05/02/60021_%E5%96%9C%E6%AC%A2%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</id>
     <published>2026-05-02T14:49:30.000Z</published>
-    <updated>2026-05-04T10:42:13.670Z</updated>
+    <updated>2026-05-05T23:47:48.156Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;Fluu的歌单比较杂,有些音乐甚至互联网上找不到(当然铀土上总是有的)…&lt;/p&gt;
-&lt;h1 id=&quot;严正声明&quot;&gt;&lt;a href=&quot;#严正声明&quot; class=&quot;headerlink&quot; title=&quot;严正声明&quot;&gt;&lt;/a&gt;严正声明&lt;/h1&gt;&lt;p&gt;Fluu不是音乐专业的,没有学过任何</summary>
+    <summary type="html">&lt;p&gt;Fluu的歌单比较杂,有些音乐在互联网上很难找到(当然铀土上大概率是有的)…&lt;/p&gt;
+&lt;h1 id=&quot;严正声明&quot;&gt;&lt;a href=&quot;#严正声明&quot; class=&quot;headerlink&quot; title=&quot;严正声明&quot;&gt;&lt;/a&gt;严正声明&lt;/h1&gt;&lt;p&gt;Fluu不是音乐专业的,没有学过</summary>
       
     
     
@@ -165,7 +164,7 @@
     <link href="https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"/>
     <id>https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/</id>
     <published>2026-04-30T17:19:30.000Z</published>
-    <updated>2026-05-04T09:29:36.119Z</updated>
+    <updated>2026-05-05T10:53:28.841Z</updated>
     
     
       
@@ -183,11 +182,28 @@
   </entry>
   
   <entry>
+    <title>MISC-人约</title>
+    <link href="https://narafluorine.github.io/2026/04/28/50014_%E4%BA%BA%E7%BA%A6/"/>
+    <id>https://narafluorine.github.io/2026/04/28/50014_%E4%BA%BA%E7%BA%A6/</id>
+    <published>2026-04-28T03:45:14.000Z</published>
+    <updated>2026-05-05T11:42:29.793Z</updated>
+    
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>阿里面经</title>
     <link href="https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/"/>
     <id>https://narafluorine.github.io/2026/04/25/20029_%E9%98%BF%E9%87%8C%E9%9D%A2%E7%BB%8F/</id>
     <published>2026-04-25T05:34:32.000Z</published>
-    <updated>2026-04-30T16:53:34.230Z</updated>
+    <updated>2026-05-05T23:16:59.780Z</updated>
     
     
       
@@ -210,14 +226,19 @@
   </entry>
   
   <entry>
-    <title>大千世界,何须打A?</title>
+    <title>ACM退队志</title>
     <link href="https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/"/>
     <id>https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/</id>
     <published>2026-04-24T16:05:59.000Z</published>
-    <updated>2026-04-30T18:14:09.156Z</updated>
+    <updated>2026-05-06T05:34:44.615Z</updated>
     
     
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+      
+      
+    <summary type="html">&lt;p&gt;2026/04/20,Fluu正式退出吉林大学ACM队.&lt;br&gt;Away from ACM,再见.  &lt;/p&gt;
+&lt;p&gt;如果Fluu能有什么感想的话,那就是,别碰ACM.&lt;/p&gt;
+&lt;h3 id=&quot;为什么我不建议任何零基础的人打ACM&quot;&gt;&lt;a href=&quot;#为什么我不建议任何零</summary>
+      
     
     
     
@@ -225,29 +246,6 @@
     
     
     <category term="Contest" scheme="https://narafluorine.github.io/tags/Contest/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CMU 15445 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/04/17/60020_CMU_15445_%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://narafluorine.github.io/2026/04/17/60020_CMU_15445_%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2026-04-17T05:15:20.000Z</published>
-    <updated>2026-04-30T15:59:18.741Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
-    
-    
-    
-    
-    <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
-    
-    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
-    
-    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
-    
-    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
     
   </entry>
   
