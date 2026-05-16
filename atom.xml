@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-05-04T12:48:44.440Z</updated>
+  <updated>2026-05-15T18:42:03.623Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/"/>
     <id>https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/</id>
     <published>2029-12-31T17:01:01.000Z</published>
-    <updated>2026-05-04T12:48:44.440Z</updated>
+    <updated>2026-05-15T18:42:03.623Z</updated>
     
     
       
@@ -39,17 +39,40 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/07/20033_%E5%AD%97%E8%8A%82%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://narafluorine.github.io/2026/05/07/20033_%E5%AD%97%E8%8A%82%E9%9D%A2%E7%BB%8F/</id>
-    <published>2026-05-06T19:52:54.359Z</published>
-    <updated>2026-05-06T21:43:49.377Z</updated>
+    <title>Attention is all you need</title>
+    <link href="https://narafluorine.github.io/2026/05/16/70000_Attention_Is_All_You_Need/"/>
+    <id>https://narafluorine.github.io/2026/05/16/70000_Attention_Is_All_You_Need/</id>
+    <published>2026-05-16T01:05:38.000Z</published>
+    <updated>2026-05-16T01:05:43.700Z</updated>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;二面&quot;&gt;&lt;a href=&quot;#二面&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h1&gt;&lt;p&gt;忘记录屏,不过不录屏也没什么区别,整场面试半个小时结束了,20min都在coding.&lt;/p&gt;
-&lt;p&gt;光速咏唱了一下项目,然后自我介绍了一下</summary>
+    <summary type="html">&lt;p&gt;最近读了一些Transformer的文章,记录一下.&lt;br&gt;由于刚开始读论文,而且不知道自己要从论文中找什么信息,所以完全看不懂,下文的理解非常粗俗.&lt;br&gt;我会回过头再看好几遍文章的…&lt;/p&gt;
+&lt;h2 id=&quot;Attention-Is-All-You-Need-经典永流传</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue</title>
+    <link href="https://narafluorine.github.io/2026/05/12/10043_Vue/"/>
+    <id>https://narafluorine.github.io/2026/05/12/10043_Vue/</id>
+    <published>2026-05-11T21:58:28.189Z</published>
+    <updated>2026-05-12T06:45:51.642Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;稍稍学了一丢丢Vue.&lt;/p&gt;
+&lt;p&gt;组合式&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l</summary>
       
     
     
@@ -99,29 +122,6 @@
     <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
     
     <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拼多多笔试凉经</title>
-    <link href="https://narafluorine.github.io/2026/05/04/20031_%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%AC%94%E8%AF%95%E5%87%89%E7%BB%8F/"/>
-    <id>https://narafluorine.github.io/2026/05/04/20031_%E6%8B%BC%E5%A4%9A%E5%A4%9A%E7%AC%94%E8%AF%95%E5%87%89%E7%BB%8F/</id>
-    <published>2026-05-04T09:35:49.000Z</published>
-    <updated>2026-05-04T09:37:18.303Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;四个题,Fluu睡过头了,只有1h时间,拼尽全力只答了2.45…&lt;br&gt;本来想当怯战蜥蜴的,但是一想到下一次笔试在半个月后,这个恐怖的罚时让Fluu不能接受,最后硬着上了…&lt;br&gt;答的很烂,但是Fluu真尽力了…&lt;/p&gt;
-&lt;h2 id=&quot;T1-95&quot;&gt;&lt;a href=&quot;#T</summary>
-      
-    
-    
-    
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
-    
-    
-    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
     
   </entry>
   
@@ -179,14 +179,13 @@
     <link href="https://narafluorine.github.io/2026/05/01/10041_Kaggle/"/>
     <id>https://narafluorine.github.io/2026/05/01/10041_Kaggle/</id>
     <published>2026-04-30T17:47:20.000Z</published>
-    <updated>2026-04-30T17:47:45.546Z</updated>
+    <updated>2026-05-13T23:14:35.935Z</updated>
     
     
       
       
-    <summary type="html">&lt;p&gt;想打kaggle玩了…&lt;/p&gt;
-&lt;h2 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; title=&quot;Pandas&quot;&gt;&lt;/a&gt;Pandas&lt;/h2&gt;&lt;p&gt;处理表格很有用的工具.&lt;/p&gt;
-&lt;figure class=&quot;high</summary>
+    <summary type="html">&lt;h2 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; title=&quot;Pandas&quot;&gt;&lt;/a&gt;Pandas&lt;/h2&gt;&lt;p&gt;处理表格很有用的工具.&lt;/p&gt;
+&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;t</summary>
       
     
     
@@ -199,38 +198,48 @@
   </entry>
   
   <entry>
-    <title>腾讯后台开发面经</title>
-    <link href="https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/"/>
-    <id>https://narafluorine.github.io/2026/05/01/20030_%E8%85%BE%E8%AE%AF%E9%9D%A2%E7%BB%8F/</id>
-    <published>2026-04-30T17:19:30.000Z</published>
-    <updated>2026-05-07T00:25:14.432Z</updated>
+    <title>ACM退队志</title>
+    <link href="https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/"/>
+    <id>https://narafluorine.github.io/2026/04/25/20028_%E5%A4%A7%E5%8D%83%E4%B8%96%E7%95%8C,%E4%BD%95%E9%A1%BB%E6%89%93A/</id>
+    <published>2026-04-24T16:05:59.000Z</published>
+    <updated>2026-05-06T09:10:44.590Z</updated>
     
     
-    <summary type="html">这里有东西被加密了,需要输入密码查看喵.</summary>
+      
+      
+    <summary type="html">&lt;p&gt;2026/04/20,Fluu正式退出吉林大学ACM队.&lt;br&gt;Away from ACM,再见.  &lt;/p&gt;
+&lt;p&gt;如果Fluu能有什么感想的话,那就是,别碰ACM.  &lt;/p&gt;
+&lt;h3 id=&quot;为什么我不建议任何零基础的人打ACM&quot;&gt;&lt;a href=&quot;#为什么我不建议任</summary>
+      
     
     
     
-    <category term="LIVE" scheme="https://narafluorine.github.io/categories/LIVE/"/>
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
     
     
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    <category term="Contest" scheme="https://narafluorine.github.io/tags/Contest/"/>
     
   </entry>
   
   <entry>
-    <title>MISC-人约</title>
-    <link href="https://narafluorine.github.io/2026/04/28/50014_%E4%BA%BA%E7%BA%A6/"/>
-    <id>https://narafluorine.github.io/2026/04/28/50014_%E4%BA%BA%E7%BA%A6/</id>
-    <published>2026-04-28T03:45:14.000Z</published>
-    <updated>2026-05-05T11:42:29.793Z</updated>
+    <title>ICPC 深圳邀请赛 游记</title>
+    <link href="https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/"/>
+    <id>https://narafluorine.github.io/2026/04/13/20023_ICPC%E6%B7%B1%E5%9C%B3%E6%B8%B8%E8%AE%B0/</id>
+    <published>2026-04-13T08:41:35.000Z</published>
+    <updated>2026-04-13T15:47:17.201Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;day-n&quot;&gt;&lt;a href=&quot;#day-n&quot; class=&quot;headerlink&quot; title=&quot;day -n&quot;&gt;&lt;/a&gt;day -n&lt;/h2&gt;&lt;p&gt;因为24年香港站的时候没办港卡,然后26年汇丰宣布新卡要有管理费了,不然套牢一万…&lt;br&gt;这都是Fluu做攻略不</summary>
+      
     
     
     
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
     
-    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
     
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    <category term="Contest" scheme="https://narafluorine.github.io/tags/Contest/"/>
     
   </entry>
   
