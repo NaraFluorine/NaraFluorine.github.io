@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="起初人们以为这只是一个普通的Linux漏洞…  前车之鉴CVE-2016-5195 Dirty-COWCVE-2022-0847 Dirty-PipeCVE-2022-2602 io_uring-UAF群魔乱舞CVE-2026-31431 Copy FailCVE-2026-43284 CVE-2026-43500  Dirty FragCVE-2026-46300 FragnesiaCVE-2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI与Linux危机元年">
+<meta property="og:url" content="https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="起初人们以为这只是一个普通的Linux漏洞…  前车之鉴CVE-2016-5195 Dirty-COWCVE-2022-0847 Dirty-PipeCVE-2022-2602 io_uring-UAF群魔乱舞CVE-2026-31431 Copy FailCVE-2026-43284 CVE-2026-43500  Dirty FragCVE-2026-46300 FragnesiaCVE-2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://narafluorine.github.io/images/cves.png">
+<meta property="article:published_time" content="2026-05-24T14:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-27T05:37:29.981Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="PWN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://narafluorine.github.io/images/cves.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AI与Linux危机元年</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/05/27/00022_%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/05/18/20025_SpiritGame2026_WP/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&text=AI与Linux危机元年"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&is_video=false&description=AI与Linux危机元年"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AI与Linux危机元年&body=Check out this article: https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&name=AI与Linux危机元年&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&t=AI与Linux危机元年"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%BD%A6%E4%B9%8B%E9%89%B4"><span class="toc-number">1.</span> <span class="toc-text">前车之鉴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2016-5195-Dirty-COW"><span class="toc-number">1.1.</span> <span class="toc-text">CVE-2016-5195 Dirty-COW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2022-0847-Dirty-Pipe"><span class="toc-number">1.2.</span> <span class="toc-text">CVE-2022-0847 Dirty-Pipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2022-2602-io-uring-UAF"><span class="toc-number">1.3.</span> <span class="toc-text">CVE-2022-2602 io_uring-UAF</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BE%A4%E9%AD%94%E4%B9%B1%E8%88%9E"><span class="toc-number">2.</span> <span class="toc-text">群魔乱舞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-31431-Copy-Fail"><span class="toc-number">2.1.</span> <span class="toc-text">CVE-2026-31431 Copy Fail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-43284-CVE-2026-43500-Dirty-Frag"><span class="toc-number">2.2.</span> <span class="toc-text">CVE-2026-43284 CVE-2026-43500  Dirty Frag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-46300-Fragnesia"><span class="toc-number">2.3.</span> <span class="toc-text">CVE-2026-46300 Fragnesia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-46333-SSH-Keysign-pwn"><span class="toc-number">2.4.</span> <span class="toc-text">CVE-2026-46333 SSH-Keysign-pwn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PinTheft"><span class="toc-number">2.5.</span> <span class="toc-text">PinTheft</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-42945-NGINX-Rift"><span class="toc-number">2.6.</span> <span class="toc-text">CVE-2026-42945  NGINX-Rift </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-43121-io-uring-ZCRX-freelist"><span class="toc-number">2.7.</span> <span class="toc-text">CVE-2026-43121 io_uring-ZCRX-freelist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-40369-%E6%9F%90Windows11%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.8.</span> <span class="toc-text">CVE-2026-40369 某Windows11漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%90macos%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.9.</span> <span class="toc-text">某macos漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%90pixel10%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.10.</span> <span class="toc-text">某pixel10漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-21509-%E6%9F%90Office%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.11.</span> <span class="toc-text">CVE-2026-21509 某Office漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E7%82%92%E4%BD%9C%E5%90%97"><span class="toc-number">3.</span> <span class="toc-text">这是炒作吗?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4"><span class="toc-number">4.</span> <span class="toc-text">Linux危机元年?</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AI与Linux危机元年
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-05-24T14:00:00.000Z" class="dt-published" itemprop="datePublished">2026-05-24</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/CTF/">CTF</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>, <a class="p-category" href="/tags/Linux/" rel="tag">Linux</a>, <a class="p-category" href="/tags/PWN/" rel="tag">PWN</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <blockquote>
+<p><strong>起初人们以为这只是一个普通的Linux漏洞…</strong></p>
+</blockquote>
+<h1 id="前车之鉴"><a href="#前车之鉴" class="headerlink" title="前车之鉴"></a>前车之鉴</h1><h2 id="CVE-2016-5195-Dirty-COW"><a href="#CVE-2016-5195-Dirty-COW" class="headerlink" title="CVE-2016-5195 Dirty-COW"></a>CVE-2016-5195 Dirty-COW</h2><h2 id="CVE-2022-0847-Dirty-Pipe"><a href="#CVE-2022-0847-Dirty-Pipe" class="headerlink" title="CVE-2022-0847 Dirty-Pipe"></a>CVE-2022-0847 Dirty-Pipe</h2><h2 id="CVE-2022-2602-io-uring-UAF"><a href="#CVE-2022-2602-io-uring-UAF" class="headerlink" title="CVE-2022-2602 io_uring-UAF"></a>CVE-2022-2602 io_uring-UAF</h2><h1 id="群魔乱舞"><a href="#群魔乱舞" class="headerlink" title="群魔乱舞"></a>群魔乱舞</h1><h2 id="CVE-2026-31431-Copy-Fail"><a href="#CVE-2026-31431-Copy-Fail" class="headerlink" title="CVE-2026-31431 Copy Fail"></a><a target="_blank" rel="noopener" href="https://copy.fail/">CVE-2026-31431 Copy Fail</a></h2><h2 id="CVE-2026-43284-CVE-2026-43500-Dirty-Frag"><a href="#CVE-2026-43284-CVE-2026-43500-Dirty-Frag" class="headerlink" title="CVE-2026-43284 CVE-2026-43500  Dirty Frag"></a><a target="_blank" rel="noopener" href="https://github.com/V4bel/dirtyfrag">CVE-2026-43284 CVE-2026-43500  Dirty Frag</a></h2><h2 id="CVE-2026-46300-Fragnesia"><a href="#CVE-2026-46300-Fragnesia" class="headerlink" title="CVE-2026-46300 Fragnesia"></a><a target="_blank" rel="noopener" href="https://github.com/v12-security/pocs/tree/main/fragnesia">CVE-2026-46300 Fragnesia</a></h2><h2 id="CVE-2026-46333-SSH-Keysign-pwn"><a href="#CVE-2026-46333-SSH-Keysign-pwn" class="headerlink" title="CVE-2026-46333 SSH-Keysign-pwn"></a><a target="_blank" rel="noopener" href="https://github.com/0xBlackash/CVE-2026-46333">CVE-2026-46333 SSH-Keysign-pwn</a></h2><h2 id="PinTheft"><a href="#PinTheft" class="headerlink" title="PinTheft"></a><a target="_blank" rel="noopener" href="https://github.com/v12-security/pocs/tree/main/pintheft">PinTheft</a></h2><h2 id="CVE-2026-42945-NGINX-Rift"><a href="#CVE-2026-42945-NGINX-Rift" class="headerlink" title="CVE-2026-42945  NGINX-Rift "></a><a target="_blank" rel="noopener" href="https://depthfirst.com/nginx-rift">CVE-2026-42945  NGINX-Rift </a></h2><h2 id="CVE-2026-43121-io-uring-ZCRX-freelist"><a href="#CVE-2026-43121-io-uring-ZCRX-freelist" class="headerlink" title="CVE-2026-43121 io_uring-ZCRX-freelist"></a>CVE-2026-43121 io_uring-ZCRX-freelist</h2><h2 id="CVE-2026-40369-某Windows11漏洞"><a href="#CVE-2026-40369-某Windows11漏洞" class="headerlink" title="CVE-2026-40369 某Windows11漏洞"></a>CVE-2026-40369 某Windows11漏洞</h2><h2 id="某macos漏洞"><a href="#某macos漏洞" class="headerlink" title="某macos漏洞"></a><a target="_blank" rel="noopener" href="https://firethering.com/anthropic-mythos-macos-vulnerabilities-apple/">某macos漏洞</a></h2><h2 id="某pixel10漏洞"><a href="#某pixel10漏洞" class="headerlink" title="某pixel10漏洞"></a><a target="_blank" rel="noopener" href="https://projectzero.google/2026/05/pixel-10-exploit.html">某pixel10漏洞</a></h2><h2 id="CVE-2026-21509-某Office漏洞"><a href="#CVE-2026-21509-某Office漏洞" class="headerlink" title="CVE-2026-21509 某Office漏洞"></a>CVE-2026-21509 某Office漏洞</h2><h1 id="这是炒作吗"><a href="#这是炒作吗" class="headerlink" title="这是炒作吗?"></a>这是炒作吗?</h1><p><img src="../../../../images/cves.png" alt=""></p>
+<p>根据<a target="_blank" rel="noopener" href="https://www.cvefind.com/en/cve-statistic-date.html">这个网站</a>的数据,每个月发现的CVE个数确实是几乎逐年上升的,偶尔有几个漏洞火出圈,是正常现象.</p>
+<p>但如果是一个月内五个,甚至更多漏洞火出圈呢?甚至几乎都是针对Linux的,而且只要能读文件就能复现…那很严重了,甚至Linus本人都说了,别再交AI生成的漏洞报告了,首先是AI生成的他们自己估计都看不懂,而且是很多人用AI探测出来的结果可能是重复的,最后是这样的报告因为AI的加持已经变得超级多,快爆炸了…</p>
+<p>Linus还说,如果自己会修的话请连着修复策略一起报上来.</p>
+<h1 id="Linux危机元年"><a href="#Linux危机元年" class="headerlink" title="Linux危机元年?"></a>Linux危机元年?</h1><p>唔使惊,是技术性调整!</p>
+<p>前一阵子mythos自称挖了一堆漏洞.<br>前几天据说mythos已经在内测了.  </p>
+<p>可以预见地,在AI的加持下,挖出来的漏洞会越来越多,这只是冰山一角…</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%BD%A6%E4%B9%8B%E9%89%B4"><span class="toc-number">1.</span> <span class="toc-text">前车之鉴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2016-5195-Dirty-COW"><span class="toc-number">1.1.</span> <span class="toc-text">CVE-2016-5195 Dirty-COW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2022-0847-Dirty-Pipe"><span class="toc-number">1.2.</span> <span class="toc-text">CVE-2022-0847 Dirty-Pipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2022-2602-io-uring-UAF"><span class="toc-number">1.3.</span> <span class="toc-text">CVE-2022-2602 io_uring-UAF</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BE%A4%E9%AD%94%E4%B9%B1%E8%88%9E"><span class="toc-number">2.</span> <span class="toc-text">群魔乱舞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-31431-Copy-Fail"><span class="toc-number">2.1.</span> <span class="toc-text">CVE-2026-31431 Copy Fail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-43284-CVE-2026-43500-Dirty-Frag"><span class="toc-number">2.2.</span> <span class="toc-text">CVE-2026-43284 CVE-2026-43500  Dirty Frag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-46300-Fragnesia"><span class="toc-number">2.3.</span> <span class="toc-text">CVE-2026-46300 Fragnesia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-46333-SSH-Keysign-pwn"><span class="toc-number">2.4.</span> <span class="toc-text">CVE-2026-46333 SSH-Keysign-pwn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PinTheft"><span class="toc-number">2.5.</span> <span class="toc-text">PinTheft</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-42945-NGINX-Rift"><span class="toc-number">2.6.</span> <span class="toc-text">CVE-2026-42945  NGINX-Rift </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-43121-io-uring-ZCRX-freelist"><span class="toc-number">2.7.</span> <span class="toc-text">CVE-2026-43121 io_uring-ZCRX-freelist</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-40369-%E6%9F%90Windows11%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.8.</span> <span class="toc-text">CVE-2026-40369 某Windows11漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%90macos%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.9.</span> <span class="toc-text">某macos漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%90pixel10%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.10.</span> <span class="toc-text">某pixel10漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CVE-2026-21509-%E6%9F%90Office%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.11.</span> <span class="toc-text">CVE-2026-21509 某Office漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E7%82%92%E4%BD%9C%E5%90%97"><span class="toc-number">3.</span> <span class="toc-text">这是炒作吗?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4"><span class="toc-number">4.</span> <span class="toc-text">Linux危机元年?</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&text=AI与Linux危机元年"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&is_video=false&description=AI与Linux危机元年"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AI与Linux危机元年&body=Check out this article: https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&title=AI与Linux危机元年"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&name=AI与Linux危机元年&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/&t=AI与Linux危机元年"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

