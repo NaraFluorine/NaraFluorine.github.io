@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="cpp怎么生成dll?cpp怎么调用dll? 为什么free知道malloc申请多大内存因为malloc的内存前面有一个内存信息头,free能读到这个.这个malloc多申请的一般是16个byte. RAII资源的生命周期与对象的生命周期绑定. 常见的设计有智能指针,vector等容器,输入输出流,乃至lock_guard都是自动管理的. 虚继承主要为了解决菱形继承的资源问题.12345  A (">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
-<meta property="og:url" content="https://narafluorine.github.io/Base/Cpp.html">
+<meta property="og:url" content="https://narafluorine.github.io/base/CPP.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="cpp怎么生成dll?cpp怎么调用dll? 为什么free知道malloc申请多大内存因为malloc的内存前面有一个内存信息头,free能读到这个.这个malloc多申请的一般是16个byte. RAII资源的生命周期与对象的生命周期绑定. 常见的设计有智能指针,vector等容器,输入输出流,乃至lock_guard都是自动管理的. 虚继承主要为了解决菱形继承的资源问题.12345  A (">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-23T01:45:10.787Z">
-<meta property="article:modified_time" content="2026-05-23T01:45:01.493Z">
-<meta property="article:author" content="Fluorine Wang">
+<meta property="article:published_time" content="2026-06-08T11:17:13.122Z">
+<meta property="article:modified_time" content="2026-06-08T11:17:13.122Z">
+<meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
     
@@ -132,7 +132,28 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <p>cpp怎么生成dll?cpp怎么调用dll?</p>
+<h2 id="为什么free知道malloc申请多大内存"><a href="#为什么free知道malloc申请多大内存" class="headerlink" title="为什么free知道malloc申请多大内存"></a>为什么free知道malloc申请多大内存</h2><p>因为malloc的内存前面有一个内存信息头,free能读到这个.<br>这个malloc多申请的一般是16个byte.</p>
+<h2 id="RAII"><a href="#RAII" class="headerlink" title="RAII"></a>RAII</h2><p>资源的生命周期与对象的生命周期绑定.</p>
+<p>常见的设计有智能指针,vector等容器,输入输出流,乃至lock_guard都是自动管理的.</p>
+<h2 id="虚继承"><a href="#虚继承" class="headerlink" title="虚继承"></a>虚继承</h2><p>主要为了解决菱形继承的资源问题.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">A</span> (基类)</span><br><span class="line"> / \</span><br><span class="line">B   C</span><br><span class="line"> \ /</span><br><span class="line">  <span class="built_in">D</span> (最终派生类)</span><br></pre></td></tr></table></figure><br>这个时候B和C都要开虚继承,然后D在继承BC的时候就只有一个A了.<br>但是如果A有一个虚函数,BC有不同实现,会造成二义性,此时必须由D重新写一个实现.  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">a</span>&#123;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">()</span></span>=<span class="number">0</span>;</span><br><span class="line">&#125;;<span class="comment">//大小 16 ,虚指针8,int4 pad4</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">b</span>:<span class="keyword">virtual</span> <span class="keyword">public</span> a&#123;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;b::func()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;<span class="comment">//大小 24, A16,自己的虚指针24</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">c</span>:<span class="keyword">virtual</span> <span class="keyword">public</span> a&#123;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;c::func()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">d</span>:<span class="keyword">public</span> b,<span class="keyword">public</span> c&#123;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;d::func()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;<span class="comment">//大小 32, A16,两个虚指针16</span></span><br></pre></td></tr></table></figure>
+<h2 id="RTTI-运行时类型识别"><a href="#RTTI-运行时类型识别" class="headerlink" title="RTTI 运行时类型识别"></a>RTTI 运行时类型识别</h2><h2 id="C-各版本的特性"><a href="#C-各版本的特性" class="headerlink" title="C++各版本的特性?"></a>C++各版本的特性?</h2><h3 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h3><p>移动语义 智能指针 lambda表达式 auto 并发</p>
+<h3 id="C-14"><a href="#C-14" class="headerlink" title="C++14"></a>C++14</h3><p>模板</p>
+<h3 id="C-17"><a href="#C-17" class="headerlink" title="C++17"></a>C++17</h3><p>if里面可以有函数</p>
+<h3 id="C-20"><a href="#C-20" class="headerlink" title="C++20"></a>C++20</h3><p><code>&lt;=&gt;</code> 三向比较</p>
+<h3 id="C-23"><a href="#C-23" class="headerlink" title="C++23"></a>C++23</h3><p><code>std::print</code></p>
+<h2 id="为什么函数指针大小是16"><a href="#为什么函数指针大小是16" class="headerlink" title="为什么函数指针大小是16?"></a>为什么函数指针大小是16?</h2><p>首先8个是函数真实的地址,用于查找函数.<br>还有8个是对象偏移,用于对齐函数参数对象的地址.<br>举例:类A,类C,类B继承类A和类C,这个时候用类B的指针调用类C的函数,因为这个对象本身的地址不是C本身,所以会出错,这就是偏移的意义.  </p>
+<h2 id="move的实际应用情景"><a href="#move的实际应用情景" class="headerlink" title="move的实际应用情景?"></a>move的实际应用情景?</h2><p>转移一些不能拷贝的对象,比如线程,或者很大的对象.</p>
+<h2 id="重定向new"><a href="#重定向new" class="headerlink" title="重定向new"></a>重定向new</h2><h1 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h1><p><code>get()</code> 返回裸指针.<br><code>get_deleter()</code> 返回删除对象的引用.<br><code>operator bool()</code> 检查是否非空, <code>if(ptr)</code> 等价于 <code>if(ptr.get()!=nullptr)</code><br><code>reset()</code> 销毁当前管理的对象,然后接管新指针,传 <code>nullptr</code> 仅释放资源.<br><code>release()</code> 放弃所有权,返回裸指针,原指针变成空的,注意需要手动管理这个指针,不然内存泄漏了.<br><code>swap(other)</code> 与另一个类型相同的指针交换.  </p>
+<p><code>*ptr</code> 返回原始对象.<br><code>ptr-&gt;</code> 访问对象成员.  </p>
+<h4 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h4><p><code>use_count()</code> 引用计数.<br><code>unique()</code> 是否独占对象.<br><code>reset()</code> 变成了引用计数-1,如果变为0就销毁.</p>
+<h4 id="weak-ptr"><a href="#weak-ptr" class="headerlink" title="weak_ptr"></a>weak_ptr</h4><p><code>lock()</code> 返回一个 <code>shared_ptr</code>.<br><code>expired()</code> 判断对象是否已经销毁.<br><strong>注意 <code>weak_ptr</code>没有bool()判空的方法,需要用expired(),或者直接lock升级之后判空</strong>.lock升级前不需要判空.</p>
+<h4 id="控制块"><a href="#控制块" class="headerlink" title="控制块"></a>控制块</h4><p>包含强引用计数,弱引用计数,管理的对象指针,删除器,分配器.<br>强引用计数和弱引用计数都为0的时候销毁控制块.</p>
+<h4 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h4><p>双重释放:同一块内存被释放两次,造成未定义行为或程序崩溃.<br>所以从智能指针的 <code>get()</code> 构造一个新的智能指针要销毁或者转移原来的,不然就会出错.  </p>
+<h1 id="RAII-1"><a href="#RAII-1" class="headerlink" title="RAII"></a>RAII</h1><h1 id="Traits"><a href="#Traits" class="headerlink" title="Traits"></a>Traits</h1><h1 id="模板编程"><a href="#模板编程" class="headerlink" title="模板编程"></a>模板编程</h1><h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><h1 id="天坑"><a href="#天坑" class="headerlink" title="天坑"></a>天坑</h1><p>一些很细的不知道面试稳不稳的东西:</p>
+<p>继承和多态的时候控制块怎么创建<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Base</span> &#123; <span class="keyword">virtual</span> ~<span class="built_in">Base</span>() = <span class="keyword">default</span>; &#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Derived</span> : Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✅ 从派生类裸指针构造，控制块记录正确删除器</span></span><br><span class="line">Base* raw = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line"><span class="function">shared_ptr&lt;Base&gt; <span class="title">sp</span><span class="params">(raw)</span></span>;  <span class="comment">// ✅ 新建控制块，会用 Derived 的析构函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ❌ 危险：不同类型也会创建独立控制块</span></span><br><span class="line">Derived* raw2 = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line"><span class="function">shared_ptr&lt;Base&gt; <span class="title">sp1</span><span class="params">(raw2)</span></span>;</span><br><span class="line"><span class="function">shared_ptr&lt;Derived&gt; <span class="title">sp2</span><span class="params">(raw2)</span></span>;  <span class="comment">// 第二个控制块 → 双重释放</span></span><br></pre></td></tr></table></figure></p>
+
         
   </div>
 </article>
@@ -144,7 +165,7 @@
     
     
     2024-2026
-    Fluorine Wang
+    Florin Wang
   </div>
 
   <!-- Begin 不蒜子统计 -->

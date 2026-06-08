@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息. sg函数必输状态的sg值为0.其他状态的sg值为mex(所有可到达的子状态). 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为xor(所有子游戏的sg) nim游戏每次可以从一堆石子拿走任意个数,不能不拿,谁拿不了就输. 结论:所有石子xor为0必输,其余情况必赢.证明:假设当前xor不">
+    <meta name="description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息,也就是说在双方绝对聪明的条件下一定会有一个确定的胜者.   下面的内容参考了队友QianK的部分板子. sg函数必输状态的sg值为0.其他状态的sg值为 mex(所有可到达的子状态) . 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为 xor(所有子游戏的sg) . Nim游戏每次可以从一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博弈论">
 <meta property="og:url" content="https://narafluorine.github.io/2024/06/05/10040_%E5%8D%9A%E5%BC%88%E8%AE%BA/index.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息. sg函数必输状态的sg值为0.其他状态的sg值为mex(所有可到达的子状态). 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为xor(所有子游戏的sg) nim游戏每次可以从一堆石子拿走任意个数,不能不拿,谁拿不了就输. 结论:所有石子xor为0必输,其余情况必赢.证明:假设当前xor不">
+<meta property="og:description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息,也就是说在双方绝对聪明的条件下一定会有一个确定的胜者.   下面的内容参考了队友QianK的部分板子. sg函数必输状态的sg值为0.其他状态的sg值为 mex(所有可到达的子状态) . 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为 xor(所有子游戏的sg) . Nim游戏每次可以从一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-05T15:21:27.000Z">
-<meta property="article:modified_time" content="2026-05-12T16:27:31.326Z">
-<meta property="article:author" content="Fluorine Wang">
+<meta property="article:modified_time" content="2026-06-06T05:41:59.094Z">
+<meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -109,7 +109,7 @@
         <li><a class="icon" aria-label="上一篇" href="/2024/09/01/20005_XCPC2024/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10038_%E5%88%86%E6%B2%BB/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -139,7 +139,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sg%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">sg函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nim%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8Dnim%E6%B8%B8%E6%88%8F"><span class="toc-number">3.</span> <span class="toc-text">反nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B8%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">典题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sg%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">sg函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8DNim%E6%B8%B8%E6%88%8F"><span class="toc-number">3.</span> <span class="toc-text">反Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B6%E6%A2%AFNim%E6%B8%B8%E6%88%8F"><span class="toc-number">4.</span> <span class="toc-text">阶梯Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K-Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">5.</span> <span class="toc-text">K-Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%B4%E4%BB%80%E5%8D%9A%E5%BC%88"><span class="toc-number">6.</span> <span class="toc-text">巴什博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88"><span class="toc-number">7.</span> <span class="toc-text">威佐夫博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%8D%9A%E5%BC%88"><span class="toc-number">8.</span> <span class="toc-text">斐波那契博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chomp%E5%8D%9A%E5%BC%88"><span class="toc-number">9.</span> <span class="toc-text">chomp博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4chomp%E5%8D%9A%E5%BC%88"><span class="toc-number">10.</span> <span class="toc-text">三维chomp博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8D%9A%E5%BC%88"><span class="toc-number">11.</span> <span class="toc-text">二分图博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B8%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">典题</span></a></li></ol>
       </div>
     
   </span>
@@ -159,7 +159,7 @@
 
     <div class="meta">
       <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-name" itemprop="name">Fluorine Wang</span>
+        <span class="p-name" itemprop="name">Florin Wang</span>
       </span>
       
     <div class="postdate">
@@ -189,12 +189,36 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息.</p>
-<h1 id="sg函数"><a href="#sg函数" class="headerlink" title="sg函数"></a>sg函数</h1><p>必输状态的sg值为0.<br>其他状态的sg值为mex(所有可到达的子状态).</p>
-<p>上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为xor(所有子游戏的sg)</p>
-<h1 id="nim游戏"><a href="#nim游戏" class="headerlink" title="nim游戏"></a>nim游戏</h1><p>每次可以从一堆石子拿走任意个数,不能不拿,谁拿不了就输.</p>
+    <p>OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息,也就是说在双方绝对聪明的条件下一定会有一个确定的胜者.  </p>
+<p>下面的内容参考了队友QianK的部分板子.</p>
+<h1 id="sg函数"><a href="#sg函数" class="headerlink" title="sg函数"></a>sg函数</h1><p>必输状态的sg值为0.<br>其他状态的sg值为 <code>mex(所有可到达的子状态)</code> .</p>
+<p>上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为 <code>xor(所有子游戏的sg)</code> .</p>
+<h1 id="Nim游戏"><a href="#Nim游戏" class="headerlink" title="Nim游戏"></a>Nim游戏</h1><p>每次可以从一堆石子拿走任意个数的石子,不能不拿,谁拿不了就输.<br><strong>下文除了反Nim游戏外均默认拿到最后一个石子的赢.</strong></p>
 <p>结论:所有石子xor为0必输,其余情况必赢.<br>证明:假设当前xor不为0,前手必定能构造一个方案满足拿走之后剩余的xor为0,然后效仿后手拿即可.  </p>
-<h1 id="反nim游戏"><a href="#反nim游戏" class="headerlink" title="反nim游戏"></a>反nim游戏</h1><h1 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h1><ol>
+<h1 id="反Nim游戏"><a href="#反Nim游戏" class="headerlink" title="反Nim游戏"></a>反Nim游戏</h1><p>和Nim游戏一样的拿石头规则,但是拿到最后一个石子的反而会输.  </p>
+<p>结论:所有堆&lt;=1的时候,xor为0必胜.<br>如果存在有堆&gt;1的时候xor为0必输.</p>
+<p>证明:如果所有堆都小于等于1,那么二人每次都只能拿一个石子,那就和奇偶有关,换句话说就是xor.<br>如果有石堆大于1个的时候,考虑这个非1的堆:后手可以效仿先手构造xor不变的手法,那么xor本来就是0,一定会拿到最后一个石头,就必输了.</p>
+<h1 id="阶梯Nim游戏"><a href="#阶梯Nim游戏" class="headerlink" title="阶梯Nim游戏"></a>阶梯Nim游戏</h1><p>有n堆石子,每次可以把第i(1&lt;=i&lt;=n)堆的任意数量石子移动到第i-1堆,不能不动.</p>
+<p>结论:等价于在奇数堆做Nim游戏.</p>
+<p>证明:先考虑只有偶数堆有石子,此时先手必败,因为先手只能把石子移动到奇数堆,后手可以随意效仿.<br>所以把奇数堆石子拿到偶数堆就相当于取走了这些石子,我们对奇数堆做xor就行了.</p>
+<h1 id="K-Nim游戏"><a href="#K-Nim游戏" class="headerlink" title="K-Nim游戏"></a>K-Nim游戏</h1><p>n堆石子,每次取至少一堆,至多k堆的任意颗,不能不拿.</p>
+<p>结论:当二进制每一位的1的数量和为k+1的倍数时先手必败.</p>
+<p>证明:首先全0局面先手必败.那么当所有位的和都是k+1的倍数时,任意一次操作不能覆盖这k+1堆,但两次操作就可以了.<br>还有一个发现:Nim游戏就是k=1时的K-Nim游戏.</p>
+<h1 id="巴什博弈"><a href="#巴什博弈" class="headerlink" title="巴什博弈"></a>巴什博弈</h1><p>一堆石子n个,每次拿至少1至多m个,先取完的胜.</p>
+<p>结论:先手必败当且仅当 $(m+1)|n$ .</p>
+<p>证明:当n&lt;m+1时,先手一次全拿走直接赢了.<br>当n=m+1时先手一次肯定拿不走后手一次肯定拿走就赢了.<br>其余情况当 $n=p(m+1)$ 时先手随便拿,后手一定能构造出 $n’=(p-1)(m+1)$ 所以是必输的.</p>
+<h1 id="威佐夫博弈"><a href="#威佐夫博弈" class="headerlink" title="威佐夫博弈"></a>威佐夫博弈</h1><p>有两堆石子a和b,每次取时可以选一堆取任意颗,或者选两堆取走相同个数的石子,不能不取.</p>
+<p>结论:先手必败当且仅当存在k满足:</p>
+<script type="math/tex; mode=display">\begin{cases}a=\left\lfloor\frac{k(1+\sqrt5)}{2}\right\rfloor\\b=a+k\end{cases}</script><p>证明:QianK不会,但据说可以打表找规律.</p>
+<p>稍稍的挖一个坑.</p>
+<h1 id="斐波那契博弈"><a href="#斐波那契博弈" class="headerlink" title="斐波那契博弈"></a>斐波那契博弈</h1><p>一堆n石子,先手第一次不能全部取走,从后手第一次取开始每次取的石子至多为对手上一次取的两倍,不能不取.</p>
+<p>结论:先手必败当且仅当n是个斐波那契数.</p>
+<p>证明:Zeckendorf定理(齐肯多夫定理,一个数能被表示成若干不连续的斐波那契数字和)</p>
+<h1 id="chomp博弈"><a href="#chomp博弈" class="headerlink" title="chomp博弈"></a>chomp博弈</h1><p>有一个 $n\times m$ 的棋盘,每一个格子都有一个石子,每次可以选一个坐标(a,b)然后把所有 $(x,y)(a\ge a,y\ge b)$ 的石子全部拿走,取到(1,1)的输了,问先手是否必胜.</p>
+<p>结论:除非开局就剩(1,1)否则必胜.</p>
+<h1 id="三维chomp博弈"><a href="#三维chomp博弈" class="headerlink" title="三维chomp博弈"></a>三维chomp博弈</h1><p>挖坑.</p>
+<h1 id="二分图博弈"><a href="#二分图博弈" class="headerlink" title="二分图博弈"></a>二分图博弈</h1><p>挖坑.</p>
+<h1 id="典题"><a href="#典题" class="headerlink" title="典题"></a>典题</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://pe-cn.github.io/649/">小质数棋盘硬币游戏</a><br>首先硬币的两维是独立的,考虑分开.<br>打表出硬币的sg序列为 <code>0,0,1,1,2,2,3,3,4</code> ,硬币的sg可以用维度mex起来.<br>所有的独立硬币xor起来.</li>
 </ol>
 <ol>
@@ -248,7 +272,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sg%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">sg函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nim%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8Dnim%E6%B8%B8%E6%88%8F"><span class="toc-number">3.</span> <span class="toc-text">反nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B8%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">典题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sg%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">sg函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8DNim%E6%B8%B8%E6%88%8F"><span class="toc-number">3.</span> <span class="toc-text">反Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B6%E6%A2%AFNim%E6%B8%B8%E6%88%8F"><span class="toc-number">4.</span> <span class="toc-text">阶梯Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K-Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">5.</span> <span class="toc-text">K-Nim游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%B4%E4%BB%80%E5%8D%9A%E5%BC%88"><span class="toc-number">6.</span> <span class="toc-text">巴什博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88"><span class="toc-number">7.</span> <span class="toc-text">威佐夫博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%8D%9A%E5%BC%88"><span class="toc-number">8.</span> <span class="toc-text">斐波那契博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chomp%E5%8D%9A%E5%BC%88"><span class="toc-number">9.</span> <span class="toc-text">chomp博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4chomp%E5%8D%9A%E5%BC%88"><span class="toc-number">10.</span> <span class="toc-text">三维chomp博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8D%9A%E5%BC%88"><span class="toc-number">11.</span> <span class="toc-text">二分图博弈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B8%E9%A2%98"><span class="toc-number">12.</span> <span class="toc-text">典题</span></a></li></ol>
       </div>
     
 
@@ -288,7 +312,7 @@
     
     
     2024-2026
-    Fluorine Wang
+    Florin Wang
   </div>
 
   <!-- Begin 不蒜子统计 -->

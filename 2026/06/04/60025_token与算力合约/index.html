@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通? 那么首先这个观点的正式来源是这篇文章:【CGS-NDI辩日】章俊、许冬石：Token经济学：畅想人民币国际化突围新路径. 文章的内容是什么?好长,Fluu不想看.这种东西就属于,公说公有理,婆说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈token与算力合约">
+<meta property="og:url" content="https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通? 那么首先这个观点的正式来源是这篇文章:【CGS-NDI辩日】章俊、许冬石：Token经济学：畅想人民币国际化突围新路径. 文章的内容是什么?好长,Fluu不想看.这种东西就属于,公说公有理,婆说">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-04T05:53:10.000Z">
+<meta property="article:modified_time" content="2026-06-07T17:19:21.769Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="论断筒">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>浅谈token与算力合约</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2030/01/01/99998_Crack_Myself/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&text=浅谈token与算力合约"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&is_video=false&description=浅谈token与算力合约"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈token与算力合约&body=Check out this article: https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&name=浅谈token与算力合约&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&t=浅谈token与算力合约"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%9A%84%E5%86%85%E5%AE%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">文章的内容是什么?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88token%E4%B8%8D%E8%83%BD%E6%88%90%E4%B8%BA%E8%B4%A7%E5%B8%81"><span class="toc-number">2.</span> <span class="toc-text">为什么token不能成为货币?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9Ctoken%E7%9C%9F%E7%9A%84%E7%A0%B4%E9%99%A4%E4%B8%87%E9%9A%BE%E6%88%90%E4%B8%BA%E4%BA%86%E8%B4%A7%E5%B8%81-%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">如果token真的破除万难成为了货币,会发生什么?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%A6%82%E4%BD%95"><span class="toc-number">3.</span> <span class="toc-text">算力合约的未来如何?</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        浅谈token与算力合约
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-06-04T05:53:10.000Z" class="dt-published" itemprop="datePublished">2026-06-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>, <a class="p-category" href="/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/" rel="tag">论断筒</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.<br>而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通?</p>
+<p>那么首先这个观点的正式来源是这篇文章:<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Pshe1hi7wwf9ZXyCJSdYuw">【CGS-NDI辩日】章俊、许冬石：Token经济学：畅想人民币国际化突围新路径</a>.</p>
+<h1 id="文章的内容是什么"><a href="#文章的内容是什么" class="headerlink" title="文章的内容是什么?"></a>文章的内容是什么?</h1><p>好长,Fluu不想看.<br>这种东西就属于,公说公有理,婆说婆有理,反正最后会对一个(成了/没成),所以这种论据再有力也没用,因为找不到参考标准.</p>
+<h1 id="为什么token不能成为货币"><a href="#为什么token不能成为货币" class="headerlink" title="为什么token不能成为货币?"></a>为什么token不能成为货币?</h1><ol>
+<li><p>不同模型推理使用token的情况不同,就算同一个模型同一个提示词的效果和token消耗也可能差很多,而且不同人写提示词的能力不同必然导致模型的效果也不同,所以token的价值是很难被确定的,总不能token在别人手里值100元到我手里因为我不会写提示词就值50元吧?然后token当货币的代价可能就是模型版本被锁死.对于”未来模型会更强,所以现版本的token未来会大涨”这种观点是把token当成期货,而不是把token当货币.</p>
+</li>
+<li><p>token从模型提供商处购买,又消耗在模型提供商给的模型中,所以token一定是中心化的.<br> 目前无论是中转站还是api,底层都是模型提供商在提供LLM的服务.<br> 那怎么去中心化呢?以deepseek为例,一个ds满血版需要10张H100显卡,就单算显卡的费用就250万人民币出去了,这可不是挖矿时代是个电脑就能挖的去中心化.<br> 而且就算分布式节点部署好了,模型迭代升级怎么办呢?人家去中心化的比特币可是一直没变过核心算法,但大模型是不一样,旧token和新token怎么换算?为什么要这么换算?旧模型还提供支持吗?如果旧模型没人支持了,旧token势必暴跌,那为什么要用注定暴跌的token当货币呢?</p>
+</li>
+<li><p>token是中心化的,token的存在需要一个强有力的背书,那么模型提供商能提供背书吗?<br> Fluu认为不行.<br> 首先是AI公司本质上还是商业公司,他们决定了token怎么计算,而且token的真实消耗算法也没人知道,人们只知道token是一个很抽象的概念.而且前脚有 <code>A\</code> 新版客户端给第三方api添加cch故意干扰缓存命中(<a target="_blank" rel="noopener" href="https://linux.do/t/topic/1613608">ref</a>),后脚有ChatGPT更改GPT Plus账户的每月额度,公司本身就逐利,要是token成货币了,那可不好好收韭菜?<br> 其次就是模型提供商的公众舆论不好.人们对于AI应该是又爱又恨的态度,AI确实好用在前,但大模型明天就可能导致公司大裁员.奥特曼家门口被纵火就是AI焦虑的典型例子.</p>
+</li>
+<li><p>(本观点来自群U)算力这个东西会随着科技发展变得越来越便宜,用这个作为锚定一点都不稳定.<br> 人家BTC是故意设计为通缩(因为总量有限越挖越少),所以能保证一定程度的上涨,然而加密领域实际上USDT用的多,就是因为BTC不稳定.<br> 整篇文章把热点和宏大叙事杂糅在一起,不管合理性也不管有没有价值,乍一看很吓人,但只能评价为疯了.<br> 至于算力合约,一直有人在做,但依旧不靠谱.</p>
+</li>
+</ol>
+<h2 id="如果token真的破除万难成为了货币-会发生什么"><a href="#如果token真的破除万难成为了货币-会发生什么" class="headerlink" title="如果token真的破除万难成为了货币,会发生什么?"></a>如果token真的破除万难成为了货币,会发生什么?</h2><p>别想了,有外汇管制的,如果token真的有交易所能很方便地从某币转化成某元那一定会纳入外汇管制范围的,而且监管在变严格,最近打击某虎,某途,某桥就是个例子,就算没有也会变成虚拟币一样的结局:大家默默的去炒去用,被逮了就自认倒霉.</p>
+<h1 id="算力合约的未来如何"><a href="#算力合约的未来如何" class="headerlink" title="算力合约的未来如何?"></a>算力合约的未来如何?</h1><p>先讲讲token期货:假设有一个美国人,能自由购买ChatGPT,于是买了个plus.<br>但是此时另一个国家的人民他们需要AI去写代码,去做报告,去干各种各样的事情,但是这个国家被制裁了,他们不能过kyc买到plus,本着有需求就有市场的原则,中间商,或者中转站应运而生…    </p>
+<p>还有可能,这个AI公司有可能上各个国家搞活动,比如什么<a target="_blank" rel="noopener" href="https://www.reddit.com/r/aicuriosity/comments/1oq47pg/free_chatgpt_plus_for_veterans_openais_1year/">美国退役老兵免费用ChatGPT</a>,或者单纯因为汇率差异导致各个国家开Plus账号的代价不一样,从而建立一个套利的交易所,或者脚本注册搞中转站号池,或者逆向GPT的前端变成能api调用的反代中转站等等.</p>
+<p>但这个时候是模型提供商被薅羊毛,因为一般情况下网页端起不了大项目,所以各大模型提供商的网页对话几乎都是免费的,而api调用又几乎都是花钱的,所以模型提供商是第一个不同意,恰恰说明这种方式对一般人是重大利好(不包含黑中转),不过要小心个人数据泄漏的问题,严格划清中转站的文件访问权限.</p>
+<p>再说说算力合约:卖算力,这不就是赛博房地产嘛…<br>假设我花钱买了几个主机,几个服务器,我能出售算力,让别人的代码或网页跑在我的电脑上,别人给我钱,这不就是地主嘛,只不过搬到了网上.<br>所以算力合约的市场肯定是火爆的,不然内存显卡也不会涨价这么猛了.<br>不过算力未来也肯定是越来越便宜,首先是因为科技发展,芯片也在发展,其次是因为算力是高度同质化的东西,就是纯计算,都是主机我为什么买你这里的不买其他人的?所以未来的内卷也一定会非常严重,不要轻易入局,当年挖矿潮的时候就诞生了一堆半废的显卡…</p>
+<p>但赚钱肯定是赚钱的,毕竟赛博地主嘛,有需求就有市场.<br>但能不能接到需求就看个人了…  </p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E7%9A%84%E5%86%85%E5%AE%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">文章的内容是什么?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88token%E4%B8%8D%E8%83%BD%E6%88%90%E4%B8%BA%E8%B4%A7%E5%B8%81"><span class="toc-number">2.</span> <span class="toc-text">为什么token不能成为货币?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9Ctoken%E7%9C%9F%E7%9A%84%E7%A0%B4%E9%99%A4%E4%B8%87%E9%9A%BE%E6%88%90%E4%B8%BA%E4%BA%86%E8%B4%A7%E5%B8%81-%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="toc-number">2.1.</span> <span class="toc-text">如果token真的破除万难成为了货币,会发生什么?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%A6%82%E4%BD%95"><span class="toc-number">3.</span> <span class="toc-text">算力合约的未来如何?</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&text=浅谈token与算力合约"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&is_video=false&description=浅谈token与算力合约"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈token与算力合约&body=Check out this article: https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&title=浅谈token与算力合约"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&name=浅谈token与算力合约&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/&t=浅谈token与算力合约"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

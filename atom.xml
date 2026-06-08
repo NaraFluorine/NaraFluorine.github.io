@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>NaraFluorine&#39;s blog</title>
   
-  <subtitle>73 DE BG2MJG</subtitle>
+  <subtitle>Satellite Over the Sky</subtitle>
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://narafluorine.github.io/</id>
   
   <author>
-    <name>Fluorine Wang</name>
+    <name>Florin Wang</name>
     
   </author>
   
@@ -39,15 +39,172 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/27/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/</id>
-    <published>2026-05-27T05:12:07.960Z</published>
-    <updated>2026-05-27T05:12:10.855Z</updated>
+    <title>浅谈token与算力合约</title>
+    <link href="https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"/>
+    <id>https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/</id>
+    <published>2026-06-04T05:53:10.000Z</published>
+    <updated>2026-06-07T17:19:21.769Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.&lt;br&gt;而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通?&lt;/p&gt;
+&lt;p&gt;那么首先这个观点的正式来源是这篇文章:&lt;a h</summary>
+      
     
     
     
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
     
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据抽取与融合 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/</id>
+    <published>2026-05-29T01:55:20.000Z</published>
+    <updated>2026-05-29T01:57:07.547Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;挖坑.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
+    <published>2026-05-29T01:54:30.000Z</published>
+    <updated>2026-05-29T01:55:23.557Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;挖坑.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Software Architecture(SA)学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
+    <published>2026-05-29T01:53:25.000Z</published>
+    <updated>2026-05-29T01:54:03.020Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个课不是很熟,典中典之结组,典中典之交报告.&lt;br&gt;报告也是别人写的,Fluu在上这个课的时候在小马上班呢,自始至终都没见过老师,这个课就结束了.&lt;/p&gt;
+&lt;p&gt;印象中这个课会上一周,好像还会有外教?&lt;br&gt;然后每天固定点有能用题库搜出来的作业,以及一个签到,肯定走同学签</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件质量保证与测试</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
+    <published>2026-05-29T01:52:14.000Z</published>
+    <updated>2026-05-29T01:53:16.295Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;NPC课程,最后做一个大作业?&lt;/p&gt;
+&lt;p&gt;挖坑.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件项目管理 组合数学 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    <id>https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</id>
+    <published>2026-05-27T13:38:30.000Z</published>
+    <updated>2026-05-29T01:45:41.487Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;授课老师是冯子玹,极其抽象.&lt;/p&gt;
+&lt;p&gt;这个老师采用逆天的上座签到机制,老师会在下课的时候亲自到座位上挨个让同学报学号,也就是彻底断绝了代课之外的一切签到手段了.&lt;br&gt;这个老师还极度厌恶AI,会出持续时间非常短的测试题,美其名曰”让同学们来不及用AI,自己思考”,AI</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据可视化 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <published>2026-05-27T13:21:59.000Z</published>
+    <updated>2026-05-29T01:57:29.268Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先声明,Fluu一节数据可视化的课都没去,下面仅供参考.&lt;/p&gt;
+&lt;p&gt;Fluu的数据可视化就是每个作业都做了,然后交个大报告,就结束了,也是连老师长啥样都不知道.&lt;/p&gt;
+&lt;p&gt;有点魔幻的,老师用AI生成数据,学生用AI解决问题.&lt;/p&gt;
+&lt;h2 id=&quot;开源&quot;&gt;&lt;a </summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="#CV" scheme="https://narafluorine.github.io/tags/CV/"/>
     
   </entry>
   
@@ -56,7 +213,7 @@
     <link href="https://narafluorine.github.io/2026/05/27/00029_%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%8C%87%E5%AF%BC_2/"/>
     <id>https://narafluorine.github.io/2026/05/27/00029_%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%8C%87%E5%AF%BC_2/</id>
     <published>2026-05-27T05:11:20.000Z</published>
-    <updated>2026-05-27T05:29:50.522Z</updated>
+    <updated>2026-06-06T05:34:25.755Z</updated>
     
     
       
@@ -71,94 +228,6 @@
     
     
     <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据可视化 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
-    <published>2026-05-27T02:21:59.000Z</published>
-    <updated>2026-05-27T02:21:33.949Z</updated>
-    
-    
-    
-    
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-    <category term="#CV" scheme="https://narafluorine.github.io/tags/CV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</id>
-    <published>2026-05-27T02:21:50.894Z</published>
-    <updated>2026-05-27T02:21:50.894Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Software Architecture(SA)学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/27/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
-    <published>2026-05-27T02:21:50.894Z</published>
-    <updated>2026-05-27T02:31:21.904Z</updated>
-    
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
-    
-    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/27/00025_%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00025_%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/</id>
-    <published>2026-05-27T02:21:50.894Z</published>
-    <updated>2026-05-27T02:22:10.970Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/27/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
-    <published>2026-05-27T02:21:50.894Z</published>
-    <updated>2026-05-27T02:22:39.414Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/05/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
-    <published>2026-05-27T02:21:50.894Z</published>
-    <updated>2026-05-27T02:22:55.699Z</updated>
-    
-    
-    
-    
     
   </entry>
   

@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="几种join的区别inner join 选第二高的薪水12345678SELECT    (SELECT DISTINCT            Salary        FROM            Employee        ORDER BY Salary DESC        LIMIT 1 OFFSET 1) AS SecondHighestSalary;">
+    <meta name="description" content="几种join的区别inner join:只返回两个表完全匹配(取交集)outer join:(所有join结果都会返回,没匹配上返回Null)left join:左边的数据表全部返回,右边的没匹配上就没匹配上right join:右边的全部返回natural join:自动使用同名且类型相同的进行inner join,也就是不能自己写oncross join:就是笛卡尔积,暴力枚举所有可能 查找超">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
-<meta property="og:url" content="https://narafluorine.github.io/Base/SQL.html">
+<meta property="og:url" content="https://narafluorine.github.io/base/SQL.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="几种join的区别inner join 选第二高的薪水12345678SELECT    (SELECT DISTINCT            Salary        FROM            Employee        ORDER BY Salary DESC        LIMIT 1 OFFSET 1) AS SecondHighestSalary;">
+<meta property="og:description" content="几种join的区别inner join:只返回两个表完全匹配(取交集)outer join:(所有join结果都会返回,没匹配上返回Null)left join:左边的数据表全部返回,右边的没匹配上就没匹配上right join:右边的全部返回natural join:自动使用同名且类型相同的进行inner join,也就是不能自己写oncross join:就是笛卡尔积,暴力枚举所有可能 查找超">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-27T03:33:33.876Z">
-<meta property="article:modified_time" content="2026-05-27T03:33:33.876Z">
-<meta property="article:author" content="Fluorine Wang">
+<meta property="article:published_time" content="2026-05-27T10:50:21.861Z">
+<meta property="article:modified_time" content="2026-05-27T10:50:21.861Z">
+<meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
     
@@ -132,9 +132,16 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h2 id="几种join的区别"><a href="#几种join的区别" class="headerlink" title="几种join的区别"></a>几种join的区别</h2><p>inner join</p>
+          <h2 id="几种join的区别"><a href="#几种join的区别" class="headerlink" title="几种join的区别"></a>几种join的区别</h2><p>inner join:只返回两个表完全匹配(取交集)<br>outer join:(所有join结果都会返回,没匹配上返回Null)<br>left join:左边的数据表全部返回,右边的没匹配上就没匹配上<br>right join:右边的全部返回<br>natural join:自动使用同名且类型相同的进行inner join,也就是不能自己写on<br>cross join:就是笛卡尔积,暴力枚举所有可能</p>
+<h2 id="查找超过经理收入的员工"><a href="#查找超过经理收入的员工" class="headerlink" title="查找超过经理收入的员工"></a>查找超过经理收入的员工</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.name <span class="keyword">as</span> Employee</span><br><span class="line"><span class="keyword">from</span> Employee <span class="keyword">as</span> a <span class="keyword">inner</span> <span class="keyword">join</span> Employee <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.managerId <span class="operator">=</span> b.id <span class="keyword">and</span> a.salary<span class="operator">&gt;</span>b.salary;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.name <span class="keyword">as</span> Employee</span><br><span class="line"><span class="keyword">from</span> Employee <span class="keyword">as</span> a <span class="keyword">inner</span> <span class="keyword">join</span> Employee <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.managerId <span class="operator">=</span> b.id</span><br><span class="line"><span class="keyword">where</span> a.salary<span class="operator">&gt;</span>b.salary;</span><br></pre></td></tr></table></figure>
+<p>不知道为什么上面的比下面的快,感觉是少了一次表的</p>
+<h2 id="查找重复的邮箱"><a href="#查找重复的邮箱" class="headerlink" title="查找重复的邮箱"></a>查找重复的邮箱</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> email <span class="keyword">as</span> Email</span><br><span class="line"><span class="keyword">from</span> Person a</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> email</span><br><span class="line"><span class="keyword">having</span> <span class="built_in">count</span>(email)<span class="operator">&gt;</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除重复的邮箱"><a href="#删除重复的邮箱" class="headerlink" title="删除重复的邮箱"></a>删除重复的邮箱</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> p1   <span class="comment">--删除名为p1这个表的记录</span></span><br><span class="line"><span class="keyword">FROM</span> Person p1  </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Person p2 </span><br><span class="line">    <span class="keyword">ON</span> p1.email <span class="operator">=</span> p2.email </span><br><span class="line">    <span class="keyword">AND</span> p1.id <span class="operator">&gt;</span> p2.id;</span><br></pre></td></tr></table></figure>
 <h2 id="选第二高的薪水"><a href="#选第二高的薪水" class="headerlink" title="选第二高的薪水"></a>选第二高的薪水</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span></span><br><span class="line">            Salary</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            Employee</span><br><span class="line">        <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line">        LIMIT <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-
+<h2 id="选有五个直系下属的经理"><a href="#选有五个直系下属的经理" class="headerlink" title="选有五个直系下属的经理"></a>选有五个直系下属的经理</h2><p>子查询<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Name</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">  <span class="keyword">select</span> Manager.Name <span class="keyword">as</span> Name, <span class="built_in">count</span>(Report.Id) <span class="keyword">as</span> cnt</span><br><span class="line">  <span class="keyword">from</span></span><br><span class="line">  Employee <span class="keyword">as</span> Manager <span class="keyword">join</span> Employee <span class="keyword">as</span> Report</span><br><span class="line">  <span class="keyword">on</span> Manager.Id <span class="operator">=</span> Report.ManagerId</span><br><span class="line">  <span class="keyword">group</span> <span class="keyword">by</span> Manager.Id</span><br><span class="line">) <span class="keyword">as</span> ReportCount</span><br><span class="line"><span class="keyword">where</span> cnt <span class="operator">&gt;=</span> <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>直接使用having子句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Manager.Name <span class="keyword">as</span> Name</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">Employee <span class="keyword">as</span> Manager <span class="keyword">join</span> Employee <span class="keyword">as</span> Report</span><br><span class="line"><span class="keyword">on</span> Manager.Id <span class="operator">=</span> Report.ManagerId</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> Manager.Id</span><br><span class="line"><span class="keyword">having</span> <span class="built_in">count</span>(Report.Id) <span class="operator">&gt;=</span> <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="选有"><a href="#选有" class="headerlink" title="选有"></a>选有</h2>
         
   </div>
 </article>
@@ -146,7 +153,7 @@
     
     
     2024-2026
-    Fluorine Wang
+    Florin Wang
   </div>
 
   <!-- Begin 不蒜子统计 -->
