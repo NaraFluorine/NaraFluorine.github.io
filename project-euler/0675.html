@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="user1234&#96;&#96;&#96;## deepseek 我们被要求解决一个问题。总结： 定义 ω(n) 为 n 的不同质因数个数。S(n) &#x3D; Σ{d|n} 2^{ω(d)}。F(n) &#x3D; Σ{i&#x3D;2}^n S(i!)。已知 F(10) &#x3D; 4821。求 F(10,000,000) mod 1,000,000,087。 用户提出了一种思路：“首先把阶乘分解质因数,用p代表第几个质数,用vis代表这个质数的出">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0675">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0675.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="user1234&#96;&#96;&#96;## deepseek 我们被要求解决一个问题。总结： 定义 ω(n) 为 n 的不同质因数个数。S(n) &#x3D; Σ{d|n} 2^{ω(d)}。F(n) &#x3D; Σ{i&#x3D;2}^n S(i!)。已知 F(10) &#x3D; 4821。求 F(10,000,000) mod 1,000,000,087。 用户提出了一种思路：“首先把阶乘分解质因数,用p代表第几个质数,用vis代表这个质数的出">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.610Z">
+<meta property="article:modified_time" content="2026-06-30T06:49:20.206Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,239 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## deepseek</span><br></pre></td></tr></table></figure>
+<p>我们被要求解决一个问题。总结：</p>
+<p>定义 ω(n) 为 n 的不同质因数个数。S(n) = Σ<em>{d|n} 2^{ω(d)}。F(n) = Σ</em>{i=2}^n S(i!)。已知 F(10) = 4821。求 F(10,000,000) mod 1,000,000,087。</p>
+<p>用户提出了一种思路：“首先把阶乘分解质因数,用p代表第几个质数,用vis代表这个质数的出现次数.使用dp i表示出现i个质数的情况有多少种,然后遍历每一个数字更新这个答案,答案最后累加: dp[i]*pow(2,i)”。他说这个算法的时间复杂度大概是O(n^2 / log n)。需要cpp代码实现，如果有更优做法也一并输出出来。</p>
+<p>我们需要求解的是 F(10^7) mod 1000000087。这是一个很大的计算量，需要设计高效算法。</p>
+<p>首先需要深入理解 S(n) 的数学性质，尤其是 S(i!)。</p>
+<p>观察 S(n) = Σ_{d|n} 2^{ω(d)}。</p>
+<p>我们定义 n 的质因数分解为 n = ∏ p_i^{a_i}。那么 d 遍历 n 的因子。d 的质因数集合是 n 的质因数集合的子集。如果 ω(d) = k，意味着 d 的质因子集合大小为 k。2^{ω(d)} 就是在该集合上再取子集。</p>
+<p>我们知道 Σ_{d|n} f(ω(d)) 通常与 n 的质因数有关。对于 2^{ω(d)}，看看能不能简化：</p>
+<p>对于一个给定的 n，设其质因数集合为 P，|P| = r。那么 d 的每个质因子的指数可以从 0 到 a_i 独立选取。但 ω(d) 只关心哪些指数 &gt; 0。</p>
+<p>所以：S(n) = Σ<em>{S ⊆ P} (∏</em>{p_i∈S} a_i) * 2^{|S|}。这是因为对于 S 中质数，指数至少为 1，有 a_i 种选择；对于不在 S 中的，指数为 0。每个这样的 d 贡献 2^{|S|}。实际上，对于给定的 S，ω(d) = |S|。是的，就是这样。</p>
+<p>因此 S(n) = Σ<em>{S⊆P} (2^{|S|} * ∏{p_i∈S} a_i)。我们可以令每个质因子贡献一个因子 (1 + 2 a_i)。因为求和公式：Σ{S⊆P} (∏{i∈S} (2 a_i)) = ∏{i=1}^r (1 + 2 a_i)。验证：S(n) = ∏</em>{p^a || n} (1 + 2a)。</p>
+<p>验证：对于 n=6=23，a=1,1。S(6) = (1+2)(1+2)=9。正确！对于 n=1，空积=1。S(1)=1。用户例子也是1。</p>
+<p>所以 S(n) = ∏_{p^a || n} (1+2a)。这是一个积性函数（对于质数幂）。</p>
+<p>我们要计算 F(N) = Σ_{i=2}^N S(i!) ，N = 10^7。S(i!) = ∏{p ≤ i} (1 + 2 * a_p(i!))，其中 a_p(i!) = Σ{k≥1} floor(i/p^k)。这是阶乘质因数分解中 p 的指数。</p>
+<p>所以 F(N) = Σ<em>{i=2}^N ∏</em>{p ≤ i} (1 + 2 <em> a_p(i!))。注意 p &gt; i 的质数不在 i! 中，指数为 0，乘积没有它们（或者视为 1+2</em>0=1）。因此对于每个 i，乘积是对于所有 p ≤ i 的 (1+2 a_p(i!))。</p>
+<p>我们需要高效计算这个和。直接对每个 i 计算阶乘的质因数指数然后乘积，N=10^7，有约 664579 个质数。每个 i 要做乘积，太大了。需要找递推或数据结构。</p>
+<p>由于 S(i!) 随着 i 增加，i! 的质因数指数是如何变化的？从 (i-1)! 到 i!，乘以 i。我们需要更新 i 的质因数分解中对应质数的指数。即对于每个质数 p|i，它的指数 a_p(i!) = a_p((i-1)!) + v_p(i)，其中 v_p(i) 是 i 中 p 的指数。</p>
+<p>因此 S(i!) = S((i-1)!) * ∏_{p|i} ( (1 + 2 a_p(i!)) / (1 + 2 a_p((i-1)!)) )。如果我们能够维护每个质数 p 的当前指数 a_p 以及对应的因子 (1+2 a_p) 和总乘积，那么每次 i 增加时可以快速更新。</p>
+<p>但是 a_p 会变化，更新时需要知道 (1+2 new_a) / (1+2 old_a)，这需要计算模逆元。由于模数 1,000,000,087 是质数？检查一下：1000000087，是不是质数？我们可以假设它是质数（通常这种题目用大质数）。等一下，1,000,000,087 = 10^9+87？10^9+7 是 1000000007，10^9+87 是 1000000087。查一下：1000000087 是否为质数？我们可以快速测试或者确信题目设计的模数常为质数。如果是质数，逆元存在除非 1+2a 是模数的倍数。对于 a 可能是很大，我们需要确认 1+2a 是否可能达到模数，这里 N=10^7，a_p(i!) 的最大值：对于 p=2，a_2(10^7!) ≈ 10^7 - 1 大约 10^7，所以 1+2a ≈ 2e7，远小于 1e9+87，因此逆元总存在。</p>
+<p>因此我们可以通过维护当前的乘积 P<em>i = S(i!)，初始 i=1 时 P_1 = S(1!) = S(1) = 1。对于 i 从 2 到 N，我们将 i 的质因数分解，对于每个质数 p，a_p 增加 e = v_p(i)。更新：P_i = P</em>{i-1} * ∏{p|i} (1+2(a_p+e)) / (1+2 a_p) mod M。然后 a_p += e。将 P_i 累加到答案 F(N) = Σ{i=2}^N P_i。</p>
+<p>复杂度：对每个 i 分解质因数。N=10^7，分解质因数的最坏情况是 O(sqrt(i)) 不好。但我们可以预处理每个数的最小质因子（用线性筛），这样可以在 O(log i) 时间内分解 i。总复杂度 O(N <em> 平均质因子数)，大约 O(N log log N)，对于 10^7 是可以接受的（大约 10^7 次迭代，每次迭代处理几个质因数，总操作数大概 2e7 左右）。需要大约 10^7 的数组存储最小质因子和当前 a_p 和乘积等。内存方面，最小质因子需要 int 数组 10^7+1，大概 40MB。a_p 只需要存储质数的指数，质数大约有 664579 个，所以存储指数可以使用数组或哈希表，但需要从 p 映射到数组索引。可以用一个数组 expo[664579] 存储当前指数，再有一个数组存储 p 到索引的映射？或者直接针对每个数存指数？因为 N=10^7，如果直接开一个大小为 N+1 的数组 expo 存储每个数作为质数时的指数，非质数不用。这样需要 10^7 个 int 或 long long。10^7 个 int 是 40MB，long long 80MB。加上其他数组，可能内存较大但仍然可能在限制内（通常 256MB 或 512MB）。我们可以只用 long long 存指数？指数最大 10^7 左右，int 足够。1+2</em>指数 可能最多 2e7，乘积需要 mod M，M 约 1e9，所以用 64 位乘积累。</p>
+<p>内存优化：可以只存储质数的指数。质数约 6.6e5。为了快速从 p 找到它的指数，我们可以维护一个数组 prime_idx，大小为 N+1，对于质数 p，prime_idx[p] 为其在质数列表中的索引（从 0 或 1 开始）。非质数为 -1 或 0。这样需要 int prime_idx[10000001]，约 40MB。再需要 int expo[664580]，约 2.6MB。另外最小质因子数组 lpf[10000001]（或 spf）也可以 int，40MB。三个数组大约 120MB，加上一些其他，通常 256MB 足够。或者我们可以优化：在筛法同时计算质数列表，lpf 和 prime_idx 可以合并吗？lpf 本身就是最小质因数，对于质数 p，lpf[p] = p。但我们需要知道该质数的索引。可以单独用一个数组记录 prime_idx，可以动态分配。在 C++ 中 vector<int> spf(1e7+1) 约 40MB。如果 MLE，我们可以使用 short？指数和最小质因子都不会超过 10^7，short 最大 32767 不够。可以用 int。总共 ~120MB 是可以的。</p>
+<p>更好的方法：不存储 prime<em>idx，而是在更新时直接用当前指数数组 expo。如果 expo 的大小为 N+1，那么对于每个 p，直接访问 expo[p]。这需要 10^7 个 int，40MB。总共 spf 40M + expo 40M = 80MB。非常好。这样我们就有了 spf 和 expo 两个主要数组。乘积需要滚动计算，需要一个变量 current_product。或者我们可以在需要时计算 (1+2<em>expo[p]) 的逆元？逆元可以预先计算吗？随着 expo 增加，每次需要除以旧因子乘新因子。我们可以预先计算所有可能出现的 a 值？a 最大为对于 2 的指数，10^7 数量级，约 10^7。我们可以动态计算逆元。用快速幂求逆元？每次求逆元 O(log M) 会拖慢速度。10^7 次更新，如果每次更新需要若干次求逆元，最坏情况下，总求逆元次数等于所有数的质因子总数，大约是 N log log N ~ 1.6e7 次。每次 log M (30次运算) 约 5e8 次，可能有点慢。我们可以预先计算所有可能 a 的 (1+2a) 的逆元。a 的范围是 0 到 max_a。我们需要每个质数的 a 的最大值，最大 a 为 floor(log_2 N) 次？不是，a_p(i!) 可以很大，比如 2 的指数在 10^7! 中约 10^7，所以 max_a 可达 10^7。但是我们不一定需要对所有 p 都达到 10^7。最大指数为 sum floor(N/p^k)。对于 p=2，约 1e7；p=3，约 5e6 等。但我们可以预先计算所有 0 到 10^7 的 (1+2a) 及其逆元吗？10^7+1 个元素的数组，每个是 int（模 M 下），两个数组 (1+2a) 和它的逆元，需要 2 </em> 40MB = 80MB。加上之前 80MB 总共 160MB，可能还可以。或者我们不用预先计算逆元，可以动态维护当前 (1+2a) 值，并利用扩展欧几里得或 Montgomery 等技巧？但也许预先计算逆元数组最简单，但会增加内存。另外我们可以只预先计算 (1+2a) 的逆元，只需要一个数组 inv[10000001]。内存 40MB。总内存 spf 40M + expo 40M + inv 40M = 120M。也可以接受。但是 a 的范围是从 0 到某个最大值 max_a。对于 10^7!，p=2 的指数大约 10^7 - popcount(10^7) 具体是 9999999 左右？准确来说 sum</em>{k=1} floor(N/2^k) N=10^7 时，2^23 = 8388608, 2^24=16777216&gt;1e7。所以指数约为 N - 1。所以最大 a 接近 10^7，数组大小 10000001 足够。</p>
+<p>但是 inv[1+2a] 不能直接用数组下标为 a，应该是以 (1+2a) 为下标？不对，我们需要知道 (1+2a) 模 M 的值及其逆元。我们可以直接对每个 a 存储 val[a] = (1+2a) % M，以及 inv_val[a] = inv(val[a])。因为 a 是整数，我们可以用 a 作为下标！因为 (1+2a) 是 a 的函数。我们只需要知道 a，然后 val[a] 和 inv_val[a] 可直接由数组 O(1) 获得。所以需要两个数组 val 和 inv_val，大小 max_a+1 = 10000001。val[a] = (1+2*a) % M，inv_val[a] 是 val[a] 在模 M 下的逆元。注意当 1+2a 可能与 M 不互素？M = 1000000087。检查 M 的因数。1+2a &lt; 2e7+1，M &gt; 1e9，所以一定小于 M，且 M 是质数的话，只要 1+2a ≠ 0，就互素。唯一可能是 1+2a = M，即 a = (M-1)/2 = 500000043。但 max_a ≈ 1e7，远小于 5e8，所以一定互素。因此我们可以预先计算逆元数组。</p>
+<p>所以算法：</p>
+<p>使用线性筛生成 1 到 N 的最小质因数 spf（或最小质因数）。因为我们需要分解每个 i，使用 spf 即可快速获得所有质因子及其指数。</p>
+<p>分配数组 expo，大小为 N+1，初始化为 0。事实上只需要对质数有 expo，但我们直接全部下标为 N+1 简单。</p>
+<p>预先计算 val[a] = (1+2<em>a) % M 和 inv_val[a] = val[a] 的模 M 逆元，对于 a = 0 到 max_a。max_a 就是 a_2(N!) 的最大指数。我们可以精确计算或直接计算到 N 就可以了，因为最大指数肯定小于 N。实际 a_2(10^7!) = 10^7 - popcount(10^7) ≈ 9999999 &lt; 10^7。所以数组大小 N+1 足够。<br>计算逆元可以通过递推：inv[1]=1; for a&gt;=1: inv[val[a]] = M - M/(val[a]) </em> inv[M%val[a]] % M。但 val[a] 不是连续的模数，我们需要 inv<em>val 作为 val[a] 的逆元。我们可以直接通过费马小定理 pow(val[a], M-2) 计算，但那样 O(N log M) 太慢。因为 val[a] 是从 1 到 2N+1 的奇数。我们可以预计算所有奇数的逆元？或者我们注意到 (1+2a) 取遍所有奇数 1,3,5,…,2N+1。模 M 下，这些奇数的逆元可以用类似线性求逆元的方法，但不是连续整数。不过 M 是质数，我们可以对连续的整数求逆元，然后从中取奇数？更简单的：我们可以维护当前乘积以及因子的值，当需要除法时，乘旧因子的逆元。因为 a 每次增加，我们可以在更新时计算逆元：old_val = val[old_a]; new_val = val[new_a]; 我们需要乘以 new_val <em> inv(old_val)。我们不一定需要数组，可以用快速幂 O(log M) 计算 inv(old_val)。因为对于每个 i，我们需要处理的质因子个数是 i 的质因子数。N=10^7 的总质因子数（计重数）约为 Σ ω(i) ≈ N log log N ≈ 1e7 </em> 2.7 ≈ 2.7e7? 实际上平均重数约 log log N，加上指数？我们每次增加指数，每个质数 p 会出现多次：对于 i，如果 p|i，v_p(i) 可能大于 1。每次指数增加 1，我们就要更新一次？其实我们可以将 i 分解时，得到 p 和 e = v_p(i)。然后 a 从 old_a 变为 old_a + e。我们只需要一次更新：乘 ∏ (1+2(a+e)) / (1+2a)。如果 e &gt; 1，那么需要处理比值：val[old_a+e] * inv_val[old_a]。但是我们不一定需要为每个单位增量逐步更新，可以直接跳到新值。这意味着我们需要能够获取 val[old_a+e] 和 inv_val[old_a]。还是需要数组。预计算逆元数组可以让我们 O(1) 完成更新。总更新次数等于 Σ</em>{i=2}^N (i 的不同质因子数)，因为对于每个 i，每个质因子只更新一次（即使指数 e&gt;1，我们可以一次性将 a 增加 e，只需 old_a 和 new_a = old_a+e。而不是每次指数加 1）。这大约 Σ ω(i) ≈ N log log N ≈ 2.5e7。如果用快速幂求逆元，约 2.5e7 * 30 次乘法 ≈ 7.5e8，有点多但可能优化后勉强可以（2秒？通常 C++ 可能 1-2 秒内完成 1e8 操作，7.5e8 太多了）。所以预计算逆元更好。</p>
+<p>预计算逆元数组：我们需要 inv<em>val[x]，其中 x 是奇数 1,3,5,…。我们可以直接开一个大小为 2N+2 的数组 inv，并计算所有整数的逆元？M 是 1e9+87，连续整数逆元递推需要数组大小 M，不行。我们只需计算 1..2N+1 中奇数的逆元。可以直接用费马小定理 pow(x, M-2) 对于每个奇数计算，但奇数个数约为 N，N=1e7，计算 1e7 次快速幂 1e730 ≈ 3e8 次乘法，可能较慢。但预计算是在程序开始时，可以接受几秒？我们可以优化：只计算需要的老 a 的逆元。老 a 的值有多少？a 的最大值是约 1e7。但我们需要逆元的值是 val[a] = 1+2a。a 从 0 到 max_a。max_a ≈ 1e7。我们可以直接通过递推法求 val[a] 的逆元？注意到 val[a] = 2a+1，它们不是连续的模 M 整数。但我们可以利用公式：inv[2a+1] 如何由 inv[2a-1] 推得？可能不容易。另一个办法：我们并不需要预先计算所有逆元。在更新时，我们可以维护当前每个质数对应的因子值（即 1+2a），以及总乘积。我们可以存储每个质数的当前因子值 factor[p] = 1+2a_p。更新时，我们需要除以 factor[p] 再乘上新 factor[p]。由于 factor[p] 已知，我们只需要求 factor[p] 的逆元。我们可以用扩展欧几里得或者费马小定理来动态计算逆元。扩展欧几里得也许比快速幂快一些？或者我们可以用 “逆元缓存” 因为很多质数的指数较小，会频繁更新。例如 2 的指数会更新很多次（每次 i 为偶数，指数增加 v_2(i)）。2 的当前因子经常变。我们不能缓存所有，但可以动态求逆元，O(log M)。对于 N=1e7，总更新次数等于 Σ</em>{i=2}^N ω(i) （不同质因子数）≈ 1e7 <em> (ln ln 1e7 + M) ≈ 2.5e7。扩展欧几里得求逆元通常很快，常数较小。2.5e7 次扩展欧几里得是否可行？扩展欧几里得每次大约十几个除法。2.5e7 </em> 10 操作 = 2.5e8，在 2-3 秒内可能完成，加上其他操作，可能会接近时间极限。但如果用预计算逆元，我们只需要查表 O(1)，更新速度飞快。那么预计算逆元的最佳方法是：我们需要的是 val[a] 的逆元，val[a] 最大 20000001。我们可以直接计算所有 1..20000001 的整数的逆元！因为 20000001 ≈ 2e7，我们可以开一个 int inv[20000002] 的数组，递推求逆元，但需要模数 M。线性求逆元公式：inv[i] = (M - M/i) * inv[M%i] % M，这要求模数是质数，且 i &lt; M。我们想求 1..2e7 的逆元 mod M，因为 M 是质数，我们确实可以用这个递推！通常线性求逆元是从 1 到 N 递推，要求 N &lt; M。这里 2e7 &lt; 1e9，完全可行。所以我们可以分配数组 int inv[20000002]（或者 vector<int>），大小约 80MB。用递推 O(2e7) 计算所有 1..max_val 的逆元。然后 val[a] 的逆元就是 inv[val[a]]。这解决了逆元问题。而且我们可以顺便计算 val[a] = 1+2a，甚至不需要存储 val 数组，直接用 1+2a 索引 inv。</p>
+<p>内存估算：</p>
+<p>spf: int[10000001] -&gt; 40MB</p>
+<p>expo: int[10000001] -&gt; 40MB (实际上可以只存储质数的指数，但如果使用全数组更快)</p>
+<p>inv: int[20000002] -&gt; 80MB<br>总内存 ~160MB，可以接受。</p>
+<p>但我们可以优化内存：expo 只需要存储质数的指数。我们可以用一个数组 prime_expo，大小为质数个数 ~664579。然后需要快速从质数 p 得到它的索引。我们可以在 spf 筛法时构建 prime_idx 数组（int[10000001]），这样 spf 和 prime_idx 是两个数组。prime_idx 可以用 short？质数索引最大 664579，超过 65535，不能用 short。所以还是 int，又多 40MB。总内存 40(spf) + 40(prime_idx) + 2.6(prime_expo) + 80(inv) = 162.6MB。或者我们把 spf 和 prime_idx 合并？对于合数，spf 存储最小质因子；对于质数，spf[i] = i。我们可以区分吗？如果 spf[i] = i，则 i 是质数。但我们还需要知道它是第几个质数。我们可以额外有一个数组 int prime_idx，但也许我们可以不用索引，直接在 expo 全数组用大小 10000001，避免 prime_idx。这样内存：spf 40M + expo 40M + inv 80M = 160M。这个更简单，而且访问更快。所以我们使用 int spf[10000001], int expo[10000001], int inv[20000002]。或者为了节省内存，inv 可能可以用更小的范围？我们只需要 val[a] 的逆元，val[a] 最大为 1+2max_a。max_a 是 a_2(N!) 的最大值。a_2(10^7!) = 10^7 - popcnt(10^7) = 10^7 - 6? 10^7 二进制？10^7 = 100110001001011010000000? 其实可以计算，但小于 10^7，但肯定小于 10000000。所以 max_val = 1+29999999 ≈ 20000000。所以 inv 大小至少 20000001。我们可以动态计算 max_a 并分配 inv 大小。</p>
+<p>计算 max_a 精确值：我们只需要知道所有 a_p(N!) 的最大值，即 p=2 的指数。但预计算 inv 也可以直接做到 N 的最大可能指数，即 N 对于 2 的指数。反正 N=10^7，2e7 大小是确定的。</p>
+<p>时间复杂度：</p>
+<p>线性筛得到 spf：O(N) ~ 1e7</p>
+<p>计算 inv 递推：O(max_val) ~ 2e7</p>
+<p>主循环 i=2..N：对每个 i，利用 spf 分解质因数，统计每个质因子的指数 e。对于每个质因子 p，old_a = expo[p]；new_a = old_a + e；更新乘积 current = current <em> inv[1+2old_a] % M </em> (1+2new_a) % M；expo[p] = new_a。累加 current 到答案。<br>分解质因数：while(i&gt;1) { p = spf[i]; e = 0; while(spf[i] == p) { i /= p; e++; } … } 但注意我们需要保持原 i 用于循环？我们实际上在循环 for i from 2 to N，内部用临时变量 x = i 分解。不要修改 i。<br>总分解次数 O(N log log N) 大约是 2.5e7 次内循环。每次内循环简单操作，再加上一次乘法、查表，应该很快。</p>
+<p>关于内存进一步优化：我们可以不用 inv 数组，而是维护 val[a] 的逆元缓存？但简单预先计算 inv 更稳妥。</p>
+<p>但是，有一个关键点：乘积 current 是 S(i!)，我们需要累加的是 S(i!)，其中 i 从 2 到 N。这个 current 可能会变得很大，每次更新后累加并模 M。注意初始 current = S(1!) = S(1) = 1。i=2 时，更新后得到 S(2!)，累加；i=3 更新后得到 S(3!) 等等。所以 F(N) = sum_{i=2}^N current_i。</p>
+<p>但我们必须小心 i! 的质因数包括所有 p ≤ i。我们的动态更新方法只更新了 i 的质因数，但有些新的质数 p = i 当 i 是质数时，我们之前没有考虑它，它的指数从 0 变为某个 e（其实对于新质数 i，在 i! 中首次出现，指数为 1）。在我们的数组中，expo[p] 初始为 0。所以 old_a = 0，new_a = e（对于质数 i，v_i(i) = 1）。乘积乘以 val[1] / val[0] = (1+2)/1 = 3。这自动引入了新的质因数！完美。因为 S(n) = ∏ (1+2a_p)，对于 a_p=0 的项为 1。所以动态乘以 val[new_a] / val[old_a] 自动处理了新质数的加入。</p>
+<p>验证小例子：N=6。<br>i=1: cur=1.<br>i=2: 质因子 2, e=1. old_a=0, new_a=1. cur = 1 <em> inv[1] </em> 3 = 3. S(2!)=S(2)=1+2=3. 累加 F=3.<br>i=3: 质因子 3, e=1. cur=3 <em> inv[1] </em> 3 = 9. S(3!)=S(6)=9. F=3+9=12.<br>i=4: 质因子 2, e=2 (v_2(4)=2). old_a=1, new_a=3. cur=9 <em> inv[3] </em> (1+6=7). 3 的逆元 mod 1e9+87 等。但不管，S(4!) = S(24) = ? 24=2^3 <em> 3. a_2=3, a_3=1. S(24) = (1+23)(1+2</em>1) = 7<em>3=21. cur=9 </em> (7/3) = 21 正确。累加 F=12+21=33.<br>i=5: 质数 5, e=1. cur=21 <em> 3 = 63. S(5!) = S(120) = 7</em>3<em>3=63 正确。F=33+63=96.<br>i=6: 质因子 2 (e=1), 3 (e=1). old_a_2=3 -&gt; new=4; old_a_3=1 -&gt; new=2. cur = 63 </em> inv[7] <em> 9 </em> inv[3] <em> 5.<br>7</em>3=21 因子。新因子 (9<em>5) = 45。所以乘以 45/21. 63 </em> 45/21 = 135.<br>S(6!) = S(720) = 720=2^4<em>3^2</em>5. a_2=4, a_3=2, a_5=1. S = 9 <em> 5 </em> 3 = 135 正确。F=96+135=231.<br>用户例子：F(10)=4821。我们可以继续算到 10 验证，这里不赘述。</p>
+<p>因此算法正确。</p>
+<p>现在复杂度：我们需要计算 N=10,000,000，即 1e7。时间应在几秒内，取决于实现效率。用 C++ 需要注意优化：</p>
+<p>使用全局数组或 vector，确保快速访问。</p>
+<p>避免使用 vector 的 at，直接用 []。</p>
+<p>使用 int 还是 long long？M = 1,000,000,087 约为 1e9，乘积 current 需要 mod M，最大可能 M^2 ~ 1e18，所以乘法需要用 long long 转型，然后取模。current 和累加 ans 可用 int。</p>
+<p>inv 数组需要 int，存储模逆元。</p>
+<p>spf 和 expo 用 int。</p>
+<p>使用 scanf/printf 或 fast IO 不是关键，因为没有输入输出大量内容，只输出一个数字。</p>
+<p>需要注意 N 是 1e7，i 从 2 到 1e7。循环中分解质因数。每次用 while(x&gt;1) 循环，记录 p = spf[x], e=0; while(spf[x] == p) { x/=p; e++; } 这样来分解。但注意：spf[x] 在 x 被改变后也会变。这个分解是标准方法。</p>
+<p>更快分解：可以使用预先计算的质因数列表？但没必要。</p>
+<p>现在考虑是否有更优算法。用户提到他有一个 dp 思路：“首先把阶乘分解质因数,用p代表第几个质数,用vis代表这个质数的出现次数.使用dp i表示出现i个质数的情况有多少种,然后遍历每一个数字更新这个答案,答案最后累加: dp[i]*pow(2,i)”。他的 dp 可能是尝试计算 S(i!) 或直接 F(n)？无论如何，那个复杂度 O(n^2 / log n) 对 1e7 不可行。我们的动态维护乘积方法是 O(N log log N)，应该是足够优的。是否有更优的数学简化？</p>
+<p>我们可以看看 S(i!) 是否有闭式或递推公式。观察 S(i!) = ∏{p ≤ i} (1 + 2 a_p(i!)). a_p(i!) = ∑{k≥1} floor(i/p^k)。也许可以用数论分块？但 1e7 没必要，O(N log log N) 足够。</p>
+<p>唯一需要担心的是内存和时间限制。通常这种问题（Project Euler 风格？题目 F(10 000 000) mod 1000000087）可能是 Project Euler 第 650 题还是什么？实际上是 PE 650: “Numbers of the form n! with prime factors”? 我回忆一下：PE 650: “Numbers of the form n! with prime factors … S(n) = Σ<em>{d|n} 2^{ω(d)} …” 对！Project Euler 650 题：Factoring n! into prime powers. 但那里是求 S(n!) 的和？我查一下记忆：PE 650: “Numbers of the form n! … Let F(n) = Σ</em>{i=2}^n S(i!).” 对，F(10)=4821. 求 F(100 000 000) mod 1,000,000,087? 不，题目中求 F(10 000 000) mod 1,000,000,087。PE 650 是求 F(100,000,000) mod 1,000,000,087. 这里 N=10,000,000，比 PE 650 小一个数量级。可能这是某个变体。在 PE 650，N=1e8，需要更高效算法。对于 1e7，我们的 O(N log log N) 动态维护在合理优化下可通过。对于 1e8 可能需要更进一步的优化，比如数论分块等。既然问题要求 N=10^7，我们提供 O(N) 或 O(N log log N) 算法即可。但问题也提到“如果有更优做法也一并输出出来”，我们可以简要描述更优做法的思路（比如使用前缀和，或者类似于 PE 650 的优化技巧）。但主要提供可运行代码。</p>
+<p>实现细节：</p>
+<p>const int MOD = 1000000087;</p>
+<p>const int N = 10000000;</p>
+<p>求逆元递推：由于我们需要所有 1 到 max_val 的逆元，max_val = 2 <em> max_a + 1。max_a 是 a_2(N) = N - __builtin_popcount(N) 实际是？对于 N=10^7，二进制 100110001001011010000000，popcount 是多少？我们可以直接计算或直接设定 max_val = 2 </em> N + 1 简单。因为 N=1e7，2N+1=20000001，不大，所以直接分配大小为 2N+5 的数组。</p>
+<p>线性筛：<br>vector<int> spf(N+1);<br>vector<int> primes; // 可以不需要，但筛法需要<br>for (int i = 2; i &lt;= N; ++i) {<br>if (!spf[i]) {<br>spf[i] = i;<br>primes.push_back(i);<br>}<br>for (int p : primes) {<br>if (p &gt; spf[i] || i <em> p &gt; N) break;<br>spf[i </em> p] = p;<br>}<br>}<br>这样可以完成 spf 的填充。注意 1 的 spf 未定义，但不会用到。</p>
+<p>expo 数组：int *expo = new intN+1; 初始化为 0。</p>
+<p>inv 数组：max_val = 2 <em> N + 5; 实际上我们可能只需要到 2 </em> max_a + 1。max_a = 0; for k=1..; max_a += N/2^k? 简单计算：a_2(10^7) = 9999999? 我们可以在筛法后不纠结，直接分配大小 2 <em> N + 5 = 20000005，递推求逆元：<br>inv[1] = 1;<br>for (int i = 2; i &lt;= max_val; ++i) {<br>inv[i] = MOD - 1LL </em> (MOD / i) * inv[MOD % i] % MOD;<br>}<br>注意 i 必须小于 MOD，这里 i 最大 20000005 &lt; MOD，安全。</p>
+<p>主循环：用 long long cur = 1; ans = 0;<br>for (int i = 2; i &lt;= N; ++i) {<br>int x = i;<br>while (x &gt; 1) {<br>int p = spf[x];<br>int e = 0;<br>do {<br>x /= p;<br>++e;<br>} while (spf[x] == p); // 注意 x 可能变为 1，此时 spf[x] 未被定义。需要判断 x&gt;1。<br>int old_a = expo[p];<br>int new_a = old_a + e;<br>// cur = cur <em> (1 + 2new_a) / (1 + 2old_a)<br>// 注意 (1+2old_a) 的逆元是 inv[1+2old_a]<br>// 可以使用 long long 乘法<br>cur = cur </em> inv[1 + 2 <em> old_a] % MOD;<br>cur = cur </em> (1 + 2LL * new_a % MOD) % MOD;<br>expo[p] = new_a;<br>}<br>ans = (ans + cur) % MOD;<br>}<br>注意 while 循环条件：内层 do-while 需要小心当 x 变为 1 时 spf[x] 可能出错，所以用 while (x % p == 0) 更好？因为我们知道 p=spf[x] 是 x 的最小质因子，直接 while(x % p == 0) 也可以。但 x 已经被除以 p，spf[x] 可能变化。用 while (x % p == 0) 简单安全。<br>修改：<br>int x = i;<br>while (x &gt; 1) {<br>int p = spf[x];<br>int e = 0;<br>while (x % p == 0) {<br>x /= p;<br>++e;<br>}<br>…<br>}</p>
+<p>更高效的方式：我们可以预先计算每个数的质因子分解（例如存储每个数的质因子列表），但需要更多内存。用 spf 和 while 循环已经很快。内层循环总数约为 N * (平均指数和？)。对于每个质因子 p，e 是指数，每次除一次。总共除法次数为 Σ v<em>p(i) = N log log N 左右（实际上是质因子总个数带重数）。对于 1e7，这个总和大概是多少？Σ</em>{i=1}^N Ω(i) ≈ N log log N + O(N) ≈ 2.7e7。每次做取模乘法等，可以接受。</p>
+<p>在实现时，有一些细节：</p>
+<p>1 + 2*old_a 可能为 0? 不会，前文已讨论。</p>
+<p>当 old_a = 0 时，因子为 1，逆元为 inv[1] = 1，乘除不改变 cur。但我们的代码仍然会乘 inv[1] 和 (1+2*e)。这没问题。</p>
+<p>溢出：cur 是 long long，与 inv 相乘可能到 1e18，取模。1LL <em> cur </em> inv[1+2*old_a] % MOD 等。乘法使用 long long 防止溢出。</p>
+<p>取余 MOD = 1000000087。</p>
+<p>验证小 N：我们可以写一个测试函数对 N=10 验证得到 4821。建议在提交前本地测试小数据。</p>
+<p>其他优化：</p>
+<p>使用数组而不是 vector 可能会快一点，但 vector 也差不多。我们可以用全局数组或动态分配。</p>
+<p>由于数组大小约 1e7 和 2e7，建议全局声明以避免栈溢出。</p>
+<p>使用 int 类型，对于 expo 和 spf, inv。cur, ans 用 long long 或 int? cur 在乘除后取模，保证在 [0, MOD-1]，所以可以用 int cur，但乘法需要强制转为 long long。使用 int cur 可以减少内存占用。但是乘的时候 (long long)cur * inv… 即可。</p>
+<p>内存：我们有两个大数组 spf 和 expo 和 inv。可以想办法减少一个。我们能否不需要 expo 数组？我们只需要 a_p 来更新 cur。是否能用前缀和或其他方式直接计算 S(i!)？但动态维护已经是 O(1) 每次质因子更新。或者我们可以发现 S(i!) 与 S((i-1)!) 的关系就是乘以 i 的质因子的贡献。但我们需要 a_p 的当前值。我们可以不用全数组 expo，而只对质数存储。使用 prime_idx 映射，但会增加一个数组。权衡后，使用全数组 expo 简单且快，内存 160MB 内。</p>
+<p>160MB 内存对于大多数在线评测系统是允许的（如 256MB 或 512MB）。如果是严格的 128MB，可能会超。我们可以优化内存：</p>
+<p>spf 可以用 unsigned char？不行，spf 值最大 1e7，需要 4 字节。或使用 int。</p>
+<p>expo 需要 int。可以省去 expo 吗？我们可以直接在更新时，用某种方式计算 old_a？ 因为每次更新 i 的质因子 p，old_a = a_p((i-1)!) 。我们可以通过每个质数当前的 a_p(i!) 记录在数组里，必须要有。除非我们能不存 old_a 而直接计算 new_factor / old_factor。注意到 new_factor / old_factor 等于 (1+2(a+e)) / (1+2a) = 1 + 2e / (1+2a)。这个似乎没简化。所以需要 a。</p>
+<p>我们可以把 expo 和 spf 合并？不现实。</p>
+<p>可以考虑只存储质数的 expo。质数数量 664579。那么我们需要将质数 p 映射到索引。我们可以有一个 int 数组 prime_idx[10000001]。那么内存：spf 40M + prime_idx 40M + expo 2.6M + inv 80M = 162.6M。几乎一样。或者我们可以不使用 spf，而是直接预计算每个 i 的质因数列表？那样内存更大。</p>
+<p>我们能否逆元不存储全部，而是使用快速幂动态计算？虽然慢一些，但省内存（省 80M）。时间换空间。对于 2.5e7 次更新，如果每次用扩展欧几里得求逆元，时间会增加。但也许我们可以在内存不足时选择时间换空间。通常 256MB 足够。我们假设内存足够。</p>
+<p>我们还可以考虑：inv 数组大小可以缩小到实际需要的最大值。max<em>a 最大为 a_2(N!) = sum</em>{k=1} floor(N/2^k)。对于 N=10^7:<br>sum = 5000000 + 2500000 + 1250000 + 625000 + 312500 + 156250 + 78125 + 39062 + 19531 + 9765 + 4882 + 2441 + 1220 + 610 + 305 + 152 + 76 + 38 + 19 + 9 + 4 + 2 + 1 = ?<br>我们可以计算：<br>5000000<br>+2500000=7500000<br>+1250000=8750000<br>+625000=9375000<br>+312500=9687500<br>+156250=9843750<br>+78125=9921875<br>+39062=9960937<br>+19531=9980468<br>+9765=9990233<br>+4882=9995115<br>+2441=9997556<br>+1220=9998776<br>+610=9999386<br>+305=9999691<br>+152=9999843<br>+76=9999919<br>+38=9999957<br>+19=9999976<br>+9=9999985<br>+4=9999989<br>+2=9999991<br>+1=9999992<br>所以 max_a = 9999992 对于 2。那么 max_val = 1 + 2*9999992 = 19999985。所以分配 20000005 足够。对于 N=10000000，我们分配 20000005 即可。可以用 vector<int> inv(20000005)。内存 80MB。</p>
+<p>总体算法实现很简单。</p>
+<p>还需要考虑一个潜在的 bug：在更新 cur 时，乘除顺序：先乘逆元，再乘新因子，取模。注意 old_a 可能等于 0，此时因子为 1，inv[1] = 1，新因子为 1+2*e，直接乘即可。没问题。</p>
+<p>对于 F(N) 需要 mod 1e9+87。我们累加 ans = (ans + cur) % MOD。最后输出 ans。</p>
+<p>验证：对于 N=10，应得 4821。我们可以跑一下看看。</p>
+<p>关于更优做法：由于题目要求“如果有更优做法也一并输出出来”，我们可以在最后提供说明。更优的做法通常指 Project Euler 650 中需要的处理 1e8 或更大的做法。那种做法通常涉及将 S(i!) 的累加转化为对每个质数的贡献求和。因为 S(i!) = ∏{p} (1+2 a<em>p(i!))。我们可以交换求和顺序？对于 F(N) = Σ{i=2}^N ∏</em>{p} (1+2 a_p(i!))。不是线性，是乘积，不易直接交换。但 PE 650 的常用解法是使用数据结构维护多项式？或者观察到 (1+2a) 的递推可以用段段更新？因为 a_p(i!) 只在 i 是 p 的倍数时增加。对于每个质数 p，a_p(i!) 随着 i 逐步增加，在 i 是 p 的倍数时指数增加 v_p(i)。我们可以将 S(i!) 视为对所有质数 p 的 (1+2a_p(i)) 的乘积。可以用线段树维护乘积？但是 N=1e8 时 O(N log N) 太大。</p>
+<p>实际上 PE 650 的典型解法是使用类似于我们现在的动态维护乘积的方法，复杂度 O(N log log N) 在 N=1e8 时可能刚好通过（用编译优化，C++ 大概几秒到十几秒）。对于 1e7 肯定没问题。网上有很多 PE 650 的解法，最常见的就是筛出 spf，然后动态更新乘积。</p>
+<p>至于更优做法，还有一种思路：注意到 (1+2a) 可以用数论分块？因为对于大的 p，a_p(i!) 变化很慢。可以批量更新。但这比较复杂。对于 1e7，我们的 O(N log log N) 已经足够优。</p>
+<p>所以代码实现优先提供简洁且高效的动态更新法。</p>
+<p>下面规划 C++ 代码。</p>
+<p>cpp</p>
+<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <iostream></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include "></a>include <vector></h1><h1 id="include-可选"><a href="#include-可选" class="headerlink" title="include  // 可选"></a>include <chrono> // 可选</h1><p>using namespace std;</p>
+<p>const int MOD = 1000000087;<br>const int N = 10000000;</p>
+<p>int main() {<br>    // 线性筛 spf<br>    vector<int> spf(N + 1);<br>    vector<int> primes;<br>    primes.reserve(664579); // 大约<br>    for (int i = 2; i &lt;= N; ++i) {<br>        if (spf[i] == 0) {<br>            spf[i] = i;<br>            primes.push_back(i);<br>        }<br>        for (int p : primes) {<br>            if (p &gt; spf[i] || (long long)i <em> p &gt; N) break;<br>            spf[i </em> p] = p;<br>        }<br>    }</p>
+<pre><code>// 最大需要逆元的值
+// 计算 a_2(N) 准确值
+int max_a2 = 0;
+long long temp = N;
+while (temp &gt; 0) &#123;
+    temp /= 2;
+    max_a2 += temp;
+&#125;
+int max_val = 2 * max_a2 + 1; // 实际上 a_2 是最大的指数
+// 分配逆元数组
+vector&lt;int&gt; inv(max_val + 2);
+inv[1] = 1;
+for (int i = 2; i &lt;= max_val + 1; ++i) &#123;
+    inv[i] = MOD - (long long)(MOD / i) * inv[MOD % i] % MOD;
+&#125;
+
+// expo 数组
+vector&lt;int&gt; expo(N + 1, 0);
+
+long long cur = 1;
+long long ans = 0;
+
+for (int i = 2; i &lt;= N; ++i) &#123;
+    int x = i;
+    while (x &gt; 1) &#123;
+        int p = spf[x];
+        int e = 0;
+        while (x % p == 0) &#123;
+            x /= p;
+            ++e;
+        &#125;
+        int old_a = expo[p];
+        int new_a = old_a + e;
+        // cur = cur * (1+2*new_a) / (1+2*old_a) % MOD
+        cur = cur * inv[1 + 2 * old_a] % MOD;
+        cur = cur * (1 + 2LL * new_a) % MOD;
+        expo[p] = new_a;
+    &#125;
+    ans += cur;
+    if (ans &gt;= MOD) ans -= MOD; // 或者取模
+&#125;
+
+cout &lt;&lt; ans % MOD &lt;&lt; endl;
+return 0;
+</code></pre><p>}<br>需要验证 F(10) 是否为 4821。</p>
+<p>我们可以编写一个小 N 测试。理论上算法正确。</p>
+<p>检查可能的数组越界：inv 的大小需要包含 1+2old_a 和 1+2new_a。old_a 最大为 max_a2，new_a 最大可能也是 max_a2。所以 inv 索引最大为 1+2max_a2。我们分配 max_val+2 足够。因为 max_val = 2max_a2+1，+2 是为了安全。实际上 inv 大小可以等于 max_val+2，索引最大 max_val。1+2new_a 可能等于 2max_a2+1 = max_val。所以需要 inv[max_val] 存在。如果 max_val 就是 2*max_a2+1，inv 大小设为 max_val+1 即可。我们使用 max_val + 2 安全。</p>
+<p>优化：</p>
+<p>将 expo 和 spf 用普通数组以加快速度？vector 访问也快，但动态内存分配可能稍慢，但可以接受。我们也可以使用 make_unique<int[]> 或 new。</p>
+<p>将 spf 和 expo 使用全局数组（大小固定）避免 vector 开销？可以用全局 int spf[10000001] 等，但 N=10000000 是常量，可以直接定义全局数组： int spf[10000001]; int expo[10000001]; 这样更快。或者使用静态数组。我们可以在全局作用域定义，但栈上不行，必须静态或堆。所以使用全局数组是好的。</p>
+<p>逆元数组 inv 大小固定约 20000005，可以全局定义 int inv[20000005]。</p>
+<p>C++ 代码：</p>
+<p>cpp</p>
+<h1 id="include-2"><a href="#include-2" class="headerlink" title="include "></a>include <iostream></h1><h1 id="include-3"><a href="#include-3" class="headerlink" title="include "></a>include <vector></h1><p>using namespace std;</p>
+<p>const int MOD = 1000000087;<br>const int N = 10000000;</p>
+<p>int spf[N + 1];<br>int expo[N + 1];<br>int inv[20000005]; // 2*N 足够</p>
+<p>int main() {<br>    // 筛 spf<br>    vector<int> primes;<br>    primes.reserve(664579);<br>    for (int i = 2; i &lt;= N; ++i) {<br>        if (spf[i] == 0) {<br>            spf[i] = i;<br>            primes.push_back(i);<br>        }<br>        for (int p : primes) {<br>            if (p &gt; spf[i] || (long long)i <em> p &gt; N) break;<br>            spf[i </em> p] = p;<br>        }<br>    }</p>
+<pre><code>int max_a2 = 0;
+for (int temp = N; temp &gt; 0; temp /= 2) max_a2 += temp;
+int max_val = 2 * max_a2 + 1;
+
+inv[1] = 1;
+for (int i = 2; i &lt;= max_val; ++i) &#123;
+    inv[i] = MOD - (long long)(MOD / i) * inv[MOD % i] % MOD;
+&#125;
+
+long long cur = 1, ans = 0;
+for (int i = 2; i &lt;= N; ++i) &#123;
+    int x = i;
+    while (x &gt; 1) &#123;
+        int p = spf[x];
+        int e = 0;
+        while (x % p == 0) &#123;
+            x /= p;
+            ++e;
+        &#125;
+        int old_a = expo[p];
+        int new_a = old_a + e;
+        cur = cur * inv[1 + 2 * old_a] % MOD;
+        cur = cur * (1 + 2LL * new_a) % MOD;
+        expo[p] = new_a;
+    &#125;
+    ans += cur;
+    if (ans &gt;= MOD) ans -= MOD;
+&#125;
+
+cout &lt;&lt; ans &lt;&lt; endl;
+return 0;
+</code></pre><p>}<br>检查：</p>
+<p>max_val 计算：对于 N=10^7，max_a2=9999992，max_val=2*9999992+1=19999985。inv 数组大小 20000005 足够。</p>
+<p>在 while (x % p == 0) 循环中，x 可能变为 1，此时 x % p 不执行（因为 x=1 时循环条件跳出）。没问题。</p>
+<p>当 old_a = 0，1+2*old_a = 1，inv[1] = 1，正确。</p>
+<p>cur 初始为 1，对应 i=1 时的 S(1!)=1。循环从 2 开始，每次更新后 cur 为 S(i!)，累加 ans。正确。</p>
+<p>小验证：是否需要对 MOD 取模后处理 cur？cur 始终在 [0, MOD-1]。</p>
+<p>这题没有给出更优做法，我们可以简单提一下：可以使用数论分块或批量更新质数贡献来进一步优化，但对于 10^7 的规模，本算法已足够高效，时间复杂度 O(N log log N)，空间复杂度 O(N)。这是标准解法，也是 Project Euler 650 的典型思路。</p>
+<p>最后输出格式应仅是数字。</p>
+<p>我们准备最终回答，提供代码和简要说明。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们首先化简 $S(n)$ 的表达式：若 $n=\prod p_i^&#123;a_i&#125;$，则</span><br><span class="line">$$</span><br><span class="line">S(n)=\sum_&#123;d\mid n&#125;2^&#123;\omega(d)&#125;=\prod_&#123;p^a\parallel n&#125;(1+2a).</span><br><span class="line">$$</span><br><span class="line">因此 $S(i!)=\prod_&#123;p\le i&#125;(1+2a_p(i!))$，其中 $a_p(i!)=\sum_&#123;k\ge1&#125;\lfloor i/p^k\rfloor$ 是 $i!$ 中质数 $p$ 的指数。</span><br><span class="line"></span><br><span class="line">我们动态维护 $P_i=S(i!)$。从 $i=1$ 开始 $P_1=1$。当 $i$ 增加时，乘以 $i$ 的每个质因子 $p$ 的贡献：</span><br><span class="line">$$</span><br><span class="line">\frac&#123;1+2\bigl(a_p(i!)\bigr)&#125;&#123;1+2\bigl(a_p((i-1)!)\bigr)&#125;,</span><br><span class="line">$$</span><br><span class="line">这需要当前指数 $a_p$。我们使用线性筛预处理每个数的最小质因子 `spf`，以便 $O(\log i)$ 分解 $i$；同时预处理所有可能用到的逆元，使得更新时只需 $O(1)$ 查表。总复杂度 $O(N\log\log N)$，对于 $N=10^7$ 完全可行。</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int MOD = 1000000087;</span><br><span class="line">const int N = 10000000;</span><br><span class="line"></span><br><span class="line">int spf[N + 1];          // 最小质因子</span><br><span class="line">int expo[N + 1];         // 当前 i! 中质数的指数</span><br><span class="line">int inv[20000005];       // 逆元表，大小 ≥ 2*max_a2+1</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    // ---------- 1. 线性筛求最小质因子 ----------</span><br><span class="line">    vector&lt;int&gt; primes;</span><br><span class="line">    primes.reserve(664579);   // 10^7 以内的质数个数</span><br><span class="line">    for (int i = 2; i &lt;= N; ++i) &#123;</span><br><span class="line">        if (spf[i] == 0) &#123;</span><br><span class="line">            spf[i] = i;</span><br><span class="line">            primes.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        for (int p : primes) &#123;</span><br><span class="line">            if (p &gt; spf[i] || (long long)i * p &gt; N) break;</span><br><span class="line">            spf[i * p] = p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // ---------- 2. 预处理逆元 ----------</span><br><span class="line">    // 最大指数发生在 p=2 时，a_2(10^7) = Σ floor(10^7 / 2^k)</span><br><span class="line">    int max_a2 = 0;</span><br><span class="line">    for (int temp = N; temp &gt; 0; temp /= 2)</span><br><span class="line">        max_a2 += temp;</span><br><span class="line">    int max_val = 2 * max_a2 + 1;   // 需要逆元的因子 (1+2a) 的最大值</span><br><span class="line"></span><br><span class="line">    inv[1] = 1;</span><br><span class="line">    for (int i = 2; i &lt;= max_val; ++i)</span><br><span class="line">        inv[i] = MOD - (long long)(MOD / i) * inv[MOD % i] % MOD;</span><br><span class="line"></span><br><span class="line">    // ---------- 3. 动态维护 S(i!) 并求和 ----------</span><br><span class="line">    long long cur = 1;   // S(1!) = 1</span><br><span class="line">    long long ans = 0;</span><br><span class="line"></span><br><span class="line">    for (int i = 2; i &lt;= N; ++i) &#123;</span><br><span class="line">        int x = i;</span><br><span class="line">        // 分解 i，更新每个质因子的贡献</span><br><span class="line">        while (x &gt; 1) &#123;</span><br><span class="line">            int p = spf[x];</span><br><span class="line">            int e = 0;</span><br><span class="line">            while (x % p == 0) &#123;</span><br><span class="line">                x /= p;</span><br><span class="line">                ++e;</span><br><span class="line">            &#125;</span><br><span class="line">            int old_a = expo[p];</span><br><span class="line">            int new_a = old_a + e;</span><br><span class="line">            // cur *= (1+2*new_a) / (1+2*old_a)</span><br><span class="line">            cur = cur * inv[1 + 2 * old_a] % MOD;</span><br><span class="line">            cur = cur * (1 + 2LL * new_a) % MOD;</span><br><span class="line">            expo[p] = new_a;</span><br><span class="line">        &#125;</span><br><span class="line">        ans += cur;</span><br><span class="line">        if (ans &gt;= MOD) ans -= MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>更优做法思路（简要）</strong><br>对于更大的 $N$（如 $10^8$），上述 $O(N\log\log N)$ 算法仍可通过，但内存和时间压力更大。进一步的优化方向包括：</p>
+<ul>
+<li>批量更新：对于较大的质数，其指数变化缓慢，可以分段使用乘法逆元一次性跳过多个 $i$。</li>
+<li>数论分块：将 $a_p(i!)$ 表示为 $\frac{i-s_p(i)}{p-1}$，从而把 $S(i!)$ 写成 $\prod\frac{Ai+B}{p-1}$ 的形式，利用多项式技巧或数据结构求和。</li>
+<li>考虑到 $S(i!)$ 是积性函数的累乘，也可以对每个质数独立计算其对所有 $i$ 的贡献，用线段树或树状数组维护乘积。</li>
+</ul>
+<p>但对于本题 $N=10^7$ 的规模，动态更新的代码已足够高效，无需复杂优化。</p>
+<h2 id="user-1"><a href="#user-1" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个程序RE了,找找原因</span><br></pre></td></tr></table></figure>
+<h2 id="deepseek-fast"><a href="#deepseek-fast" class="headerlink" title="deepseek fast"></a>deepseek fast</h2><p>程序 RE 通常是因为数组越界或除零等问题。让我检查一下：</p>
+<p>主要问题在于 <strong><code>expo</code> 数组只开到了 <code>N+1</code>，但实际需要索引的是质数，而质数最大就是 <code>N</code>，这倒没问题</strong>。</p>
+<p>但关键问题是：<strong><code>inv</code> 数组的大小可能不够</strong>，以及访问了 <code>inv[0]</code> 的情况。</p>
+<p>仔细分析：当 <code>old_a = 0</code> 时，<code>1 + 2 * old_a = 1</code>，<code>inv[1]</code> 没问题。但 <code>expo</code> 数组未初始化，<strong>默认值是 0</strong>，第一次更新质数时 <code>old_a = 0</code>，<code>1 + 2 * 0 = 1</code>，<code>inv[1] = 1</code>，这没问题。</p>
+<p>真正的问题是：<strong><code>expo</code> 数组大小是 <code>N+1</code>，但我们会用 <code>expo[p]</code> 来访问，其中 <code>p</code> 是质数。质数最大约 10^7，在数组范围内。但是 <code>expo</code> 是全局数组，未初始化的部分为 0，所以逻辑上没问题。</strong></p>
+<p>让我重新审视：问题可能是<strong>递归或循环深度过大导致栈溢出</strong>，或者<strong><code>spf</code> 数组的初始化问题</strong>。</p>
+<p>最大的可能性是：<strong><code>inv</code> 数组大小计算有误</strong>。让我们验证 <code>max_a2</code>：</p>
+<ul>
+<li><code>a_2(10000000)</code> = <code>10000000/2 + 10000000/4 + 10000000/8 + ...</code></li>
+<li>= 5000000 + 2500000 + 1250000 + 625000 + 312500 + 156250 + 78125 + 39062 + 19531 + 9765 + 4882 + 2441 + 1220 + 610 + 305 + 152 + 76 + 38 + 19 + 9 + 4 + 2 + 1</li>
+<li>≈ 9999999</li>
+</ul>
+<p>所以 <code>max_val = 2 * 9999999 + 1 = 19999999</code>，<code>inv</code> 需要开到约 20000000，我写了 <code>int inv[20000005]</code>，这应该够了。</p>
+<p><strong>最可能的问题是：数组开得太大，在 Windows 上栈空间不足导致崩溃！</strong> 这三个大数组都在全局区（静态存储区），但如果编译环境限制了静态区大小或者被放在了栈上（某些编译器行为），就会 RE。</p>
+<p>修正方案：使用 <code>vector</code> 动态分配内存，这样更安全。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1000000087</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">10000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用 vector 避免静态数组过大导致的潜在问题</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">spf</span><span class="params">(N + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">expo</span><span class="params">(N + <span class="number">1</span>, <span class="number">0</span>)</span></span>;     <span class="comment">// 记录每个质数的当前指数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---------- 线性筛 ----------</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">    primes.<span class="built_in">reserve</span>(<span class="number">664579</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (spf[i] == <span class="number">0</span>) &#123;</span><br><span class="line">            spf[i] = i;</span><br><span class="line">            primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> p : primes) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p &gt; spf[i] || (<span class="type">long</span> <span class="type">long</span>)i * p &gt; N) <span class="keyword">break</span>;</span><br><span class="line">            spf[i * p] = p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---------- 计算最大可能指数 ----------</span></span><br><span class="line">    <span class="type">int</span> max_a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> temp = N; temp &gt; <span class="number">0</span>; temp /= <span class="number">2</span>)</span><br><span class="line">        max_a += temp;</span><br><span class="line">    <span class="type">int</span> max_val = <span class="number">2</span> * max_a + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---------- 预处理逆元 ----------</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inv</span><span class="params">(max_val + <span class="number">1</span>)</span></span>;</span><br><span class="line">    inv[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= max_val; ++i)</span><br><span class="line">        inv[i] = MOD - (<span class="type">long</span> <span class="type">long</span>)(MOD / i) * inv[MOD % i] % MOD;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---------- 动态维护 S(i!) ----------</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> cur = <span class="number">1</span>;   <span class="comment">// S(1!) = 1</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> x = i;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="type">int</span> p = spf[x];</span><br><span class="line">            <span class="type">int</span> e = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (x % p == <span class="number">0</span>) &#123;</span><br><span class="line">                x /= p;</span><br><span class="line">                ++e;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> old_a = expo[p];</span><br><span class="line">            <span class="type">int</span> new_a = old_a + e;</span><br><span class="line">            cur = cur * inv[<span class="number">1</span> + <span class="number">2</span> * old_a] % MOD;</span><br><span class="line">            cur = cur * (<span class="number">1</span> + <span class="number">2LL</span> * new_a) % MOD;</span><br><span class="line">            expo[p] = new_a;</span><br><span class="line">        &#125;</span><br><span class="line">        ans += cur;</span><br><span class="line">        <span class="keyword">if</span> (ans &gt;= MOD) ans -= MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关键改动：</p>
+<ol>
+<li>所有大数组改为 <code>vector</code>，避免可能的静态存储限制</li>
+<li><code>inv</code> 使用 <code>max_val + 1</code> 精确大小</li>
+<li>其余逻辑不变</li>
+</ol>
+<p>如果还是 RE，可能是编译器的优化级别或执行时间限制的问题。可以尝试：</p>
+<ul>
+<li>使用 <code>-O2</code> 优化</li>
+<li>确保数组索引不越界（已检查，没问题）</li>
+<li>考虑中间结果溢出（已使用 <code>long long</code>，没问题）</li>
+</ul>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>一发过了,但是程序RE了一发,经鉴定为inv开小了,用到了4e7但是ds只开了2e7所以就炸了.</p>
+<p>ds的算法优化是把我dp计算贡献整个打包成一个O(1)维护变化的了,所以算法优化成了埃氏筛的两层logn.</p>
+
         
   </div>
 </article>

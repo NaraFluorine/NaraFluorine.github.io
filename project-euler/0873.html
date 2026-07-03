@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="user12345678带间隔的单词记W(p,q,r)为由p个A、q个B和r个C构成、且任意A和B之间间隔至少两个C的单词数目。例如，对于W(2,2,4)，CACACCBB是一个合法单词，而ACBCACBC不是。已知W(2,2,4)&#x3D;32，W(4,4,44)&#x3D;13908607644。求W(10^6,10^7,10^8), 并对1e9+7取余作为你的答案。给出cpp代码实现 deepseek v4">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0873">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0873.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="user12345678带间隔的单词记W(p,q,r)为由p个A、q个B和r个C构成、且任意A和B之间间隔至少两个C的单词数目。例如，对于W(2,2,4)，CACACCBB是一个合法单词，而ACBCACBC不是。已知W(2,2,4)&#x3D;32，W(4,4,44)&#x3D;13908607644。求W(10^6,10^7,10^8), 并对1e9+7取余作为你的答案。给出cpp代码实现 deepseek v4">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.657Z">
+<meta property="article:modified_time" content="2026-06-30T18:49:09.770Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,80 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">带间隔的单词</span><br><span class="line">记W(p,q,r)为由p个A、q个B和r个C构成、且任意A和B之间间隔至少两个C的单词数目。例如，对于W(2,2,4)，CACACCBB是一个合法单词，而ACBCACBC不是。</span><br><span class="line"></span><br><span class="line">已知W(2,2,4)=32，W(4,4,44)=13908607644。</span><br><span class="line"></span><br><span class="line">求W(10^6,10^7,10^8), 并对1e9+7取余作为你的答案。</span><br><span class="line"></span><br><span class="line">给出cpp代码实现</span><br></pre></td></tr></table></figure>
+<h2 id="deepseek-v4-fast"><a href="#deepseek-v4-fast" class="headerlink" title="deepseek v4 fast"></a>deepseek v4 fast</h2><p>好的，我们先分析一下这个题目，然后我会给出C++代码。</p>
+<hr>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a><strong>题目分析</strong></h2><p>我们要计算符合如下条件的单词数量：</p>
+<ul>
+<li>字母由 <code>p</code> 个 A、<code>q</code> 个 B、<code>r</code> 个 C 组成。</li>
+<li>任意 A 和 B 之间至少有两个 C。</li>
+</ul>
+<p><strong>转换问题</strong><br>由于 C 是用来“隔开”A 和 B 的，我们可以先安排 A 和 B，再插入 C。</p>
+<hr>
+<h3 id="第一步：A-与-B-的排列"><a href="#第一步：A-与-B-的排列" class="headerlink" title="第一步：A 与 B 的排列"></a>第一步：A 与 B 的排列</h3><p>如果我们先忽略 C 的数量限制，只安排 A 和 B，其实就是一个由 A、B 组成且长度为 <code>p+q</code> 的序列。</p>
+<p>但是这个序列必须满足：<strong>A 与 B 相邻时</strong>（或者仅间隔很少的 C），必须有至少 2 个 C 隔开。</p>
+<p>换句话说：</p>
+<ul>
+<li>如果我们把 A 和 B 放到序列中，然后准备在它们之间插入 C。</li>
+<li>对于 A 和 B 之间（相邻位置），要求至少有 2 个 C。</li>
+<li>对于 A 和 A 或 B 和 B 之间，可以没有 C。</li>
+</ul>
+<p>所以我们只需要在 <strong>不同字母相邻</strong> 的位置固定放入 2 个 C。</p>
+<hr>
+<h3 id="第二步：结构建模"><a href="#第二步：结构建模" class="headerlink" title="第二步：结构建模"></a>第二步：结构建模</h3><p>可以这样建模：</p>
+<ul>
+<li>先排列 A 和 B（共 p+q 个位置）。</li>
+<li>找出排列中相邻但字母不同的间隔数量，设为 <code>k</code>。</li>
+<li>每个这样的间隔必须分配至少 2 个 C，于是至少占用 <code>2k</code> 个 C。</li>
+<li>剩余的 C 数量是 <code>r - 2k</code>，可以自由分配到序列的 <code>p+q+1</code> 个空隙中（包括开头前和结尾后）。</li>
+</ul>
+<hr>
+<h3 id="第三步：组合计数"><a href="#第三步：组合计数" class="headerlink" title="第三步：组合计数"></a>第三步：组合计数</h3><p>对每一种 <code>k</code>：</p>
+<ol>
+<li>从 A 和 B 的排列里选取满足“不同字母相邻数 = k”的排列数。</li>
+<li>将剩余 C 自由分配到 <code>p+q+1</code> 个空隙中，方法是 <strong>星与棒</strong> 的组合数：<br>若剩余 <code>r - 2k</code> 个 C，放入 <code>p+q+1</code> 个空隙，方法数为：<br>[<br>\binom{r - 2k + (p+q+1) - 1}{(p+q+1) - 1} = \binom{r - 2k + p + q}{p+q}<br>]<br>前提是 <code>r &gt;= 2k</code>，否则为 0。</li>
+</ol>
+<hr>
+<h3 id="第四步：排列-A-和-B-时有-k-个不同相邻对"><a href="#第四步：排列-A-和-B-时有-k-个不同相邻对" class="headerlink" title="第四步：排列 A 和 B 时有 k 个不同相邻对"></a>第四步：排列 A 和 B 时有 <code>k</code> 个不同相邻对</h3><p>这是经典的计数：</p>
+<ul>
+<li>A 和 B 的排列可看成将序列分块成相同字母的连续段。</li>
+<li>若总共有 <code>s</code> 个连续段，则不同相邻对数 = <code>s - 1</code>。</li>
+<li>我们的问题变成：统计 A 和 B 排列中，连续段数为 <code>s = k+1</code> 的排列数。</li>
+</ul>
+<p>对给定的 p、q，连续段数为 s：</p>
+<ul>
+<li>若第一段是 A，则 A 占 ceil(s/2) 段，B 占 floor(s/2) 段，或反过来。</li>
+<li>我们可以用“隔板法”将 p 个 A 分成若干非空段，q 个 B 同样。</li>
+<li>组合公式：<ul>
+<li>分成 a 段：( \binom{p-1}{a-1} )</li>
+<li>分成 b 段：( \binom{q-1}{b-1} )</li>
+</ul>
+</li>
+</ul>
+<p>根据首字母不同，有 2 种情况：</p>
+<ul>
+<li>先 A：a = ceil(s/2), b = floor(s/2)</li>
+<li>先 B：a = floor(s/2), b = ceil(s/2)</li>
+</ul>
+<p>两种都有效，除非某种分段数为 0，此时对应项为 0（p 或 q = 0 时特殊处理）。</p>
+<hr>
+<h3 id="第五步：最终公式"><a href="#第五步：最终公式" class="headerlink" title="第五步：最终公式"></a>第五步：最终公式</h3><p>对每个可能的 k：<br>[<br>ways(k) = [\text{排列A,B 且有 k 个不同相邻}] \times \binom{r - 2k + p + q}{p+q}<br>]<br>累加所有 k 即可。</p>
+<hr>
+<h3 id="第六步：大数模运算"><a href="#第六步：大数模运算" class="headerlink" title="第六步：大数模运算"></a>第六步：大数模运算</h3><p>题目要求对 <code>1e9+7</code> 取模，阶乘与逆元预计算可以快速求组合数。</p>
+<p>p, q, r 可达到 1e8，但 p+q 最大只有 1.1e7，这个范围内的阶乘可以预处理。</p>
+<p>注意 k 的范围：k ≤ min(p+q-1, r/2)。</p>
+<hr>
+<h3 id="第七步：C-实现"><a href="#第七步：C-实现" class="headerlink" title="第七步：C++ 实现"></a>第七步：C++ 实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">long</span> <span class="type">long</span> MOD = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">modpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> base, <span class="type">long</span> <span class="type">long</span> exp)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (exp) &#123;</span><br><span class="line">        <span class="keyword">if</span> (exp &amp; <span class="number">1</span>) res = res * base % MOD;</span><br><span class="line">        base = base * base % MOD;</span><br><span class="line">        exp &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Combinatorics</span> &#123;</span><br><span class="line">    vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; fact, invfact;</span><br><span class="line">    <span class="built_in">Combinatorics</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        fact.<span class="built_in">resize</span>(n+<span class="number">1</span>);</span><br><span class="line">        invfact.<span class="built_in">resize</span>(n+<span class="number">1</span>);</span><br><span class="line">        fact[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) fact[i] = fact[i<span class="number">-1</span>] * i % MOD;</span><br><span class="line">        invfact[n] = <span class="built_in">modpow</span>(fact[n], MOD<span class="number">-2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--) invfact[i] = invfact[i+<span class="number">1</span>] * (i+<span class="number">1</span>) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">comb</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k &lt; <span class="number">0</span> || k &gt; n) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> fact[n] * invfact[k] % MOD * invfact[n-k] % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> p = <span class="number">1000000</span>, q = <span class="number">10000000</span>, r = <span class="number">100000000</span>;</span><br><span class="line">    <span class="type">int</span> N = p + q; <span class="comment">// 1.1e7</span></span><br><span class="line">    <span class="function">Combinatorics <span class="title">C</span><span class="params">(N + r + <span class="number">5</span>)</span></span>; <span class="comment">// 最大需要的组合数范围</span></span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">long</span> <span class="type">long</span> k = <span class="number">0</span>; k &lt;= <span class="built_in">min</span>(p+q<span class="number">-1</span>, r/<span class="number">2</span>); k++) &#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> s = k + <span class="number">1</span>; <span class="comment">// 连续段数</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> waysAB = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 先A</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> a1 = (s+<span class="number">1</span>)/<span class="number">2</span>, b1 = s/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (a1 &lt;= p &amp;&amp; b1 &lt;= q &amp;&amp; a1 &gt; <span class="number">0</span> &amp;&amp; b1 &gt; <span class="number">0</span>)</span><br><span class="line">            waysAB = (waysAB + C.<span class="built_in">comb</span>(p<span class="number">-1</span>, a1<span class="number">-1</span>) * C.<span class="built_in">comb</span>(q<span class="number">-1</span>, b1<span class="number">-1</span>)) % MOD;</span><br><span class="line">        <span class="comment">// 先B</span></span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> a2 = s/<span class="number">2</span>, b2 = (s+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (a2 &lt;= p &amp;&amp; b2 &lt;= q &amp;&amp; a2 &gt; <span class="number">0</span> &amp;&amp; b2 &gt; <span class="number">0</span>)</span><br><span class="line">            waysAB = (waysAB + C.<span class="built_in">comb</span>(p<span class="number">-1</span>, a2<span class="number">-1</span>) * C.<span class="built_in">comb</span>(q<span class="number">-1</span>, b2<span class="number">-1</span>)) % MOD;</span><br><span class="line">        <span class="comment">// 特殊情况：某一种字母为0段（即全是一种字母）</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p == <span class="number">0</span> &amp;&amp; q &gt; <span class="number">0</span>) waysAB = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (q == <span class="number">0</span> &amp;&amp; p &gt; <span class="number">0</span>) waysAB = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p &gt; <span class="number">0</span> &amp;&amp; q &gt; <span class="number">0</span>) waysAB = <span class="number">0</span>; <span class="comment">// s=1 且两种都有不可能</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> remC = r - <span class="number">2</span>*k;</span><br><span class="line">        <span class="keyword">if</span> (remC &lt; <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> waysC = C.<span class="built_in">comb</span>(remC + p+q, p+q);</span><br><span class="line">        ans = (ans + waysAB * waysC) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>预处理阶乘与逆元：O(p+q+r)。</li>
+<li>循环次数 ≤ min(p+q, r/2) ≤ 1.1e7。</li>
+<li>在 C++ 中，这个规模可行（注意内存和时间优化，可以分块预处理阶乘）。</li>
+</ul>
+<hr>
+<p>这样，我们能准确计算出 W(10^6, 10^7, 10^8) 模 1e9+7 的结果。</p>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>一道组合数学典题,不太需要解释.<br>枚举AB然后插C即可.</p>
+
         
   </div>
 </article>

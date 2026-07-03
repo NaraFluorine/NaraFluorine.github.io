@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="vector初始化有三个指针,首指针,末指针,capacity的末指针.当末指针和capacity撞的时候会扩容,申请一个二倍大内存的,然后集中移动资源. 自己写的时候要注意,不要用memcpy,因为memcpy是逐字节的,不会调用构造函数和拷贝函数,有可能出问题,比如浅拷贝.可以使用copy或者拷贝构造函数.    vector的原地构造是通过定位new实现的.123456vector&lt;i">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-08T08:28:41.859Z">
-<meta property="article:modified_time" content="2026-06-08T08:28:41.859Z">
+<meta property="article:published_time" content="2026-06-08T12:37:03.305Z">
+<meta property="article:modified_time" content="2026-06-08T12:37:03.305Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -135,9 +135,10 @@
           <h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>初始化有三个指针,首指针,末指针,capacity的末指针.<br>当末指针和capacity撞的时候会扩容,申请一个二倍大内存的,然后集中移动资源.</p>
 <p>自己写的时候要注意,不要用memcpy,因为memcpy是逐字节的,不会调用构造函数和拷贝函数,有可能出问题,比如浅拷贝.<br>可以使用copy或者拷贝构造函数.   </p>
 <p>vector的原地构造是通过定位new实现的.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;vc;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;<span class="built_in">vc</span>(<span class="number">10</span>);<span class="comment">//大小是10</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;<span class="built_in">vc</span>(<span class="number">10</span>,<span class="number">5</span>);<span class="comment">//大小是10,元素初始都是5</span></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;vc=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;vc&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="重定向new"><a href="#重定向new" class="headerlink" title="重定向new"></a>重定向new</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="built_in">static_cast</span>&lt;T*&gt;(::<span class="keyword">operator</span> <span class="built_in">new</span>(cap * <span class="built_in">sizeof</span>(T)));</span><br><span class="line">::<span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(data)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>上面的 <code>::operator new</code> 分配指定内存,但是不初始化对象. <code>::operator delete(data)</code> 会释放空间,不调用析构函数.<br>在使用delete前需要手动给构造对象的释放空间.  </p>
 <h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>面试的时候出了一点小问题,一个char转成string,可以使用:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a=<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">string b=<span class="built_in">string</span>(<span class="number">1</span>,a);</span><br></pre></td></tr></table></figure><br>不过 <code>char*</code> 类型的可以直接转成string,有拷贝构造函数.</p>
 <h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>可以用数组指针建堆,传一个开始一个结束就行(会拷贝所有元素).<br>有一个O(n)建堆的算法,递归处理,每次三个元素取最大的放顶上就行.<br>同理有一个O(logn)的维稳堆的算法:压元素压到最末端然后向上回溯.<br>弹元素后直接把末端的元素放到堆顶,然后比较一下取最大的然后递归.  </p>
-<h1 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h1><p>如何定位new?</p>
 
         
   </div>

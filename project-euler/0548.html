@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="暴力算前10000的数字,得到了11,48,1280,2496, 然后直接oeis,正好就在范围内,这个题就做完了. thread由于做法过于生草,所以看了看答案. 首先这个因子链的个数和分解质因数之后质数的出现次数有关,和质数本身是什么无关,所以我们可以枚举质数的power然后检查这个power对应的答案能不能用这些次方表示出来,直接就做完了.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0548">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0548.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="暴力算前10000的数字,得到了11,48,1280,2496, 然后直接oeis,正好就在范围内,这个题就做完了. thread由于做法过于生草,所以看了看答案. 首先这个因子链的个数和分解质因数之后质数的出现次数有关,和质数本身是什么无关,所以我们可以枚举质数的power然后检查这个power对应的答案能不能用这些次方表示出来,直接就做完了.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.578Z">
+<meta property="article:modified_time" content="2026-06-30T21:59:05.327Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,11 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <p>暴力算前10000的数字,得到了<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,48,1280,2496,</span><br></pre></td></tr></table></figure></p>
+<p>然后直接oeis,正好就在范围内,这个题就做完了.</p>
+<h2 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h2><p>由于做法过于生草,所以看了看答案.</p>
+<p>首先这个因子链的个数和分解质因数之后质数的出现次数有关,和质数本身是什么无关,所以我们可以枚举质数的power然后检查这个power对应的答案能不能用这些次方表示出来,直接就做完了.</p>
+
         
   </div>
 </article>

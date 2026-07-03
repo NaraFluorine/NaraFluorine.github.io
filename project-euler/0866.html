@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="默念你所想的...">
+    <meta name="description" content="user12345678910清理（二）小朋友有一个“数字毛毛虫”玩具，包含有N片拼板，分别标有编号；如果把它们都拼起来，将会组成一条直线，且按照1到N顺序排列。每天晚上，小朋友的爸爸都要把玩具房里撒了一地的毛毛虫拼板捡起来。他捡的时候是完全随机的，捡起来之后，再按照正确的顺序拼好。这样一来，毛毛虫拼板将会构成分离的片段，并且不断合并直到组成完整的毛毛虫。爸爸每将一块拼板拼到正确的位置上，就会形成">
 <meta property="og:type" content="website">
 <meta property="og:title" content="pe-0866">
 <meta property="og:url" content="https://narafluorine.github.io/project-euler/0866.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="默念你所想的...">
+<meta property="og:description" content="user12345678910清理（二）小朋友有一个“数字毛毛虫”玩具，包含有N片拼板，分别标有编号；如果把它们都拼起来，将会组成一条直线，且按照1到N顺序排列。每天晚上，小朋友的爸爸都要把玩具房里撒了一地的毛毛虫拼板捡起来。他捡的时候是完全随机的，捡起来之后，再按照正确的顺序拼好。这样一来，毛毛虫拼板将会构成分离的片段，并且不断合并直到组成完整的毛毛虫。爸爸每将一块拼板拼到正确的位置上，就会形成">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T14:51:58.656Z">
+<meta property="article:modified_time" content="2026-06-30T04:44:40.559Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,16 @@
 
   <div class="content" itemprop="articleBody">
       
-          
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">清理（二）</span><br><span class="line">小朋友有一个“数字毛毛虫”玩具，包含有N片拼板，分别标有编号；如果把它们都拼起来，将会组成一条直线，且按照1到N顺序排列。</span><br><span class="line"></span><br><span class="line">每天晚上，小朋友的爸爸都要把玩具房里撒了一地的毛毛虫拼板捡起来。他捡的时候是完全随机的，捡起来之后，再按照正确的顺序拼好。</span><br><span class="line">这样一来，毛毛虫拼板将会构成分离的片段，并且不断合并直到组成完整的毛毛虫。</span><br><span class="line"></span><br><span class="line">爸爸每将一块拼板拼到正确的位置上，就会形成一个长度为k的片段，相应地他会写下第k个六边形数k(2k-1)。当爸爸完整地拼完毛毛虫后，他会算出写下的所有数的成绩。有趣的是，这一乘积的期望总是整数。例如，若N=4，则期望值为994。</span><br><span class="line"></span><br><span class="line">若毛毛虫拼板共有N=100片，求此时乘积的期望，并对987654319取余作为你的答案。</span><br><span class="line">请给我cpp代码实现和你的思路</span><br></pre></td></tr></table></figure>
+<h2 id="deepseek"><a href="#deepseek" class="headerlink" title="deepseek"></a>deepseek</h2><p>思路：</p>
+<ol>
+<li><strong>问题转化</strong>：正向过程是按随机排列顺序将拼板逐个拼接到正确位置，每次拼接后会产生一个新的连续片段长度 (k)，并写下第 (k) 个六边形数 (f(k)=k(2k-1))。逆向来看，这等价于从完整的毛毛虫出发，每次随机拆下一块拼板，拆下前它所在的片段长度同样为 (k)，也写下 (f(k))。两种过程对同一排列产生的写数乘积相同，且排列均匀随机。</li>
+<li><strong>期望的递推</strong>：在逆向过程中，对于长度为 (n) 的完整区间，第一步随机选择一块拆下，所在区间长度必为 (n)，贡献因子 (f(n)=n(2n-1))。拆下后区间分裂为左右两个独立子区间（长度分别为 (k-1) 和 (n-k)），后续过程在子区间内独立进行。设 (C<em>n) 为长度为 (n) 时的期望乘积，则有：<br>[<br>C_0 = 1,\qquad C_n = \frac{f(n)}{n} \sum</em>{i=0}^{n-1} C<em>i C</em>{n-1-i} = (2n-1) \sum<em>{i=0}^{n-1} C_i C</em>{n-1-i}<br>]<br>通过小样例检验（如 (N=4) 得到期望 994）递推完全正确。</li>
+<li><strong>计算</strong>：利用上述递推式，从小到大计算 (C_n) 直到 (N=100)，过程中对 987654319 取余即可。时间复杂度 (O(N^2))，在 (N=100) 时完全可行。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">long</span> <span class="type">long</span> MOD = <span class="number">987654319</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> N = <span class="number">100</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; <span class="title">C</span><span class="params">(N + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    C[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; n &lt;= N; ++n) &#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 计算卷积 sum_&#123;i=0&#125;^&#123;n-1&#125; C[i] * C[n-1-i]</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            sum = (sum + C[i] * C[n - <span class="number">1</span> - i]) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 乘以 (2n - 1) 并取模</span></span><br><span class="line">        C[n] = sum * (<span class="number">2LL</span> * n - <span class="number">1</span>) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; C[N] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>这个题居然是期望dp,而且因为原始拼起来的时候左右的碎片长度未知所以要倒过来dp…<br>老了,真是不会了…</p>
+
         
   </div>
 </article>

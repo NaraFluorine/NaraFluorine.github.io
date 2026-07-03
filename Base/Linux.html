@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="系统目录一切皆文件是什么命令ps topwatch -dselect poll epollLinux的IO多路复用机制,事件通知.">
+    <meta name="description" content="系统硬链接和软链接硬链接是多个记录指向同一个文件,软链接是快捷方式.硬链接可以理解为 shared_ptr 的关系,软链接就是windows的快捷方式,不管源文件存不存在(不过调用的时候会返回没找到源文件) poweroff 和 shutdown 和 halt首先这几个一般情况下不是真正的强制关机(当然还是可以实现的),会有一定的缓冲时间用于记录日志和关闭进程等操作.poweroff 的参数较少,">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/base/Linux.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="系统目录一切皆文件是什么命令ps topwatch -dselect poll epollLinux的IO多路复用机制,事件通知.">
+<meta property="og:description" content="系统硬链接和软链接硬链接是多个记录指向同一个文件,软链接是快捷方式.硬链接可以理解为 shared_ptr 的关系,软链接就是windows的快捷方式,不管源文件存不存在(不过调用的时候会返回没找到源文件) poweroff 和 shutdown 和 halt首先这几个一般情况下不是真正的强制关机(当然还是可以实现的),会有一定的缓冲时间用于记录日志和关闭进程等操作.poweroff 的参数较少,">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-08T08:13:49.952Z">
-<meta property="article:modified_time" content="2026-06-08T07:59:41.098Z">
+<meta property="article:published_time" content="2026-06-21T04:02:37.244Z">
+<meta property="article:modified_time" content="2026-06-21T04:02:37.244Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,13 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h1 id="系统目录"><a href="#系统目录" class="headerlink" title="系统目录"></a>系统目录</h1><h2 id="一切皆文件是什么"><a href="#一切皆文件是什么" class="headerlink" title="一切皆文件是什么"></a>一切皆文件是什么</h2><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="ps-top"><a href="#ps-top" class="headerlink" title="ps top"></a><code>ps</code> <code>top</code></h2><h2 id="watch-d"><a href="#watch-d" class="headerlink" title="watch -d"></a><code>watch -d</code></h2><h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select poll epoll"></a><code>select</code> <code>poll</code> <code>epoll</code></h2><p>Linux的IO多路复用机制,事件通知.</p>
+          <h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><h2 id="硬链接和软链接"><a href="#硬链接和软链接" class="headerlink" title="硬链接和软链接"></a>硬链接和软链接</h2><p>硬链接是多个记录指向同一个文件,软链接是快捷方式.<br>硬链接可以理解为 <code>shared_ptr</code> 的关系,软链接就是windows的快捷方式,不管源文件存不存在(不过调用的时候会返回没找到源文件)</p>
+<h2 id="poweroff-和-shutdown-和-halt"><a href="#poweroff-和-shutdown-和-halt" class="headerlink" title="poweroff 和 shutdown 和 halt"></a><code>poweroff</code> 和 <code>shutdown</code> 和 <code>halt</code></h2><p>首先这几个一般情况下不是真正的强制关机(当然还是可以实现的),会有一定的缓冲时间用于记录日志和关闭进程等操作.<br><code>poweroff</code> 的参数较少,主要集中于强制关机,只写日志不关机等.<br><code>shutdown</code> 的参数比较多,比如要不要重启,多长时间之后再关机,要不要给用户发关机通知,要不要关闭电源等.<br><code>halt</code> 一般是只关内核不关电源,机箱,风扇还是正常转的,只停止系统,不过现在的 <code>halt</code> 一般和 <code>poweroff</code> 合并了,硬件排查的时候可能有用.  </p>
+<h2 id="一个文件有几个时间戳"><a href="#一个文件有几个时间戳" class="headerlink" title="一个文件有几个时间戳"></a>一个文件有几个时间戳</h2><p>四个,分别是访问时间 修改时间 状态改变时间和创建时间,其中访问时间只要访问到就会修改,例如 <code>cat</code> ,修改时间只会在保存的时候修改,创建时间只要文件创建就不会修改,状态改变时间是修改用户权限或者重命名,修改文件大小的时候修改.</p>
+<h2 id="一切皆文件"><a href="#一切皆文件" class="headerlink" title="一切皆文件"></a>一切皆文件</h2><p>Linux通过统一接口把外设或者进程与系统状态都抽象成了文件,通过统一的接口方便读取和调试.</p>
+<h2 id="shebang"><a href="#shebang" class="headerlink" title="shebang"></a>shebang</h2><p>位于文件第一行的一句 <code>#!</code> 用于指定运行环境,例如下面的几句分别是bash和python和nodejs的shebang:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env bash</span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">#!/usr/bin/env node</span><br></pre></td></tr></table></figure>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="ps-top"><a href="#ps-top" class="headerlink" title="ps top"></a><code>ps</code> <code>top</code></h2><h2 id="watch-d"><a href="#watch-d" class="headerlink" title="watch -d"></a><code>watch -d</code></h2><h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select poll epoll"></a><code>select</code> <code>poll</code> <code>epoll</code></h2><p>Linux的IO多路复用机制,事件通知.</p>
 
         
   </div>

@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="计网三次握手SYN&#x3D;1 seq&#x3D;xSYN&#x3D;1 ACK&#x3D;1 seq&#x3D;y ack&#x3D;x+1ACK&#x3D;1 seq&#x3D;x+1 ack&#x3D;y+1   四次挥手FIN&#x3D;1 seq&#x3D;uACK&#x3D;1 ack&#x3D;u+1中间还没传完的数据尽快传FIN&#x3D;1 seq&#x3D;wACK&#x3D;1 ack&#x3D;w+1 ,等两个最大生存时间后关闭,防止结束的报文丢包 TLS握手发第一随机数,tls版本,加密套件发第二随机数,tls版本,加密套件,证书,公钥">
+    <meta name="description" content="三次握手SYN&#x3D;1 seq&#x3D;xSYN&#x3D;1 ACK&#x3D;1 seq&#x3D;y ack&#x3D;x+1ACK&#x3D;1 seq&#x3D;x+1 ack&#x3D;y+1   四次挥手FIN&#x3D;1 seq&#x3D;uACK&#x3D;1 ack&#x3D;u+1中间还没传完的数据尽快传FIN&#x3D;1 seq&#x3D;wACK&#x3D;1 ack&#x3D;w+1 ,等两个最大生存时间后关闭,防止结束的报文丢包 TLS握手发第一随机数,tls版本,加密套件发第二随机数,tls版本,加密套件,证书,公钥发公">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/base/NET.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="计网三次握手SYN&#x3D;1 seq&#x3D;xSYN&#x3D;1 ACK&#x3D;1 seq&#x3D;y ack&#x3D;x+1ACK&#x3D;1 seq&#x3D;x+1 ack&#x3D;y+1   四次挥手FIN&#x3D;1 seq&#x3D;uACK&#x3D;1 ack&#x3D;u+1中间还没传完的数据尽快传FIN&#x3D;1 seq&#x3D;wACK&#x3D;1 ack&#x3D;w+1 ,等两个最大生存时间后关闭,防止结束的报文丢包 TLS握手发第一随机数,tls版本,加密套件发第二随机数,tls版本,加密套件,证书,公钥">
+<meta property="og:description" content="三次握手SYN&#x3D;1 seq&#x3D;xSYN&#x3D;1 ACK&#x3D;1 seq&#x3D;y ack&#x3D;x+1ACK&#x3D;1 seq&#x3D;x+1 ack&#x3D;y+1   四次挥手FIN&#x3D;1 seq&#x3D;uACK&#x3D;1 ack&#x3D;u+1中间还没传完的数据尽快传FIN&#x3D;1 seq&#x3D;wACK&#x3D;1 ack&#x3D;w+1 ,等两个最大生存时间后关闭,防止结束的报文丢包 TLS握手发第一随机数,tls版本,加密套件发第二随机数,tls版本,加密套件,证书,公钥发公">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-08T08:00:58.964Z">
-<meta property="article:modified_time" content="2026-06-08T08:00:58.964Z">
+<meta property="article:published_time" content="2026-06-11T07:44:10.741Z">
+<meta property="article:modified_time" content="2026-06-11T07:44:10.741Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -132,14 +132,15 @@
 
   <div class="content" itemprop="articleBody">
       
-          <h3 id="计网"><a href="#计网" class="headerlink" title="计网"></a>计网</h3><h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p>SYN=1 seq=x<br>SYN=1 ACK=1 seq=y ack=x+1<br>ACK=1 seq=x+1 ack=y+1  </p>
+          <h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p>SYN=1 seq=x<br>SYN=1 ACK=1 seq=y ack=x+1<br>ACK=1 seq=x+1 ack=y+1  </p>
 <h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>FIN=1 seq=u<br>ACK=1 ack=u+1<br>中间还没传完的数据尽快传<br>FIN=1 seq=w<br>ACK=1 ack=w+1 ,等两个最大生存时间后关闭,防止结束的报文丢包</p>
 <h4 id="TLS握手"><a href="#TLS握手" class="headerlink" title="TLS握手"></a>TLS握手</h4><p>发第一随机数,tls版本,加密套件<br>发第二随机数,tls版本,加密套件,证书,公钥<br>发公钥加密后的预主密钥,<br>双方计算得到本次会话的密钥,然后开始通话  </p>
 <h4 id="七层模型"><a href="#七层模型" class="headerlink" title="七层模型"></a>七层模型</h4><p>应用层<br>表示层<br>会话层<br>传输层<br>网络层<br>数据链路层<br>物理层</p>
 <h4 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h4><p>应用层(网页,http)<br>传输层(TCP)<br>网络层(IP)<br>数据链路层(以太网)<br>物理层(网线)</p>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>tcp,udp:传输层<br>tls:会话层(应用层和传输层之间)  </p>
 <h4 id="HTTP版本"><a href="#HTTP版本" class="headerlink" title="HTTP版本"></a>HTTP版本</h4><p>1.0 没有长连接,每次请求都需要建立连接,没有分块传输,有最基础的缓存支持,全部明文传输.<br>1.1 持久连接,优化了缓存机制,分块传输,异步请求,队头阻塞.<br>2.0 使用二进制协议取代明文协议,压缩报头,优先级,主动推送,多路复用(拆开成好多个帧,异步发送后拼装)等,没有消灭队头阻塞,万一丢包了还是会等,造成阻塞.<br>3.0 QUIC协议(基于UDP)取代了TCP,更快,彻底消灭队头阻塞,丢包了不影响其他的继续运作,使用0RTT,利用上次对话的数据直接重新传输即可,默认加密.</p>
-
+<h2 id="单工-半双工-全双工"><a href="#单工-半双工-全双工" class="headerlink" title="单工 半双工 全双工"></a>单工 半双工 全双工</h2><p>单工:数据只能单向传输.<br>半双工:数据可以双向传输,但是必须分时进行.<br>全双工:数据可以同时双向传输.  </p>
+<h1 id="报头"><a href="#报头" class="headerlink" title="报头"></a>报头</h1><h2 id="TCP报头"><a href="#TCP报头" class="headerlink" title="TCP报头"></a>TCP报头</h2>
         
   </div>
 </article>

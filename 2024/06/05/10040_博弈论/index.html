@@ -14,7 +14,7 @@
 <meta property="og:description" content="OI里面考的一般是完全信息博弈,也就是谁都知道问题的全部信息,也就是说在双方绝对聪明的条件下一定会有一个确定的胜者.   下面的内容参考了队友QianK的部分板子. sg函数必输状态的sg值为0.其他状态的sg值为 mex(所有可到达的子状态) . 上面是一个独立游戏的sg函数值,对于多个独立游戏(比如多个石堆彼此取石子是独立的),sg函数为 xor(所有子游戏的sg) . Nim游戏每次可以从一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-05T15:21:27.000Z">
-<meta property="article:modified_time" content="2026-06-06T05:41:59.094Z">
+<meta property="article:modified_time" content="2026-06-17T12:12:50.947Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Algorithm">
@@ -109,7 +109,7 @@
         <li><a class="icon" aria-label="上一篇" href="/2024/09/01/20005_XCPC2024/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10036_%E7%A6%BB%E6%95%A3%E5%8C%96/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2024/06/04/10038_%E5%88%86%E6%B2%BB/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -223,6 +223,9 @@
 </ol>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://pe-cn.github.io/260/">爆搜优化</a><br>每次拿石头之后存在三堆石头之间的差是固定的,能够用三个表O(1)维护,进而能够O(n^3)枚举答案,<a target="_blank" rel="noopener" href="https://ujimatsu-chiya.github.io/project-euler/260/">ref</a>.</li>
+</ol>
+<ol>
+<li>有X和Y两堆石子,每次从一堆取 $2i$ 个石子,然后删掉 $i$ 个并把 $i$ 个放到另一堆里,求给定局面是否先手必胜,<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc059/tasks/arc072_b">ref</a>.<br> 发现 $|x-y|&lt;=1$ 的时候必输,其余情况必胜,证明:首先初始石头都很少的时候是必输的,然后其余情况总可以构造一种方法让大的减下去然后满足这个条件.</li>
 </ol>
 
   </div>
