@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="vllmvllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆炸.如何做优化成了重点,所以有了很多推理引擎,比如vllm,SGLang以及ollama.cpp. 部署Fluu使用WSL+vllm作为技术支撑. 环境卡:rtx4060KMD Version: 610.62CUDA UMD Version: 13.3vllm&#x3D;0.9.2transformer&#x3D;4.51.3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型部署">
+<meta property="og:url" content="https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="vllmvllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆炸.如何做优化成了重点,所以有了很多推理引擎,比如vllm,SGLang以及ollama.cpp. 部署Fluu使用WSL+vllm作为技术支撑. 环境卡:rtx4060KMD Version: 610.62CUDA UMD Version: 13.3vllm&#x3D;0.9.2transformer&#x3D;4.51.3">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-15T00:18:20.000Z">
+<meta property="article:modified_time" content="2026-07-15T01:13:11.353Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>模型部署</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2030/01/01/99998_Crack_Myself/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&text=模型部署"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&is_video=false&description=模型部署"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=模型部署&body=Check out this article: https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&name=模型部署&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&t=模型部署"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vllm"><span class="toc-number">1.</span> <span class="toc-text">vllm</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number"></span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C"><span class="toc-number"></span> <span class="toc-text">体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen2-5-0-5B"><span class="toc-number">1.</span> <span class="toc-text">Qwen2.5-0.5B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepSeek-R1-Distill-Qwen-1-5B"><span class="toc-number">2.</span> <span class="toc-text">DeepSeek-R1-Distill-Qwen-1.5B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#abc463%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">abc463测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen-Qwen2-5-Coder-1-5B-Instruct"><span class="toc-number">3.</span> <span class="toc-text">Qwen&#x2F;Qwen2.5-Coder-1.5B-Instruct</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen3"><span class="toc-number">4.</span> <span class="toc-text">Qwen3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen2-5-Coder-3B-Instruct"><span class="toc-number">5.</span> <span class="toc-text">Qwen2.5-Coder-3B-Instruct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ASR"><span class="toc-number">5.1.</span> <span class="toc-text">ASR</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        模型部署
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-07-15T00:18:20.000Z" class="dt-published" itemprop="datePublished">2026-07-15</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="vllm"><a href="#vllm" class="headerlink" title="vllm"></a>vllm</h2><p>vllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆炸.如何做优化成了重点,所以有了很多推理引擎,比如vllm,SGLang以及ollama.cpp.</p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>Fluu使用WSL+vllm作为技术支撑.</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>卡:rtx4060<br>KMD Version: 610.62<br>CUDA UMD Version: 13.3<br>vllm=0.9.2<br>transformer=4.51.3  </p>
+<p>先装vllm,然后降级transformers库,环境就配好了.<br>Fluu主机上的py环境相当恐怖,有一个 <code>3.11.4</code> 的主环境,什么东西都往里装,还有一个 <code>3.8.?</code> 的版本是给ciphey特供的,当时不知道有个东西叫conda.<br>而到了接触wsl的时候了解了更多的技术,也就有了更多的选择…  </p>
+<p><strong>特别说明</strong>:vllm对wsl支持的不好,直接装最新版wsl最后运行的时候会报错,详见下面,有懂的可以交流一下,反正GPT说就是uva cache在wsl里面没有或者找不到,最后炸了,也就是兼容问题.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(FluGPU1) fluorine@NaraFluorine:/mnt/d/SucksFluorine/cpp/Contests$ VLLM_USE_UVA=<span class="number">0</span> vllm serve <span class="string">&quot;Qwen/Qwen2.5-0.5B&quot;</span> --gpu-memory-utilization <span class="number">0.7</span> --<span class="built_in">max</span>-model-<span class="built_in">len</span> <span class="number">4096</span>(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>](APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>]        █     █     █▄   ▄█(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version <span class="number">0.25</span><span class="number">.0</span>(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>]   █▄█▀ █     █     █     █  model   Qwen/Qwen2<span class="number">.5</span>-<span class="number">0.5</span>B(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">339</span>](APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [api_utils.py:<span class="number">273</span>] non-default args: &#123;<span class="string">&#x27;model_tag&#x27;</span>: <span class="string">&#x27;Qwen/Qwen2.5-0.5B&#x27;</span>, <span class="string">&#x27;model&#x27;</span>: <span class="string">&#x27;Qwen/Qwen2.5-0.5B&#x27;</span>, <span class="string">&#x27;max_model_len&#x27;</span>: <span class="number">4096</span>, <span class="string">&#x27;gpu_memory_utilization&#x27;</span>: <span class="number">0.7</span>&#125;(APIServer pid=<span class="number">502</span>) WARNING 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:09 [envs.py:<span class="number">2041</span>] Unknown vLLM environment variable detected: VLLM_USE_UVA(APIServer pid=<span class="number">502</span>) Warning: You are sending unauthenticated requests to the HF Hub. Please <span class="built_in">set</span> a HF_TOKEN to enable higher rate limits <span class="keyword">and</span> faster downloads.(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:<span class="number">15</span> [model.py:<span class="number">619</span>] Resolved architecture: Qwen2ForCausalLM(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:<span class="number">15</span> [model.py:<span class="number">1776</span>] Using <span class="built_in">max</span> model <span class="built_in">len</span> <span class="number">4096</span>(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:<span class="number">15</span> [vllm.py:<span class="number">1042</span>] Asynchronous scheduling <span class="keyword">is</span> enabled.(APIServer pid=<span class="number">502</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">30</span>:<span class="number">15</span> [kernel.py:<span class="number">292</span>] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=[<span class="string">&#x27;native&#x27;</span>], fused_add_rms_norm=[<span class="string">&#x27;native&#x27;</span>])(EngineCore pid=<span class="number">559</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:07 [core.py:<span class="number">114</span>] Initializing a V1 LLM engine (v0<span class="number">.25</span><span class="number">.0</span>) <span class="keyword">with</span> config: model=<span class="string">&#x27;Qwen/Qwen2.5-0.5B&#x27;</span>, speculative_config=<span class="literal">None</span>, tokenizer=<span class="string">&#x27;Qwen/Qwen2.5-0.5B&#x27;</span>, skip_tokenizer_init=<span class="literal">False</span>, tokenizer_mode=auto, revision=<span class="literal">None</span>, tokenizer_revision=<span class="literal">None</span>, trust_remote_code=<span class="literal">False</span>, dtype=torch.bfloat16, max_seq_len=<span class="number">4096</span>, download_dir=<span class="literal">None</span>, load_format=auto, tensor_parallel_size=<span class="number">1</span>, pipeline_parallel_size=<span class="number">1</span>, data_parallel_size=<span class="number">1</span>, decode_context_parallel_size=<span class="number">1</span>, dcp_comm_backend=ag_rs, disable_custom_all_reduce=<span class="literal">False</span>, quantization=<span class="literal">None</span>, quantization_config=<span class="literal">None</span>, enforce_eager=<span class="literal">False</span>, enable_return_routed_experts=<span class="literal">False</span>, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend=<span class="string">&#x27;auto&#x27;</span>, disable_any_whitespace=<span class="literal">False</span>, disable_additional_properties=<span class="literal">False</span>, reasoning_parser=<span class="string">&#x27;&#x27;</span>, reasoning_parser_plugin=<span class="string">&#x27;&#x27;</span>, enable_in_reasoning=<span class="literal">False</span>), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=<span class="literal">None</span>, otlp_traces_endpoint=<span class="literal">None</span>, collect_detailed_traces=<span class="literal">None</span>, kv_cache_metrics=<span class="literal">False</span>, kv_cache_metrics_sample=<span class="number">0.01</span>, cudagraph_metrics=<span class="literal">False</span>, enable_layerwise_nvtx_tracing=<span class="literal">False</span>, enable_mfu_metrics=<span class="literal">False</span>, enable_mm_processor_stats=<span class="literal">False</span>, enable_logging_iteration_details=<span class="literal">False</span>, jit_monitor_mode=<span class="string">&#x27;warn&#x27;</span>, jit_monitor_verbose=<span class="literal">False</span>), seed=<span class="number">0</span>, served_model_name=Qwen/Qwen2<span class="number">.5</span>-<span class="number">0.5</span>B, enable_prefix_caching=<span class="literal">True</span>, enable_chunked_prefill=<span class="literal">True</span>, pooler_config=<span class="literal">None</span>, compilation_config=&#123;<span class="string">&#x27;mode&#x27;</span>: &lt;CompilationMode.VLLM_COMPILE: <span class="number">3</span>&gt;, <span class="string">&#x27;debug_dump_path&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;cache_dir&#x27;</span>: <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;compile_cache_save_format&#x27;</span>: <span class="string">&#x27;binary&#x27;</span>, <span class="string">&#x27;backend&#x27;</span>: <span class="string">&#x27;inductor&#x27;</span>, <span class="string">&#x27;custom_ops&#x27;</span>: [<span class="string">&#x27;none&#x27;</span>], <span class="string">&#x27;ir_enable_torch_wrap&#x27;</span>: <span class="literal">True</span>, <span class="string">&#x27;splitting_ops&#x27;</span>: [<span class="string">&#x27;vllm::unified_attention_with_output&#x27;</span>, <span class="string">&#x27;vllm::unified_mla_attention_with_output&#x27;</span>, <span class="string">&#x27;vllm::mamba_mixer2&#x27;</span>, <span class="string">&#x27;vllm::mamba_mixer&#x27;</span>, <span class="string">&#x27;vllm::short_conv&#x27;</span>, <span class="string">&#x27;vllm::linear_attention&#x27;</span>, <span class="string">&#x27;vllm::plamo2_mamba_mixer&#x27;</span>, <span class="string">&#x27;vllm::qwen_gdn_attention_core&#x27;</span>, <span class="string">&#x27;vllm::gdn_attention_core_xpu&#x27;</span>, <span class="string">&#x27;vllm::olmo_hybrid_gdn_full_forward&#x27;</span>, <span class="string">&#x27;vllm::kda_attention&#x27;</span>, <span class="string">&#x27;vllm::sparse_attn_indexer&#x27;</span>, <span class="string">&#x27;vllm::rocm_aiter_sparse_attn_indexer&#x27;</span>, <span class="string">&#x27;vllm::deepseek_v4_attention&#x27;</span>, <span class="string">&#x27;vllm::hpc_rope_norm_forward&#x27;</span>, <span class="string">&#x27;vllm::unified_kv_cache_update&#x27;</span>, <span class="string">&#x27;vllm::unified_mla_kv_cache_update&#x27;</span>], <span class="string">&#x27;compile_mm_encoder&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;cudagraph_mm_encoder&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;encoder_cudagraph_token_budgets&#x27;</span>: [], <span class="string">&#x27;encoder_cudagraph_max_vision_items_per_batch&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;encoder_cudagraph_max_frames_per_batch&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;compile_sizes&#x27;</span>: [], <span class="string">&#x27;compile_ranges_endpoints&#x27;</span>: [<span class="number">2048</span>], <span class="string">&#x27;inductor_compile_config&#x27;</span>: &#123;<span class="string">&#x27;enable_auto_functionalized_v2&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;size_asserts&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;alignment_asserts&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;scalar_asserts&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;combo_kernels&#x27;</span>: <span class="literal">True</span>, <span class="string">&#x27;benchmark_combo_kernel&#x27;</span>: <span class="literal">True</span>&#125;, <span class="string">&#x27;inductor_passes&#x27;</span>: &#123;&#125;, <span class="string">&#x27;cudagraph_mode&#x27;</span>: &lt;CUDAGraphMode.FULL_AND_PIECEWISE: (<span class="number">2</span>, <span class="number">1</span>)&gt;, <span class="string">&#x27;cudagraph_num_of_warmups&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;cudagraph_capture_sizes&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">24</span>, <span class="number">32</span>, <span class="number">40</span>, <span class="number">48</span>, <span class="number">56</span>, <span class="number">64</span>, <span class="number">72</span>, <span class="number">80</span>, <span class="number">88</span>, <span class="number">96</span>, <span class="number">104</span>, <span class="number">112</span>, <span class="number">120</span>, <span class="number">128</span>, <span class="number">136</span>, <span class="number">144</span>, <span class="number">152</span>, <span class="number">160</span>, <span class="number">168</span>, <span class="number">176</span>, <span class="number">184</span>, <span class="number">192</span>, <span class="number">200</span>, <span class="number">208</span>, <span class="number">216</span>, <span class="number">224</span>, <span class="number">232</span>, <span class="number">240</span>, <span class="number">248</span>, <span class="number">256</span>, <span class="number">272</span>, <span class="number">288</span>, <span class="number">304</span>, <span class="number">320</span>, <span class="number">336</span>, <span class="number">352</span>, <span class="number">368</span>, <span class="number">384</span>, <span class="number">400</span>, <span class="number">416</span>, <span class="number">432</span>, <span class="number">448</span>, <span class="number">464</span>, <span class="number">480</span>, <span class="number">496</span>, <span class="number">512</span>], <span class="string">&#x27;cudagraph_copy_inputs&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;cudagraph_specialize_lora&#x27;</span>: <span class="literal">True</span>, <span class="string">&#x27;use_inductor_graph_partition&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;pass_config&#x27;</span>: &#123;<span class="string">&#x27;fuse_norm_quant&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_act_quant&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_attn_quant&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;enable_sp&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_gemm_comms&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_allreduce_rms&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_rope_kvcache_cat_mla&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;fuse_act_padding&#x27;</span>: <span class="literal">False</span>&#125;, <span class="string">&#x27;max_cudagraph_capture_size&#x27;</span>: <span class="number">512</span>, <span class="string">&#x27;dynamic_shapes_config&#x27;</span>: &#123;<span class="string">&#x27;type&#x27;</span>: &lt;DynamicShapesType.BACKED: <span class="string">&#x27;backed&#x27;</span>&gt;, <span class="string">&#x27;evaluate_guards&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;assume_32_bit_indexing&#x27;</span>: <span class="literal">False</span>&#125;, <span class="string">&#x27;local_cache_dir&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;fast_moe_cold_start&#x27;</span>: <span class="literal">False</span>, <span class="string">&#x27;static_all_moe_layers&#x27;</span>: []&#125;, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=[<span class="string">&#x27;native&#x27;</span>], fused_add_rms_norm=[<span class="string">&#x27;native&#x27;</span>]), enable_flashinfer_autotune=<span class="literal">True</span>, enable_cutedsl_warmup=<span class="literal">True</span>, moe_backend=<span class="string">&#x27;auto&#x27;</span>, linear_backend=<span class="string">&#x27;auto&#x27;</span>)(EngineCore pid=<span class="number">559</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [parallel_state.py:<span class="number">1607</span>] world_size=<span class="number">1</span> rank=<span class="number">0</span> local_rank=<span class="number">0</span> distributed_init_method=tcp://<span class="number">172.25</span><span class="number">.103</span><span class="number">.83</span>:<span class="number">59337</span> backend=nccl(EngineCore pid=<span class="number">559</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [parallel_state.py:<span class="number">1942</span>] rank <span class="number">0</span> <span class="keyword">in</span> world size <span class="number">1</span> <span class="keyword">is</span> assigned <span class="keyword">as</span> DP rank <span class="number">0</span>, PP rank <span class="number">0</span>, PCP rank <span class="number">0</span>, TP rank <span class="number">0</span>, EP rank N/A, EPLB rank N/A(EngineCore pid=<span class="number">559</span>) INFO 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [gpu_worker.py:<span class="number">360</span>] Using V2 Model Runner(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>] EngineCore failed to start.(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>] Traceback (most recent call last):(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;</span>, line <span class="number">1200</span>, <span class="keyword">in</span> run_engine_core(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;</span>, line <span class="number">178</span>, <span class="keyword">in</span> sync_wrapper(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;</span>, line <span class="number">966</span>, <span class="keyword">in</span> init(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     <span class="built_in">super</span>().init((EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;</span>, line <span class="number">123</span>, <span class="keyword">in</span> init(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     self.model_executor = executor_class(vllm_config)(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;</span>, line <span class="number">178</span>, <span class="keyword">in</span> sync_wrapper(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/executor/abstract.py&quot;</span>, line <span class="number">109</span>, <span class="keyword">in</span> init(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     self._init_executor()(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py&quot;</span>, line <span class="number">63</span>, <span class="keyword">in</span> _init_executor(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     self.driver_worker.init_device()(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]   File <span class="string">&quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py&quot;</span>, line <span class="number">331</span>, <span class="keyword">in</span> init_device(EngineCore pid=<span class="number">559</span>) ERROR 07-<span class="number">13</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">19</span> [core.py:<span class="number">1231</span>]     self.worker.init_device()  <span class="comment"># type: ignore(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     ^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, <span class="keyword">in</span> sync_wrapper(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py&quot;, line 390, <span class="keyword">in</span> init_device(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     self.model_runner: GPUModelRunner = GPUModelRunnerV2(  # type: ignore(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/model_runner.py&quot;, line 213, <span class="keyword">in</span> init(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     self.req_states = RequestState((EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]                       ^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/states.py&quot;, line 33, <span class="keyword">in</span> init(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     self.all_token_ids = StagedWriteTensor((EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]                          ^^^^^^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/buffer_utils.py&quot;, line 141, <span class="keyword">in</span> init(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     self._uva_buf = UvaBuffer(size, dtype)(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]                     ^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/buffer_utils.py&quot;, line 47, <span class="keyword">in</span> init(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231]     <span class="keyword">raise</span> RuntimeError(&quot;UVA <span class="keyword">is</span> <span class="keyword">not</span> available&quot;)(EngineCore pid=559) ERROR 07-13 13:32:19 [core.py:1231] RuntimeError: UVA <span class="keyword">is</span> <span class="keyword">not</span> available(EngineCore pid=559) Process EngineCore:(EngineCore pid=559) Traceback (most recent call last):(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/multiprocessing/process.py&quot;, line 314, <span class="keyword">in</span> _bootstrap(EngineCore pid=559)     self.run()(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/multiprocessing/process.py&quot;, line 108, <span class="keyword">in</span> run(EngineCore pid=559)     self._target(*self._args, **self._kwargs)(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;, line 1235, <span class="keyword">in</span> run_engine_core(EngineCore pid=559)     <span class="keyword">raise</span> e(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;, line 1200, <span class="keyword">in</span> run_engine_core(EngineCore pid=559)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)(EngineCore pid=559)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, <span class="keyword">in</span> sync_wrapper(EngineCore pid=559)     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=559)            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;, line 966, <span class="keyword">in</span> init(EngineCore pid=559)     <span class="built_in">super</span>().init((EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core.py&quot;, line 123, <span class="keyword">in</span> init(EngineCore pid=559)     self.model_executor = executor_class(vllm_config)(EngineCore pid=559)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, <span class="keyword">in</span> sync_wrapper(EngineCore pid=559)     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=559)            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/executor/abstract.py&quot;, line 109, <span class="keyword">in</span> init(EngineCore pid=559)     self._init_executor()(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/executor/uniproc_executor.py&quot;, line 63, <span class="keyword">in</span> _init_executor(EngineCore pid=559)     self.driver_worker.init_device()(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/worker_base.py&quot;, line 331, <span class="keyword">in</span> init_device(EngineCore pid=559)     self.worker.init_device()  # type: ignore(EngineCore pid=559)     ^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, <span class="keyword">in</span> sync_wrapper(EngineCore pid=559)     <span class="keyword">return</span> func(*args, **kwargs)(EngineCore pid=559)            ^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu_worker.py&quot;, line 390, <span class="keyword">in</span> init_device(EngineCore pid=559)     self.model_runner: GPUModelRunner = GPUModelRunnerV2(  # type: ignore(EngineCore pid=559)                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/model_runner.py&quot;, line 213, <span class="keyword">in</span> init(EngineCore pid=559)     self.req_states = RequestState((EngineCore pid=559)                       ^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/states.py&quot;, line 33, <span class="keyword">in</span> init(EngineCore pid=559)     self.all_token_ids = StagedWriteTensor((EngineCore pid=559)                          ^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/buffer_utils.py&quot;, line 141, <span class="keyword">in</span> init(EngineCore pid=559)     self._uva_buf = UvaBuffer(size, dtype)(EngineCore pid=559)                     ^^^^^^^^^^^^^^^^^^^^^^(EngineCore pid=559)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/worker/gpu/buffer_utils.py&quot;, line 47, <span class="keyword">in</span> init(EngineCore pid=559)     <span class="keyword">raise</span> RuntimeError(&quot;UVA <span class="keyword">is</span> <span class="keyword">not</span> available&quot;)(EngineCore pid=559) RuntimeError: UVA <span class="keyword">is</span> <span class="keyword">not</span> available[rank0]:[W713 13:32:20.457347550 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was <span class="keyword">not</span> called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())(APIServer pid=502) Traceback (most recent call last):(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/bin/vllm&quot;, line 6, in &lt;module&gt;(APIServer pid=502)     sys.exit(main())(APIServer pid=502)              ^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py&quot;, line 95, in main(APIServer pid=502)     args.dispatch_function(args)(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/cli/serve.py&quot;, line 148, in cmd(APIServer pid=502)     uvloop.run(run_server(args))(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/uvloop/init.py&quot;, line 92, in run(APIServer pid=502)     return runner.run(wrapper())(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/asyncio/runners.py&quot;, line 118, in run(APIServer pid=502)     return self._loop.run_until_complete(task)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;uvloop/loop.pyx&quot;, line 1518, in uvloop.loop.Loop.run_until_complete(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/uvloop/init.py&quot;, line 48, in wrapper(APIServer pid=502)     return await main(APIServer pid=502)            ^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py&quot;, line 698, in run_server(APIServer pid=502)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py&quot;, line 712, in run_server_worker(APIServer pid=502)     async with build_async_engine_client((APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/contextlib.py&quot;, line 210, in aenter(APIServer pid=502)     return await anext(self.gen)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py&quot;, line 100, in build_async_engine_client(APIServer pid=502)     async with build_async_engine_client_from_engine_args((APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/contextlib.py&quot;, line 210, in aenter(APIServer pid=502)     return await anext(self.gen)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py&quot;, line 136, in build_async_engine_client_from_engine_args(APIServer pid=502)     async_llm = AsyncLLM.from_vllm_config((APIServer pid=502)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/async_llm.py&quot;, line 217, in from_vllm_config(APIServer pid=502)     return cls((APIServer pid=502)            ^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/async_llm.py&quot;, line 146, in init(APIServer pid=502)     self.engine_core = EngineCoreClient.make_async_mp_client((APIServer pid=502)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, in sync_wrapper(APIServer pid=502)     return func(*args, **kwargs)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core_client.py&quot;, line 132, in make_async_mp_client(APIServer pid=502)     return AsyncMPClient(*client_args)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/tracing/otel.py&quot;, line 178, in sync_wrapper(APIServer pid=502)     return func(*args, **kwargs)(APIServer pid=502)            ^^^^^^^^^^^^^^^^^^^^^(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core_client.py&quot;, line 963, in init(APIServer pid=502)     super().init((APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/core_client.py&quot;, line 573, in init(APIServer pid=502)     with launch_core_engines((APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/contextlib.py&quot;, line 144, in exit(APIServer pid=502)     next(self.gen)(APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/utils.py&quot;, line 1213, in launch_core_engines(APIServer pid=502)     wait_for_engine_startup((APIServer pid=502)   File &quot;/mnt/d/ZRepo/conda/miniforge3/envs/FluGPU1/lib/python3.11/site-packages/vllm/v1/engine/utils.py&quot;, line 1272, in wait_for_engine_startup(APIServer pid=502)     raise RuntimeError((APIServer pid=502) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>装一下老版的vllm就没事了,gpt说新版本的vllm大量引入uva所以才有问题.</p>
+<h1 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h1><p>装好vllm之后直接上手,也算是用到自己部署的模型了.</p>
+<p>下面的模型直接接cherry shudio选本地模型提供商就行,api空着.</p>
+<h2 id="Qwen2-5-0-5B"><a href="#Qwen2-5-0-5B" class="headerlink" title="Qwen2.5-0.5B"></a>Qwen2.5-0.5B</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vllm serve Qwen/Qwen2.5-0.5B \</span><br><span class="line">    --gpu-memory-utilization 0.7</span><br></pre></td></tr></table></figure>
+<p>vllm默认好像显卡会占0.9,然而我的电脑还得跑桌面所以会崩,此时要调一下占比,0.7就够了.</p>
+<p>qwen模型很蠢,写一个最简单的编程都写不对.<br>不过也不怪qwen,模型参数量确实太小了,当成玩具还差不多,本地部署的推理速度还挺快,可能是模型真的太小了.</p>
+<p>做了一个简单的编程测试,qwen连括号匹配都做不好.</p>
+<h2 id="DeepSeek-R1-Distill-Qwen-1-5B"><a href="#DeepSeek-R1-Distill-Qwen-1-5B" class="headerlink" title="DeepSeek-R1-Distill-Qwen-1.5B"></a>DeepSeek-R1-Distill-Qwen-1.5B</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B \</span><br><span class="line">    --max-model-len 8192 \</span><br><span class="line">    --gpu-memory-utilization 0.7</span><br></pre></td></tr></table></figure>
+<p>deepseek默认的上下文非常长,默认占用的空间会很大占爆内存,需要限制一下.</p>
+<h3 id="abc463测试"><a href="#abc463测试" class="headerlink" title="abc463测试"></a>abc463测试</h3><h2 id="Qwen-Qwen2-5-Coder-1-5B-Instruct"><a href="#Qwen-Qwen2-5-Coder-1-5B-Instruct" class="headerlink" title="Qwen/Qwen2.5-Coder-1.5B-Instruct"></a>Qwen/Qwen2.5-Coder-1.5B-Instruct</h2><p>做了做abc的AB题还行,C就不行了.1.5B还是有点吃力.</p>
+<h2 id="Qwen3"><a href="#Qwen3" class="headerlink" title="Qwen3"></a>Qwen3</h2><p>部署失败,因为Fluu的vllm版本太低,而版本高一些用uva之后就不能跑在wsl了.</p>
+<h2 id="Qwen2-5-Coder-3B-Instruct"><a href="#Qwen2-5-Coder-3B-Instruct" class="headerlink" title="Qwen2.5-Coder-3B-Instruct"></a>Qwen2.5-Coder-3B-Instruct</h2><p>部署失败,因为显存不够,开的最大0.85占比的GPU和2048的上下文.<br>问gpt说vllm追求高吞吐量就会疯狂占显存,所以就不够用,不要折腾vllm了.</p>
+<h3 id="ASR"><a href="#ASR" class="headerlink" title="ASR"></a>ASR</h3><p>语音识别模型</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vllm"><span class="toc-number">1.</span> <span class="toc-text">vllm</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number"></span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%93%E9%AA%8C"><span class="toc-number"></span> <span class="toc-text">体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen2-5-0-5B"><span class="toc-number">1.</span> <span class="toc-text">Qwen2.5-0.5B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DeepSeek-R1-Distill-Qwen-1-5B"><span class="toc-number">2.</span> <span class="toc-text">DeepSeek-R1-Distill-Qwen-1.5B</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#abc463%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">abc463测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen-Qwen2-5-Coder-1-5B-Instruct"><span class="toc-number">3.</span> <span class="toc-text">Qwen&#x2F;Qwen2.5-Coder-1.5B-Instruct</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen3"><span class="toc-number">4.</span> <span class="toc-text">Qwen3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qwen2-5-Coder-3B-Instruct"><span class="toc-number">5.</span> <span class="toc-text">Qwen2.5-Coder-3B-Instruct</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ASR"><span class="toc-number">5.1.</span> <span class="toc-text">ASR</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&text=模型部署"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&is_video=false&description=模型部署"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=模型部署&body=Check out this article: https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&title=模型部署"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&name=模型部署&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/&t=模型部署"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

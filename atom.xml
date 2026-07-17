@@ -39,6 +39,28 @@
   </entry>
   
   <entry>
+    <title>模型部署</title>
+    <link href="https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
+    <id>https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/</id>
+    <published>2026-07-15T00:18:20.000Z</published>
+    <updated>2026-07-15T01:13:11.353Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;vllm&quot;&gt;&lt;a href=&quot;#vllm&quot; class=&quot;headerlink&quot; title=&quot;vllm&quot;&gt;&lt;/a&gt;vllm&lt;/h2&gt;&lt;p&gt;vllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆炸.如何做优化成了重点,所以有了很多推理引</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>编译原理 学习笔记</title>
     <link href="https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
@@ -228,34 +250,6 @@
     
     
     <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件开发综合实践 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/27/00022_%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00022_%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/</id>
-    <published>2026-05-27T01:43:56.000Z</published>
-    <updated>2026-05-27T02:20:43.208Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;软件开发综合实践是一个拆分的课程(拆成签到和大作业).&lt;/p&gt;
-&lt;p&gt;课程有签到和一个大作业,其余没了.&lt;br&gt;签到的形式是拍照签到,有点恶心.&lt;br&gt;这个课程需要结组,Fluu是二人组,这个人帮Fluu签到,Fluu承担所有的开发工作.  &lt;/p&gt;
-&lt;p&gt;&lt;img src</summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="MySql" scheme="https://narafluorine.github.io/tags/MySql/"/>
-    
-    <category term="Java" scheme="https://narafluorine.github.io/tags/Java/"/>
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
     
   </entry>
   
