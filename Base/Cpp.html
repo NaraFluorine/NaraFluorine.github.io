@@ -9,12 +9,12 @@
     <meta name="description" content="别名123#define a b c dtypedef a b c d;using a&#x3D;b c d; 区别? cpp怎么生成dll?cpp怎么调用dll? 为什么free知道malloc申请多大内存因为malloc的内存前面有一个内存信息头,free能读到这个.这个malloc多申请的一般是16个byte. RAII资源的生命周期与对象的生命周期绑定.    常见的例子有智能指针,vector等容">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
-<meta property="og:url" content="https://narafluorine.github.io/base/CPP.html">
+<meta property="og:url" content="https://narafluorine.github.io/Base/Cpp.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="别名123#define a b c dtypedef a b c d;using a&#x3D;b c d; 区别? cpp怎么生成dll?cpp怎么调用dll? 为什么free知道malloc申请多大内存因为malloc的内存前面有一个内存信息头,free能读到这个.这个malloc多申请的一般是16个byte. RAII资源的生命周期与对象的生命周期绑定.    常见的例子有智能指针,vector等容">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-17T01:39:46.525Z">
-<meta property="article:modified_time" content="2026-07-17T01:39:46.525Z">
+<meta property="article:published_time" content="2026-07-22T07:00:07.499Z">
+<meta property="article:modified_time" content="2026-07-22T07:00:07.499Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -169,6 +169,12 @@
 <li>两个都是原生指针,因为memcpy只会逐字节拷贝</li>
 <li>必须有平凡的复制操作符.如果有自定义的赋值拷贝可能造成浅拷贝.</li>
 </ol>
+<h1 id="C-26-类型反射"><a href="#C-26-类型反射" class="headerlink" title="C++26 类型反射"></a>C++26 类型反射</h1><p>首先更新cpp:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install g++-16 -y</span><br></pre></td></tr></table></figure></p>
+<p>编译的时候要带参数,因为这是实验性的版本.<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++-16 -std=c++26 -freflection cf6.cpp -o cf6</span><br></pre></td></tr></table></figure></p>
+<h2 id="类型运算符和-拼接运算符"><a href="#类型运算符和-拼接运算符" class="headerlink" title="^^ 类型运算符和 [: :] 拼接运算符"></a><code>^^</code> 类型运算符和 <code>[: :]</code> 拼接运算符</h2><p>两个运算符在 <code>#include&lt;meta&gt;</code> 中有定义.</p>
+<p><code>^^</code> 的作用是在编译期获取变量的类型(反射),例如 <code>^^int</code> 的意思是获取 <code>int</code> 的类型.<br>首先, <code>^^</code> 运算符实际得到的是一个 <code>std::meta::info</code> 的对象,很长所以一般用 <code>auto</code> 代替.<br>其次,获取对象类型的操作是在编译期完成的,所以必须在前面加上 <code>constexpr</code> 这个修饰.</p>
+<p>举例:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;meta&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constexpr</span> std::meta::info type_ref = ^^Person;</span><br><span class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> a=^^<span class="type">int</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>有了类型之后就该考虑如何利用,cpp提供了 <code>[::]</code> 拼接运算符,用于还原这个类型.</p>
 <h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h1 id="模板编程"><a href="#模板编程" class="headerlink" title="模板编程"></a>模板编程</h1><h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><h1 id="CPP基础"><a href="#CPP基础" class="headerlink" title="CPP基础"></a>CPP基础</h1><h2 id="聚合类型"><a href="#聚合类型" class="headerlink" title="聚合类型"></a>聚合类型</h2><p>从cpp11开始可以用聚合类型直接构造函数成员,要求:</p>
 <ul>
 <li>没有用户声明的构造函数</li>
@@ -337,6 +343,16 @@
 <!-- search -->
 
 <!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
 
 <!-- Cloudflare Analytics -->
 

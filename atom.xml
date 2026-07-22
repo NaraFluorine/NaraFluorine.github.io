@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-05-15T18:42:03.623Z</updated>
+  <updated>2026-07-22T09:21:56.248Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AI论文略读</title>
+    <link href="https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"/>
+    <id>https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/</id>
+    <published>2026-07-22T03:04:30.000Z</published>
+    <updated>2026-07-22T09:21:56.248Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;注意-下文含有较多AI生成内容&quot;&gt;&lt;a href=&quot;#注意-下文含有较多AI生成内容&quot; class=&quot;headerlink&quot; title=&quot;注意:下文含有较多AI生成内容.&quot;&gt;&lt;/a&gt;注意:下文含有较多AI生成内容.&lt;/h2&gt;&lt;h1 id=&quot;2604-02721-</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>爆破博客</title>
-    <link href="https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/"/>
-    <id>https://narafluorine.github.io/2030/01/01/99998_Crack_Myself/</id>
-    <published>2029-12-31T17:01:01.000Z</published>
-    <updated>2026-05-15T18:42:03.623Z</updated>
+    <link href="https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/"/>
+    <id>https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/</id>
+    <published>2026-07-20T09:07:20.000Z</published>
+    <updated>2026-07-20T09:08:45.989Z</updated>
     
     
       
@@ -35,6 +59,29 @@
     
     
     <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MISC-ASCII Art</title>
+    <link href="https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/"/>
+    <id>https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/</id>
+    <published>2026-07-19T16:16:20.000Z</published>
+    <updated>2026-07-19T16:30:16.602Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;请填补下面的数列,你可能要参考下面的提示:&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/t</summary>
+      
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
     
   </entry>
   
@@ -200,56 +247,6 @@
     
     
     <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据可视化 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00023_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
-    <published>2026-05-27T13:21:59.000Z</published>
-    <updated>2026-05-29T01:57:29.268Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;首先声明,Fluu一节数据可视化的课都没去,下面仅供参考.&lt;/p&gt;
-&lt;p&gt;Fluu的数据可视化就是每个作业都做了,然后交个大报告,就结束了,也是连老师长啥样都不知道.&lt;/p&gt;
-&lt;p&gt;有点魔幻的,老师用AI生成数据,学生用AI解决问题.&lt;/p&gt;
-&lt;h2 id=&quot;开源&quot;&gt;&lt;a </summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-    <category term="#CV" scheme="https://narafluorine.github.io/tags/CV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大学生职业发展指导(下) 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/27/00029_%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%8C%87%E5%AF%BC_2/"/>
-    <id>https://narafluorine.github.io/2026/05/27/00029_%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%8C%87%E5%AF%BC_2/</id>
-    <published>2026-05-27T05:11:20.000Z</published>
-    <updated>2026-06-06T05:34:25.755Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;缘起&quot;&gt;&lt;a href=&quot;#缘起&quot; class=&quot;headerlink&quot; title=&quot;缘起&quot;&gt;&lt;/a&gt;缘起&lt;/h2&gt;&lt;p&gt;最近打算出一个企划,联合几个同学把吉大各种水课的题库拼凑一下,给后人留点什么东西.&lt;/p&gt;
-&lt;p&gt;吉大水课一般是用学习通,然后快到期末有一个</summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="Others" scheme="https://narafluorine.github.io/tags/Others/"/>
     
   </entry>
   

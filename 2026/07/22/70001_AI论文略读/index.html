@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="注意:下文含有较多AI生成内容.2604.02721 GrandCode击败了所有人类选手荣获LGM这篇论文的意思是,他们通过SFT和RL(agent强化的GRPO)做了一个能打败所有人类的编程高手.这个高手是基于Qwen3.5开发的. 这个AI的工作流很像正常人类做题的手段:首先整一个小模型把问题输进去推测可能的做法(假设生成),然后用暴力快速验证,如果真了就继续,如果假了就重新推,直到每步都正">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI论文略读">
+<meta property="og:url" content="https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="注意:下文含有较多AI生成内容.2604.02721 GrandCode击败了所有人类选手荣获LGM这篇论文的意思是,他们通过SFT和RL(agent强化的GRPO)做了一个能打败所有人类的编程高手.这个高手是基于Qwen3.5开发的. 这个AI的工作流很像正常人类做题的手段:首先整一个小模型把问题输进去推测可能的做法(假设生成),然后用暴力快速验证,如果真了就继续,如果假了就重新推,直到每步都正">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-22T03:04:30.000Z">
+<meta property="article:modified_time" content="2026-07-22T09:21:56.248Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="ComputerScience">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AI论文略读</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/07/20/40012_Crack_Myself/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&text=AI论文略读"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&is_video=false&description=AI论文略读"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AI论文略读&body=Check out this article: https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&name=AI论文略读&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&t=AI论文略读"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F-%E4%B8%8B%E6%96%87%E5%90%AB%E6%9C%89%E8%BE%83%E5%A4%9AAI%E7%94%9F%E6%88%90%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">注意:下文含有较多AI生成内容.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2604-02721-GrandCode%E5%87%BB%E8%B4%A5%E4%BA%86%E6%89%80%E6%9C%89%E4%BA%BA%E7%B1%BB%E9%80%89%E6%89%8B%E8%8D%A3%E8%8E%B7LGM"><span class="toc-number"></span> <span class="toc-text">2604.02721 GrandCode击败了所有人类选手荣获LGM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%AD%E7%BB%83"><span class="toc-number">1.</span> <span class="toc-text">后训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SFT-%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83"><span class="toc-number">2.</span> <span class="toc-text">SFT 监督微调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#test-time-RL"><span class="toc-number">3.</span> <span class="toc-text">test-time RL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">4.</span> <span class="toc-text">训练</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2604-24827-%E4%B8%8D%E5%8F%AF%E5%8E%8B%E7%BC%A9%E7%9F%A5%E8%AF%86-IKP-%E4%BC%B0%E6%B5%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0%E9%87%8F"><span class="toc-number"></span> <span class="toc-text">2604.24827 不可压缩知识(IKP):估测大模型参数量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2411-04368-SimpleQA%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E7%9F%AD%E4%BA%8B%E5%AE%9E%E8%83%BD%E5%8A%9B"><span class="toc-number"></span> <span class="toc-text">2411.04368 SimpleQA测试模型基础短事实能力</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2402-14762-MT-bench-%E8%AF%84%E4%BC%B0LLM%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E7%9A%84%E7%BB%BC%E5%90%88%E8%A1%A8%E7%8E%B0"><span class="toc-number"></span> <span class="toc-text">2402.14762 MT bench:评估LLM多轮对话的综合表现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2501-16084-TTRL-%E6%97%A0%E7%9B%91%E7%9D%A3RL-%E6%95%88%E6%9E%9C%E6%8B%94%E7%BE%A4"><span class="toc-number"></span> <span class="toc-text">2501.16084 TTRL:无监督RL,效果拔群</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2503-01840-EAGLE3-Spec-decoding%E5%8F%88%E4%B8%80%E5%8A%9B%E4%BD%9C"><span class="toc-number"></span> <span class="toc-text">2503.01840 EAGLE3: Spec decoding又一力作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2507-20534-Kimi-K2%E6%A8%AA%E7%A9%BA%E5%87%BA%E4%B8%96-%E7%9C%A9%E6%99%95%E7%98%AB%E5%9D%90-%E5%8E%9F%E5%AD%90%E5%BC%B9%E7%88%86%E7%82%B8"><span class="toc-number"></span> <span class="toc-text">2507.20534 Kimi-K2横空出世:眩晕瘫坐,原子弹爆炸</span></a>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AI论文略读
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-07-22T03:04:30.000Z" class="dt-published" itemprop="datePublished">2026-07-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/TECH/">TECH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>, <a class="p-category" href="/tags/ComputerScience/" rel="tag">ComputerScience</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="注意-下文含有较多AI生成内容"><a href="#注意-下文含有较多AI生成内容" class="headerlink" title="注意:下文含有较多AI生成内容."></a>注意:下文含有较多AI生成内容.</h2><h1 id="2604-02721-GrandCode击败了所有人类选手荣获LGM"><a href="#2604-02721-GrandCode击败了所有人类选手荣获LGM" class="headerlink" title="2604.02721 GrandCode击败了所有人类选手荣获LGM"></a><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.02721">2604.02721</a> GrandCode击败了所有人类选手荣获LGM</h1><p>这篇论文的意思是,他们通过SFT和RL(agent强化的GRPO)做了一个能打败所有人类的编程高手.<br>这个高手是基于Qwen3.5开发的.</p>
+<p>这个AI的工作流很像正常人类做题的手段:<br>首先整一个小模型把问题输进去推测可能的做法(假设生成),然后用暴力快速验证,如果真了就继续,如果假了就重新推,直到每步都正确,然后把思维链和做法注入进来给负责写代码的大模型,然后用暴力验证假设正确,然后再优化算法.</p>
+<p>这个系统的样例使用了其他论文的样例生成系统(2506.05817)<br>这个团队还做了一个小型分类器,大致把问题分成5类.</p>
+<p>然后AI接入了OEIS,能在线搜索数列.<br>然后介绍了一下问题,对于图像敏感型题目,尝试把图像转成文字描述不如直接让AI阅读图片(Qwen3.5是多模态的)</p>
+<h2 id="后训练"><a href="#后训练" class="headerlink" title="后训练"></a>后训练</h2><p>用其他的比如claude或者gemini生成语料库作为训练材料.</p>
+<h2 id="SFT-监督微调"><a href="#SFT-监督微调" class="headerlink" title="SFT 监督微调"></a>SFT 监督微调</h2><p><code>(problem,thinking,solution)</code> 三元组</p>
+<h2 id="test-time-RL"><a href="#test-time-RL" class="headerlink" title="test-time RL"></a>test-time RL</h2><p>这篇文章也提到了test-time,这是什么东西???</p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>训练的源代码并没有公开,只有这个系统的提交记录.</p>
+<h1 id="2604-24827-不可压缩知识-IKP-估测大模型参数量"><a href="#2604-24827-不可压缩知识-IKP-估测大模型参数量" class="headerlink" title="2604.24827 不可压缩知识(IKP):估测大模型参数量"></a><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2604.24827">2604.24827</a> 不可压缩知识(IKP):估测大模型参数量</h1><p>这篇论文的意思是,事实性知识是不能压缩的(比如中国的首都是北京),而且也不可能推理出来.<br>所以对于模型大小的评估可以通过这些事实性知识做成探针去大致推测,不管开源还是闭源.  </p>
+<p>作者首先对各种新模型提问:你对hackergame了解多少?(hackergame已经完结力)</p>
+<p>然后引用:transformer一般在前馈网络存储信息,且一个参数大致能存储2-3.6bit的信息.<br>然后做一个实验:用研究员和引用数,测试模型能不能认出来研究员.<br>结果是引用多的不一定能认出来,但是引用少的很大概率就认不出来…<br>而且名字很普遍的不容易认出来(很像搜索引擎,噪声大一些)</p>
+<p>然后有下面的观点:</p>
+<ul>
+<li><strong>Densing Law 认为</strong>：模型能力密度每3.5个月翻倍（例如2026年的7B模型可达2023年70B模型的MMLU水平），因此单纯扩大参数规模已不重要。</li>
+<li><strong>论文的核心反驳</strong>（第2-3页，第17页）：<strong>Densing Law 只适用于“可压缩的程序性能力”（推理、指令遵循等），不适用于“不可压缩的事实性知识”</strong>。</li>
+<li>评估MoE模型的知识容量时，应该按总参数算，而不是按激活参数算。这也意味着，如果按此标准，很多MoE架构的前沿模型的“有效大小”会比其激活参数所暗示的要大得多。</li>
+<li>论文提出了一种仅通过API回答即可判断模型之间关系的方法（第6.9节，第20-22页），称为“知识指纹”。核心指标是 “幻觉相似度”（Hallucination Similarity, HSS）：当两个模型都答错同一个冷门问题时，它们给出相同错误答案的比例。</li>
+<li>安全对齐:越追求安全的模型IKP得分越低,不代表真实参数量(点名claude sonnet)</li>
+</ul>
+<p>相关链接:<a target="_blank" rel="noopener" href="https://github.com/19PINE-AI/ikp">IKP仓库</a></p>
+<h1 id="2411-04368-SimpleQA测试模型基础短事实能力"><a href="#2411-04368-SimpleQA测试模型基础短事实能力" class="headerlink" title="2411.04368 SimpleQA测试模型基础短事实能力"></a><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2411.04368">2411.04368</a> SimpleQA测试模型基础短事实能力</h1><p>这是OpenAI发的比较古早的文章,大意是通过基础短事实去测试模型大小.</p>
+<ol>
+<li><strong>高正确性</strong>：每道题由两名独立的 AI 训练员独立作答，答案一致才保留；要求提供网页来源支持</li>
+<li><strong>研究者友好</strong>：问题答案都很短，运行和评分速度快（可用 GPT API 自动评分），方差低</li>
+<li><strong>对前沿模型有挑战性</strong>：题目是<strong>对抗性收集</strong>的——针对 GPT-4 的回答来设计难题。GPT-4o 和 Claude 的得分都低于 50%</li>
+<li><strong>多样性</strong>：涵盖历史、科技、艺术、地理、影视等多个领域</li>
+</ol>
+<ul>
+<li>必须有<strong>唯一、无可争议的答案</strong>（如问”哪个城市”而非”在哪里”）</li>
+<li>答案<strong>不会随时间变化</strong>（如影视问题需指定季数）</li>
+<li>必须有<strong>网页证据支持</strong></li>
+<li>至少有一个 GPT-4 模型答错</li>
+<li>以 2023 年 12 月 31 日前的知识为限</li>
+</ul>
+<p>每道题的模型回答分为三类：</p>
+<ul>
+<li><strong>Correct（正确）</strong>：包含参考答案的关键信息，无矛盾</li>
+<li><strong>Incorrect（错误）</strong>：包含与参考答案矛盾的事实陈述</li>
+<li><strong>Not Attempted（未尝试）</strong>：未包含关键信息，但也没有矛盾</li>
+</ul>
+<p>然后大概测了一下召回和精确率,用F-score设计了一个惩罚(如果蒙对的概率大的情况下,模型倾向于蒙会更赚).<br>然后让模型自己给自己打一个置信分,结果普遍过于自信.<br>和IKP的区别在于,当时的 <code>A\</code> 还没那么畜生,安全策略不是首要的东西,所以claude只是未尝试的概率高一些.</p>
+<p>相关链接:<br><a target="_blank" rel="noopener" href="https://github.com/openai/simple-evals">SimpleQA仓库</a>,因为年代过于古早,新AI早就把测试集加进训练中,所以25年7月就被弃用了.</p>
+<h1 id="2402-14762-MT-bench-评估LLM多轮对话的综合表现"><a href="#2402-14762-MT-bench-评估LLM多轮对话的综合表现" class="headerlink" title="2402.14762 MT bench:评估LLM多轮对话的综合表现"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.14762">2402.14762</a> MT bench:评估LLM多轮对话的综合表现</h1><p>这个bench主要测的是LLM多轮对话的能力,主要有以下特征:</p>
+<ul>
+<li>Perceptivity（感知力）    准确理解上下文    上下文记忆、指代消解、分离输入、话题转移、内容混淆</li>
+<li>Adaptability（适应力）    根据用户反馈调整    内容重述、格式重述、数学推理、一般推理、自我纠正、自我坚持</li>
+<li>Interactivity（交互力）    主动引导对话    指令澄清、主动交互</li>
+</ul>
+<p>然后得出了几个结论:</p>
+<ul>
+<li>适应力和交互力是现有LLM的短板 —— 模型在”重述”和”抗干扰”上还行，但推理和提问能力明显不足  </li>
+<li>对话轮次增加后，性能趋势因任务而异：重述类任务：越往后越差（遗忘/理解偏差）,推理类任务：越往后越好（但这是因为用了golden context，模型在”抄”历史对话的风格，不是真变强了）</li>
+<li>RLHF等对齐技术和chat专用设计，对多轮能力提升不明显</li>
+</ul>
+<p>当时流行的有alpacaeval测试对话表现的,但只是一轮对话表现.<br>相关链接:<br><a target="_blank" rel="noopener" href="https://textvqa.org/dataset/">TextVQA</a> 一个测试数据集.  </p>
+<h1 id="2501-16084-TTRL-无监督RL-效果拔群"><a href="#2501-16084-TTRL-无监督RL-效果拔群" class="headerlink" title="2501.16084 TTRL:无监督RL,效果拔群"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2504.16084">2501.16084</a> TTRL:无监督RL,效果拔群</h1><p>大意是说通过让同一个模型多次投票,然后取众数作为truth(估计标签)进行训练,最后用GRPO/PPO去更新模型参数.</p>
+<ul>
+<li>TTRL 仅使用<strong>无标注的测试数据</strong>就能实现自我进化，性能提升巨大。</li>
+<li>尽管 TTRL 只使用 Maj@N（多数投票准确率）作为训练信号，但它能<strong>超越自身的训练上限</strong>，甚至接近使用真实标签直接训练的模型性能。</li>
+<li>模型越大，TTRL 的效果越好（从1.5B到7B参数，提升更明显），展现出良好的扩展性。</li>
+<li>TTRL 具有良好的<strong>泛化能力</strong>：在某一任务上训练后，在其他任务上也能提升。</li>
+<li><p>与不同 RL 算法（GRPO、PPO）兼容。</p>
+</li>
+<li><p><strong>模型容量不足时会失效</strong>：如 LLaMA-3.1-8B-Instruct 和 Qwen2.5-Math-1.5B 在 AIME 2024 上无法获得有效提升，可能因为模型本身能力不足以生成可靠的多数投票结果。</p>
+</li>
+<li>对于过于困难或分布偏移过大的任务，多数投票的估计可能不够准确。</li>
+</ul>
+<p>关于开销:作者认为性能高效的,时间是值得的.<br>这个故事告诉我们,学霸才能够自学,学渣还是老老实实听课…</p>
+<h1 id="2503-01840-EAGLE3-Spec-decoding又一力作"><a href="#2503-01840-EAGLE3-Spec-decoding又一力作" class="headerlink" title="2503.01840 EAGLE3: Spec decoding又一力作"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2503.01840">2503.01840</a> EAGLE3: Spec decoding又一力作</h1><p>EAGLE是 Extrapolative A Generative Language Engine (外推式A生成语言引擎)的简称.</p>
+<p>Spec Decoding是为了加快推理速度而使用小模型预测,然后大模型检查,然后EAGLE是不使用小模型,而是对大模型的表层做一个神秘处理然后直接得到token的过程.<br>decoding就是token预测.  </p>
+<p>然后作者本来以为无条件堆量让模型大起来就可以增加EAGLE的表现,结果效果不明显.<br>然后作者推出EAGLE3,让模型采用了好几层特征,丢掉什么损失,最后总一起,用更多信息更多性能换表现.</p>
+<ul>
+<li><strong>EAGLE 在特征层面做自回归</strong>：它预测的是 target model 的顶层特征（hidden states），然后通过 LM head 得到 token</li>
+<li>这种”特征预测”对 draft 模型构成了<strong>额外约束</strong>，限制了其表达能力，导致增加数据无法有效提升接受率</li>
+</ul>
+<p><strong>直接预测 token，而非特征</strong>：</p>
+<ul>
+<li>去掉特征预测损失 $l<em>{fea}$​ ，只保留 token 预测损失 $l</em>{token}$​</li>
+<li>这样 draft 模型直接输出下一个 token，而不是先预测特征再转换</li>
+<li>在训练过程中<strong>模拟测试时的多步生成过程</strong>——即把 draft 模型上一步的输出 $a_{t+1}$​ 作为下一步的输入，进行反馈训练。这样模型在训练时就适应了”自己的输出作为下一步输入”的情况。</li>
+</ul>
+<h1 id="2507-20534-Kimi-K2横空出世-眩晕瘫坐-原子弹爆炸"><a href="#2507-20534-Kimi-K2横空出世-眩晕瘫坐-原子弹爆炸" class="headerlink" title="2507.20534 Kimi-K2横空出世:眩晕瘫坐,原子弹爆炸"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2507.20534">2507.20534</a> Kimi-K2横空出世:眩晕瘫坐,原子弹爆炸</h1>
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F-%E4%B8%8B%E6%96%87%E5%90%AB%E6%9C%89%E8%BE%83%E5%A4%9AAI%E7%94%9F%E6%88%90%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">注意:下文含有较多AI生成内容.</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2604-02721-GrandCode%E5%87%BB%E8%B4%A5%E4%BA%86%E6%89%80%E6%9C%89%E4%BA%BA%E7%B1%BB%E9%80%89%E6%89%8B%E8%8D%A3%E8%8E%B7LGM"><span class="toc-number"></span> <span class="toc-text">2604.02721 GrandCode击败了所有人类选手荣获LGM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%AD%E7%BB%83"><span class="toc-number">1.</span> <span class="toc-text">后训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SFT-%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83"><span class="toc-number">2.</span> <span class="toc-text">SFT 监督微调</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#test-time-RL"><span class="toc-number">3.</span> <span class="toc-text">test-time RL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">4.</span> <span class="toc-text">训练</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2604-24827-%E4%B8%8D%E5%8F%AF%E5%8E%8B%E7%BC%A9%E7%9F%A5%E8%AF%86-IKP-%E4%BC%B0%E6%B5%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0%E9%87%8F"><span class="toc-number"></span> <span class="toc-text">2604.24827 不可压缩知识(IKP):估测大模型参数量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2411-04368-SimpleQA%E6%B5%8B%E8%AF%95%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E7%9F%AD%E4%BA%8B%E5%AE%9E%E8%83%BD%E5%8A%9B"><span class="toc-number"></span> <span class="toc-text">2411.04368 SimpleQA测试模型基础短事实能力</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2402-14762-MT-bench-%E8%AF%84%E4%BC%B0LLM%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E7%9A%84%E7%BB%BC%E5%90%88%E8%A1%A8%E7%8E%B0"><span class="toc-number"></span> <span class="toc-text">2402.14762 MT bench:评估LLM多轮对话的综合表现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2501-16084-TTRL-%E6%97%A0%E7%9B%91%E7%9D%A3RL-%E6%95%88%E6%9E%9C%E6%8B%94%E7%BE%A4"><span class="toc-number"></span> <span class="toc-text">2501.16084 TTRL:无监督RL,效果拔群</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2503-01840-EAGLE3-Spec-decoding%E5%8F%88%E4%B8%80%E5%8A%9B%E4%BD%9C"><span class="toc-number"></span> <span class="toc-text">2503.01840 EAGLE3: Spec decoding又一力作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2507-20534-Kimi-K2%E6%A8%AA%E7%A9%BA%E5%87%BA%E4%B8%96-%E7%9C%A9%E6%99%95%E7%98%AB%E5%9D%90-%E5%8E%9F%E5%AD%90%E5%BC%B9%E7%88%86%E7%82%B8"><span class="toc-number"></span> <span class="toc-text">2507.20534 Kimi-K2横空出世:眩晕瘫坐,原子弹爆炸</span></a>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&text=AI论文略读"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&is_video=false&description=AI论文略读"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AI论文略读&body=Check out this article: https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&title=AI论文略读"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&name=AI论文略读&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/&t=AI论文略读"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

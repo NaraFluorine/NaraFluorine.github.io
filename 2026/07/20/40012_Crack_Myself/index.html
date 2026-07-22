@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Fluu做了一个爆破 hexo-blog-encrypt 插件密码的工具,对于使用 hexo-blog-encrypt 插件加密的博客,都可以破解,只是密码不同,需要的爆破时间不一样而已,比如说Fluu自己的博客. Github仓库链接: NaraFluorine&#x2F;hexo-blog-encrypt-cracker hexo-blog-encrypt-cracker 的工作原理?前后端的架构,后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爆破博客">
+<meta property="og:url" content="https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="Fluu做了一个爆破 hexo-blog-encrypt 插件密码的工具,对于使用 hexo-blog-encrypt 插件加密的博客,都可以破解,只是密码不同,需要的爆破时间不一样而已,比如说Fluu自己的博客. Github仓库链接: NaraFluorine&#x2F;hexo-blog-encrypt-cracker hexo-blog-encrypt-cracker 的工作原理?前后端的架构,后端">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-20T09:07:20.000Z">
+<meta property="article:modified_time" content="2026-07-20T09:08:45.989Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>爆破博客</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/07/20/50014_ASCII_Art/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&text=爆破博客"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&is_video=false&description=爆破博客"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=爆破博客&body=Check out this article: https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&name=爆破博客&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&t=爆破博客"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-blog-encrypt-cracker-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">hexo-blog-encrypt-cracker 的工作原理?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-blog-encrypt-cracker-%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91"><span class="toc-number">2.</span> <span class="toc-text">hexo-blog-encrypt-cracker 未来的开发方向?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E-hexo-blog-encrypt-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%B0%8F%E6%9C%9F%E6%9C%9B"><span class="toc-number">3.</span> <span class="toc-text">对于 hexo-blog-encrypt 插件的小期望?</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        爆破博客
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-07-20T09:07:20.000Z" class="dt-published" itemprop="datePublished">2026-07-20</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/ACM/">ACM</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/AI/" rel="tag">AI</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>Fluu做了一个爆破 <code>hexo-blog-encrypt</code> 插件密码的工具,对于使用 <code>hexo-blog-encrypt</code> 插件加密的博客,都可以破解,只是密码不同,需要的爆破时间不一样而已,比如说Fluu自己的博客.</p>
+<p>Github仓库链接: <a target="_blank" rel="noopener" href="https://github.com/NaraFluorine/hexo-blog-encrypt-cracker">NaraFluorine/hexo-blog-encrypt-cracker</a></p>
+<h2 id="hexo-blog-encrypt-cracker-的工作原理"><a href="#hexo-blog-encrypt-cracker-的工作原理" class="headerlink" title="hexo-blog-encrypt-cracker 的工作原理?"></a><code>hexo-blog-encrypt-cracker</code> 的工作原理?</h2><p>前后端的架构,后端是python,负责破解博客,前端负责和用户交互,选用electron,用户可以决定密码的形态是什么,更好破解,最后的数字是尝试多少次后退出.</p>
+<p>后端会在输入url后直接爬取这个博客的内容,然后收到用户指令后启动本地爆破,爆破期间不占用任何网络资源,不需要担心ddos的问题.因为hexo是静态博客,密钥可以在本地爆破出来,所以这个系统不需要ddos.</p>
+<h2 id="hexo-blog-encrypt-cracker-未来的开发方向"><a href="#hexo-blog-encrypt-cracker-未来的开发方向" class="headerlink" title="hexo-blog-encrypt-cracker 未来的开发方向?"></a><code>hexo-blog-encrypt-cracker</code> 未来的开发方向?</h2><p>这是一个Vibe Coding出来的项目,所以Fluu不会设置任何协议,大家想怎么搞就怎么搞,只需要给Fluu点个star就行(可怜.jpg),您的star会对Fluu的开源之路有莫大帮助…</p>
+<ol>
+<li>更好看的前端</li>
+<li>尝试封包成app,支持三端甚至安卓ios.</li>
+<li>使用C++优化本地破解的过程,优化算法(当前的cracker只是mvp的状态,仅限于能用)</li>
+<li>更大的初始词库,比如中国上市公司名称合集,中国中学名称合集,汉字密码合集等词典.</li>
+<li>对方块增加正则表达式支持</li>
+<li>可能会增加多线程支持</li>
+<li>可能会增加断点续搜支持(上一次搜到哪了,停一下,输出当前搜到的最新无效密码,下一次继续从这个地方开始搜)</li>
+</ol>
+<h2 id="对于-hexo-blog-encrypt-插件的小期望"><a href="#对于-hexo-blog-encrypt-插件的小期望" class="headerlink" title="对于 hexo-blog-encrypt 插件的小期望?"></a>对于 <code>hexo-blog-encrypt</code> 插件的小期望?</h2><p>Fluu很希望这个插件能分块加密.<br>比如Fluu自己出的题目的校验是完完全全新开了一整个页面来校验的,如果能在某个文章内部分块检验,效果会非常好.  </p>
+<p>就是,有点拧巴,比如说这个文章的前几点是大家比较熟知的,可以公开放出来,但是后面几点涉及NSFW内容需要加密,但是这个插件只能对整篇文章加密,大概这个意思…</p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-blog-encrypt-cracker-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">hexo-blog-encrypt-cracker 的工作原理?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-blog-encrypt-cracker-%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91"><span class="toc-number">2.</span> <span class="toc-text">hexo-blog-encrypt-cracker 未来的开发方向?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E-hexo-blog-encrypt-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%B0%8F%E6%9C%9F%E6%9C%9B"><span class="toc-number">3.</span> <span class="toc-text">对于 hexo-blog-encrypt 插件的小期望?</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&text=爆破博客"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&is_video=false&description=爆破博客"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=爆破博客&body=Check out this article: https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&title=爆破博客"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&name=爆破博客&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/20/40012_Crack_Myself/&t=爆破博客"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
