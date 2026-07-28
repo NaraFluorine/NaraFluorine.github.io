@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="题目问题:吉林大学特色课程除了高等耐热学还有什么? 答案格式: ？？学 三个汉字 注意:由于hexo-encrypt插件的特性,请你把答案复制到剪切板,在提交页面使用”粘贴”提交答案. Author:@NaraFluorine hint-1 题目背景本题预期是吉大人能够”不假思索”答出来的题目. 提交   10e8628e98c3b8f96efec6ffd3f65f05a4788704bd2880">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MISC-Heat">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/12/50001_Heat/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="题目问题:吉林大学特色课程除了高等耐热学还有什么? 答案格式: ？？学 三个汉字 注意:由于hexo-encrypt插件的特性,请你把答案复制到剪切板,在提交页面使用”粘贴”提交答案. Author:@NaraFluorine hint-1 题目背景本题预期是吉大人能够”不假思索”答出来的题目. 提交   10e8628e98c3b8f96efec6ffd3f65f05a4788704bd2880">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-12T03:19:30.000Z">
+<meta property="article:modified_time" content="2026-07-28T14:45:00.001Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Misc">
+<meta property="article:tag" content="OSINT">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>MISC-Heat</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/12/50002_Farm/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/12/50000_Color/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/12/50001_Heat/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&text=MISC-Heat"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&is_video=false&description=MISC-Heat"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MISC-Heat&body=Check out this article: https://narafluorine.github.io/2026/01/12/50001_Heat/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&name=MISC-Heat&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/12/50001_Heat/&t=MISC-Heat"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">hint-1 题目背景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        MISC-Heat
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-12T03:19:30.000Z" class="dt-published" itemprop="datePublished">2026-01-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/PUZZLE/">PUZZLE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Misc/" rel="tag">Misc</a>, <a class="p-category" href="/tags/OSINT/" rel="tag">OSINT</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>问题:吉林大学特色课程除了高等耐热学还有什么?</p>
+<p>答案格式: <code>？？学</code> 三个汉字</p>
+<p><strong>注意</strong>:由于hexo-encrypt插件的特性,请你把答案复制到剪切板,在提交页面使用”粘贴”提交答案.</p>
+<p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p>
+<h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint-1 题目背景"></a>hint-1 题目背景</h2><p>本题预期是吉大人能够”不假思索”答出来的题目.</p>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><div class="hbe hbe-container" id="hexo-blog-encrypt-ex-3z7skp-0" data-hbe-ex-container="true" data-hbe-format="4" data-salt="f5edee84db9d5118e0278b2af012cfb478eb378c9ed12f48a1e6ff33e67e4552" data-nonce="44d94aa1208b9ed07506ed1c" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="segment" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-3z7skp-0-data" type="hbeData" data-hmacdigest="">10e8628e98c3b8f96efec6ffd3f65f05a4788704bd28801cb0ccfaefdbc53e577786661dcab1cd6c6ee98370b45da19155edd299fe257fc1e67541892fb1eb371738355e38ae099f6236865f1c737a206c8b484e096603e413ba9fe34e6a013eaf1e65039092664d112797eb8c0e043fb73c6df16c6e776c9405097c9d3ad279f59f6b77593bf7af322e1fceccfee9709993c1d876a2d25b081ca926a83080d24774f322f4184e19430f268c2bfd6b98d57e0757c39706e35c76e60b37edab2a3ea8032d2743591c64584c8c6fb9fa3b973b92fc6811e1a53683a0ec07c8977671d5fa20f9ab13904c15fb5024ce58ced6fd9a31395cbd60be28446974ddc5658f62b38a32ebf4e4d94ee29fac1412753bca8855b1aac60fcf6fea535baa1acf2db25023e746cb9e49fbb323884bd7d6b8707b62806b6e29588d14755c63e0c61b13f9cee128c76aa8111cace13827b061b01295d4def82f0e7577eb52c066ccec064d91e0e4d1d299c151270f7961ca9de9a34418f40a13ec4fb5dd2f9772c46521be3e5e11e3d77d8758f41b2ffbe2f6c600e31c673807d54edfd219dbbb7d06ebe9d38eead3a349a9926d139394043743ead4a61286b1e430c9c1a4a9c384929d7cf7f314867e363be545d5e97ad0588b3978b7626bbcd6a676696480968384694a4f7e1cabbec4fa4e0ba314689cb01b467ec72c989b65f7e5c968d6ec18dfb59693686eacca8835617ed025a6913c748e81f6f913e35f38dd237c6b9034e110cef243db40222c37d24556cc0acc29976b14f635f0e52dcc83dcb6c2c0c22e162f1387d97f4acb2fe8554344a9c6beac75585d64d0956e6106e04418a325595e77692daac28bf72ab33a227173855340449c5bafe4811cb25a230eef217777d233fd79dd0b0c660c5bd8e2d9b3d8076720eb9ab41680054a493d2802a7ed0ef4ef5123b55a723258749cf00bdca9893b78f6d7a514aff8a0361f90fb219bfab2e4f2ca2337006da940b5c53640fc538d8010e14a7ee64fd6f3856963d1aae3a0833d237aed098b3af8bf3bd3ad41cdb6480ec79530e7dd1716f9c2c80bd8c3f2c57f646131133a2b775deee38bef8ae90e9e1742ad3bfd7ad9c325486df342dde74ea0d64f66fdd65dc90b688c02eb4d536c3d06eb16929605efa6584176aa46a288d72ca4b977910b506ea961d8714a9ae28dd6df0a64da942e4c8f2bc3c77e858d3959f9da5aeaf8535ff75ae04e8b64201522f07e97601976f17d3e4f2556c32fe9adbb14d4e00170af6ab7f9b690291a0628d3e5599cf3d7c9574d80b9b930586dba1cc18dd156a47014e812e5c2ddcceff5f32b851f892095e7ade75f3d9c9a38491ebae9fab4a729138108a0654b8036d428716b6d058f91112d3418ea24827ed9fd6b179e23d0fa5bfd648f22041da55ab3c5f137555ebd37a1166210cdb665edf7839774bcb61c936c3509dd8784720b43543777bd3bedd518bb79d03b360dfba5bc3dbb236659f519de7b22b219ad3d86b7d6a4a03a9f6ddd1ba47bf92d5ea97bc334ed024b0c920e650759c1e8fc82069038d922db0dfdcc222221b925c2f19af70c7d7f3c872365b69fde4a818c8cc6b3c0eef32bfeebed3f3e72d3f1b42dbca347ebf43a50fb9556c474056d7967337a20233493489add290698d96ebca63c35bcce243f62bff8fd6361f1b90a9710d4c71de84fcde9bd352d0efc43fefc47032cdec900b35ddb5a19571dd930161ab9999653365ddef649cf947a39d1a727cff40549526939c44aabd989d06692561f12090add3bf5b1b5b6f425bc571c827f35412c78a0b087057f65679f1cfd1fd1cfa23962e03043775b6e1e4b721715aa48b8accd</script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-3z7skp-0-pass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-3z7skp-0-pass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">在此提交Heat谜题的答案</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">Decrypt</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<style data-hbe-ex-inline>.hbe,
+.hbe:after,
+.hbe:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.hbe-container{
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hbe-content {
+	text-align: center;
+	font-size: 150%;
+	padding: 1em 0;
+}
+.hbe-form {
+	margin: 0;
+}
+.hbe-button-hidden {
+	display: none !important;
+}
+.hbe-error {
+	min-height: 1.5em;
+	color: #c0392b;
+	font-size: 0.7em;
+}
+
+.hbe-input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	width: 80%;
+	min-width: 200px;
+	vertical-align: top;
+}
+
+.hbe-input-field {
+	line-height: normal;
+	font-size: 100%;
+	margin: 0;
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 400;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.hbe-input-field:focus {
+	outline: none;
+}
+
+.hbe-input-label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #696969;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.hbe-input-label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.hbe-graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+/* hbe button in post page */
+.hbe-button {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  border-bottom: 4px solid #2b8bc6;
+  color: #fbfbfb;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  font-size: 15px;
+  text-align: left;
+  text-indent: 5px;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.hbe-button:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 1px;
+}
+
+.hbe-button:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+/* hbe button in post page */
+
+/* default theme {{{ */
+.hbe-input-default {
+	overflow: hidden;
+}
+
+.hbe-input-field-default {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em;
+	margin-bottom: 2em;
+	color: #f9f7f6;
+	z-index: 100;
+	opacity: 0;
+}
+
+.hbe-input-label-default {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	padding: 0.5em 0;
+	pointer-events: none;
+	font-size: 1em;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+.hbe-input-label-default::before {
+	height: 100%;
+	background: #666666;
+	top: 0;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.hbe-input-label-default::after {
+	height: 2px;
+	background: #666666;
+	top: 100%;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.hbe-input-label-content-default {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s, color 0.2s;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.2s;
+	transition: opacity 0s 0.2s;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after,
+.hbe-input-label-content-default,
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::before,
+.hbe-input--filled .hbe-input-label-default::before {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::after,
+.hbe-input--filled .hbe-input-label-default::after {
+	opacity: 0;
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default .hbe-input-label-content-default,
+.hbe-input--filled .hbe-input-label-default .hbe-input-label-content-default {
+	color: #555555;
+	-webkit-transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+	transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+}
+/* default theme }}} */
+
+/* up theme {{{ */
+.hbe-input-up {
+	overflow: hidden;
+	padding-top: 2em;
+}
+
+.hbe-input-field-up {
+	width: 100%;
+	background: transparent;
+	opacity: 0;
+	padding: 0.35em;
+	z-index: 100;
+	color: #837482;
+}
+
+.hbe-input-label-up {
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	pointer-events: none;
+	text-align: left;
+	color: #8E9191;
+	padding: 0 0.5em;
+}
+
+.hbe-input-label-up::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	border-top: 4px solid #9B9F9F;
+	-webkit-transform: translate3d(0, -3px, 0);
+	transform: translate3d(0, -3px, 0);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-label-content-up {
+	padding: 0.5em 0;
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.4s, color 0.4s;
+	transition: transform 0.4s, color 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-field-up:focus,
+.input--filled .hbe-input-field-up {
+	cursor: text;
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.4s;
+	transition: opacity 0s 0.4s;
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up::before,
+.input--filled .hbe-input-label-up::before {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+	-webkit-transform: translate3d(0, -3.3em, 0);
+	transform: translate3d(0, -3.3em, 0);
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up .hbe-input-label-content-up,
+.input--filled .hbe-input-label-content-up {
+	color: #6B6E6E;
+	-webkit-transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+	transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+}
+/* up theme }}} */
+
+/* wave theme {{{ */
+.hbe-input-wave {
+	overflow: hidden;
+	padding-top: 1em;
+}
+
+.hbe-input-field-wave {
+	padding: 0.5em 0em 0.25em;
+	width: 100%;
+	background: transparent;
+	color: #9da8b2;
+	font-size: 1.25em;
+}
+
+.hbe-input-label-wave {
+	position: absolute;
+	top: 0.95em;
+	font-size: 0.85em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+	transition: transform 0.2s 0.15s, color 1s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-wave {
+	stroke: #92989e;
+	pointer-events: none;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-wave:focus + .hbe-input-label-wave,
+.input--filled .hbe-input-label-wave {
+	color: #333;
+	-webkit-transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+	transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+}
+
+.hbe-input-field-wave:focus ~ .hbe-graphic-wave,
+.input--filled .graphic-wave {
+	stroke: #333;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* wave theme }}} */
+
+/* flip theme {{{ */
+.hbe-input-field-flip {
+	width: 100%;
+	background-color: #d0d1d0;
+	border: 2px solid transparent;
+	-webkit-transition: background-color 0.25s, border-color 0.25s;
+	transition: background-color 0.25s, border-color 0.25s;
+}
+
+.hbe-input-label-flip {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	bottom: 100%;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 1.25em;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s ;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip {
+	color: #8B8C8B;
+	padding: 0.25em 0;
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	bottom: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #666666;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 1em;
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip,
+.input--filled .hbe-input-label-flip {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip .hbe-input-label-content-flip,
+.input--filled .hbe-input-label-content-flip {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-field-flip,
+.input--filled .hbe-input-field-flip {
+	background-color: transparent;
+	border-color: #666666;
+}
+/* flip theme }}} */
+
+/* xray theme {{{ */
+.hbe-input-xray {
+	overflow: hidden;
+	padding-bottom: 2.5em;
+}
+
+.hbe-input-field-xray {
+	padding: 0;
+	margin-top: 1.2em;
+	width: 100%;
+	background: transparent;
+	color: #84AF9B ;
+	font-size: 1.55em;
+}
+
+.hbe-input-label-xray {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	letter-spacing: 1px;
+	color: #84AF9B ;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.1s, color 0.3s;
+	transition: transform 0.2s 0.1s, color 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-xray {
+	stroke: #84AF9B ;
+	pointer-events: none;
+	stroke-width: 2px;
+	top: 1.25em;
+	bottom: 0px;
+	height: 3.275em;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-xray:focus + .hbe-input-label-xray,
+.input--filled .hbe-input-label-xray {
+	color: #84AF9B ;
+	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+}
+
+.hbe-input-field-xray:focus ~ .hbe-graphic-xray,
+.input--filled .graphic-xray {
+	stroke: #84AF9B ;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* xray theme }}} */
+
+/* blink theme {{{ */
+.hbe-input-blink {
+	padding-top: 1em;
+}
+
+.hbe-input-field-blink {
+	width: 100%;
+	padding: 0.8em 0.5em;
+	background: transparent;
+	border: 2px solid;
+	color: #8781bd;
+	-webkit-transition: border-color 0.25s;
+	transition: border-color 0.25s;
+}
+
+.hbe-input-label-blink {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: left;
+	overflow: hidden;
+	padding: 0;
+	pointer-events: none;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+}
+
+.hbe-input-label-content-blink {
+	padding: 0 1em;
+	font-weight: 400;
+	color: #b5b5b5;
+}
+
+.hbe-input-label-content-blink::after {
+	content: attr(data-content);
+	position: absolute;
+	top: -200%;
+	left: 0;
+	color: #8781bd ;
+	font-weight: 800;
+}
+
+.hbe-input-field-blink:focus,
+.input--filled .hbe-input-field-blink {
+	border-color: #8781bd ;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink,
+.input--filled .hbe-input-label-blink {
+	-webkit-animation: anim-blink-1 0.25s forwards;
+	animation: anim-blink-1 0.25s forwards;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink .hbe-input-label-content-blink,
+.input--filled .hbe-input-label-content-blink {
+	-webkit-animation: anim-blink-2 0.25s forwards ease-in;
+	animation: anim-blink-2 0.25s forwards ease-in;
+}
+
+@-webkit-keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@-webkit-keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+
+@keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+/* blink theme }}} */
+
+/* surge theme {{{ */
+.hbe-input-surge {
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+.hbe-input-field-surge {
+	padding: 0.25em 0.5em;
+	margin-top: 1.25em;
+	width: 100%;
+	background: transparent;
+	color: #D0D0D0;
+	font-size: 1.55em;
+	opacity: 0;
+}
+
+.hbe-input-label-surge {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 1em;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 0.25em;
+	-webkit-transform: translate3d(1em, 2.75em, 0);
+	transform: translate3d(1em, 2.75em, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge {
+	color: #A4A5A6;
+	padding: 0.4em 0 0.25em;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	top: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #2C3E50;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 0.85em;
+}
+
+.hbe-graphic-surge {
+	fill: #2C3E50;
+	pointer-events: none;
+	top: 1em;
+	bottom: 0px;
+	height: 4.5em;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.7s, fill 0.7s;
+	transition: transform 0.7s, fill 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-surge:focus,
+.input--filled .hbe-input-field-surge {
+	-webkit-transition: opacity 0s 0.35s;
+	transition: opacity 0s 0.35s;
+	opacity: 1;
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge,
+.input--filled .hbe-input-label-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge .hbe-input-label-content-surge,
+.input--filled .hbe-input-label-content-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+
+.hbe-input-field-surge:focus ~ .hbe-graphic-surge,
+.input--filled .graphic-surge {
+	fill: #2C3E50;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* surge theme }}} */
+
+/* shrink theme {{{ */
+.hbe-input-field-shrink {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em 0;
+	margin-bottom: 2em;
+	color: #2C3E50;
+}
+
+.hbe-input-label-shrink {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	font-size: 1em;
+	padding: 10px 0 5px;
+	pointer-events: none;
+}
+
+.hbe-input-label-shrink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 7px;
+	background: #B7C3AC;
+	left: 0;
+	top: 100%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.hbe-input-label-content-shrink {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink::after,
+.input--filled .hbe-input-label-shrink::after {
+	background: #84AF9B;
+	-webkit-transform: scale3d(1, 0.25, 1);
+	transform: scale3d(1, 0.25, 1);
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink .hbe-input-label-content-shrink,
+.input--filled .hbe-input-label-shrink .hbe-input-label-content-shrink {
+	color: #84AF9B;
+	-webkit-transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+	transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+}
+/* shrink theme }}} */
+</style><script data-pjax src="/lib/hbe-ex.js"></script><link href="/css/hbe-ex.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">hint-1 题目背景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/12/50001_Heat/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&text=MISC-Heat"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&is_video=false&description=MISC-Heat"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=MISC-Heat&body=Check out this article: https://narafluorine.github.io/2026/01/12/50001_Heat/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&title=MISC-Heat"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/12/50001_Heat/&name=MISC-Heat&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/12/50001_Heat/&t=MISC-Heat"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

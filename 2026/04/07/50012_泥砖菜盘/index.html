@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="问题请听…         ▶            Listen to the sound effect...    这是一个非常常见的采样.所以…你需要回答他叫什么名字. Author:@NaraFluorine hint -1 答案格式答案是两个小写单词组成的短语,请使用 _ 连接起来.例如假设这个采样真的叫 pinkfloyd money ,那请提交 pinkfloyd_money 作为答">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSINT-泥砖菜盘">
+<meta property="og:url" content="https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="问题请听…         ▶            Listen to the sound effect...    这是一个非常常见的采样.所以…你需要回答他叫什么名字. Author:@NaraFluorine hint -1 答案格式答案是两个小写单词组成的短语,请使用 _ 连接起来.例如假设这个采样真的叫 pinkfloyd money ,那请提交 pinkfloyd_money 作为答">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-07T09:07:12.000Z">
+<meta property="article:modified_time" content="2026-07-28T15:28:50.411Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Game">
+<meta property="article:tag" content="OSINT">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>OSINT-泥砖菜盘</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/04/09/60019_CSAPP_%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/04/06/60018_%E5%86%99%E5%AD%97%E5%8A%A0%E7%82%B9/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&text=OSINT-泥砖菜盘"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&is_video=false&description=OSINT-泥砖菜盘"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OSINT-泥砖菜盘&body=Check out this article: https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&name=OSINT-泥砖菜盘&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&t=OSINT-泥砖菜盘"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">hint -1 答案格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">1.2.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        OSINT-泥砖菜盘
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-04-07T09:07:12.000Z" class="dt-published" itemprop="datePublished">2026-04-07</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/PUZZLE/">PUZZLE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Game/" rel="tag">Game</a>, <a class="p-category" href="/tags/OSINT/" rel="tag">OSINT</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请听…</p>
+<div style="display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: sans-serif;">
+  <button style="
+    width: 40px; height: 40px;
+    border-radius: 50%; border: none;
+    background: #4a6fa5; color: white;
+    cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    margin-right: 12px;"
+    onclick="this.nextElementSibling[this.nextElementSibling.paused?'play':'pause']()">
+    ▶
+  </button>
+  <audio src="../../../../attachment/what_sound_effect.mp3" 
+         onplay="this.previousElementSibling.innerHTML='⏸'"
+         onpause="this.previousElementSibling.innerHTML='▶'">
+  </audio>
+  <span style="color: #e1e1e1; font-size: 14px;">Listen to the sound effect...</span>
+</div>
+
+
+<p>这是一个非常常见的采样.所以…你需要回答他叫什么名字.</p>
+<p>Author:@<a href="https://narafluorine.github.io/">NaraFluorine</a></p>
+<h2 id="hint-1-答案格式"><a href="#hint-1-答案格式" class="headerlink" title="hint -1 答案格式"></a>hint -1 答案格式</h2><p>答案是两个小写单词组成的短语,请使用 <code>_</code> 连接起来.<br>例如假设这个采样真的叫 pinkfloyd money ,那请提交 <code>pinkfloyd_money</code> 作为答案.</p>
+<h2 id="hint-0"><a href="#hint-0" class="headerlink" title="hint 0"></a>hint 0</h2><p>还是毫无思路?Fluu在这里提供几种几种音声……</p>
+<ol>
+<li><p>某不知名音乐1    </p>
+<div style="display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: sans-serif;">
+<button style="
+ width: 40px; height: 40px;
+ border-radius: 50%; border: none;
+ background: #4a6fa5; color: white;
+ cursor: pointer; display: flex;
+ align-items: center; justify-content: center;
+ margin-right: 12px;"
+ onclick="this.nextElementSibling[this.nextElementSibling.paused?'play':'pause']()">
+ ▶
+</button>
+<audio src="../../../../attachment/cacacacapital.mp3" 
+      onplay="this.previousElementSibling.innerHTML='⏸'"
+      onpause="this.previousElementSibling.innerHTML='▶'">
+</audio>
+<span style="color: #e1e1e1; font-size: 14px;">某不知名音乐1</span>
+</div>
+</li>
+<li><p>某不知名音乐2  </p>
+<div style="display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: sans-serif;">
+<button style="
+ width: 40px; height: 40px;
+ border-radius: 50%; border: none;
+ background: #4a6fa5; color: white;
+ cursor: pointer; display: flex;
+ align-items: center; justify-content: center;
+ margin-right: 12px;"
+ onclick="this.nextElementSibling[this.nextElementSibling.paused?'play':'pause']()">
+ ▶
+</button>
+<audio src="../../../../attachment/biteyourleg.mp3" 
+      onplay="this.previousElementSibling.innerHTML='⏸'"
+      onpause="this.previousElementSibling.innerHTML='▶'">
+</audio>
+<span style="color: #e1e1e1; font-size: 14px;">某不知名音乐2</span>
+</div>
+</li>
+<li><p>某不知名游戏1  </p>
+<div style="display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: sans-serif;">
+<button style="
+ width: 40px; height: 40px;
+ border-radius: 50%; border: none;
+ background: #4a6fa5; color: white;
+ cursor: pointer; display: flex;
+ align-items: center; justify-content: center;
+ margin-right: 12px;"
+ onclick="this.nextElementSibling[this.nextElementSibling.paused?'play':'pause']()">
+ ▶
+</button>
+<audio src="../../../../attachment/what_music_sounds_like.mp3" 
+      onplay="this.previousElementSibling.innerHTML='⏸'"
+      onpause="this.previousElementSibling.innerHTML='▶'">
+</audio>
+<span style="color: #e1e1e1; font-size: 14px;">某不知名游戏1</span>
+</div>
+</li>
+<li><p>某不知名游戏2        </p>
+ <div style="display: inline-flex; align-items: center; background: #2a2d30; padding: 8px 16px; border-radius: 20px; font-family: sans-serif;">
+<button style="
+ width: 40px; height: 40px;
+ border-radius: 50%; border: none;
+ background: #4a6fa5; color: white;
+ cursor: pointer; display: flex;
+ align-items: center; justify-content: center;
+ margin-right: 12px;"
+ onclick="this.nextElementSibling[this.nextElementSibling.paused?'play':'pause']()">
+ ▶
+</button>
+<audio src="../../../../attachment/music_slugfest_title_screen.ogg" 
+      onplay="this.previousElementSibling.innerHTML='⏸'"
+      onpause="this.previousElementSibling.innerHTML='▶'">
+</audio>
+<span style="color: #e1e1e1; font-size: 14px;">某不知名游戏2</span>
+</div>
+
+</li>
+</ol>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><div class="hbe hbe-container" id="hexo-blog-encrypt-ex-kdv6i7-0" data-hbe-ex-container="true" data-hbe-format="4" data-salt="895a7aae6d5f476b9cf55d8d01615133ae45504f2277327721867b412498c56c" data-nonce="4e25a123415683bd431e260e" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="segment" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-kdv6i7-0-data" type="hbeData" data-hmacdigest="">2649ea717cfa7c421ef81ddf1b80909abc29cfa25120c67d5149fbe97c4f69c53cf3d0418a67c4095d8dd44f512aa259087934ba4117c09b812b03a296a0871c82186a5920f4d92e4127444add0497fbb83b0d08985fbb905d700ffd7e91949b3964b159fce5a7a3b2fd2474e394c81cbbb8075d2da1432bafb11e746a38b2aebacf6908261055ebe7fa5fa74c3ee2d9de4380382389f09d2d9ad6a30d69751f6b56ab1cb6616549ebc1548cc150b1a0ebd5c1f319b1be596a13ec3ade2e0bc57d57a7730d8ed87f940761c5067bf710ca0bd8fa25909eef14bc034ca95a7786ab758f2ac226938aefb49a601437ff1297ec19f38d34a4a014a2562e29f7efc4a546304378dc6712945e26fc3a69ae9c04be1810279b86376024e67b417ee2ad3e00b48f1b9d3356bf28318fa99bf90155d5e3ea0896628086a8dd3d91c9a79bb99b3982545147e1a969a7816289b5b7d6c5ca87d771d29a5a5225315f1cb59a58d7e7abd2926dcee09ca5e3bfcfa83deec96eda39d2cb018aa9ace9164131c0655727c86e3448a4044cbf787585cd770dbf3dddf214bbc6bf78a3470f6e3753b68f8dc439b3c42c37bb581a8afb56221e9a515c2582c6597c478dd7e240cf804449e726e311790467933706f01e9f53f88d2794616fd9da8d61f0df06a0eeac3d70d759b608b4a15b77bce59413952f39811c6a8f4ef7e7a5c94b1b12bfebcbc4e1f0a73675fb4129dccf57328ad162c09268e2ebdad4df2e5753d38c94d1bc814c96266c85962b7184e4bed7775542269fc80387877730b215560f5ae356513b7469c8c82abefa6b8719aa29fc2d4921df543f2f5974d24afb0ce8799ce19f82b6c5eaa55baf2cf1e87ffccb9725d324962a349d48e7462e022ca51360006b9b62009a00b33c3d337a58766072618868a19a41bef99ba6a496e19c5f056a7d5059479d987421996253a7e5838f106a25cf042ea4496d7de5e57a82796ffbc97404e9cf512007e41d0f8934aa46c6ddf33dd915e6321c9ab9f53cdad8f03ebedbc6e01a7eb0227fdee888e2fb86a0b6ceec17e3b9315a9e5711b3f4a43ff10201257a17</script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-kdv6i7-0-pass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-kdv6i7-0-pass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">在此提交sampleee的答案</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">Decrypt</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<style data-hbe-ex-inline>.hbe,
+.hbe:after,
+.hbe:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.hbe-container{
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hbe-content {
+	text-align: center;
+	font-size: 150%;
+	padding: 1em 0;
+}
+.hbe-form {
+	margin: 0;
+}
+.hbe-button-hidden {
+	display: none !important;
+}
+.hbe-error {
+	min-height: 1.5em;
+	color: #c0392b;
+	font-size: 0.7em;
+}
+
+.hbe-input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	width: 80%;
+	min-width: 200px;
+	vertical-align: top;
+}
+
+.hbe-input-field {
+	line-height: normal;
+	font-size: 100%;
+	margin: 0;
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 400;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.hbe-input-field:focus {
+	outline: none;
+}
+
+.hbe-input-label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #696969;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.hbe-input-label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.hbe-graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+/* hbe button in post page */
+.hbe-button {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  border-bottom: 4px solid #2b8bc6;
+  color: #fbfbfb;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  font-size: 15px;
+  text-align: left;
+  text-indent: 5px;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.hbe-button:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 1px;
+}
+
+.hbe-button:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+/* hbe button in post page */
+
+/* default theme {{{ */
+.hbe-input-default {
+	overflow: hidden;
+}
+
+.hbe-input-field-default {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em;
+	margin-bottom: 2em;
+	color: #f9f7f6;
+	z-index: 100;
+	opacity: 0;
+}
+
+.hbe-input-label-default {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	padding: 0.5em 0;
+	pointer-events: none;
+	font-size: 1em;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+.hbe-input-label-default::before {
+	height: 100%;
+	background: #666666;
+	top: 0;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.hbe-input-label-default::after {
+	height: 2px;
+	background: #666666;
+	top: 100%;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.hbe-input-label-content-default {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s, color 0.2s;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.2s;
+	transition: opacity 0s 0.2s;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after,
+.hbe-input-label-content-default,
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::before,
+.hbe-input--filled .hbe-input-label-default::before {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::after,
+.hbe-input--filled .hbe-input-label-default::after {
+	opacity: 0;
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default .hbe-input-label-content-default,
+.hbe-input--filled .hbe-input-label-default .hbe-input-label-content-default {
+	color: #555555;
+	-webkit-transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+	transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+}
+/* default theme }}} */
+
+/* up theme {{{ */
+.hbe-input-up {
+	overflow: hidden;
+	padding-top: 2em;
+}
+
+.hbe-input-field-up {
+	width: 100%;
+	background: transparent;
+	opacity: 0;
+	padding: 0.35em;
+	z-index: 100;
+	color: #837482;
+}
+
+.hbe-input-label-up {
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	pointer-events: none;
+	text-align: left;
+	color: #8E9191;
+	padding: 0 0.5em;
+}
+
+.hbe-input-label-up::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	border-top: 4px solid #9B9F9F;
+	-webkit-transform: translate3d(0, -3px, 0);
+	transform: translate3d(0, -3px, 0);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-label-content-up {
+	padding: 0.5em 0;
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.4s, color 0.4s;
+	transition: transform 0.4s, color 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-field-up:focus,
+.input--filled .hbe-input-field-up {
+	cursor: text;
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.4s;
+	transition: opacity 0s 0.4s;
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up::before,
+.input--filled .hbe-input-label-up::before {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+	-webkit-transform: translate3d(0, -3.3em, 0);
+	transform: translate3d(0, -3.3em, 0);
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up .hbe-input-label-content-up,
+.input--filled .hbe-input-label-content-up {
+	color: #6B6E6E;
+	-webkit-transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+	transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+}
+/* up theme }}} */
+
+/* wave theme {{{ */
+.hbe-input-wave {
+	overflow: hidden;
+	padding-top: 1em;
+}
+
+.hbe-input-field-wave {
+	padding: 0.5em 0em 0.25em;
+	width: 100%;
+	background: transparent;
+	color: #9da8b2;
+	font-size: 1.25em;
+}
+
+.hbe-input-label-wave {
+	position: absolute;
+	top: 0.95em;
+	font-size: 0.85em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+	transition: transform 0.2s 0.15s, color 1s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-wave {
+	stroke: #92989e;
+	pointer-events: none;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-wave:focus + .hbe-input-label-wave,
+.input--filled .hbe-input-label-wave {
+	color: #333;
+	-webkit-transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+	transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+}
+
+.hbe-input-field-wave:focus ~ .hbe-graphic-wave,
+.input--filled .graphic-wave {
+	stroke: #333;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* wave theme }}} */
+
+/* flip theme {{{ */
+.hbe-input-field-flip {
+	width: 100%;
+	background-color: #d0d1d0;
+	border: 2px solid transparent;
+	-webkit-transition: background-color 0.25s, border-color 0.25s;
+	transition: background-color 0.25s, border-color 0.25s;
+}
+
+.hbe-input-label-flip {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	bottom: 100%;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 1.25em;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s ;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip {
+	color: #8B8C8B;
+	padding: 0.25em 0;
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	bottom: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #666666;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 1em;
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip,
+.input--filled .hbe-input-label-flip {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip .hbe-input-label-content-flip,
+.input--filled .hbe-input-label-content-flip {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-field-flip,
+.input--filled .hbe-input-field-flip {
+	background-color: transparent;
+	border-color: #666666;
+}
+/* flip theme }}} */
+
+/* xray theme {{{ */
+.hbe-input-xray {
+	overflow: hidden;
+	padding-bottom: 2.5em;
+}
+
+.hbe-input-field-xray {
+	padding: 0;
+	margin-top: 1.2em;
+	width: 100%;
+	background: transparent;
+	color: #84AF9B ;
+	font-size: 1.55em;
+}
+
+.hbe-input-label-xray {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	letter-spacing: 1px;
+	color: #84AF9B ;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.1s, color 0.3s;
+	transition: transform 0.2s 0.1s, color 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-xray {
+	stroke: #84AF9B ;
+	pointer-events: none;
+	stroke-width: 2px;
+	top: 1.25em;
+	bottom: 0px;
+	height: 3.275em;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-xray:focus + .hbe-input-label-xray,
+.input--filled .hbe-input-label-xray {
+	color: #84AF9B ;
+	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+}
+
+.hbe-input-field-xray:focus ~ .hbe-graphic-xray,
+.input--filled .graphic-xray {
+	stroke: #84AF9B ;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* xray theme }}} */
+
+/* blink theme {{{ */
+.hbe-input-blink {
+	padding-top: 1em;
+}
+
+.hbe-input-field-blink {
+	width: 100%;
+	padding: 0.8em 0.5em;
+	background: transparent;
+	border: 2px solid;
+	color: #8781bd;
+	-webkit-transition: border-color 0.25s;
+	transition: border-color 0.25s;
+}
+
+.hbe-input-label-blink {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: left;
+	overflow: hidden;
+	padding: 0;
+	pointer-events: none;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+}
+
+.hbe-input-label-content-blink {
+	padding: 0 1em;
+	font-weight: 400;
+	color: #b5b5b5;
+}
+
+.hbe-input-label-content-blink::after {
+	content: attr(data-content);
+	position: absolute;
+	top: -200%;
+	left: 0;
+	color: #8781bd ;
+	font-weight: 800;
+}
+
+.hbe-input-field-blink:focus,
+.input--filled .hbe-input-field-blink {
+	border-color: #8781bd ;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink,
+.input--filled .hbe-input-label-blink {
+	-webkit-animation: anim-blink-1 0.25s forwards;
+	animation: anim-blink-1 0.25s forwards;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink .hbe-input-label-content-blink,
+.input--filled .hbe-input-label-content-blink {
+	-webkit-animation: anim-blink-2 0.25s forwards ease-in;
+	animation: anim-blink-2 0.25s forwards ease-in;
+}
+
+@-webkit-keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@-webkit-keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+
+@keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+/* blink theme }}} */
+
+/* surge theme {{{ */
+.hbe-input-surge {
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+.hbe-input-field-surge {
+	padding: 0.25em 0.5em;
+	margin-top: 1.25em;
+	width: 100%;
+	background: transparent;
+	color: #D0D0D0;
+	font-size: 1.55em;
+	opacity: 0;
+}
+
+.hbe-input-label-surge {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 1em;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 0.25em;
+	-webkit-transform: translate3d(1em, 2.75em, 0);
+	transform: translate3d(1em, 2.75em, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge {
+	color: #A4A5A6;
+	padding: 0.4em 0 0.25em;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	top: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #2C3E50;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 0.85em;
+}
+
+.hbe-graphic-surge {
+	fill: #2C3E50;
+	pointer-events: none;
+	top: 1em;
+	bottom: 0px;
+	height: 4.5em;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.7s, fill 0.7s;
+	transition: transform 0.7s, fill 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-surge:focus,
+.input--filled .hbe-input-field-surge {
+	-webkit-transition: opacity 0s 0.35s;
+	transition: opacity 0s 0.35s;
+	opacity: 1;
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge,
+.input--filled .hbe-input-label-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge .hbe-input-label-content-surge,
+.input--filled .hbe-input-label-content-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+
+.hbe-input-field-surge:focus ~ .hbe-graphic-surge,
+.input--filled .graphic-surge {
+	fill: #2C3E50;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* surge theme }}} */
+
+/* shrink theme {{{ */
+.hbe-input-field-shrink {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em 0;
+	margin-bottom: 2em;
+	color: #2C3E50;
+}
+
+.hbe-input-label-shrink {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	font-size: 1em;
+	padding: 10px 0 5px;
+	pointer-events: none;
+}
+
+.hbe-input-label-shrink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 7px;
+	background: #B7C3AC;
+	left: 0;
+	top: 100%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.hbe-input-label-content-shrink {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink::after,
+.input--filled .hbe-input-label-shrink::after {
+	background: #84AF9B;
+	-webkit-transform: scale3d(1, 0.25, 1);
+	transform: scale3d(1, 0.25, 1);
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink .hbe-input-label-content-shrink,
+.input--filled .hbe-input-label-shrink .hbe-input-label-content-shrink {
+	color: #84AF9B;
+	-webkit-transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+	transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+}
+/* shrink theme }}} */
+</style><script data-pjax src="/lib/hbe-ex.js"></script><link href="/css/hbe-ex.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E7%AD%94%E6%A1%88%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">hint -1 答案格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">1.2.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&text=OSINT-泥砖菜盘"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&is_video=false&description=OSINT-泥砖菜盘"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OSINT-泥砖菜盘&body=Check out this article: https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&title=OSINT-泥砖菜盘"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&name=OSINT-泥砖菜盘&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/04/07/50012_%E6%B3%A5%E7%A0%96%E8%8F%9C%E7%9B%98/&t=OSINT-泥砖菜盘"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

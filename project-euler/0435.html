@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="user123456789101112131415161718斐波那契数多项式斐波那契数&#123;fn, n ≥ 0&#125;由递归式fn &#x3D; fn-1 + fn-2给出，初值是f0 &#x3D; 0和f1 &#x3D; 1。定义多项式&#123;Fn, n ≥ 0&#125;为Fn(x) &#x3D; ∑fixi，其中0 ≤ i ≤ n。例如，F7(x) &#x3D; x + x2 + 2x3 + 3x4 + 5x5 + 8x6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0435">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0435.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="user123456789101112131415161718斐波那契数多项式斐波那契数&#123;fn, n ≥ 0&#125;由递归式fn &#x3D; fn-1 + fn-2给出，初值是f0 &#x3D; 0和f1 &#x3D; 1。定义多项式&#123;Fn, n ≥ 0&#125;为Fn(x) &#x3D; ∑fixi，其中0 ≤ i ≤ n。例如，F7(x) &#x3D; x + x2 + 2x3 + 3x4 + 5x5 + 8x6">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2026-01-14T18:35:21.526Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0435</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">斐波那契数多项式</span><br><span class="line"></span><br><span class="line">斐波那契数&#123;fn, n ≥ 0&#125;由递归式fn = fn-1 + fn-2给出，初值是f0 = 0和f1 = 1。</span><br><span class="line"></span><br><span class="line">定义多项式&#123;Fn, n ≥ 0&#125;为Fn(x) = ∑fixi，其中0 ≤ i ≤ n。</span><br><span class="line"></span><br><span class="line">例如，F7(x) = x + x2 + 2x3 + 3x4 + 5x5 + 8x6 + 13x7，而F7(11) = 268357683.</span><br><span class="line"></span><br><span class="line">取n = 10^&#123;15&#125;。求[∑_&#123;0≤x≤100&#125; Fn(x)] mod 1307674368000 (= 15!)。</span><br><span class="line"></span><br><span class="line">我的思路:矩阵快速幂.</span><br><span class="line"></span><br><span class="line">首先枚举x.</span><br><span class="line">记录F_y(x)的值,有</span><br><span class="line"></span><br><span class="line">F_(y)(x)=(x^2)F_(y-2)(x)+(x)F_(y-1)(x)+x</span><br><span class="line"></span><br><span class="line">那么直接维护即可.请给我c++代码</span><br></pre></td></tr></table></figure>
+<h2 id="gpt"><a href="#gpt" class="headerlink" title="gpt"></a>gpt</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">你的思路是**完全正确的**，而且这个题目本质上就是：</span><br><span class="line"></span><br><span class="line">&gt; 对每个 (x\in[0,100])，用 **矩阵快速幂** 在 (O(\log n)) 时间内算出</span><br><span class="line">&gt; (F_n(x)=\sum_&#123;i=0&#125;^n f_i x^i)，</span><br><span class="line">&gt; 然后求和并取模。</span><br><span class="line"></span><br><span class="line">下面我先把递推关系**严格整理清楚**，再给你一份**可直接用的 C++ 实现**。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 一、递推关系的推导（确认你写的式子）</span><br><span class="line"></span><br><span class="line">已知：</span><br><span class="line">[</span><br><span class="line">f_i = f_&#123;i-1&#125;+f_&#123;i-2&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">定义：</span><br><span class="line">[</span><br><span class="line">F_n(x)=\sum_&#123;i=0&#125;^n f_i x^i</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">我们有：</span><br><span class="line">[</span><br><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">F_n(x)</span><br><span class="line">&amp;= F_&#123;n-1&#125;(x) + f_n x^n \</span><br><span class="line">&amp;= F_&#123;n-1&#125;(x) + (f_&#123;n-1&#125;+f_&#123;n-2&#125;)x^n \</span><br><span class="line">&amp;= F_&#123;n-1&#125;(x) + x\cdot f_&#123;n-1&#125;x^&#123;n-1&#125; + x^2\cdot f_&#123;n-2&#125;x^&#123;n-2&#125;</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">注意到：</span><br><span class="line">[</span><br><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">f_&#123;n-1&#125;x^&#123;n-1&#125; &amp;= F_&#123;n-1&#125;(x)-F_&#123;n-2&#125;(x) \</span><br><span class="line">f_&#123;n-2&#125;x^&#123;n-2&#125; &amp;= F_&#123;n-2&#125;(x)-F_&#123;n-3&#125;(x)</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">整理后可得一个**二阶非齐次线性递推**：</span><br><span class="line">[</span><br><span class="line">\boxed&#123;</span><br><span class="line">F_n(x) = x F_&#123;n-1&#125;(x) + x^2 F_&#123;n-2&#125;(x) + x</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">与你写的是一致的 ✅</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、矩阵形式</span><br><span class="line"></span><br><span class="line">设状态向量：</span><br><span class="line">[</span><br><span class="line">\mathbf&#123;v&#125;*n=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">F_n(x)\</span><br><span class="line">F*&#123;n-1&#125;(x)\</span><br><span class="line">1</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">则：</span><br><span class="line">[</span><br><span class="line">\mathbf&#123;v&#125;*n =</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">x &amp; x^2 &amp; x \</span><br><span class="line">1 &amp; 0   &amp; 0 \</span><br><span class="line">0 &amp; 0   &amp; 1</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line">\mathbf&#123;v&#125;*&#123;n-1&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">初值：</span><br><span class="line">[</span><br><span class="line">F_0(x)=0,\quad F_1(x)=x</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">所以：</span><br><span class="line">[</span><br><span class="line">\mathbf&#123;v&#125;_1=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">x\</span><br><span class="line">0\</span><br><span class="line">1</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">我们要算：</span><br><span class="line">[</span><br><span class="line">\mathbf&#123;v&#125;_n = M^&#123;,n-1&#125;\mathbf&#123;v&#125;_1</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 三、整体复杂度</span><br><span class="line"></span><br><span class="line">* (x = 0\sim100)，共 **101 次**</span><br><span class="line">* 每次 3×3 矩阵快速幂：(O(\log n))</span><br><span class="line">* 总复杂度：</span><br><span class="line">  [</span><br><span class="line">  O(101\cdot 3^3\log n) \quad\text&#123;极其轻松&#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 四、完整 C++ 实现（可直接交）</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">long</span> <span class="type">long</span> MOD = <span class="number">1307674368000LL</span>; <span class="comment">// 15!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Mat</span> &#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> a[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Mat <span class="title">mul</span><span class="params">(<span class="type">const</span> Mat &amp;A, <span class="type">const</span> Mat &amp;B)</span> </span>&#123;</span><br><span class="line">    Mat C&#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A.a[i][k] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">                __int128 tmp = (__int128)A.a[i][k] * B.a[k][j];</span><br><span class="line">                C.a[i][j] = (C.a[i][j] + tmp) % MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Mat <span class="title">mpow</span><span class="params">(Mat base, <span class="type">long</span> <span class="type">long</span> exp)</span> </span>&#123;</span><br><span class="line">    Mat res&#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) res.a[i][i] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (exp &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (exp &amp; <span class="number">1</span>) res = <span class="built_in">mul</span>(res, base);</span><br><span class="line">        base = <span class="built_in">mul</span>(base, base);</span><br><span class="line">        exp &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">calc_Fn</span><span class="params">(<span class="type">long</span> <span class="type">long</span> n, <span class="type">long</span> <span class="type">long</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> x % MOD;</span><br><span class="line"></span><br><span class="line">    Mat M&#123;&#125;;</span><br><span class="line">    M.a[<span class="number">0</span>][<span class="number">0</span>] = x % MOD;</span><br><span class="line">    M.a[<span class="number">0</span>][<span class="number">1</span>] = (x * x) % MOD;</span><br><span class="line">    M.a[<span class="number">0</span>][<span class="number">2</span>] = x % MOD;</span><br><span class="line">    M.a[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    M.a[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    Mat P = <span class="built_in">mpow</span>(M, n - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// v1 = [F1, F0, 1]^T = [x, 0, 1]</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> Fn =</span><br><span class="line">        ( (__int128)P.a[<span class="number">0</span>][<span class="number">0</span>] * x</span><br><span class="line">        + (__int128)P.a[<span class="number">0</span>][<span class="number">2</span>] * <span class="number">1</span> ) % MOD;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Fn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="type">long</span> <span class="type">long</span> n = <span class="number">1000000000000000LL</span>; <span class="comment">// 10^15</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt;= <span class="number">100</span>; x++) &#123;</span><br><span class="line">        ans = (ans + <span class="built_in">calc_Fn</span>(n, x)) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 五、几点关键说明（非常重要）</span><br><span class="line"></span><br><span class="line">1. **一定要用 `__int128`**</span><br><span class="line">   因为中间乘法最大约：</span><br><span class="line">   [</span><br><span class="line">   (15!)^2 \approx 10^&#123;24&#125;</span><br><span class="line">   ]</span><br><span class="line"></span><br><span class="line">2. **模数不是质数**</span><br><span class="line">   所以不能用任何逆元或除法，只能老老实实矩阵乘。</span><br><span class="line"></span><br><span class="line">3. **x = 0 也能正常处理**</span><br><span class="line">   矩阵自然退化，代码不需要特判。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你愿意，下一步我可以帮你：</span><br><span class="line"></span><br><span class="line">* 把 3×3 压缩成 2×2（更优雅）</span><br><span class="line">* 给出数学上的生成函数解法</span><br><span class="line">* 或直接证明这个递推为什么一定成立</span><br><span class="line"></span><br><span class="line">这道题本身是**竞赛级 + 数论味道很浓**的好题 👍</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>Flu认为gpt比上gemini完全不行,但是比下deepseek还是绰绰有余的,所以作为首选欧拉计划御用AI,WA了再考虑换模型.</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

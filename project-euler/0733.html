@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这个题太典了,gpt做不对我会怀疑gpt的训练数据有问题. user12345678910111213141516递增子序列对于任意i&gt;&#x3D;1，序列a_i满足a_i&#x3D;153^i \bmod 10\ 000\ 019。该序列的一开始几项为：153, 23409, 3581577, 7980255, 976697, 9434375, \dots考虑该序列长度为4的递增子序列。只看上面列出的几项，这">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0733">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0733.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这个题太典了,gpt做不对我会怀疑gpt的训练数据有问题. user12345678910111213141516递增子序列对于任意i&gt;&#x3D;1，序列a_i满足a_i&#x3D;153^i \bmod 10\ 000\ 019。该序列的一开始几项为：153, 23409, 3581577, 7980255, 976697, 9434375, \dots考虑该序列长度为4的递增子序列。只看上面列出的几项，这">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2026-01-05T18:07:44.234Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0733</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <p>这个题太典了,gpt做不对我会怀疑gpt的训练数据有问题.</p>
+<h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">递增子序列</span><br><span class="line">对于任意i&gt;=1，序列a_i满足a_i=153^i \bmod 10\ 000\ 019。该序列的一开始几项为：153, 23409, 3581577, 7980255, 976697, 9434375, \dots</span><br><span class="line"></span><br><span class="line">考虑该序列长度为4的递增子序列。只看上面列出的几项，这样的子序列包括：</span><br><span class="line">153, 23409, 976697, 9434375</span><br><span class="line">153, 23409, 3581577, 7980255</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">记s(n)为序列a_i的前n项中，此类子序列的各项之和。因此S(6)=94513710。已知S(100)=4465488724217。</span><br><span class="line"></span><br><span class="line">求S(10^6)并对1\ 000\ 000\ 007取余。</span><br><span class="line"></span><br><span class="line">我的思路:树状数组.</span><br><span class="line">设dp[i][l]表示以a_i结尾,长度为l的序列的个数.</span><br><span class="line">从小到大枚举l,离散化a_i然后用树状数组维护即可.</span><br><span class="line">请给我c++代码实现.</span><br></pre></td></tr></table></figure>
+<h2 id="gpt"><a href="#gpt" class="headerlink" title="gpt"></a>gpt</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">你的思路是**对的，但需要补充一个关键点**：</span><br><span class="line">这里要求的不是「长度为 4 的递增子序列的个数」，而是**这些子序列中“所有元素的总和”**。</span><br><span class="line"></span><br><span class="line">因此 **仅有 dp[i][l] = 个数 不够**，还需要同时维护：</span><br><span class="line"></span><br><span class="line">* `cnt[i][l]`：以 `a[i]` 结尾、长度为 `l` 的递增子序列个数</span><br><span class="line">* `sum[i][l]`：这些子序列中 **所有元素的和**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 一、状态设计（核心）</span><br><span class="line"></span><br><span class="line">对每个长度 `l = 1..4`，用一个树状数组维护两类信息：</span><br><span class="line"></span><br><span class="line">* `BIT_cnt[l]`：某个值结尾的长度 `l` 子序列的**个数**</span><br><span class="line">* `BIT_sum[l]`：某个值结尾的长度 `l` 子序列的**元素总和**</span><br><span class="line"></span><br><span class="line">### 转移</span><br><span class="line"></span><br><span class="line">设当前值是 `x = a[i]`（离散化后为 `pos`）</span><br><span class="line"></span><br><span class="line">#### 1️⃣ 长度为 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnt = 1</span><br><span class="line">sum = x</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 2️⃣ 长度 ≥ 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnt = query_cnt(l-1, &lt; x)</span><br><span class="line">sum = query_sum(l-1, &lt; x) + cnt * x</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">意思是：</span><br><span class="line"></span><br><span class="line">* 每个旧序列都加上当前的 `x`</span><br><span class="line">* 所以总和要额外加 `cnt * x`</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、树状数组设计</span><br><span class="line"></span><br><span class="line">每个 BIT 节点存一个 `(cnt, sum)` 对：</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> cnt, sum;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 三、复杂度分析</span><br><span class="line"></span><br><span class="line">* n = 1e6</span><br><span class="line">* 每个元素更新 4 次 BIT</span><br><span class="line">* 时间复杂度：`O(4 * n * log n)` ✅</span><br><span class="line">* 空间：`4 * 2 * BIT_size`，可接受</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 四、完整 C++ 实现（可直接用）</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1&#x27;000&#x27;000&#x27;007</span>;</span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> MAXV = <span class="number">10&#x27;000&#x27;019</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BIT</span> &#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    vector&lt;<span class="type">long</span> <span class="type">long</span>&gt; cnt, sum;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">BIT</span>(<span class="type">int</span> n = <span class="number">0</span>) : <span class="built_in">n</span>(n), <span class="built_in">cnt</span>(n + <span class="number">1</span>), <span class="built_in">sum</span>(n + <span class="number">1</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> idx, <span class="type">long</span> <span class="type">long</span> c, <span class="type">long</span> <span class="type">long</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (; idx &lt;= n; idx += idx &amp; -idx) &#123;</span><br><span class="line">            cnt[idx] = (cnt[idx] + c) % MOD;</span><br><span class="line">            sum[idx] = (sum[idx] + s) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">pair&lt;<span class="type">long</span> <span class="type">long</span>, <span class="type">long</span> <span class="type">long</span>&gt; <span class="title">query</span><span class="params">(<span class="type">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> c = <span class="number">0</span>, s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; idx &gt; <span class="number">0</span>; idx -= idx &amp; -idx) &#123;</span><br><span class="line">            c = (c + cnt[idx]) % MOD;</span><br><span class="line">            s = (s + sum[idx]) % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;c, s&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> N = <span class="number">1&#x27;000&#x27;000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成序列</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(N + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> cur = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">        cur = cur * <span class="number">153</span> % MAXV;</span><br><span class="line">        a[i] = (<span class="type">int</span>)cur;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 离散化</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vals</span><span class="params">(a.begin() + <span class="number">1</span>, a.end())</span></span>;</span><br><span class="line">    <span class="built_in">sort</span>(vals.<span class="built_in">begin</span>(), vals.<span class="built_in">end</span>());</span><br><span class="line">    vals.<span class="built_in">erase</span>(<span class="built_in">unique</span>(vals.<span class="built_in">begin</span>(), vals.<span class="built_in">end</span>()), vals.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> get_id = [&amp;](<span class="type">int</span> x) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">lower_bound</span>(vals.<span class="built_in">begin</span>(), vals.<span class="built_in">end</span>(), x) - vals.<span class="built_in">begin</span>() + <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> M = vals.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4 层 BIT</span></span><br><span class="line">    BIT bit_cnt[<span class="number">5</span>], bit_sum[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; ++i) &#123;</span><br><span class="line">        bit_cnt[i] = <span class="built_in">BIT</span>(M);</span><br><span class="line">        bit_sum[i] = <span class="built_in">BIT</span>(M);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> answer = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> x = a[i];</span><br><span class="line">        <span class="type">int</span> id = <span class="built_in">get_id</span>(x);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从大到小枚举长度，防止本轮污染</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">4</span>; len &gt;= <span class="number">2</span>; --len) &#123;</span><br><span class="line">            <span class="keyword">auto</span> [c, s] = bit_cnt[len - <span class="number">1</span>].<span class="built_in">query</span>(id - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> new_sum = (s + c * x) % MOD;</span><br><span class="line">            bit_cnt[len].<span class="built_in">add</span>(id, c, new_sum);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">4</span>) &#123;</span><br><span class="line">                answer = (answer + new_sum) % MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// len = 1</span></span><br><span class="line">        bit_cnt[<span class="number">1</span>].<span class="built_in">add</span>(id, <span class="number">1</span>, x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; answer &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 五、几点重要提醒</span><br><span class="line"></span><br><span class="line">✔ **长度必须倒序更新（4 → 1）**</span><br><span class="line">✔ **sum 转移一定要加 `cnt * a[i]`**</span><br><span class="line">✔ 使用 `long long + mod` 防止溢出</span><br><span class="line">✔ 本题是 **“递增（严格）”**，所以用 `&lt; x`</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">如果你愿意，我可以再帮你：</span><br><span class="line"></span><br><span class="line">* 🔥 做 **内存压缩版本**</span><br><span class="line">* 🚀 改成 **模板化 LIS-k**</span><br><span class="line">* 🧠 讲清楚为什么 `S(6)=94513710`</span><br><span class="line">* ⚡ 或分析为什么这道题能跑到 1e6 而不卡</span><br><span class="line"></span><br><span class="line">随时说 👍</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

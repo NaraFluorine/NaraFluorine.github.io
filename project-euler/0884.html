@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="user123456789101112131415161718192021扣除立方数从任意正整数n开始，每一步依次扣除不超过n的最大立方数，直到n变为0。例如，从n&#x3D;100开始需要4步：  100 \xrightarrow&#123;-4^3&#125; 36 \xrightarrow&#123;-3^3&#125; 9 \xrightarrow&#123;-2^3&#125; 1 \xright">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0884">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0884.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="user123456789101112131415161718192021扣除立方数从任意正整数n开始，每一步依次扣除不超过n的最大立方数，直到n变为0。例如，从n&#x3D;100开始需要4步：  100 \xrightarrow&#123;-4^3&#125; 36 \xrightarrow&#123;-3^3&#125; 9 \xrightarrow&#123;-2^3&#125; 1 \xright">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2026-01-14T16:38:50.116Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0884</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">扣除立方数</span><br><span class="line">从任意正整数n开始，每一步依次扣除不超过n的最大立方数，直到n变为0。</span><br><span class="line">例如，从n=100开始需要4步：</span><br><span class="line"> </span><br><span class="line"> 100 \xrightarrow&#123;-4^3&#125; 36 \xrightarrow&#123;-3^3&#125; 9 \xrightarrow&#123;-2^3&#125; 1 \xrightarrow&#123;-1^3&#125; 0</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">记D(n)为从n开始所需要的步数，因此D(100)=4。</span><br><span class="line"></span><br><span class="line">记S(N)为所有严格小于N的正整数n所对应的D(n)之和。</span><br><span class="line">例如，S(100) = 512。</span><br><span class="line"></span><br><span class="line">求S(10^&#123;17&#125;)。</span><br><span class="line"></span><br><span class="line">我的思路:记忆化搜索.</span><br><span class="line"></span><br><span class="line">首先通过暴力预处理1e6以内的S.</span><br><span class="line"></span><br><span class="line">然后注意到一个S可以被化作两个区间,直接递归即可.</span><br><span class="line"></span><br><span class="line">请给我c++代码实现,代码的S是闭区间的.</span><br></pre></td></tr></table></figure>
+<h2 id="gpt"><a href="#gpt" class="headerlink" title="gpt"></a>gpt</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">下面我先**把思路严格化**，然后给出一份**可以直接算到 (10^&#123;17&#125;)** 的 **C++ 实现**。</span><br><span class="line">我会完全贴合你说的：</span><br><span class="line"></span><br><span class="line">* 用 **记忆化**</span><br><span class="line">* 用 **区间递归**</span><br><span class="line">* `S(l,r)` 是 **闭区间**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 一、问题本质再表述（关键）</span><br><span class="line"></span><br><span class="line">定义操作：</span><br><span class="line"></span><br><span class="line">&gt; 对当前 (n)，每一步减去 **不超过 n 的最大立方数**</span><br><span class="line"></span><br><span class="line">这等价于：</span><br><span class="line"></span><br><span class="line">&gt; 把 (n) 用 **贪心立方数分解**</span><br><span class="line">&gt; ( n = a_1^3 + a_2^3 + \cdots + a_k^3 )</span><br><span class="line">&gt; 且 (a_1 \ge a_2 \ge \cdots \ge a_k )</span><br><span class="line"></span><br><span class="line">那么：</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">D(n) = k</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">即：**贪心立方分解的项数**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、关键结构性结论（非常重要）</span><br><span class="line"></span><br><span class="line">设</span><br><span class="line">[</span><br><span class="line">c = \lfloor \sqrt[3]&#123;n&#125; \rfloor</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">那么：</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">D(n) = 1 + D(n - c^3)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">### 所以在区间</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">[c^3, (c+1)^3 - 1]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">内，所有数的 **第一步都是减 (c^3)**。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 三、区间递归公式（核心）</span><br><span class="line"></span><br><span class="line">我们定义：</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">long long S(l, r) = ∑_&#123;n=l&#125;^r D(n)</span><br></pre></td></tr></table></figure>
+<p>当区间 ([l,r]) <strong>完全落在</strong><br>([c^3, (c+1)^3-1]) 内时：</p>
+<p>[<br>S(l,r) = (r-l+1) + S(l-c^3, r-c^3)<br>]</p>
+<p>这正是你说的：</p>
+<blockquote>
+<p>一个 S 可以被化作两个区间，直接递归</p>
+</blockquote>
+<hr>
+<h2 id="四、算法整体框架"><a href="#四、算法整体框架" class="headerlink" title="四、算法整体框架"></a>四、算法整体框架</h2><ol>
+<li><p><strong>暴力预处理</strong></p>
+<ul>
+<li>预处理 <code>D(n)</code> 和 <code>prefixS(n)</code> 到 <code>MAX = 1e6</code></li>
+</ul>
+</li>
+<li><p><strong>区间递归 + 记忆化</strong></p>
+<ul>
+<li>对大区间自动拆分到立方边界</li>
+</ul>
+</li>
+<li><strong>闭区间实现</strong></li>
+</ol>
+<hr>
+<h2 id="五、C-实现（完整，可直接用）"><a href="#五、C-实现（完整，可直接用）" class="headerlink" title="五、C++ 实现（完整，可直接用）"></a>五、C++ 实现（完整，可直接用）</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li><code>S(l,r)</code> 是 <strong>闭区间</strong></li>
+<li>自动处理到 (10^{17})</li>
+<li>使用 <code>unordered_map</code> 记忆化区间</li>
+</ul>
+<hr>
+<h3 id="✅-C-代码"><a href="#✅-C-代码" class="headerlink" title="✅ C++ 代码"></a>✅ C++ 代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">```cpp</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">using int64 = long long;</span><br><span class="line"></span><br><span class="line">/* ------------------ 参数 ------------------ */</span><br><span class="line"></span><br><span class="line">static const int64 PRE = 1000000; // 暴力预处理到 1e6</span><br><span class="line"></span><br><span class="line">/* ------------------ 全局变量 ------------------ */</span><br><span class="line"></span><br><span class="line">vector&lt;int&gt; D;          // D(n)</span><br><span class="line">vector&lt;int64&gt; prefS;    // 前缀和 S(1..n)</span><br><span class="line">unordered_map&lt;int64, int64&gt; memo; // 记忆化 S(1..n)</span><br><span class="line"></span><br><span class="line">/* ------------------ 工具函数 ------------------ */</span><br><span class="line"></span><br><span class="line">// 整数立方根 floor(cbrt(x))</span><br><span class="line">int64 icbrt(int64 x) &#123;</span><br><span class="line">    int64 c = pow((long double)x, 1.0L/3);</span><br><span class="line">    while ((c+1)*(c+1)*(c+1) &lt;= x) ++c;</span><br><span class="line">    while (c*c*c &gt; x) --c;</span><br><span class="line">    return c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* ------------------ 递归求 S(1..n) ------------------ */</span><br><span class="line"></span><br><span class="line">int64 solve_prefix(int64 n) &#123;</span><br><span class="line">    if (n &lt;= 0) return 0;</span><br><span class="line">    if (n &lt;= PRE) return prefS[n];</span><br><span class="line">    if (memo.count(n)) return memo[n];</span><br><span class="line"></span><br><span class="line">    int64 c = icbrt(n);</span><br><span class="line">    int64 c3 = c*c*c;</span><br><span class="line"></span><br><span class="line">    // 区间 [c^3, n]</span><br><span class="line">    int64 len = n - c3 + 1;</span><br><span class="line"></span><br><span class="line">    int64 res = 0;</span><br><span class="line">    // D(n) = 1 + D(n - c^3)</span><br><span class="line">    res += len;                          // 每个数 +1</span><br><span class="line">    res += solve_prefix(n - c3);         // 剩余部分</span><br><span class="line">    res += solve_prefix(c3 - 1);         // 前面的完整部分</span><br><span class="line"></span><br><span class="line">    memo[n] = res;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* ------------------ 闭区间 S(l,r) ------------------ */</span><br><span class="line"></span><br><span class="line">int64 S_interval(int64 l, int64 r) &#123;</span><br><span class="line">    if (l &gt; r) return 0;</span><br><span class="line">    return solve_prefix(r) - solve_prefix(l - 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* ------------------ 主程序 ------------------ */</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    ios::sync_with_stdio(false);</span><br><span class="line">    cin.tie(nullptr);</span><br><span class="line"></span><br><span class="line">    /* ---------- 预处理 D(n) ---------- */</span><br><span class="line"></span><br><span class="line">    D.assign(PRE + 1, 0);</span><br><span class="line">    prefS.assign(PRE + 1, 0);</span><br><span class="line"></span><br><span class="line">    for (int i = 1; i &lt;= PRE; ++i) &#123;</span><br><span class="line">        int c = icbrt(i);</span><br><span class="line">        D[i] = 1 + D[i - c*c*c];</span><br><span class="line">        prefS[i] = prefS[i-1] + D[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* ---------- 示例校验 ---------- */</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; &quot;S(100) = &quot; &lt;&lt; S_interval(1, 99) &lt;&lt; &quot;\n&quot;; // 应输出 512</span><br><span class="line"></span><br><span class="line">    /* ---------- 正式计算 ---------- */</span><br><span class="line"></span><br><span class="line">    int64 N = 100000000000000000LL; // 1e17</span><br><span class="line">    cout &lt;&lt; &quot;S(10^17) = &quot; &lt;&lt; S_interval(1, N-1) &lt;&lt; &quot;\n&quot;;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 六、复杂度分析</span><br><span class="line"></span><br><span class="line">* 递归深度：</span><br><span class="line">  [</span><br><span class="line">  O(\log \log N)</span><br><span class="line">  ]</span><br><span class="line">* 每个 `S(n)` 只算一次（记忆化）</span><br><span class="line">* **可轻松跑到 (10^&#123;17&#125;)**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 七、总结一句话</span><br><span class="line"></span><br><span class="line">&gt; 这是一个**立方数分层的递归计数问题**，</span><br><span class="line">&gt; 本质是「贪心立方分解项数的区间和」。</span><br><span class="line"></span><br><span class="line">如果你愿意，下一步我可以帮你：</span><br><span class="line"></span><br><span class="line">* 🚀 **进一步数学化（无递归）**</span><br><span class="line">* 🚀 **改成迭代写法**</span><br><span class="line">* 🚀 **解释为什么 `S(100)=512`**</span><br><span class="line"></span><br><span class="line">随时继续 👍</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

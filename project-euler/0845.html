@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="user1234567891011121314数字和为质数记D(n)为第n个各位数字和为质数的正整数。例如，D(61) &#x3D; 157，D(10^8) &#x3D; 403539364。求D(10^&#123;16&#125;)。我的思路:二分.首先发现数字再大,数字各位和是极其有限的.所以二分答案,对于这个答案计算&lt;每个质数在答案范围内得到数字的贡献&gt;,可以使用数位dp.这是一个很麻烦的dp,首先">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pe-0845">
+<meta property="og:url" content="https://narafluorine.github.io/project-euler/0845.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="user1234567891011121314数字和为质数记D(n)为第n个各位数字和为质数的正整数。例如，D(61) &#x3D; 157，D(10^8) &#x3D; 403539364。求D(10^&#123;16&#125;)。我的思路:二分.首先发现数字再大,数字各位和是极其有限的.所以二分答案,对于这个答案计算&lt;每个质数在答案范围内得到数字的贡献&gt;,可以使用数位dp.这是一个很麻烦的dp,首先">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
+<meta property="article:modified_time" content="2026-01-14T18:44:09.026Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>pe-0845</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 ">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a href="/tags/">标签</a></li><!--
+   --><!--
+     --><li><a href="/categories/">分类</a></li><!--
+   --><!--
+     --><li><a href="/search/">搜索</a></li><!--
+   --><!--
+     --><li><a href="/friends/">友链</a></li><!--
+   --><!--
+     --><li><a href="/QSL/">QSL</a></li><!--
+   -->
+    </ul>
+  </div>
+  <!--RSS-->
+  <!-- {%- if theme.sidebar_rss %}
+  <div class="">
+    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
+      <span class="icon">
+        <i class="{{ theme.sidebar_rss.icon }}"></i>
+      </span>
+      <span class="label">{{ theme.sidebar_rss.text }}</span>
+    </a>
+  </div>
+  {%- endif %} -->
+  <!--RSS-->
+</header>
+
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+
+  <div class="content" itemprop="articleBody">
+      
+          <h2 id="user"><a href="#user" class="headerlink" title="user"></a>user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">数字和为质数</span><br><span class="line">记D(n)为第n个各位数字和为质数的正整数。</span><br><span class="line">例如，D(61) = 157，D(10^8) = 403539364。</span><br><span class="line"></span><br><span class="line">求D(10^&#123;16&#125;)。</span><br><span class="line"></span><br><span class="line">我的思路:二分.</span><br><span class="line">首先发现数字再大,数字各位和是极其有限的.</span><br><span class="line">所以二分答案,对于这个答案计算&lt;每个质数在答案范围内得到数字的贡献&gt;,可以使用数位dp.</span><br><span class="line"></span><br><span class="line">这是一个很麻烦的dp,首先不能有前导0,其次是枚举的数字和必须是枚举的质数,最后是枚举的数字要小于答案.</span><br><span class="line"></span><br><span class="line">请给我c++代码实现,记得开int128,讲清楚数位dp部分是怎么写的(我不擅长数位dp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="gpt"><a href="#gpt" class="headerlink" title="gpt"></a>gpt</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">这是一个**典型但非常“硬”的数位 DP + 二分答案问题**，你的总体思路是**完全正确的**，而且已经站在“可解”的那一侧了 👍</span><br><span class="line">下面我会：</span><br><span class="line"></span><br><span class="line">1. **先把整体解法逻辑彻底理清**</span><br><span class="line">2. **一步一步讲清楚数位 DP 怎么设计（不跳步，尽量白话）**</span><br><span class="line">3. **给出一份完整、可直接跑的 C++（含 `__int128`）实现**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 一、问题重新表述（方便统一语言）</span><br><span class="line"></span><br><span class="line">* 定义：</span><br><span class="line">  ( D(n) ) = 第 ( n ) 个 **各位数字和为质数** 的正整数（按从小到大排序）</span><br><span class="line"></span><br><span class="line">* 要求：</span><br><span class="line">  求</span><br><span class="line">  [</span><br><span class="line">  D(10^&#123;16&#125;)</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、整体解法（你思路的“标准版”）</span><br><span class="line"></span><br><span class="line">### 1️⃣ 单调性 → 可以二分</span><br><span class="line"></span><br><span class="line">定义函数：</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">f(x) = #&#123; 1 \le k \le x \mid \text&#123;digit_sum&#125;(k) \text&#123; 是质数&#125; &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">显然：</span><br><span class="line"></span><br><span class="line">* ( f(x) ) 单调不减</span><br><span class="line">* 我们要找最小的 ( x )，使得</span><br><span class="line">  [</span><br><span class="line">  f(x) \ge 10^&#123;16&#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">➡ **标准二分答案**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 2️⃣ 核心难点：如何算 ( f(x) )</span><br><span class="line"></span><br><span class="line">这就是你说的那句：</span><br><span class="line"></span><br><span class="line">&gt; “对于这个答案计算 `&lt;每个质数在答案范围内得到数字的贡献&gt;`，可以使用数位 dp”</span><br><span class="line"></span><br><span class="line">完全正确 ✔</span><br><span class="line">我们要做的就是：</span><br><span class="line"></span><br><span class="line">&gt; **数位 DP：统计 ≤ x 的数中，数字和 = p（p 为质数）的个数**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 三、数位 DP 设计（重点讲解）</span><br><span class="line"></span><br><span class="line">### 1️⃣ 状态设计</span><br><span class="line"></span><br><span class="line">我们把 ( x ) 转成字符串 `s`，长度为 `len`</span><br><span class="line"></span><br><span class="line">定义 DP 状态：</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[pos][sum][tight][started]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">含义：</span><br><span class="line"></span><br><span class="line">| 维度        | 含义                    |</span><br><span class="line">| --------- | --------------------- |</span><br><span class="line">| `pos`     | 当前处理到第 pos 位（0-based） |</span><br><span class="line">| `sum`     | 当前已累积的各位数字和           |</span><br><span class="line">| `tight`   | 前缀是否仍与 x 相同（是否被上界限制）  |</span><br><span class="line">| `started` | 是否已经开始构造数字（避免前导 0）    |</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 2️⃣ 为什么一定要 `started`</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">数字 `000123` 在数位 DP 中：</span><br><span class="line"></span><br><span class="line">* 前面的 0 **不能计入数字和**</span><br><span class="line">* 否则 `123` 会被算成 `0+0+0+1+2+3`</span><br><span class="line"></span><br><span class="line">👉 `started = false` 表示：</span><br><span class="line"></span><br><span class="line">&gt; 目前还没遇到第一个非零数字</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 3️⃣ 转移逻辑（逐行解释）</span><br><span class="line"></span><br><span class="line">假设当前在 `pos`</span><br><span class="line"></span><br><span class="line">我们枚举当前位的数字 `d`：</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> up = tight ? s[pos] - <span class="string">&#x27;0&#x27;</span> : <span class="number">9</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">0</span>; d &lt;= up; d++) &#123;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 更新状态：</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_tight = tight &amp;&amp; (d == up)</span><br><span class="line">new_started = started || (d != <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 更新数字和：</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_sum = sum + (new_started ? d : <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; 如果还没 started（前导 0），digit sum 不变</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 4️⃣ 终止条件（pos == len）</span><br><span class="line"></span><br><span class="line">当所有位都处理完：</span><br><span class="line"></span><br><span class="line">* 必须 `started == true`（不能是 0）</span><br><span class="line">* `sum` 必须是 **质数**</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (started &amp;&amp; isPrime[sum]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">### 5️⃣ 数字和的上界（非常重要）</span><br><span class="line"></span><br><span class="line">* 最大 18 位</span><br><span class="line">* 每位最大 9</span><br><span class="line"></span><br><span class="line">[</span><br><span class="line">\text&#123;max sum&#125; = 18 \times 9 = 162</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">➡ 我们只需筛 **0～162 的质数**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 四、完整 C++ 实现（含 `__int128`）</span><br><span class="line"></span><br><span class="line">### ✅ 特点</span><br><span class="line"></span><br><span class="line">* 支持 `10^16` 级别二分</span><br><span class="line">* 使用 `__int128` 防止溢出</span><br><span class="line">* 数位 DP + 记忆化</span><br><span class="line">* 清晰、可复用</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 📌 完整代码</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> i128 = <span class="type">__int128_t</span>;</span><br><span class="line"><span class="keyword">using</span> u128 = <span class="type">__uint128_t</span>;</span><br><span class="line"></span><br><span class="line">string s;</span><br><span class="line">i128 dp[<span class="number">20</span>][<span class="number">170</span>][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line"><span class="type">bool</span> vis[<span class="number">20</span>][<span class="number">170</span>][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line"><span class="type">bool</span> isPrime[<span class="number">170</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> len;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数位 DP</span></span><br><span class="line"><span class="function">i128 <span class="title">dfs</span><span class="params">(<span class="type">int</span> pos, <span class="type">int</span> sum, <span class="type">bool</span> tight, <span class="type">bool</span> started)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pos == len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (started &amp;&amp; isPrime[sum]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (vis[pos][sum][tight][started])</span><br><span class="line">        <span class="keyword">return</span> dp[pos][sum][tight][started];</span><br><span class="line"></span><br><span class="line">    vis[pos][sum][tight][started] = <span class="literal">true</span>;</span><br><span class="line">    i128 &amp;res = dp[pos][sum][tight][started];</span><br><span class="line">    res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> up = tight ? (s[pos] - <span class="string">&#x27;0&#x27;</span>) : <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">0</span>; d &lt;= up; d++) &#123;</span><br><span class="line">        <span class="type">bool</span> n_started = started || (d != <span class="number">0</span>);</span><br><span class="line">        <span class="type">int</span> n_sum = sum + (n_started ? d : <span class="number">0</span>);</span><br><span class="line">        <span class="type">bool</span> n_tight = tight &amp;&amp; (d == up);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n_sum &lt;= <span class="number">162</span>)</span><br><span class="line">            res += <span class="built_in">dfs</span>(pos + <span class="number">1</span>, n_sum, n_tight, n_started);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 f(x)</span></span><br><span class="line"><span class="function">i128 <span class="title">count_good</span><span class="params">(i128 x)</span> </span>&#123;</span><br><span class="line">    s.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        s.<span class="built_in">push_back</span>(<span class="string">&#x27;0&#x27;</span> + (<span class="type">int</span>)(x % <span class="number">10</span>));</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (s.<span class="built_in">empty</span>()) s = <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">    len = s.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 筛质数（0～162）</span></span><br><span class="line">    <span class="built_in">memset</span>(isPrime, <span class="literal">true</span>, <span class="built_in">sizeof</span>(isPrime));</span><br><span class="line">    isPrime[<span class="number">0</span>] = isPrime[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= <span class="number">162</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (isPrime[i])</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i * i; j &lt;= <span class="number">162</span>; j += i)</span><br><span class="line">                isPrime[j] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    i128 target = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">16</span>; i++) target *= <span class="number">10</span>; <span class="comment">// 10^16</span></span><br><span class="line"></span><br><span class="line">    i128 L = <span class="number">1</span>, R = (i128)<span class="number">1e18</span>;</span><br><span class="line">    <span class="keyword">while</span> (L &lt; R) &#123;</span><br><span class="line">        i128 mid = (L + R) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">count_good</span>(mid) &gt;= target)</span><br><span class="line">            R = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            L = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出 __int128</span></span><br><span class="line">    string out;</span><br><span class="line">    i128 ans = L;</span><br><span class="line">    <span class="keyword">while</span> (ans &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        out.<span class="built_in">push_back</span>(<span class="string">&#x27;0&#x27;</span> + (<span class="type">int</span>)(ans % <span class="number">10</span>));</span><br><span class="line">        ans /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">reverse</span>(out.<span class="built_in">begin</span>(), out.<span class="built_in">end</span>());</span><br><span class="line">    cout &lt;&lt; out &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 五、复杂度 &amp; 可行性</span><br><span class="line"></span><br><span class="line">* 数位 DP 状态数：</span><br><span class="line">  [</span><br><span class="line">  20 \times 163 \times 2 \times 2 \approx 13,000</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">* 每次 `count_good(x)`：**极快**</span><br><span class="line"></span><br><span class="line">* 二分次数：≈ 60 次</span><br><span class="line"></span><br><span class="line">➡ **完全可在 1 秒内跑完**</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 六、总结一句话</span><br><span class="line"></span><br><span class="line">&gt; 这是一个**“二分 + 数位 DP 统计”的经典高阶问题**，你原本的思路已经非常接近标准解，只差把数位 DP 的状态和转移理顺。</span><br><span class="line"></span><br><span class="line">如果你愿意，下一步我可以帮你：</span><br><span class="line"></span><br><span class="line">* 把 `started` 的逻辑**进一步简化**</span><br><span class="line">* 或者改写成 **“枚举质数 → 每个质数单独 DP”** 的版本</span><br><span class="line">* 或教你一个**数位 DP 的通用模板心法**，以后见到就能直接套</span><br><span class="line"></span><br><span class="line">随时说 👍</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>这个题Flu思路对了,但是不会写数位dp,最后交给gpt了.<br>这个题先加杠杆,回头再看怎么实现的.</p>
+
+        
+  </div>
+</article>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

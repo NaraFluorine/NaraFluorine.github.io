@@ -1,0 +1,198 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>琪露诺计算器</title>
+    <style>
+        :root {
+            --primary-color: #4fc3f7;
+            --secondary-color: #e1f5fe;
+            --text-color: #0277bd;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 嵌入琪露诺背景图片，这里使用了一个占位链接，您可以替换为本地的琪露诺图片 */
+            background: linear-gradient(135deg, #b3e5fc 0%, #e1f5fe 100%), url('../../../../images/125611385_p0.jpg') no-repeat center center fixed;
+            background-blend-mode: overlay;
+            background-size: cover;
+            color: var(--text-color);
+        }
+
+        .calculator-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            color: #01579b;
+        }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-color);
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+        }
+
+        .result-box {
+            margin-top: 30px;
+            min-height: 80px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            border: 1px dashed var(--primary-color);
+            font-size: 1.5em;
+            word-wrap: break-word;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #0277bd;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            letter-spacing: 2px;
+        }
+
+        .cirno-icon {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <div class="cirno-icon">❄️ ⑨ 🧊️</div>
+        <h1>Cirno Calculator</h1>
+        <p>琪露诺是天才！！</p>
+
+        <div class="input-group">
+            <input type="text" id="numberInput" placeholder="⑨">
+        </div>
+
+        <div class="result-box" id="resultOutput">
+            琪露诺的算术教室开始了！！
+        </div>
+    </div>
+
+    <footer>
+        baka baka~
+    </footer>
+
+    <script>
+        function getCirnoExpr(n) {
+            if (n === 0) return '⑨-⑨';
+            if (n < 0) return '-(' + getCirnoExpr(-n) + ')';
+
+            // 基础情况：1到9的⑨表示法
+            const base = {
+                1: '⑨/⑨',
+                2: '(⑨+⑨)/⑨',
+                3: '√⑨',
+                4: '(⑨+⑨+⑨+⑨)/⑨',
+                5: '(⑨+⑨+⑨+⑨+⑨)/⑨',
+                6: '⑨-√⑨',
+                7: '⑨-(⑨+⑨)/⑨',
+                8: '⑨-⑨/⑨',
+                9: '⑨'
+            };
+
+            if (n <= 9) return base[n];
+
+            // 对于大于9的数字，使用除以9的商和余数来递归构建
+            let q = Math.floor(n / 9);
+            let r = n % 9;
+
+            if (r === 0) {
+                let qExpr = getCirnoExpr(q);
+                if (qExpr !== '⑨') {
+                    return '(' + qExpr + ')*⑨';
+                }
+                return '⑨*⑨';
+            } else if (r <= 4) {
+                let mainExpr = getCirnoExpr(n - r);
+                return mainExpr + '+' + base[r];
+            } else {
+                let mainExpr = getCirnoExpr(n + (9 - r));
+                return mainExpr + '-' + base[9 - r];
+            }
+        }
+
+        function calculate() {
+            const inputVal = document.getElementById('numberInput').value;
+            const outputBox = document.getElementById('resultOutput');
+
+            if (inputVal === '' || inputVal === '-') {
+                outputBox.innerHTML = '等待输入...';
+                return;
+            }
+
+            const num = parseInt(inputVal, 10);
+
+            if (isNaN(num)) {
+                outputBox.innerHTML = '<span style="color: #d32f2f;">只能输入整数哦！</span>';
+                return;
+            }
+
+            if (num > 10000 || num < -10000) {
+                outputBox.innerHTML = '<img src="../../../../images/looking.webp" alt="琪露诺懵了" style="max-width: 100%; border-radius: 10px;">';
+                return;
+            }
+
+            const result = getCirnoExpr(num);
+            outputBox.textContent = result;
+        }
+
+        // 监听输入，即时计算并过滤非数字字符
+        document.getElementById('numberInput').addEventListener('input', function (e) {
+            // 过滤掉非数字字符，但允许第一个字符是负号
+            let val = this.value;
+            val = val.replace(/(?!^-)[^0-9]/g, '');
+            this.value = val;
+
+            calculate();
+        });
+    </script>
+
+</body>
+</html>

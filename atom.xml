@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NaraFluorine&#39;s blog</title>
+  
+  <subtitle>Satellite Over the Sky</subtitle>
+  <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://narafluorine.github.io/"/>
+  <updated>2026-07-28T14:39:29.737Z</updated>
+  <id>https://narafluorine.github.io/</id>
+  
+  <author>
+    <name>Florin Wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分块加密插件</title>
+    <link href="https://narafluorine.github.io/2026/07/28/40012_Crack_Myself/"/>
+    <id>https://narafluorine.github.io/2026/07/28/40012_Crack_Myself/</id>
+    <published>2026-07-28T09:07:20.000Z</published>
+    <updated>2026-07-28T14:39:29.737Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h1&gt;&lt;p&gt;Fluu做了一个爆破 &lt;code&gt;hexo-blog-encrypt&lt;/code&gt; 插件密码的工具,对于使用 &lt;code&gt;hexo-blog</summary>
+      
+    
+    
+    
+    <category term="ACM" scheme="https://narafluorine.github.io/categories/ACM/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI论文略读</title>
+    <link href="https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"/>
+    <id>https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/</id>
+    <published>2026-07-22T03:04:30.000Z</published>
+    <updated>2026-07-27T03:17:22.807Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;注意-下文含有较多AI生成内容&quot;&gt;&lt;a href=&quot;#注意-下文含有较多AI生成内容&quot; class=&quot;headerlink&quot; title=&quot;注意:下文含有较多AI生成内容.&quot;&gt;&lt;/a&gt;注意:下文含有较多AI生成内容.&lt;/h2&gt;&lt;h1 id=&quot;2604-02721-</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MISC-ASCII Art</title>
+    <link href="https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/"/>
+    <id>https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/</id>
+    <published>2026-07-19T16:16:20.000Z</published>
+    <updated>2026-07-28T15:32:19.781Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;请填补下面的数列,你可能要参考下面的提示:&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模型部署</title>
+    <link href="https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
+    <id>https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/</id>
+    <published>2026-07-15T00:18:20.000Z</published>
+    <updated>2026-07-27T01:57:57.252Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;玩了玩vllm,然后炸了.&lt;/p&gt;
+&lt;h2 id=&quot;vllm&quot;&gt;&lt;a href=&quot;#vllm&quot; class=&quot;headerlink&quot; title=&quot;vllm&quot;&gt;&lt;/a&gt;vllm&lt;/h2&gt;&lt;p&gt;vllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    <id>https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
+    <published>2026-06-27T01:54:30.000Z</published>
+    <updated>2026-07-28T15:43:24.425Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;课程30平时70考试,线下闭卷,应该是大三下唯一一门考试的课了.&lt;/p&gt;
+&lt;h2 id=&quot;平时&quot;&gt;&lt;a href=&quot;#平时&quot; class=&quot;headerlink&quot; title=&quot;平时&quot;&gt;&lt;/a&gt;平时&lt;/h2&gt;&lt;p&gt;10 课程分&lt;br&gt;10 大作业(写一个小编译器,网上有一堆</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈token与算力合约</title>
+    <link href="https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"/>
+    <id>https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/</id>
+    <published>2026-06-04T05:53:10.000Z</published>
+    <updated>2026-06-07T17:19:21.769Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.&lt;br&gt;而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通?&lt;/p&gt;
+&lt;p&gt;那么首先这个观点的正式来源是这篇文章:&lt;a h</summary>
+      
+    
+    
+    
+    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据抽取与融合 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/</id>
+    <published>2026-05-29T01:55:20.000Z</published>
+    <updated>2026-05-29T01:57:07.547Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;挖坑.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Software Architecture(SA)学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
+    <published>2026-05-29T01:53:25.000Z</published>
+    <updated>2026-05-29T01:54:03.020Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这个课不是很熟,典中典之结组,典中典之交报告.&lt;br&gt;报告也是别人写的,Fluu在上这个课的时候在小马上班呢,自始至终都没见过老师,这个课就结束了.&lt;/p&gt;
+&lt;p&gt;印象中这个课会上一周,好像还会有外教?&lt;br&gt;然后每天固定点有能用题库搜出来的作业,以及一个签到,肯定走同学签</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件质量保证与测试</title>
+    <link href="https://narafluorine.github.io/2026/05/29/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
+    <id>https://narafluorine.github.io/2026/05/29/00027_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95/</id>
+    <published>2026-05-29T01:52:14.000Z</published>
+    <updated>2026-05-29T01:53:16.295Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;NPC课程,最后做一个大作业?&lt;/p&gt;
+&lt;p&gt;挖坑.&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件项目管理 组合数学 学习笔记</title>
+    <link href="https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    <id>https://narafluorine.github.io/2026/05/27/00024_%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86_%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</id>
+    <published>2026-05-27T13:38:30.000Z</published>
+    <updated>2026-07-03T11:59:37.605Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;授课老师是冯子玹,正常和抽象参半的老师.&lt;/p&gt;
+&lt;p&gt;抽象:&lt;br&gt;这个老师采用逆天的上座签到机制,老师会在下课的时候亲自到座位上挨个让同学报学号,也就是彻底断绝了代课之外的一切签到手段了.&lt;br&gt;这个老师极度厌恶AI,会出持续时间非常短的测试题,美其名曰”让同学们来不及</summary>
+      
+    
+    
+    
+    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
+    
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+  </entry>
+  
+</feed>

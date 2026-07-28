@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,屏幕上还有点会被鼠标吸住,页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面. 这个页面展示的是鼠标单击的效果,单击的时候会想放烟花一样绽开很多粒子,ref.        &#x2F;&#x2F; 鼠标点击粒子效果脚本 (function() {     &#39;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站效果 - 鼠标单击1">
+<meta property="og:url" content="https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,屏幕上还有点会被鼠标吸住,页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面. 这个页面展示的是鼠标单击的效果,单击的时候会想放烟花一样绽开很多粒子,ref.        &#x2F;&#x2F; 鼠标点击粒子效果脚本 (function() {     &#39;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-11T12:24:34.000Z">
+<meta property="article:modified_time" content="2026-07-28T08:14:48.872Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>网站效果 - 鼠标单击1</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/12/01/30000_Markov_Algorithm_Online/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/09/14/20018_SpiritCTF_2025_wp/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&text=网站效果 - 鼠标单击1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&is_video=false&description=网站效果 - 鼠标单击1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网站效果 - 鼠标单击1&body=Check out this article: https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&name=网站效果 - 鼠标单击1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&t=网站效果 - 鼠标单击1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        网站效果 - 鼠标单击1
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-11-11T12:24:34.000Z" class="dt-published" itemprop="datePublished">2024-11-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/OTH/">OTH</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>想使用js创建一系列展示技术力的页面,但是众所周知,一个网站又有看板娘,鼠标点击会有华丽特效,屏幕上还有点会被鼠标吸住,页面概述会在切换页面变一个,…,种种特效让博客很卡,实际浏览体验很差,所以Flu打算把这些华丽特效拆开放在不同的页面.</p>
+<p>这个页面展示的是鼠标单击的效果,单击的时候会想放烟花一样绽开很多粒子,<a target="_blank" rel="noopener" href="https://www.cnblogs.com/gonghr">ref</a>.</p>
+<div style="height: 80vh;"></div>
+
+
+
+
+<!-- 鼠标点击粒子效果 -->
+<script>
+// 鼠标点击粒子效果脚本
+(function() {
+    'use strict';
+
+    // 配置参数
+    const config = {
+        enable: true,                 // 是否启用
+        colors: ["#eb125f", "#6eff8a", "#6386ff", "#f9f383"], // 粒子颜色
+        size: 30,                     // 粒子大小
+        maxCount: 30,                 // 最大粒子数量
+        duration: 300                 // 动画持续时间(ms)
+    };
+
+    // 如果不启用则直接返回
+    if (!config.enable) return;
+
+    // ColorBall类 - 负责管理粒子效果
+    class ColorBall {
+        constructor(options = {}) {
+            this.params = {
+                colors: config.colors,
+                size: config.size,
+                maxCount: config.maxCount,
+                ...options
+            };
+        }
+
+        // 随机选择颜色
+        getRandomColor() {
+            return this.params.colors[Math.floor(Math.random() * this.params.colors.length)];
+        }
+
+        // 移除粒子
+        removeParticles(particles) {
+            setTimeout(() => {
+                for (let i = 0; i < particles.length; i++) {
+                    if (particles[i] && particles[i].parentNode) {
+                        document.body.removeChild(particles[i]);
+                    }
+                }
+            }, 1000);
+        }
+
+        // 应用动画
+        applyAnimation(particle) {
+            const randomX = Math.random() > 0.5;
+            const randomY = Math.random() > 0.5;
+            let offsetX = parseInt(160 * Math.random());
+            let offsetY = parseInt(160 * Math.random());
+
+            if (randomX) offsetX *= -1;
+            if (randomY) offsetY *= -1;
+
+            const transform = `translate3d(${offsetX}px, ${offsetY}px, 0) scale(0)`;
+
+            // 跨浏览器兼容性设置
+            particle.style.webkitTransform = transform;
+            particle.style.MozTransform = transform;
+            particle.style.msTransform = transform;
+            particle.style.OTransform = transform;
+            particle.style.transform = transform;
+        }
+
+        // 创建并发射粒子
+        fly(x, y, intensity = 1) {
+            const particles = [];
+            const fragment = document.createDocumentFragment();
+            let particleCount = this.params.maxCount;
+
+            // 根据点击强度调整粒子数量
+            if (intensity) {
+                particleCount *= intensity;
+            }
+
+            let loop = 0;
+
+            // 创建粒子
+            for (let i = 0; i < particleCount; i++) {
+                const currentLoop = parseInt(i / this.params.maxCount);
+                const particle = document.createElement('div');
+
+                // 设置粒子样式
+                particle.className = `color-ball ball-loop-${currentLoop}`;
+                particle.style.cssText = `
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: ${this.params.size}px;
+                    height: ${this.params.size}px;
+                    position: fixed;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    z-index: 9999;
+                    opacity: ${currentLoop === 0 ? 1 : 0};
+                    transform: translate3d(0px, 0px, 0px) scale(1);
+                    transition: transform 0.7s ${currentLoop * config.duration / 1000}s ease-out;
+                    background-color: ${this.getRandomColor()};
+                    pointer-events: none;
+                `;
+
+                fragment.appendChild(particle);
+                particles.push(particle);
+
+                // 处理粒子循环组
+                if (currentLoop !== loop) {
+                    setTimeout(() => {
+                        const elements = document.getElementsByClassName(`ball-loop-${currentLoop}`);
+                        for (let j = 0; j < elements.length; j++) {
+                            elements[j].style.opacity = 1;
+                        }
+                        if (currentLoop === loop) {
+                            this.removeParticles(particles);
+                        }
+                    }, currentLoop * config.duration + 30);
+
+                    loop = currentLoop;
+                }
+            }
+
+            // 添加到文档
+            document.body.appendChild(fragment);
+
+            // 如果没有强度参数，直接移除粒子
+            if (!intensity) {
+                this.removeParticles(particles);
+            }
+
+            // 应用动画
+            setTimeout(() => {
+                for (let i = 0; i < particles.length; i++) {
+                    this.applyAnimation(particles[i]);
+                }
+            }, 10);
+        }
+    }
+
+    // 初始化效果
+    function initClickEffect() {
+        const colorBall = new ColorBall();
+
+        // 添加点击事件监听
+        document.addEventListener('click', function(event) {
+            colorBall.fly(event.clientX, event.clientY);
+        });
+
+        // 可选：添加触摸事件支持（移动端）
+        document.addEventListener('touchstart', function(event) {
+            const touch = event.touches[0];
+            colorBall.fly(touch.clientX, touch.clientY, 0.5); // 移动端强度减半
+        });
+
+        console.log('🎉 鼠标点击粒子效果已启用！');
+    }
+
+    // 页面加载完成后初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initClickEffect);
+    } else {
+        initClickEffect();
+    }
+
+})();
+</script>
+
+<style>
+/* 粒子效果CSS */
+.color-ball {
+    /* 基础样式在JS中动态设置 */
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+/* 优化动画性能 */
+.color-ball {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+}
+
+/* 防止粒子被其他元素遮挡 */
+.color-ball {
+    z-index: 999999 !important;
+}
+</style>
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&text=网站效果 - 鼠标单击1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&is_video=false&description=网站效果 - 鼠标单击1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=网站效果 - 鼠标单击1&body=Check out this article: https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&title=网站效果 - 鼠标单击1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&name=网站效果 - 鼠标单击1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2024/11/11/40000_%E9%BC%A0%E6%A0%87%E5%8D%95%E5%87%BB1/&t=网站效果 - 鼠标单击1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

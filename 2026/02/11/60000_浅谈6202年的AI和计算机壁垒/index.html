@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="这里有东西被加密了.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈6202年的AI与计算机围城">
+<meta property="og:url" content="https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="这里有东西被加密了.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-11T14:27:59.000Z">
+<meta property="article:modified_time" content="2026-05-08T23:53:20.817Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="论断筒">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>浅谈6202年的AI与计算机围城</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/02/13/40004_%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E6%A3%80%E6%9F%A5/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/02/10/60007_%E5%85%B3%E4%BA%8E%E5%BB%BA%E7%AB%99/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&text=浅谈6202年的AI与计算机围城"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&is_video=false&description=浅谈6202年的AI与计算机围城"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈6202年的AI与计算机围城&body=Check out this article: https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&name=浅谈6202年的AI与计算机围城&description=这里有东西被加密了."><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&t=浅谈6202年的AI与计算机围城"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        浅谈6202年的AI与计算机围城
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-02-11T14:27:59.000Z" class="dt-published" itemprop="datePublished">2026-02-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/LIVE/">LIVE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/" rel="tag">论断筒</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="fe2b153044a1473d6fa92499d17ecf3d8a7c429768a16b9f94369c77ff2d67a2" data-nonce="818ac95ba459f18a0ba89c66" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">c26751b7692fbc4a1cd7733a3d89165f0de8d353067e3bcd18ad8529ee4d8f6268124431ab946168e6e1b3fded41b57581470fb82729d41e6c763abe55519ec46aec6dcdf9e636fae60b55e6cec8ffb48c36414c11cc500d2f444c58cc2acae8511acbd6eefc4a5b0600243138945c8312f3c6c6c4269cd181f9517f0efb5e69301448b097a84e3c4fd42686148af5737b9ac3fe51406799ebb710c2ad3c60dbcfbaaf9c220f2d1c1a322a8aac2b210fbac7e64f644ce7d627203c6e58d0d7891d6cdf04ecaa4c4e37cb3e98ffc4f2274556bd996e0fc80b2e7e44043194fbf39e364e4b9ffa2caaa589675d46857495f625b680282d8c6855ba809b0b5ca8ef6334d97c6a24ee3d5f31a79412e4b1d41551132efd16b3a3e7866253406b9f13c7f7cd1bd36a73433d2c952dc3297b1fb17bd90879338cedc41113ab98864497ff38bb4709f3ba7eea32f28aa42a8e5b89ea9a32406565558ffbc45c7a946871bf1a03ae28bc1fa10abe826e125742d03ad8ad7b6077606ed9fc7c598d7b09fdc509314a401000ace2ed2b8b56f6df2f56bf4b543010dbfc7a569c7dce88fe47620eef4f91312094f5a469039465fb2f98e23c87a4c225b4032fc28a6e0de55941fbf360cffbb25fe1e23431812dacf41dfb1150a8edb62189cc5523f0c30c468d1953285ba0735032b7dcb79fce6964bde5aaef28a0b8112ab92fa56bf3ddc65f631143aae6cb13542100798b8a46fd0797f3855eb61d7753937544c2f9e08a988c5b26a5c72271659c6de89383637bf86a99e429cf89be6c750060395923fe546515788ef3a22161b7ba3be609673778b37d8580bd01d575999c5dac15ab8ef0b718559dc9933e1fc53cd95660e1402ce41e4ef5a6b98ebb4a0200981b78a9f3f2509f2644b24d69dbf8d3f3b3a37c85ffc4a61944d217dc13c445b73e364f1f02380d692278b60a4d612c7e9e950f89b051dbe03e73cd75844bdc399c1957a4721c26ee86c7edcf255c7c6a7363a26cfa090ee4043901b88df08eaae68ef5b380c50bc75572447b1b03558b386149d38554c34829dc45eab6c3863de3611d1f0a4cf24497a9f5b29c00bf30a6f2c3aee154fdb289b6f9d50a8a0fc1a789a2193d2e33d11878c2dee82b02859b783433076082f805d6fcc96219de45f3c89304cf4fb7f4f92a2b54beae57fd5ffa0c01e126e42ed5716a8d56c9a0c54eccd020884f712c9d27fe68bafc51e7395e659a9023ad800cd3c6418dd51e963227d7b221268a6a89c63469ee5c86663ab6d2112fd49e00e61aa4a231b530750a5ef53b51a5326a65d18a2978eca0b6d7e5f6ad95ddfb666eb947866460a82243988e49085a444c55f04ba8fc11216a45b1a413d2cf185aacba60987f0416ebf13390408f28c3087f9bd60f18179056aa0ceb7e43391f536edf642f9e02f4f0840a75d4c541b83ca0388bfe85252a8833f37c2422492f201add3e52a0bdb02c64ff249ffe20f4deb7f011dd8ebec2c810b08baab5a986a1837b5e2ec4b3937533550d5835575ced51ad30472a21849cb55158d94ba3eb59784c4aa4466d404977feca32047e1299207f2535bb4840603bb5555252f2a2d9f026c4efb1ab632590a9a62bb0fe34f1d31bfdece579a0b81397d50ee68f42436627980a7718a516b61f33105cbde73d0d57abb62f107087ac5f282ad3f0387ebc548267fb1c154f9605e29136d2c47ddb146bb9e985763b6f5d1bc8c18021eb9c3bc7570f1b226811c4c70dd096fe5b9e36f9c7cc5d802c9efb1daa94811730ac0335a2b69d8f115ea9e7114d8aa76e6b6feff7ae8034824c575f26ed07b8b58196c3ab44f33b655417af29db5916f437660225e84e535c5e64861609195dbc58c0585b176ca49f3197163257ad112dd0506837a7215d88b5796a4378d12561272a41e7e0e195a85f3cd4d9352beaf48b7fb465b836845f10b6e699dcee58b17a718c1802d45d0fe5aa8c0d01779039c58ef46b8fd47f7b4fe97e1f2c34370708497f8f4a0d279e56c855277ed4974e97525fde6c3c2e51d18c4cecb57028c68c06d838dca471f466a14cf31c602cf4290d582dd9a44c950ae521a1403bb88d6e8ee38dfc044ad722c82c6e88c00ef3b2a539bded8e3151d41a7396900871e6fac0820374c4809aaea42ca48def22dd7cd3c161ce5fc175526b57f73a318f59aa8829c821a3bab45859e17c605b9fc4daf3fb2a48598221e8c16d0f2326296bcb1d48479932d1fa5855ea2e35f7402c048ff60ad2f5e647fac6c223cfcf09dcfbe782b29d5623604cd86e829302a2047a329b99518eec52ce2a04097aba524b69808b7ef73ac5f64f4831dd5a7e6dd4d7214e12a05f264db2059c0b5e99b832886b4f644c1f87f28d1dca0bd23c2570f349a02939403a66b1be97441ede27d5d5c4f4248c3b801f899f7a662ee581d391e279a4237acfea70c7facf2749a29117d43eefddc26f45d38171fefb1a1e5d7d3eaf62fdf6f508d8cb9090adb5ec446d84dab58996e9ff8cd1a594ab3872a650f7db88b4b73a1021342c568c93608edfb5705db3ea9c14b9ab1c450a6e6ee6efbc4ee7cd7d0aa6bb8579249fbcad167d37dbf7c182ff572affead915e5581aaea90315be5af84d921777f5e13d78225f1f0845936265ca3c6f1e0e996d6dc8b881d63d834dfb8dc4ef1deb2cd5f068b7ff4c0c8255c776fb278d945f1cce78979d23088aeb295681b9340c4ed4ebf8dcf7253718d74cc64b64a6054b6356318933998799ef43e1c1efade1e96b9f48e814d4c69a0d7863d8a4b994d6ae22596ba83f5186d8305324cfc4ddf754bcde48545bdfdbebc6f10abbe90bb0e68b1648b23ad7b0f548120db4b4fabeb5c813b3090fb0cf8d1c3e0aced5ec25017256064d8c26e4f2467aaede3ec9e841d4fa2700927b1d0242da8864e0649c182dafd33f7833345c7ca287e7c57c002f1da5dd6528bdf1afb1e407bf7e06481e78d68bbe293a19731d1da08dbe76a8c8b8a26fa5df374876c893947e6f85d37b65c16cda13d9852c1a574d1d1b8c36fca6595a03de0a0a9ed0ab1947edf7a50e4b88dbab2968e0f7225ba7a614de318fad75f81759a25fea37b43bcd0f0d5682720455279c4b8051711b9bfe13bee73ae0a9c5bbbb5d02818bad8c8bdb1d9a73ce323443a21f898cdaddf7da3cac2518193b69a0b7df32f1603669db4fe4530f8919771143433878a3de384409be90a8287cdeec547fdd426167ea492d0e9638356fee94ac92367e4902c75b74692198730849322d11c86b268480d79ae8defca419c7398e4529cde9d9a79f0e672db71b86647f8aaef4217ee575d399708e699051218eb2b39b1d984a288f0f6bc5b2e35eb2fce60bba7fb04ae9b19eebc4dbf2a304b5afe45cd5f088893d9c3a3670db3aa58759c0b0596976ef2efb4a99162a34e1dcbe23c034b92f1b6505d9b7c10863765aa818a8c5df5e31a38edccd6049c1da1222a72df4f88669b3805c6085b953fbb0d528b40cabbc1fc07acc364e2f74ea8ede4cd7f19a081df14b36f3093a7fb0e47a335c16866d431cdbda4b5360a1044fe0df121895bf400eb454477b2d8536d950d15f63f1a4d8811a5030f9ef0c5974367fca04cd6bd71094c62f850319d6a79b1f3029a690c273efd1aa3752295045e4b4193118a29b8f96fb88446abafdb3365871ebf583906aab126d2a36b84f9ee76fee6ceb7f98d985c0b95b3c905f33eb238d4a75c80482ebca3f90b561c721147d52bfa510168a8246ffec9b5136472d56b8423fae56078c97c16f8ba2747549a988a49b2026cc623819c8b9cdda35136bca1ab45d7162994c8a3fa2c7b8b6f6acbdc658f8ba4e855e8c2bf749558715175817e88a4f0374d983f578b22e45e2b0008308363b8eca12053adce3ab8cfc4c42988ee271fcadf850be167e3e6c304e6ee04c4903778681031f2784b28288aadbdaef5c4fd96c4b022c34f5120fb932debb7e63e56a08fee6e1173b611be1ffbc577956efc490b64438734e474ac0f35aed7420168c079584540755159ef330365fb8cd294a722edae578dc9e365e02b63e6884688f85a1904af7c0430fe79807de409b8befa1b42e8afb20d05788ba0e46c3cbec01bcac58eb31e66353e9f14c5f62a943bfaabd370672945a8425bde372144a03560deb86ebc0a2692c5b59cf74b2910a344b8a05e6066f0167106e4484e453474edd38b3a7a5dc602707ed3433030bca810e6146ab1cfe9e1b83691d04fc62e2331b632e87a8b778489719e0a030303e13102ead99369f810251c65b8cbc4e8c977707084b855d4af61d4c4e31d42e813dcc2dc2548a330c6e0eec2e23df5db268e30d4ea517cd1e76b32a20fe4e1a417188805b30b21193d3769c2f1d857e73cf157a70385772c1bfb4809af65f6abd2ad6accbfc6a1cfbcdfe327b4d2954b7c9ca089aef2ae8c47e0ace6fd37150ce896af6be949e13dfd4824f4528ccdd140587a3ccf13ea176a0fc6add67118417ac87ee364a013f64b7495e9780a506f435882fb6103c0a38cff0f3cee6da03b64c48e605d8f87811bf8ea43920167140f086f6d6a5ddeccf137f4986380e12141439098b0fb0aec9d9e06d9f9043aa08212c667b96e96dc7e6cd402ef100068cc2e90586bc56f196d4fb81ac10669c61c012110402dbe3602a7964c2651cc344607832885f0c27484ebd7fb61491006ce991c2b29767fa75824694727e858a9190f4ccc4989dd0940e366cbd87bfb6029dd82700f34d495052792098b3e35797a495000cf780635044e653f3c75e98a10d86f98b480526770adf8064f2fccbf319e249f10b97a5713d057bef20ce899bac2020a2ec1fb74f2cef7544a7ea0ebd3ca07b2a57ea14cc58974fbe1d6537f078a3896d172d6667a8f23f603b5a6d0684c377e6602f672bc02ed74ae3e2309ebc26258a7cb3e4ccbe937b1c4b9df9010d5dd1f4cebb3a4cab5e9297a552108f31ce6bfac5af53cbf1b967623de73b834b68d32d8fd9c092b69aad921f2b773a947f7cc5a1241439b176e5bdde426e923b7976be2684910ad7f98dc7d0205332538a0b7f708a39d8861373c253edc6cb89a5c9faa33b304e2ade4274ebaf583f8fc3df5049dcd67a0e2f100617f3ca347182a96defdb6aebafdfd04dcda72252a2f7a4c736744dcdebe84b87497575a8f18af82c0e5afbeae19c5422826b82e96dd90a00de24b88e2adf4ad675426d616fb3c473a0f55b54a8e93f7a810b2c579be6d5773303667595d8c00f06df1f5b40c84077ab52e957f24714471d5d03ed19912aba52ad6d90f6b7377c57838b51a1c0b08642425eb04fe630807bcc5a719a8b1910d2933872df81a9a9115852a96c69fb6f2c5ea632dad6540c7b52e80ade9743426c6ff8c489a1035ee7e32fae25955e41a1f1ac57a2e8a19b082d095a7dfb287f62d6e17999d7458165b1183c12a09831749c31a8a75fe2016d14bcfdf861f0e5ce12d678e80a0c83dba8f8a901b09fe7af673420cebea54cd2274b5a6fb01d7074e4356a2305450b5c6ed30e1c52044c61bbf37313c962d4f50de84eb4339081f423fd049f102dfcae90f02901a40c453935d4934de0806b4fd8f230b1aa6c95d41932159aba92984aed2dea31054c6c9c7a32b305e335878a25d308387e40299f172ac45a5438bd0406b768dd8edbc1a576c3247b5511e43889eb476042666007a0ce3ae1ec66de0e239bbc2ca287bcb9cb62226d12479b79d12669c09fe66233783b781073f1568d6b49ad28a0bee779d9f6c094b4c52502ebc67df178733ae57ae352ed8aa126f03fd583077fd2733e12eb78021bd376e5e66f1ad8a416abda719b707bca865143df6abdeb9c456164ddd1a1a79f2eb178a08f6571b99e4f0c0d0a57557626832216729a2b2fe94875cb555a47b194b781776def1061179c30a460591882b55aa932968f452b2c4f8415142c387fdc0844d9fd6233d9deb758ccd249adfd4c70a06bc8c49f9bc6d375519568518a78a41b6ecfd42b9cd0a659ffb7f8935d50866518304b9d796c5fa0d133dc460b17d15b29672d959459e8d0da3212cbf8d9185b665566758d329756c709e52834a31b96c332ae3ef1f993561e1b90188aef737e380fb6f35d8459ada3861f1ee980ec507ac43beec103ad1dc543abc02c84ecd86dbe02c94596a1139c21ee190ccf5625f9cf58dee35b1c27ea92aa8c33da26629d6a88c29cb81669d28d9a10ce1a035f64a1a6522780eed3e3f7eb7e8fe4388c30ca3ca5bed23446660ccff19d801dc1459b50ceebc703b3f8eff553ce6ecebb5d3f81f8a79cbde1aed60af320e52ed09722a2efb6cf2697e84ca4172629151bc1b0ade60149425b592aed00aee4a5587e063af0767749024a2ceeaa7e32ba2b5f5ed691eee037a9c59ad4dd27eb32fc91f459427efd1440f34b904bbfd78743143c2e5316b9a967ff352ab7bf07553a48f2e7c72b6942df3536876702dcda5ae45e567c13e5cab66533684ee38a83ee16e12b02c17f533e7954221227c8181fef5af1d72d2e50b3f54e84a81d5a89499fed1b19a471d84045af7862ff5e241f65751b9b8e87103f1c6fd7990853c293084d5ac08d44bfa968c6e2afe984559757d79d2ad312f4ace8809c91bc56debf190ed3ff2dfb5227adbc6ca262f9cd6db216299cdffb34cf7efb48334a690284c61dec4de879ef598cce3ed80c32c93f89c8e7c6039fbd3afb6c581295be73c940df3ff8656329db71cf336bb57c9d40980f30ca1ae5767cd7435648eb190dc0b0461a0b9d42918db34ce5396fffa61ac95e992751ccccf068ef9d3dfafa757ffc721b8c2e3c1fac209cb854f64ccb420a7ff3a1cb962b5c1fe7106489a764ecad5348f64df9f8536527e86f4e85b57b6550896391df7063ded4ead358d1e343c8b6940258854c92e6259311fa5e45dc668b097357a4048f181c3c447e2d8149098bb73fce8d65cd8f73dfad49e147f8b74c9c96b1bacafc1a27ec1fe1ff516009dead9690be69add805fa96a62a8bddb896e43084641a5bca2b81aeb9794100ec081f3340918e3b0788d18222adf6bbf6808a71d3c8c1585dc55de90fb507ff609b01d9f6fbecb86ceb90f28070d86cc40374f7fec43c3c8c9fbff08aaf8344241fab6ee80e1e9781444cd411ec260b2d964a9187c9a4adb01bfd18c06770cb911c6b0b6c7c0397bf87a27e9cdddd92dc9ff91acc26ca7f92428095075708bc63df0f4ef1c4b5039ee7c44b989d78a95b9b1fa7fdb9c830d97c7192a8e538602c4b74a462c9f49fae4a60a0247b02c7886c2ea10a1db61dfd09e748d3cd49bfe8eac8a3a3bf6910a9bca6bd48d3f827665a5e98d9be27b1c4a34ee8f8830ce89eb88862a46294f3247877928fe37a81a60dd38436a2cd458815d743edf7d5dcdf2d37db1b379e0f9bdc1e6c238e82f53715bec395e2573e537be15ae50c81d2f1e0f56cdf1f93cbc192172bcae497aa2be00f131970a8ba2f91b57984d379fb418c94d251f9147388e50c9f1db923ffb67ceb6f1760739369ebbdb227985e455f295844c6b8a125833ea0941709b42a91c558e929be33a9cc2c59c23d29fddd6fe54067b8c5a11f47f109ee4e6e807504b04a445fee15bf78a016ff5a2563f0a0024b757b2a9df4b3af1cea52629876f727af00604b0ffe9423ff50bc41724ed2f6e6a4066682f96a9e25188f31ca8b35c72f1e1a90b73ce1cdd0fd599eb3460a0cad0b7f65e457ebd5b4508b91de71d3da0c53c7829748ee9a285c5c5b261984501eb886741070aab709a3a1982fcb18e1832f4093838885e6081d7893a04b44ef29badf48eb417b3ccc01a5eb515ef7d0fb8659975eeb81439e9fc78260cb972be882bc7e8010edb7cd789c8e7429bdff49a2a7a0775cbbcc4340699080e9000abba903a30a693af32c31cf31a0d15ac01d37610e5ae1d58e2d3fa9142178df822d7d3942bd70970240efad706201bf9ee21906117f0e9dbe2f0e316bec19b49ba467dc1fe2b4198fd15018297cc4f5eb78cf88e0809e3edb2a04f61b927be7a4495cd0d17a14855836b9aa15722342bdfeb36f5c22ce49fdb1f30affc52038b86f6e80451e75d1126cad8f8d986cf998282edd106cc5c74c3cd86e08b4deb90259660a96d4d378d3c0070b907b53103c168fc1eb94dbcfd47ec24cba4305ea01d7e32b7f6cf3fe4438c64ab0b077d1be8726a808c4ae5b4a5836438f18c223a6510b34d2e3ec54597f2057241b20abf3967831d335df8b3ccaf47f4ed8f2f82af924af9ff8ad54d6c1e1bdfeb959e8806be199b94fc77b2a091a2d3eee1313e75a113dc2a3d7cfa5d91e31d688f3ef557d25ed83dcc32cfcde1a70929ccfd7a56f83b6a0732c93fff293891fa531393e3c1a4b43dadc6969f500465ee4e0417544b4c04a8f6beeaca410405dcae1b823d9ed1c5affc8e4b160bed42cb511baf9671fdeb47232b8a9c8c67796791c43a588717608ec2ec45e9a3132e7c2e18784d68204e46c49271006b13252b128928c4154447abc15f69130c03fa9a35531b7c7ff8463de768bca4ebfc65fd196355bd0514417ea55fd1da714e51679b536e0946505550ed668af9ea82ecf2bc83b80cf883c25844c43cdded2ddea69467cf55af48cba34d43be0459e1ede861516b6e1666374118d86edf70137d6b004d8f0c983786082d3a1eddab2616cd889c15aceb32f5ebbed7065892f1e8a00b60a239f7348887b8da76d3ac2f6d3e0b4e4bd274ada9b47977ec783f14aa28b18680ea41b1ef27541942cb17435da26a75a1772b0bb7b7719c9ebb0660f6c7888a7af0f2437b6062c0d5ea0bd78d83fd7025476c4033790acc0a02da9725f758d2fadf3da8022466f370431435692e8c3bbbae7883a11b7ff501510f4c866ac2865935e92a0550b7488f26c03f232e534f8945b2b89596b016060124224521c59cef51d723c1344c494d5878a6755c360a0f3c18e9b5adad973c1d7bb35405901497a4df7d6f62b65a08506cb9998adceae838b260e375693e08cd29fabe33eb9f957b3005c6aa8b82e1c6223f78a9997994fdc0f029d126ad45d7d2346dce6d75eb3ab9fcf5a708ce2780f5230304241be6d50091fc7d60943a6592f5614917d8040d329a561155e12c40b7be7feb1e93691c010471d083cf03fcabaeed1c8c3346be79f97fd3aa00659377b4c139edc51d28ae45625e0b0863e61a85d1eb0fa983385a4f3364535497686d9a91971ddfd14dffd94e27b2e3f8e8c43c5c6fe898f50acd61296ffd1a6e86d1448ba98deea270a76726d8c836aa567357e5c309d3479f35372260563c146e351bd71c53631081209aa2a3739949ee90fbf913d6ba40edb32fefa842f9d43d734d6029558cb95945f274d84a0a9e2a838644642b30ef1d2c6735d10292d3db776f4825e3ecbbdfb90c9637c8b2a96ea31bad2e54dd7e4be169ee111641b525b0deae57dcdb930dcdb8bbc4444f55333ed264cc207547c9acdad48b591b82cec4f73fc89a7a20aeafd883296b1e888e7a218111c93986ef99336cbd6a156e435fc6c2bac154e594fdbd4b2ba1b1f3816a5aea837c985b609b14d578dbe9b6fdd4a72191b7a7ea6feb910f8c79c7c04a5f26d038cd3e25338e333e69fe4a7d9eff8f16ee88249b192351ee571f79e9a6dcc886872ee6b61f1334f88df083696c9017ece9109879ad21e621c0a97f07483586004547908f4d81002c934b2442faec7fd65a6bc2bb905439ca05ee0deea14d7d0a3f659abeed1cc7de2b9dd4c40d89ac417faf800b4941a6f7921b93a0b47b0139d4636b5754add6827ec91f3cf865e71cb2ced8b4d7710437db63d98e7ba060e2eb0e6e13e0a675b771c30129db7a08fea02c32b422118e74f357ba0228180e7094e107a5b28c172f2966c523cdb6c6a92ece6c3452a9659cc22dbc373bed8be7bea7f5023692ed42635ba34874fe23907475eae349573150ec645b3a8ff3aa439c8d474e912cb64f2c731c2ed93949f7825103b0bdcc01c4b09f0c052bb8cac523a686731e6c74c9d3e0fb02fafd4947525dca9dde41d425badc860368f631c63b5bf92fb9fb1623bd53111c6c8addda55a3595e9726a56866f9bd873578fe322b1df1374020a948c2dc252ee35f0e8fc188e4899314e9d50099c0e4aa2758853f3d4a2808fce8af64b4b86520305d5c83c96e8f3d717df25519332f629a9d441d26ba8e0e14bdcb95796a9c025c0d7ab2573bedc48704a167b1b19b593e5786c1740148b0fa52f01ed8afb47ab5f01bcb73f7c72fd3aed2d7f9ef8b8c59e392dc5eae68c4b80ad4c9240f7eb00306b19295c917232a589aecdc6d0e1f8f636fc02d7e5480a8ee21882627cac67d39a8027997708f3342afce3b404dc63c65b572982eccec6e9c0dbdd1f496f48615b6cc1266146a249dcd9d9acadacbbf0498cff808cccd5f73100c019b1fb865beff3f6ddd3fa66879eb009e926f974a6e32f1ec9520e4ec7e438075b41bfd371e8e9ecde5b154b5d07abb2bee01525069d63449aaf0738758def68af908ab0c9414417e0163b3a15243225979bed18b400f60391ccdf83464d916361245efde2374883e58f7ff09be3e54074e07efd57d0b7f7357839bd6e35067f97538d79cac8eee231b3616522a7501a489f6694cd9cd719a0a6dc69d65c9bafa0c230cda1e902314be4c3970a9ee2a2875d7d17b3d846efb8a78f61ca3f81b258a0da85cb547df1fb4c2ff1d3c0261cf71b575ec2a81ed3527703dd537afdb380002b2669e04d8378cddd4541218e3ac0aa7c649cf61d6add8098d315d9b7c1b742239f71b9b081bc129deed189219d14543611039f83b2f9053dfa4e6c2ea0d2a99975282cd5e974a3d1d629863c089181c0a1fc776108f23a5950a9a8f15842e9f476f89c8a6aa1ff07dd26d1cf7a6ac1ebd6134612bbb5545e39145ab69ea667921af86930f59aa963108905341189f8e2220aaa4a908063fe6795b48d668aa6918b37e04421e32c88f5a75e641b9df05f4ef4f9ea6ce8c803da06623624deb74e42df8d017ef962faeb5cfaebd7e9cbf7d666fdb2fbd636a709da95e72f8883598f3b836b4d3cd7fd824d268fdcee5eb30a0ad1c0e34ef84b098c6eca61aef5e74a3f07ae7dce83a6f2ba04b4fd10382e34be72afdcddab5b7c09559c965b8662f8c3bbf691be1cc0f403796c199bb52be6a740f7e2465b2f81b32ac30bcca50b18425b53de9f2c9a66b5ed0d29521fa7f8b4f353706ce8c9f1887bef2e19a78c0f60f7141b758f590cf7017ce5288dabdf28c083e622edcd8f5b3f7771554627a622ba34b99ab22821a03a45e5d21abd29f293b4b9cbc369eea8befcf58fa7876ae278676e2c8d7bc8c4d40f0fe91dbe95cb3498b3782da6a14818ac51c10932049089c9be3d9f6a9f932920751008202db9f4f3d403d38dfc2945615e170e8eac680f76dacacb2e69ca17cd8ef97dd196d205fd8663836cc1b52dc5b20855732f0418cd004e9b86c6dc4d200ea13e81dce8bcd4f37eea5d237d3f32dd8bc80126562f1f8f96647f4bf41a6d</script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-pass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-pass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Fluu在心中想了一个优雅的8位数字,请回答</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">Decrypt</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<style data-hbe-ex-inline>.hbe,
+.hbe:after,
+.hbe:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.hbe-container{
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hbe-content {
+	text-align: center;
+	font-size: 150%;
+	padding: 1em 0;
+}
+.hbe-form {
+	margin: 0;
+}
+.hbe-button-hidden {
+	display: none !important;
+}
+.hbe-error {
+	min-height: 1.5em;
+	color: #c0392b;
+	font-size: 0.7em;
+}
+
+.hbe-input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	width: 80%;
+	min-width: 200px;
+	vertical-align: top;
+}
+
+.hbe-input-field {
+	line-height: normal;
+	font-size: 100%;
+	margin: 0;
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 400;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.hbe-input-field:focus {
+	outline: none;
+}
+
+.hbe-input-label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #696969;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.hbe-input-label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.hbe-graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+/* hbe button in post page */
+.hbe-button {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  border-bottom: 4px solid #2b8bc6;
+  color: #fbfbfb;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  font-size: 15px;
+  text-align: left;
+  text-indent: 5px;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.hbe-button:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 1px;
+}
+
+.hbe-button:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+/* hbe button in post page */
+
+/* default theme {{{ */
+.hbe-input-default {
+	overflow: hidden;
+}
+
+.hbe-input-field-default {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em;
+	margin-bottom: 2em;
+	color: #f9f7f6;
+	z-index: 100;
+	opacity: 0;
+}
+
+.hbe-input-label-default {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	padding: 0.5em 0;
+	pointer-events: none;
+	font-size: 1em;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+.hbe-input-label-default::before {
+	height: 100%;
+	background: #666666;
+	top: 0;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.hbe-input-label-default::after {
+	height: 2px;
+	background: #666666;
+	top: 100%;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.hbe-input-label-content-default {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s, color 0.2s;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.2s;
+	transition: opacity 0s 0.2s;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after,
+.hbe-input-label-content-default,
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::before,
+.hbe-input--filled .hbe-input-label-default::before {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::after,
+.hbe-input--filled .hbe-input-label-default::after {
+	opacity: 0;
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default .hbe-input-label-content-default,
+.hbe-input--filled .hbe-input-label-default .hbe-input-label-content-default {
+	color: #555555;
+	-webkit-transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+	transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+}
+/* default theme }}} */
+
+/* up theme {{{ */
+.hbe-input-up {
+	overflow: hidden;
+	padding-top: 2em;
+}
+
+.hbe-input-field-up {
+	width: 100%;
+	background: transparent;
+	opacity: 0;
+	padding: 0.35em;
+	z-index: 100;
+	color: #837482;
+}
+
+.hbe-input-label-up {
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	pointer-events: none;
+	text-align: left;
+	color: #8E9191;
+	padding: 0 0.5em;
+}
+
+.hbe-input-label-up::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	border-top: 4px solid #9B9F9F;
+	-webkit-transform: translate3d(0, -3px, 0);
+	transform: translate3d(0, -3px, 0);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-label-content-up {
+	padding: 0.5em 0;
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.4s, color 0.4s;
+	transition: transform 0.4s, color 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-field-up:focus,
+.input--filled .hbe-input-field-up {
+	cursor: text;
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.4s;
+	transition: opacity 0s 0.4s;
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up::before,
+.input--filled .hbe-input-label-up::before {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+	-webkit-transform: translate3d(0, -3.3em, 0);
+	transform: translate3d(0, -3.3em, 0);
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up .hbe-input-label-content-up,
+.input--filled .hbe-input-label-content-up {
+	color: #6B6E6E;
+	-webkit-transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+	transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+}
+/* up theme }}} */
+
+/* wave theme {{{ */
+.hbe-input-wave {
+	overflow: hidden;
+	padding-top: 1em;
+}
+
+.hbe-input-field-wave {
+	padding: 0.5em 0em 0.25em;
+	width: 100%;
+	background: transparent;
+	color: #9da8b2;
+	font-size: 1.25em;
+}
+
+.hbe-input-label-wave {
+	position: absolute;
+	top: 0.95em;
+	font-size: 0.85em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+	transition: transform 0.2s 0.15s, color 1s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-wave {
+	stroke: #92989e;
+	pointer-events: none;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-wave:focus + .hbe-input-label-wave,
+.input--filled .hbe-input-label-wave {
+	color: #333;
+	-webkit-transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+	transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+}
+
+.hbe-input-field-wave:focus ~ .hbe-graphic-wave,
+.input--filled .graphic-wave {
+	stroke: #333;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* wave theme }}} */
+
+/* flip theme {{{ */
+.hbe-input-field-flip {
+	width: 100%;
+	background-color: #d0d1d0;
+	border: 2px solid transparent;
+	-webkit-transition: background-color 0.25s, border-color 0.25s;
+	transition: background-color 0.25s, border-color 0.25s;
+}
+
+.hbe-input-label-flip {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	bottom: 100%;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 1.25em;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s ;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip {
+	color: #8B8C8B;
+	padding: 0.25em 0;
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	bottom: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #666666;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 1em;
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip,
+.input--filled .hbe-input-label-flip {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip .hbe-input-label-content-flip,
+.input--filled .hbe-input-label-content-flip {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-field-flip,
+.input--filled .hbe-input-field-flip {
+	background-color: transparent;
+	border-color: #666666;
+}
+/* flip theme }}} */
+
+/* xray theme {{{ */
+.hbe-input-xray {
+	overflow: hidden;
+	padding-bottom: 2.5em;
+}
+
+.hbe-input-field-xray {
+	padding: 0;
+	margin-top: 1.2em;
+	width: 100%;
+	background: transparent;
+	color: #84AF9B ;
+	font-size: 1.55em;
+}
+
+.hbe-input-label-xray {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	letter-spacing: 1px;
+	color: #84AF9B ;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.1s, color 0.3s;
+	transition: transform 0.2s 0.1s, color 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-xray {
+	stroke: #84AF9B ;
+	pointer-events: none;
+	stroke-width: 2px;
+	top: 1.25em;
+	bottom: 0px;
+	height: 3.275em;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-xray:focus + .hbe-input-label-xray,
+.input--filled .hbe-input-label-xray {
+	color: #84AF9B ;
+	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+}
+
+.hbe-input-field-xray:focus ~ .hbe-graphic-xray,
+.input--filled .graphic-xray {
+	stroke: #84AF9B ;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* xray theme }}} */
+
+/* blink theme {{{ */
+.hbe-input-blink {
+	padding-top: 1em;
+}
+
+.hbe-input-field-blink {
+	width: 100%;
+	padding: 0.8em 0.5em;
+	background: transparent;
+	border: 2px solid;
+	color: #8781bd;
+	-webkit-transition: border-color 0.25s;
+	transition: border-color 0.25s;
+}
+
+.hbe-input-label-blink {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: left;
+	overflow: hidden;
+	padding: 0;
+	pointer-events: none;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+}
+
+.hbe-input-label-content-blink {
+	padding: 0 1em;
+	font-weight: 400;
+	color: #b5b5b5;
+}
+
+.hbe-input-label-content-blink::after {
+	content: attr(data-content);
+	position: absolute;
+	top: -200%;
+	left: 0;
+	color: #8781bd ;
+	font-weight: 800;
+}
+
+.hbe-input-field-blink:focus,
+.input--filled .hbe-input-field-blink {
+	border-color: #8781bd ;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink,
+.input--filled .hbe-input-label-blink {
+	-webkit-animation: anim-blink-1 0.25s forwards;
+	animation: anim-blink-1 0.25s forwards;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink .hbe-input-label-content-blink,
+.input--filled .hbe-input-label-content-blink {
+	-webkit-animation: anim-blink-2 0.25s forwards ease-in;
+	animation: anim-blink-2 0.25s forwards ease-in;
+}
+
+@-webkit-keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@-webkit-keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+
+@keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+/* blink theme }}} */
+
+/* surge theme {{{ */
+.hbe-input-surge {
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+.hbe-input-field-surge {
+	padding: 0.25em 0.5em;
+	margin-top: 1.25em;
+	width: 100%;
+	background: transparent;
+	color: #D0D0D0;
+	font-size: 1.55em;
+	opacity: 0;
+}
+
+.hbe-input-label-surge {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 1em;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 0.25em;
+	-webkit-transform: translate3d(1em, 2.75em, 0);
+	transform: translate3d(1em, 2.75em, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge {
+	color: #A4A5A6;
+	padding: 0.4em 0 0.25em;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	top: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #2C3E50;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 0.85em;
+}
+
+.hbe-graphic-surge {
+	fill: #2C3E50;
+	pointer-events: none;
+	top: 1em;
+	bottom: 0px;
+	height: 4.5em;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.7s, fill 0.7s;
+	transition: transform 0.7s, fill 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-surge:focus,
+.input--filled .hbe-input-field-surge {
+	-webkit-transition: opacity 0s 0.35s;
+	transition: opacity 0s 0.35s;
+	opacity: 1;
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge,
+.input--filled .hbe-input-label-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge .hbe-input-label-content-surge,
+.input--filled .hbe-input-label-content-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+
+.hbe-input-field-surge:focus ~ .hbe-graphic-surge,
+.input--filled .graphic-surge {
+	fill: #2C3E50;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* surge theme }}} */
+
+/* shrink theme {{{ */
+.hbe-input-field-shrink {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em 0;
+	margin-bottom: 2em;
+	color: #2C3E50;
+}
+
+.hbe-input-label-shrink {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	font-size: 1em;
+	padding: 10px 0 5px;
+	pointer-events: none;
+}
+
+.hbe-input-label-shrink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 7px;
+	background: #B7C3AC;
+	left: 0;
+	top: 100%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.hbe-input-label-content-shrink {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink::after,
+.input--filled .hbe-input-label-shrink::after {
+	background: #84AF9B;
+	-webkit-transform: scale3d(1, 0.25, 1);
+	transform: scale3d(1, 0.25, 1);
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink .hbe-input-label-content-shrink,
+.input--filled .hbe-input-label-shrink .hbe-input-label-content-shrink {
+	color: #84AF9B;
+	-webkit-transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+	transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+}
+/* shrink theme }}} */
+</style><script data-pjax src="/lib/hbe-ex.js"></script><link href="/css/hbe-ex.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&text=浅谈6202年的AI与计算机围城"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&is_video=false&description=浅谈6202年的AI与计算机围城"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=浅谈6202年的AI与计算机围城&body=Check out this article: https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&title=浅谈6202年的AI与计算机围城"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&name=浅谈6202年的AI与计算机围城&description=这里有东西被加密了."><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/02/11/60000_%E6%B5%85%E8%B0%886202%E5%B9%B4%E7%9A%84AI%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A3%81%E5%9E%92/&t=浅谈6202年的AI与计算机围城"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
