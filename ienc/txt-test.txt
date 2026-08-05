@@ -1,0 +1,2 @@
+Hi there! What do you think about this plugin? Please leave your comment here: https://github.com/NaraFluorine/hexo-blog-encrypt-ex/issues/new
+你好! 你觉得这个插件怎么样? 可以在这里留下你的评论: https://github.com/NaraFluorine/hexo-blog-encrypt-ex/issues/new

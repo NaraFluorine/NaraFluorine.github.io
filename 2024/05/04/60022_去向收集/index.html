@@ -174,8 +174,8 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="fcc3f7b3cb38b955619e65a9e6e98eec1a5558de77b2ff180dccc1818a46c65f" data-nonce="2bf4cc758d3431cfb27b4485" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">aca0578b28d8c1d99506f5f8c0dc7bb3ab0fc65fcd5f69a200d152d8793eae3c7bc91f84cb2d46e2bee5f2194e55459e9f897497e5082e74ab0230c5e9c5ec7fe2d5a51381e5fe5a1d9d6332910320a2c0d4d70d8801b4675d68c7df21d570680f552debcfa4a40a4ed2815874c3fa1907a6ed901302ed9929bde8f8d61490b1f55c433f5ecc23cf2853bf7f8f2b13bc43c0d007583d94e410f910a3d5a0ef6b1b69a70fc3ebd6f7cfe6cbe1d595db0a797c0d6040aa8d1d6722f3f997ce7634275ef07c7718a8009b67fe742aa00950947154654e7311fc07df855adb444ff7986b101672ea9efb5648a208c5232c6d8f7f50a98db883ca13682c21e3fc943adb89791f992ef659f4c8336b06d7f0d43f4d79a9e866904ea074168e6692217e1c67f158c816f59f6283a6b97148e50aa3b6de2395efa04a16288d0bec602f737d3b069c8c8c24baeb6361912ea0d89beef513fab11438a6d064c2751173a6794957146870d6e148e3814265984b670476d490bc76e9d45b4815b7f0564a671fde0406c5eef538a77aaeca52c1d2f345de01932d628fe231638bf8ab83e0351d0bc045bc7f7d1266500cb49f47c2106282202a9304a59bad8fac7660a10d428f8e03cb6331873eba348d6d0d17d7cf1edcb681bcdba088978341d6cb47aabf073156ce25804cd736e9570a714a8808c707c018ab23a2d5ef1523bf1fe2caf227114c32cfd35474fbe2c6c1f25a5d54fdf4a57dcb74c2a35e16f4ff2e84871a059f515cde686076deb5ef54cb295b13823f0efa1f9f64f8a5e570</script>
+    <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="ce86774fe8c710d3680f271b65f378fcccd84b89be1b7e292bc9fcb914c16a3c" data-nonce="bd73f1d02e545951510a9001" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">e2ca6a86ce1952945b26b8ae8e3f6870f8e3009f2e737d9ebfd043d8b9b9c4af23721f30ca82bbe1616d181c02fc454d116c583ee2db4778af10db7629d0629a86a7e5c725f53694967fe57314c6e81424d5b15fb1fede1b4fc674337326a5f59760a9807b19814776a8c3d64ed00e4430e48feaccef4328d27c1c4e5d690cadb2b270a53c3b88d06ef4f1d69700adba12e6e471c53c40f6fbfa0e13259350ee469768028ebcb213aab4441c7ed17f8162f9672f64eaa373feaf8e34afca86c372bc5b31afeaef51a59de2ae51b6302e5ab6ef6f7e1557315cfb1684c1a4bd99fd85a38705c4418ce8192d955f03190fec0977e49bb8c58f05dcb01229d5bdf389b47a351037c220eb04748bfad554d2e5df9c786c191040962c2ffce6496e2126e9deca778cf3bb1324f5b19677e7c75f67b58ba6d7fa79b02dde156726bc5ab66bdd0f56448e54cd7276cd6fad261e270b9b2596fbf1144f13b4755503edf3d257a6b1c7ffbe7fee705afe0c3948ee9f818c989664569150e0006d808c0700b497b7d3ce077d74c91c6fd0a4482cb970d3a1a2871a67c4e8f72d38d7277fcd8920262b2468952045cddec145ea84fa5a4f74d1ef397667862d30e0ffa26fe14f10c158a1d28e17f1240ccd304334b0b1cfc57bd328295efd6a6c560247175b9ab459c4a89faa11453c93506b818498b21eadb7552625b363c828b09a079602afe34ea1fdb1ab465373fedca21b12ddbf069cad68c00b13412512df7f95af1f93f8be2bb080d295f81ab83c9c5b985f343b7174a986cfe6347c</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
@@ -209,6 +209,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -216,6 +222,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {

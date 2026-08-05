@@ -132,8 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="37ab61bc297d6295760c422080830c7d44ac7b578f1be4e540e6b964378541d8" data-nonce="3ce24b6147e45083359bb04e" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">36ad7be0a8ecb422605bda60e3d775a72c2bacb14539168bda00d7fa50ce854654a3179871226933f36697c78ab5bb05eb72</script>
+          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="22d117f2820749ce21312075bd428080bf1d01792f688382419bf4a6e69e1895" data-nonce="de75e0a983c5c35f35a43248" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">6e3591a584790be3ceb55a2830dc34ce672975d0ba80f9787d2fa6e44f796bb586e45922f5a9b071e3c6143b74f1555d5c29</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
@@ -167,6 +167,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -174,6 +180,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {

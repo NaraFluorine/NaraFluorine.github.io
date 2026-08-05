@@ -105,10 +105,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/2026/01/08/20019_ICPC_2025/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/01/60008_%E6%B5%85%E6%8E%A2%E9%9F%B3%E6%B8%B8/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/2025/05/31/60024_FluuTrendings/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/2025/07/29/50015_template/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -184,8 +184,8 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="f50e65c7d084b16404edb61ee757de5467c0bd4942b179a2f7bf7ab8f63efa91" data-nonce="a19380960634a85a4f88c5b0" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">1f9da049ba5267d0fa913f69d1f9408b3a158f7752aaa093966e4463dbbfd43504360cb8c8f37578b854f3c43033b0c1084e0f0f7ec20a0c282ae12a8c494e5e11d44ee2213dcb4b9e05d0144f126f395253dcd270bf987d47b414cd19faebf5ebc991930492bb9807a8a60ea65b2d0917d4c4120dcef06e47e223d6243158dbfea1c371a91422042071a9554b9804b0909311bf6e074feb1a7f39ab1caa3bfae9a516998821e5ab00c80f6d72b3a7549eddfebea29144407a0bf3d3cc555f0791d6e909a9ec4c65455ef40e128b7321940798a5f0923855bb83d5b998e8746a278be872cc71f4b0d0df050a6489976bd7f88a8971c88d0230332dc1a72b54311370fed3ac7ff22161a12ae7af60d63445141f1715f6154c800182279048890991a3175385dc682204a29e48de</script>
+    <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="28a58f93ad6a7a2ec2688f401dc1a582aacba99f6705c68d8a58a76d0428b787" data-nonce="aae64c97e69ce73f138bb7f4" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">51663047dc4bcc978049fc7f8ee57bff6ac917cef6735db7ed4b01efe34caaeb3dbdbf6a83237336b9c0792cc5bcff732ad9d8c293535acd23ae989f25b7d6f6f17e7f1a6f42edcfdb71fe5497576cf48669ddd78ac725ebb17272da2f85fa566534c317d6db9a70fad3765200acaf43eea2c7893f27489a886fa3829c7259c836ea55debb2f1bc983375c4be729b5f2eec1e28c1c601212541f6a711480dfc5d16347b17030b9e012ab7e6f7bd2322952aa5e2881b866183b14a6094e11d7f255114aaadf08d05c95c6e768581eb96e4d6cf162b9ed4d90598cd5d3b902e81140034a091d4103335bbd5c09e1ec0ff2f8f5a5a9eaf5ab163e4f9fe83822ee9fb969ff7f9bcc6fe9068beebedd741d738b587f45164ee7c8745100307ca10e472d5eabdda7dda0870368c953f8</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
@@ -219,6 +219,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -226,6 +232,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {

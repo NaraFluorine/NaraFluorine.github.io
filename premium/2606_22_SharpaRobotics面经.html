@@ -132,8 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="ed77b47728b98b0b74fe6bb513c6530c5999defecf5844fd1464726c18ae6750" data-nonce="f8e9d66e867ed736387ca32a" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">fdd38f358c95c181bb27f5b9ae2243f643a6ac4646404bfb1ab0b598b39ded1d8bddc3d77657d0d0b4ee0ae35083df7e5311c72557c88e4fbff998aaf424a27cb11fe7c7d1b99d70cb803af315dfe74cc6c050afbcc2aebb8234bdd7fe2b6e3e087ecdd571261ba5f4bb1e5fc207bd4105ee2c5962b07b080d2247c1806da3ad6237027575a24a292bd34a0acd086946f9d4b1985eeaddccba60fae2283b09fbb45a84c28e8690f18bf95e0cd52adac6e23a1c584768bde86032e8fbae46caf900522c8204071f771db73315755ce07f052ed040ead0fd45a3a24fe2cb93b245260a339a0e8d813930b20b03f1c0e1fd459028c45b4af4b85870d59034509cd313685498ec1a7758c5c36046f31d7da86dcd632e2306e813b17447943a8564b8e1137847bc98efb6a9573e0a92761db0ca4a79d8869ef15ed774c291ed8fc708e657e372e7936d90aa024fbdc3c070d8ef74b28bb439bf5d14ae730da50b868e85c78c6017c128892dd37142fa053e9bdadc1a9bfbc12fe5118b95a56e0fa55c956740d79e52</script>
+          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="fe1b518e135ce6a5b02dea0e8504e554f2be9e3c9a5d1742fc53156579e6bed7" data-nonce="7976bddd323f6d6452cf836e" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">9707a5fa786a46a5b47a1f5668b1dd7a20acf4f0ca66de947d9088ea2b0cfb626d300da0a89693f2ac968819c3ec26ace0cd7befb9217012c92e190a337e87e6147183f07cfd1be27717f7874fcb56de24900428ff909737224c7e70a473754d1802973f455675cecc917be3919a52fa1592f35b8aa961f8837245951197d88807f24bfdbe24b86fc0d15d91ad256634c9b87b05bfd97326e5fd6beee29550b4db7bddf1d840fb3b8ce52711b2a4b23e8a3976eb8c4290cacbd4f2e858ecbe128abbb89d007203602fcb63e06b1de41a87bc7827fdba0bab056c389a881b135397bd8dc38f54de37ccd69c0b0063223ea12348de77cedd9066e5acfe88b7be3017a36c12297d3fff6a14ffa7c3e822afdba384a9a11af6023ab71163efddc1b6d4bcdb3df01191bfca7b171fa995d736cd74c518ff58d57ad2c2f98b898ea192be2cfd3efa91e7f64c9acb6ab8e4d9f7d52601a0a542d78fea4c3c9b11f5adcc6f3ab97ff68b4dee0500f591468ac25dbfe228e0072a8071e96b29d226cbde9c78951afd0e1b</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
@@ -167,6 +167,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -174,6 +180,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {

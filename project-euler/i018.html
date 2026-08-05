@@ -14,7 +14,7 @@
 <meta property="og:description" content="problem 18iLet $R(p)$ be the remainder when the product $\prod{x&#x3D;0}^{p-1}(x^3-3x+4)$ is divided by $p$ . For example, $R(11)&#x3D;0$ and $R(29)&#x3D;13$ .设 $R(p)&#x3D;\prod{x&#x3D;0}^{p-1}(x^3-3x+4)\mod p$ ,比如 $R(11)&#x3D;0,R">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-17T03:45:14.000Z">
-<meta property="article:modified_time" content="2025-12-17T15:33:06.674Z">
+<meta property="article:modified_time" content="2026-08-04T11:19:27.412Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -134,8 +134,27 @@
       
           <h2 id="problem-18i"><a href="#problem-18i" class="headerlink" title="problem 18i"></a>problem 18i</h2><p>Let $R(p)$ be the remainder when the <strong>product</strong> $\prod<em>{x=0}^{p-1}(x^3-3x+4)$ is divided by $p$ . For example, $R(11)=0$ and $R(29)=13$ .<br>设 $R(p)=\prod</em>{x=0}^{p-1}(x^3-3x+4)\mod p$ ,比如 $R(11)=0,R(29)=13$ .</p>
 <p>Find the sum of $R(p)$ over all primes $p$ between $10^{9}$ and $1.1\times10^9$ .<br>求</p>
-<script type="math/tex; mode=display">\sum_{i=10^9}^{1.1\times10^9}R(i),i\in prime</script><h1 id="题解-spoiler"><a href="#题解-spoiler" class="headerlink" title="题解(spoiler)"></a>题解(spoiler)</h1><p>Wrong Answers<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure></p>
-<p>I don’t know(noob).<br>不会(菜).</p>
+<script type="math/tex; mode=display">\sum_{i=10^9}^{1.1\times10^9}R(i),i\in prime</script><h1 id="题解-spoiler"><a href="#题解-spoiler" class="headerlink" title="题解(spoiler)"></a>题解(spoiler)</h1><h2 id="问题回顾"><a href="#问题回顾" class="headerlink" title="问题回顾"></a>问题回顾</h2><p>$R(p)$ 是 <script type="math/tex">\prod_{x=0}^{p-1}(x^3-3x+4)</script> 除以 $p$ 的余数，要求 $[10^9, 1.1\times10^9]$ 内所有素数 $p$ 的 $R(p)$ 之和。直接枚举每个素数再连乘 $p$ 次显然不可行（$p\sim 10^9$），必须找数学捷径。</p>
+<ol>
+<li>把乘积转化为结式（Resultant）<br>令 $f(x)=x^3-3x+4$，设其三个根（在代数闭包 $\overline{\mathbb{F}<em>p}$ 中）为 $\alpha_1,\alpha_2,\alpha_3$。在 $\mathbb{F}_p$ 中 $x^p-x=\prod</em>{a\in\mathbb{F}_p}(x-a)$，所以：<script type="math/tex; mode=display">\prod_{x\in\mathbb{F}_p} f(x)=\prod_{i=1}^{3}\prod_{a}(a-\alpha_i)</script>而 $\prod_a(\alpha_i-a)=\alpha_i^p-\alpha_i$，代入得（$p$ 为奇数时 $(-1)^p=-1$）：<script type="math/tex; mode=display">R(p)\equiv -\prod_{i=1}^{3}(\alpha_i^p-\alpha_i)=-\operatorname{Res}(f,\,x^p-x)\pmod p</script>即只需计算结式，其中 $\alpha_i^p\equiv r(\alpha_i)\pmod f$，$r(x)=x^p \bmod f(x)$。</li>
+<li>快速幂计算 $x^p \bmod f$<br>在环 $\mathbb{F}_p[x]/(f)$ 中做二进制快速幂。元素写成 $a+bx+cx^2$，乘法后用 $x^3\equiv 3x-4$ 归约（这就是 $f(x)=0$ 的等价形式），约 31 次乘法（$p&lt;2^{31}$）。</li>
+<li>对称展开求结式<br>设 $g(x)=r(x)-x=a’+b’x+cx^2$，则 $R(p)\equiv-\prod_{i=1}^3 g(\alpha_i)$。因为 $f$ 的初等对称函数已知（$e_1=0,\,e_2=-3,\,e_3=-4$），把 $\prod_i(a’+b’\alpha_i+c\alpha_i^2)$ 按对称多项式展开并代入幂和（$s_1=0,s_2=6,s_3=-12$），得到闭合公式：<script type="math/tex; mode=display">R(p)\equiv -[\,a'^3+6a'^2c-3a'b'^2+12a'b'c+9a'c^2-4b'^3+12b'c^2+16c^3\,]\pmod p</script>这样每个素数只花 $O(\log p)$ 次模乘，无需做任何 $p$ 次连乘。</li>
+<li>关键优化：$p\equiv 3\pmod 4$ 时 $R(p)=0$<br>$f$ 的判别式 $\Delta=-324$，不是平方数，且 $f$ 在 $\mathbb{Q}$ 上不可约，所以分裂域的 Galois 群是 $S_3$。按 Chebotarev 定理，$f \bmod p$ 的分解类型对应 Frobenius 元素：</li>
+</ol>
+<ul>
+<li>完全分裂（恒等元）或 1 个根+二次因子（对换）：根中有元素在 $\mathbb{F}_p$ 内，乘积为 0；</li>
+<li>不可约（3-循环）：只在 $p\equiv 1\pmod 4$（3-循环限制到二次子域 $\mathbb{Q}(i)$ 上是恒等）时才发生，此时 $R(p)\neq 0$。<br>因此只需处理 $p\equiv 1\pmod 4$ 的素数，计算量减半。</li>
+</ul>
+<ol>
+<li>实现与验证</li>
+</ol>
+<ul>
+<li>分段筛（segmented sieve）求 $[10^9,1.1\times10^9]$ 内全部 4,814,936 个素数；</li>
+<li>对每个 $p\equiv 1\pmod 4$ 用上述公式算 $R(p)$，累加；</li>
+<li>验证：与暴力连乘对所有素数 $\le 5000$ 完全一致；$R(11)=0,\ R(29)=13$ 与题目吻合；整条流水线在 $[10^6,1.1\times10^6]$ 上与独立暴力结果一致（均为 1289916513）。<br>C++ 全程约 2.5 秒得出最终答案：<script type="math/tex; mode=display">\sum_{10^9\le p\le 1.1\times10^9} R(p)=\boxed{842507000531275}</script></li>
+</ul>
+<h2 id="fun-fact"><a href="#fun-fact" class="headerlink" title="fun fact"></a>fun fact</h2><p>没想到现在的AI,已经发展到如此地步…</p>
+<p>Fluu准备出逃欧拉计划了,这在数学上真干不过AI,跑路了跑路了.</p>
 
         
   </div>

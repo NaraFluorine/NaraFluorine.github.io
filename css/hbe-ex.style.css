@@ -18,6 +18,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -25,6 +31,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {

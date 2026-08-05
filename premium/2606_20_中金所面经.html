@@ -132,8 +132,8 @@
 
   <div class="content" itemprop="articleBody">
       
-          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="8e4fc4a94db17ca4e6669894720fde01a1f6533262ce2fd1fd582727fb989269" data-nonce="42ae4910213b931c2add517a" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">77948aba9ea4c0047b87996f1e110085bcf4eee234cf7b3fb024d2e6183c363f84c215c1fa1df3abe4db63e2893f2c3885a682167c223eb605aaa04b216bac3ad4061b80532369a06d9c2f4ef397445cb721f735129ac7d9995214b58d750598e8e8876b6eb95e9cc6400030c1722ca4332c52fe30d7c7e59eff35ceaa7984284b2b6fa6553a6b3fa1e09edcbaac308961e3ad7be69226b6560f148d7cbfa89fee11be7a8c330b0e2d6732c035df6f21c5bfcdecd7a2001be72baf5ddc757fe66ef6055f842a48ef5a137f2601a936de93583d0f2227fe5f76f31789140491b6c2d05d9a756cb9c7bb5555f760a17bb652bd2b268fcd8618bd572eb052262e3c549d8ec565848cc9c2c7af3a93012f2b0e509407735a13095907f22fab5b5f5a0ce1ce488227eeea1beee2ac52283b4162d8ede90d3a8b997ad8a843d123c222a5d2a4678ca704da2c73ac18051f6d50027e7841fb872a292a4a438abe6403167489e1a91fd7b101e0570b73357d6b2876e4605972a980be61fc9ecb9709fe6f02b478a73de0fb22c577895467bdaf8947809766f8a8bb2483a57fa59348f4b088a2b9bf91a1c1aaa955115fd2b3dda112c041b3c7a7c7294d82206a345c7c77064e317561a02dd4d1329a5bff11e6233ed1517a925bc005a56fe8119d1545982a8ee1c980b6cb7690cd443aa7d89f462f63cee85257f32a05fe3dbd5a46668b7f</script>
+          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="5823c456b4f3c1d9055c561aa0448a4d3865ca5848669101e9ccfb7a3d63405a" data-nonce="7c4ad3106c6c08d4de8e6e94" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">e39424b4c0dce46178ebbe2b1ca2a29387fb1095c3e7f62a8addb33b8930a989050bbeafa75a382d0cfd201ded14876ef35b3d61eeab001151a7397ebfe29a3ce1f0c2786fbd5b62456a45eb7d914997281bca3c24786558d743485a602f5f2626273ddc316fcd293b80654d61f40855cdeca1f2d0aa0f92d0cfd56ff13206f401efd656a7822fe73cc5771096e9af3b18bdbb266c5f3d418911e1afd6dcadd73fd585aac74bbb51f892152cc41bb55bd0dbb3ba043511479a29334ca0222a16e59f3464ad44b4e39d5e387d3d8fffea9b5955195f5b8e5a5ec14b5aba840ce9280eac20b26a7a8fe20bc61ff5553698e5f9aab4c6f0132c42054ac7649f92de8bf7cb677b2c9a68552f8dbedff5d2787daf7e08831ccc3aaf4234259ade48c1045a51e5662b00caaeee5dd70bba67e3d51485b5ec42a0acf436db55e6a23e54f5aaf74f8c08be49c3e811080aaa4afbd49f63ea8753df2f84e91fa164c7155b1d169dac719a0f9a8f98e08a317b58771a388f50f6ebe35c8d7e9b123c724e64260a4e191295bd5d2e86ec4e56ea9a2b2c43500c722710c5939ff2aa1ae9b3844fc5987f0bc0d9c7ef11528a731325c2c708121dcacfae254aef965e85e94762228d0fd31e3006329d50c6d9a5a6b71217c325cd42180923a94dee00a729b91992d548674b1928d4938e4328fcfca81c35e618a9392eeb3836a960d00b6ebbd199</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
@@ -167,6 +167,12 @@
 .hbe-form {
 	margin: 0;
 }
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
 .hbe-button-hidden {
 	display: none !important;
 }
@@ -174,6 +180,88 @@
 	min-height: 1.5em;
 	color: #c0392b;
 	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
 }
 
 .hbe-input {
