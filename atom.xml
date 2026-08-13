@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-08-03T15:11:37.526Z</updated>
+  <updated>2026-08-13T08:47:05.930Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"/>
+    <id>https://narafluorine.github.io/2026/08/13/20026_CryptoHack/</id>
+    <published>2026-08-13T04:28:20.613Z</published>
+    <updated>2026-08-13T08:47:05.930Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;线性无关&quot;&gt;&lt;a href=&quot;#线性无关&quot; class=&quot;headerlink&quot; title=&quot;线性无关&quot;&gt;&lt;/a&gt;线性无关&lt;/h2&gt;&lt;p&gt;给定一组线性无关的向量，回到原点的唯一方法是沿着原向量移动。其他任何向量的组合都无法让你回到原点。&lt;/p&gt;
+&lt;h2 id=&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -87,7 +106,7 @@
     <link href="https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"/>
     <id>https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/</id>
     <published>2026-07-22T03:04:30.000Z</published>
-    <updated>2026-07-30T02:38:28.237Z</updated>
+    <updated>2026-08-09T16:48:05.722Z</updated>
     
     
       
@@ -218,31 +237,6 @@
     
     <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
     
-    
-    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Software Architecture(SA)学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
-    <id>https://narafluorine.github.io/2026/05/29/00026_%E8%BD%AF%E4%BB%B6%E7%BB%93%E6%9E%84/</id>
-    <published>2026-05-29T01:53:25.000Z</published>
-    <updated>2026-05-29T01:54:03.020Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个课不是很熟,典中典之结组,典中典之交报告.&lt;br&gt;报告也是别人写的,Fluu在上这个课的时候在小马上班呢,自始至终都没见过老师,这个课就结束了.&lt;/p&gt;
-&lt;p&gt;印象中这个课会上一周,好像还会有外教?&lt;br&gt;然后每天固定点有能用题库搜出来的作业,以及一个签到,肯定走同学签</summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="Linux" scheme="https://narafluorine.github.io/tags/Linux/"/>
     
     <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
     

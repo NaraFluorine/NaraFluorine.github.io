@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="线性无关给定一组线性无关的向量，回到原点的唯一方法是沿着原向量移动。其他任何向量的组合都无法让你回到原点。 维数记作 $||v||$ ,计算方式:  ||v||&#x3D;\sqrt{v\cdot v}Gram Schmidt(两两垂直,线性无关)求正交基的算法,sage可以直接调用: 1234567891011121314151617181920try:    from sage.all import v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NaraFluorine&#39;s blog">
+<meta property="og:url" content="https://narafluorine.github.io/2026/08/13/20026_CryptoHack/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="线性无关给定一组线性无关的向量，回到原点的唯一方法是沿着原向量移动。其他任何向量的组合都无法让你回到原点。 维数记作 $||v||$ ,计算方式:  ||v||&#x3D;\sqrt{v\cdot v}Gram Schmidt(两两垂直,线性无关)求正交基的算法,sage可以直接调用: 1234567891011121314151617181920try:    from sage.all import v">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-08-13T04:28:20.613Z">
+<meta property="article:modified_time" content="2026-08-13T08:47:05.930Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="chaos">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NaraFluorine&#39;s blog</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/08/03/40013_pending/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&text="><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&is_video=false&description="><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&name=&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&t="><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">线性无关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">维数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gram-Schmidt-%E4%B8%A4%E4%B8%A4%E5%9E%82%E7%9B%B4-%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">Gram Schmidt(两两垂直,线性无关)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">文件格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pem"><span class="toc-number">1.</span> <span class="toc-text">pem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#der"><span class="toc-number">2.</span> <span class="toc-text">der</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-rsa"><span class="toc-number">3.</span> <span class="toc-text">ssh-rsa</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-08-13T04:28:20.613Z" class="dt-published" itemprop="datePublished">2026-08-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="线性无关"><a href="#线性无关" class="headerlink" title="线性无关"></a>线性无关</h2><p>给定一组线性无关的向量，回到原点的唯一方法是沿着原向量移动。其他任何向量的组合都无法让你回到原点。</p>
+<h2 id="维数"><a href="#维数" class="headerlink" title="维数"></a>维数</h2><p>记作 $||v||$ ,计算方式: </p>
+<script type="math/tex; mode=display">||v||=\sqrt{v\cdot v}</script><h2 id="Gram-Schmidt-两两垂直-线性无关"><a href="#Gram-Schmidt-两两垂直-线性无关" class="headerlink" title="Gram Schmidt(两两垂直,线性无关)"></a>Gram Schmidt(两两垂直,线性无关)</h2><p>求正交基的算法,sage可以直接调用:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">from</span> sage.<span class="built_in">all</span> <span class="keyword">import</span> vector, matrix</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;SageMath is required&quot;</span>)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line">V = [</span><br><span class="line">    vector([<span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, -<span class="number">1</span>]),</span><br><span class="line">    vector([<span class="number">2</span>, <span class="number">1</span>, -<span class="number">3</span>, <span class="number">4</span>]),</span><br><span class="line">    vector([<span class="number">1</span>, <span class="number">0</span>, -<span class="number">2</span>, <span class="number">7</span>]),</span><br><span class="line">    vector([<span class="number">6</span>, <span class="number">2</span>, <span class="number">9</span>, -<span class="number">5</span>])</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SageMath 内置 Gram-Schmidt</span></span><br><span class="line">U = matrix(V).gram_schmidt()[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> u <span class="keyword">in</span> U:</span><br><span class="line">    <span class="built_in">print</span>(u)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(U[<span class="number">3</span>][<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<p>每一个向量大小唯一这个限制是 <strong>标准</strong> ,即标准正交基.</p>
+<h1 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">公钥格式：</span><br><span class="line">  - PKCS#1:  -----BEGIN RSA PUBLIC KEY-----</span><br><span class="line">  - X.509 SubjectPublicKeyInfo: -----BEGIN PUBLIC KEY-----</span><br><span class="line"></span><br><span class="line">私钥格式：</span><br><span class="line">  - PKCS#1:  -----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">  - PKCS#8:  -----BEGIN PRIVATE KEY-----</span><br><span class="line"></span><br><span class="line">证书格式：</span><br><span class="line">  - X.509:  -----BEGIN CERTIFICATE-----</span><br></pre></td></tr></table></figure>
+<h2 id="pem"><a href="#pem" class="headerlink" title="pem"></a>pem</h2><p>PKCS#1格式的RSA:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;privacy_enhanced_mail_1f696c053d76a78c2c531bb013a92d4a (1).pem&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    key = RSA.importKey(f.read())</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;n = <span class="subst">&#123;key.n&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;e = <span class="subst">&#123;key.e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;d = <span class="subst">&#123;key.d&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;p = <span class="subst">&#123;key.p&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;q = <span class="subst">&#123;key.q&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;u = <span class="subst">&#123;key.u&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># u = p^&#123;-1&#125; mod q加速运算的</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="der"><a href="#der" class="headerlink" title="der"></a>der</h2><p>x509 RSA编码的der文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cryptography <span class="keyword">import</span> x509</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.backends <span class="keyword">import</span> default_backend</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives <span class="keyword">import</span> serialization</span><br><span class="line"><span class="keyword">from</span> cryptography.hazmat.primitives <span class="keyword">import</span> hashes</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;a.der&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    cert = x509.load_der_x509_certificate(f.read(), default_backend())</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Subject:&quot;</span>, cert.subject.rfc4514_string())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Issuer:&quot;</span>, cert.issuer.rfc4514_string())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Serial Number:&quot;</span>, cert.serial_number)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Version:&quot;</span>, cert.version.value)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Not Valid Before:&quot;</span>, cert.not_valid_before_utc)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Not Valid After:&quot;</span>, cert.not_valid_after_utc)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Signature Algorithm:&quot;</span>, cert.signature_algorithm_oid._name)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Public Key Algorithm:&quot;</span>, cert.public_key().__class__.__name__)</span><br><span class="line"></span><br><span class="line">pub = cert.public_key()</span><br><span class="line">nums = pub.public_numbers()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Modulus (decimal):&quot;</span>, nums.n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Exponent:&quot;</span>, nums.e)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ext <span class="keyword">in</span> cert.extensions:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Extension:&quot;</span>, ext.oid._name, <span class="string">&quot;Critical:&quot;</span>, ext.critical, <span class="string">&quot;Value:&quot;</span>, ext.value)</span><br><span class="line"></span><br><span class="line">sig = cert.signature</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Signature (hex):&quot;</span>, sig.<span class="built_in">hex</span>())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TBS Fingerprint (SHA256):&quot;</span>, cert.tbs_certificate_bytes.<span class="built_in">hex</span>())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Fingerprint (SHA256):&quot;</span>, cert.fingerprint(hashes.SHA256()).<span class="built_in">hex</span>())</span><br></pre></td></tr></table></figure></p>
+<h2 id="ssh-rsa"><a href="#ssh-rsa" class="headerlink" title="ssh-rsa"></a>ssh-rsa</h2><p>pub文件,格式为OpenSSH.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">s=<span class="built_in">open</span>(<span class="string">&quot;bruce_rsa.pub&quot;</span>).read().split()</span><br><span class="line">x=base64.b64decode(s[<span class="number">1</span>])</span><br><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>():</span><br><span class="line">    <span class="keyword">global</span> i</span><br><span class="line">    l=<span class="built_in">int</span>.from_bytes(x[i:i+<span class="number">4</span>],<span class="string">&quot;big&quot;</span>);i+=<span class="number">4</span></span><br><span class="line">    v=x[i:i+l];i+=l</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line">t=get().decode()</span><br><span class="line">e=get()</span><br><span class="line">n=get()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;type:&quot;</span>,t)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;e:&quot;</span>,<span class="built_in">int</span>.from_bytes(e,<span class="string">&quot;big&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n:&quot;</span>,<span class="built_in">int</span>.from_bytes(n,<span class="string">&quot;big&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;comment:&quot;</span>,s[<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;key bytes:&quot;</span>,<span class="built_in">len</span>(x))</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">线性无关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">维数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gram-Schmidt-%E4%B8%A4%E4%B8%A4%E5%9E%82%E7%9B%B4-%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">Gram Schmidt(两两垂直,线性无关)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">文件格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pem"><span class="toc-number">1.</span> <span class="toc-text">pem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#der"><span class="toc-number">2.</span> <span class="toc-text">der</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-rsa"><span class="toc-number">3.</span> <span class="toc-text">ssh-rsa</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&text="><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&is_video=false&description="><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=&body=Check out this article: https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&title="><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&name=&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/08/13/20026_CryptoHack/&t="><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
