@@ -13,12 +13,14 @@
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="并行,分布式还有通信题是最近xcpc兴起的很好玩的一系列题.最近想看看怎么写cuda算子,可以的话顺带给青云悲贡献一个题. 本篇主题为并行计算. 并行计算首先所有数据全部大于0,前缀和是单调递增的.假设  sum(i)&#x3D;\sum_{j&#x3D;1}^i a_j,mxx(i)&#x3D;\max(a_1,...,a_{i-1}),题目要求的式子即 sum(i)-mxx(sum(i)*y_i)如何并行计算前缀和:分块.">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://narafluorine.github.io/shuangdiaosort.jpg">
 <meta property="article:published_time" content="2026-05-03T17:43:29.000Z">
-<meta property="article:modified_time" content="2026-04-30T17:46:47.125Z">
+<meta property="article:modified_time" content="2026-08-20T00:45:00.256Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Cpp">
 <meta property="article:tag" content="Game">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://narafluorine.github.io/shuangdiaosort.jpg">
     
     
       
@@ -139,7 +141,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">并行计算</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E8%B0%83%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">双调排序</span></a></li></ol>
       </div>
     
   </span>
@@ -195,6 +197,12 @@
 <script type="math/tex; mode=display">sum(i)=\sum_{j=1}^i a_j,mxx(i)=\max(a_1,...,a_{i-1})</script><p>,题目要求的式子即</p>
 <script type="math/tex; mode=display">sum(i)-mxx(sum(i)*y_i)</script><p>如何并行计算前缀和:分块.<br>1024个内存,一次32条指令,就分成32组,先用31条指令每个小块内算出前缀和,然后每个大块加上上一个块的前缀和,总计62条指令.</p>
 <p>而且这个并行不需要可逆性,也就是说max也能如此分块计算.<br>知道如何执行一个运算,以及如何写出这个算子,这个题就做完了.  </p>
+<h2 id="双调排序"><a href="#双调排序" class="headerlink" title="双调排序"></a>双调排序</h2><p>有一张图比较直观(图上有来源):</p>
+<p><img src="../../../../shuangdiaosort.jpg" alt=""></p>
+<p>我们先假设函数f(x)为每个元素和x步之后(或者之前)的元素结组进行比较排序的函数,而且奇数位升序,偶数位降序(大函数调用小函数的时候要保持一致),例如f(1)的时候元素0和1一组比较,小的放前面大的放后面,2和3,4和5…<br>然后f(2)的时候0和2,1和3,然后是4和6,5和7…  </p>
+<p>在这个的基础上,双调排序的代码为:<br>f(1),f(2),f(1),f(4),f(2),f(1),f(8),f(4),f(2),…</p>
+<p>这个规律会一直延申,直到数组尽头…<br>发现这个规律之后代码就不难写了,在此略过.  </p>
+<p>复杂度分析:x最大是n,而x是2倍递增的,所以调用是最大f(logn),又每次logn都会有logn/2类似的调用,所以复杂度为 $O(\log ^2nf(n))$ ,而f(n)遍历一遍数组就完事了,所以复杂度是 $O(n\log^2n)$ .<br>看起来多了一个log,然而实际上 $f(n)$ 的过程是可并行的,所以在并行计算的时候可以乱杀.</p>
 
   </div>
 </article>
@@ -243,7 +251,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">并行计算</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E8%B0%83%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">双调排序</span></a></li></ol>
       </div>
     
 

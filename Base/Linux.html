@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="系统硬链接和软链接硬链接是多个记录指向同一个文件,软链接是快捷方式.硬链接可以理解为 shared_ptr 的关系,软链接就是windows的快捷方式,不管源文件存不存在(不过调用的时候会返回没找到源文件) poweroff 和 shutdown 和 halt首先这几个一般情况下不是真正的强制关机(当然还是可以实现的),会有一定的缓冲时间用于记录日志和关闭进程等操作.poweroff 的参数较少,">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-21T04:02:37.244Z">
-<meta property="article:modified_time" content="2026-06-21T04:02:37.244Z">
+<meta property="article:published_time" content="2026-08-23T18:03:26.913Z">
+<meta property="article:modified_time" content="2026-08-23T18:03:26.913Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -138,7 +138,11 @@
 <h2 id="一切皆文件"><a href="#一切皆文件" class="headerlink" title="一切皆文件"></a>一切皆文件</h2><p>Linux通过统一接口把外设或者进程与系统状态都抽象成了文件,通过统一的接口方便读取和调试.</p>
 <h2 id="shebang"><a href="#shebang" class="headerlink" title="shebang"></a>shebang</h2><p>位于文件第一行的一句 <code>#!</code> 用于指定运行环境,例如下面的几句分别是bash和python和nodejs的shebang:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env bash</span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">#!/usr/bin/env node</span><br></pre></td></tr></table></figure>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="ps-top"><a href="#ps-top" class="headerlink" title="ps top"></a><code>ps</code> <code>top</code></h2><h2 id="watch-d"><a href="#watch-d" class="headerlink" title="watch -d"></a><code>watch -d</code></h2><h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select poll epoll"></a><code>select</code> <code>poll</code> <code>epoll</code></h2><p>Linux的IO多路复用机制,事件通知.</p>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="ps-top"><a href="#ps-top" class="headerlink" title="ps top"></a><code>ps</code> <code>top</code></h2><h2 id="watch-d"><a href="#watch-d" class="headerlink" title="watch -d"></a><code>watch -d</code></h2><h2 id="df-h"><a href="#df-h" class="headerlink" title="df -h"></a><code>df -h</code></h2><p>查看电脑磁盘内存的.</p>
+<h2 id="free-h"><a href="#free-h" class="headerlink" title="free -h"></a><code>free -h</code></h2><p>查看电脑运行内存的.</p>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a><code>scp</code></h2><p>把一个电脑上的文件通过ssh传输给另一个电脑.</p>
+<h2 id="cmp-a-b"><a href="#cmp-a-b" class="headerlink" title="cmp a b"></a><code>cmp a b</code></h2><p>比较两个文件有没有差异,没有就不回显.</p>
+<h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select poll epoll"></a><code>select</code> <code>poll</code> <code>epoll</code></h2><p>Linux的IO多路复用机制,事件通知.</p>
 
         
   </div>

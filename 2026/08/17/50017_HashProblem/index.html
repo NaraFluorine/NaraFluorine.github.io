@@ -6,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这里有东西被加密了.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="柠檬微趣面经">
-<meta property="og:url" content="https://narafluorine.github.io/premium/2605_05_F%E6%9F%A0%E6%AA%AC%E5%BE%AE%E8%B6%A3_%E9%9D%A2%E7%BB%8F.html">
+    <meta name="description" content="题目背景线程调度大师,我还记得你… 题干hint 0多线程争抢资源造成的熵很不稳定,有分布不均的情况.举一个例子:   12345678910111213141516171819#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int tmp&#x3D;0;void ad()&#123;    for(int i&#x3D;1;i&lt;&#x3D;100000;++i)&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crypto-ThreadCracker">
+<meta property="og:url" content="https://narafluorine.github.io/2026/08/17/50017_HashProblem/index.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="这里有东西被加密了.">
+<meta property="og:description" content="题目背景线程调度大师,我还记得你… 题干hint 0多线程争抢资源造成的熵很不稳定,有分布不均的情况.举一个例子:   12345678910111213141516171819#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int tmp&#x3D;0;void ad()&#123;    for(int i&#x3D;1;i&lt;&#x3D;100000;++i)&amp;#12">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-03T14:01:56.256Z">
-<meta property="article:modified_time" content="2026-07-03T14:01:56.256Z">
+<meta property="article:published_time" content="2026-08-17T10:16:35.166Z">
+<meta property="article:modified_time" content="2026-08-26T16:13:02.122Z">
 <meta property="article:author" content="Florin Wang">
-<meta property="article:tag" content="chaos">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="ComputerScience">
+<meta property="article:tag" content="Crypto">
 <meta name="twitter:card" content="summary">
     
     
@@ -37,7 +39,7 @@
       
     
     <!-- title -->
-    <title>柠檬微趣面经</title>
+    <title>Crypto-ThreadCracker</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -75,71 +77,131 @@
 
 <body class="max-width mx-auto px3 ltr">
     
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/08/13/20026_CryptoHack/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/08/17/50017_HashProblem/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&text=Crypto-ThreadCracker"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&is_video=false&description=Crypto-ThreadCracker"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto-ThreadCracker&body=Check out this article: https://narafluorine.github.io/2026/08/17/50017_HashProblem/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&name=Crypto-ThreadCracker&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&t=Crypto-ThreadCracker"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">题目背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%B9%B2"><span class="toc-number">2.</span> <span class="toc-text">题干</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">2.1.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">3.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
     <div class="content index py4 ">
         
-          <header id="header">
-  <a class="u-url u-uid" href="/">
-  
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
     
-      <img id="logo" alt class="u-logo" src="/images/logo.png" />
-    
-  
-    <div id="title">
-      <h1 class="p-name">NaraFluorine&#39;s blog</h1>
-    </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
-      </li>
-      <!--
-     --><li><a href="/">首页</a></li><!--
-   --><!--
-     --><li><a href="/about/">关于</a></li><!--
-   --><!--
-     --><li><a href="/archives/">归档</a></li><!--
-   --><!--
-     --><li><a href="/tags/">标签</a></li><!--
-   --><!--
-     --><li><a href="/categories/">分类</a></li><!--
-   --><!--
-     --><li><a href="/search/">搜索</a></li><!--
-   --><!--
-     --><li><a href="/friends/">友链</a></li><!--
-   --><!--
-     --><li><a href="/QSL/">QSL</a></li><!--
-   -->
-    </ul>
-  </div>
-  <!--RSS-->
-  <!-- {%- if theme.sidebar_rss %}
-  <div class="">
-    <a target="_blank" class="social-link" href="{{ url_for(theme.sidebar_rss.link) }}" style="color: {{ theme.sidebar_rss.color }};">
-      <span class="icon">
-        <i class="{{ theme.sidebar_rss.icon }}"></i>
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Crypto-ThreadCracker
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
       </span>
-      <span class="label">{{ theme.sidebar_rss.text }}</span>
-    </a>
-  </div>
-  {%- endif %} -->
-  <!--RSS-->
-</header>
-
+      
+    <div class="postdate">
+      
+        <time datetime="2026-08-17T10:16:35.166Z" class="dt-published" itemprop="datePublished">2026-08-17</time>
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/PUZZLE/">PUZZLE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Algorithm/" rel="tag">Algorithm</a>, <a class="p-category" href="/tags/ComputerScience/" rel="tag">ComputerScience</a>, <a class="p-category" href="/tags/Crypto/" rel="tag">Crypto</a>
+    </div>
+
+
+    </div>
+  </header>
   
 
-  <div class="content" itemprop="articleBody">
-      
-          <div class="hbe hbe-container" id="hexo-blog-encrypt-ex" data-hbe-ex-container="true" data-hbe-format="4" data-salt="6abf14e93c829d07e3afb3797899efcd26dce297e0f2307241befd1618743642" data-nonce="920b798209ee0e6ee2ef1f09" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="full" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
-  <script id="hexo-blog-encrypt-ex-data" type="hbeData" data-hmacdigest="">ddf751548786036d9ae447f62b6c021e0de78781bdc1b45abca6b24b1e457ed764c042fe52630d04a5b01c9848999f3632bbdd113b22d43da9ee77575d2e87b094f09f3d1581f6cc335773083bf9de268cdd2dfb8c1b533547f1fdcaca72712d00e40d5804093cd7c5451b0a47b7b8a2baccef8eab39a9d82d32a292fff367d0356dbeb898f013452c98313d179d2c714c4fa4380f678d86d01c0b08f6dd20c932c85d23dd274c78794a31b2a8b0b5917e4cfbd17e5aba64a80a4df12dab86a0595b0324da8c70678d808f0d0da53112ac3f5930f2d341266726d434aa3612fb9db684a11b2dfafd07a6623e9afb9e4f79aaeac723b9126c1e8025599262c8b9e667b191f8990cd65617cbd44ada36d9be931591114abd33c9402c76ca5f61f5d46802ef52524982b3e282b8605685a55eaab773e4fb80f57d93b2fb25c77245aae94ce0a5b2aa2f69ca1c61dac0b77f01c5ce4c49b76dec03e97b25239a3994cc4a5bf3da8567235b92a80e2eb62697b2b202bc307b3c2c4a53813a7ac63a5bb1a3fbbd1b2864e6e17beb530423dd1546fcef2bd643a4f584eaf62b9881cd6bab675d680e131249ac2d2122c20666762f0984cc1ed642423c40a996f86320e062d223bb01f39dd95e361b0c94a6e3a938b4dff8bcfb674ea75890d84e65a833add715df1e029061857af00165e6af51064ba006f66ba9aef9a8f667d71b74c1f8f5f7b89cd4e04e493e939e4ff8f4714cd7c781e38e0eddf486f08ba09f5b28628f6c82577097196b29c0c09768293258e8e02b46f24fb96de82e61f679cd86e5260f267222a2ebcc74a1531691032b1ba17a6d71093e32ed51fb3d904d8472642cc202ba67998905235088e99758da38ec87582b4df88ff08bc1555e860b7768c986f3e230f19a648fa532f34fbc3c5180b80f75478381cb8ebea9d05ce7e553eb07eba599dd6faef1f616e102a6be400b46ae6b9cbd4f0228617430dfea80e9eb737a6704eb3ac3135798a70f0a70d58a08dc8d8a94b05617860a06bc512e7f657985bd1d8396df4f44bd0e92e3ecf9cafcb91d8f0711c59fcd3beff743116516416eed7e734ac6c547ec20a01f3b48152c041b72990a882a40eb83e855dad2ab82d0c5b2c142eae2349967b3a4f6baba8c5bf9c23c0e5e55a4de6864f13507b1fe914c9094eefebdb3906d76fc0c42638397b948693d6909010cfc2db5409a65011cf4e8bce2801ded0740d7e684d0130011ec8967ce6361dc780f5e90f47abbf9a37d630bca97d2fcaed72ef9a55a259525030ae06f297e894ed92f29b8444dd054f1e801b2c263d20a9d8b694007fa723e746916e0c5450a240c31fbf5af65e40a2a0c4a0780df35ef492f7a996a5a9887303540da7a2fbbb5d9206ba8dc962f78c60fdb3376842b5a34c9379ad6e2ac0330afd3e4398ebab4635f79a6a1efe0d8808a0e91845497524639d26ac7fb33ac0a232252f1776cd49ca5c3202870d08feaba0dbb62a9a71e4af8bebf2d861bce41347226927b8a54f11356b06ab4f5a6dc0bec6005f1b0abf8bb2dc9e935ff83e21a8a5106432e7c06ac1e19b66630ba1f722caa9e2514e88ca30225529380379f2c009cfee75773d9cd9f7d9f25a371f0442f0d38ccd91124441a1fc886bf7822eef4a6408583640b7e9856a988abe44b46d3762ab697c1bfb8c8fb421d588b8cdef0f082849369c0338041b09798c5eef5032d69933f2c8234a231482a4c47c216567b06d0e5a037b932cf66fd1547b35d828199b95032de80f55fc158a53166d7f84b156e58dbe03ebf1bfedf8377b7df756e9c7732d7ba15c03dc4ab77d90e39dcb541d252201677cdf67f0914e3921a617909f07ae4e1d159946353b822c22dc8afc6e0ca13e34527bd52555414644a808b91e2c5fde54b074a5303f6a07f300c305b034e60680c756a9e13bf56be82d914f90bc96a296614611da17d860d0058707ee4c59d2ac5ca7f4fb587b1c57e35880098d2adfa7831e1cfba46e10a64ab8e6856ac76a06d62a72469e1b60a6f90306985afc6e606616129a5e1881416f76e7d8be96c3be04b90103b5694262766f6d5430157eb17423302a5c675b5746475c7777230d389bf0bf8ea2ddfa92b1ec2d62b0eda7a43734d03b0e94a05d40dafd9fc756369e570274ff5bbeb8c6a015e70803e031d04a597e219690df4dd62cd5dbf732a1ccdfd2b6af7385c85eb0a633c1eccf8fd59518c26d7e9a1fd34b596a6f3572c91bf5035a0a7cec89fcdde7acc8dd41fa173ff4b11873c2e6f5186c818b92b809cd87db94a83ecf8da01f207ef2f7cfceecc642c3aa7e7783d647150673863761b162ece68ee11009c3d1ac7d7f348568c3ff041f59faf831b2ed436480c9bcaec2b721ec70a62e39989e3d7ffaf3b81f16fb2fe6755655197e1a1dfc51d98c42c197c0a43d8a066896f5235ba7ffe160885a5bc9ca44d7290f9d6edc618a5d919eb344178dd0cdbb2e889899d9a3cad1312c69b954e0a37ac9bed1572c10e0b0055003d5ccfd16afa5349a235e982d2103c95f6b27aab7dff5958a957b79272117d97c758e61ced2632f11c8c71daa762d1a1f60acae84484b3bb5e37ce818114fa92d3c0dabe35d744e898e6eeb62eb993f211e859acda1c3dbc2d13b3db30caa2c85f06c90c1ff4dc66ac429b3e0a3f61e6495a4dbace4cc08c3f4a877f0efd986bd6d825915aad895ff9e6d01429b7ae4c07aab05ec4fc76298e14c03f0fba9c26617a13ce5dac3a344111246948fe85e7aca5c7acf116f1b0d6f564b822947ee7107d39bb41df0fdef604270e063a5b55449e8e3ebe9828c835aa919df8e0d58e96808383fa10c1d49b00df61b0d1702a4b590a616f07e0a39ad703f76cd5d2522d35402f4fe95bf6740b0811b9150ddc9be18431452d7fbdea62f95b29d89a1f64b3cb4670c64177b0b2afbb0cce01680fb9319e50a0d6b46ad1cd43b14ab7a9083ee468083478ce2963a6106879d9caa3300153a4aafb8d1f4f77300c955c8072f5bc6659bb53a026317908995fe5fccda21724ef0261061eebffa343bbdcc4aadd9d1ad0789b42d633427fd76294acfaaa5d2444ec1a1940c9bd0912b4dcb78636f2e0e1b3f8070d22e049f5a1290f6ae9e9aec49a09b6b69e486545ab3581367c56dec5bf42e4054eea46e3836a806053d6bc438446ad03b52d86a7d395992c9945fb9c1caca4c2bd914c894c7fbad2acc0475c52f9b21fab1d6471abc68f6c7c578fc9bf5cf641a45a8e10496482509ed80aa3baa4edc6b2d6a2f2c88339a2a9b27062f191a448f535b95e8c39922f992da18983407ac00a2fd4888d8d4ff3911d748087d5c685eb10d0c092ac6d2e9c7eb855bc238c05efc4d7c622ad6ff562be9d71d8f47e227a3a41d3b3fb5e79009cda87e85e03b2bc4741e9ad37d8519cc60c7386411df02545f36c854646babfa61e4dfb76ba8e4e972503aaa45e2fde3b8ae3df561b46652caefabba975d5060d717cea6fc07a0abf2f04e37f24d7d2da7d2ccacb02e0b913d09c2e69fb101dfa25a443c60e4c01fadeecdc66d3b513717c9acf05f8468c38473d501716ffed72f1c4259eade6c84dd46440ed4e3b76e5ef2773bc15daa5e78982860fe81ae990be59fcbc4c16b3313ab9fc24bf096fa00b842f7996116c09d97a7601cdecf7ce7997518b50feca0954d09ecbc869a5fa85c2a12e417c4a00a264fb47654ff6eb3df6af0c098ccb53f5870d5bbf8c81a580f394d2ad83c7aa4e5a48024d4812c7c433bbb1414f92d686b5057fd1fce8021278caabee89fc38ab05944155259bae04d0c11d86f1f013e64fb3f7e2116ca9350a3a8e6e420efe75012ec4922e36e4dcca4f9ee3878d0a95fc9064fff9bebec1ee6c87f6da932d866034c96837c6eed29e263877b4b3d55109d26ff892fd6ada645035bb742673c0d21e5d6b6755c07cd03fc4611d5a7ef0bcda9609a3c0d6decdc6b3377024bae19bb7104ec96faa6d603b11f504e5385e309decb29fb48ef8be21fb285d6c20fe2357f48b285cae9704a5190aa155a2ae503ceb8364e6405b5484cc8135fa805136fbb346d29ea8b0555f8aa55abe6d0085c44e7e0075ff48eab946b91e8f8c5e89c58bf05b7b9b29483115b4d8a491fbad8a2fc9f4da4e8985c19f22a4907aef24e8a2a77948e7ee2c4fc53291648fc03d12b1d6324bdc0163a1c2b47df994d4ab2881f066c57f0ac6bc2df4b81f82d0adfa25fd0f758d0fa203a8d97b201000f749add8399bdc00df1d0b200d77f912a3dbc92780ea8c46851267482416fd67693be86515545afbb7d3a971d48ff5110dcb39bd03fc9149d94397da7c2174b395b3969327d715a1393872fdd61ff678141b30c1cb836f70d0dcb54f40733d1b6e2f7e72595ffbab5da76cb6bc9bfe91ed294ae465d3df329e637dafd1b50dba44857ce7eef81eff7bd4d99f2651334f6425ff43154d32cf4fdbb0bd37ecf5afcab7f14d8b480b312a5795a527c753d11eff2c1b7ca63ce4403cb93a038697b9ef646f7f8bba08401521142c6c78bae53c40ed8e47ecf0ea25107247f7c5829fde42c99355c90ee0339740d08e428a3697e7d3ba4cd20ae5e3d849db367f41daa000738a8c1710f6a963fcf0de6dd1a30628beb7dac647a39875ed9d2709ffbd5556c9744582314cb195badb486484e505d4e1f24f66149a323cbde2339bf933d9a9fe7ad97db02d9a08e131d0e19fe9fc5a915e567493602c9b20b8fce5beed76d5059830f83e4ecac141c902fe220516466609984cd74d6a56794de7ce7983f071a88cb20e08afcc17f8886b47c68ca359ce39ed737e5359d67bcf914699ba50f8f3fc310e6bcc087eb63f00dbbc07462d0ec6f55afaff17efadf806ddfce9e4d0ba05818df3da5f2eb5b285290ab2cbd65fc54970e7ac765f621b26e701d0371f713814cc8bb58242204680078072cace5330e3900e3ff417d4b76351006cf541966c3507b8bf473796f1c71bcb37b6bc2faf8d49376c1ff0ca7d67b0fc623420c2613105441bf57d9157224c2f67856455a4eb5043a40a4791c2e1fa8dd77b8f53a4f3e560caa11244f97ab0eac144008ed0316252405662a55f72834b9256b5989ac1da77e25d599b4dd066c196b99c14f03d4b77ab12002741cb0a20356d9fc996a9833d23401994a0941d59ec6739f68368f171771cf8ca7a07a185d20c19cb6980268bf9859d139d9ec546cac2db4d59c379366c6e71c4a4c1260f5f674effb89ecade39cd99fb97589f2116ae28a7b77c46bb24446cb82ccafcf201241f5ec85747ae913073d47d2365eda9a9a2942cbe3c6dbb38543e5fb712f029d7153a58beb164f570f44295541d7c47bf99094c456dcacf16585b342ca601d776849bce9192c8863896ebc710fdfae6c9f452f3622265ac53b3d4dfcc310dc0e0d191e34318e1885362c58d9c3d77a53ca73617f55cf974c3bd93c6bba8728910302bee5140fb14f29031ade2b67c865dcb6eefe74202eccbf47c7118e04d43ae29ef68fa87a0f97aaf07d87738b86f16517869a19aa70ac41f741f5a4982824fe1c1829de8ee5a3647b7dd60205569bd76d4c19a82ac30a3a57e7087c60ec7cdb368c424acf4b0059b2e9041bfe27e45d560733a7a97233ae3f2a685e098625dc63a1ac59ba8a0382ea9ee20b678380e5c03d050dd0386d04decc11a4212b63bf6c4bdea532a4422445e1d6a58730f1933d73082680d2e64adf3721a27043c8b44265639f9aebaa6cd850b848b7b376c5b3886a129293be7c014e6eb8924fe8f74b54b6d5da83d8664ba6645e0b9ed6c11fab9d5f2cd4c1e4a75f83638f833bc9f40f76a1885c65238105c93e821470f82206eb923aca26a12206d6dd4342cfa270708a537a8388eabcacfbbb6685af54280753b25b8740f947096d5dcc3aa5650611370a630d4a0cc17ec69a97931742a0e95f2a25dcfbb7e6c59a98a359dd266d58e089199a7ebea8da57702eb4ea5386041374827999d7657db946650ea5885351a00efdd25330ac4ee87416095c8f401063a04e5de5f73dfec8070cad788ac0a732b547f64972fd3ac6d1d99bbee16461c016e13e30dd1572b4f5d7ae6ec932ced246bb5c97cd48a4c19e9e31fec9ce24bbbbac3a09608f070ea50e69670569cfdb28f6323be3bfde00566247165d6aa38280c35a91d84f9d3ce9554e35a414b6125c09d71ee8a9813aaf3e31394d3ae2ad9a973d2d580af1c4a15e83c3fc37c529ce1c0c1f89b1d586b06c46b2c87aaf21461217d8ff0a5596283c745646202ce9f5af640d4c0f8b7c309d27dc4c2e44d51cde347f8e2a9f3c4360cd04b5d9855d8b7c4d20d20d965b49a3b695630420e800b03d1ae198c1f7dfb235dbf397fcc706357e018d0fc09101a801185e5bdd9c6c5583a771c467ac575574b90c2a755bfb3c55b826910d241f421df6e96cddaa4a055b2be69f8ad43f1b2a04597b1a4559ca7d9a703fbb29991e3a0b9f3500490532ed0b12f6ccd4d4eab48c201218211f9c71826ba6723b4ee374b3df7ae0f7df409b20ac19a694d969202b73de47936f6be1c37ca49f1884047bdd41545ee1478bfe425d5f68c402fcba9997674f6d3b157c9958796aa8fb0ce42e6811b762c0768b7887c303f5ddb8a585be0988163e21eceb5e76af7f5daa656db178e3b8e03ee0baecd9fc710afa639d6ee632eb703953c3904fed3bc29a67a372db67642220dc550e42d00a9b42d7a5d3caed1eca4b46f280142aa86ec2b253717776b3d51fa4b7f486ef0aa86808a26d734290ca3d9f8b96d404f0eece9e7313800f812a18b13e41aa93012f76a5dc95e40706b13ebca7ee1274963044013f29bb693368936dc10e03455c6e83b561bdafa715666c1eca5a00334632bb9ed3de08c0c735efeb1f95ffab2dc2ae4daa0825c7f4abf4c7a45983e22ae7aaffe65d4d2409e93102eaff5ed31accbfd8fc7149904521b94768ddeafbfac5b28f98f96bebd5930a6f6026919144c38d3c4547da20d89f3d36e729e3e1b8eca1258676a73c810c48dd8a9d18ed86ed5387dcd49dfd1df93d4b3b19e6842ff57f98f9a8cec5c43fab09052a9a4aeda918ffee372b38ce714b0f1de84207ef6bf707d6253b6ff7ce9cfbd4485c84dc023302c2dd3af3d1debfb65fd557c2eb71db73286121d9b88448e2caea8cc12615f6c5717ea2bfaeb86f9776e2daaafebda72ac4bcf40d8418bd0d7f79e6e39f5dc0fd2342f5c46893d9c142bd4fcd69e9a61ebc2f496d6fb98619441a7e9b5d9129229711f5b62642b02e9011a83f1d861c2d85930c51651cf4ef44d84627fb2cbde305f97b3f13659fa7ecf6c2a3ae8dae0be08fdf2e5a327996a95d705f71ce209815e9c5b17cab129ac7e2c81b546b1ba408e9655b1ed55c30ececd1a2a36284b6658113fba962365018bf6f0f62857b37194fe2ad042f1af5d5ea29d121ebc930f5fa8f09bbc755c97ba28abd46a9f21a39be824e1fce4c996a3eaabd81ff20856ba36b81ab7e1110f12c08081bc04aa2fec46c6f594315275ed9bf35dd4185b87f338ea9c249152540372ecf92577e92db42f9a55d22969f17ed510cc0e856d256c1e08bfc0bff62927e24102f44fa7d395539598579574360c205044d7346eb00afc568ba1bba208de7115caa70023b435733b5a8171057837b72e79b0c538f51ca92d150f3cb2a046279d664881af93fcdb035d91e11fb2cb400a7dde8b620d81c1b9e6d4c4de586047ae563c6a56b7542cab40c5d4f3b8079aea30e23bf27fc1ed89eda47eeb19a454f3f66d5b682cf1f04dfcfb37997cf689b361133201427f3bdec4e937e34299b9f664397a3333e5590774541d09c887f431efec9886b98b2f022508cd24cf2fdebb458a64717c14cf44454ee13687f21163eec171d457384129810dbd301f0453c0f4ea3b85f3d62bf34aedb6c5a05fbbcb83727078efd7efcbe05e2f8b00647718c26da69a6687f25615484231aafac6f15e425ad04fc2e3445cf3014102a8a7323d1ea0abde2eff9e699effc7415db2704e47a0c6095bb547a3349f65d12e0035a685cfc39396ff5e2245091ea4b72d35f6d3bc381fd90ec064a9d8cab6b7bd1dc7558d0ab975a4e03660b0b976334cc2af37ef5852a367166f94816cea6e226ea0fcb9289097dc4680a033d5a97eeeb52824d4adaa48aa6693f0775957e8066d088f47aa069ab0029c88a2aa8e4e9fcd39a851ac6f603f22476b44249e08cc87d1e9feff3275acd0abb2ac711be6c112dcf1b165ff071ab6303b99152154c6c2708d76658ff359cf467a8ac836ab1ee194d30e54eca3fb7e40adf1c9974fa7296deab1f7fb27f4c05b035acfaf4a25639165e26781dd99040b570a99770ecf21350742b7b5e2890546081551da0a52540edc3c5368cfebba475018972e8d22f2948e3b573cbb82651dc1a66a007726f3f2f9465139d528101e6865d323218842ab0cc0a12e180f2412e8128e3c75c5a800667730134ebe049828fbda501961766cc4cf3d77571612d373ed8d246fd3dcf81f249c468443a6d251fce16d67784fb078b88f5f410e74245d663930ec57dabbd5ebf407d2232e22e2ef0066922359477778511fe9928b3cce112761088688e9e8d4caa6252a60d17118f108e72323e3e7e55713fcab5e717cbd431140acc7d3392ed4bcb4da1e9db9164a35ddfe754eefe258481b21d1dcbe1b6fa8a4e40eeb7687bc330353ba8432a8477e519703ffd8a32ed8e63d5cdb418681e11e61c5a579ab3a9557435a3490d069f4b1fac6fedc05dba6d1122e47693d33b74b3a0d93909ccff83808e4e4187d52150b1004a0857e2c8c10309e3656687a88e09a4b2b4a312e503ef3c8a6648b24c1a47b255d5dc0fb718d9f4674e5c51a0479105bd2982689ff368a8bab724514e169958fb61aa312cb4bbb21b24f41d11631f41dd1ee991c196c5b8ea664453b81fd633cbfdc4379792cfd7e631881821b12ec599317557f0a0bfb2c967853155926b2b73c7373263b374fd9c382c141caba8ab55db2af5c3d6a2f35f5d75bcfa5b065a3c8119f3dab2210f0cd949a794333c8207a4d2d7747b68747d54ec01bd90fa01166474fe444b3638c75406ae8775719f5c5afd512c1e28df237ea13eb40110db109b38b2442e68de3ea7c1654994099b6180f80f6d3377b3e1e5fcbe526fb471b48dede16d5c040b79f5fa55a78f7e097dc2eafc2b7e4fc71073b7388a5f8fe05246cfd659a520c358735c80442833fcee60bd6c93e75f335e0aa8ad26dbffc320917b27d357f6d0687304da12ac42d7c3592fae4bad6783644d8996fc81edc61fe41caac4e1350016499f053dc5676f9e7af787b88cfadfe3cee71e7ba254e5592bc680d77935f31c7905489aedb30d6b22ea829adfc6bd9d02cbdd2810979485fae8da0ae86393b564b47aa356cef4e535a3353b84c11ad84b54c93b091530652cab2d76cdfc8dd12264170085a6fec07223e1b36b9d1c17bda1dfa4904e93d85b61bdb271069be049daca5ad9d0f5b49cd7e7448e13cf6b5e946fd0c88860a1b96703c656715d3d0d702d98528f99164429d3d40dd866dcaa1eb2be726443fa6fd21fc538ca653eba840aa4daaec5b1ea90fac195ca02c3a8574cc9f778232ca10890ccbbc457b75e198b12ed8fcb512e5429987816ddb37efae77c06f56873e640d1ca8d39e9f1a64a942681f7e5025e91ded12e0f3a3c7d060f55fd35efc8d9eec5b61298f07d34d6e262e0f0a2b2535bcd1b5e39ac61788b7fe003e96fb86ff11955938ff202974f17e74dea1a38d06672c75c403847af71fbee6ea9e8c34c23a08f30338c2f46a31cc980abf38e5246771166581d0391c7069f5fe54a30815671b4d631769ccaa2833da227466a5a04bb69fc4d1ec1ea312a7f83f8042e4493b47b1df5f9213fbbd8c8fe03d0993f4e2ee2f878c66f30ed4bbef9b8c512d465bb2c3ed4f7dddf1b67378dc108739ec1cb10a52da5bcb9f96e09833d987846966e4afe34e6b57bcb5edf894f5eaef43b389101aa00d3451ca19fd96ab48f4eea59771fc7fa1beb50cd149a32ebd5d29d15e4147010d4d4ea8879b709a1ffdb750965c68182741cd2d2229cdc65310bfa784cf895f954a7711f1a70ef10ef6c0cfdc3f732f33fdbd65099780491240406d5fd98cfd78b02ffd25ee732141d69ad66cc8b59b58913efb19dd86f3d0652240b6287aa72927ef176bd4ca54150a9c9807d370f2b21c5ad2d0556c469e927539c237c447071cebcd0a74117e474db83e9897c63348d25e5699950e9462ce6e9d091ebc53ecf6b716c534ab6f58ef8b856889d3219f1de67e811bd565881e72491e79c4f98cc3b1791d9f32aa08a672f0a2b570029002a9136926aa33f0331eae4b6de35b482688176268745fe03affcfb67e9d69088259bfed5b493a0c8e34d39cc4b725a65f4cfdeb18b216678539caf5a8ef0ec6dab7ee1df093382dfecdf867299ff26091dcfb0dc6f1cc40a23becb4ba1d1560c161956cabfabf68ecb3b38228d858d205b2b6ff90f5ed344f764fe6f9c181f5f4907e2a74a83725f129e5d0fc1160d848955f0cbb0356b1927b7d02bdb13601d85d782c7f433d8d9b41130ee5238cbbad1af9a5b8116ebc69de6b7ffaa81f84e1c0dfa95f8d3853329aaec54e9c7b74647968fc07b4ed3ea5455118f7a877a6b158c9b7b9a8fd4c7c03cb53a07c6da2e6d4d510481003c728c280db0df9696ecc7240cef451d4db8e836ac80b23a5af99c043139923edfdaf1a7628f59422f1aa998cc12638bbd63c983e38e6c276257a16eb6b98350a2fb7f264c7a1cc6e1acac06580b59ecb3c33d821abaaadd1b20d91c5052326356308ddc986254becaf2fd9cb417c1b2cdf6237966c05a3d3eb68036fd447c5594efad55029936d89a1aa6c97e710e9148ebb5e10d3038e90c7bf18c6c47cb81bb201a2d9237f127f185535f774884191ebd0913ee3eb5ca7ec64584525046c350259bdcaea9e3c6eeb5692b1d2cf4b6176ca9c1a3bddee16628a501a276e3cf9017973d9b138e263f564a8a474a8b710c31a678104189561be0aa2d4e2911613e363e8b237077764ca2ebb63936adec7c35781b9b1d76af3af4124db7dce1f5cccb1484d9e8a513d60109d08790fd30b96f43f096d65019de448dde0dfc3dda5227bb15c7b0b799a59cf0eef16e934fb90879985282e9dbbbd7424ff4273a91beecbc58d7fc7feff0e9bb238b7d0f568a5d326967c8e5874b59342b9d359845499cba51cb5bab2767f594113088e70187f3c5441fc91dd9647c8885f40d47e60bfd407f0cde4b7ebd331a4309cee5c2239aee218801b5deb6d1a2e8323bf2907aff5e88fe3d84fcd2300960eb7c228148b56eff8904de80b339e3fc3fd348182583ef284f3d811e5fd84accc1484df846cd375d4f32448c2f7e862b7d6410bd271acd68d2953cd402e4bf95097ee2b19c97ac814337d42dbe9dec7b6b49c9905257b0c6171badd3148892f47ded2359dc41e8f3a37dcc9ae2cd3be55d318bae5540ac3c7bb1f9b5daf4f2e81fc659b38fa8c111598ce53dec2db25bb2633badebd1c5f1e2a2da7346ff8fc0dbb5851c34308bfdbc4b8e4aefc4e01f88655170d1956837476f0e60a69b2ec58f3bf2ae2bfc1b2b3d36613b8d1f3ba2a1236b925936ed772e168713e3551131796b09b043f938a964e0c2130e2975d0e3056b30968613dba4a6f8de142693f7c2a56bd5113accc01f492b6ca1ec5fcb73d939df5ef860058bb48b9eb91366a1262a516b54a6a769c88ae1f5c7afd8c1e73ae4f98897915db92060e83eb8749539bdf0c9bdf97451cc178bd9473dfa362d22616caf708e01b06857c43ccc2d6b28a31fc4243dfa01195f16d2b409b8b256617cb555ece5683f889236e5e14a696bba8c6fbf1b345bf72a80cba0cc65ab4676c9decb80dbef699c6af2bc61f6f621aacc8e7f2cb0c6253df8e7acfbab23cea670a5f897a1c90947b92a8a12f19bf3865dd18ff0f6d0bd0211023a894e0f2d7d99d73cc0ce1a284e3d13351263f042dd6c984a9dbac428028b9082112da639e4bdd19c3855fdb6e8e8dee022bb8d4e98585e69c967abba2381c733294b4f3a83c035503baffca296d2cdc67652d815f37819eeff1f7902e75e543e87099e2b5ff294c54775c435823439f404cf2bb70087879db009b2cbfe136916ba2bf825299d78f4aa4d3ec4710a8bea65547da012e082dcf4ccf2e4bf13749bd95b6f6330816b83bf2965cbccc4dc74542b77c3913303c7475b49252f3412b7b94f166cffed9d1407ad3d4e3cf015eb13768a077ef620e82171904a82b988e4455277263e36855dcf9114aeb7346e04806ddd8fb1f20e5c9c0b6995fdbe65750ca69d736b6f177131527759ac6ded98a6557a71038f7c6cb3f6be1b9a43f70c3a71b8dae86c2da61e64008e12d3f1ac7eae89e28589b3667a026ae64b53107757c858d137e0589247c0c3792ab79bda2805d6c3beae7f370fdc8ee3d62953a043ce62de3e2b65371ead33ce820b779cf6d522b9f8cd3fcd41ebe5345c30a8d91a34f05a572a49d3346e6424ff961f11b999103a54d8c4691c6be73389d0a3b2e3584727d487a94e7bb48ae99b039ba154dc3f692bb524531b4a4fc848f0d3f4e90bb034954df9baf78c6d064f2bf189119a8e57019e8282df2092d44aa768023e5e7307eb47e6e1883485aa61994a11ea4932bff5a1e2b947289a18e52fe3615e5b41a04711034a47c0fc09893f81ae123cbaafa2efda5795fdea20251fbfe5bb4b89edf1e7d902026b32f0aeb73cd8df8a3b81b1446b0b235a21d14cfad8795d34f126fe939d1692f3d448ec8eadd60188dc7ddeac27fe4e2605b1aaa36f6c03ec6ebdfcf3f02ebdacd6be66cb2ca3d59f45389000e24de719a5a48e9059df087ad06e0a4a458ed454a88955a16b1452336eeee51bd8e119c07c40eee0c86a30451f6539e0691124b74a9be55d41ac22dcf143265d2892997f453148965b563f369f057c737ef80e0bd1b4092317d7fc388f5ae887678db1ff7aa6dbba7a45dcc307d8a3193f244df9d074046cebaea76929f1e147e37d2b56743265854ebff218291bad829eab60b1ab9f38f583c8fe94ab597e8a8bab20b9840b391</script>
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h1><p>线程调度大师,我还记得你…</p>
+<h1 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h1><h2 id="hint-0"><a href="#hint-0" class="headerlink" title="hint 0"></a>hint 0</h2><p>多线程争抢资源造成的熵很不稳定,有分布不均的情况.<br>举一个例子:  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> tmp=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ad</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">100000</span>;++i)&#123;</span><br><span class="line">        tmp+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    vector&lt;thread&gt;vc;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;++i)&#123;</span><br><span class="line">        vc.<span class="built_in">emplace_back</span>(<span class="built_in">thread</span>(ad));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)&#123;</span><br><span class="line">        vc[i].<span class="built_in">join</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;tmp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Fluu为了解决上面代码中 <code>+</code> 有交换律所以区分不清的情况,对每一步引入了伪随机数生成器和sha256来消掉线性,于是就有了这个题.</p>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><div class="hbe hbe-container" id="hexo-blog-encrypt-ex-927cj3-0" data-hbe-ex-container="true" data-hbe-format="4" data-salt="8b21cd29bfbaea4f6b791204d69c0a614cd90b04eff4a9eb3aa21b050ce57569" data-nonce="6bfd8227da5bc479b24d924d" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="segment" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-927cj3-0-data" type="hbeData" data-hmacdigest="">0858bc11661eb63782d1195104ec2899ef10e5d6dca600cc29f444ac2a04913fed8c78520bae2ea94fa198bcdc1355dd2cb53e2c855fefbc412a37b2cc9d6b4cb1b2f64d43aaab6b8873310d95ef46abe965a64bee57fdf07fc4a87b3bd396a73869e38aaaec0773f27751147c6d6c0f96573d83ece2b2d31627bfe781aa941d498c8a58ed23971bb905983f81265efe82eedf4de3e567116deedbb53eec2b1ef7d4941cb01780e8d4b9c9e50937d93b3b134545e71aed6f1342ebbf3131ea97794c0c5fce90e92a06fa8e212470e94a65980954717278c681eccc0994a15d530d3d62768dd89591103ff10c5b930763041e43182ac747b011b9bf879feec4b30b3223e2a234df70298aa60e2284147897b38bd3b1b8dae3c69112a24a132794b7bafa0ee55b9dc746ddfa38f7e49a8c08e339a895e218dd4694048dd08d90a099711b6a86db3d63e1add944c47a80ca946a39edd5404cfa458c05740c7b2c151d8a601ba723202399197287404be196e05ce64f3fe52ef828fcc95e6f9960381a1bf88b2dda26a171bbc513e2bc5728300b3ea59461c2b296ef8ce72f9da89714515c277f76b7f2d255fce8396d276b2084992d86634d8f1b66fd2d96c9ce0ba1f2280802242839d7ffa81003df80c8722f74339074a09e1af574b834ac1ef6b2faa85681fec5f69abd7fa4a59e5755734675c9e842e3fdcdedbfdafa645e58c81441d1998def6c016de4e2cd5ee7b424e2d9179c2b04f1c8ab2a880831e4f6888b13d7b8eb68aa5ed3fa2cc96e3fc2e9c31712df079c5008ec72a0edf2fe</script>
   <div class="hbe hbe-content">
     <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
     <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-pass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-pass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">提交26年5月的订阅密钥</span>
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-927cj3-0-pass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-927cj3-0-pass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">在此提交ThreadCracker的答案</span>
       </label>
     </div>
       <button class="hbe hbe-button" type="submit">Decrypt</button>
@@ -147,6 +209,7 @@
     </form>
   </div>
 </div>
+
 <style data-hbe-ex-inline>.hbe,
 .hbe:after,
 .hbe:before {
@@ -996,9 +1059,85 @@
 }
 /* shrink theme }}} */
 </style><script data-pjax src="/lib/hbe-ex.js"></script><link href="/css/hbe-ex.style.css" rel="stylesheet" type="text/css">
-        
   </div>
 </article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">题目背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%98%E5%B9%B2"><span class="toc-number">2.</span> <span class="toc-text">题干</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">2.1.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">3.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/08/17/50017_HashProblem/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&text=Crypto-ThreadCracker"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&is_video=false&description=Crypto-ThreadCracker"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto-ThreadCracker&body=Check out this article: https://narafluorine.github.io/2026/08/17/50017_HashProblem/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&title=Crypto-ThreadCracker"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&name=Crypto-ThreadCracker&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/08/17/50017_HashProblem/&t=Crypto-ThreadCracker"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
 
         
         <footer id="footer">
@@ -1063,6 +1202,29 @@
 
 
 <!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
 
 
 <script src="/js/main.js"></script>

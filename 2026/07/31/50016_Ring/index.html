@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="问题注意: 本题为Open Problem,不保证有靠谱做法,只是把idea放出来. 有n个点.每个点都有一个自己的点权v(全部正整数),点权的值域为w,点之间的距离公式为xorpoly,可以O(logw)算出来,现在需要你找一下这个完全图的最小环的值,其中最小环被定义为边权加和最小的环. xorpoly:二进制下的乘法,但是用xor把移位的结果加起来,可以参照下面粗略的实现理解xorpoly的含">
 <meta property="og:type" content="article">
-<meta property="og:title" content="环上的环">
+<meta property="og:title" content="Algo-环上的环">
 <meta property="og:url" content="https://narafluorine.github.io/2026/07/31/50016_Ring/index.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="问题注意: 本题为Open Problem,不保证有靠谱做法,只是把idea放出来. 有n个点.每个点都有一个自己的点权v(全部正整数),点权的值域为w,点之间的距离公式为xorpoly,可以O(logw)算出来,现在需要你找一下这个完全图的最小环的值,其中最小环被定义为边权加和最小的环. xorpoly:二进制下的乘法,但是用xor把移位的结果加起来,可以参照下面粗略的实现理解xorpoly的含">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-07-31T13:44:30.000Z">
-<meta property="article:modified_time" content="2026-07-31T17:17:34.631Z">
+<meta property="article:modified_time" content="2026-08-18T01:00:24.170Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="Cpp">
 <meta property="article:tag" content="Algorithm">
@@ -38,7 +38,7 @@
       
     
     <!-- title -->
-    <title>环上的环</title>
+    <title>Algo-环上的环</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -123,16 +123,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&text=环上的环"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&is_video=false&description=环上的环"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=环上的环&body=Check out this article: https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&name=环上的环&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/31/50016_Ring/&t=环上的环"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&text=Algo-环上的环"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&is_video=false&description=Algo-环上的环"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Algo-环上的环&body=Check out this article: https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&name=Algo-环上的环&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/31/50016_Ring/&t=Algo-环上的环"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -152,7 +152,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        环上的环
+        Algo-环上的环
     </h1>
 
 
@@ -248,16 +248,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&text=环上的环"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&is_video=false&description=环上的环"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=环上的环&body=Check out this article: https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=环上的环"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&name=环上的环&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/31/50016_Ring/&t=环上的环"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&text=Algo-环上的环"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&is_video=false&description=Algo-环上的环"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Algo-环上的环&body=Check out this article: https://narafluorine.github.io/2026/07/31/50016_Ring/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&title=Algo-环上的环"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/07/31/50016_Ring/&name=Algo-环上的环&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/07/31/50016_Ring/&t=Algo-环上的环"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-08-13T08:47:05.930Z</updated>
+  <updated>2026-08-23T18:35:44.981Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,17 +17,64 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MoECTF2026 wp</title>
+    <link href="https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/"/>
+    <id>https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/</id>
+    <published>2026-08-23T18:25:30.000Z</published>
+    <updated>2026-08-23T18:35:44.981Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了.</summary>
+    
+    
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
+    
+    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Crypto-ThreadCracker</title>
+    <link href="https://narafluorine.github.io/2026/08/17/50017_HashProblem/"/>
+    <id>https://narafluorine.github.io/2026/08/17/50017_HashProblem/</id>
+    <published>2026-08-17T10:16:35.166Z</published>
+    <updated>2026-08-26T16:13:02.122Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;题目背景&quot;&gt;&lt;a href=&quot;#题目背景&quot; class=&quot;headerlink&quot; title=&quot;题目背景&quot;&gt;&lt;/a&gt;题目背景&lt;/h1&gt;&lt;p&gt;线程调度大师,我还记得你…&lt;/p&gt;
+&lt;h1 id=&quot;题干&quot;&gt;&lt;a href=&quot;#题干&quot; class=&quot;headerlink&quot;</summary>
+      
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
+    
+    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
+    
+    <category term="Crypto" scheme="https://narafluorine.github.io/tags/Crypto/"/>
+    
+  </entry>
+  
+  <entry>
     <title></title>
     <link href="https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"/>
     <id>https://narafluorine.github.io/2026/08/13/20026_CryptoHack/</id>
     <published>2026-08-13T04:28:20.613Z</published>
-    <updated>2026-08-13T08:47:05.930Z</updated>
+    <updated>2026-08-15T14:22:13.383Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;线性无关&quot;&gt;&lt;a href=&quot;#线性无关&quot; class=&quot;headerlink&quot; title=&quot;线性无关&quot;&gt;&lt;/a&gt;线性无关&lt;/h2&gt;&lt;p&gt;给定一组线性无关的向量，回到原点的唯一方法是沿着原向量移动。其他任何向量的组合都无法让你回到原点。&lt;/p&gt;
-&lt;h2 id=&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;格基&quot;&gt;&lt;a href=&quot;#格基&quot; class=&quot;headerlink&quot; title=&quot;格基&quot;&gt;&lt;/a&gt;格基&lt;/h1&gt;&lt;h2 id=&quot;线性无关&quot;&gt;&lt;a href=&quot;#线性无关&quot; class=&quot;headerlink&quot; title=&quot;线性无关&quot;&gt;&lt;/a&gt;线性无关&lt;/h</summary>
       
     
     
@@ -55,11 +102,11 @@
   </entry>
   
   <entry>
-    <title>环上的环</title>
+    <title>Algo-环上的环</title>
     <link href="https://narafluorine.github.io/2026/07/31/50016_Ring/"/>
     <id>https://narafluorine.github.io/2026/07/31/50016_Ring/</id>
     <published>2026-07-31T13:44:30.000Z</published>
-    <updated>2026-07-31T17:17:34.631Z</updated>
+    <updated>2026-08-18T01:00:24.170Z</updated>
     
     
       
@@ -153,13 +200,13 @@
     <link href="https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
     <id>https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/</id>
     <published>2026-07-15T00:18:20.000Z</published>
-    <updated>2026-07-27T01:57:57.252Z</updated>
+    <updated>2026-09-01T06:37:19.680Z</updated>
     
     
       
       
     <summary type="html">&lt;p&gt;玩了玩vllm,然后炸了.&lt;/p&gt;
-&lt;h2 id=&quot;vllm&quot;&gt;&lt;a href=&quot;#vllm&quot; class=&quot;headerlink&quot; title=&quot;vllm&quot;&gt;&lt;/a&gt;vllm&lt;/h2&gt;&lt;p&gt;vllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆</summary>
+&lt;h1 id=&quot;vllm&quot;&gt;&lt;a href=&quot;#vllm&quot; class=&quot;headerlink&quot; title=&quot;vllm&quot;&gt;&lt;/a&gt;vllm&lt;/h1&gt;&lt;p&gt;vllm是一个推理加速库.原始的模型已经包含了如何推理的完整方法,但是时间复杂度爆</summary>
       
     
     
@@ -191,54 +238,6 @@
     
     
     <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈token与算力合约</title>
-    <link href="https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/"/>
-    <id>https://narafluorine.github.io/2026/06/04/60025_token%E4%B8%8E%E7%AE%97%E5%8A%9B%E5%90%88%E7%BA%A6/</id>
-    <published>2026-06-04T05:53:10.000Z</published>
-    <updated>2026-06-07T17:19:21.769Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近AI在如火如荼的发展,人们需要烧token让LLM做些事情.&lt;br&gt;而token的充值是需要真金白银的,且api无论是传播还是泄漏都很方便,于是有人开始想,token这个东西能不能当成未来的一种货币进行流通?&lt;/p&gt;
-&lt;p&gt;那么首先这个观点的正式来源是这篇文章:&lt;a h</summary>
-      
-    
-    
-    
-    <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
-    
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-    <category term="论断筒" scheme="https://narafluorine.github.io/tags/%E8%AE%BA%E6%96%AD%E7%AD%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据抽取与融合 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/"/>
-    <id>https://narafluorine.github.io/2026/05/29/00032_%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96%E4%B8%8E%E8%9E%8D%E5%90%88/</id>
-    <published>2026-05-29T01:55:20.000Z</published>
-    <updated>2026-08-02T12:22:21.400Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这个课一节课也没去过,老师也不发签到(实际上第一节课发了一个,不过好像是不作数还是怎么回事).&lt;br&gt;老师也摆,这是好事啊,老师在课上打个卡随便讲讲,学生想听的来听不想听的去做自己的事,大家都好.不要想隔壁马院一样每节课非得签到还得随机找人回答问题.&lt;/p&gt;
-&lt;blockq</summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
-    
-    
-    <category term="ComputerScience" scheme="https://narafluorine.github.io/tags/ComputerScience/"/>
     
   </entry>
   
