@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-08-23T18:35:44.981Z</updated>
+  <updated>2026-09-08T10:58:05.115Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -17,23 +17,69 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MoECTF2026 wp</title>
-    <link href="https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/"/>
-    <id>https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/</id>
-    <published>2026-08-23T18:25:30.000Z</published>
-    <updated>2026-08-23T18:35:44.981Z</updated>
+    <title></title>
+    <link href="https://narafluorine.github.io/2026/09/08/40013_pending/"/>
+    <id>https://narafluorine.github.io/2026/09/08/40013_pending/</id>
+    <published>2026-09-08T10:58:05.115Z</published>
+    <updated>2026-09-08T10:58:05.115Z</updated>
     
     
-    <summary type="html">这里有东西被加密了.</summary>
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.zebedy.com/&quot;&gt;https://blog.zebedy.com/&lt;/a&gt;&lt;br&gt;左下角的立体小人&lt;/p&gt;
+</summary>
+      
     
     
     
     
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+  </entry>
+  
+  <entry>
+    <title>网站效果-烟火</title>
+    <link href="https://narafluorine.github.io/2026/09/06/40014_%E7%83%9F%E7%81%AB/"/>
+    <id>https://narafluorine.github.io/2026/09/06/40014_%E7%83%9F%E7%81%AB/</id>
+    <published>2026-09-06T12:42:00.000Z</published>
+    <updated>2026-09-08T10:53:51.189Z</updated>
     
-    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
     
-    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
+      
+      
+    <summary type="html">&lt;p&gt;大烟花! enjoy!&lt;/p&gt;
+&lt;h2 id=&quot;ref&quot;&gt;&lt;a href=&quot;#ref&quot; class=&quot;headerlink&quot; title=&quot;ref&quot;&gt;&lt;/a&gt;ref&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://qiyuqingyun.github.io/&quot;&gt;1&lt;/a&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站效果-布偶绕月</title>
+    <link href="https://narafluorine.github.io/2026/09/06/40013_%E5%B8%83%E5%81%B6%E7%BB%95%E6%9C%88/"/>
+    <id>https://narafluorine.github.io/2026/09/06/40013_%E5%B8%83%E5%81%B6%E7%BB%95%E6%9C%88/</id>
+    <published>2026-09-06T12:11:00.000Z</published>
+    <updated>2026-09-08T10:53:51.187Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;enjoy!&lt;/p&gt;
+&lt;div style=&quot;height: 10vh;&quot;&gt;&lt;/div&gt;
+
+&lt;div style=&quot;text-align:center;&quot;&gt;&lt;canvas class=&quot;illo&quot; width=&quot;800&quot; height=&quot;800&quot; style=&quot;max-wi</summary>
+      
+    
+    
+    
+    <category term="OTH" scheme="https://narafluorine.github.io/categories/OTH/"/>
+    
+    
+    <category term="JavaScript" scheme="https://narafluorine.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -42,7 +88,7 @@
     <link href="https://narafluorine.github.io/2026/08/17/50017_HashProblem/"/>
     <id>https://narafluorine.github.io/2026/08/17/50017_HashProblem/</id>
     <published>2026-08-17T10:16:35.166Z</published>
-    <updated>2026-08-26T16:13:02.122Z</updated>
+    <updated>2026-09-08T10:53:51.202Z</updated>
     
     
       
@@ -69,7 +115,7 @@
     <link href="https://narafluorine.github.io/2026/08/13/20026_CryptoHack/"/>
     <id>https://narafluorine.github.io/2026/08/13/20026_CryptoHack/</id>
     <published>2026-08-13T04:28:20.613Z</published>
-    <updated>2026-08-15T14:22:13.383Z</updated>
+    <updated>2026-09-08T10:53:51.166Z</updated>
     
     
       
@@ -83,55 +129,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/08/03/40013_pending/"/>
-    <id>https://narafluorine.github.io/2026/08/03/40013_pending/</id>
-    <published>2026-08-03T15:11:15.323Z</published>
-    <updated>2026-08-03T15:11:37.526Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.zebedy.com/&quot;&gt;https://blog.zebedy.com/&lt;/a&gt;&lt;br&gt;左下角的立体小人&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Algo-环上的环</title>
-    <link href="https://narafluorine.github.io/2026/07/31/50016_Ring/"/>
-    <id>https://narafluorine.github.io/2026/07/31/50016_Ring/</id>
-    <published>2026-07-31T13:44:30.000Z</published>
-    <updated>2026-08-18T01:00:24.170Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;注意: 本题为Open Problem,不保证有靠谱做法,只是把idea放出来.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;有n个点.</summary>
-      
-    
-    
-    
-    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
-    
-    
-    <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
-    
-    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
     <title>分块加密插件</title>
     <link href="https://narafluorine.github.io/2026/07/28/40012_%E5%88%86%E6%AE%B5%E5%8A%A0%E5%AF%86/"/>
     <id>https://narafluorine.github.io/2026/07/28/40012_%E5%88%86%E6%AE%B5%E5%8A%A0%E5%AF%86/</id>
     <published>2026-07-28T09:07:20.000Z</published>
-    <updated>2026-08-05T11:44:16.320Z</updated>
+    <updated>2026-09-08T10:53:51.187Z</updated>
     
     
       
@@ -153,7 +155,7 @@
     <link href="https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/"/>
     <id>https://narafluorine.github.io/2026/07/22/70001_AI%E8%AE%BA%E6%96%87%E7%95%A5%E8%AF%BB/</id>
     <published>2026-07-22T03:04:30.000Z</published>
-    <updated>2026-08-09T16:48:05.722Z</updated>
+    <updated>2026-09-08T10:53:51.221Z</updated>
     
     
       
@@ -177,7 +179,7 @@
     <link href="https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/"/>
     <id>https://narafluorine.github.io/2026/07/20/50014_ASCII_Art/</id>
     <published>2026-07-19T16:16:20.000Z</published>
-    <updated>2026-07-28T16:15:24.985Z</updated>
+    <updated>2026-09-08T10:53:51.200Z</updated>
     
     
       
@@ -200,7 +202,7 @@
     <link href="https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/"/>
     <id>https://narafluorine.github.io/2026/07/15/60026_%E5%B0%8F%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/</id>
     <published>2026-07-15T00:18:20.000Z</published>
-    <updated>2026-09-01T06:37:19.680Z</updated>
+    <updated>2026-09-08T10:53:51.219Z</updated>
     
     
       
@@ -223,7 +225,7 @@
     <link href="https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
     <published>2026-06-27T01:54:30.000Z</published>
-    <updated>2026-07-28T15:43:24.425Z</updated>
+    <updated>2026-09-08T10:53:51.117Z</updated>
     
     
       

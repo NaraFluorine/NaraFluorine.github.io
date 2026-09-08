@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="skills怎么组织skills?怎么写prompt? 注意力机制">
+    <meta name="description" content="skills怎么组织skills?怎么写prompt? Attention\huge{Attention(Q,K,V)&#x3D;Softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V}其中 $d_k$ 是一个标量(维度),用于缩放用于稳定梯度,softmax归一化方便分配注意力权重. 12345678910111213141516171819202122232425262">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/Base/AI.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="skills怎么组织skills?怎么写prompt? 注意力机制">
+<meta property="og:description" content="skills怎么组织skills?怎么写prompt? Attention\huge{Attention(Q,K,V)&#x3D;Softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V}其中 $d_k$ 是一个标量(维度),用于缩放用于稳定梯度,softmax归一化方便分配注意力权重. 12345678910111213141516171819202122232425262">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-08T08:00:32.345Z">
-<meta property="article:modified_time" content="2026-06-08T08:00:32.345Z">
+<meta property="article:published_time" content="2026-09-08T10:53:51.073Z">
+<meta property="article:modified_time" content="2026-09-08T10:53:51.073Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,122 @@
   <div class="content" itemprop="articleBody">
       
           <h3 id="skills"><a href="#skills" class="headerlink" title="skills"></a>skills</h3><p>怎么组织skills?怎么写prompt?</p>
-<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><script type="math/tex; mode=display">\huge{Attention(Q,K,V)=Softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V}</script><p>其中 $d_k$ 是一个标量(维度),用于缩放用于稳定梯度,softmax归一化方便分配注意力权重.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleHeadAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, d_k, d_v</span>):</span><br><span class="line">        <span class="built_in">super</span>(SingleHeadAttention, self).__init__()</span><br><span class="line">        self.w_q = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_k = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_v = nn.Linear(d_model, d_v)</span><br><span class="line">        self.scale = <span class="number">1.0</span> / math.sqrt(d_k)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, q, k, v, mask=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="comment"># 1. 线性变换投影到 Q, K, V</span></span><br><span class="line">        Q = self.w_q(q) <span class="comment"># (batch_size, seq_len_q, d_k)</span></span><br><span class="line">        K = self.w_k(k) <span class="comment"># (batch_size, seq_len_k, d_k)</span></span><br><span class="line">        V = self.w_v(v) <span class="comment"># (batch_size, seq_len_k, d_v)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 2. 计算注意力权重分数 (Q * K^T) / sqrt(d_k)</span></span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) * self.scale  <span class="comment"># (batch_size, seq_len_q, seq_len_k)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 3. 可选：应用 Mask（例如掩盖未来信息）</span></span><br><span class="line">        <span class="keyword">if</span> mask <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            scores = scores.masked_fill(mask == <span class="number">0</span>, -<span class="number">1e9</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 4. Softmax 归一化</span></span><br><span class="line">        attn_weights = torch.softmax(scores, dim=-<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 5. 加权求和得到输出</span></span><br><span class="line">        output = torch.matmul(attn_weights, V) <span class="comment"># (batch_size, seq_len_q, d_v)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> output, attn_weights</span><br></pre></td></tr></table></figure>
+<p>经典 Attention 的演进和变体如下：</p>
+<h2 id="2-Self-Attention-的改进"><a href="#2-Self-Attention-的改进" class="headerlink" title="2. Self-Attention 的改进"></a>2. Self-Attention 的改进</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Self-Attention（Transformer, 2017）</span></span><br><span class="line"><span class="comment"># 核心改进：Q、K、V 都来自同一个序列</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SelfAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, d_k, d_v</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.w_q = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_k = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_v = nn.Linear(d_model, d_v)</span><br><span class="line">        self.scale = <span class="number">1.0</span> / math.sqrt(d_k)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        Q = self.w_q(x)</span><br><span class="line">        K = self.w_k(x)</span><br><span class="line">        V = self.w_v(x)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 核心改进1：使用点积注意力（dot-product）</span></span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) * self.scale</span><br><span class="line">        attn_weights = torch.softmax(scores, dim=-<span class="number">1</span>)</span><br><span class="line">        output = torch.matmul(attn_weights, V)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<p><strong>对经典 Attention 的修改：</strong></p>
+<ol>
+<li><strong>点积注意力</strong>替代加性注意力</li>
+<li>引入 <strong>Q、K、V 三个独立投影</strong></li>
+<li>添加<strong>缩放因子</strong> <code>1/sqrt(d_k)</code> 防止梯度消失</li>
+<li><strong>不依赖 RNN</strong>，可以并行计算</li>
+<li>序列内部元素之间的关系建模</li>
+</ol>
+<h2 id="3-Multi-Head-Attention-的改进"><a href="#3-Multi-Head-Attention-的改进" class="headerlink" title="3. Multi-Head Attention 的改进"></a>3. Multi-Head Attention 的改进</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Multi-Head Attention</span></span><br><span class="line"><span class="comment"># 核心思想：多个注意力头并行，每个头关注不同子空间</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MultiHeadAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, num_heads</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.num_heads = num_heads</span><br><span class="line">        self.d_k = d_model // num_heads</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 一次性投影所有头</span></span><br><span class="line">        self.w_q = nn.Linear(d_model, d_model)</span><br><span class="line">        self.w_k = nn.Linear(d_model, d_model)</span><br><span class="line">        self.w_v = nn.Linear(d_model, d_model)</span><br><span class="line">        self.w_o = nn.Linear(d_model, d_model)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, q, k, v, mask=<span class="literal">None</span></span>):</span><br><span class="line">        batch_size = q.size(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 投影并分割成多头</span></span><br><span class="line">        Q = self.w_q(q).view(batch_size, -<span class="number">1</span>, self.num_heads, self.d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        K = self.w_k(k).view(batch_size, -<span class="number">1</span>, self.num_heads, self.d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        V = self.w_v(v).view(batch_size, -<span class="number">1</span>, self.num_heads, self.d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 每个头独立计算注意力</span></span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) / math.sqrt(self.d_k)</span><br><span class="line">        <span class="keyword">if</span> mask <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            scores = scores.masked_fill(mask == <span class="number">0</span>, -<span class="number">1e9</span>)</span><br><span class="line">        attn_weights = torch.softmax(scores, dim=-<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 加权求和</span></span><br><span class="line">        context = torch.matmul(attn_weights, V)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 合并多头</span></span><br><span class="line">        context = context.transpose(<span class="number">1</span>, <span class="number">2</span>).contiguous().view(batch_size, -<span class="number">1</span>, self.num_heads * self.d_k)</span><br><span class="line">        output = self.w_o(context)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<p><strong>对 Self-Attention 的修改：</strong></p>
+<ol>
+<li><strong>分割成多个子空间</strong>（num_heads 个）</li>
+<li>每个头有<strong>独立的 Q、K、V 投影</strong></li>
+<li>可以<strong>并行计算</strong>，最后拼接</li>
+<li>增加<strong>输出投影</strong> W_o</li>
+<li>能捕捉<strong>不同子空间</strong>的关系</li>
+</ol>
+<h2 id="4-Masked-Attention-的改进"><a href="#4-Masked-Attention-的改进" class="headerlink" title="4. Masked Attention 的改进"></a>4. Masked Attention 的改进</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Masked Self-Attention</span></span><br><span class="line"><span class="comment"># 核心改进：添加 mask 控制信息流</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MaskedSelfAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, d_k, d_v</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.self_attn = SingleHeadAttention(d_model, d_k, d_v)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x, mask_type=<span class="string">&#x27;future&#x27;</span></span>):</span><br><span class="line">        batch_size, seq_len, _ = x.size()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> mask_type == <span class="string">&#x27;future&#x27;</span>:</span><br><span class="line">            <span class="comment"># 上三角 mask：位置 i 只能看到 &lt;= i 的位置</span></span><br><span class="line">            mask = torch.triu(torch.ones(seq_len, seq_len), diagonal=<span class="number">1</span>).<span class="built_in">bool</span>()</span><br><span class="line">            mask = mask.unsqueeze(<span class="number">0</span>).unsqueeze(<span class="number">0</span>)  <span class="comment"># (1, 1, seq_len, seq_len)</span></span><br><span class="line">        <span class="keyword">elif</span> mask_type == <span class="string">&#x27;padding&#x27;</span>:</span><br><span class="line">            <span class="comment"># Padding mask：忽略 padding 位置</span></span><br><span class="line">            mask = (x != <span class="number">0</span>).<span class="built_in">any</span>(dim=-<span class="number">1</span>).unsqueeze(<span class="number">1</span>).unsqueeze(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">elif</span> mask_type == <span class="string">&#x27;causal&#x27;</span>:</span><br><span class="line">            <span class="comment"># 因果 mask：用于自回归生成</span></span><br><span class="line">            mask = torch.tril(torch.ones(seq_len, seq_len)).<span class="built_in">bool</span>()</span><br><span class="line">            mask = mask.unsqueeze(<span class="number">0</span>).unsqueeze(<span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> self.self_attn(x, x, x, mask)</span><br></pre></td></tr></table></figure>
+<p><strong>对 Self-Attention 的修改：</strong></p>
+<ol>
+<li>添加<strong>mask 矩阵</strong>控制注意力范围</li>
+<li><strong>未来 mask</strong>：防止信息泄露（用于 decoder）</li>
+<li><strong>Padding mask</strong>：忽略填充位置</li>
+<li><strong>因果 mask</strong>：保持时间顺序</li>
+<li>在 softmax 前将 mask 位置设为 <code>-inf</code></li>
+</ol>
+<h2 id="5-Cross-Attention-的改进"><a href="#5-Cross-Attention-的改进" class="headerlink" title="5. Cross-Attention 的改进"></a>5. Cross-Attention 的改进</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Cross-Attention</span></span><br><span class="line"><span class="comment"># 核心改进：Q 和 K、V 来自不同序列</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CrossAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, d_model, d_k, d_v</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.w_q = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_k = nn.Linear(d_model, d_k)</span><br><span class="line">        self.w_v = nn.Linear(d_model, d_v)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, query, key_value, mask=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        query: 来自 decoder (batch, tgt_len, d_model)</span></span><br><span class="line"><span class="string">        key_value: 来自 encoder (batch, src_len, d_model)</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        Q = self.w_q(query)</span><br><span class="line">        K = self.w_k(key_value)</span><br><span class="line">        V = self.w_v(key_value)</span><br><span class="line">        </span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-<span class="number">2</span>, -<span class="number">1</span>)) / math.sqrt(Q.size(-<span class="number">1</span>))</span><br><span class="line">        <span class="keyword">if</span> mask <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            scores = scores.masked_fill(mask == <span class="number">0</span>, -<span class="number">1e9</span>)</span><br><span class="line">        attn_weights = torch.softmax(scores, dim=-<span class="number">1</span>)</span><br><span class="line">        output = torch.matmul(attn_weights, V)</span><br><span class="line">        <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<p><strong>对 Self-Attention 的修改：</strong></p>
+<ol>
+<li><strong>Q 和 K、V 来源不同</strong></li>
+<li>Q 来自 decoder，K、V 来自 encoder</li>
+<li>建立<strong>跨序列的依赖关系</strong></li>
+<li>通常配合 mask 使用</li>
+</ol>
+<h2 id="6-各种-Attention-对比总结"><a href="#6-各种-Attention-对比总结" class="headerlink" title="6. 各种 Attention 对比总结"></a>6. 各种 Attention 对比总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>Q来源</th>
+<th>K来源</th>
+<th>V来源</th>
+<th>核心改进</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>经典 Attention</strong></td>
+<td>decoder hidden</td>
+<td>encoder outputs</td>
+<td>encoder outputs</td>
+<td>加性注意力，依赖RNN</td>
+<td>Seq2Seq</td>
+</tr>
+<tr>
+<td><strong>Self-Attention</strong></td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>点积+缩放，并行化</td>
+<td>Transformer encoder</td>
+</tr>
+<tr>
+<td><strong>Multi-Head</strong></td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>多子空间并行</td>
+<td>Transformer</td>
+</tr>
+<tr>
+<td><strong>Masked</strong></td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>同一序列</td>
+<td>添加mask控制信息流</td>
+<td>Transformer decoder</td>
+</tr>
+<tr>
+<td><strong>Cross-Attention</strong></td>
+<td>decoder</td>
+<td>encoder</td>
+<td>encoder</td>
+<td>跨序列交互</td>
+<td>Encoder-Decoder连接</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="7-关键改进点"><a href="#7-关键改进点" class="headerlink" title="7. 关键改进点"></a>7. 关键改进点</h2><h3 id="从经典到-Self-Attention："><a href="#从经典到-Self-Attention：" class="headerlink" title="从经典到 Self-Attention："></a>从经典到 Self-Attention：</h3><ul>
+<li><strong>计算方式</strong>：加性 → 点积</li>
+<li><strong>依赖关系</strong>：依赖 RNN → 完全并行</li>
+<li><strong>参数效率</strong>：需要拼接 → 独立投影</li>
+</ul>
+<h3 id="从-Self-到-Multi-Head："><a href="#从-Self-到-Multi-Head：" class="headerlink" title="从 Self 到 Multi-Head："></a>从 Self 到 Multi-Head：</h3><ul>
+<li><strong>表达能力</strong>：单子空间 → 多子空间</li>
+<li><strong>计算效率</strong>：串行 → 并行</li>
+<li><strong>特征捕捉</strong>：单一关系 → 多种关系</li>
+</ul>
+<h3 id="从-Self-到-Masked："><a href="#从-Self-到-Masked：" class="headerlink" title="从 Self 到 Masked："></a>从 Self 到 Masked：</h3><ul>
+<li><strong>信息流</strong>：双向 → 单向</li>
+<li><strong>应用场景</strong>：encoder → decoder</li>
+<li><strong>控制机制</strong>：无 → mask 矩阵</li>
+</ul>
+<h3 id="从-Self-到-Cross："><a href="#从-Self-到-Cross：" class="headerlink" title="从 Self 到 Cross："></a>从 Self 到 Cross：</h3><ul>
+<li><strong>序列关系</strong>：序列内 → 序列间</li>
+<li><strong>信息来源</strong>：单一 → 双源</li>
+<li><strong>架构位置</strong>：encoder 内部 → encoder-decoder 之间</li>
+</ul>
+<p>这些改进使得 Attention 机制从最初的 Seq2Seq 辅助组件，发展成为 Transformer 的核心，能够处理各种复杂的序列建模任务。</p>
+
         
   </div>
 </article>
