@@ -6,7 +6,7 @@
   <link href="https://narafluorine.github.io/atom.xml" rel="self"/>
   
   <link href="https://narafluorine.github.io/"/>
-  <updated>2026-09-08T10:58:05.115Z</updated>
+  <updated>2026-09-08T10:53:51.189Z</updated>
   <id>https://narafluorine.github.io/</id>
   
   <author>
@@ -15,25 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://narafluorine.github.io/2026/09/08/40013_pending/"/>
-    <id>https://narafluorine.github.io/2026/09/08/40013_pending/</id>
-    <published>2026-09-08T10:58:05.115Z</published>
-    <updated>2026-09-08T10:58:05.115Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.zebedy.com/&quot;&gt;https://blog.zebedy.com/&lt;/a&gt;&lt;br&gt;左下角的立体小人&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>网站效果-烟火</title>
@@ -84,6 +65,27 @@
   </entry>
   
   <entry>
+    <title>MoECTF2026 wp</title>
+    <link href="https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/"/>
+    <id>https://narafluorine.github.io/2026/08/24/20027_SpiritCTF2026_MoECTF_wp/</id>
+    <published>2026-08-23T18:25:30.000Z</published>
+    <updated>2026-09-17T01:47:38.324Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了.</summary>
+    
+    
+    
+    
+    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
+    
+    <category term="Misc" scheme="https://narafluorine.github.io/tags/Misc/"/>
+    
+    <category term="OSINT" scheme="https://narafluorine.github.io/tags/OSINT/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Crypto-ThreadCracker</title>
     <link href="https://narafluorine.github.io/2026/08/17/50017_HashProblem/"/>
     <id>https://narafluorine.github.io/2026/08/17/50017_HashProblem/</id>
@@ -125,6 +127,31 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>Algo-环上的环</title>
+    <link href="https://narafluorine.github.io/2026/07/31/50016_Ring/"/>
+    <id>https://narafluorine.github.io/2026/07/31/50016_Ring/</id>
+    <published>2026-07-31T13:44:30.000Z</published>
+    <updated>2026-09-17T01:47:38.338Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;注意: 本题为Open Problem,不保证有靠谱做法,只是把idea放出来.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有n个点.</summary>
+      
+    
+    
+    
+    <category term="PUZZLE" scheme="https://narafluorine.github.io/categories/PUZZLE/"/>
+    
+    
+    <category term="Cpp" scheme="https://narafluorine.github.io/tags/Cpp/"/>
+    
+    <category term="Algorithm" scheme="https://narafluorine.github.io/tags/Algorithm/"/>
     
   </entry>
   
@@ -214,29 +241,6 @@
     
     
     <category term="TECH" scheme="https://narafluorine.github.io/categories/TECH/"/>
-    
-    
-    <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译原理 学习笔记</title>
-    <link href="https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    <id>https://narafluorine.github.io/2026/06/27/00028_%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</id>
-    <published>2026-06-27T01:54:30.000Z</published>
-    <updated>2026-09-08T10:53:51.117Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;课程30平时70考试,线下闭卷,应该是大三下唯一一门考试的课了.&lt;/p&gt;
-&lt;h2 id=&quot;平时&quot;&gt;&lt;a href=&quot;#平时&quot; class=&quot;headerlink&quot; title=&quot;平时&quot;&gt;&lt;/a&gt;平时&lt;/h2&gt;&lt;p&gt;10 课程分&lt;br&gt;10 大作业(写一个小编译器,网上有一堆</summary>
-      
-    
-    
-    
-    <category term="DEAD" scheme="https://narafluorine.github.io/categories/DEAD/"/>
     
     
     <category term="AI" scheme="https://narafluorine.github.io/tags/AI/"/>

@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="哇多麼好的密碼題啊   格密码题。  强调了格的构造。  因为是抄密码书，所以不是非常懂呢。  大概就是图一乐吧。  抱着这样的想法进行LLL约简。  当然，flag最后还是没拿到呢。（笑）  附件下载 Author:@GHL hint -1 题目背景这是一道密码学(Crypto)题目,你可能需要sagemath环境运行python代码.(比如sage自带的LLL格基约简算法) hint 0本题不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crypto-Lattice1">
+<meta property="og:url" content="https://narafluorine.github.io/2026/01/20/50009_Lattice1/index.html">
+<meta property="og:site_name" content="NaraFluorine&#39;s blog">
+<meta property="og:description" content="哇多麼好的密碼題啊   格密码题。  强调了格的构造。  因为是抄密码书，所以不是非常懂呢。  大概就是图一乐吧。  抱着这样的想法进行LLL约简。  当然，flag最后还是没拿到呢。（笑）  附件下载 Author:@GHL hint -1 题目背景这是一道密码学(Crypto)题目,你可能需要sagemath环境运行python代码.(比如sage自带的LLL格基约简算法) hint 0本题不">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-20T12:49:30.000Z">
+<meta property="article:modified_time" content="2026-09-17T01:47:38.334Z">
+<meta property="article:author" content="Florin Wang">
+<meta property="article:tag" content="Crypto">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Crypto-Lattice1</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="NaraFluorine's blog" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2026/01/24/60001_%E6%B4%9B%E8%B0%B7%E5%B0%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8A/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2026/01/16/50006_Dungeon/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/20/50009_Lattice1/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&text=Crypto-Lattice1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&is_video=false&description=Crypto-Lattice1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto-Lattice1&body=Check out this article: https://narafluorine.github.io/2026/01/20/50009_Lattice1/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&name=Crypto-Lattice1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&t=Crypto-Lattice1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%87%E5%A4%9A%E9%BA%BC%E5%A5%BD%E7%9A%84%E5%AF%86%E7%A2%BC%E9%A1%8C%E5%95%8A"><span class="toc-number">1.</span> <span class="toc-text">哇多麼好的密碼題啊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">hint -1 题目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">1.2.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Crypto-Lattice1
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Florin Wang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-01-20T12:49:30.000Z" class="dt-published" itemprop="datePublished">2026-01-20</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/PUZZLE/">PUZZLE</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Crypto/" rel="tag">Crypto</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="哇多麼好的密碼題啊"><a href="#哇多麼好的密碼題啊" class="headerlink" title="哇多麼好的密碼題啊"></a>哇多麼好的密碼題啊</h1><blockquote>
+<p>  格密码题。<br>  强调了格的构造。<br>  因为是抄密码书，所以不是非常懂呢。<br>  大概就是图一乐吧。<br>  抱着这样的想法进行LLL约简。<br>  当然，flag最后还是没拿到呢。（笑）</p>
+</blockquote>
+<p><a href="../../../../attachment/Lattice1.zip">附件下载</a></p>
+<p>Author:@<a target="_blank" rel="noopener" href="https://jlughl.github.io/">GHL</a></p>
+<h2 id="hint-1-题目背景"><a href="#hint-1-题目背景" class="headerlink" title="hint -1 题目背景"></a>hint -1 题目背景</h2><p>这是一道密码学(Crypto)题目,你可能需要sagemath环境运行python代码.<br>(比如sage自带的LLL格基约简算法)</p>
+<h2 id="hint-0"><a href="#hint-0" class="headerlink" title="hint 0"></a>hint 0</h2><p>本题不需要BKZ,需要构造特殊的格才能找到目标向量.</p>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><div class="hbe hbe-container" id="hexo-blog-encrypt-ex-bvmkyr-0" data-hbe-ex-container="true" data-hbe-format="4" data-salt="c9dd8f824156d22cc17135acf9704bdf0ed620b2c4b358132554f872c93f2d3b" data-nonce="30a7c33a2df8ce4b747034d9" data-kdf-iterations="250000" data-auto-save="true" data-hbe-ex-mode="segment" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, this is an invalid password. Check and try again, please.">
+  <script id="hexo-blog-encrypt-ex-bvmkyr-0-data" type="hbeData" data-hmacdigest="">fff1eede1250ab444d2e22207a08acd8ca1c831b4d46e767d8f5564fb475330287ca0c72b2d60e13fb19392e1f59085a64f7ab0d161f4ce00a9078bc91db99f80b7bce2625260597a6a97a49e831bbd71251e9c5a75b5e2a3866e1ee8748c5ec5a5f2d78d255e50a861570fe26ba60072478a796637ae860e251e1cea818306a74dd948087bed6ed9103bd74fad2ac5bd8d3f65b3d6dfdd7500505b8e1ceefce650c7d392bd40acf64987ba22150ef439998397df8c656be9318799c31813f0e9208bf799ff078ac1948c8a4252b296fca51509065a32fd8e5c516de0253e680bb1585c1c0fa584cf1d18d8eefcb7def6e4f0d955eea815572c5a612ad343e34a3f8b3edfe6d319c275e9c18a2510e72b39fbdbcf3cbe73e2f5935c014f2b2ce1c5c5f85edc4dfba7b855e90dacf7af692996d6bdc99a9e96143b2c486e10f44383a933fe2d154e40e948541f74696c15fe71532f14c38891fa42559f94170f7d39a19b930a0a466992fe43267c043fa6099b7158b5cdfd400a521627fd515569766d84e64199017cc0737d669d43528cf17eccfc290c21f07de262386dc8a185c72490e0b3ac6f1b6b2201ee3db6dcc3403e31ecc6f47ac94ee06b4d4cc54ec6a8a02d3ef617dc6766b89a382a9f49888ad7b2e2871092fb9f5eb2bca33cad3dda26177f9663e3afac0bebc8f9fe474cd31a190d631ff9c4d83a8d853a8e060971f32e83e2484a47cd125bf4b144708605d86580d5610e12f503a1c74040b754cb7bd886ef41021f9fa1b90a5bd28aeedd384107c00172846844994856ea7c49bb743ee16484dc6aaa581eba9037849f4f7950d80059692bcd089cdb52a164e0df4018e66ad5b26b1415a80ffa37691b1874e9a87d2a50ff113dd7903355acacd7328bdb3eb647478ad0c4d208759e34b20bfcbfd6c23955d685eef13b5cfcff6dc42c4d072c903ff0a67b9c1e9433b45ff4c2386ba7866778601b52699cfe322d9463168b86fc0c588fd7ca16f9792f5f2d3426b8f146075668f0439f06309917374796fab044b9707a1134438069c063456e185887984db635159e9fb26566e16b82e48f292d6026dc4141e4ca829339f7ba48ed7915f669ef88f055366ffb5c22ceb31170a299dc02272c42aa376ac375280f968841c0cb804205267f4aad74adca8572cf8a51414a2c0a053dc598d21b040d1e39889310e46ae3a9dd90a48ebdf8982975809daf32bbf92e3d5ee2f5ff4ba3f5aaacbdd307d82e9c3cb092ca8b10168c04dfa2f2e4ba323a1417c56808e57b53afd541b9a59855ac1895fdf31844ba8a293df3e062bae61b5ab2b1c8ab88d8de018d79139d557d4b83b017995571942885f37424b563197911522bf9be06da12d345706c9cfa8586680cec343ded748c06a4db20a0f2fca1f5def68d82356b84d37ef79bb04fc46b97a98cf26e97223e12b0eda73be63b237d7d06c4f9ac3235e6a1d245fa58e1a83d185ee8c0e91e4cd439d0a6451fe92100f10cb44a3a8c6b2ba37084e76171c5dd19871847b3c6d0d027773bbbda438ca8e6b5b5c3c313e5136d3eeaffa61fe6b0d37f50719a3f8ed0c9579018cfdc54f740eaf581bdddf540783062ef48eaed1c146af140fee55afede53ae3839cf83e260f0da9f5c8f9000096ccc73de1c6a8f2cbaefedba1f91fe135d999c5de9dd717f04bc70c7eaa08bc4527e3eaa1843cc0779811983c887a08c42e996cc6f9cbd995594996ab9a33ec43805065211f3ede2cab303318953d804633701cef15134b298e6a3b082461e92231c96db760d11e39837c23fc582588bc79aae757e7999137c3603a4f9945ab52a0b7fae12d3734776128b38a4395857e4e44bc523b50fbb7ac959453d0c02813956a9139f798e75414059648da15cd13abde4b2a372972295c4a018fbd71211b1f76f2ae14603ccb3752233777036dfa15098f1c35476d5dd2617c18f4a7b3067d14f4a7dbe136db83b9ca74d00e1528a4ffbc74d210759ad4638342006b330cabe91443f7ead66f5c1a711067037c1c33e533e4beed174cf71663605161aaf1a0418218cfaec4997ae8afad3f3d93a8d08b38d683622fbbd01963eb50f4ff21b1fb467f2e8841257db4545bdd877639c9c9976e4e754996427c7075a37ac6452dc9bca4faad3e00f2f4435c0a4d68fd10b5ad1d984a295f50f9db5bd6dab361292a1d752655a431658b23c7689310b1d466b52e41aeb68abc174bc6bcb613424669abc6601914aca260a89701be9d22427647a68d4c9c607b7521326df95d4cfc6ed7de6ef2352c03e8f96eef0e1ca742220cfeb603cdfeee4fd89753cb3ad92846a5430c9ec9346127e39276e6130a4aca4bec41de17d198204b080e4512ce5820c077fd8e86bebd35a23a3e1fd7f1c25880aa3b5f5dd1482c205c34860b09031f17bb401d6f34b2515f9b4553dda2912161a3d1c61924766edcf29f5aba3c1b908b903dcd2d1c157ad74c3f67142c82d4de9d666a428804a21ad6d71fc8077b1bfbdacbc394c9492788fab2cb2c39dbd334d3d4450199d4b5d4d84b3519348445a3a25b36e88800fbae10addf81f08408e8a3e4d2dfd05181cc46a9bc75988bf97a5a01cd4186d2d7ecceb19ece6ea37c71e39e0c014ac3de6b0d12f447eb7682b2b81d7b91c351ca9f269bb0b55eee87b8ac5fb299378b03f8b583e5c0a16b5c60940e518a9b449e0d69e782b5928ea843820c101b38a9ecd780abbc208496ba27a3f3c92676dce8eec9edd0985f377dcffbe4b7a9702eb4bebc2af97c1a7710d2574c09edc88fcc6ae545367d2103fb60ac5bf32e9da55cb97f4d2d7991e344629a503e599c1a45992a9bd9c8c080d8818569e7c6e4fe57256ab96d3d41397b2cd18913507abe20eca553de9dd6f6600a87c75f6a83f21a0fc42bdc2fb12aaaeb25d4b3ec8335001285cc8edf428f8780acbfe664f7e516a7de3d5ef892a9ee1e550b82f71f94ce38839875bfd01db34e253a58370815639adc33eb86ccf2da499d04bf7a160871819417ff3e5f9562b2fa71dfcd72b1f0f19459a8d59e552a4f96ee317bf8862405d7094151c43a8e9504bf9a3f68ac3d96f9f4ce1d41fe1a4103542a5520e61a57c1759a947d8487821cc5021e05b873174fc8b543c75794429d15d5fde3eec68ac470688b9375abe590be5e5bd1a4645375b7f477b5e37aa9f06621b1539699f49a140969da683a9c533ae1dd68154105775e88f606c70bb2d04b436b63206f2b017abd8c0ec27355b9e01c0a922b8866d8758bb88f074e3f2ee26c199c5565e2d52f27e31c2a481664d16e0a4a18d39d159cc11802378f1a16623ef298a167de68cd5647373b34ef93bc53fee0ba688cb6af56448c0588369fb6f7634961b4b370fdd6bffc8a4f5f6a32c1e9301a2428376dec4371912cba79330e10d2585b7ccca5054e9a78f564a0af215a2e8b6da34d2cb81da8c26fade344be611673745933708e5340071a17736c01769eefed946bc6b8443c257bc9daf69c561401e99a2f25761837e1568080bbab7d18f401bbe688045cee487528964ecc88433d0e9fbe902cde52ce0809eb11eb1daca0582252fbd9d315adf8d804e98f7bf38b1f1bda8d2ed4d2050422fb14e957d9ef0fbe003725c2eed072dde8a40ea918763e7b04ac8fc7e4e74257c8993a4bb16041c96f37041edf703d4621b99b5e48f1440bf283513652b8a08a2cff70b49399327348ff523db5e547e326caa939be7383bea3fa9acb58733a1fe7df99b20c22eac5094237544e35a2e939769a2c44b5aa9dc48e574887ef6e9cfcedb06d14a36516adb24a499819a80574a85f9c8d5df9c5a9a8d8ce8532b629471e9325a20241428811bf202cb28c949ddeb295bc9baef0305c229faaa21ed73d09e7f7bfe3a4bdf64ed103e20cce80d57ca90c1f8e155d318e4d93a72a532ab39ff3d67cc07562cd2d238c5360c704a42e10a4590840f4ce792a94c5999663725b8aba66a2933b0a5d21221f026301587f31f98b677a4dd564dbf7cd4b612a073e3ec8328c6308697b63ac2c305eed7810a054a07914adf4e4b5de0f2b42d23775b11b469a9005ad5daa010a75008b45cef4c6e7c1edf649f976219039f9ed6062f1da8b0965123c2420d3f4b755731254564680b24d3956f269a6e3f1e8f4dace40fd9dfc54e1f4f51512ecb56e0078c68310bb9b87a2d67a996412bd373f31f253fbc98c976b7d4153ece635e6d0badafc2ab96c709f3b1f5cf1304bd743c6de3a785e55c14caa0248884f9c5e2ebaa99354c74a80600b4892174a77d1e02e6b4a9bf4cc9d8e7f0e2bb825b81b8ead522496bc07a70d612ed9384ba022952f6acbea3a4d5cae007593ad99c713711e8e13c28a3dc4b204ba0201eb7c773653ff6b210c4b9a39d6d0d31758fd99f4a842ec7b839d3943db0309c2aaee6b4a27d14ec3f62fb29df1c1da0aca6596ac41035f34eac4fb05512b24075ddaa8b0d503307ad1d829b9f6b809691ebce9724dfea8d857bdb2a583727a525b0cdf624a250de7c7fd2d811b99fcd4ceaa1f11eab1459e5d6e9c1837e66cdf7091f766833e66bd5ae9bbcd6b11ab2cff8b543e2c5e387cb31c1f5a208cf68c5aefb0c4a86dbe51a768e6a68529c6bc0528ebf4eca128a90da62d37ce488fcbe34ef523562bd5f85aa18f29767f747aa55cbd1e29cbc4be49be456119a06b34969a6c45117a0d15a114dd251423cd8d15a82b2929f15956c9c2741cbd055b9161431234fda75ae90234a214784360428f385b04f0796d186be35c5117905d222fb648a7c35de27ad8b33a533483bc7c4de1c4da09824478e6f612e54a1d21c8aac626ac0ef958f00e7a2b8e6aaf77a9c8f2f72a06cd3e7a03d5ed901fd5c2a7450f23e18706a8f717073e5dcebabd173a57010038712e5666f8d883d626fa9c73874c5ff73c40b106f9413e9256ac49334afa512f92cb1bfa081b3ebaf3d5857b016620394940c1d49a0caf7761d8c45bf5a791b8646f966252852c29b88e500a0d775af4480ddcd151dd88a4047638ab41a1e921ec6619b60993b1ed965adeb5c4a6e075bc908334efc5bb5a8ef300ac2cb2d84ba4afa2ba004966b3dc06fbc13dbda8ae89cda49783639c4312e7ae83dca1855af37e52426a62358ce03eb2ef568a6378c926e60fa1ba8c4753eea7ad4efa5dfe26e6884c0be7bd8b0cb9acde20503b7c979e025a27978000872c5e684f0c9d92b334ceda12bf4459ac85841bc0750d44cb9570e8679d513d14fe6da46180f9ce698df37aeeda66a002da02fa5e4f705149b63c1c22a9db2e88b5d6816889ab8a3c26c1b68fc5510cf01bac2ef6bf80a6be047e748be689c53b294ac3f44da8f42a9bee468bda256849229a78dded4876f3a47f04ceeec5eb2b74c6b69fba1040c2f7dcd30a53fd9cc26e675e2e536d5e999c1f785df450df89467a1e26ee5b354162c682b55d372eeefa762031764294f25380697def807d1ce7c9e2bc6256048dfdc0a88ca163130856833fff97b7372e9c1a833fc5f83c227769a4a88eb6027a6a6b7cb08cfba64138f86c7f2dad204df356d1f55f12e21487a375f8b6dee9b3edbdfecee24e1efe11f437ef4a6b53107ce16e1147a4c0ead49193b3692434dc9187e599eb6cd0e9e9d8fbb2715e39d90084f5e7400b560a5f4ca336d6144fd4580a0208c4083ab3b0df6dae5b91eabce73a98d472a931de66b9d1e12056300fe341da8a77b22d0fc5059eaeb71853b5bba85a7a5778a66d88fb97d8e1cfdedd9fb426c09fa7880fb520447546701699accc</script>
+  <div class="hbe hbe-content">
+    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hexo-blog-encrypt-ex-bvmkyr-0-pass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hexo-blog-encrypt-ex-bvmkyr-0-pass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">在此提交Lattice1的答案</span>
+      </label>
+    </div>
+      <button class="hbe hbe-button" type="submit">Decrypt</button>
+      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<style data-hbe-ex-inline>.hbe,
+.hbe:after,
+.hbe:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.hbe-container{
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hbe-content {
+	text-align: center;
+	font-size: 150%;
+	padding: 1em 0;
+}
+.hbe-form {
+	margin: 0;
+}
+.hbe[hidden],
+.hbe-form[hidden],
+.hbe-file-form[hidden],
+.hbe-file-actions[hidden] {
+	display: none !important;
+}
+.hbe-button-hidden {
+	display: none !important;
+}
+.hbe-error {
+	min-height: 1.5em;
+	color: #c0392b;
+	font-size: 0.7em;
+}
+
+.hbe-file-renderer {
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #34383d;
+	border-radius: 4px;
+	background: #222427;
+	color: #c9cacc;
+}
+
+.hbe-file-message {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.hbe-file-form,
+.hbe-file-actions {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.hbe-file-actions {
+	margin-top: 0.6em;
+	justify-content: center;
+}
+
+.hbe-file-password {
+	min-width: 12em;
+	padding: 0.45em 0.6em;
+	border: 1px solid #484d54;
+	border-radius: 3px;
+	background: #1a1c1e;
+	color: #c9cacc;
+}
+
+.hbe-file-decrypt,
+.hbe-file-download {
+	padding: 0.45em 0.8em;
+	border: 1px solid #4d555e;
+	border-radius: 3px;
+	background: #30343a;
+	color: #c9cacc;
+	font: inherit;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.hbe-file-download {
+	background: #25282c;
+	color: #c9cacc;
+	transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.hbe-file-decrypt:hover {
+	border-color: #6b737d;
+	background: #3b4046;
+	color: #ffffff;
+}
+
+.hbe-file-download:hover {
+	background: #2b2e33 !important;
+	border-color: #c9cacc !important;
+	color: #c9cacc !important;
+}
+
+.hbe-file-error {
+	min-height: 1.25em;
+	margin-top: 0.5em;
+	color: #ef8b86;
+	font-size: 0.875em;
+}
+
+.hbe-file-image,
+.hbe-file-video,
+.hbe-file-audio {
+	display: block;
+	max-width: 100%;
+	margin: 0.75em auto 0;
+}
+
+.hbe-input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	width: 80%;
+	min-width: 200px;
+	vertical-align: top;
+}
+
+.hbe-input-field {
+	line-height: normal;
+	font-size: 100%;
+	margin: 0;
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 400;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.hbe-input-field:focus {
+	outline: none;
+}
+
+.hbe-input-label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #696969;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.hbe-input-label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.hbe-graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+/* hbe button in post page */
+.hbe-button {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  border-bottom: 4px solid #2b8bc6;
+  color: #fbfbfb;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+  font-size: 15px;
+  text-align: left;
+  text-indent: 5px;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.hbe-button:active {
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 1px;
+}
+
+.hbe-button:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+/* hbe button in post page */
+
+/* default theme {{{ */
+.hbe-input-default {
+	overflow: hidden;
+}
+
+.hbe-input-field-default {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em;
+	margin-bottom: 2em;
+	color: #f9f7f6;
+	z-index: 100;
+	opacity: 0;
+}
+
+.hbe-input-label-default {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	padding: 0.5em 0;
+	pointer-events: none;
+	font-size: 1em;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+.hbe-input-label-default::before {
+	height: 100%;
+	background: #666666;
+	top: 0;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.hbe-input-label-default::after {
+	height: 2px;
+	background: #666666;
+	top: 100%;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.hbe-input-label-content-default {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s, color 0.2s;
+	transition: transform 0.2s, color 0.2s;
+}
+
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.2s;
+	transition: opacity 0s 0.2s;
+}
+
+.hbe-input-label-default::before,
+.hbe-input-label-default::after,
+.hbe-input-label-content-default,
+.hbe-input-field-default:focus,
+.hbe-input--filled .hbe-input-field-default {
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::before,
+.hbe-input--filled .hbe-input-label-default::before {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default::after,
+.hbe-input--filled .hbe-input-label-default::after {
+	opacity: 0;
+}
+
+.hbe-input-field-default:focus + .hbe-input-label-default .hbe-input-label-content-default,
+.hbe-input--filled .hbe-input-label-default .hbe-input-label-content-default {
+	color: #555555;
+	-webkit-transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+	transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+}
+/* default theme }}} */
+
+/* up theme {{{ */
+.hbe-input-up {
+	overflow: hidden;
+	padding-top: 2em;
+}
+
+.hbe-input-field-up {
+	width: 100%;
+	background: transparent;
+	opacity: 0;
+	padding: 0.35em;
+	z-index: 100;
+	color: #837482;
+}
+
+.hbe-input-label-up {
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	pointer-events: none;
+	text-align: left;
+	color: #8E9191;
+	padding: 0 0.5em;
+}
+
+.hbe-input-label-up::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	top: 100%;
+	left: 0;
+	background: #fff;
+	border-top: 4px solid #9B9F9F;
+	-webkit-transform: translate3d(0, -3px, 0);
+	transform: translate3d(0, -3px, 0);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-label-content-up {
+	padding: 0.5em 0;
+	-webkit-transform-origin: 0% 100%;
+	transform-origin: 0% 100%;
+	-webkit-transition: -webkit-transform 0.4s, color 0.4s;
+	transition: transform 0.4s, color 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.hbe-input-field-up:focus,
+.input--filled .hbe-input-field-up {
+	cursor: text;
+	opacity: 1;
+	-webkit-transition: opacity 0s 0.4s;
+	transition: opacity 0s 0.4s;
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up::before,
+.input--filled .hbe-input-label-up::before {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+	-webkit-transform: translate3d(0, -3.3em, 0);
+	transform: translate3d(0, -3.3em, 0);
+}
+
+.hbe-input-field-up:focus + .hbe-input-label-up .hbe-input-label-content-up,
+.input--filled .hbe-input-label-content-up {
+	color: #6B6E6E;
+	-webkit-transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+	transform: translate3d(0, -3.3em, 0) scale3d(0.81, 0.81, 1);
+}
+/* up theme }}} */
+
+/* wave theme {{{ */
+.hbe-input-wave {
+	overflow: hidden;
+	padding-top: 1em;
+}
+
+.hbe-input-field-wave {
+	padding: 0.5em 0em 0.25em;
+	width: 100%;
+	background: transparent;
+	color: #9da8b2;
+	font-size: 1.25em;
+}
+
+.hbe-input-label-wave {
+	position: absolute;
+	top: 0.95em;
+	font-size: 0.85em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+	transition: transform 0.2s 0.15s, color 1s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-wave {
+	stroke: #92989e;
+	pointer-events: none;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-wave:focus + .hbe-input-label-wave,
+.input--filled .hbe-input-label-wave {
+	color: #333;
+	-webkit-transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+	transform: translate3d(0, -1.25em, 0) scale3d(0.75, 0.75, 1);
+}
+
+.hbe-input-field-wave:focus ~ .hbe-graphic-wave,
+.input--filled .graphic-wave {
+	stroke: #333;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* wave theme }}} */
+
+/* flip theme {{{ */
+.hbe-input-field-flip {
+	width: 100%;
+	background-color: #d0d1d0;
+	border: 2px solid transparent;
+	-webkit-transition: background-color 0.25s, border-color 0.25s;
+	transition: background-color 0.25s, border-color 0.25s;
+}
+
+.hbe-input-label-flip {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	bottom: 100%;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 1.25em;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s ;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip {
+	color: #8B8C8B;
+	padding: 0.25em 0;
+	-webkit-transition: -webkit-transform 0.25s;
+	transition: transform 0.25s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+}
+
+.hbe-input-label-content-flip::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	bottom: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #666666;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 1em;
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip,
+.input--filled .hbe-input-label-flip {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-label-flip .hbe-input-label-content-flip,
+.input--filled .hbe-input-label-content-flip {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+
+.hbe-input-field-flip:focus + .hbe-input-field-flip,
+.input--filled .hbe-input-field-flip {
+	background-color: transparent;
+	border-color: #666666;
+}
+/* flip theme }}} */
+
+/* xray theme {{{ */
+.hbe-input-xray {
+	overflow: hidden;
+	padding-bottom: 2.5em;
+}
+
+.hbe-input-field-xray {
+	padding: 0;
+	margin-top: 1.2em;
+	width: 100%;
+	background: transparent;
+	color: #84AF9B ;
+	font-size: 1.55em;
+}
+
+.hbe-input-label-xray {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	letter-spacing: 1px;
+	color: #84AF9B ;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.1s, color 0.3s;
+	transition: transform 0.2s 0.1s, color 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.hbe-graphic-xray {
+	stroke: #84AF9B ;
+	pointer-events: none;
+	stroke-width: 2px;
+	top: 1.25em;
+	bottom: 0px;
+	height: 3.275em;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-xray:focus + .hbe-input-label-xray,
+.input--filled .hbe-input-label-xray {
+	color: #84AF9B ;
+	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+}
+
+.hbe-input-field-xray:focus ~ .hbe-graphic-xray,
+.input--filled .graphic-xray {
+	stroke: #84AF9B ;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* xray theme }}} */
+
+/* blink theme {{{ */
+.hbe-input-blink {
+	padding-top: 1em;
+}
+
+.hbe-input-field-blink {
+	width: 100%;
+	padding: 0.8em 0.5em;
+	background: transparent;
+	border: 2px solid;
+	color: #8781bd;
+	-webkit-transition: border-color 0.25s;
+	transition: border-color 0.25s;
+}
+
+.hbe-input-label-blink {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	text-align: left;
+	overflow: hidden;
+	padding: 0;
+	pointer-events: none;
+	-webkit-transform: translate3d(0, 3em, 0);
+	transform: translate3d(0, 3em, 0);
+}
+
+.hbe-input-label-content-blink {
+	padding: 0 1em;
+	font-weight: 400;
+	color: #b5b5b5;
+}
+
+.hbe-input-label-content-blink::after {
+	content: attr(data-content);
+	position: absolute;
+	top: -200%;
+	left: 0;
+	color: #8781bd ;
+	font-weight: 800;
+}
+
+.hbe-input-field-blink:focus,
+.input--filled .hbe-input-field-blink {
+	border-color: #8781bd ;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink,
+.input--filled .hbe-input-label-blink {
+	-webkit-animation: anim-blink-1 0.25s forwards;
+	animation: anim-blink-1 0.25s forwards;
+}
+
+.hbe-input-field-blink:focus + .hbe-input-label-blink .hbe-input-label-content-blink,
+.input--filled .hbe-input-label-content-blink {
+	-webkit-animation: anim-blink-2 0.25s forwards ease-in;
+	animation: anim-blink-2 0.25s forwards ease-in;
+}
+
+@-webkit-keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@-webkit-keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+
+@keyframes anim-blink-1 {
+	0%, 70% {
+		-webkit-transform: translate3d(0, 3em, 0);
+		transform: translate3d(0, 3em, 0);
+	}
+	71%, 100% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes anim-blink-2 {
+	0% {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	70%, 71% {
+		-webkit-transform: translate3d(0, 125%, 0);
+		transform: translate3d(0, 125%, 0);
+		opacity: 0;
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		color: transparent;
+		-webkit-transform: translate3d(0, 200%, 0);
+		transform: translate3d(0, 200%, 0);
+	}
+}
+/* blink theme }}} */
+
+/* surge theme {{{ */
+.hbe-input-surge {
+	overflow: hidden;
+	padding-bottom: 1em;
+}
+
+.hbe-input-field-surge {
+	padding: 0.25em 0.5em;
+	margin-top: 1.25em;
+	width: 100%;
+	background: transparent;
+	color: #D0D0D0;
+	font-size: 1.55em;
+	opacity: 0;
+}
+
+.hbe-input-label-surge {
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 1em;
+	pointer-events: none;
+	overflow: hidden;
+	padding: 0 0.25em;
+	-webkit-transform: translate3d(1em, 2.75em, 0);
+	transform: translate3d(1em, 2.75em, 0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge {
+	color: #A4A5A6;
+	padding: 0.4em 0 0.25em;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.hbe-input-label-content-surge::after {
+	content: attr(data-content);
+	position: absolute;
+	font-weight: 800;
+	top: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	color: #2C3E50;
+	padding: 0.25em 0;
+	letter-spacing: 1px;
+	font-size: 0.85em;
+}
+
+.hbe-graphic-surge {
+	fill: #2C3E50;
+	pointer-events: none;
+	top: 1em;
+	bottom: 0px;
+	height: 4.5em;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.7s, fill 0.7s;
+	transition: transform 0.7s, fill 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.hbe-input-field-surge:focus,
+.input--filled .hbe-input-field-surge {
+	-webkit-transition: opacity 0s 0.35s;
+	transition: opacity 0s 0.35s;
+	opacity: 1;
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge,
+.input--filled .hbe-input-label-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.hbe-input-field-surge:focus + .hbe-input-label-surge .hbe-input-label-content-surge,
+.input--filled .hbe-input-label-content-surge {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+
+.hbe-input-field-surge:focus ~ .hbe-graphic-surge,
+.input--filled .graphic-surge {
+	fill: #2C3E50;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
+/* surge theme }}} */
+
+/* shrink theme {{{ */
+.hbe-input-field-shrink {
+	width: 100%;
+	background: transparent;
+	padding: 0.5em 0;
+	margin-bottom: 2em;
+	color: #2C3E50;
+}
+
+.hbe-input-label-shrink {
+	width: 100%;
+	position: absolute;
+	text-align: left;
+	font-size: 1em;
+	padding: 10px 0 5px;
+	pointer-events: none;
+}
+
+.hbe-input-label-shrink::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 7px;
+	background: #B7C3AC;
+	left: 0;
+	top: 100%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+	transition: transform 0.3s, background-color 0.3s;
+}
+
+.hbe-input-label-content-shrink {
+	padding: 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink::after,
+.input--filled .hbe-input-label-shrink::after {
+	background: #84AF9B;
+	-webkit-transform: scale3d(1, 0.25, 1);
+	transform: scale3d(1, 0.25, 1);
+}
+
+.hbe-input-field-shrink:focus + .hbe-input-label-shrink .hbe-input-label-content-shrink,
+.input--filled .hbe-input-label-shrink .hbe-input-label-content-shrink {
+	color: #84AF9B;
+	-webkit-transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+	transform: translate3d(0, 2em, 0) scale3d(0.655, 0.655, 1);
+}
+/* shrink theme }}} */
+</style><script data-pjax src="/lib/hbe-ex.js"></script><link href="/css/hbe-ex.style.css" rel="stylesheet" type="text/css">
+  </div>
+</article>
+<script src="https://giscus.app/client.js"
+        data-repo="NaraFluorine/NaraFluorine.github.io"
+        data-repo-id="R_kgDONrzj3A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONrzj3M4C02ef"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="noborder_dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">标签</a></li>
+        
+          <li><a href="/categories/">分类</a></li>
+        
+          <li><a href="/search/">搜索</a></li>
+        
+          <li><a href="/friends/">友链</a></li>
+        
+          <li><a href="/QSL/">QSL</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%87%E5%A4%9A%E9%BA%BC%E5%A5%BD%E7%9A%84%E5%AF%86%E7%A2%BC%E9%A1%8C%E5%95%8A"><span class="toc-number">1.</span> <span class="toc-text">哇多麼好的密碼題啊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-1-%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">hint -1 题目背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hint-0"><span class="toc-number">1.2.</span> <span class="toc-text">hint 0</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">提交</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://narafluorine.github.io/2026/01/20/50009_Lattice1/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&text=Crypto-Lattice1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&is_video=false&description=Crypto-Lattice1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Crypto-Lattice1&body=Check out this article: https://narafluorine.github.io/2026/01/20/50009_Lattice1/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&title=Crypto-Lattice1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&name=Crypto-Lattice1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://narafluorine.github.io/2026/01/20/50009_Lattice1/&t=Crypto-Lattice1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2024-2026
+    Florin Wang
+  </div>
+
+  <!-- Begin 不蒜子统计 -->
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+  <!-- End 不蒜子统计 -->
+
+  <!-- Begin Vercount统计 -->
+  <script defer src="https://events.vercount.one/js"></script>
+  本页访问 <span id="vercount_value_page_pv">Loading</span>
+  总访问量 <span id="vercount_value_site_pv">Loading</span>
+  总访问者 <span id="vercount_value_site_uv">Loading</span>
+  <!-- End Vercount统计 -->
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">标签</a></li><!--
+     --><!--
+       --><li><a href="/categories/">分类</a></li><!--
+     --><!--
+       --><li><a href="/search/">搜索</a></li><!--
+     --><!--
+       --><li><a href="/friends/">友链</a></li><!--
+     --><!--
+       --><li><a href="/QSL/">QSL</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?aff6b2ae6bc6cee4f06243e78d453d89";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
