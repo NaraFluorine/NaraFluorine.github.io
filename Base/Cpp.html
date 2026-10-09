@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
 <meta property="og:description" content="现代cpp是怎么起源的?人们发现不光cpp是图灵完备的,连cpp的编译期也是图灵完备的…于是就可以搞很多原先想都不敢想的事情,比如控制代码生成( if constexpr 直接控制编译哪个分支),或者traits特性. 别名123#define a b c dtypedef a b c d;using a&#x3D;b c d; 区别? cpp怎么生成dll?cpp怎么调用dll? O1 O2 O3 O1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-09-28T07:53:51.991Z">
-<meta property="article:modified_time" content="2026-09-28T07:53:51.991Z">
+<meta property="article:published_time" content="2026-10-09T09:32:12.707Z">
+<meta property="article:modified_time" content="2026-10-09T09:32:12.707Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
 <li>O2 (标准优化)：这是发布程序的常用级别。它在 -O1 基础上，开启大量不需要牺牲程序大小就能提速的优化。相比 -O1，它生成的代码运行更快，但编译时间更长。</li>
 <li>O3 (激进优化)：性能最强，但代码体积最大。它在 -O2 基础上，额外开启了涉及空间换时间的优化，例如函数内联 (-finline-functions)、循环展开 (-funswitch-loops) 和更激进的向量化。这会显著增加编译时间和生成代码的体积。</li>
 </ul>
-<h2 id="为什么free知道malloc申请多大内存"><a href="#为什么free知道malloc申请多大内存" class="headerlink" title="为什么free知道malloc申请多大内存"></a>为什么free知道malloc申请多大内存</h2><p>因为malloc的内存前面有一个内存信息头,free能读到这个.<br>这个malloc多申请的一般是16个byte.</p>
+<h2 id="内存对齐"><a href="#内存对齐" class="headerlink" title="内存对齐"></a>内存对齐</h2><h2 id="为什么free知道malloc申请多大内存"><a href="#为什么free知道malloc申请多大内存" class="headerlink" title="为什么free知道malloc申请多大内存"></a>为什么free知道malloc申请多大内存</h2><p>因为malloc的内存前面有一个内存信息头,free能读到这个.<br>这个malloc多申请的一般是16个byte.</p>
 <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>虚基类 → 非虚基类 → 成员变量（按声明顺序）→ 构造函数体</p>
 <h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数体 → 成员变量（逆序）→ 非虚基类（逆序）→ 虚基类（逆序）</p>
 <h2 id="为什么要虚析构函数"><a href="#为什么要虚析构函数" class="headerlink" title="为什么要虚析构函数"></a>为什么要虚析构函数</h2><p>不虚的话只会调用父类的析构函数,然后如果子类持有资源,然后同时是父类指针指向子类,就会造成调用父类析构函数.</p>
