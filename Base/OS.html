@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="有哪些调度策略?LRU LFU(访问次数最少的优先淘汰) LRUK FIFO 磁盘调度SSTF(每次找最近的)SCAN(电梯调度,兼顾效率与公平)C-SCAN(单向处理请求,减少边缘的等待时间)   进程间通讯方式有哪些? 管道 信号(进程控制,异常通知等) 消息队列 共享内存 信号量(进程的同步与互斥) 套接字 mmap内存映射文件  僵尸进程,孤儿进程僵尸进程是子进程死了但是父节点没有调用 w">
+    <meta name="description" content="有哪些调度策略?LRU LFU(访问次数最少的优先淘汰) LRUK FIFO 磁盘调度SSTF(每次找最近的)SCAN(电梯调度,兼顾效率与公平)C-SCAN(单向处理请求,减少边缘的等待时间)   进程间通讯方式有哪些? 管道 信号(进程控制,异常通知等) 消息队列 共享内存(比如mmap) 信号量(进程的同步与互斥) 套接字  僵尸进程,孤儿进程僵尸进程是子进程死了但是父节点没有调用 wait">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NaraFluorine&#39;s blog">
 <meta property="og:url" content="https://narafluorine.github.io/Base/OS.html">
 <meta property="og:site_name" content="NaraFluorine&#39;s blog">
-<meta property="og:description" content="有哪些调度策略?LRU LFU(访问次数最少的优先淘汰) LRUK FIFO 磁盘调度SSTF(每次找最近的)SCAN(电梯调度,兼顾效率与公平)C-SCAN(单向处理请求,减少边缘的等待时间)   进程间通讯方式有哪些? 管道 信号(进程控制,异常通知等) 消息队列 共享内存 信号量(进程的同步与互斥) 套接字 mmap内存映射文件  僵尸进程,孤儿进程僵尸进程是子进程死了但是父节点没有调用 w">
+<meta property="og:description" content="有哪些调度策略?LRU LFU(访问次数最少的优先淘汰) LRUK FIFO 磁盘调度SSTF(每次找最近的)SCAN(电梯调度,兼顾效率与公平)C-SCAN(单向处理请求,减少边缘的等待时间)   进程间通讯方式有哪些? 管道 信号(进程控制,异常通知等) 消息队列 共享内存(比如mmap) 信号量(进程的同步与互斥) 套接字  僵尸进程,孤儿进程僵尸进程是子进程死了但是父节点没有调用 wait">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-09-08T10:53:51.083Z">
-<meta property="article:modified_time" content="2026-09-08T10:53:51.083Z">
+<meta property="article:published_time" content="2026-10-07T22:40:05.147Z">
+<meta property="article:modified_time" content="2026-10-07T22:40:05.147Z">
 <meta property="article:author" content="Florin Wang">
 <meta property="article:tag" content="chaos">
 <meta name="twitter:card" content="summary">
@@ -138,10 +138,9 @@
 <li>管道</li>
 <li>信号(进程控制,异常通知等)</li>
 <li>消息队列</li>
-<li>共享内存</li>
+<li>共享内存(比如mmap)</li>
 <li>信号量(进程的同步与互斥)</li>
 <li>套接字</li>
-<li>mmap内存映射文件</li>
 </ol>
 <h2 id="僵尸进程-孤儿进程"><a href="#僵尸进程-孤儿进程" class="headerlink" title="僵尸进程,孤儿进程"></a>僵尸进程,孤儿进程</h2><p>僵尸进程是子进程死了但是父节点没有调用 <code>wait()</code> 或者 <code>waitpid()</code> 来读取退出状态信息,导致子进程的状态描述符还在系统中.僵尸进程仅仅占用进程表不占用其他资源,,但如果大量积累会占用进程号导致无法创建新进程.</p>
 <p>孤儿进程是父进程退出后,子进程就成了孤儿进程,这种进程会被系统自动处理,继续执行,并结束后有新父进程回收资源.</p>
